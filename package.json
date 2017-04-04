@@ -1,0 +1,17 @@
+{
+  "name": "theme-moove-tasks",
+  "version": "0.1.0",
+  "description": "Grunt tasks for Moodle MOOVE theme.",
+  "main": "Gruntfile.js",
+  "author": {
+    "name": "Willian Mano",
+    "url": "http://www.conecti.me"
+  },
+  "dependencies": {
+    "grunt": "~0.4.5",
+    "grunt-exec": "~0.4.5",
+    "grunt-contrib-jshint": "~0.11.3",
+    "grunt-contrib-watch": "~0.6.1"
+  },
+  "license": "GPL-3.0+"
+}

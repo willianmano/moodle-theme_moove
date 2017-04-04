@@ -1,0 +1,152 @@
+#nav-drawer {
+  padding: 0;
+  background-color: $m-dark-bg;
+
+  .nav-search-form {
+    padding: 10px;
+
+    form {
+      border: 1px solid $m-dark-separator;
+      margin: 0;
+
+      .input-group {
+        .form-control {
+          color: #666;
+          border-radius: 0;
+          height: 35px;
+          background-color: $m-dark-separator;
+          border: 1px solid transparent;
+          box-shadow: none;
+
+          &:focus {
+            color: #666;
+            background-color: #fff;
+          }
+        }
+        .input-group-btn {
+          position: relative;
+          font-size: 0;
+          white-space: nowrap;
+
+          .btn {
+            color: #999;
+            border-radius: 0;
+            height: 33px;
+            background-color: $m-dark-separator;
+            border: none;
+            box-shadow: none;
+            margin-right: -5px;
+          }
+        }
+      }
+    }
+  }
+
+  .list-group {
+    .list-group-item {
+      border: none;
+      background-color: inherit;
+      color: #FFF;
+      padding: .75rem 1rem;
+
+      &:first-child, &:last-child {
+        border-radius: 0;
+      }
+
+      &:hover {
+        background-color: $m-dark-bg-hover;
+        color: $m-dark-bg;
+      }
+    }
+
+    .list-group-item > div {
+      display: inline;
+    }
+
+    .list-group-item.font-weight-bold {
+      background-color: $m-dark-bg-hover;
+      border-left: 3px solid $brand-primary;
+      color: $m-dark-bg;
+    }
+
+    [data-key="coursehome"]:before {
+        font: normal normal normal 14px/1 FontAwesome;
+        content: "\f19d";
+    }
+    [data-key="participants"]:before {
+        font: normal normal normal 14px/1 FontAwesome;
+        content: "\f0c0";
+    }
+    [data-key="badgesview"]:before {
+        font: normal normal normal 14px/1 FontAwesome;
+        content: "\f0a3";
+    }
+    // Competences
+    [data-key="2"]:before {
+        font: normal normal normal 14px/1 FontAwesome;
+        content: "\f058";
+    }
+    [data-key="grades"]:before {
+        font: normal normal normal 14px/1 FontAwesome;
+        content: "\f031";
+    }
+    [data-key="myhome"]:before {
+        font: normal normal normal 14px/1 FontAwesome;
+        content: "\f0e4";
+    }
+    [data-key="home"]:before {
+        font: normal normal normal 14px/1 FontAwesome;
+        content: "\f015";
+    }
+    [data-key="calendar"]:before {
+        font: normal normal normal 14px/1 FontAwesome;
+        content: "\f073";
+    }
+    // Private files
+    [data-key="7"]:before {
+        font: normal normal normal 14px/1 FontAwesome;
+        content: "\f0c5";
+    }
+    [data-key="sitesettings"]:before {
+        font: normal normal normal 14px/1 FontAwesome;
+        content: "\f085";
+    }
+  }
+
+  .list-group.m-t-1 {
+    border-top: 3px solid $m-dark-separator;
+  }
+}
+
+#nav-drawer.closed {
+  left: -220px;
+
+  .nav-search-form {
+    display: none;
+  }
+
+  .list-group {
+    margin-top: 20px;
+    .list-group-item {
+      text-align: right;
+      padding: .75rem 2rem;
+    }
+  }
+  .list-group .list-group-item > div {
+    display: none;
+  }
+
+  &:hover {
+    left: 0;
+
+    .list-group {
+      .list-group-item {
+        text-align: left;
+        padding: .75rem 1rem;
+      }
+    }
+    .list-group .list-group-item > div {
+      display: inline;
+    }
+  }
+}
