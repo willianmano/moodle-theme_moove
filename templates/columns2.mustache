@@ -71,11 +71,11 @@
         <div id="page-content" class="row">
             <div id="region-main-box" class="col-xs-12">
                 {{#hasregionmainsettingsmenu}}
-                <div id="region-main-settings-menu" class="hidden-print {{#hasblocks}}has-blocks{{/hasblocks}}">
+                <div id="region-main-settings-menu" class="hidden-print">
                     <div> {{{ output.region_main_settings_menu }}} </div>
                 </div>
                 {{/hasregionmainsettingsmenu}}
-                <section id="region-main" {{#hasblocks}}class="has-blocks"{{/hasblocks}}>
+                <section id="region-main">
                     <div class="card card-block">
                     {{#hasregionmainsettingsmenu}}
                         <div class="region_main_settings_menu_proxy"></div>
@@ -85,15 +85,14 @@
                     {{{ output.course_content_footer }}}
                     </div>
                 </section>
-                {{#hasblocks}}
-                <section data-region="blocks-column" class="hidden-print">
-                    {{{ sidepreblocks }}}
-                </section>
-                {{/hasblocks}}
             </div>
         </div>
     </div>
     {{> theme_moove/nav-drawer }}
+
+    {{#hasblocks}}
+      {{> theme_moove/blocks-drawer }}
+    {{/hasblocks}}
 </div>
 <footer id="page-footer" class="p-y-1 bg-inverse">
     <div class="container">

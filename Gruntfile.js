@@ -35,10 +35,32 @@ module.exports = function(grunt) { // jshint ignore:line
         watch: {
             // Watch for any changes to less files and compile.
             files: ["scss/**/*.scss", "templates/*.mustache"],
-            tasks: ["compile"],
+            tasks: ["decache"],
             options: {
                 spawn: false,
                 livereload: true
+            }
+        },
+        jshint: {
+            options: {
+                jshintrc: true
+            },
+            files: ['**/amd/src/*.js']
+        },
+        uglify: {
+            dynamic_mappings: {
+                files: grunt.file.expandMapping(
+                    ['**/src/*.js', '!**/node_modules/**'],
+                    '', {
+                        cwd: PWD,
+                        rename: function(destBase, destPath) {
+                            destPath = destPath.replace('src', 'build');
+                            destPath = destPath.replace('.js', '.min.js');
+                            destPath = path.resolve(PWD, destPath);
+                            return destPath;
+                        }
+                    }
+                )
             }
         }
     });
@@ -48,13 +70,18 @@ module.exports = function(grunt) { // jshint ignore:line
     grunt.loadNpmTasks("grunt-exec");
 
     // Load core tasks.
+    grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-jshint');
 
     // Register tasks.
     grunt.registerTask("default", ["watch"]);
     grunt.registerTask("decache", ["exec:decache"]);
 
-    grunt.registerTask("compile", ["exec:decache"]);
+    grunt.registerTask("compile", [
+        "jshint",
+        "uglify",
+        "decache"
+    ]);
 
-    grunt.registerTask(["decache"]);
+    grunt.registerTask("amd", ["jshint", "uglify"]);
 };

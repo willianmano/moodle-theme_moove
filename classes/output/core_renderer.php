@@ -63,8 +63,8 @@ class core_renderer extends \core_renderer {
 
         $formAction = $CFG->wwwroot . "/admin/search.php";
         $formPlaceholder = get_string('search_site', 'theme_moove');
-        $searchFieldName = "";
-        $extraFields = "query";
+        $searchFieldName = "query";
+        $extraFields = "";
         // We are on the course home page.
         if ($context->contextlevel == CONTEXT_COURSE) {
           global $COURSE;
@@ -86,6 +86,39 @@ class core_renderer extends \core_renderer {
         $html .= "</form>";
 
         return $html;
+    }
+
+    public function getcontrolsidebar() {
+        global $PAGE, $OUTPUT;
+
+        $hasrightsideblocks = $PAGE->blocks->region_has_content('side-pre', $OUTPUT);
+
+        if($hasrightsideblocks || $PAGE->user_is_editing()) {
+            $iconclass = 'fa-arrow-left';
+            $postsidebar_open   = json_decode(get_user_preferences("postsidebar_state", 0));
+            $postsidebar_pinned = json_decode(get_user_preferences("postsidebar_pinned", 0));
+            $slide = 1;
+
+            if ($postsidebar_pinned) {
+                $slide = 0;
+
+                if($postsidebar_open) {
+                  $iconclass = 'fa-arrow-right';
+                }
+
+                if($PAGE->pagetype == 'site-index' && !isloggedin()) {
+                  $iconclass = 'fa-arrow-left';
+                }
+            }
+
+            $o = "<div id='control-sidebar-blocks'>";
+            $o .= "<a href='#' data-toggle='control-sidebar' class='rightsidebar-toggle' data-slide='{$slide}'><i class='fa {$iconclass}'></i></a>";
+            $o .= "</div>";
+
+            return $o;
+        }
+
+        return '';
     }
 
     /**
