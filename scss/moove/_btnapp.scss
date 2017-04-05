@@ -21,7 +21,7 @@
   background: #b4c2cc !important;
 }
 .btn-ti.btn-primary {
-  background: #2a8bcc !important;
+  background: $brand-primary !important;
 }
 .btn-ti.btn-info {
   background: #68adde !important;
@@ -128,7 +128,7 @@
   background: none !important
 }
 .btn-ti.no-bg.btn-primary {
-  color: #2a8bcc !important;
+  color: $brand-primary !important;
 }
 .btn-ti.no-bg.btn-info {
   color: #68adde !important;
