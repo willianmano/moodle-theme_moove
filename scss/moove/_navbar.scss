@@ -1,0 +1,17 @@
+.navbar {
+  height: $m-navbar-height;
+  max-height: $m-navbar-height;
+
+  .navbar-nav {
+    padding: 0;
+
+    .navbar-brand {
+      background-color: inherit !important;
+      padding: 0 !important;
+
+      img {
+        max-height: 55px;
+      }
+    }
+  }
+}

@@ -42,6 +42,8 @@ $string['rawscsspre'] = 'Raw initial SCSS';
 $string['rawscsspre_desc'] = 'In this field you can provide initialising SCSS code, it will be injected before everything else. Most of the time you will use this setting to define variables.';
 $string['region-side-pre'] = 'Right';
 
+$string['logo'] = 'Logo';
+$string['logodesc'] = 'The logo is displayed in the header.';
 $string['prev_section'] = 'Previous section';
 $string['next_section'] = 'Next section';
 $string['search_site'] = 'Search on site';

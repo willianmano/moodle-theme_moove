@@ -194,8 +194,6 @@ define(['jquery', 'theme_moove/resize_sensor', 'core/log'], function($, ResizeSe
                     //of the sidebar itself
                     $('body').addClass('sidebar-blocks-open');
                 }
-
-                M.util.set_user_preference('postsidebar_state', 1);
             },
             //Close the control sidebar
             close: function(sidebar, slide) {
@@ -209,8 +207,6 @@ define(['jquery', 'theme_moove/resize_sensor', 'core/log'], function($, ResizeSe
                     $('body').removeClass('sidebar-blocks-open');
                     $('.sidebar-blocks-open').attr('display', 'none');
                 }
-
-                M.util.set_user_preference('postsidebar_state', 0);
             },
             _fix: function(sidebar) {
                 var _this = this;

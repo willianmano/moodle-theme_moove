@@ -42,6 +42,8 @@ $string['rawscsspre'] = 'SCSS cru inicial';
 $string['rawscsspre_desc'] = 'Neste campo você pode fornecer código SCSS de inicialização, ele será injetado antes de tudo. Na maioria dos casos você usará esta configuração para setar variáveis.';
 $string['region-side-pre'] = 'Direita';
 
+$string['logo'] = 'Logo';
+$string['logodesc'] = 'A logo é exibida no topo da página.';
 $string['prev_section'] = 'Seção anterior';
 $string['next_section'] = 'Próxima seção';
 $string['search_site'] = 'Procurar no site';

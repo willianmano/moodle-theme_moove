@@ -52,6 +52,12 @@ class core_renderer extends \core_renderer {
     /** @var custom_menu_item language The language menu if created */
     protected $language = null;
 
+    public function get_pix_image_url_base() {
+        global $CFG;
+
+        return $CFG->wwwroot . "/theme/moove/pix";
+    }
+
     public function getsearchbarform() {
         global $CFG;
 

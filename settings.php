@@ -26,6 +26,14 @@ if ($ADMIN->fulltree) {
     $settings = new theme_moove_admin_settingspage_tabs('themesettingmoove', get_string('configtitle', 'theme_moove'));
     $page = new admin_settingpage('theme_moove_general', get_string('generalsettings', 'theme_moove'));
 
+    // Logo file setting.
+    $name = 'theme_moove/logo';
+    $title = get_string('logo','theme_moove');
+    $description = get_string('logodesc', 'theme_moove');
+    $setting = new admin_setting_configstoredfile($name, $title, $description, 'logo');
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $page->add($setting);
+
     // Preset.
     $name = 'theme_moove/preset';
     $title = get_string('preset', 'theme_moove');
