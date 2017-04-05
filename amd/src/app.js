@@ -182,8 +182,8 @@ define(['jquery', 'theme_moove/resize_sensor', 'core/log'], function($, ResizeSe
             //Open the control sidebar
             open: function(sidebar, slide) {
 
-                $(".rightsidebar-toggle").find('.fa').removeClass('fa-arrow-left');
-                $(".rightsidebar-toggle").find('.fa').addClass('fa-arrow-right');
+                $(".rightsidebar-toggle").find('.fa').removeClass('fa-plus');
+                $(".rightsidebar-toggle").find('.fa').addClass('fa-minus');
 
                 //Slide over content
                 if (slide) {
@@ -197,8 +197,8 @@ define(['jquery', 'theme_moove/resize_sensor', 'core/log'], function($, ResizeSe
             },
             //Close the control sidebar
             close: function(sidebar, slide) {
-                $(".rightsidebar-toggle").find('.fa').addClass('fa-arrow-left');
-                $(".rightsidebar-toggle").find('.fa').removeClass('fa-arrow-right');
+                $(".rightsidebar-toggle").find('.fa').addClass('fa-plus');
+                $(".rightsidebar-toggle").find('.fa').removeClass('fa-minus');
 
                 if (slide) {
                     sidebar.removeClass('sidebar-blocks-open');

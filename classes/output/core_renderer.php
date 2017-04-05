@@ -102,26 +102,9 @@ class core_renderer extends \core_renderer {
         $hasrightsideblocks = $PAGE->blocks->region_has_content('side-pre', $OUTPUT);
 
         if($hasrightsideblocks || $PAGE->user_is_editing()) {
-            $iconclass = 'fa-arrow-left';
-            $postsidebar_open   = json_decode(get_user_preferences("postsidebar_state", 0));
-            $postsidebar_pinned = json_decode(get_user_preferences("postsidebar_pinned", 0));
-            $slide = 1;
-
-            if ($postsidebar_pinned) {
-                $slide = 0;
-
-                if($postsidebar_open) {
-                  $iconclass = 'fa-arrow-right';
-                }
-
-                if($PAGE->pagetype == 'site-index' && !isloggedin()) {
-                  $iconclass = 'fa-arrow-left';
-                }
-            }
-
             $o = "<li id='control-sidebar-blocks'>";
             $o .= "<div class='control-content'>";
-            $o .= "<a href='#' data-toggle='control-sidebar' class='rightsidebar-toggle' data-slide='{$slide}'><i class='fa {$iconclass}'></i></a>";
+            $o .= "<a href='#' data-toggle='control-sidebar' class='rightsidebar-toggle' data-slide='1'><i class='fa fa-plus'></i></a>";
             $o .= "</div>";
             $o .= "</li>";
 

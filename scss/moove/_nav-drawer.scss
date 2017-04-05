@@ -2,6 +2,7 @@
   padding: 0;
   background-color: $m-dark-bg;
   top: 70px;
+  padding-bottom: 20px;
 
   .nav-search-form {
     padding: 10px;
@@ -60,6 +61,12 @@
       }
     }
 
+    .list-group-item > div:before {
+      font: normal normal normal 14px/1 FontAwesome;
+      content: "\f114";
+    }
+
+
     .list-group-item > div {
       display: inline;
     }
@@ -70,45 +77,49 @@
       color: $m-dark-bg;
     }
 
-    [data-key="coursehome"]:before {
+    [data-key="coursehome"] > div:before {
         font: normal normal normal 14px/1 FontAwesome;
         content: "\f19d";
     }
-    [data-key="participants"]:before {
+    [data-key="mycourses"] > div:before {
+      font: normal normal normal 14px/1 FontAwesome;
+      content: "\f0e8";
+    }
+    [data-key="participants"] > div:before {
         font: normal normal normal 14px/1 FontAwesome;
         content: "\f0c0";
     }
-    [data-key="badgesview"]:before {
+    [data-key="badgesview"] > div:before {
         font: normal normal normal 14px/1 FontAwesome;
         content: "\f0a3";
     }
     // Competences
-    [data-key="2"]:before {
+    [data-key="2"] > div:before {
         font: normal normal normal 14px/1 FontAwesome;
         content: "\f058";
     }
-    [data-key="grades"]:before {
+    [data-key="grades"] > div:before {
         font: normal normal normal 14px/1 FontAwesome;
         content: "\f031";
     }
-    [data-key="myhome"]:before {
+    [data-key="myhome"] > div:before {
         font: normal normal normal 14px/1 FontAwesome;
         content: "\f0e4";
     }
-    [data-key="home"]:before {
+    [data-key="home"] > div:before {
         font: normal normal normal 14px/1 FontAwesome;
         content: "\f015";
     }
-    [data-key="calendar"]:before {
+    [data-key="calendar"] > div:before {
         font: normal normal normal 14px/1 FontAwesome;
         content: "\f073";
     }
     // Private files
-    [data-key="7"]:before {
+    [data-key="5"] > div:before, [data-key="7"] > div:before {
         font: normal normal normal 14px/1 FontAwesome;
         content: "\f0c5";
     }
-    [data-key="sitesettings"]:before {
+    [data-key="sitesettings"] > div:before {
         font: normal normal normal 14px/1 FontAwesome;
         content: "\f085";
     }
