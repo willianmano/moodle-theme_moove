@@ -124,7 +124,7 @@
   border-radius: 0;
 }
 .btn-ti.no-bg {
-  color: [[setting:themecolor]];
+  color: $brand-primary;
   background: none !important
 }
 .btn-ti.no-bg.btn-primary {
@@ -156,9 +156,6 @@
 }
 .btn-ti.no-bg.btn-yellow {
   color: #fee088 !important;
-}
-@media (max-width: 320px) {
-
 }
 @media (min-width: 320px) and (max-width: 480px) {
     .btn-ti {
@@ -197,7 +194,4 @@
         margin: 2px 1px !important;
         font-size: 12px !important;
     }
-}
-@media (min-width: 1200px) {
-
 }
