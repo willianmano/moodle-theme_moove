@@ -1,16 +1,122 @@
 .navbar {
   height: $m-navbar-height;
   max-height: $m-navbar-height;
+  padding: 0 1rem !important;
 
   .navbar-nav {
     padding: 0;
 
     .navbar-brand {
       background-color: inherit !important;
-      padding: 0 !important;
+      padding: .5rem 0 !important;
 
       img {
         max-height: 55px;
+      }
+    }
+
+    .navbar-custom-menu {
+      float: right;
+
+      ul {
+        li {
+          list-style: none;
+          float: left;
+        }
+
+        .popover-region {
+          width: 50px;
+          cursor: pointer;
+          margin-right: 5px;
+
+          &:hover {
+            background-color: $brand-primary;
+
+            .popover-region-toggle, .lang-menu .nav-link {
+              color: #FFF;
+            }
+          }
+
+          .popover-region-toggle, .lang-menu {
+            height: 70px;
+            padding-top: 15px;
+            width: inherit;
+            text-align: center;
+            line-height: 50px;
+            color: $brand-primary;
+          }
+
+          .popover-region-toggle {
+            i.fa {
+              font-size: 1.4rem;
+            }
+
+            .count-container {
+              top: 15px;
+              right: 2px;
+              padding: 7px 7px 3px 7px;
+              border-radius: 10px;
+            }
+          }
+
+          .lang-menu {
+            .nav-link {
+              padding-top: 0;
+              color: $brand-primary;
+
+              i.fa {
+                font-size: 1.4rem;
+              }
+            }
+            .dropdown-menu {
+              margin-top: 0;
+              
+              a.dropdown-item {
+                line-height: 32px;
+              }
+            }
+          }
+        }
+
+        .popover-region-container {
+          top: 70px;
+        }
+
+        li.usermenu {
+          padding: 17px 5px 0 10px;
+          height: 70px;
+
+          &:hover {
+            background-color: $brand-primary;
+
+            a.dropdown-toggle {
+              color: #FFF;
+            }
+          }
+        }
+
+        #control-sidebar-blocks {
+          background-color: $brand-primary;
+          width: 50px;
+          cursor: pointer;
+          margin-right: 1rem;
+
+          .control-content {
+            height: 70px;
+            padding-top: 10px;
+            width: inherit;
+            text-align: center;
+            line-height: 50px;
+          }
+
+          a {
+            color: #FFF;
+
+            i {
+              padding: 18px;
+            }
+          }
+        }
       }
     }
   }

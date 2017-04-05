@@ -36,17 +36,21 @@
             <button aria-expanded="{{#navdraweropen}}true{{/navdraweropen}}{{^navdraweropen}}false{{/navdraweropen}}" aria-controls="nav-drawer" type="button" class="btn pull-xs-left m-r-1 btn-secondary" data-action="toggle-drawer" data-side="left" data-preference="drawer-open-nav"><span aria-hidden="true">&#9776;</span><span class="sr-only">{{#str}}expand, core{{/str}}</span></button>
         </div>
 
-        <!-- Right blocks side menu -->
-        {{{ output.getcontrolsidebar }}}
+        <div class="navbar-custom-menu">
+            <ul class="nav navbar-nav">
+                <li class="popover-region">
+                    {{{ output.custom_menu }}}
+                </li>
 
-        <!-- user_menu -->
-        {{{ output.user_menu }}}
+                <!-- navbar_plugin_output -->
+                {{{ output.navbar_plugin_output }}}
 
-        <!-- navbar_plugin_output -->
-        {{{ output.navbar_plugin_output }}}
+                <!-- user_menu -->
+                {{{ output.user_menu }}}
 
-        <div class="popover-region">
-            {{{ output.custom_menu }}}
+                <!-- Right blocks side menu -->
+                {{{ output.getcontrolsidebar }}}
+            </ul>
         </div>
 
         <!-- search_box -->
