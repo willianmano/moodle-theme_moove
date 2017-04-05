@@ -55,8 +55,8 @@
         ]
     }
 }}
-<div class="nav-search-form">
-  {{{ output.getsearchbarform }}}
+<div class="pin-drawer" data-region="drawer-toggle">
+    <a href="#" aria-expanded="{{#navdraweropen}}true{{/navdraweropen}}{{^navdraweropen}}false{{/navdraweropen}}" aria-controls="nav-drawer" class="btn btn-secondary" data-action="toggle-drawer" data-side="left" data-preference="drawer-open-nav"><i class="fa fa-icon-max-menu"></i><span class="sr-only"><i class="fa fa-bars"></i></span></a>
 </div>
 
 <nav class="list-group">
@@ -69,7 +69,7 @@
       {{^is_section}}
         <a class="list-group-item list-group-item-action {{#isactive}}font-weight-bold{{/isactive}}" href="{{{action}}}" data-key="{{key}}">
             <div class="m-l-{{get_indent}}">
-                {{{text}}}
+                <span class="text">{{{text}}}</span>
             </div>
         </a>
       {{/is_section}}
@@ -80,7 +80,7 @@
             {{#is_section}}
                 {{#pix}}i/folder{{/pix}}
             {{/is_section}}
-            {{{text}}}
+            <span class="text">{{{text}}}</span>
         </div>
     </div>
     {{/action}}

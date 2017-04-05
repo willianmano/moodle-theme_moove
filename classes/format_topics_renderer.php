@@ -435,7 +435,7 @@ class theme_moove_format_topics_renderer extends format_topics_renderer {
 
             $percent = 0;
             if ($complete > 0) {
-              $percent = ($complete / $total) * 100;
+              $percent = (int) (($complete / $total) * 100);
             }
 
             // $o.= html_writer::start_tag('div', array('class' => 'section-summary-activities mdl-right'));

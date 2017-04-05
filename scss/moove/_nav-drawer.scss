@@ -1,45 +1,38 @@
+.drawer-open-left #nav-drawer .pin-drawer .btn {
+  &:after {
+    content: "Minimize menu";
+  }
+  .fa-icon-max-menu:before {
+    content: "\f0a8";
+  }
+}
+
 #nav-drawer {
   padding: 0;
   background-color: $m-dark-bg;
   top: 70px;
   padding-bottom: 20px;
 
-  .nav-search-form {
+  .pin-drawer {
     padding: 10px;
+    height: 52px;
 
-    form {
-      border: 1px solid $m-dark-separator;
-      margin: 0;
+    .btn {
+      color: #FFF;
+      border-radius: 0;
+      background-color: $m-dark-separator;
+      border: none;
+      box-shadow: none;
+      width: 100%;
 
-      .input-group {
-        .form-control {
-          color: #666;
-          border-radius: 0;
-          height: 35px;
-          background-color: $m-dark-separator;
-          border: 1px solid transparent;
-          box-shadow: none;
+      .fa-icon-max-menu:before {
+        content: "\f0a9";
+      }
 
-          &:focus {
-            color: #666;
-            background-color: #fff;
-          }
-        }
-        .input-group-btn {
-          position: relative;
-          font-size: 0;
-          white-space: nowrap;
-
-          .btn {
-            color: #999;
-            border-radius: 0;
-            height: 33px;
-            background-color: $m-dark-separator;
-            border: none;
-            box-shadow: none;
-            margin-right: -5px;
-          }
-        }
+      &:after {
+        padding-left: 4px;
+        text-transform: uppercase;
+        content: "Maximize menu";
       }
     }
   }
@@ -132,24 +125,49 @@
 
 #nav-drawer.closed {
   left: -220px;
+  overflow-y: hidden;
 
-  .nav-search-form {
-    display: none;
+  .pin-drawer {
+    text-align: right;
+    padding-right: 1rem;
+    .btn {
+      width: 40px;
+      &:after {
+        content: "";
+      }
+    }
   }
 
   .list-group {
-    margin-top: 20px;
     .list-group-item {
       text-align: right;
-      padding: .75rem 2rem;
+      padding: .75rem 1.7rem;
     }
   }
-  .list-group .list-group-item > div {
+
+  .list-group .list-group-item > div span.text {
     display: none;
   }
 
   &:hover {
     left: 0;
+    overflow-y: scroll;
+
+    .pin-drawer .btn:after {
+        content: "Maximize menu";
+    }
+
+    .pin-drawer {
+      text-align: inherit;;
+      padding-right: 10px;
+      .btn {
+        margin-right: 0!important;
+        width: 100%;
+        &:after {
+          content: "Maximize menu";
+        }
+      }
+    }
 
     .list-group {
       .list-group-item {
@@ -157,7 +175,8 @@
         padding: .75rem 1rem;
       }
     }
-    .list-group .list-group-item > div {
+
+    .list-group .list-group-item > div span.text {
       display: inline;
     }
   }
