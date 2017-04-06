@@ -48,6 +48,7 @@ $string['prev_section'] = 'Seção anterior';
 $string['next_section'] = 'Próxima seção';
 $string['search_site'] = 'Procurar no site';
 $string['search_forums'] = 'Procurar nos fóruns';
+$string['platform_access'] = 'Acesso à plataforma';
 
 $string['frontpagesettings'] = 'Configurações da página inicial';
 $string['headerimg'] = 'Imagem do cabeçalho';

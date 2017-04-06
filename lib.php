@@ -42,7 +42,32 @@ function theme_moove_css_tree_post_processor($tree, $theme) {
  * @return string
  */
 function theme_moove_get_extra_scss($theme) {
-    return !empty($theme->settings->scss) ? $theme->settings->scss : '';
+    $scss = $theme->settings->scss;
+
+    $scss .= theme_moove_set_headerimg($theme);
+
+    return $scss;
+}
+
+/**
+ * Adds the cover to CSS.
+ *
+ * @param string $css The CSS.
+ * @param string $cover The URL of the logo.
+ * @return string The parsed CSS
+ */
+function theme_moove_set_headerimg($theme) {
+    global $OUTPUT;
+
+    $headerimg = $theme->setting_file_url('headerimg', 'headerimg');
+
+    if (is_null($headerimg)) {
+      $headerimg = $OUTPUT->pix_url('headerimg', 'theme');
+    }
+
+    $headercss = "#page-site-index.notloggedin #page-header {background-image: url($headerimg);}";
+
+    return $headercss;
 }
 
 /**
@@ -105,4 +130,52 @@ function theme_moove_get_pre_scss($theme) {
     }
 
     return $scss;
+}
+
+/**
+ * Serves any files associated with the theme settings.
+ *
+ * @param stdClass $course
+ * @param stdClass $cm
+ * @param context $context
+ * @param string $filearea
+ * @param array $args
+ * @param bool $forcedownload
+ * @param array $options
+ * @return bool
+ */
+function theme_moove_pluginfile($course, $cm, $context, $filearea, $args, $forcedownload, array $options = array()) {
+    if ($context->contextlevel == CONTEXT_SYSTEM and $filearea === 'logo') {
+        $theme = theme_config::load('moove');
+        return $theme->setting_file_serve('logo', $args, $forcedownload, $options);
+    } else if ($context->contextlevel == CONTEXT_SYSTEM and $filearea === 'headerimg') {
+        $theme = theme_config::load('moove');
+        return $theme->setting_file_serve('headerimg', $args, $forcedownload, $options);
+    } else if ($context->contextlevel == CONTEXT_SYSTEM and $filearea === 'marketing1icon') {
+        $theme = theme_config::load('moove');
+        return $theme->setting_file_serve('marketing1icon', $args, $forcedownload, $options);
+    } else if ($context->contextlevel == CONTEXT_SYSTEM and $filearea === 'marketing2icon') {
+        $theme = theme_config::load('moove');
+        return $theme->setting_file_serve('marketing2icon', $args, $forcedownload, $options);
+    } else if ($context->contextlevel == CONTEXT_SYSTEM and $filearea === 'marketing3icon') {
+        $theme = theme_config::load('moove');
+        return $theme->setting_file_serve('marketing3icon', $args, $forcedownload, $options);
+    } else if ($context->contextlevel == CONTEXT_SYSTEM and $filearea === 'marketing4icon') {
+        $theme = theme_config::load('moove');
+        return $theme->setting_file_serve('marketing4icon', $args, $forcedownload, $options);
+    } else if ($context->contextlevel == CONTEXT_SYSTEM and $filearea === 'mainbox1icon') {
+        $theme = theme_config::load('moove');
+        return $theme->setting_file_serve('mainbox1icon', $args, $forcedownload, $options);
+    } else if ($context->contextlevel == CONTEXT_SYSTEM and $filearea === 'mainbox2icon') {
+        $theme = theme_config::load('moove');
+        return $theme->setting_file_serve('mainbox2icon', $args, $forcedownload, $options);
+    } else if ($context->contextlevel == CONTEXT_SYSTEM and $filearea === 'mainbox3icon') {
+        $theme = theme_config::load('moove');
+        return $theme->setting_file_serve('mainbox3icon', $args, $forcedownload, $options);
+    } else if ($context->contextlevel == CONTEXT_SYSTEM and $filearea === 'mainbox4icon') {
+        $theme = theme_config::load('moove');
+        return $theme->setting_file_serve('mainbox4icon', $args, $forcedownload, $options);
+    } else {
+        send_file_not_found();
+    }
 }

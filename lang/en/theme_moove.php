@@ -48,6 +48,7 @@ $string['prev_section'] = 'Previous section';
 $string['next_section'] = 'Next section';
 $string['search_site'] = 'Search on site';
 $string['search_forums'] = 'Search on course forums';
+$string['platform_access'] = 'Access to the platform';
 
 $string['frontpagesettings'] = 'Frontpage Settings';
 $string['headerimg'] = 'Header image';

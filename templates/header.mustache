@@ -21,15 +21,19 @@
 
     <div class="container-fluid navbar-nav">
 
-        <a href="{{{ config.wwwroot }}}" class="navbar-brand {{# output.should_display_navbar_logo }}has-logo{{/ output.should_display_navbar_logo }}
-            {{^ output.should_display_navbar_logo }}
+        <a href="{{{ config.wwwroot }}}" class="navbar-brand {{# output.should_display_theme_logo }}has-logo{{/ output.should_display_theme_logo }}
+            {{^ output.should_display_theme_logo }}
                 hidden-sm-down
-            {{/ output.should_display_navbar_logo }}
+            {{/ output.should_display_theme_logo }}
                 ">
-
-          <span class="logo hidden-xs-down">
-              <img src="{{output.get_pix_image_url_base}}/logo_topo.png" alt="{{sitename}}">
-          </span>
+            {{# output.should_display_theme_logo }}
+                <span class="logo hidden-xs-down">
+                    <img src="{{output.get_theme_logo_url}}" alt="{{sitename}}">
+                </span>
+            {{/ output.should_display_theme_logo }}
+            {{^ output.should_display_theme_logo }}
+                <span class="site-name hidden-sm-down">{{{ sitename }}}</span>
+            {{/ output.should_display_theme_logo }}
         </a>
 
         <div class="navbar-custom-menu">

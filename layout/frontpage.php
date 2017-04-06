@@ -60,7 +60,8 @@ if (isloggedin()) {
     $templatecontext = [
         'sitename' => format_string($SITE->shortname, true, ['context' => context_course::instance(SITEID), "escape" => false]),
         'output' => $OUTPUT,
-        'bodyattributes' => $bodyattributes
+        'bodyattributes' => $bodyattributes,
+        'cansignup' => $CFG->registerauth == 'email' || !empty($CFG->registerauth)
     ];
 
     echo $OUTPUT->render_from_template('theme_moove/frontpage_guest', $templatecontext);

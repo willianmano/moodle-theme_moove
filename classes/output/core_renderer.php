@@ -38,6 +38,7 @@ use paging_bar;
 use url_select;
 use context_course;
 use pix_icon;
+use theme_config;
 
 defined('MOODLE_INTERNAL') || die;
 
@@ -242,6 +243,29 @@ class core_renderer extends \core_renderer {
 
         return false;
     }
+
+    /**
+     * Whether we should display the main theme logo in the navbar.
+     *
+     * @return bool
+     */
+    public function should_display_theme_logo() {
+        $logo = $this->get_theme_logo_url();
+
+        return !empty($logo);
+    }
+
+    /**
+     * Get the main logo URL.
+     *
+     * @return string
+     */
+    public function get_theme_logo_url() {
+        $theme = theme_config::load('moove');
+
+        return $theme->setting_file_url('logo', 'logo');
+    }
+
     /**
      * Whether we should display the logo in the navbar.
      *

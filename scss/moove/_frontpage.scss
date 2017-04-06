@@ -1,3 +1,132 @@
+/**setting:headerimg**/
+
 #page-site-index.notloggedin {
   margin-left: 0;
+
+  #page-wrapper {
+    padding-bottom: 0;
+  }
+  
+  #page {
+    padding: 0;
+  }
+
+  .hide-content {
+    display: none;
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  #page-header {
+    background-position: left top;
+    background-repeat: no-repeat;
+    background-color: #ccc;
+    background-size: 100%;
+    min-height: 540px;
+
+    .frontpage-guest-header {
+
+      #loginbox {
+        opacity: 0.94;
+
+        #intro, #boxForm {
+          margin-top: 2rem;
+        }
+
+        #intro {
+          text-align: left;
+          h1 {
+            font-size: 2.1em;
+          }
+          p {
+            width: 60%;
+            margin: 10px 0 10px 20px;
+          }
+        }
+
+
+        #boxForm {
+          color: #5a5a5a;
+          background-color: #FFF;
+          opacity: 1;
+          padding: 20px;
+          text-align: left;
+
+          h3 {
+            margin-top: 0;
+            font-size: 1.6rem;
+          }
+
+          label {
+            font-size: 1.3rem;
+            margin-bottom: .1rem;
+          }
+
+          .input-group {
+            margin-bottom: 10px;
+
+            input, .input-group-addon {
+              -webkit-border-radius: 0;
+              -moz-border-radius: 0;
+              border-radius: 0;
+            }
+
+            input {
+              height: 40px;
+              font-size: 1.2rem
+            }
+
+            .input-group-addon {
+              width: 40px;
+              height: 30px;
+              line-height: 30px;
+              padding: 4px 10px;
+            }
+          }
+
+          .sign-up-btn {
+            .btn {
+              padding: 10px 20px;
+              margin-left: 0;
+              font-size: 1.3rem;
+              -webkit-border-radius: 0;
+              -moz-border-radius: 0;
+              border-radius: 0;
+            }
+          }
+
+          p {
+            text-shadow: none;
+            margin-top: 14px;
+            a {
+              text-decoration: none;
+              color: $brand-primary;
+              font-size: 1.2rem;
+            }
+          }
+
+          .btn-register {
+            margin: 0;
+            width: 100%;
+            -webkit-border-radius: 0;
+            -moz-border-radius: 0;
+            border-radius: 0;
+          }
+        }
+      }
+
+      h1 {
+        font-size: 5rem;
+        line-height: 5rem;
+        font-weight: bold;
+        letter-spacing: 2px;
+        text-shadow: 2px 4px 10px #000000;
+      }
+      p {
+        text-shadow: 1px 1px 1px #000000;
+        letter-spacing: 1px;
+        font-size: 22px;
+      }
+    }
+  }
 }

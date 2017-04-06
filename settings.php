@@ -36,7 +36,8 @@ if ($ADMIN->fulltree) {
     $name = 'theme_moove/logo';
     $title = get_string('logo','theme_moove');
     $description = get_string('logodesc', 'theme_moove');
-    $setting = new admin_setting_configstoredfile($name, $title, $description, 'logo');
+    $opts = array('accepted_types' => array('.png', '.jpg', '.gif', '.webp', '.tiff', '.svg'));
+    $setting = new admin_setting_configstoredfile($name, $title, $description, 'logo', 0, $opts);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
 
@@ -115,7 +116,8 @@ if ($ADMIN->fulltree) {
     $name = 'theme_moove/headerimg';
     $title = get_string('headerimg', 'theme_moove');
     $description = get_string('headerimgdesc', 'theme_moove');
-    $setting = new admin_setting_configstoredfile($name, $title, $description, 'headerimg');
+    $opts = array('accepted_types' => array('.png', '.jpg', '.gif', '.webp', '.tiff', '.svg'));
+    $setting = new admin_setting_configstoredfile($name, $title, $description, 'headerimg', 0, $opts);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
 
@@ -157,7 +159,8 @@ if ($ADMIN->fulltree) {
     $name = 'theme_moove/marketing1icon';
     $title = get_string('marketing1icon', 'theme_moove');
     $description = get_string('marketing1icondesc', 'theme_moove');
-    $setting = new admin_setting_configstoredfile($name, $title, $description, 'marketing1icon');
+    $opts = array('accepted_types' => array('.png', '.jpg', '.gif', '.webp', '.tiff', '.svg'));
+    $setting = new admin_setting_configstoredfile($name, $title, $description, 'marketing1icon', 0, $opts);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
 
@@ -201,7 +204,8 @@ if ($ADMIN->fulltree) {
     $name = 'theme_moove/marketing2icon';
     $title = get_string('marketing2icon', 'theme_moove');
     $description = get_string('marketing2icondesc', 'theme_moove');
-    $setting = new admin_setting_configstoredfile($name, $title, $description, 'marketing2icon');
+    $opts = array('accepted_types' => array('.png', '.jpg', '.gif', '.webp', '.tiff', '.svg'));
+    $setting = new admin_setting_configstoredfile($name, $title, $description, 'marketing2icon', 0, $opts);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
 
@@ -245,7 +249,8 @@ if ($ADMIN->fulltree) {
     $name = 'theme_moove/marketing3icon';
     $title = get_string('marketing3icon', 'theme_moove');
     $description = get_string('marketing3icondesc', 'theme_moove');
-    $setting = new admin_setting_configstoredfile($name, $title, $description, 'marketing3icon');
+    $opts = array('accepted_types' => array('.png', '.jpg', '.gif', '.webp', '.tiff', '.svg'));
+    $setting = new admin_setting_configstoredfile($name, $title, $description, 'marketing3icon', 0, $opts);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
 
@@ -289,7 +294,8 @@ if ($ADMIN->fulltree) {
     $name = 'theme_moove/marketing4icon';
     $title = get_string('marketing4icon', 'theme_moove');
     $description = get_string('marketing4icondesc', 'theme_moove');
-    $setting = new admin_setting_configstoredfile($name, $title, $description, 'marketing4icon');
+    $opts = array('accepted_types' => array('.png', '.jpg', '.gif', '.webp', '.tiff', '.svg'));
+    $setting = new admin_setting_configstoredfile($name, $title, $description, 'marketing4icon', 0, $opts);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
 

@@ -56,26 +56,55 @@
     {{>theme_moove/header}}
 
     <div id="page" class="container-fluid">
-        {{{ output.full_header }}}
-
-        <div id="page-content" class="row">
-            <div id="region-main-box" class="col-xs-12">
-                {{#hasregionmainsettingsmenu}}
-                <div id="region-main-settings-menu" class="hidden-print">
-                    <div> {{{ output.region_main_settings_menu }}} </div>
-                </div>
-                {{/hasregionmainsettingsmenu}}
-                <section id="region-main">
-                    <div class="card card-block">
-                    {{#hasregionmainsettingsmenu}}
-                        <div class="region_main_settings_menu_proxy"></div>
-                    {{/hasregionmainsettingsmenu}}
-                    {{{ output.course_content_header }}}
-                    {{{ output.main_content }}}
-                    {{{ output.course_content_footer }}}
+        <div id="page-header">
+            <div class="container frontpage-guest-header">
+                <div class="row" id="loginbox">
+                    <div class="col-md-8" id="intro">
+                        {{#bannerheading}}
+                            <h1>{{{ bannerheading }}}</h1>
+                        {{/bannerheading}}
+                        {{#bannercontent}}
+                            <h1>{{{ bannercontent }}}</h1>
+                        {{/bannercontent}}
                     </div>
-                </section>
+                    <div class="col-md-4" id="boxForm">
+                        <h3>{{#str}}platform_access, theme_moove{{/str}}</h3>
+                        <form class="signup-form" action="{{{ config.wwwroot }}}/login/index.php" method="POST" role="form">
+                            <label for="username">
+                              {{^canloginbyemail}}
+                                  {{#str}} username {{/str}}
+                              {{/canloginbyemail}}
+                              {{#canloginbyemail}}
+                                  {{#str}} usernameemail {{/str}}
+                              {{/canloginbyemail}}
+                            </label>
+                            <div class="input-group">
+                              <div class="input-group-addon"><i class="fa fa-envelope add-on"></i></div>
+                              <input type="text" class="form-control" id="username" name="username" placeholder="{{#str}}username{{/str}}" required />
+                            </div>
+
+                            <label for="password">{{#str}}password{{/str}}</label>
+                            <div class="input-group">
+                              <div class="input-group-addon"><i class="fa fa-lock add-on"></i></div>
+                              <input type="text" class="form-control" id="password" name="password" placeholder="{{#str}}password{{/str}}" required />
+                            </div>
+
+                            <div class="sign-up-btn">
+                                <button type="submit" class="btn btn-primary">{{#str}}login{{/str}}</button>
+                            </div>
+                        </form>
+                        <p><a href="{{{ config.wwwroot }}}/login/forgot_password.php">{{#str}}forgotten{{/str}}</a></p>
+
+                        {{#cansignup}}
+                            <a class="btn btn-register btn-primary" href="{{{ config.wwwroot }}}/login/signup.php?">{{#str}}newaccount{{/str}}</a>
+                        {{/cansignup}}
+                    </div>
+                </div> <!-- end of section.sign-up (login) -->
             </div>
+        </div>
+
+        <div class="hide-content">
+          {{{ output.main_content }}}
         </div>
     </div>
 </div>
@@ -105,7 +134,4 @@
 </html>
 {{#js}}
 require(['theme_moove/loader']);
-require(['theme_moove/drawer'], function(mod) {
-    mod.init();
-});
 {{/js}}
