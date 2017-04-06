@@ -6,7 +6,7 @@
   #page-wrapper {
     padding-bottom: 0;
   }
-  
+
   #page {
     padding: 0;
   }
@@ -30,17 +30,27 @@
         opacity: 0.94;
 
         #intro, #boxForm {
-          margin-top: 2rem;
+          margin-top: 3rem;
         }
 
         #intro {
           text-align: left;
+
+          color: #FFF;
+
           h1 {
-            font-size: 2.1em;
+            font-size: 2.3em;
+            font-weight: bold;
+            letter-spacing: .2rem;
+            text-shadow: 2px 4px 4px #000;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
           }
-          p {
-            width: 60%;
-            margin: 10px 0 10px 20px;
+          h2 {
+            font-size: 1.7em;
+            text-shadow: 1px 1px 1px #000;
+            letter-spacing: .1rem;
+            max-width: 70%;
           }
         }
 
@@ -113,19 +123,6 @@
             border-radius: 0;
           }
         }
-      }
-
-      h1 {
-        font-size: 5rem;
-        line-height: 5rem;
-        font-weight: bold;
-        letter-spacing: 2px;
-        text-shadow: 2px 4px 10px #000000;
-      }
-      p {
-        text-shadow: 1px 1px 1px #000000;
-        letter-spacing: 1px;
-        font-size: 22px;
       }
     }
   }

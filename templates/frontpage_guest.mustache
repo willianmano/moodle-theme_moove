@@ -64,7 +64,7 @@
                             <h1>{{{ bannerheading }}}</h1>
                         {{/bannerheading}}
                         {{#bannercontent}}
-                            <h1>{{{ bannercontent }}}</h1>
+                            <h2>{{{ bannercontent }}}</h2>
                         {{/bannercontent}}
                     </div>
                     <div class="col-md-4" id="boxForm">
@@ -72,10 +72,10 @@
                         <form class="signup-form" action="{{{ config.wwwroot }}}/login/index.php" method="POST" role="form">
                             <label for="username">
                               {{^canloginbyemail}}
-                                  {{#str}} username {{/str}}
+                                  {{#str}}username{{/str}}
                               {{/canloginbyemail}}
                               {{#canloginbyemail}}
-                                  {{#str}} usernameemail {{/str}}
+                                  {{#str}}usernameemail{{/str}}
                               {{/canloginbyemail}}
                             </label>
                             <div class="input-group">
@@ -86,7 +86,7 @@
                             <label for="password">{{#str}}password{{/str}}</label>
                             <div class="input-group">
                               <div class="input-group-addon"><i class="fa fa-lock add-on"></i></div>
-                              <input type="text" class="form-control" id="password" name="password" placeholder="{{#str}}password{{/str}}" required />
+                              <input type="password" class="form-control" id="password" name="password" placeholder="{{#str}}password{{/str}}" required />
                             </div>
 
                             <div class="sign-up-btn">

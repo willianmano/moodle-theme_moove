@@ -179,3 +179,19 @@ function theme_moove_pluginfile($course, $cm, $context, $filearea, $args, $force
         send_file_not_found();
     }
 }
+
+function theme_moove_get_setting($setting, $format = false) {
+    $theme = theme_config::load('moove');
+
+    if (empty($theme->settings->$setting)) {
+        return false;
+    } else if (!$format) {
+        return $theme->settings->$setting;
+    } else if ($format === 'format_text') {
+        return format_text($theme->settings->$setting, FORMAT_PLAIN);
+    } else if ($format === 'format_html') {
+        return format_text($theme->settings->$setting, FORMAT_HTML, array('trusted' => true, 'noclean' => true));
+    } else {
+        return format_string($theme->settings->$setting);
+    }
+}
