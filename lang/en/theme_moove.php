@@ -48,3 +48,61 @@ $string['prev_section'] = 'Previous section';
 $string['next_section'] = 'Next section';
 $string['search_site'] = 'Search on site';
 $string['search_forums'] = 'Search on course forums';
+
+$string['frontpagesettings'] = 'Frontpage Settings';
+$string['headerimg'] = 'Header image';
+$string['headerimgdesc'] = 'Upload your custom header-image here if you want to add it to the header.mage works best if (Image size should be 1500px x 700px)';
+
+$string['bannerheading'] = 'Banner Heading';
+$string['bannerheadingdesc'] = 'Enter Banner Heading Text';
+$string['bannercontent'] = 'Banner Content';
+$string['bannercontentdesc'] = 'Enter Banner Content Text';
+$string['bannerfontcolor'] = 'Banner Font Color';
+$string['bannerfontcolordesc'] = 'This allow you to set the Banner Font Color';
+
+$string['displaymarketingbox'] = 'Display front page Marketingbox';
+$string['displaymarketingboxdesc'] = 'Show or Hide Front page Marketingbox';
+
+$string['marketing1icon'] = 'Marketing1 Icon';
+$string['marketing1icondesc'] = 'Upload Marketing1 Icon';
+$string['marketing1heading'] = 'Marketing1 Heading';
+$string['marketing1headingdesc'] = 'Enter Marketing1 Heading Text';
+$string['marketing1subheading'] = 'Marketing1 Subheading';
+$string['marketing1subheadingdesc'] = 'Enter Marketing1 Subheading Text';
+$string['marketing1content'] = 'Marketing1 Content';
+$string['marketing1contentdesc'] = 'Enter Marketing1 Content Text';
+$string['marketing1url'] = 'Marketing1 URL';
+$string['marketing1urldesc'] = 'Enter Marketing1 URL';
+
+$string['marketing2icon'] = 'Marketing2 Icon';
+$string['marketing2icondesc'] = 'Upload Marketing2 Icon';
+$string['marketing2heading'] = 'Marketing2 Heading';
+$string['marketing2headingdesc'] = 'Enter Marketing2 Heading Text';
+$string['marketing2subheading'] = 'Marketing2 Subheading';
+$string['marketing2subheadingdesc'] = 'Enter Marketing2 Subheading Text';
+$string['marketing2content'] = 'Marketing2 Content';
+$string['marketing2contentdesc'] = 'Enter Marketing2 Content Text';
+$string['marketing2url'] = 'Marketing1 URL';
+$string['marketing2urldesc'] = 'Enter Marketing1 URL';
+
+$string['marketing3icon'] = 'Marketing3 Icon';
+$string['marketing3icondesc'] = 'Upload Marketing3 Icon';
+$string['marketing3heading'] = 'Marketing3 Heading';
+$string['marketing3headingdesc'] = 'Enter Marketing3 Heading Text';
+$string['marketing3subheading'] = 'Marketing3 Subheading';
+$string['marketing3subheadingdesc'] = 'Enter Marketing3 Subheading Text';
+$string['marketing3content'] = 'Marketing3 Content';
+$string['marketing3contentdesc'] = 'Enter Marketing3 Content Text';
+$string['marketing3url'] = 'Marketing1 URL';
+$string['marketing3urldesc'] = 'Enter Marketing1 URL';
+
+$string['marketing4icon'] = 'Marketing4 Icon';
+$string['marketing4icondesc'] = 'Upload Marketing4 Icon';
+$string['marketing4heading'] = 'Marketing4 Heading';
+$string['marketing4headingdesc'] = 'Enter Marketing4 Heading Text';
+$string['marketing4subheading'] = 'Marketing4 Subheading';
+$string['marketing4subheadingdesc'] = 'Enter Marketing4 Subheading Text';
+$string['marketing4content'] = 'Marketing4 Content';
+$string['marketing4contentdesc'] = 'Enter Marketing4 Content Text';
+$string['marketing4url'] = 'Marketing1 URL';
+$string['marketing4urldesc'] = 'Enter Marketing1 URL';

@@ -70,7 +70,7 @@
             }
             .dropdown-menu {
               margin-top: 0;
-              
+
               a.dropdown-item {
                 line-height: 32px;
               }
@@ -83,7 +83,7 @@
         }
 
         li.usermenu {
-          padding: 17px 5px 0 10px;
+          padding: 20px 5px 0 10px;
           height: 70px;
 
           &:hover {
@@ -116,6 +116,18 @@
               padding: 18px;
             }
           }
+        }
+      }
+    }
+  }
+}
+
+#page-site-index.notloggedin {
+  .navbar {
+    .navbar-custom-menu {
+      li.usermenu {
+        &:hover {
+          background-color: inherit;
         }
       }
     }
