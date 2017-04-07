@@ -1,0 +1,74 @@
+#top-footer {
+  background-image: url('[[pix:theme|footer-bg]]');
+  background-repeat: repeat-x;
+  background-position: center bottom;
+
+  padding: 40px 15px;
+
+  color: #FFF;
+
+  h2 {
+    color: $brand-primary;
+    text-transform: uppercase;
+  }
+
+  h3 {
+    font-size: 1.3rem;
+  }
+
+  ul {
+    list-style: none;
+  }
+
+  .contact ul li {
+    font-size: 1.2rem;
+    margin-bottom: 4px;
+
+    i {
+      margin-right: 3px;
+    }
+  }
+
+  .social {
+    text-align: right;
+    ul {
+      li {
+        display: inline;
+        font-size: 4rem;
+
+        a {
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
+
+#page-footer {
+  background-color: $m-moodle-color;
+  text-align: center;
+  color: #FFF;
+  min-height: inherit;
+
+  .madewithmoodle {
+    margin-bottom: .5rem;
+    p {
+      text-transform: uppercase;
+      font-weight: 700;
+      font-size: 14px;
+      margin-bottom: 0;
+      display: inline-block;
+    }
+
+    img {
+      max-width: 100px;
+      margin-top: -12px;
+    }
+  }
+  .madeby {
+    font-size: 14px;
+    a {
+      color: $brand-primary;
+    }
+  }
+}

@@ -50,6 +50,8 @@ $string['search_site'] = 'Procurar no site';
 $string['search_forums'] = 'Procurar nos fóruns';
 $string['platform_access'] = 'Acesso à plataforma';
 $string['readmore'] = 'Leia mais';
+$string['madewitmoodle'] = 'Orgulhosamente feito com o';
+$string['madeby'] = 'Este tema foi desenvolvido por';
 
 $string['frontpagesettings'] = 'Configurações da página inicial';
 $string['headerimg'] = 'Imagem do cabeçalho';

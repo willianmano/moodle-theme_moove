@@ -50,6 +50,8 @@ $string['search_site'] = 'Search on site';
 $string['search_forums'] = 'Search on course forums';
 $string['platform_access'] = 'Access to the platform';
 $string['readmore'] = 'Read More';
+$string['madewitmoodle'] = 'Proudly made with';
+$string['madeby'] = 'This theme was developed by';
 
 $string['frontpagesettings'] = 'Frontpage Settings';
 $string['headerimg'] = 'Header image';
