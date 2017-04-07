@@ -68,14 +68,22 @@ if (isloggedin()) {
         $bannercontent = theme_moove_get_setting('bannercontent', true);
     }
 
+    $should_display_marketing = false;
+    if (theme_moove_get_setting('bannercontent', true) == true) {
+        $should_display_marketing = true;
+    }
+
     $templatecontext = [
         'sitename' => format_string($SITE->shortname, true, ['context' => context_course::instance(SITEID), "escape" => false]),
         'output' => $OUTPUT,
         'bodyattributes' => $bodyattributes,
         'cansignup' => $CFG->registerauth == 'email' || !empty($CFG->registerauth),
         'bannerheading' => $bannerheading,
-        'bannercontent' => $bannercontent
+        'bannercontent' => $bannercontent,
+        'should_display_marketing' => $should_display_marketing,
     ];
+
+    $templatecontext = array_merge($templatecontext, theme_moove_get_marketing_items());
 
     echo $OUTPUT->render_from_template('theme_moove/frontpage_guest', $templatecontext);
 }

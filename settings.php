@@ -139,14 +139,6 @@ if ($ADMIN->fulltree) {
     $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
 
-    // Banner Font color.
-    $name = 'theme_moove/bannerfontcolor';
-    $title = get_string('bannerfontcolor', 'theme_moove');
-    $description = get_string('bannerfontcolordesc', 'theme_moove');
-    $default = '#ffffff';
-    $setting = new admin_setting_configcolourpicker($name, $title, $description, $default);
-    $page->add($setting);
-
     $name = 'theme_moove/displaymarketingbox';
     $title = get_string('displaymarketingbox', 'theme_moove');
     $description = get_string('displaymarketingboxdesc', 'theme_moove');
@@ -168,7 +160,7 @@ if ($ADMIN->fulltree) {
     $name = 'theme_moove/marketing1heading';
     $title = get_string('marketing1heading', 'theme_moove');
     $description = get_string('marketing1headingdesc', 'theme_moove');
-    $default = 'We Provide';
+    $default = 'We host';
     $setting = new admin_setting_configtext($name, $title, $description, $default);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
@@ -177,7 +169,7 @@ if ($ADMIN->fulltree) {
     $name = 'theme_moove/marketing1subheading';
     $title = get_string('marketing1subheading', 'theme_moove');
     $description = get_string('marketing1subheadingdesc', 'theme_moove');
-    $default = 'Forum And Chat';
+    $default = 'your MOODLE';
     $setting = new admin_setting_configtext($name, $title, $description, $default);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
@@ -186,7 +178,7 @@ if ($ADMIN->fulltree) {
     $name = 'theme_moove/marketing1content';
     $title = get_string('marketing1content', 'theme_moove');
     $description = get_string('marketing1contentdesc', 'theme_moove');
-    $default = 'Contrary to popular belief, Lorem Ipsum is not simply ...';
+    $default = 'Moodle hosting in a powerful cloud infrastructure';
     $setting = new admin_setting_configtextarea($name, $title, $description, $default);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
@@ -213,7 +205,7 @@ if ($ADMIN->fulltree) {
     $name = 'theme_moove/marketing2heading';
     $title = get_string('marketing2heading', 'theme_moove');
     $description = get_string('marketing2headingdesc', 'theme_moove');
-    $default = 'We serve';
+    $default = 'Consulting';
     $setting = new admin_setting_configtext($name, $title, $description, $default);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
@@ -222,7 +214,7 @@ if ($ADMIN->fulltree) {
     $name = 'theme_moove/marketing2subheading';
     $title = get_string('marketing2subheading', 'theme_moove');
     $description = get_string('marketing2subheadingdesc', 'theme_moove');
-    $default = 'online courses';
+    $default = 'for your company';
     $setting = new admin_setting_configtext($name, $title, $description, $default);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
@@ -231,7 +223,7 @@ if ($ADMIN->fulltree) {
     $name = 'theme_moove/marketing2content';
     $title = get_string('marketing2content', 'theme_moove');
     $description = get_string('marketing2contentdesc', 'theme_moove');
-    $default = 'Contrary to popular belief, Lorem Ipsum is not simply ...';
+    $default = 'Moodle consulting and training for you';
     $setting = new admin_setting_configtextarea($name, $title, $description, $default);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
@@ -258,7 +250,7 @@ if ($ADMIN->fulltree) {
     $name = 'theme_moove/marketing3heading';
     $title = get_string('marketing3heading', 'theme_moove');
     $description = get_string('marketing3headingdesc', 'theme_moove');
-    $default = 'Fast online';
+    $default = 'Development';
     $setting = new admin_setting_configtext($name, $title, $description, $default);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
@@ -267,7 +259,7 @@ if ($ADMIN->fulltree) {
     $name = 'theme_moove/marketing3subheading';
     $title = get_string('marketing3subheading', 'theme_moove');
     $description = get_string('marketing3subheadingdesc', 'theme_moove');
-    $default = 'support';
+    $default = 'themes and plugins';
     $setting = new admin_setting_configtext($name, $title, $description, $default);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
@@ -276,7 +268,7 @@ if ($ADMIN->fulltree) {
     $name = 'theme_moove/marketing3content';
     $title = get_string('marketing3content', 'theme_moove');
     $description = get_string('marketing3contentdesc', 'theme_moove');
-    $default = 'Contrary to popular belief, Lorem Ipsum is not simply ...';
+    $default = 'We develop themes and plugins as your desires';
     $setting = new admin_setting_configtextarea($name, $title, $description, $default);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
@@ -303,7 +295,7 @@ if ($ADMIN->fulltree) {
     $name = 'theme_moove/marketing4heading';
     $title = get_string('marketing4heading', 'theme_moove');
     $description = get_string('marketing4headingdesc', 'theme_moove');
-    $default = 'Ask que';
+    $default = 'Support';
     $setting = new admin_setting_configtext($name, $title, $description, $default);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
@@ -312,7 +304,7 @@ if ($ADMIN->fulltree) {
     $name = 'theme_moove/marketing4subheading';
     $title = get_string('marketing4subheading', 'theme_moove');
     $description = get_string('marketing4subheadingdesc', 'theme_moove');
-    $default = 'we give you answere';
+    $default = 'we give you answers';
     $setting = new admin_setting_configtext($name, $title, $description, $default);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
@@ -321,7 +313,7 @@ if ($ADMIN->fulltree) {
     $name = 'theme_moove/marketing4content';
     $title = get_string('marketing4content', 'theme_moove');
     $description = get_string('marketing4contentdesc', 'theme_moove');
-    $default = 'Contrary to popular belief, Lorem Ipsum is not simply ...';
+    $default = 'MOODLE specialized support';
     $setting = new admin_setting_configtextarea($name, $title, $description, $default);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);

@@ -93,6 +93,7 @@
                                 <button type="submit" class="btn btn-primary">{{#str}}login{{/str}}</button>
                             </div>
                         </form>
+
                         <p><a href="{{{ config.wwwroot }}}/login/forgot_password.php">{{#str}}forgotten{{/str}}</a></p>
 
                         {{#cansignup}}
@@ -102,6 +103,44 @@
                 </div> <!-- end of section.sign-up (login) -->
             </div>
         </div>
+
+        {{#should_display_marketing}}
+          <div class="frontpage-marketing row-fluid">
+              <div class="col-md-3 marketing-box">
+                  <img src="{{{ marketing1icon }}}" />
+                  <h2>{{{ marketing1heading }}}</h2>
+                  <h3>{{{ marketing1subheading }}}</h3>
+                  <p>{{{ marketing1content }}}</p>
+                  <a class="btn btn-primary" href="{{{ marketing1url }}}">{{#str}}readmore, theme_moove{{/str}}</a>
+              </div>
+
+              <div class="col-md-3 marketing-box">
+                  <img src="{{{ marketing2icon }}}" />
+                  <h2>{{{ marketing2heading }}}</h2>
+                  <h3>{{{ marketing2subheading }}}</h3>
+                  <p>{{{ marketing2content }}}</p>
+                  <a class="btn btn-primary" href="{{{ marketing2url }}}">{{#str}}readmore, theme_moove{{/str}}</a>
+              </div>
+
+              <div class="col-md-3 marketing-box">
+                  <img src="{{{ marketing3icon }}}" />
+                  <h2>{{{ marketing3heading }}}</h2>
+                  <h3>{{{ marketing3subheading }}}</h3>
+                  <p>{{{ marketing3content }}}</p>
+                  <a class="btn btn-primary" href="{{{ marketing3url }}}">{{#str}}readmore, theme_moove{{/str}}</a>
+              </div>
+
+              <div class="col-md-3 marketing-box">
+                  <img src="{{{ marketing4icon }}}" />
+                  <h2>{{{ marketing4heading }}}</h2>
+                  <h3>{{{ marketing4subheading }}}</h3>
+                  <p>{{{ marketing4content }}}</p>
+                  <a class="btn btn-primary" href="{{{ marketing4url }}}">{{#str}}readmore, theme_moove{{/str}}</a>
+              </div>
+
+              <div class="clearfix"></div>
+          </div>
+        {{/should_display_marketing}}
 
         <div class="hide-content">
           {{{ output.main_content }}}

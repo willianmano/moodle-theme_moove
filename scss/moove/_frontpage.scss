@@ -1,5 +1,3 @@
-/**setting:headerimg**/
-
 #page-site-index.notloggedin {
   margin-left: 0;
 
@@ -9,6 +7,7 @@
 
   #page {
     padding: 0;
+    background-color: #FFF;
   }
 
   .hide-content {
@@ -123,6 +122,56 @@
             border-radius: 0;
           }
         }
+      }
+    }
+  }
+
+  .frontpage-marketing {
+    margin: -5em 0 2em 0;
+    padding: 2em 20px 0 20px;
+    background-image: url('[[pix:theme|headerimg-bg]]');
+    background-position: center top;
+    background-repeat: repeat-x;
+
+    .marketing-box {
+      background-color: #fff;
+      -moz-box-shadow: 0 0 5px #ccc;
+      -webkit-box-shadow: 0 0 5px#ccc;
+      box-shadow: 0 0 5px #ccc;
+      padding: 1em;
+      text-align: center;
+      min-height: 340px;
+
+      h2 {
+        font-size: 1.75em;
+        color: #565656;
+        text-transform: uppercase;
+        margin: 20px 0;
+        font-weight: normal;
+      }
+
+      h3 {
+        font-size: 1.3em;
+        text-transform: uppercase;
+        font-weight: normal;
+        color: #a4a3a3;
+      }
+
+      p {
+        color: #9f9f9f;
+        font-size: 16px;
+        margin: 1.5em 0;
+      }
+    }
+  }
+
+  @media (min-width: 1200px) {
+    .frontpage-marketing .marketing-box {
+      width: 23.07692308%;
+      margin-left: 2.56410256%;
+
+      &:first-child {
+        margin-left: 0;
       }
     }
   }
