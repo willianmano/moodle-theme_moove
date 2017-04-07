@@ -69,7 +69,7 @@ if (isloggedin()) {
     }
 
     $should_display_marketing = false;
-    if (theme_moove_get_setting('bannercontent', true) == true) {
+    if (theme_moove_get_setting('displaymarketingbox', true) == true) {
         $should_display_marketing = true;
     }
 

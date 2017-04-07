@@ -1053,4 +1053,68 @@ class core_renderer extends \core_renderer {
     public function secure_login_info() {
         return $this->login_info(false);
     }
+
+    public function get_getintouchcontent_config() {
+      $theme = theme_config::load('moove');
+
+      $setting = $theme->settings->getintouchcontent;
+
+      return $setting != '' ? $setting : '';
+    }
+
+    public function get_website_config() {
+      $theme = theme_config::load('moove');
+
+      $setting = $theme->settings->website;
+
+      return $setting != '' ? $setting : '';
+    }
+
+    public function get_mobile_config() {
+      $theme = theme_config::load('moove');
+
+      $setting = $theme->settings->mobile;
+
+      return $setting != '' ? $setting : '';
+    }
+
+    public function get_mail_config() {
+      $theme = theme_config::load('moove');
+
+      $setting = $theme->settings->mail;
+
+      return $setting != '' ? $setting : '';
+    }
+
+    public function get_facebook_config() {
+      $theme = theme_config::load('moove');
+
+      $setting = $theme->settings->facebook;
+
+      return $setting != '' ? $setting : '';
+    }
+
+    public function get_twitter_config() {
+      $theme = theme_config::load('moove');
+
+      $setting = $theme->settings->twitter;
+
+      return $setting != '' ? $setting : '';
+    }
+
+    public function get_googleplus_config() {
+      $theme = theme_config::load('moove');
+
+      $setting = $theme->settings->googleplus;
+
+      return $setting != '' ? $setting : '';
+    }
+
+    public function get_linkedin_config() {
+      $theme = theme_config::load('moove');
+
+      $setting = $theme->settings->linkedin;
+
+      return $setting != '' ? $setting : '';
+    }
 }
