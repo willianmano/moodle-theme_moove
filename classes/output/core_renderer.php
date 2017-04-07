@@ -70,24 +70,24 @@ class core_renderer extends \core_renderer {
 
         $context = $this->page->context;
 
-        $formAction = $CFG->wwwroot . "/admin/search.php";
-        $formPlaceholder = get_string('search_site', 'theme_moove');
-        $searchFieldName = "query";
-        $extraFields = "";
+        $formaction = $CFG->wwwroot . "/admin/search.php";
+        $formplaceholder = get_string('search_site', 'theme_moove');
+        $searchfieldname = "query";
+        $extrafields = "";
         // We are on the course home page.
         if ($context->contextlevel == CONTEXT_COURSE) {
-          global $COURSE;
+            global $COURSE;
 
-          $formAction = $CFG->wwwroot . "/mod/forum/search.php?id=" . $COURSE->id;
-          $formPlaceholder = get_string('search_forums', 'theme_moove');
-          $extraFields = "<input type='hidden' name='id' value='{$COURSE->id}'>";
-          $searchFieldName = "search";
+            $formaction = $CFG->wwwroot . "/mod/forum/search.php?id=" . $COURSE->id;
+            $formplaceholder = get_string('search_forums', 'theme_moove');
+            $extrafields = "<input type='hidden' name='id' value='{$COURSE->id}'>";
+            $searchfieldname = "search";
         }
 
-        $html  = "<form action='{$formAction}' method='GET' class='form-inline' role='search'>";
-        $html .= $extraFields;
+        $html  = "<form action='{$formaction}' method='GET' class='form-inline' role='search'>";
+        $html .= $extrafields;
         $html .= "<div class='input-group'>";
-        $html .= "<input name='{$searchFieldName}' type='text' class='form-control' placeholder='{$formPlaceholder}'>";
+        $html .= "<input name='{$searchfieldname}' type='text' class='form-control' placeholder='{$formplaceholder}'>";
         $html .= "<span class='input-group-btn'>";
         $html .= "<button type='submit' id='search-btn' class='btn btn-flat'><i class='fa fa-search'></i></button>";
         $html .= "</span>";
@@ -102,10 +102,11 @@ class core_renderer extends \core_renderer {
 
         $hasrightsideblocks = $PAGE->blocks->region_has_content('side-pre', $OUTPUT);
 
-        if($hasrightsideblocks || $PAGE->user_is_editing()) {
+        if ($hasrightsideblocks || $PAGE->user_is_editing()) {
             $o = "<li id='control-sidebar-blocks'>";
             $o .= "<div class='control-content'>";
-            $o .= "<a href='#' data-toggle='control-sidebar' class='rightsidebar-toggle' data-slide='1'><i class='fa fa-plus'></i></a>";
+            $o .= "<a href='#' data-toggle='control-sidebar' class='rightsidebar-toggle' data-slide='1'>";
+            $o .= "<i class='fa fa-plus'></i></a>";
             $o .= "</div>";
             $o .= "</li>";
 
@@ -604,7 +605,8 @@ class core_renderer extends \core_renderer {
             $url = $url->out(false);
         }
         $context->logourl = $url;
-        $context->sitename = format_string($SITE->fullname, true, ['context' => context_course::instance(SITEID), "escape" => false]);
+        $context->sitename = format_string($SITE->fullname, true,
+                             ['context' => context_course::instance(SITEID), "escape" => false]);
 
         return $this->render_from_template('core/login', $context);
     }
@@ -624,7 +626,8 @@ class core_renderer extends \core_renderer {
             $url = $url->out(false);
         }
         $context['logourl'] = $url;
-        $context['sitename'] = format_string($SITE->fullname, true, ['context' => context_course::instance(SITEID), "escape" => false]);
+        $context['sitename'] = format_string($SITE->fullname, true,
+                               ['context' => context_course::instance(SITEID), "escape" => false]);
 
         return $this->render_from_template('core/signup_form_layout', $context);
     }
@@ -687,7 +690,6 @@ class core_renderer extends \core_renderer {
                 ($currentnode->key === 'myprofile')) {
             $showusermenu = true;
         }
-
 
         if ($showfrontpagemenu) {
             $settingsnode = $this->page->settingsnav->find('frontpage', navigation_node::TYPE_SETTING);
@@ -1055,66 +1057,66 @@ class core_renderer extends \core_renderer {
     }
 
     public function get_getintouchcontent_config() {
-      $theme = theme_config::load('moove');
+        $theme = theme_config::load('moove');
 
-      $setting = $theme->settings->getintouchcontent;
+        $setting = $theme->settings->getintouchcontent;
 
-      return $setting != '' ? $setting : '';
+        return $setting != '' ? $setting : '';
     }
 
     public function get_website_config() {
-      $theme = theme_config::load('moove');
+        $theme = theme_config::load('moove');
 
-      $setting = $theme->settings->website;
+        $setting = $theme->settings->website;
 
-      return $setting != '' ? $setting : '';
+        return $setting != '' ? $setting : '';
     }
 
     public function get_mobile_config() {
-      $theme = theme_config::load('moove');
+        $theme = theme_config::load('moove');
 
-      $setting = $theme->settings->mobile;
+        $setting = $theme->settings->mobile;
 
-      return $setting != '' ? $setting : '';
+        return $setting != '' ? $setting : '';
     }
 
     public function get_mail_config() {
-      $theme = theme_config::load('moove');
+        $theme = theme_config::load('moove');
 
-      $setting = $theme->settings->mail;
+        $setting = $theme->settings->mail;
 
-      return $setting != '' ? $setting : '';
+        return $setting != '' ? $setting : '';
     }
 
     public function get_facebook_config() {
-      $theme = theme_config::load('moove');
+        $theme = theme_config::load('moove');
 
-      $setting = $theme->settings->facebook;
+        $setting = $theme->settings->facebook;
 
-      return $setting != '' ? $setting : '';
+        return $setting != '' ? $setting : '';
     }
 
     public function get_twitter_config() {
-      $theme = theme_config::load('moove');
+        $theme = theme_config::load('moove');
 
-      $setting = $theme->settings->twitter;
+        $setting = $theme->settings->twitter;
 
-      return $setting != '' ? $setting : '';
+        return $setting != '' ? $setting : '';
     }
 
     public function get_googleplus_config() {
-      $theme = theme_config::load('moove');
+        $theme = theme_config::load('moove');
 
-      $setting = $theme->settings->googleplus;
+        $setting = $theme->settings->googleplus;
 
-      return $setting != '' ? $setting : '';
+        return $setting != '' ? $setting : '';
     }
 
     public function get_linkedin_config() {
-      $theme = theme_config::load('moove');
+        $theme = theme_config::load('moove');
 
-      $setting = $theme->settings->linkedin;
+        $setting = $theme->settings->linkedin;
 
-      return $setting != '' ? $setting : '';
+        return $setting != '' ? $setting : '';
     }
 }

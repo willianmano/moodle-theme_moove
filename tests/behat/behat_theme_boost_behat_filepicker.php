@@ -38,7 +38,8 @@ class behat_theme_moove_behat_filepicker extends behat_theme_moove_behat_files {
     /**
      * Creates a folder with specified name in the current folder and in the specified filemanager field.
      *
-     * @Given /^I create "(?P<foldername_string>(?:[^"]|\\")*)" folder in "(?P<filemanager_field_string>(?:[^"]|\\")*)" filemanager$/
+     * @Given /^I create "(?P<foldername_string>(?:[^"]|\\")*)" folder
+     * in "(?P<filemanager_field_string>(?:[^"]|\\")*)" filemanager$/
      * @throws ExpectationException Thrown by behat_base::find
      * @param string $foldername
      * @param string $filemanagerelement
@@ -67,7 +68,8 @@ class behat_theme_moove_behat_filepicker extends behat_theme_moove_behat_files {
     /**
      * Opens the contents of a filemanager folder. It looks for the folder in the current folder and in the path bar.
      *
-     * @Given /^I open "(?P<foldername_string>(?:[^"]|\\")*)" folder from "(?P<filemanager_field_string>(?:[^"]|\\")*)" filemanager$/
+     * @Given /^I open "(?P<foldername_string>(?:[^"]|\\")*)" folder
+     * from "(?P<filemanager_field_string>(?:[^"]|\\")*)" filemanager$/
      * @throws ExpectationException Thrown by behat_base::find
      * @param string $foldername
      * @param string $filemanagerelement
@@ -150,7 +152,8 @@ class behat_theme_moove_behat_filepicker extends behat_theme_moove_behat_files {
     /**
      * Deletes the specified file or folder from the specified filemanager field.
      *
-     * @Given /^I delete "(?P<file_or_folder_name_string>(?:[^"]|\\")*)" from "(?P<filemanager_field_string>(?:[^"]|\\")*)" filemanager$/
+     * @Given /^I delete "(?P<file_or_folder_name_string>(?:[^"]|\\")*)" from
+     * "(?P<filemanager_field_string>(?:[^"]|\\")*)" filemanager$/
      * @throws ExpectationException Thrown by behat_base::find
      * @param string $name
      * @param string $filemanagerelement
@@ -198,7 +201,8 @@ class behat_theme_moove_behat_filepicker extends behat_theme_moove_behat_files {
     /**
      * Picks the file from repository leaving default values in select file dialogue.
      *
-     * @When /^I add "(?P<filepath_string>(?:[^"]|\\")*)" file from "(?P<repository_string>(?:[^"]|\\")*)" to "(?P<filemanagerelement_string>(?:[^"]|\\")*)" filemanager$/
+     * @When /^I add "(?P<filepath_string>(?:[^"]|\\")*)" file
+     * from "(?P<repository_string>(?:[^"]|\\")*)" to "(?P<filemanagerelement_string>(?:[^"]|\\")*)" filemanager$/
      * @throws ExpectationException Thrown by behat_base::find
      * @param string $filepath
      * @param string $repository
@@ -211,7 +215,8 @@ class behat_theme_moove_behat_filepicker extends behat_theme_moove_behat_files {
     /**
      * Picks the file from repository leaving default values in select file dialogue and confirming to overwrite an existing file.
      *
-     * @When /^I add and overwrite "(?P<filepath_string>(?:[^"]|\\")*)" file from "(?P<repository_string>(?:[^"]|\\")*)" to "(?P<filemanagerelement_string>(?:[^"]|\\")*)" filemanager$/
+     * @When /^I add and overwrite "(?P<filepath_string>(?:[^"]|\\")*)" file
+     * from "(?P<repository_string>(?:[^"]|\\")*)" to "(?P<filemanagerelement_string>(?:[^"]|\\")*)" filemanager$/
      * @throws ExpectationException Thrown by behat_base::find
      * @param string $filepath
      * @param string $repository
@@ -225,7 +230,8 @@ class behat_theme_moove_behat_filepicker extends behat_theme_moove_behat_files {
     /**
      * Picks the file from repository filling the form in Select file dialogue.
      *
-     * @When /^I add "(?P<filepath_string>(?:[^"]|\\")*)" file from "(?P<repository_string>(?:[^"]|\\")*)" to "(?P<filemanager_field_string>(?:[^"]|\\")*)" filemanager as:$/
+     * @When /^I add "(?P<filepath_string>(?:[^"]|\\")*)" file
+     * from "(?P<repository_string>(?:[^"]|\\")*)" to "(?P<filemanager_field_string>(?:[^"]|\\")*)" filemanager as:$/
      * @throws ExpectationException Thrown by behat_base::find
      * @param string $filepath
      * @param string $repository
@@ -239,7 +245,8 @@ class behat_theme_moove_behat_filepicker extends behat_theme_moove_behat_files {
     /**
      * Picks the file from repository confirming to overwrite an existing file
      *
-     * @When /^I add and overwrite "(?P<filepath_string>(?:[^"]|\\")*)" file from "(?P<repository_string>(?:[^"]|\\")*)" to "(?P<filemanager_field_string>(?:[^"]|\\")*)" filemanager as:$/
+     * @When /^I add and overwrite "(?P<filepath_string>(?:[^"]|\\")*)" file
+     * from "(?P<repository_string>(?:[^"]|\\")*)" to "(?P<filemanager_field_string>(?:[^"]|\\")*)" filemanager as:$/
      * @throws ExpectationException Thrown by behat_base::find
      * @param string $filepath
      * @param string $repository

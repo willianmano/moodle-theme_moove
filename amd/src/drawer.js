@@ -20,8 +20,7 @@
  * @copyright  2016 Damyon Wiese
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-define(['jquery', 'core/custom_interaction_events', 'core/log'],
-     function($, CustomEvents, Log) {
+define(['jquery', 'core/custom_interaction_events', 'core/log'], function($, CustomEvents, Log) {
 
     var SELECTORS = {
         TOGGLE_REGION: '[data-region="drawer-toggle"]',
@@ -41,9 +40,11 @@ define(['jquery', 'core/custom_interaction_events', 'core/log'],
         if (!$(SELECTORS.TOGGLE_REGION).length) {
             Log.debug('Page is missing a drawer region');
         }
+
         if (!$(SELECTORS.TOGGLE_ACTION).length) {
             Log.debug('Page is missing a drawer toggle link');
         }
+
         $(SELECTORS.TOGGLE_REGION).each(function(index, ele) {
             var trigger = $(ele).find(SELECTORS.TOGGLE_ACTION);
             var drawerid = trigger.attr('aria-controls');

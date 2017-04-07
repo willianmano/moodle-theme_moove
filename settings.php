@@ -34,7 +34,7 @@ if ($ADMIN->fulltree) {
 
     // Logo file setting.
     $name = 'theme_moove/logo';
-    $title = get_string('logo','theme_moove');
+    $title = get_string('logo', 'theme_moove');
     $description = get_string('logodesc', 'theme_moove');
     $opts = array('accepted_types' => array('.png', '.jpg', '.gif', '.webp', '.tiff', '.svg'));
     $setting = new admin_setting_configstoredfile($name, $title, $description, 'logo', 0, $opts);
@@ -65,7 +65,7 @@ if ($ADMIN->fulltree) {
 
     // Preset files setting.
     $name = 'theme_moove/presetfiles';
-    $title = get_string('presetfiles','theme_moove');
+    $title = get_string('presetfiles', 'theme_moove');
     $description = get_string('presetfiles_desc', 'theme_moove');
 
     $setting = new admin_setting_configstoredfile($name, $title, $description, 'preset', 0,

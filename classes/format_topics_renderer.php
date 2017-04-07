@@ -46,7 +46,7 @@ class theme_moove_format_topics_renderer extends format_topics_renderer {
 
         // Can we view the section in question?
         if (!($sectioninfo = $modinfo->get_section_info($displaysection))) {
-            // This section doesn't exist
+            // This section doesn't exist.
             print_error('unknowncoursesection', 'error', null, $course->fullname);
             return;
         }
@@ -73,7 +73,7 @@ class theme_moove_format_topics_renderer extends format_topics_renderer {
             echo $this->end_section_list();
         }
 
-        // Start single-section div
+        // Start single-section div.
         echo html_writer::start_tag('div', array('class' => 'single-section'));
 
         // The requested section page.
@@ -83,7 +83,8 @@ class theme_moove_format_topics_renderer extends format_topics_renderer {
         $sectionnavlinks = $this->get_nav_links($course, $modinfo->get_section_info_all(), $displaysection);
         $sectiontitle = '';
         $sectiontitle .= html_writer::start_tag('div', array('class' => 'section-navigation navigationtitle'));
-        // Title attributes
+
+        // Title attributes.
         $classes = 'sectionname';
         if (!$thissection->visible) {
             $classes .= ' dimmed_text';
@@ -144,7 +145,8 @@ class theme_moove_format_topics_renderer extends format_topics_renderer {
                     $params = array('class' => 'dimmed_text');
                 }
                 $previouslink = html_writer::tag('span', '<i class="icon-arrow-left"></i>', array('class' => 'larrow'));
-                $previouslink .= "<span class='text'><span class='nav_guide'>".get_string('prev_section', 'theme_moove')."</span><br>".get_section_name($course, $sections[$back])."</span>";
+                $previouslink .= "<span class='text'><span class='nav_guide'>".get_string('prev_section', 'theme_moove')."</span>";
+                $previouslink .= "<br>" . get_section_name($course, $sections[$back])."</span>";
                 $links['previous'] = html_writer::link(course_get_url($course, $back), $previouslink, $params);
             }
             $back--;
@@ -157,7 +159,8 @@ class theme_moove_format_topics_renderer extends format_topics_renderer {
                 if (!$sections[$forward]->visible) {
                     $params = array('class' => 'dimmed_text');
                 }
-                $nextlink = "<span class='text'><span class='nav_guide'>".get_string('next_section', 'theme_moove')."</span><br>".get_section_name($course, $sections[$forward])."</span>";
+                $nextlink = "<span class='text'><span class='nav_guide'>".get_string('next_section', 'theme_moove')."</span><br>";
+                $nextlink .= get_section_name($course, $sections[$forward])."</span>";
                 $nextlink .= html_writer::tag('span', '<i class="icon-arrow-right"></i>', array('class' => 'rarrow'));
                 $links['next'] = html_writer::link(course_get_url($course, $forward), $nextlink, $params);
             }
@@ -188,17 +191,17 @@ class theme_moove_format_topics_renderer extends format_topics_renderer {
         echo $completioninfo->display_help_icon();
         echo $this->output->heading($this->page_title(), 2, 'accesshide');
 
-        // Copy activity clipboard..
+        // Copy activity clipboard.
         echo $this->course_activity_clipboard($course, 0);
 
         // Now the list of sections..
         echo $this->start_section_list();
 
-        $hasRow = false;
+        $hasrow = false;
         foreach ($modinfo->get_section_info_all() as $section => $thissection) {
 
             if ($section == 0) {
-                // 0-section is displayed a little different then the others
+                // 0-section is displayed a little different then the others.
                 if ($thissection->summary or !empty($modinfo->sections[0]) or $PAGE->user_is_editing()) {
                     echo $this->section_header($thissection, $course, false, 0);
                     echo $this->courserenderer->course_section_cm_list($course, $thissection, 0);
@@ -209,13 +212,14 @@ class theme_moove_format_topics_renderer extends format_topics_renderer {
             }
 
             if ($section > $course->numsections) {
-                // activities inside this section are 'orphaned', this section will be printed as 'stealth' below
+                // Activities inside this section are 'orphaned', this section will be printed as 'stealth' below.
                 continue;
             }
 
-            if (!$hasRow) {
-              echo "<div class='row'>";
-              $hasRow = true;
+            if (!$hasrow) {
+                echo "<div class='row'>";
+
+                $hasrow = true;
             }
 
             // Show the section if the user is permitted to access it, OR if it's not available
@@ -247,21 +251,21 @@ class theme_moove_format_topics_renderer extends format_topics_renderer {
             }
 
             if (!($section % 3)) {
-              $hasRow = false;
+                $hasrow = false;
 
-              echo "</div>";
+                echo "</div>";
             }
         }
 
-        if ($hasRow) {
-          echo "</div>";
+        if ($hasrow) {
+            echo "</div>";
         }
 
         if ($PAGE->user_is_editing() and has_capability('moodle/course:update', $context)) {
             // Print stealth sections if present.
             foreach ($modinfo->get_section_info_all() as $section => $thissection) {
                 if ($section <= $course->numsections or empty($modinfo->sections[$section])) {
-                    // this is not stealth section or it is empty
+                    // This is not stealth section or it is empty.
                     continue;
                 }
                 echo $this->stealth_section_header($section);
@@ -312,7 +316,7 @@ class theme_moove_format_topics_renderer extends format_topics_renderer {
         $classattr = 'section main section-summary clearfix col-md-4 col-sm-6 col-xs-12';
         $linkclasses = '';
 
-        // If section is hidden then display grey section link
+        // If section is hidden then display grey section link.
         if (!$section->visible) {
             $classattr .= ' hidden';
             $linkclasses .= ' dimmed_text';
@@ -323,46 +327,47 @@ class theme_moove_format_topics_renderer extends format_topics_renderer {
         $title = get_section_name($course, $section);
         $o = '';
         $o .= html_writer::start_tag('li', array('id' => 'section-'.$section->section,
-            'class' => $classattr, 'role'=>'region', 'aria-label'=> $title));
+            'class' => $classattr, 'role' => 'region', 'aria-label' => $title));
 
         $o .= html_writer::start_tag('div', array('class' => 'pgr-container'));
         $o .= html_writer::start_tag('div', array('class' => 'col-md-4 pgr-img'));
         $o .= html_writer::start_tag('div', array('class' => 'image'));
         $o .= html_writer::link(
-                    course_get_url($course, $section->section),
-                    html_writer::empty_tag('img', array(
-                        'src' => $this->output->pix_url('disc_default', 'theme'),
-                        'class' => "icon-disc"
-                    )));
-        $o .= html_writer::end_tag('div');
-        $o .= html_writer::end_tag('div');
+            course_get_url($course, $section->section),
+            html_writer::empty_tag('img', array(
+                'src' => $this->output->pix_url('disc_default', 'theme'),
+                'class' => "icon-disc"
+            )));
+            $o .= html_writer::end_tag('div');
+            $o .= html_writer::end_tag('div');
 
-        $o .= html_writer::start_tag('div', array('class' => 'col-md-8 pgr-content'));
-        $o .= html_writer::tag('div', '', array('class' => 'left side'));
-        $o .= html_writer::tag('div', '', array('class' => 'right side'));
-        $o .= html_writer::start_tag('div', array('class' => 'content'));
+            $o .= html_writer::start_tag('div', array('class' => 'col-md-8 pgr-content'));
+            $o .= html_writer::tag('div', '', array('class' => 'left side'));
+            $o .= html_writer::tag('div', '', array('class' => 'right side'));
+            $o .= html_writer::start_tag('div', array('class' => 'content'));
 
-        if ($section->uservisible) {
-            $title = html_writer::tag('a', $title,
+            if ($section->uservisible) {
+                $title = html_writer::tag('a', $title,
                     array('href' => course_get_url($course, $section->section), 'class' => $linkclasses));
-        }
-        $o .= $this->output->heading($title, 3, 'section-title');
+            }
 
-        $o.= html_writer::start_tag('div', array('class' => 'summarytext'));
-        $o.= $this->format_summary_text($section);
-        $o.= html_writer::end_tag('div');
-        $o.= $this->section_activity_summary($section, $course, null);
+            $o .= $this->output->heading($title, 3, 'section-title');
 
-        $context = context_course::instance($course->id);
-        $o .= $this->section_availability_message($section,
+            $o .= html_writer::start_tag('div', array('class' => 'summarytext'));
+            $o .= $this->format_summary_text($section);
+            $o .= html_writer::end_tag('div');
+            $o .= $this->section_activity_summary($section, $course, null);
+
+            $context = context_course::instance($course->id);
+            $o .= $this->section_availability_message($section,
                 has_capability('moodle/course:viewhiddensections', $context));
 
-        $o .= html_writer::end_tag('div'); // .content
-        $o .= html_writer::end_tag('div'); // .col-md-9
-        $o .= html_writer::end_tag('div'); // .pgr-content
-        $o .= html_writer::end_tag('li');
+            $o .= html_writer::end_tag('div'); // Content.
+            $o .= html_writer::end_tag('div'); // Col-md-9.
+            $o .= html_writer::end_tag('div'); // Pgr-content.
+            $o .= html_writer::end_tag('li');
 
-        return $o;
+            return $o;
     }
 
     /**
@@ -379,7 +384,7 @@ class theme_moove_format_topics_renderer extends format_topics_renderer {
             return '';
         }
 
-        // Generate array with count of activities in this section:
+        // Generate array with count of activities in this section.
         $sectionmods = array();
         $total = 0;
         $complete = 0;
@@ -413,21 +418,11 @@ class theme_moove_format_topics_renderer extends format_topics_renderer {
         }
 
         if (empty($sectionmods)) {
-            // No sections
+            // No sections.
             return '';
         }
 
-        // Output section activities summary:
-        $o = '';
-        // $o.= html_writer::start_tag('div', array('class' => 'section-summary-activities mdl-right'));
-        // foreach ($sectionmods as $mod) {
-        //     $o.= html_writer::start_tag('span', array('class' => 'activity-count'));
-        //     $o.= $mod['name'].': '.$mod['count'];
-        //     $o.= html_writer::end_tag('span');
-        // }
-        // $o.= html_writer::end_tag('div');
-
-        // Output section completion data
+        // Output section completion data.
         if ($total > 0) {
             $a = new stdClass;
             $a->complete = $complete;
@@ -435,21 +430,18 @@ class theme_moove_format_topics_renderer extends format_topics_renderer {
 
             $percent = 0;
             if ($complete > 0) {
-              $percent = (int) (($complete / $total) * 100);
+                $percent = (int) (($complete / $total) * 100);
             }
 
-            // $o.= html_writer::start_tag('div', array('class' => 'section-summary-activities mdl-right'));
-            // $o.= html_writer::tag('span', get_string('progresstotal', 'completion', $a), array('class' => 'activity-count'));
-            // $o.= html_writer::end_tag('div');
-
-            $o.= html_writer::start_tag('div', array('class' => 'section-summary-activities'));
-            $o.= html_writer::tag('span', 'Andamento da disciplina', array('class' => 'activity-count'));
-            $o.= "<div class='progress'>";
-            $o.= "<div class='progress-bar progress-bar-info' role='progressbar' aria-valuenow='{$percent}' aria-valuemin='0' aria-valuemax='100' style='width: {$percent}%;'>";
-            $o.= "{$percent}%";
-            $o.= "</div>";
-            $o.= "</div>";
-            $o.= html_writer::end_tag('div');
+            $o .= html_writer::start_tag('div', array('class' => 'section-summary-activities'));
+            $o .= html_writer::tag('span', 'Andamento da disciplina', array('class' => 'activity-count'));
+            $o .= "<div class='progress'>";
+            $o .= "<div class='progress-bar progress-bar-info' role='progressbar' aria-valuenow='{$percent}' aria-valuemin='0' ";
+            $o .= " aria-valuemax='100' style='width: {$percent}%;'>";
+            $o .= "{$percent}%";
+            $o .= "</div>";
+            $o .= "</div>";
+            $o .= html_writer::end_tag('div');
         }
 
         return $o;

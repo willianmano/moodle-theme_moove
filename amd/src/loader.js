@@ -39,7 +39,7 @@ define(['jquery', './tether', 'core/event'], function(jQuery, Tether, Event) {
             'theme_moove/tab',
             'theme_moove/tooltip',
             'theme_moove/popover'],
-            function() {
+    function() {
 
         jQuery('body').popover({
             selector: '[data-toggle="popover"]',
@@ -56,7 +56,6 @@ define(['jquery', './tether', 'core/event'], function(jQuery, Tether, Event) {
             });
         });
     });
-
 
     return {};
 });

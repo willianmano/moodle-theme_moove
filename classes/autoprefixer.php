@@ -27,6 +27,7 @@
  */
 
 namespace theme_moove;
+
 defined('MOODLE_INTERNAL') || die();
 
 use Sabberworm\CSS\CSSList\CSSList;
@@ -118,7 +119,7 @@ class autoprefixer {
      * @param array $rules The rules.
      * @return New array of rules.
      */
-    protected function manipulateRuleValues(array $rules) {
+    protected function manipulaterulevalues(array $rules) {
         $finalrules = [];
 
         foreach ($rules as $rule) {
@@ -153,7 +154,7 @@ class autoprefixer {
      * Prefix all the things!
      */
     public function prefix() {
-        $this->processBlock($this->tree);
+        $this->processblock($this->tree);
     }
 
     /**
@@ -162,7 +163,7 @@ class autoprefixer {
      * @param object $block A block.
      * @param object $parent The parent of the block.
      */
-    protected function processBlock($block) {
+    protected function processblock($block) {
         foreach ($block->getContents() as $node) {
             if ($node instanceof AtRule) {
 
@@ -184,10 +185,10 @@ class autoprefixer {
             }
 
             if ($node instanceof CSSList) {
-                $this->processBlock($node);
+                $this->processblock($node);
 
             } else if ($node instanceof RuleSet) {
-                $this->processDeclaration($node, $block);
+                $this->processdeclaration($node, $block);
             }
         }
     }
@@ -198,7 +199,7 @@ class autoprefixer {
      * @param object $node The declaration block.
      * @param object $parent The parent.
      */
-    protected function processDeclaration($node, $parent) {
+    protected function processdeclaration($node, $parent) {
         $rules = [];
 
         foreach ($node->getRules() as $key => $rule) {
@@ -223,7 +224,7 @@ class autoprefixer {
             $rules[] = $rule;
         }
 
-        $node->setRules($this->manipulateRuleValues($rules));
+        $node->setRules($this->manipulaterulevalues($rules));
 
         if ($node instanceof DeclarationBlock) {
             $selectors = $node->getSelectors();

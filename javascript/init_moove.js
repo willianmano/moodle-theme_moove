@@ -1,18 +1,19 @@
 require(['core/first'], function() {
     require(['jquery', 'theme_moove/app', 'core/log'],
         function($, Moove, log) {
-              log.debug('Moove JS initialised');
-              // Add slideDown animation to Bootstrap dropdown when expanding.
-              $('.navbar-custom-menu .dropdown').on('show.bs.dropdown', function() {
+            log.debug('Moove JS initialised');
+
+            // Add slideDown animation to Bootstrap dropdown when expanding.
+            $('.navbar-custom-menu .dropdown').on('show.bs.dropdown', function() {
                 $(this).find('.dropdown-menu').first().stop(true, true).slideDown('fast');
-              });
+            });
 
-              // Add slideUp animation to Bootstrap dropdown when collapsing.
-              $('.navbar-custom-menu .dropdown').on('hide.bs.dropdown', function() {
+            // Add slideUp animation to Bootstrap dropdown when collapsing.
+            $('.navbar-custom-menu .dropdown').on('hide.bs.dropdown', function() {
                 $(this).find('.dropdown-menu').first().stop(true, true).slideUp('fast');
-              });
+            });
 
-           function setEqualHeightMax(selector) {
+            function setEqualHeightMax(selector) {
                 if (selector.length > 0) {
                     var arr = [];
                     var selector_height;
@@ -38,11 +39,10 @@ require(['core/first'], function() {
                     selector.css("max-height", selector_height);
                 }
             }
-
             $(function() {
                 $("[data-pincontrolsidebar]").on('click', function (e) {
                     e.preventDefault();
-                    // toggle the class
+                    // Toggle the class.
                     $(this).toggleClass('pinned');
 
                     var pinned = 0;
@@ -58,20 +58,21 @@ require(['core/first'], function() {
                     Moove.options.controlSidebarOptions.slide = slide;
                     $(".rightsidebar-toggle").data('slide', slide);
                     M.util.set_user_preference('postsidebar_pinned', pinned);
-                    if (!slide)
+                    if (!slide) {
                         $('.control-sidebar').removeClass('control-sidebar-open');
-                    else
+                    } else {
                         $('.control-sidebar').addClass('control-sidebar-open');
+                    }
                 });
 
-                // set equal heights for all grid columns  in theme
+                // Set equal heights for all grid columns in theme.
                 setEqualHeightMax($('.wdm_generalbox .iconbox .iconbox-content'));
                 setEqualHeightMax($('.course-grid > div .box-body'));
                 setEqualHeightMax($('#frontpage-course-list .fp-coursebox'));
                 setEqualHeightMax($('#frontpage-course-list .card-content'));
                 setEqualHeightMax($('.blog .recent-caption'));
 
-                // For scrolling large tables for small screen
+                // For scrolling large tables for small screen.
                 setTimeout(function() {
                     $('.content table').each(function(ind, obj) {
                         if ($(this).width() > $('.content-wrapper > .content').width()) {

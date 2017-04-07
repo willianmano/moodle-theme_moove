@@ -1,20 +1,19 @@
-
-module.exports = function(grunt) { // jshint ignore:line
+module.exports = function(grunt) {
 
     // Import modules.
     var path = require('path');
 
     // PHP strings for exec task.
-    var moodleroot = path.dirname(path.dirname(__dirname)), // jshint ignore:line
+    var moodleroot = path.dirname(path.dirname(__dirname)),
         configfile = '',
-        dirrootopt = grunt.option('dirroot') || process.env.MOODLE_DIR || ''; // jshint ignore:line
+        dirrootopt = grunt.option('dirroot') || process.env.MOODLE_DIR || '';
 
     // Allow user to explicitly define Moodle root dir.
     if ('' !== dirrootopt) {
         moodleroot = path.resolve(dirrootopt);
     }
 
-    var PWD = process.cwd(); // jshint ignore:line
+    var PWD = process.cwd();
     configfile = path.join(moodleroot, 'config.php');
 
     var decachephp = '../../admin/cli/purge_caches.php';

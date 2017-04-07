@@ -68,9 +68,9 @@ if (isloggedin()) {
         $bannercontent = theme_moove_get_setting('bannercontent', true);
     }
 
-    $should_display_marketing = false;
+    $shoulddisplaymarketing = false;
     if (theme_moove_get_setting('displaymarketingbox', true) == true) {
-        $should_display_marketing = true;
+        $shoulddisplaymarketing = true;
     }
 
     $templatecontext = [
@@ -80,7 +80,7 @@ if (isloggedin()) {
         'cansignup' => $CFG->registerauth == 'email' || !empty($CFG->registerauth),
         'bannerheading' => $bannerheading,
         'bannercontent' => $bannercontent,
-        'should_display_marketing' => $should_display_marketing,
+        'shoulddisplaymarketing' => $shoulddisplaymarketing,
     ];
 
     $templatecontext = array_merge($templatecontext, theme_moove_get_marketing_items());
