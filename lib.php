@@ -65,7 +65,7 @@ function theme_moove_set_headerimg($theme) {
         $headerimg = $OUTPUT->pix_url('headerimg', 'theme');
     }
 
-    $headercss = "#page-site-index.notloggedin #page-header {background-image: url($headerimg);}";
+    $headercss = "#page-site-index.notloggedin #page-header {background-image: url('$headerimg');}";
 
     return $headercss;
 }
