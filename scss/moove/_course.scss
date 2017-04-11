@@ -1,182 +1,185 @@
 #page-course-view-topics {
-  #completionprogressid {
-    margin-right: 3em;
-  }
-  .course-content {
-    .topics {
-      #section-0 {
-        border: none;
-      }
-      .section {
-        border: none;
+    #completionprogressid {
+        margin-right: 3em;
+    }
+    .course-content {
+        .topics {
+            #section-0 {
+                border: none;
+            }
+            .section {
+                border: none;
 
-        .activity {
-          margin: 0 2em;
+                .activity {
+                    margin: 0 2em;
+                }
+                .activity.label {
+                    margin: 0;
+                    .mod-indent-outer {
+                        padding-left: 0;
+
+                        .contentwithoutlink {
+                            padding-right: 0;
+
+                            .labelbar {
+                                margin: 1em 0;
+                                padding: 0.5em 0 0.2em 0.5em;
+                                border: 1px solid #dadada;
+                                border-top-width: .2em;
+                                letter-spacing: .1em;
+                                text-transform: uppercase;
+                                font-style: normal;
+                                font-size: 1.4rem;
+
+                                i {
+                                    margin-right: 10px;
+                                }
+                            }
+                            .labelbar.primary {
+                                border-top-color: $brand-primary;
+                                color: $brand-primary;
+                            }
+                            .labelbar.green {
+                                border-top-color: #8bc34a;
+                                color: #8bc34a;
+                            }
+                            .labelbar.orange {
+                                border-top-color: #f39c12;
+                                color: #f39c12;
+                            }
+                            .labelbar.red {
+                                border-top-color: #c0392b;
+                                color: #c0392b;
+                            }
+                            .labelbar.roxo {
+                                border-top-color: #9b59b6;
+                                color: #9b59b6;
+                            }
+                            .labelbar.roxo {
+                                border-top-color: #34495e;
+                                color: #34495e;
+                            }
+                        }
+                    }
+                }
+
+                .pgr-container {
+                    padding-top: 10px;
+                    min-height: 110px;
+                    width: 100%;
+                    border-top: solid 1px #ebebeb;
+                    box-shadow: 0 2px 2px 0 #ebebeb, 0 3px 1px -2px #ebebeb, 0 1px 5px 0 #ebebeb;
+                }
+
+                &:last-child {
+                    border-bottom: 1px;
+                }
+                .pgr-img {
+                    margin: 0;
+                    .image {
+                        width: 90px;
+                        height: 90px;
+                        background-color: $brand-primary;
+                        border-radius: 100%;
+                        overflow: hidden;
+
+                        img {
+                            height: auto;
+                            max-width: 100%;
+                            vertical-align: middle;
+                        }
+                    }
+                }
+
+                .pgr-content .section-title {
+                    font-size: 1.25rem;
+                }
+
+                .activity-count {
+                    margin-left: 12px;
+                }
+
+                .progress {
+                    height: 20px;
+                    margin-bottom: 20px;
+                    overflow: hidden;
+                    background-color: $m-dark-bg-hover;
+                    margin-left: 12px;
+                    width: inherit;
+
+                    .progress-bar {
+                        float: left;
+                        width: 0;
+                        height: 100%;
+                        font-size: 12px;
+                        line-height: 20px;
+                        color: #fff;
+                        text-align: center;
+                        background-color: $brand-primary;
+                    }
+                }
+            }
         }
-        .activity.label {
-          margin: 0;
-          .mod-indent-outer {
-            padding-left: 0;
 
-            .contentwithoutlink  {
-              padding-right: 0;
-
-              .labelbar {
-                margin: 1em 0;
-                padding: 0.5em 0 0.2em 0.5em;
-                border: 1px solid #dadada;
-                border-top-width: .2em;
+        .single-section {
+            .sectionname {
+                border-color: $m-dark-bg-hover;
+                border-style: solid;
+                border-width: 5px 5px 5px 0;
+                background: #fff;
+                margin: 0 0 0 -25px;
+                padding: 12px 15px 5px 15px;
                 letter-spacing: .1em;
                 text-transform: uppercase;
-                font-style: normal;
-                font-size: 1.4rem;
-
-                i {
-                  margin-right: 10px;
-                }
-              }
-              .labelbar.primary {
-                border-top-color: $brand-primary;
                 color: $brand-primary;
-              }
-              .labelbar.green {
-                border-top-color: #8BC34A;
-                color: #8BC34A;
-              }
-              .labelbar.orange {
-                border-top-color: #f39c12;
-                color: #f39c12;
-              }
-              .labelbar.red {
-                border-top-color: #c0392b;
-                color: #c0392b;
-              }
-              .labelbar.roxo {
-                border-top-color: #9b59b6;
-                color: #9b59b6;
-              }
-              .labelbar.roxo {
-                border-top-color: #34495e;
-                color: #34495e;
-              }
-            }
-          }
-        }
-
-        .pgr-container {
-          padding-top: 10px;
-          min-height: 110px;
-          width: 100%;
-          border-top: solid 1px #ebebeb;
-          box-shadow: 0 2px 2px 0 #ebebeb,0 3px 1px -2px #ebebeb,0 1px 5px 0 #ebebeb;
-        }
-
-        &:last-child {
-          border-bottom: 1px;
-        }
-        .pgr-img {
-          margin: 0;
-          .image {
-            width: 90px;
-            height: 90px;
-            background-color: $brand-primary;
-            border-radius: 100%;
-            overflow: hidden;
-
-            img {
-              height: auto;
-              max-width: 100%;
-              vertical-align: middle;
-            }
-          }
-        }
-
-        .pgr-content .section-title {
-          font-size: 1.25rem;
-        }
-
-        .activity-count {
-          margin-left: 12px;
-        }
-
-        .progress {
-            height: 20px;
-            margin-bottom: 20px;
-            overflow: hidden;
-            background-color: $m-dark-bg-hover;
-            margin-left: 12px;
-            width: inherit;
-
-            .progress-bar {
-              float: left;
-              width: 0;
-              height: 100%;
-              font-size: 12px;
-              line-height: 20px;
-              color: #fff;
-              text-align: center;
-              background-color: $brand-primary;
+                font-weight: 700;
             }
         }
-      }
     }
+    .section-navigation.mdl-bottom {
+        .larrow,
+        .rarrow {
+            font-size: 2em;
+            padding: .3em;
+            text-align: center;
+        }
+        .larrow .icon-arrow-left,
+        .rarrow .icon-arrow-right {
+            display: block;
+            height: 1em;
+            width: 1em;
+            margin: .1em auto;
+        }
+        .larrow {
+            float: left;
+            border-right: 1px solid #eee;
+            margin-right: .3em;
 
-    .single-section {
-      .sectionname {
-        border-color: $m-dark-bg-hover;
-        border-style: solid;
-        border-width: 5px 5px 5px 0;
-        background: #fff;
-        margin: 0 0 0 -25px;
-        padding: 12px 15px 5px 15px;
-        letter-spacing: .1em;
-        text-transform: uppercase;
-        color: $brand-primary;
-        font-weight: 700;
-      }
-    }
-  }
-  .section-navigation.mdl-bottom {
-    .larrow, .rarrow {
-      font-size: 2em;
-      padding: .3em;
-      text-align: center;
-    }
-    .larrow .icon-arrow-left, .rarrow .icon-arrow-right {
-      display: block;
-      height: 1em;
-      width: 1em;
-      margin: .1em auto;
-    }
-    .larrow {
-      float: left;
-      border-right: 1px solid #eee;
-      margin-right: .3em;
+            .icon-arrow-left {
+                background: transparent url('[[pix:theme|left-arrow]]') no-repeat 50% 50%;
+            }
+        }
+        .rarrow {
+            float: right;
+            border-left: 1px solid #eee;
+            margin-left: .3em;
 
-      .icon-arrow-left {
-        background: transparent url('[[pix:theme|left-arrow]]') no-repeat 50% 50%;
-      }
+            .icon-arrow-right {
+                background: transparent url('[[pix:theme|right-arrow]]') no-repeat 50% 50%;
+            }
+        }
+        .mdl-left .text .nav_guide,
+        .mdl-right .text .nav_guide {
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            font-style: normal;
+            color: #565656;
+        }
+        .mdl-left .text {
+            float: right;
+        }
+        .mdl-right .text {
+            float: left;
+        }
     }
-    .rarrow {
-      float: right;
-      border-left: 1px solid #eee;
-      margin-left: .3em;
-
-      .icon-arrow-right {
-        background: transparent url('[[pix:theme|right-arrow]]') no-repeat 50% 50%;
-      }
-    }
-    .mdl-left .text .nav_guide, .mdl-right .text .nav_guide {
-      letter-spacing: .1em;
-      text-transform: uppercase;
-      font-style: normal;
-      color: #565656;
-    }
-    .mdl-left .text {
-      float: right;
-    }
-    .mdl-right .text {
-      float: left;
-    }
-  }
 }

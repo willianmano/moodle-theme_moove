@@ -1,142 +1,144 @@
 .navbar {
-  height: $m-navbar-height;
-  max-height: $m-navbar-height;
-  padding: 0 1rem !important;
+    height: $m-navbar-height;
+    max-height: $m-navbar-height;
+    padding: 0 1rem !important;
 
-  .navbar-nav {
-    padding: 0;
+    .navbar-nav {
+        padding: 0;
 
-    .navbar-brand {
-      font-size: 1.75rem;
-      margin-top: 13px;
-      margin-right: 1rem;
+        .navbar-brand {
+            font-size: 1.75rem;
+            margin-top: 13px;
+            margin-right: 1rem;
+        }
+
+        .navbar-brand.has-logo {
+            background-color: inherit !important;
+            padding: 2px 0 !important;
+            margin-top: 0;
+
+            img {
+                max-height: 66px;
+            }
+        }
+
+        .navbar-custom-menu {
+            float: right;
+
+            ul {
+                li {
+                    list-style: none;
+                    float: left;
+                }
+
+                .popover-region {
+                    width: 50px;
+                    cursor: pointer;
+                    margin-right: 5px;
+
+                    &:hover {
+                        background-color: $brand-primary;
+
+                        .popover-region-toggle,
+                        .lang-menu .nav-link {
+                            color: #fff;
+                        }
+                    }
+
+                    .popover-region-toggle,
+                    .lang-menu {
+                        height: 70px;
+                        padding-top: 15px;
+                        width: inherit;
+                        text-align: center;
+                        line-height: 50px;
+                        color: $brand-primary;
+                    }
+
+                    .popover-region-toggle {
+                        i.fa {
+                            font-size: 1.4rem;
+                        }
+
+                        .count-container {
+                            top: 15px;
+                            right: 2px;
+                            padding: 7px 7px 3px 7px;
+                            border-radius: 10px;
+                        }
+                    }
+
+                    .lang-menu {
+                        .nav-link {
+                            padding-top: 0;
+                            color: $brand-primary;
+
+                            i.fa {
+                                font-size: 1.4rem;
+                            }
+                        }
+                        .dropdown-menu {
+                            margin-top: 0;
+
+                            a.dropdown-item {
+                                line-height: 32px;
+                            }
+                        }
+                    }
+                }
+
+                .popover-region-container {
+                    top: 70px;
+                }
+
+                li.usermenu {
+                    padding: 20px 5px 0 10px;
+                    height: 70px;
+
+                    &:hover {
+                        background-color: $brand-primary;
+
+                        a.dropdown-toggle {
+                            color: #fff;
+                        }
+                    }
+                }
+
+                #control-sidebar-blocks {
+                    background-color: $brand-primary;
+                    width: 50px;
+                    cursor: pointer;
+                    margin-right: 1rem;
+
+                    .control-content {
+                        height: 70px;
+                        padding-top: 10px;
+                        width: inherit;
+                        text-align: center;
+                        line-height: 50px;
+                    }
+
+                    a {
+                        color: #fff;
+
+                        i {
+                            padding: 18px;
+                        }
+                    }
+                }
+            }
+        }
     }
-
-    .navbar-brand.has-logo {
-      background-color: inherit !important;
-      padding: 2px 0 !important;
-      margin-top: 0;
-
-      img {
-        max-height: 66px;
-      }
-    }
-
-    .navbar-custom-menu {
-      float: right;
-
-      ul {
-        li {
-          list-style: none;
-          float: left;
-        }
-
-        .popover-region {
-          width: 50px;
-          cursor: pointer;
-          margin-right: 5px;
-
-          &:hover {
-            background-color: $brand-primary;
-
-            .popover-region-toggle, .lang-menu .nav-link {
-              color: #FFF;
-            }
-          }
-
-          .popover-region-toggle, .lang-menu {
-            height: 70px;
-            padding-top: 15px;
-            width: inherit;
-            text-align: center;
-            line-height: 50px;
-            color: $brand-primary;
-          }
-
-          .popover-region-toggle {
-            i.fa {
-              font-size: 1.4rem;
-            }
-
-            .count-container {
-              top: 15px;
-              right: 2px;
-              padding: 7px 7px 3px 7px;
-              border-radius: 10px;
-            }
-          }
-
-          .lang-menu {
-            .nav-link {
-              padding-top: 0;
-              color: $brand-primary;
-
-              i.fa {
-                font-size: 1.4rem;
-              }
-            }
-            .dropdown-menu {
-              margin-top: 0;
-
-              a.dropdown-item {
-                line-height: 32px;
-              }
-            }
-          }
-        }
-
-        .popover-region-container {
-          top: 70px;
-        }
-
-        li.usermenu {
-          padding: 20px 5px 0 10px;
-          height: 70px;
-
-          &:hover {
-            background-color: $brand-primary;
-
-            a.dropdown-toggle {
-              color: #FFF;
-            }
-          }
-        }
-
-        #control-sidebar-blocks {
-          background-color: $brand-primary;
-          width: 50px;
-          cursor: pointer;
-          margin-right: 1rem;
-
-          .control-content {
-            height: 70px;
-            padding-top: 10px;
-            width: inherit;
-            text-align: center;
-            line-height: 50px;
-          }
-
-          a {
-            color: #FFF;
-
-            i {
-              padding: 18px;
-            }
-          }
-        }
-      }
-    }
-  }
 }
 
 #page-site-index.notloggedin {
-  .navbar {
-    .navbar-custom-menu {
-      li.usermenu {
-        &:hover {
-          background-color: inherit;
+    .navbar {
+        .navbar-custom-menu {
+            li.usermenu {
+                &:hover {
+                    background-color: inherit;
+                }
+            }
         }
-      }
     }
-  }
 }

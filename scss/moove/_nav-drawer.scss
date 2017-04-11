@@ -1,183 +1,185 @@
 .drawer-open-left #nav-drawer .pin-drawer .btn {
-  &:after {
-    content: "Minimize menu";
-  }
-  .fa-icon-max-menu:before {
-    content: "\f0a8";
-  }
+    &:after {
+        content: "Minimize menu";
+    }
+    .fa-icon-max-menu:before {
+        content: "\f0a8";
+    }
 }
 
 #nav-drawer {
-  padding: 0;
-  background-color: $m-dark-bg;
-  top: 70px;
-  padding-bottom: 20px;
-
-  .pin-drawer {
-    padding: 10px;
-    height: 52px;
-
-    .btn {
-      color: #FFF;
-      border-radius: 0;
-      background-color: $m-dark-separator;
-      border: none;
-      box-shadow: none;
-      width: 100%;
-
-      .fa-icon-max-menu:before {
-        content: "\f0a9";
-      }
-
-      &:after {
-        padding-left: 4px;
-        text-transform: uppercase;
-        content: "Maximize menu";
-      }
-    }
-  }
-
-  .list-group {
-    .list-group-item {
-      border: none;
-      background-color: inherit;
-      color: #FFF;
-      padding: .75rem 1rem;
-
-      &:first-child, &:last-child {
-        border-radius: 0;
-      }
-
-      &:hover {
-        background-color: $m-dark-bg-hover;
-        color: $m-dark-bg;
-      }
-    }
-
-    .list-group-item > div:before {
-      font: normal normal normal 14px/1 FontAwesome;
-      content: "\f114";
-    }
-
-
-    .list-group-item > div {
-      display: inline;
-    }
-
-    .list-group-item.font-weight-bold {
-      background-color: $m-dark-bg-hover;
-      border-left: 3px solid $brand-primary;
-      color: $m-dark-bg;
-    }
-
-    [data-key="coursehome"] > div:before {
-        font: normal normal normal 14px/1 FontAwesome;
-        content: "\f19d";
-    }
-    [data-key="mycourses"] > div:before {
-      font: normal normal normal 14px/1 FontAwesome;
-      content: "\f0e8";
-    }
-    [data-key="participants"] > div:before {
-        font: normal normal normal 14px/1 FontAwesome;
-        content: "\f0c0";
-    }
-    [data-key="badgesview"] > div:before {
-        font: normal normal normal 14px/1 FontAwesome;
-        content: "\f0a3";
-    }
-    // Competences
-    [data-key="2"] > div:before {
-        font: normal normal normal 14px/1 FontAwesome;
-        content: "\f058";
-    }
-    [data-key="grades"] > div:before {
-        font: normal normal normal 14px/1 FontAwesome;
-        content: "\f031";
-    }
-    [data-key="myhome"] > div:before {
-        font: normal normal normal 14px/1 FontAwesome;
-        content: "\f0e4";
-    }
-    [data-key="home"] > div:before {
-        font: normal normal normal 14px/1 FontAwesome;
-        content: "\f015";
-    }
-    [data-key="calendar"] > div:before {
-        font: normal normal normal 14px/1 FontAwesome;
-        content: "\f073";
-    }
-    // Private files
-    [data-key="5"] > div:before, [data-key="7"] > div:before {
-        font: normal normal normal 14px/1 FontAwesome;
-        content: "\f0c5";
-    }
-    [data-key="sitesettings"] > div:before {
-        font: normal normal normal 14px/1 FontAwesome;
-        content: "\f085";
-    }
-  }
-
-  .list-group.m-t-1 {
-    border-top: 3px solid $m-dark-separator;
-  }
-}
-
-#nav-drawer.closed {
-  left: -220px;
-  overflow-y: hidden;
-
-  .pin-drawer {
-    text-align: right;
-    padding-right: 1rem;
-    .btn {
-      width: 40px;
-      &:after {
-        content: "";
-      }
-    }
-  }
-
-  .list-group {
-    .list-group-item {
-      text-align: right;
-      padding: .75rem 1.7rem;
-    }
-  }
-
-  .list-group .list-group-item > div span.text {
-    display: none;
-  }
-
-  &:hover {
-    left: 0;
-    overflow-y: scroll;
-
-    .pin-drawer .btn:after {
-        content: "Maximize menu";
-    }
+    padding: 0;
+    background-color: $m-dark-bg;
+    top: 70px;
+    padding-bottom: 20px;
 
     .pin-drawer {
-      text-align: inherit;;
-      padding-right: 10px;
-      .btn {
-        margin-right: 0!important;
-        width: 100%;
-        &:after {
-          content: "Maximize menu";
+        padding: 10px;
+        height: 52px;
+
+        .btn {
+            color: #fff;
+            border-radius: 0;
+            background-color: $m-dark-separator;
+            border: none;
+            box-shadow: none;
+            width: 100%;
+
+            .fa-icon-max-menu:before {
+                content: "\f0a9";
+            }
+
+            &:after {
+                padding-left: 4px;
+                text-transform: uppercase;
+                content: "Maximize menu";
+            }
         }
-      }
     }
 
     .list-group {
-      .list-group-item {
-        text-align: left;
-        padding: .75rem 1rem;
-      }
+        .list-group-item {
+            border: none;
+            background-color: inherit;
+            color: #fff;
+            padding: .75rem 1rem;
+
+            &:first-child,
+            &:last-child {
+                border-radius: 0;
+            }
+
+            &:hover {
+                background-color: $m-dark-bg-hover;
+                color: $m-dark-bg;
+            }
+        }
+
+        .list-group-item > div:before {
+            font: normal normal normal 14px/1 FontAwesome;
+            content: "\f114";
+        }
+
+
+        .list-group-item > div {
+            display: inline;
+        }
+
+        .list-group-item.font-weight-bold {
+            background-color: $m-dark-bg-hover;
+            border-left: 3px solid $brand-primary;
+            color: $m-dark-bg;
+        }
+
+        [data-key="coursehome"] > div:before {
+            font: normal normal normal 14px/1 FontAwesome;
+            content: "\f19d";
+        }
+        [data-key="mycourses"] > div:before {
+            font: normal normal normal 14px/1 FontAwesome;
+            content: "\f0e8";
+        }
+        [data-key="participants"] > div:before {
+            font: normal normal normal 14px/1 FontAwesome;
+            content: "\f0c0";
+        }
+        [data-key="badgesview"] > div:before {
+            font: normal normal normal 14px/1 FontAwesome;
+            content: "\f0a3";
+        }
+        // Competences
+        [data-key="2"] > div:before {
+            font: normal normal normal 14px/1 FontAwesome;
+            content: "\f058";
+        }
+        [data-key="grades"] > div:before {
+            font: normal normal normal 14px/1 FontAwesome;
+            content: "\f031";
+        }
+        [data-key="myhome"] > div:before {
+            font: normal normal normal 14px/1 FontAwesome;
+            content: "\f0e4";
+        }
+        [data-key="home"] > div:before {
+            font: normal normal normal 14px/1 FontAwesome;
+            content: "\f015";
+        }
+        [data-key="calendar"] > div:before {
+            font: normal normal normal 14px/1 FontAwesome;
+            content: "\f073";
+        }
+        // Private files
+        [data-key="5"] > div:before,
+        [data-key="7"] > div:before {
+            font: normal normal normal 14px/1 FontAwesome;
+            content: "\f0c5";
+        }
+        [data-key="sitesettings"] > div:before {
+            font: normal normal normal 14px/1 FontAwesome;
+            content: "\f085";
+        }
+    }
+
+    .list-group.m-t-1 {
+        border-top: 3px solid $m-dark-separator;
+    }
+}
+
+#nav-drawer.closed {
+    left: -220px;
+    overflow-y: hidden;
+
+    .pin-drawer {
+        text-align: right;
+        padding-right: 1rem;
+        .btn {
+            width: 40px;
+            &:after {
+                content: "";
+            }
+        }
+    }
+
+    .list-group {
+        .list-group-item {
+            text-align: right;
+            padding: .75rem 1.7rem;
+        }
     }
 
     .list-group .list-group-item > div span.text {
-      display: inline;
+        display: none;
     }
-  }
+
+    &:hover {
+        left: 0;
+        overflow-y: scroll;
+
+        .pin-drawer .btn:after {
+            content: "Maximize menu";
+        }
+
+        .pin-drawer {
+            text-align: inherit;
+            padding-right: 10px;
+            .btn {
+                margin-right: 0 !important;
+                width: 100%;
+                &:after {
+                    content: "Maximize menu";
+                }
+            }
+        }
+
+        .list-group {
+            .list-group-item {
+                text-align: left;
+                padding: .75rem 1rem;
+            }
+        }
+
+        .list-group .list-group-item > div span.text {
+            display: inline;
+        }
+    }
 }

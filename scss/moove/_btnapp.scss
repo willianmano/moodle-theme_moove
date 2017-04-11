@@ -1,163 +1,164 @@
 .btn.btn-ti {
-  display: inline-block;
-  width: 100px;
-  margin: 2px;
-  position: relative;
-  font-size: 14px;
-  font-weight: normal;
-  color: #fff;
-  text-align: center;
-  border: none;
-  padding: 12px 0 8px;
-  text-shadow: none;
-  -webkit-font-smoothing: antialiased;
+    display: inline-block;
+    width: 100px;
+    margin: 2px;
+    position: relative;
+    font-size: 14px;
+    font-weight: normal;
+    color: #fff;
+    text-align: center;
+    border: none;
+    padding: 12px 0 8px;
+    text-shadow: none;
+    -webkit-font-smoothing: antialiased;
 }
 .btn.btn-ti:hover,
 .btn.btn-ti:active {
-  -webkit-box-shadow: inset 0 150px 2px rgba(0, 0, 0, 0.1);
-  box-shadow: inset 0 150px 2px rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: inset 0 150px 2px rgba(0, 0, 0, 0.1);
+    box-shadow: inset 0 150px 2px rgba(0, 0, 0, 0.1);
 }
 .btn.btn-ti,
 .btn.btn-ti-default {
-  background: #b4c2cc !important;
+    background: #b4c2cc !important;
 }
 .btn-ti.btn-primary {
-  background: $brand-primary !important;
+    background: $brand-primary !important;
 }
 .btn-ti.btn-info {
-  background: #68adde !important;
+    background: #68adde !important;
 }
 .btn-ti.btn-success {
-  background: #86b558 !important;
+    background: #86b558 !important;
 }
 .btn-ti.btn-danger {
-  background: #d3413b !important;
+    background: #d3413b !important;
 }
 .btn-ti.btn-warning {
-  background: #ffb44b !important;
+    background: #ffb44b !important;
 }
 .btn-ti.btn-purple {
-  background: #9383bd !important;
+    background: #9383bd !important;
 }
 .btn-ti.btn-pink {
-  background: #d54c7e !important;
+    background: #d54c7e !important;
 }
 .btn-ti.btn-inverse {
-  background: #3d3d3d !important;
+    background: #3d3d3d !important;
 }
 .btn-ti.btn-grey {
-  background: #7a7a7a !important;
+    background: #7a7a7a !important;
 }
 .btn-ti.btn-light {
-  color: #5a5a5a !important;
-  background: #ededed !important;
+    color: #5a5a5a !important;
+    background: #ededed !important;
 }
 .btn-ti.btn-yellow {
-  color: #996633 !important;
-  background: #fee088 !important;
+    color: #963 !important;
+    background: #fee088 !important;
 }
 .btn.btn-ti.small {
-  width: 64px;
-  font-size: 15px;
-  border-radius: 8px;
-  padding-bottom: 7px;
-  padding-top: 8px;
+    width: 64px;
+    font-size: 15px;
+    border-radius: 8px;
+    padding-bottom: 7px;
+    padding-top: 8px;
 }
 .btn.btn-ti.mini {
-  width: 50px;
-  font-size: 12px;
-  border-radius: 8px;
-  padding-bottom: 0;
-  padding-top: 3px;
+    width: 50px;
+    font-size: 12px;
+    border-radius: 8px;
+    padding-bottom: 0;
+    padding-top: 3px;
 }
 .btn.btn-ti > [class*=icon] {
-  display: block;
-  font-size: 42px;
-  margin: 10px auto;
-  line-height: 36px;
-  min-width: 0;
-  padding: 0;
+    display: block;
+    font-size: 42px;
+    margin: 10px auto;
+    line-height: 36px;
+    min-width: 0;
+    padding: 0;
 }
 .btn.btn-ti.small > [class*=icon] {
-  display: block;
-  font-size: 24px;
-  line-height: 24px;
-  margin: 0 auto;
+    display: block;
+    font-size: 24px;
+    line-height: 24px;
+    margin: 0 auto;
 }
 .btn.btn-ti.mini > [class*=icon] {
-  display: block;
-  font-size: 20px;
-  line-height: 24px;
-  margin: 0 auto;
+    display: block;
+    font-size: 20px;
+    line-height: 24px;
+    margin: 0 auto;
 }
 .btn.btn-ti.no-radius {
-  border-radius: 0;
+    border-radius: 0;
 }
 .btn.btn-ti.radius-4 {
-  border-radius: 4px;
+    border-radius: 4px;
 }
 .btn.btn-ti > .badge,
 .btn.btn-ti > .label {
-  position: absolute !important;
-  top: -2px;
-  right: -2px;
-  padding: 1px 3px;
-  text-align: center;
-  font-size: 12px;
+    position: absolute !important;
+    top: -2px;
+    right: -2px;
+    padding: 1px 3px;
+    text-align: center;
+    font-size: 12px;
 }
 .btn.btn-ti > .badge.badge-right,
 .btn.btn-ti > .label.badge-right,
 .btn.btn-ti > .badge.label-right,
 .btn.btn-ti > .label.label-right {
-  right: auto;
-  left: -2px;
+    right: auto;
+    left: -2px;
 }
 .btn.btn-ti > .label {
-  padding: 1px 6px 3px;
-  font-size: 13px;
+    padding: 1px 6px 3px;
+    font-size: 13px;
 }
 .btn.btn-ti.radius-4 > .badge,
 .btn.btn-ti.no-radius > .badge {
-  border-radius: 3px;
+    border-radius: 3px;
 }
 .btn.btn-ti.radius-4 > .badge.no-radius,
 .btn.btn-ti.no-radius > .badge.no-radius {
-  border-radius: 0;
+    border-radius: 0;
 }
 .btn-ti.no-bg {
-  color: $brand-primary;
-  background: none !important
+    color: $brand-primary;
+    background: none !important;
 }
 .btn-ti.no-bg.btn-primary {
-  color: $brand-primary !important;
+    color: $brand-primary !important;
 }
 .btn-ti.no-bg.btn-info {
-  color: #68adde !important;
+    color: #68adde !important;
 }
 .btn-ti.no-bg.btn-success {
-  color: #86b558 !important;
+    color: #86b558 !important;
 }
 .btn-ti.no-bg.btn-danger {
-  color: #d3413b !important;
+    color: #d3413b !important;
 }
 .btn-ti.no-bg.btn-warning {
-  color: #ffb44b !important;
+    color: #ffb44b !important;
 }
 .btn-ti.no-bg.btn-purple {
-  color: #9383bd !important;
+    color: #9383bd !important;
 }
 .btn-ti.no-bg.btn-pink {
-  color: #d54c7e !important;
+    color: #d54c7e !important;
 }
 .btn-ti.no-bg.btn-inverse {
-  color: #3d3d3d !important;
+    color: #3d3d3d !important;
 }
 .btn-ti.no-bg.btn-grey {
-  color: #7a7a7a !important;
+    color: #7a7a7a !important;
 }
 .btn-ti.no-bg.btn-yellow {
-  color: #fee088 !important;
+    color: #fee088 !important;
 }
+
 @media (min-width: 320px) and (max-width: 480px) {
     .btn-ti {
         width: 65px !important;
@@ -165,9 +166,10 @@
         font-size: 9px !important;
     }
     .ti-icon {
-      font-size: 32px !important;
+        font-size: 32px !important;
     }
 }
+
 @media (min-width: 480px) and (max-width: 767px) {
     .btn-ti {
         width: 75px !important;
@@ -175,9 +177,10 @@
         font-size: 11px !important;
     }
     .ti-icon {
-      font-size: 30px !important;
+        font-size: 30px !important;
     }
 }
+
 @media (min-width: 768px) and (max-width: 979px) {
     .btn-ti {
         width: 70px !important;
@@ -186,9 +189,10 @@
         padding: 6px 0 2px;
     }
     .ti-icon {
-      font-size: 36px !important;
+        font-size: 36px !important;
     }
 }
+
 @media (min-width: 980px) and (max-width: 1200px) {
     .btn-ti {
         width: 85px !important;
