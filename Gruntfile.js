@@ -6,9 +6,9 @@ module.exports = function(grunt) {
     var path = require('path');
 
     // PHP strings for exec task.
-    var moodleroot = path.dirname(path.dirname(__dirname)),
-        configfile = '',
-        dirrootopt = grunt.option('dirroot') || process.env.MOODLE_DIR || '';
+    var moodleroot = path.dirname(path.dirname(__dirname));
+    var configfile = '';
+    var dirrootopt = grunt.option('dirroot') || process.env.MOODLE_DIR || '';
 
     // Allow user to explicitly define Moodle root dir.
     if ('' !== dirrootopt) {
@@ -42,6 +42,24 @@ module.exports = function(grunt) {
                 livereload: true
             }
         },
+        stylelint: {
+            scss: {
+                options: {syntax: 'scss'},
+                src: ['scss/**/*.scss']
+            },
+            css: {
+                src: ['*/**/*.css'],
+                options: {
+                    configOverrides: {
+                        rules: {
+                            // These rules have to be disabled in .stylelintrc for scss compat.
+                            "at-rule-no-unknown": true,
+                            "no-browser-hacks": [true, {"severity": "warning"}]
+                        }
+                    }
+                }
+            }
+        },
         jshint: {
             options: {
                 jshintrc: true
@@ -73,6 +91,10 @@ module.exports = function(grunt) {
     // Load core tasks.
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-jshint');
+    grunt.loadNpmTasks('grunt-stylelint');
+
+    // Register CSS taks.
+   grunt.registerTask('css', ['stylelint:scss', 'stylelint:css']);
 
     // Register tasks.
     grunt.registerTask("default", ["watch"]);

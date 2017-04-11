@@ -13,32 +13,6 @@ require(['core/first'], function() {
                 $(this).find('.dropdown-menu').first().stop(true, true).slideUp('fast');
             });
 
-            function setEqualHeightMax(selector) {
-                if (selector.length > 0) {
-                    var arr = [];
-                    var selector_height;
-                    selector.css("min-height", "initial");
-                    selector.each(function(index, elem) {
-                        selector_height = elem.offsetHeight;
-                        arr.push(selector_height);
-                    });
-                    selector_height = Math.max.apply(null, arr);
-                    selector.css("min-height", selector_height);
-                }
-            }
-            function setEqualHeightMin(selector) {
-                if (selector.length > 0) {
-                    var arr = [];
-                    var selector_height;
-                    selector.css("max-height", "initial");
-                    selector.each(function(index, elem) {
-                        selector_height = elem.offsetHeight;
-                        arr.push(selector_height);
-                    });
-                    selector_height = Math.min.apply(null, arr);
-                    selector.css("max-height", selector_height);
-                }
-            }
             $(function() {
                 $("[data-pincontrolsidebar]").on('click', function (e) {
                     e.preventDefault();
@@ -64,13 +38,6 @@ require(['core/first'], function() {
                         $('.control-sidebar').addClass('control-sidebar-open');
                     }
                 });
-
-                // Set equal heights for all grid columns in theme.
-                setEqualHeightMax($('.wdm_generalbox .iconbox .iconbox-content'));
-                setEqualHeightMax($('.course-grid > div .box-body'));
-                setEqualHeightMax($('#frontpage-course-list .fp-coursebox'));
-                setEqualHeightMax($('#frontpage-course-list .card-content'));
-                setEqualHeightMax($('.blog .recent-caption'));
 
                 // For scrolling large tables for small screen.
                 setTimeout(function() {
