@@ -180,6 +180,13 @@ function theme_moove_pluginfile($course, $cm, $context, $filearea, $args, $force
     }
 }
 
+/**
+ * Get theme setting
+ *
+ * @param string $setting
+ * @param bool $format
+ * @return string
+ */
 function theme_moove_get_setting($setting, $format = false) {
     $theme = theme_config::load('moove');
 
@@ -196,6 +203,11 @@ function theme_moove_get_setting($setting, $format = false) {
     }
 }
 
+/**
+ * Get config theme marketing itens
+ *
+ * @return array
+ */
 function theme_moove_get_marketing_items() {
     global $PAGE, $OUTPUT;
 
