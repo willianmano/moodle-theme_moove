@@ -50,54 +50,27 @@ defined('MOODLE_INTERNAL') || die;
  * @copyright  2017 Willian Mano - http://conecti.me
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class core_renderer extends \core_renderer {
 
     /** @var custom_menu_item language The language menu if created */
     protected $language = null;
 
+    /**
+     * Outputs the pix url base
+     *
+     * @return string an URL.
+     */
     public function get_pix_image_url_base() {
         global $CFG;
 
         return $CFG->wwwroot . "/theme/moove/pix";
     }
 
-    public function getsearchbarform() {
-        global $CFG;
-
-        if (!isloggedin()) {
-            return '';
-        }
-
-        $context = $this->page->context;
-
-        $formaction = $CFG->wwwroot . "/admin/search.php";
-        $formplaceholder = get_string('search_site', 'theme_moove');
-        $searchfieldname = "query";
-        $extrafields = "";
-        // We are on the course home page.
-        if ($context->contextlevel == CONTEXT_COURSE) {
-            global $COURSE;
-
-            $formaction = $CFG->wwwroot . "/mod/forum/search.php?id=" . $COURSE->id;
-            $formplaceholder = get_string('search_forums', 'theme_moove');
-            $extrafields = "<input type='hidden' name='id' value='{$COURSE->id}'>";
-            $searchfieldname = "search";
-        }
-
-        $html  = "<form action='{$formaction}' method='GET' class='form-inline' role='search'>";
-        $html .= $extrafields;
-        $html .= "<div class='input-group'>";
-        $html .= "<input name='{$searchfieldname}' type='text' class='form-control' placeholder='{$formplaceholder}'>";
-        $html .= "<span class='input-group-btn'>";
-        $html .= "<button type='submit' id='search-btn' class='btn btn-flat'><i class='fa fa-search'></i></button>";
-        $html .= "</span>";
-        $html .= "</div>";
-        $html .= "</form>";
-
-        return $html;
-    }
-
+    /**
+     * Outputs the control sidebar button.
+     *
+     * @return string the HTML to output.
+     */
     public function getcontrolsidebar() {
         global $PAGE, $OUTPUT;
 
@@ -194,6 +167,7 @@ class core_renderer extends \core_renderer {
     /**
      * We don't like these...
      *
+     * @return string an empty string.
      */
     public function edit_button(moodle_url $url) {
         return '';
@@ -1057,6 +1031,11 @@ class core_renderer extends \core_renderer {
         return $this->login_info(false);
     }
 
+    /**
+     * Return getintouch config
+     *
+     * @return string Getintouch url config
+     */
     public function get_getintouchcontent_config() {
         $theme = theme_config::load('moove');
 
@@ -1065,6 +1044,11 @@ class core_renderer extends \core_renderer {
         return $setting != '' ? $setting : '';
     }
 
+    /**
+     * Return website config
+     *
+     * @return string Website url config
+     */
     public function get_website_config() {
         $theme = theme_config::load('moove');
 
@@ -1073,6 +1057,11 @@ class core_renderer extends \core_renderer {
         return $setting != '' ? $setting : '';
     }
 
+    /**
+     * Return mobile config
+     *
+     * @return string Mobile url config
+     */
     public function get_mobile_config() {
         $theme = theme_config::load('moove');
 
@@ -1081,6 +1070,11 @@ class core_renderer extends \core_renderer {
         return $setting != '' ? $setting : '';
     }
 
+    /**
+     * Return mail config
+     *
+     * @return string Mail url config
+     */
     public function get_mail_config() {
         $theme = theme_config::load('moove');
 
@@ -1089,6 +1083,11 @@ class core_renderer extends \core_renderer {
         return $setting != '' ? $setting : '';
     }
 
+    /**
+     * Return facebook config
+     *
+     * @return string Facebook url config
+     */
     public function get_facebook_config() {
         $theme = theme_config::load('moove');
 
@@ -1097,6 +1096,11 @@ class core_renderer extends \core_renderer {
         return $setting != '' ? $setting : '';
     }
 
+    /**
+     * Return twitter config
+     *
+     * @return string Twitter url config
+     */
     public function get_twitter_config() {
         $theme = theme_config::load('moove');
 
@@ -1105,6 +1109,11 @@ class core_renderer extends \core_renderer {
         return $setting != '' ? $setting : '';
     }
 
+    /**
+     * Return googleplus config
+     *
+     * @return string Googleplus url config
+     */
     public function get_googleplus_config() {
         $theme = theme_config::load('moove');
 
@@ -1113,6 +1122,11 @@ class core_renderer extends \core_renderer {
         return $setting != '' ? $setting : '';
     }
 
+    /**
+     * Return linkedin config
+     *
+     * @return string Linkeding url config
+     */
     public function get_linkedin_config() {
         $theme = theme_config::load('moove');
 

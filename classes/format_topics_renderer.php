@@ -26,6 +26,13 @@ defined('MOODLE_INTERNAL') || die();
 
 require_once($CFG->dirroot . '/course/format/topics/renderer.php');
 
+/**
+ * Rewrite format topics renderer base class
+ *
+ * @package    theme_moove
+ * @copyright  2017 Willian Mano - http://conecti.me
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
 class theme_moove_format_topics_renderer extends format_topics_renderer {
 
     /**

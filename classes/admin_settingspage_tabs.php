@@ -45,6 +45,11 @@ class theme_moove_admin_settingspage_tabs extends admin_settingpage {
         return true;
     }
 
+    /**
+     * Add tab.
+     *
+     * @param $tab A tab.
+     */
     public function add($tab) {
         return $this->add_tab($tab);
     }

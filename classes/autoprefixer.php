@@ -161,7 +161,6 @@ class autoprefixer {
      * Process block.
      *
      * @param object $block A block.
-     * @param object $parent The parent of the block.
      */
     protected function processblock($block) {
         foreach ($block->getContents() as $node) {
