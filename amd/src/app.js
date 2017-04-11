@@ -4,11 +4,7 @@
  * should be included in all pages. It controls some layout
  * options and implements exclusive Moove plugins.
  *
- * @Author  Almsaeed Studio
- * @Support <http://www.almsaeedstudio.com>
- * @Email   <abdullah@almsaeedstudio.com>
- * @version 2.3.8
- * @license MIT <http://opensource.org/licenses/MIT>
+ * @Author  Willian Mano
  */
 
 /* jshint ignore:start */

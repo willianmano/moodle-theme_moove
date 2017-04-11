@@ -15,10 +15,10 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Overriden course buttons format renderer.
+ * Overriden course topics format renderer.
  *
  * @package    theme_moove
- * @copyright  2017 Willian Mano - conecti.me
+ * @copyright  2017 Willian Mano - http://conecti.me
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 

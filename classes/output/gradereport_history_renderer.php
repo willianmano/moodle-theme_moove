@@ -27,13 +27,6 @@ defined('MOODLE_INTERNAL') || die();
 
 use gradereport_history\output\user_button;
 
-/**
- * Overriden gradereport_history renderer.
- *
- * @package    theme_moove
- * @copyright  2016 Frédéric Massart - FMCorz.net
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- */
 class gradereport_history_renderer extends \gradereport_history\output\renderer {
 
     public function render_user_button(user_button $button) {

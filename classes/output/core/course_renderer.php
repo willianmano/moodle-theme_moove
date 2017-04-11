@@ -17,7 +17,7 @@
 /**
  * Course renderer.
  *
- * @package    theme_noanme
+ * @package    theme_moove
  * @copyright  2016 Frédéric Massart - FMCorz.net
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -29,13 +29,6 @@ use moodle_url;
 
 require_once($CFG->dirroot . '/course/renderer.php');
 
-/**
- * Course renderer class.
- *
- * @package    theme_noanme
- * @copyright  2016 Frédéric Massart - FMCorz.net
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- */
 class course_renderer extends \core_course_renderer {
 
     /**

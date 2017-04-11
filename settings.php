@@ -16,7 +16,7 @@
 
 /**
  * @package   theme_moove
- * @copyright 2017 Willian Mano - conecti.me
+ * @copyright 2017 Willian Mano - http://conecti.me
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 

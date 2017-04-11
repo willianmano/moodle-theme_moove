@@ -47,6 +47,7 @@ defined('MOODLE_INTERNAL') || die;
  *
  * @package    theme_moove
  * @copyright  2012 Bas Brands, www.basbrands.nl
+ * @copyright  2017 Willian Mano - http://conecti.me
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
