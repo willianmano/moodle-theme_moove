@@ -94,7 +94,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-stylelint');
 
     // Register CSS taks.
-   grunt.registerTask('css', ['stylelint:scss', 'stylelint:css']);
+    grunt.registerTask('css', ['stylelint:scss', 'stylelint:css']);
 
     // Register tasks.
     grunt.registerTask("default", ["watch"]);
