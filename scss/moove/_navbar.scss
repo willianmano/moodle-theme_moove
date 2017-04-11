@@ -7,11 +7,18 @@
     padding: 0;
 
     .navbar-brand {
+      font-size: 1.75rem;
+      margin-top: 13px;
+      margin-right: 1rem;
+    }
+
+    .navbar-brand.has-logo {
       background-color: inherit !important;
-      padding: .5rem 0 !important;
+      padding: 2px 0 !important;
+      margin-top: 0;
 
       img {
-        max-height: 55px;
+        max-height: 66px;
       }
     }
 
