@@ -45,7 +45,7 @@ module.exports = function(grunt) {
         stylelint: {
             scss: {
                 options: {
-                  syntax: "scss"
+                    syntax: "scss"
                 },
                 src: ["scss/**/*.scss"]
             },
