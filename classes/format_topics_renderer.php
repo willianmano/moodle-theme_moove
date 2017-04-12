@@ -430,27 +430,28 @@ class theme_moove_format_topics_renderer extends format_topics_renderer {
         }
 
         // Output section completion data.
+        $output = '';
         if ($total > 0) {
-            $a = new stdClass;
-            $a->complete = $complete;
-            $a->total = $total;
+            $completion = new stdClass;
+            $completion->complete = $complete;
+            $completion->total = $total;
 
             $percent = 0;
             if ($complete > 0) {
                 $percent = (int) (($complete / $total) * 100);
             }
 
-            $o .= html_writer::start_tag('div', array('class' => 'section-summary-activities'));
-            $o .= html_writer::tag('span', 'Andamento da disciplina', array('class' => 'activity-count'));
-            $o .= "<div class='progress'>";
-            $o .= "<div class='progress-bar progress-bar-info' role='progressbar' aria-valuenow='{$percent}' aria-valuemin='0' ";
-            $o .= " aria-valuemax='100' style='width: {$percent}%;'>";
-            $o .= "{$percent}%";
-            $o .= "</div>";
-            $o .= "</div>";
-            $o .= html_writer::end_tag('div');
+            $output = html_writer::start_tag('div', array('class' => 'section-summary-activities'));
+            $output .= html_writer::tag('span', 'Andamento da disciplina', array('class' => 'activity-count'));
+            $output .= "<div class='progress'>";
+            $output .= "<div class='progress-bar progress-bar-info' role='progressbar' aria-valuenow='{$percent}' aria-valuemin='0' ";
+            $output .= " aria-valuemax='100' style='width: {$percent}%;'>";
+            $output .= "{$percent}%";
+            $output .= "</div>";
+            $output .= "</div>";
+            $output .= html_writer::end_tag('div');
         }
 
-        return $o;
+        return $output;
     }
 }

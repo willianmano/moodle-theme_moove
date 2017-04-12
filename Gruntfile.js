@@ -3,22 +3,22 @@
 module.exports = function(grunt) {
 
     // Import modules.
-    var path = require('path');
+    var path = require("path");
 
     // PHP strings for exec task.
     var moodleroot = path.dirname(path.dirname(__dirname));
-    var configfile = '';
-    var dirrootopt = grunt.option('dirroot') || process.env.MOODLE_DIR || '';
+    var configfile = "";
+    var dirrootopt = grunt.option("dirroot") || process.env.MOODLE_DIR || "";
 
     // Allow user to explicitly define Moodle root dir.
-    if ('' !== dirrootopt) {
+    if ("" !== dirrootopt) {
         moodleroot = path.resolve(dirrootopt);
     }
 
     var PWD = process.cwd();
-    configfile = path.join(moodleroot, 'config.php');
+    configfile = path.join(moodleroot, "config.php");
 
-    var decachephp = '../../admin/cli/purge_caches.php';
+    var decachephp = "../../admin/cli/purge_caches.php";
 
     grunt.initConfig({
         exec: {
@@ -44,11 +44,13 @@ module.exports = function(grunt) {
         },
         stylelint: {
             scss: {
-                options: {syntax: 'scss'},
-                src: ['scss/**/*.scss']
+                options: {
+                  syntax: "scss"
+                },
+                src: ["scss/**/*.scss"]
             },
             css: {
-                src: ['*/**/*.css'],
+                src: ["*/**/*.css"],
                 options: {
                     configOverrides: {
                         rules: {
@@ -64,17 +66,18 @@ module.exports = function(grunt) {
             options: {
                 jshintrc: true
             },
-            files: ['**/amd/src/*.js']
+            files: ["**/amd/src/*.js"]
         },
         uglify: {
             dynamic_mappings: {
                 files: grunt.file.expandMapping(
-                    ['**/src/*.js', '!**/node_modules/**'],
-                    '', {
+                    ["**/src/*.js", "!**/node_modules/**"],
+                    "",
+                    {
                         cwd: PWD,
                         rename: function(destBase, destPath) {
-                            destPath = destPath.replace('src', 'build');
-                            destPath = destPath.replace('.js', '.min.js');
+                            destPath = destPath.replace("src", "build");
+                            destPath = destPath.replace(".js", ".min.js");
                             destPath = path.resolve(PWD, destPath);
                             return destPath;
                         }
@@ -89,12 +92,12 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks("grunt-exec");
 
     // Load core tasks.
-    grunt.loadNpmTasks('grunt-contrib-uglify');
-    grunt.loadNpmTasks('grunt-contrib-jshint');
-    grunt.loadNpmTasks('grunt-stylelint');
+    grunt.loadNpmTasks("grunt-contrib-uglify");
+    grunt.loadNpmTasks("grunt-contrib-jshint");
+    grunt.loadNpmTasks("grunt-stylelint");
 
     // Register CSS taks.
-    grunt.registerTask('css', ['stylelint:scss', 'stylelint:css']);
+    grunt.registerTask("css", ["stylelint:scss", "stylelint:css"]);
 
     // Register tasks.
     grunt.registerTask("default", ["watch"]);
