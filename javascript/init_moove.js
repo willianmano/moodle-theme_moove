@@ -14,19 +14,18 @@ require(['core/first'], function() {
             });
 
             $(function() {
-                $("[data-pincontrolsidebar]").on('click', function (e) {
+                $("[data-pincontrolsidebar]").on('click', function(e) {
                     e.preventDefault();
                     // Toggle the class.
                     $(this).toggleClass('pinned');
 
                     var pinned = 0;
-                    if($(this).hasClass('pinned')){
+                    if ($(this).hasClass('pinned')) {
                         pinned = 1;
                     }
 
-                    change_layout($(this).data('pincontrolsidebar'));
                     var slide = 1;
-                    if(Moove.options.controlSidebarOptions.slide) {
+                    if (Moove.options.controlSidebarOptions.slide) {
                         slide = 0;
                     }
                     Moove.options.controlSidebarOptions.slide = slide;
@@ -38,23 +37,6 @@ require(['core/first'], function() {
                         $('.control-sidebar').addClass('control-sidebar-open');
                     }
                 });
-
-                // For scrolling large tables for small screen.
-                setTimeout(function() {
-                    $('.content table').each(function(ind, obj) {
-                        if ($(this).width() > $('.content-wrapper > .content').width()) {
-                            $(this).wrap("<div class='no-overflow table-wrap-remui'></div>");
-                            $(this).parent('.table-wrap-remui').prepend(function() {
-                                return "<span class='indicate-right'><i class='fa fa-arrow-right fa-lg' style='padding: 10px 1px;' aria-hidden='true'></i></span>";
-                            });
-                        }
-                    });
-
-                    $('body').on('click', '.indicate-right', function() {
-                        var in_pr = $(this).parent('.table-wrap-remui');
-                        $(in_pr).scrollLeft(1000);
-                    });
-                }, 2000);
             });
         });
 });
