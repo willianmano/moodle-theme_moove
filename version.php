@@ -24,8 +24,8 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->version   = 2017041600;
+$plugin->version   = 2017050300;
 $plugin->requires  = 2016112900;
 $plugin->component = 'theme_moove';
-$plugin->release   = '1.0.2';
+$plugin->release   = '1.0.3';
 $plugin->maturity  = MATURITY_STABLE;

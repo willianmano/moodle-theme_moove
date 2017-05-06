@@ -41,6 +41,22 @@ h1,
             padding-bottom: 0;
         }
     }
+
+    .breadcrumb-button.nonavbar,
+    #page-navbar .breadcrumb-button {
+        .singlebutton {
+            float: right;
+        }
+    }
+
+    .breadcrumb-button.nonavbar .singlebutton {
+        margin-bottom: 1.25rem;
+    }
+
+    #page-navbar .breadcrumb-button .singlebutton {
+        margin-top: 20px;
+    }
+
     #page-navbar {
         .breadcrumb-nav {
             .breadcrumb {

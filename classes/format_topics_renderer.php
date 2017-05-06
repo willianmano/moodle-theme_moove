@@ -223,7 +223,7 @@ class theme_moove_format_topics_renderer extends format_topics_renderer {
                 continue;
             }
 
-            if (!$hasrow) {
+            if (!$hasrow && $course->coursedisplay) {
                 echo "<div class='row'>";
 
                 $hasrow = true;
@@ -257,14 +257,14 @@ class theme_moove_format_topics_renderer extends format_topics_renderer {
                 echo $this->section_footer();
             }
 
-            if (!($section % 3)) {
+            if (!($section % 2) && $course->coursedisplay) {
                 $hasrow = false;
 
                 echo "</div>";
             }
         }
 
-        if ($hasrow) {
+        if ($hasrow && $course->coursedisplay) {
             echo "</div>";
         }
 
@@ -320,7 +320,7 @@ class theme_moove_format_topics_renderer extends format_topics_renderer {
      * @return string HTML to output.
      */
     protected function section_summary($section, $course, $mods) {
-        $classattr = 'section main section-summary clearfix col-md-4 col-sm-6 col-xs-12';
+        $classattr = 'section main section-summary clearfix col-md-6 col-xs-12';
         $linkclasses = '';
 
         // If section is hidden then display grey section link.
@@ -337,7 +337,7 @@ class theme_moove_format_topics_renderer extends format_topics_renderer {
             'class' => $classattr, 'role' => 'region', 'aria-label' => $title));
 
         $o .= html_writer::start_tag('div', array('class' => 'pgr-container'));
-        $o .= html_writer::start_tag('div', array('class' => 'col-md-4 pgr-img'));
+        $o .= html_writer::start_tag('div', array('class' => 'col-md-3 pgr-img'));
         $o .= html_writer::start_tag('div', array('class' => 'image'));
         $o .= html_writer::link(
             course_get_url($course, $section->section),
@@ -348,7 +348,7 @@ class theme_moove_format_topics_renderer extends format_topics_renderer {
             $o .= html_writer::end_tag('div');
             $o .= html_writer::end_tag('div');
 
-            $o .= html_writer::start_tag('div', array('class' => 'col-md-8 pgr-content'));
+            $o .= html_writer::start_tag('div', array('class' => 'col-md-9 pgr-content'));
             $o .= html_writer::tag('div', '', array('class' => 'left side'));
             $o .= html_writer::tag('div', '', array('class' => 'right side'));
             $o .= html_writer::start_tag('div', array('class' => 'content'));
@@ -444,8 +444,8 @@ class theme_moove_format_topics_renderer extends format_topics_renderer {
             $output = html_writer::start_tag('div', array('class' => 'section-summary-activities'));
             $output .= html_writer::tag('span', 'Andamento da disciplina', array('class' => 'activity-count'));
             $output .= "<div class='progress'>";
-            $output .= "<div class='progress-bar progress-bar-info' role='progressbar' aria-valuenow='{$percent}' aria-valuemin='0' ";
-            $output .= " aria-valuemax='100' style='width: {$percent}%;'>";
+            $output .= "<div class='progress-bar progress-bar-info' role='progressbar' aria-valuenow='{$percent}' ";
+            $output .= " aria-valuemin='0' aria-valuemax='100' style='width: {$percent}%;'>";
             $output .= "{$percent}%";
             $output .= "</div>";
             $output .= "</div>";
