@@ -25,17 +25,6 @@
 defined('MOODLE_INTERNAL') || die();
 
 /**
- * Post process the CSS tree.
- *
- * @param string $tree The CSS tree.
- * @param theme_config $theme The theme config object.
- */
-function theme_moove_css_tree_post_processor($tree, $theme) {
-    $prefixer = new theme_moove\autoprefixer($tree);
-    $prefixer->prefix();
-}
-
-/**
  * Inject additional SCSS.
  *
  * @param theme_config $theme The theme config object.
@@ -62,7 +51,7 @@ function theme_moove_set_headerimg($theme) {
     $headerimg = $theme->setting_file_url('headerimg', 'headerimg');
 
     if (is_null($headerimg)) {
-        $headerimg = $OUTPUT->pix_url('headerimg', 'theme');
+        $headerimg = $OUTPUT->image_url('headerimg', 'theme');
     }
 
     $headercss = "#page-site-index.notloggedin #page-header {background-image: url('$headerimg');}";
@@ -85,17 +74,24 @@ function theme_moove_get_main_scss_content($theme) {
 
     $context = context_system::instance();
     if ($filename == 'default.scss') {
-        $scss .= file_get_contents($CFG->dirroot . '/theme/moove/scss/preset/default.scss');
+        // We still load the default preset files directly from the boost theme. No sense in duplicating them.
+        $scss .= file_get_contents($CFG->dirroot . '/theme/boost/scss/preset/default.scss');
     } else if ($filename == 'plain.scss') {
-        $scss .= file_get_contents($CFG->dirroot . '/theme/moove/scss/preset/plain.scss');
+        // We still load the default preset files directly from the boost theme. No sense in duplicating them.
+        $scss .= file_get_contents($CFG->dirroot . '/theme/boost/scss/preset/plain.scss');
     } else if ($filename && ($presetfile = $fs->get_file($context->id, 'theme_moove', 'preset', 0, '/', $filename))) {
+        // This preset file was fetched from the file area for theme_moove and not theme_boost (see the line above).
         $scss .= $presetfile->get_content();
     } else {
         // Safety fallback - maybe new installs etc.
-        $scss .= file_get_contents($CFG->dirroot . '/theme/moove/scss/preset/default.scss');
+        $scss .= file_get_contents($CFG->dirroot . '/theme/boost/scss/preset/default.scss');
     }
 
-    return $scss;
+    // Moove scss
+    $moove = file_get_contents($CFG->dirroot . '/theme/moove/scss/moove.scss');
+
+    // Combine them together.
+    return $scss . "\n" . $moove;
 }
 
 /**
@@ -217,7 +213,7 @@ function theme_moove_get_marketing_items() {
     if (!empty($PAGE->theme->settings->marketing1icon)) {
         $templatecontext['marketing1icon'] = $PAGE->theme->setting_file_url('marketing1icon', 'marketing1icon');
     } else {
-        $templatecontext['marketing1icon'] = $OUTPUT->pix_url('icon_default', 'theme');
+        $templatecontext['marketing1icon'] = $OUTPUT->image_url('icon_default', 'theme');
     }
 
     $templatecontext['marketing1heading'] = '';
@@ -244,7 +240,7 @@ function theme_moove_get_marketing_items() {
     if (!empty($PAGE->theme->settings->marketing2icon)) {
         $templatecontext['marketing2icon'] = $PAGE->theme->setting_file_url('marketing2icon', 'marketing2icon');
     } else {
-        $templatecontext['marketing2icon'] = $OUTPUT->pix_url('icon_default', 'theme');
+        $templatecontext['marketing2icon'] = $OUTPUT->image_url('icon_default', 'theme');
     }
 
     $templatecontext['marketing2heading'] = '';
@@ -271,7 +267,7 @@ function theme_moove_get_marketing_items() {
     if (!empty($PAGE->theme->settings->marketing3icon)) {
         $templatecontext['marketing3icon'] = $PAGE->theme->setting_file_url('marketing3icon', 'marketing3icon');
     } else {
-        $templatecontext['marketing3icon'] = $OUTPUT->pix_url('icon_default', 'theme');
+        $templatecontext['marketing3icon'] = $OUTPUT->image_url('icon_default', 'theme');
     }
 
     $templatecontext['marketing3heading'] = '';
@@ -298,7 +294,7 @@ function theme_moove_get_marketing_items() {
     if (!empty($PAGE->theme->settings->marketing4icon)) {
         $templatecontext['marketing4icon'] = $PAGE->theme->setting_file_url('marketing4icon', 'marketing4icon');
     } else {
-        $templatecontext['marketing4icon'] = $OUTPUT->pix_url('icon_default', 'theme');
+        $templatecontext['marketing4icon'] = $OUTPUT->image_url('icon_default', 'theme');
     }
 
     $templatecontext['marketing4heading'] = '';

@@ -160,7 +160,8 @@ class theme_moove_format_topics_renderer extends format_topics_renderer {
         }
 
         $forward = $sectionno + 1;
-        while ($forward <= $course->numsections and empty($links['next'])) {
+        $numsections = course_get_format($course)->get_last_section_number();
+        while ($forward <= $numsections and empty($links['next'])) {
             if ($canviewhidden || $sections[$forward]->uservisible) {
                 $params = array();
                 if (!$sections[$forward]->visible) {
@@ -198,17 +199,17 @@ class theme_moove_format_topics_renderer extends format_topics_renderer {
         echo $completioninfo->display_help_icon();
         echo $this->output->heading($this->page_title(), 2, 'accesshide');
 
-        // Copy activity clipboard.
+        // Copy activity clipboard..
         echo $this->course_activity_clipboard($course, 0);
 
         // Now the list of sections..
         echo $this->start_section_list();
+        $numsections = course_get_format($course)->get_last_section_number();
 
         $hasrow = false;
         foreach ($modinfo->get_section_info_all() as $section => $thissection) {
-
             if ($section == 0) {
-                // 0-section is displayed a little different then the others.
+                // 0-section is displayed a little different then the others
                 if ($thissection->summary or !empty($modinfo->sections[0]) or $PAGE->user_is_editing()) {
                     echo $this->section_header($thissection, $course, false, 0);
                     echo $this->courserenderer->course_section_cm_list($course, $thissection, 0);
@@ -217,13 +218,13 @@ class theme_moove_format_topics_renderer extends format_topics_renderer {
                 }
                 continue;
             }
-
-            if ($section > $course->numsections) {
-                // Activities inside this section are 'orphaned', this section will be printed as 'stealth' below.
+            if ($section > $numsections) {
+                // activities inside this section are 'orphaned', this section will be printed as 'stealth' below
                 continue;
             }
 
             if (!$hasrow && $course->coursedisplay) {
+                // Initialize or reinitialize a new row to print the course sections boxes.
                 echo "<div class='row'>";
 
                 $hasrow = true;
@@ -258,6 +259,7 @@ class theme_moove_format_topics_renderer extends format_topics_renderer {
             }
 
             if (!($section % 2) && $course->coursedisplay) {
+                // There are at least 3 columns. So it's time to create a new row.
                 $hasrow = false;
 
                 echo "</div>";
@@ -265,14 +267,15 @@ class theme_moove_format_topics_renderer extends format_topics_renderer {
         }
 
         if ($hasrow && $course->coursedisplay) {
+            // We need to close the opened row.
             echo "</div>";
         }
 
         if ($PAGE->user_is_editing() and has_capability('moodle/course:update', $context)) {
             // Print stealth sections if present.
             foreach ($modinfo->get_section_info_all() as $section => $thissection) {
-                if ($section <= $course->numsections or empty($modinfo->sections[$section])) {
-                    // This is not stealth section or it is empty.
+                if ($section <= $numsections or empty($modinfo->sections[$section])) {
+                    // this is not stealth section or it is empty
                     continue;
                 }
                 echo $this->stealth_section_header($section);
@@ -282,29 +285,7 @@ class theme_moove_format_topics_renderer extends format_topics_renderer {
 
             echo $this->end_section_list();
 
-            echo html_writer::start_tag('div', array('id' => 'changenumsections', 'class' => 'mdl-right'));
-
-            // Increase number of sections.
-            $straddsection = get_string('increasesections', 'moodle');
-            $url = new moodle_url('/course/changenumsections.php',
-                array('courseid' => $course->id,
-                      'increase' => true,
-                      'sesskey' => sesskey()));
-            $icon = $this->output->pix_icon('t/switch_plus', $straddsection);
-            echo html_writer::link($url, $icon.get_accesshide($straddsection), array('class' => 'increase-sections'));
-
-            if ($course->numsections > 0) {
-                // Reduce number of sections sections.
-                $strremovesection = get_string('reducesections', 'moodle');
-                $url = new moodle_url('/course/changenumsections.php',
-                    array('courseid' => $course->id,
-                          'increase' => false,
-                          'sesskey' => sesskey()));
-                $icon = $this->output->pix_icon('t/switch_minus', $strremovesection);
-                echo html_writer::link($url, $icon.get_accesshide($strremovesection), array('class' => 'reduce-sections'));
-            }
-
-            echo html_writer::end_tag('div');
+            echo $this->change_number_sections($course, 0);
         } else {
             echo $this->end_section_list();
         }
@@ -342,7 +323,7 @@ class theme_moove_format_topics_renderer extends format_topics_renderer {
         $o .= html_writer::link(
             course_get_url($course, $section->section),
             html_writer::empty_tag('img', array(
-                'src' => $this->output->pix_url('disc_default', 'theme'),
+                'src' => $this->output->image_url('disc_default', 'theme'),
                 'class' => "icon-disc"
             )));
             $o .= html_writer::end_tag('div');
@@ -444,8 +425,8 @@ class theme_moove_format_topics_renderer extends format_topics_renderer {
             $output = html_writer::start_tag('div', array('class' => 'section-summary-activities'));
             $output .= html_writer::tag('span', 'Andamento da disciplina', array('class' => 'activity-count'));
             $output .= "<div class='progress'>";
-            $output .= "<div class='progress-bar progress-bar-info' role='progressbar' aria-valuenow='{$percent}' ";
-            $output .= " aria-valuemin='0' aria-valuemax='100' style='width: {$percent}%;'>";
+            $output .= "<div class='progress-bar progress-bar-info' role='progressbar' aria-valuenow='{$percent}' aria-valuemin='0' ";
+            $output .= " aria-valuemax='100' style='width: {$percent}%;'>";
             $output .= "{$percent}%";
             $output .= "</div>";
             $output .= "</div>";

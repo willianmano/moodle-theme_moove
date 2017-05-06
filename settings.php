@@ -20,16 +20,21 @@
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
+// This line protects the file from being accessed by a URL directly.
 defined('MOODLE_INTERNAL') || die();
 
+// This is used for performance, we don't need to know about these settings on every page in Moodle, only when
+// we are looking at the admin settings pages.
 if ($ADMIN->fulltree) {
 
+    // Boost provides a nice setting page which splits settings onto separate tabs. We want to use it here.
+    $settings = new theme_boost_admin_settingspage_tabs('themesettingmoove', get_string('configtitle', 'theme_moove'));
+
     /*
-    * ---------------------
-    * General settings page
-    * ---------------------
+    * ----------------------
+    * General settings tab
+    * ----------------------
     */
-    $settings = new theme_moove_admin_settingspage_tabs('themesettingmoove', get_string('configtitle', 'theme_moove'));
     $page = new admin_settingpage('theme_moove_general', get_string('generalsettings', 'theme_moove'));
 
     // Logo file setting.
@@ -72,7 +77,7 @@ if ($ADMIN->fulltree) {
         array('maxfiles' => 20, 'accepted_types' => array('.scss')));
     $page->add($setting);
 
-    // Variable $body-color.
+    // Variable $brand-color.
     // We use an empty default value because the default colour should come from the preset.
     $name = 'theme_moove/brandcolor';
     $title = get_string('brandcolor', 'theme_moove');
@@ -86,7 +91,7 @@ if ($ADMIN->fulltree) {
 
     /*
     * ----------------------
-    * Advanced settings page
+    * Advanced settings tab
     * ----------------------
     */
     $page = new admin_settingpage('theme_moove_advanced', get_string('advancedsettings', 'theme_moove'));
@@ -107,7 +112,7 @@ if ($ADMIN->fulltree) {
 
     /*
     * -----------------------
-    * Frontpage settings page
+    * Frontpage settings tab
     * -----------------------
     */
     $page = new admin_settingpage('theme_moove_frontpage', get_string('frontpagesettings', 'theme_moove'));
@@ -331,7 +336,7 @@ if ($ADMIN->fulltree) {
 
     /*
     * --------------------
-    * Footer settings page
+    * Footer settings tab
     * --------------------
     */
     $page = new admin_settingpage('theme_moove_footer', get_string('footersettings', 'theme_moove'));
