@@ -209,7 +209,7 @@ class theme_moove_format_topics_renderer extends format_topics_renderer {
         $hasrow = false;
         foreach ($modinfo->get_section_info_all() as $section => $thissection) {
             if ($section == 0) {
-                // 0-section is displayed a little different then the others
+                // 0-section is displayed a little different then the others.
                 if ($thissection->summary or !empty($modinfo->sections[0]) or $PAGE->user_is_editing()) {
                     echo $this->section_header($thissection, $course, false, 0);
                     echo $this->courserenderer->course_section_cm_list($course, $thissection, 0);
@@ -219,7 +219,7 @@ class theme_moove_format_topics_renderer extends format_topics_renderer {
                 continue;
             }
             if ($section > $numsections) {
-                // activities inside this section are 'orphaned', this section will be printed as 'stealth' below
+                // Activities inside this section are 'orphaned', this section will be printed as 'stealth' below.
                 continue;
             }
 
@@ -275,7 +275,7 @@ class theme_moove_format_topics_renderer extends format_topics_renderer {
             // Print stealth sections if present.
             foreach ($modinfo->get_section_info_all() as $section => $thissection) {
                 if ($section <= $numsections or empty($modinfo->sections[$section])) {
-                    // this is not stealth section or it is empty
+                    // This is not stealth section or it is empty.
                     continue;
                 }
                 echo $this->stealth_section_header($section);
@@ -425,8 +425,8 @@ class theme_moove_format_topics_renderer extends format_topics_renderer {
             $output = html_writer::start_tag('div', array('class' => 'section-summary-activities'));
             $output .= html_writer::tag('span', 'Andamento da disciplina', array('class' => 'activity-count'));
             $output .= "<div class='progress'>";
-            $output .= "<div class='progress-bar progress-bar-info' role='progressbar' aria-valuenow='{$percent}' aria-valuemin='0' ";
-            $output .= " aria-valuemax='100' style='width: {$percent}%;'>";
+            $output .= "<div class='progress-bar progress-bar-info' role='progressbar' aria-valuenow='{$percent}' ";
+            $output .= " aria-valuemin='0' aria-valuemax='100' style='width: {$percent}%;'>";
             $output .= "{$percent}%";
             $output .= "</div>";
             $output .= "</div>";

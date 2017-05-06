@@ -87,7 +87,7 @@ function theme_moove_get_main_scss_content($theme) {
         $scss .= file_get_contents($CFG->dirroot . '/theme/boost/scss/preset/default.scss');
     }
 
-    // Moove scss
+    // Moove scss.
     $moove = file_get_contents($CFG->dirroot . '/theme/moove/scss/moove.scss');
 
     // Combine them together.
