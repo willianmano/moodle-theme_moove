@@ -14,6 +14,14 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
+/**
+ * Overriden theme boost core renderer.
+ *
+ * @package    theme_moove
+ * @copyright  2017 Willian Mano - http://conecti.me
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
+
 namespace theme_moove\output;
 
 use html_writer;
@@ -35,11 +43,52 @@ defined('MOODLE_INTERNAL') || die;
  * Renderers to align Moodle's HTML with that expected by Bootstrap
  *
  * @package    theme_moove
- * @copyright  2012 Bas Brands, www.basbrands.nl
  * @copyright  2017 Willian Mano - http://conecti.me
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class core_renderer extends \theme_boost\output\core_renderer {
+
+    /**
+     * Renders the login form.
+     *
+     * @param \core_auth\output\login $form The renderable.
+     * @return string
+     */
+    public function render_login(\core_auth\output\login $form) {
+        global $SITE;
+
+        $context = $form->export_for_template($this);
+
+        // Override because rendering is not supported in template yet.
+        $context->cookieshelpiconformatted = $this->help_icon('cookiesenabled');
+        $context->errorformatted = $this->error_text($context->error);
+
+        $context->logourl = $this->get_logo();
+        $context->sitename = format_string($SITE->fullname, true, array('context' => \context_course::instance(SITEID)));
+
+        return $this->render_from_template('core/login', $context);
+    }
+
+    /**
+     * Gets the logo to be rendered.
+     *
+     * The priority of get log is: 1st try to get the theme logo, 2st try to get the theme logo
+     * If no logo was found return false
+     *
+     * @return mixed
+     */
+    public function get_logo() {
+        if ($this->should_display_theme_logo()) {
+            return $this->get_theme_logo_url();
+        }
+
+        $url = $this->get_logo_url();
+        if ($url) {
+            return $url->out(false);
+        }
+
+        return false;
+    }
 
     /**
      * Outputs the pix url base

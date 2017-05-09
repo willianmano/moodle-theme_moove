@@ -7,7 +7,6 @@ module.exports = function(grunt) {
 
     // PHP strings for exec task.
     var moodleroot = path.dirname(path.dirname(__dirname));
-    var configfile = "";
     var dirrootopt = grunt.option("dirroot") || process.env.MOODLE_DIR || "";
 
     // Allow user to explicitly define Moodle root dir.
@@ -16,7 +15,6 @@ module.exports = function(grunt) {
     }
 
     var PWD = process.cwd();
-    configfile = path.join(moodleroot, "config.php");
 
     var decachephp = "../../admin/cli/purge_caches.php";
 

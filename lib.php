@@ -41,9 +41,8 @@ function theme_moove_get_extra_scss($theme) {
 /**
  * Adds the cover to CSS.
  *
- * @param string $css The CSS.
- * @param string $cover The URL of the logo.
- * @return string The parsed CSS
+ * @param theme_config $theme The theme config object.
+ * @return string
  */
 function theme_moove_set_headerimg($theme) {
     global $OUTPUT;
@@ -98,7 +97,7 @@ function theme_moove_get_main_scss_content($theme) {
  * Get SCSS to prepend.
  *
  * @param theme_config $theme The theme config object.
- * @return array
+ * @return string
  */
 function theme_moove_get_pre_scss($theme) {
     global $CFG;
@@ -138,7 +137,7 @@ function theme_moove_get_pre_scss($theme) {
  * @param array $args
  * @param bool $forcedownload
  * @param array $options
- * @return bool
+ * @return mixed
  */
 function theme_moove_pluginfile($course, $cm, $context, $filearea, $args, $forcedownload, array $options = array()) {
     if ($context->contextlevel == CONTEXT_SYSTEM and $filearea === 'logo') {

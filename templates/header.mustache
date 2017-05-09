@@ -15,25 +15,27 @@
     along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 }}
 {{!
-    Page header.
+    @template theme_moove/header
+
+    Page header template
 }}
 <header role="banner" class="pos-f-t navbar navbar-full navbar-light bg-faded navbar-static-top moodle-has-zindex">
 
     <div class="container-fluid navbar-nav">
 
-        <a href="{{{ config.wwwroot }}}" class="navbar-brand {{# output.should_display_theme_logo }}has-logo{{/ output.should_display_theme_logo }}
-            {{^ output.should_display_theme_logo }}
+        <a href="{{{ config.wwwroot }}}" class="navbar-brand {{# output.get_logo }}has-logo{{/ output.get_logo }}
+            {{^ output.get_logo }}
                 hidden-sm-down
-            {{/ output.should_display_theme_logo }}
+            {{/ output.get_logo }}
                 ">
-            {{# output.should_display_theme_logo }}
+            {{# output.get_logo }}
                 <span class="logo hidden-xs-down">
-                    <img src="{{output.get_theme_logo_url}}" alt="{{sitename}}">
+                    <img src="{{output.get_logo}}" alt="{{sitename}}">
                 </span>
-            {{/ output.should_display_theme_logo }}
-            {{^ output.should_display_theme_logo }}
+            {{/ output.get_logo }}
+            {{^ output.get_logo }}
                 <span class="site-name hidden-sm-down">{{{ sitename }}}</span>
-            {{/ output.should_display_theme_logo }}
+            {{/ output.get_logo }}
         </a>
 
         <div class="navbar-custom-menu">
