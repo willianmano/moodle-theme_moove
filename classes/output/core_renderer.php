@@ -36,6 +36,7 @@ use moodle_url;
 use action_menu;
 use pix_icon;
 use theme_config;
+use core_text;
 
 defined('MOODLE_INTERNAL') || die;
 

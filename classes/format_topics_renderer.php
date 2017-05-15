@@ -423,7 +423,7 @@ class theme_moove_format_topics_renderer extends format_topics_renderer {
             }
 
             $output = html_writer::start_tag('div', array('class' => 'section-summary-activities'));
-            $output .= html_writer::tag('span', 'Andamento da disciplina', array('class' => 'activity-count'));
+            $output .= html_writer::tag('span', get_string('discipline_progress', 'theme_moove'), array('class' => 'activity-count'));
             $output .= "<div class='progress'>";
             $output .= "<div class='progress-bar progress-bar-info' role='progressbar' aria-valuenow='{$percent}' ";
             $output .= " aria-valuemin='0' aria-valuemax='100' style='width: {$percent}%;'>";
