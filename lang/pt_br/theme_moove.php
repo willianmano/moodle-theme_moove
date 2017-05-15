@@ -53,6 +53,7 @@ $string['readmore'] = 'Leia mais';
 $string['stayintouch'] = 'Entre em contato';
 $string['madewitmoodle'] = 'Orgulhosamente feito com o';
 $string['madeby'] = 'Este tema foi desenvolvido por';
+$string['discipline_progress'] = 'Andamento da disciplina';
 
 $string['frontpagesettings'] = 'Configurações da página inicial';
 $string['headerimg'] = 'Imagem do cabeçalho';
