@@ -5,6 +5,8 @@
 Moodle "Moove" theme repository
 ===============================
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/e1c12730e50b4e479dc9a65dbeff6671)](https://www.codacy.com/app/willianmanoaraujo/moodle-theme_moove?utm_source=github.com&utm_medium=referral&utm_content=willianmano/moodle-theme_moove&utm_campaign=badger)
+
 ![screenshot](pix/screenshot.jpg "Moove Screenshot")
 
 ---------
