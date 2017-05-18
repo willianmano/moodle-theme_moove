@@ -53,6 +53,7 @@ $string['readmore'] = 'Read More';
 $string['stayintouch'] = 'Stay in touch';
 $string['madewitmoodle'] = 'Proudly made with';
 $string['madeby'] = 'This theme was developed by';
+$string['discipline_progress'] = 'Discipline\'s progress';
 
 $string['frontpagesettings'] = 'Frontpage Settings';
 $string['headerimg'] = 'Header image';

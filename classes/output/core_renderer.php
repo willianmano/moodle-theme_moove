@@ -39,6 +39,7 @@ use url_select;
 use context_course;
 use pix_icon;
 use theme_config;
+use core_text;
 
 defined('MOODLE_INTERNAL') || die;
 

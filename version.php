@@ -27,5 +27,5 @@ defined('MOODLE_INTERNAL') || die();
 $plugin->version   = 2017051900;
 $plugin->requires  = 2016112900;
 $plugin->component = 'theme_moove';
-$plugin->release   = '1.0.4';
+$plugin->release   = '1.0.5';
 $plugin->maturity  = MATURITY_STABLE;
