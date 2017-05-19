@@ -9,3 +9,20 @@
         }
     }
 }
+
+#page-login-signup {
+    margin-left: 0;
+    #page-wrapper {
+        padding-bottom: 0;
+        margin-bottom: 0;
+
+        &:after {
+            min-height: 0;
+        }
+
+        #page {
+            margin-top: 0;
+            padding-top: 50px;
+        }
+    }
+}
