@@ -49,6 +49,61 @@ defined('MOODLE_INTERNAL') || die;
  */
 class core_renderer extends \theme_boost\output\core_renderer {
 
+    /*
+     * Renders the custom menu
+     *
+     * @param custom_menu $menu
+     * @return mixed
+     */
+    protected function render_custom_menu(custom_menu $menu) {
+        global $CFG;
+
+        if (!$menu->has_children()) {
+            return '';
+        }
+
+        $content = '';
+        foreach ($menu->get_children() as $item) {
+            $context = $item->export_for_template($this);
+            $content .= $this->render_from_template('core/custom_menu_item', $context);
+        }
+
+        return $content;
+    }
+
+    /*
+     * Renders the lang menu
+     *
+     * @return mixed
+     */
+    public function render_lang_menu() {
+        $langs = get_string_manager()->get_list_of_translations();
+        $haslangmenu = $this->lang_menu() != '';
+        $menu = new custom_menu;
+
+        if ($haslangmenu) {
+            $strlang = get_string('language');
+            $currentlang = current_language();
+            if (isset($langs[$currentlang])) {
+                $currentlang = $langs[$currentlang];
+            } else {
+                $currentlang = $strlang;
+            }
+            $this->language = $menu->add($currentlang, new moodle_url('#'), $strlang, 10000);
+            foreach ($langs as $langtype => $langname) {
+                $this->language->add($langname, new moodle_url($this->page->url, array('lang' => $langtype)), $langname);
+            }
+
+            foreach ($menu->get_children() as $item) {
+                $context = $item->export_for_template($this);
+            }
+
+            if (isset($context)) {
+                return $this->render_from_template('theme_moove/lang_menu', $context);
+            }
+        }
+    }
+
     /**
      * Renders the login form.
      *

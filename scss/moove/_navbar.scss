@@ -23,6 +23,14 @@
         }
 
         .navbar-custom-menu {
+            .nav-link {
+                padding: 27px 5px 0 10px;
+                height: 43px;
+                font-size: .9rem;
+            }
+        }
+
+        .popover-menu-items {
             float: right;
 
             ul {
