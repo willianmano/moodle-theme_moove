@@ -55,17 +55,22 @@ $templatecontext = [
 if (is_siteadmin()) {
     global $DB;
 
-    $totalusage = get_directory_size($CFG->dataroot);
-    $totalusagereadable = number_format(ceil($totalusage / 1048576)) . " MB";
-
     $totalusers = $DB->count_records('user');
 
     $totalcourses = $DB->count_records('course');
 
-    $onlineusers =
-
     $onlineusers = new \block_online_users\fetcher(null, time(), 300, null, CONTEXT_SYSTEM, null);
     $onlineusers = $onlineusers->count_users();
+
+    $cache = cache::make('theme_moove', 'admininfos');
+
+    $totalusagereadable = $cache->get('totalusagereadable');
+    if (!$totalusagereadable) {
+        $totalusage = get_directory_size($CFG->dataroot);
+        $totalusagereadable = number_format(ceil($totalusage / 1048576)) . " MB";
+
+        $cache->set('totalusagereadable', $totalusagereadable);
+    }
 
     $templatecontext['totalusage'] = $totalusagereadable;
     $templatecontext['totalusers'] = $totalusers;
