@@ -133,4 +133,5 @@ $string['googleplusdesc'] = 'Enter the URL of your Google Plus. (i.e http://www.
 $string['linkedin'] = 'Linkedin URL';
 $string['linkedindesc'] = 'Enter the URL of your Linkedin. (i.e http://www.linkedin.com/mycollege)';
 
+$string['cachedef_admininfos'] = 'Site administrator dashboard infos';
 $string['totalusagereadable'] = 'Run the task to calculate the moodledata disk usage';
