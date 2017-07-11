@@ -131,3 +131,5 @@ $string['googleplus'] = 'Google Plus URL';
 $string['googleplusdesc'] = 'Digite a URL do Google Plus. (ex: http://www.googleplus.com/mycollege)';
 $string['linkedin'] = 'Linkedin URL';
 $string['linkedindesc'] = 'Digite a URL do Linkedin. (ex: http://www.linkedin.com/mycollege)';
+
+$string['totalusagereadable'] = 'Executa a tarefa de calcular o calculo de espaço do moodledata';

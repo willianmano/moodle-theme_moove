@@ -63,16 +63,19 @@ if (is_siteadmin()) {
     $onlineusers = $onlineusers->count_users();
 
     $cache = cache::make('theme_moove', 'admininfos');
-
     $totalusagereadable = $cache->get('totalusagereadable');
-    if (!$totalusagereadable) {
-        $totalusage = get_directory_size($CFG->dataroot);
-        $totalusagereadable = number_format(ceil($totalusage / 1048576)) . " MB";
 
-        $cache->set('totalusagereadable', $totalusagereadable);
+    $totalusagereadabletext = 'Não calculado ainda';
+    if ($totalusagereadable) {
+        $usageunit = ' MB';
+        if ($totalusagereadable > 1024) {
+            $usageunit = ' GB';
+        }
+
+        $totalusagereadabletext = $totalusagereadable . $usageunit;
     }
 
-    $templatecontext['totalusage'] = $totalusagereadable;
+    $templatecontext['totalusage'] = $totalusagereadabletext;
     $templatecontext['totalusers'] = $totalusers;
     $templatecontext['totalcourses'] = $totalcourses;
     $templatecontext['onlineusers'] = $onlineusers;
