@@ -1,3 +1,9 @@
+#page-mod-book-view #control-sidebar-blocks,
+#page-mod-quiz-view #control-sidebar-blocks,
+#page-mod-quiz-attempt #control-sidebar-blocks {
+    display: none;
+}
+
 .navbar {
     height: $m-navbar-height;
     max-height: $m-navbar-height;
