@@ -133,3 +133,7 @@ $string['linkedindesc'] = 'Digite a URL do Linkedin. (ex: http://www.linkedin.co
 
 $string['access'] = 'Acessar';
 $string['cachedef_admininfos'] = 'Informações da página inicial dos administradores';
+$string['diskusage'] = 'Uso do disco(moodledata)';
+$string['totalusers'] = 'Total de usuários';
+$string['totalcourses'] = 'Total de cursos';
+$string['onlineusers'] = 'Usuários online(5 minutos)';
