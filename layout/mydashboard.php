@@ -55,25 +55,33 @@ $templatecontext = [
 if (is_siteadmin()) {
     global $DB;
 
+    // Get site total users.
     $totalusers = $DB->count_records('user');
 
+    // Get site total courses.
     $totalcourses = $DB->count_records('course');
 
+    // Get the last online users in the past 5 minutes.
     $onlineusers = new \block_online_users\fetcher(null, time(), 300, null, CONTEXT_SYSTEM, null);
     $onlineusers = $onlineusers->count_users();
 
+    // Get the disk usage.
     $cache = cache::make('theme_moove', 'admininfos');
     $totalusagereadable = $cache->get('totalusagereadable');
 
-    $totalusagereadabletext = 'Não calculado ainda';
-    if ($totalusagereadable) {
-        $usageunit = ' MB';
-        if ($totalusagereadable > 1024) {
-            $usageunit = ' GB';
-        }
+    if (!$totalusagereadable) {
+        $totalusage = get_directory_size($CFG->dataroot);
+        $totalusagereadable = number_format(ceil($totalusage / 1048576));
 
-        $totalusagereadabletext = $totalusagereadable . $usageunit;
+        $cache->set('totalusagereadable', $totalusagereadable);
     }
+
+    $usageunit = ' MB';
+    if ($totalusagereadable > 1024) {
+        $usageunit = ' GB';
+    }
+
+    $totalusagereadabletext = $totalusagereadable . $usageunit;
 
     $templatecontext['totalusage'] = $totalusagereadabletext;
     $templatecontext['totalusers'] = $totalusers;
