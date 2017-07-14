@@ -15,17 +15,19 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Moove.
+ * Defines the cache usage
  *
- * @package    theme_moove
- * @copyright  2017 Willian Mano - conecti.me
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package   theme_moove
+ * @copyright 2017 Willian Mano - http://conecti.me
+ * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
+// This line protects the file from being accessed by a URL directly.
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->version   = 2017071400;
-$plugin->requires  = 2016112900;
-$plugin->component = 'theme_moove';
-$plugin->release   = '1.3.1';
-$plugin->maturity  = MATURITY_STABLE;
+$definitions = array(
+    'admininfos' => array(
+        'mode' => cache_store::MODE_APPLICATION,
+        'ttl' => 3600, // One hour.
+    )
+);

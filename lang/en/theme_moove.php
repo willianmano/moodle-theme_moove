@@ -131,3 +131,6 @@ $string['googleplus'] = 'Google Plus URL';
 $string['googleplusdesc'] = 'Enter the URL of your Google Plus. (i.e http://www.googleplus.com/mycollege)';
 $string['linkedin'] = 'Linkedin URL';
 $string['linkedindesc'] = 'Enter the URL of your Linkedin. (i.e http://www.linkedin.com/mycollege)';
+
+$string['access'] = 'Access';
+$string['cachedef_admininfos'] = 'Site administrator dashboard infos';

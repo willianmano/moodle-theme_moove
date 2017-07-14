@@ -1,0 +1,66 @@
+#page-my-index {
+    #page.container-fluid {
+        padding: 2rem 2rem 0 2rem;
+    }
+
+    .admininfos {
+        padding-bottom: 0;
+    }
+
+    .bg-aqua {
+        background-color: #00c0ef;
+    }
+
+    .bg-yellow {
+        background-color: #f39c12;
+    }
+
+    .bg-green {
+        background-color: #00a65a;
+    }
+
+    .bg-red {
+        background-color: #dd4b39;
+    }
+
+    .small-box {
+        border-radius: 2px;
+        position: relative;
+        display: block;
+        margin-bottom: 20px;
+        box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+    }
+
+    .small-box > .inner {
+        padding: 10px;
+    }
+
+    .small-box h3, .small-box p {
+        z-index: 5;
+        color: #fff;
+    }
+
+    .small-box h3 {
+        font-size: 38px;
+        font-weight: bold;
+        margin: 0 0 10px 0;
+        white-space: nowrap;
+        padding: 0;
+    }
+
+    .small-box p {
+        font-size: 15px;
+    }
+
+    .small-box .icon {
+        -webkit-transition: all .3s linear;
+        -o-transition: all .3s linear;
+        transition: all .3s linear;
+        position: absolute;
+        top: 0px;
+        right: 40px;
+        z-index: 0;
+        font-size: 48px;
+        color: rgba(0,0,0,0.15);
+    }
+}
