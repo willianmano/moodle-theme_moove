@@ -240,7 +240,7 @@ class course_renderer extends \core_course_renderer {
 
         $content .= html_writer::start_tag('div', array('class' => 'pull-right'));
         $content .= html_writer::link(new moodle_url('/course/view.php', array('id' => $course->id)),
-                            'ACESSAR', array('class' => 'card-link btn btn-default'));
+                            get_string('access', 'theme_moove'), array('class' => 'card-link btn btn-default'));
         $content .= html_writer::end_tag('div'); // End pull-right.
 
         $content .= html_writer::end_tag('div'); // End card-block.
