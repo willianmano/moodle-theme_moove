@@ -331,7 +331,8 @@ class course_renderer extends \core_course_renderer {
         }
 
         if (empty($contentimage)) {
-            $url = $this->get_pix_image_url_base() . "/default_course.jpg";
+            $url = $CFG->wwwroot . "/theme/moove/pix/default_course.jpg";
+
             $contentimage = html_writer::empty_tag('img', array('src' => $url, 'alt' => 'Course Image '. $course->fullname,
                         'class' => 'card-img-top w-100'));
         }
