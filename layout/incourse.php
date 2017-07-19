@@ -40,7 +40,7 @@ if ($navdraweropen) {
 
 $moduleswithnavinblocks = ['book', 'quiz'];
 
-if (in_array($PAGE->cm->modname, $moduleswithnavinblocks)) {
+if (isset($PAGE->cm->modname) && in_array($PAGE->cm->modname, $moduleswithnavinblocks)) {
     $navdraweropen = false;
 
     $extraclasses = [];
@@ -63,7 +63,7 @@ $templatecontext = [
 
 $templatecontext['flatnavigation'] = $PAGE->flatnav;
 
-if (in_array($PAGE->cm->modname, $moduleswithnavinblocks)) {
+if (isset($PAGE->cm->modname) && in_array($PAGE->cm->modname, $moduleswithnavinblocks)) {
     echo $OUTPUT->render_from_template('theme_moove/incourse', $templatecontext);
 } else {
     echo $OUTPUT->render_from_template('theme_moove/columns2', $templatecontext);
