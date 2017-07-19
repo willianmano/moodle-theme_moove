@@ -178,3 +178,10 @@
         }
     }
 }
+
+.courses.frontpage-course-list-all {
+    .teachers {
+        max-height: 150px;
+        overflow-y: scroll;
+    }
+}
