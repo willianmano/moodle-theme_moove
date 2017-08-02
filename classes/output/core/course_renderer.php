@@ -273,6 +273,12 @@ class course_renderer extends \core_course_renderer {
         return $content;
     }
 
+    /**
+     * Returns the first course's summary issue
+     *
+     * @param $course the course object
+     * @return string
+     */
     protected function get_course_summary_image($course) {
         global $CFG;
 

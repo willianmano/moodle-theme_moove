@@ -103,6 +103,6 @@ $THEME->layouts = [
         'file' => 'incourse.php',
         'regions' => array('side-pre'),
         'defaultregion' => 'side-pre',
-        'options' => array('nonavbar' => true, 'langmenu' => true),
+        'options' => array('nonavbar' => false, 'langmenu' => true),
     ),
 ];
