@@ -34,6 +34,12 @@ h1,
     }
 }
 
+@media (max-width: 767px) {
+    #page-mod-book-view #region-main {
+        float: inherit;
+    }
+}
+
 #page-header {
     .col-xs-12 .card {
         margin-bottom: 0;
