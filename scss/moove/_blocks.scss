@@ -6,10 +6,10 @@
 
 #sidepreopen-control,
 [data-region="blocks-column"] {
-    -webkit-transition: right .5s ease,left .5s ease;
-    -moz-transition: right .5s ease,left .5s ease;
-    -o-transition: right .5s ease,left .5s ease;
-    transition: right .5s ease,left .5s ease;
+    -webkit-transition: right .5s ease, left .5s ease;
+    -moz-transition: right .5s ease, left .5s ease;
+    -o-transition: right .5s ease, left .5s ease;
+    transition: right .5s ease, left .5s ease;
 }
 
 #sidepreopen-control {
@@ -43,7 +43,6 @@
     height: calc(100% - 50px);
     overflow-y: scroll;
     z-index: 999;
-    float: none;
 }
 
 body.drawer-open-right {
