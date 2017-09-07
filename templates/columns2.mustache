@@ -44,6 +44,7 @@
         "sidepreblocks": "<h2>Blocks html goes here</h2>",
         "hasblocks":true,
         "navdraweropen":true,
+        "sidepreopen":true,
         "regionmainsettingsmenu": "",
         "hasregionmainsettingsmenu": false
     }
@@ -65,15 +66,15 @@
 
     {{>theme_moove/header}}
 
-    <div id="page" class="container-fluid">
+    <div id="page" class="container-fluid {{#hasblocks}}has-blocks{{/hasblocks}}">
         {{{ output.full_header }}}
 
         <div id="page-content" class="row">
             <div id="region-main-box" class="col-xs-12">
                 {{#hasregionmainsettingsmenu}}
-                <div id="region-main-settings-menu" class="hidden-print">
-                    <div> {{{ output.region_main_settings_menu }}} </div>
-                </div>
+                    <div id="region-main-settings-menu" class="hidden-print">
+                        <div> {{{ output.region_main_settings_menu }}} </div>
+                    </div>
                 {{/hasregionmainsettingsmenu}}
                 <section id="region-main">
                     <div class="card card-block">
@@ -82,17 +83,31 @@
                     {{/hasregionmainsettingsmenu}}
                     {{{ output.course_content_header }}}
                     {{{ output.main_content }}}
+                    {{{ output.activity_navigation }}}
                     {{{ output.course_content_footer }}}
                     </div>
                 </section>
             </div>
         </div>
     </div>
-    {{> theme_moove/nav-drawer }}
 
     {{#hasblocks}}
-      {{> theme_moove/blocks-drawer }}
+        <i id="sidepreopen-control"
+            aria-expanded="false"
+            aria-controls="sidepre-blocks"
+            data-action="toggle-drawer"
+            data-side="right"
+            data-preference="sidepre-open"
+            class="fa"
+            title="{{#str}} showhideblocks, theme_moove {{/str}}">
+        </i>
+
+        <section id="sidepre-blocks" data-region="blocks-column" class="hidden-print">
+            {{{ sidepreblocks }}}
+        </section>
     {{/hasblocks}}
+
+    {{> theme_moove/nav-drawer }}
 </div>
 
 {{> theme_moove/footer }}

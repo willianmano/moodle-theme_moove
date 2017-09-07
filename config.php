@@ -81,7 +81,7 @@ $THEME->extrascsscallback = 'theme_moove_get_extra_scss';
 $THEME->prescsscallback = 'theme_moove_get_pre_scss';
 
 // Add some javascript code to our theme.
-$THEME->javascripts_footer = array('init_moove');
+// $THEME->javascripts_footer = array('init_moove');
 
 $THEME->layouts = [
     // The site home page.

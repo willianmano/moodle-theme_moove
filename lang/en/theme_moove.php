@@ -139,3 +139,4 @@ $string['diskusage'] = 'Disk usage(moodledata)';
 $string['totalusers'] = 'Total users';
 $string['totalcourses'] = 'Total courses';
 $string['onlineusers'] = 'Online users(last 5 minutes)';
+$string['showhideblocks'] = 'Show/hide blocks';

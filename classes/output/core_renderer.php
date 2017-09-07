@@ -158,30 +158,6 @@ class core_renderer extends \theme_boost\output\core_renderer {
     }
 
     /**
-     * Outputs the control sidebar button.
-     *
-     * @return string the HTML to output.
-     */
-    public function getcontrolsidebar() {
-        global $PAGE, $OUTPUT;
-
-        $hasrightsideblocks = $PAGE->blocks->region_has_content('side-pre', $OUTPUT);
-
-        if ($hasrightsideblocks || $PAGE->user_is_editing()) {
-            $o = "<li id='control-sidebar-blocks'>";
-            $o .= "<div class='control-content'>";
-            $o .= "<a href='#' data-toggle='control-sidebar' class='rightsidebar-toggle' data-slide='1'>";
-            $o .= "<i class='fa fa-plus'></i></a>";
-            $o .= "</div>";
-            $o .= "</li>";
-
-            return $o;
-        }
-
-        return '';
-    }
-
-    /**
      * Whether we should display the main theme logo in the navbar.
      *
      * @return bool
