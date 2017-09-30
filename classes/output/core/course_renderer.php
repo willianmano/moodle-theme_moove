@@ -33,6 +33,13 @@ use coursecat_helper;
 use stdClass;
 use course_in_list;
 
+/**
+ * Renderers to align Moove's course elements to what is expect
+ *
+ * @package    theme_moove
+ * @copyright  2017 Willian Mano - http://conecti.me
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
 class course_renderer extends \core_course_renderer {
 
     /**
@@ -276,7 +283,7 @@ class course_renderer extends \core_course_renderer {
     /**
      * Returns the first course's summary issue
      *
-     * @param $course the course object
+     * @param stdClass $course the course object
      * @return string
      */
     protected function get_course_summary_image($course) {

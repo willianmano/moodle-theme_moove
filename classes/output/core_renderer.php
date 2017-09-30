@@ -49,7 +49,7 @@ defined('MOODLE_INTERNAL') || die;
  */
 class core_renderer extends \theme_boost\output\core_renderer {
 
-    /*
+    /**
      * Renders the custom menu
      *
      * @param custom_menu $menu
@@ -71,7 +71,7 @@ class core_renderer extends \theme_boost\output\core_renderer {
         return $content;
     }
 
-    /*
+    /**
      * Renders the lang menu
      *
      * @return mixed

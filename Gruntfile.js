@@ -6,13 +6,7 @@ module.exports = function(grunt) {
     var path = require("path");
 
     // PHP strings for exec task.
-    var moodleroot = path.dirname(path.dirname(__dirname));
     var dirrootopt = grunt.option("dirroot") || process.env.MOODLE_DIR || "";
-
-    // Allow user to explicitly define Moodle root dir.
-    if ("" !== dirrootopt) {
-        moodleroot = path.resolve(dirrootopt);
-    }
 
     var PWD = process.cwd();
 
@@ -43,6 +37,7 @@ module.exports = function(grunt) {
         stylelint: {
             scss: {
                 options: {
+                    configFile: '.stylelintrc',
                     syntax: "scss"
                 },
                 src: ["scss/**/*.scss"]
