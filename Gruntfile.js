@@ -1,12 +1,9 @@
-'use strict';
+"use strict";
 
 module.exports = function(grunt) {
 
     // Import modules.
     var path = require("path");
-
-    // PHP strings for exec task.
-    var dirrootopt = grunt.option("dirroot") || process.env.MOODLE_DIR || "";
 
     var PWD = process.cwd();
 
@@ -37,7 +34,7 @@ module.exports = function(grunt) {
         stylelint: {
             scss: {
                 options: {
-                    configFile: '.stylelintrc',
+                    configFile: ".stylelintrc",
                     syntax: "scss"
                 },
                 src: ["scss/**/*.scss"]
@@ -59,7 +56,7 @@ module.exports = function(grunt) {
             options: {
                 jshintrc: true
             },
-            files: ["**/amd/src/*.js"]
+            files: ["*.js"]
         },
         uglify: {
             dynamic_mappings: {
