@@ -25,20 +25,28 @@
 defined('MOODLE_INTERNAL') || die();
 
 user_preference_allow_ajax_update('drawer-open-nav', PARAM_ALPHA);
+user_preference_allow_ajax_update('sidepre-open', PARAM_ALPHA);
+
 require_once($CFG->libdir . '/behat/lib.php');
 
 $extraclasses = [];
 
 if (isloggedin()) {
+    $blockshtml = $OUTPUT->blocks('side-pre');
+    $hasblocks = strpos($blockshtml, 'data-block=') !== false;
+
     $navdraweropen = (get_user_preferences('drawer-open-nav', 'true') == 'true');
+    $draweropenright = (get_user_preferences('sidepre-open', 'true') == 'true');
 
     if ($navdraweropen) {
         $extraclasses[] = 'drawer-open-left';
     }
 
+    if ($draweropenright && $hasblocks) {
+        $extraclasses[] = 'drawer-open-right';
+    }
+
     $bodyattributes = $OUTPUT->body_attributes($extraclasses);
-    $blockshtml = $OUTPUT->blocks('side-pre');
-    $hasblocks = strpos($blockshtml, 'data-block=') !== false;
     $regionmainsettingsmenu = $OUTPUT->region_main_settings_menu();
     $templatecontext = [
         'sitename' => format_string($SITE->shortname, true, ['context' => context_course::instance(SITEID), "escape" => false]),
@@ -47,6 +55,7 @@ if (isloggedin()) {
         'hasblocks' => $hasblocks,
         'bodyattributes' => $bodyattributes,
         'navdraweropen' => $navdraweropen,
+        'draweropenright' => $draweropenright,
         'regionmainsettingsmenu' => $regionmainsettingsmenu,
         'hasregionmainsettingsmenu' => !empty($regionmainsettingsmenu)
     ];
