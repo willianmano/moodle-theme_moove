@@ -144,6 +144,10 @@
             text-align: center;
             min-height: 340px;
 
+            img {
+                max-width: 100%;
+            }
+
             h2 {
                 font-size: 1.75em;
                 color: #565656;

@@ -93,11 +93,23 @@
             </div>
         </div>
     </div>
-    {{> theme_moove/nav-drawer }}
-
     {{#hasblocks}}
-      {{> theme_moove/blocks-drawer }}
+        <i id="sidepreopen-control"
+            aria-expanded="false"
+            aria-controls="sidepre-blocks"
+            data-action="toggle-drawer"
+            data-side="right"
+            data-preference="sidepre-open"
+            class="fa"
+            title="{{#str}} showhideblocks, theme_moove {{/str}}">
+        </i>
+
+        <section id="sidepre-blocks" data-region="blocks-column" class="hidden-print">
+            {{{ sidepreblocks }}}
+        </section>
     {{/hasblocks}}
+
+    {{> theme_moove/nav-drawer }}
 </div>
 
 {{> theme_moove/footer }}
