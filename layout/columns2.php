@@ -34,7 +34,7 @@ if (isloggedin()) {
     $draweropenright = (get_user_preferences('sidepre-open', 'true') == 'true');
 } else {
     $navdraweropen = false;
-    $draweropenright = fale;
+    $draweropenright = false;
 }
 
 $blockshtml = $OUTPUT->blocks('side-pre');
