@@ -194,7 +194,7 @@ if ($ADMIN->fulltree) {
     $name = 'theme_moove/marketing1url';
     $title = get_string('marketing1url', 'theme_moove');
     $description = get_string('marketing1urldesc', 'theme_moove');
-    $setting = new admin_setting_configtext($name, $title, $description);
+    $setting = new admin_setting_configtext($name, $title, $description, '');
     $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
 
@@ -238,7 +238,7 @@ if ($ADMIN->fulltree) {
     $name = 'theme_moove/marketing2url';
     $title = get_string('marketing2url', 'theme_moove');
     $description = get_string('marketing2urldesc', 'theme_moove');
-    $setting = new admin_setting_configtext($name, $title, $description);
+    $setting = new admin_setting_configtext($name, $title, $description, '');
     $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
 
@@ -282,7 +282,7 @@ if ($ADMIN->fulltree) {
     $name = 'theme_moove/marketing3url';
     $title = get_string('marketing3url', 'theme_moove');
     $description = get_string('marketing3urldesc', 'theme_moove');
-    $setting = new admin_setting_configtext($name, $title, $description);
+    $setting = new admin_setting_configtext($name, $title, $description, '');
     $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
 
@@ -326,7 +326,7 @@ if ($ADMIN->fulltree) {
     $name = 'theme_moove/marketing4url';
     $title = get_string('marketing4url', 'theme_moove');
     $description = get_string('marketing4urldesc', 'theme_moove');
-    $setting = new admin_setting_configtext($name, $title, $description);
+    $setting = new admin_setting_configtext($name, $title, $description, '');
     $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
 
