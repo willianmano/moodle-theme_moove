@@ -230,7 +230,7 @@ function theme_moove_get_marketing_items() {
         $templatecontext['marketing1content'] = theme_moove_get_setting('marketing1content', true);
     }
 
-    $templatecontext['marketing1url'] = '#';
+    $templatecontext['marketing1url'] = '';
     if (!empty($PAGE->theme->settings->marketing1url)) {
         $templatecontext['marketing1url'] = $PAGE->theme->settings->marketing1url;
     }
@@ -257,7 +257,7 @@ function theme_moove_get_marketing_items() {
         $templatecontext['marketing2content'] = theme_moove_get_setting('marketing2content', true);
     }
 
-    $templatecontext['marketing2url'] = '#';
+    $templatecontext['marketing2url'] = '';
     if (!empty($PAGE->theme->settings->marketing2url)) {
         $templatecontext['marketing2url'] = $PAGE->theme->settings->marketing2url;
     }
@@ -284,7 +284,7 @@ function theme_moove_get_marketing_items() {
         $templatecontext['marketing3content'] = theme_moove_get_setting('marketing3content', true);
     }
 
-    $templatecontext['marketing3url'] = '#';
+    $templatecontext['marketing3url'] = '';
     if (!empty($PAGE->theme->settings->marketing3url)) {
         $templatecontext['marketing3url'] = $PAGE->theme->settings->marketing3url;
     }
@@ -311,7 +311,7 @@ function theme_moove_get_marketing_items() {
         $templatecontext['marketing4content'] = theme_moove_get_setting('marketing4content', true);
     }
 
-    $templatecontext['marketing4url'] = '#';
+    $templatecontext['marketing4url'] = '';
     if (!empty($PAGE->theme->settings->marketing4url)) {
         $templatecontext['marketing4url'] = $PAGE->theme->settings->marketing4url;
     }
