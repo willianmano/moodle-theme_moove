@@ -68,10 +68,10 @@ if (is_siteadmin()) {
     global $DB;
 
     // Get site total users.
-    $totalusers = $DB->count_records('user');
+    $totalusers = $DB->count_records('user') - 1;
 
     // Get site total courses.
-    $totalcourses = $DB->count_records('course');
+    $totalcourses = $DB->count_records('course') - 1;
 
     // Get the last online users in the past 5 minutes.
     $onlineusers = new \block_online_users\fetcher(null, time(), 300, null, CONTEXT_SYSTEM, null);
