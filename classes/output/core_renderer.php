@@ -284,6 +284,19 @@ class core_renderer extends \theme_boost\output\core_renderer {
     }
 
     /**
+     * Return youtube config
+     *
+     * @return string Youtube url config
+     */
+    public function get_youtube_config() {
+        $theme = theme_config::load('moove');
+
+        $setting = $theme->settings->youtube;
+
+        return $setting != '' ? $setting : '';
+    }
+
+    /**
      * Construct a user menu, returning HTML that can be echoed out by a
      * layout file.
      *

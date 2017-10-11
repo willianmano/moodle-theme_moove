@@ -410,5 +410,14 @@ if ($ADMIN->fulltree) {
     $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
 
+    // Youtube url setting.
+    $name = 'theme_moove/youtube';
+    $title = get_string('youtube', 'theme_moove');
+    $description = get_string('youtubedesc', 'theme_moove');
+    $default = '';
+    $setting = new admin_setting_configtext($name, $title, $description, $default);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $page->add($setting);
+
     $settings->add($page);
 }
