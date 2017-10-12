@@ -69,7 +69,7 @@
         {{{ output.full_header }}}
 
         <div id="page-content" class="row">
-            <div id="region-main-box" class="{{#hasblocks}}col-md-9{{/hasblocks}}{{^hasblocks}}col-md-12{{/hasblocks}}">
+            <div id="region-main-box" class="{{#hasblocks}}col-md-9{{/hasblocks}}{{^hasblocks}}col-md-12{{/hasblocks}} col-sm-12 col-xs-12">
                 {{#hasregionmainsettingsmenu}}
                 <div id="region-main-settings-menu" class="hidden-print">
                     <div> {{{ output.region_main_settings_menu }}} </div>
@@ -87,7 +87,7 @@
                 </section>
             </div>
             {{#hasblocks}}
-                <div class="col-md-3">
+                <div class="col-md-3 col-sm-12 col-xs-12">
                     {{{ sidepreblocks }}}
                 </div>
             {{/hasblocks}}
