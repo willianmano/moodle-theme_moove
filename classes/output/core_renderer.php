@@ -105,6 +105,33 @@ class core_renderer extends \theme_boost\output\core_renderer {
     }
 
     /**
+     * Wrapper for header elements.
+     *
+     * @return string HTML to display the main header.
+     */
+    public function mydashboard_admin_header() {
+        global $PAGE;
+
+        $html = html_writer::start_div('row');
+        $html .= html_writer::start_div('col-xs-12 p-a-1');
+
+        $pageheadingbutton = $this->page_heading_button();
+        if (empty($PAGE->layout_options['nonavbar'])) {
+            $html .= html_writer::start_div('clearfix w-100 pull-xs-left', array('id' => 'page-navbar'));
+            $html .= html_writer::tag('div', $this->navbar(), array('class' => 'breadcrumb-nav'));
+            $html .= html_writer::div($pageheadingbutton, 'breadcrumb-button');
+            $html .= html_writer::end_div();
+        } else if ($pageheadingbutton) {
+            $html .= html_writer::div($pageheadingbutton, 'breadcrumb-button nonavbar pull-xs-right m-r-1');
+        }
+
+        $html .= html_writer::end_div(); // End .row.
+        $html .= html_writer::end_div(); // End .col-xs-12.
+
+        return $html;
+    }
+
+    /**
      * Renders the login form.
      *
      * @param \core_auth\output\login $form The renderable.
@@ -294,6 +321,40 @@ class core_renderer extends \theme_boost\output\core_renderer {
         $setting = $theme->settings->youtube;
 
         return $setting != '' ? $setting : '';
+    }
+
+    /**
+     * Return the site identity providers
+     *
+     * @return mixed
+     */
+    public function get_identity_providers() {
+        global $CFG;
+
+        $authsequence = get_enabled_auth_plugins(true);
+
+        require_once($CFG->libdir . '/authlib.php');
+
+        $identityproviders = \auth_plugin_base::get_identity_providers($authsequence);
+
+        return $identityproviders;
+    }
+
+    /**
+     * Verify whether the site has identity providers
+     *
+     * @return mixed
+     */
+    public function has_identity_providers() {
+        global $CFG;
+
+        $authsequence = get_enabled_auth_plugins(true);
+
+        require_once($CFG->libdir . '/authlib.php');
+
+        $identityproviders = \auth_plugin_base::get_identity_providers($authsequence);
+
+        return !empty($identityproviders);
     }
 
     /**

@@ -70,8 +70,9 @@
         {{#is_siteadmin}}
             {{>theme_moove/mydashboard_admin}}
         {{/is_siteadmin}}
-
-        {{{ output.full_header }}}
+        {{^is_siteadmin}}
+            {{{ output.full_header }}}
+        {{/is_siteadmin}}
 
         <div id="page-content" class="row">
             <div id="region-main-box" class="col-xs-12">

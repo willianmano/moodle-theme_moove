@@ -125,9 +125,9 @@ class course_renderer extends \core_course_renderer {
         $coursecount = 1;
         $content .= html_writer::start_tag('div', array('class' => 'row'));
         foreach ($courses as $course) {
-            $content .= $this->coursecat_coursebox($chelper, $course, 'col-md-4');
+            $content .= $this->coursecat_coursebox($chelper, $course, 'col-md-3');
 
-            if ($coursecount % 3 == 0) {
+            if ($coursecount % 4 == 0) {
                 $content .= html_writer::end_tag('div');
                 $content .= html_writer::start_tag('div', array('class' => 'row'));
             }
