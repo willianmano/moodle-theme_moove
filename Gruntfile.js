@@ -1,5 +1,6 @@
-/*eslint no-undef: "error"*/
-/*eslint-env node*/
+/* eslint no-undef: "error" */
+/* eslint camelcase: 2 */
+/* eslint-env node */
 
 "use strict";
 
