@@ -37,6 +37,7 @@ use action_menu;
 use pix_icon;
 use theme_config;
 use core_text;
+use help_icon;
 
 defined('MOODLE_INTERNAL') || die;
 
@@ -563,5 +564,21 @@ class core_renderer extends \theme_boost\output\core_renderer {
      */
     public function secure_login_info() {
         return $this->login_info(false);
+    }
+
+    /**
+     * Implementation of user image rendering.
+     *
+     * @param help_icon $helpicon A help icon instance
+     * @return string HTML fragment
+     */
+    public function render_help_icon(help_icon $helpicon) {
+        $context = $helpicon->export_for_template($this);
+        // Solving the issue - "Your progress" help tooltip in course home page displays in outside the screen display.
+        // Check issue https://github.com/willianmano/moodle-theme_moove/issues/5.
+        if ($helpicon->identifier === 'completionicons' && $helpicon->component === "completion") {
+            $context->ltr = right_to_left();
+        }
+        return $this->render_from_template('core/help_icon', $context);
     }
 }
