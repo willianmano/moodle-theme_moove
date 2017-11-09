@@ -1,7 +1,12 @@
 // Import all scss moove files
-@import "moove/variables";
+// @import "moove/variables";
 @import "extras/themify-icons";
 @import "extras/waves";
 @import "moove/typography";
+@import "moove/general";
 @import "moove/navbar";
 @import "moove/frontpage";
+@import "moove/footer";
+@import "moove/nav-drawer";
+@import "moove/blocks";
+@import "moove/mydashboard";

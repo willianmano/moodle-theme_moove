@@ -419,5 +419,14 @@ if ($ADMIN->fulltree) {
     $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
 
+    // Instagram url setting.
+    $name = 'theme_moove/instagram';
+    $title = get_string('instagram', 'theme_moove');
+    $description = get_string('instagramdesc', 'theme_moove');
+    $default = '';
+    $setting = new admin_setting_configtext($name, $title, $description, $default);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $page->add($setting);
+
     $settings->add($page);
 }

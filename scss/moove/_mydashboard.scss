@@ -1,10 +1,10 @@
 #page-my-index {
-    #page.container-fluid {
-        padding: 2rem 2rem 0 2rem;
-    }
-
     .admininfos {
         padding-bottom: 0;
+
+        .breadcrumb-button {
+            margin-right: 0 !important;
+        }
     }
 
     .bg-aqua {
@@ -42,15 +42,9 @@
     }
 
     .small-box h3 {
-        font-size: 38px;
-        font-weight: bold;
         margin: 0 0 10px 0;
         white-space: nowrap;
         padding: 0;
-    }
-
-    .small-box p {
-        font-size: 15px;
     }
 
     .small-box .icon {

@@ -1,41 +1,8 @@
-.drawer-open-left #nav-drawer .pin-drawer .btn {
-    &:after {
-        content: "Minimize menu";
-    }
-    .fa-icon-max-menu:before {
-        content: "\f0a8";
-    }
-}
-
 #nav-drawer {
     padding: 0;
     background-color: $m-dark-bg;
     top: 70px;
     padding-bottom: 20px;
-
-    .pin-drawer {
-        padding: 10px;
-        height: 52px;
-
-        .btn {
-            color: #fff;
-            border-radius: 0;
-            background-color: $m-dark-separator;
-            border: none;
-            box-shadow: none;
-            width: 100%;
-
-            .fa-icon-max-menu:before {
-                content: "\f0a9";
-            }
-
-            &:after {
-                padding-left: 4px;
-                text-transform: uppercase;
-                content: "Maximize menu";
-            }
-        }
-    }
 
     .list-group {
         .list-group-item {
@@ -50,7 +17,7 @@
             }
 
             &:hover {
-                background-color: $m-dark-bg-hover;
+                background-color: $body-bg;
                 color: $m-dark-bg;
             }
         }
@@ -66,7 +33,7 @@
         }
 
         .list-group-item.font-weight-bold {
-            background-color: $m-dark-bg-hover;
+            background-color: $body-bg;
             border-left: 3px solid $brand-primary;
             color: $m-dark-bg;
         }
@@ -129,17 +96,6 @@
     left: -220px;
     overflow-y: hidden;
 
-    .pin-drawer {
-        text-align: right;
-        padding-right: 1rem;
-        .btn {
-            width: 40px;
-            &:after {
-                content: "";
-            }
-        }
-    }
-
     .list-group {
         .list-group-item {
             text-align: right;
@@ -149,37 +105,5 @@
 
     .list-group .list-group-item > div span.text {
         display: none;
-    }
-
-    &:hover {
-        left: 0;
-        overflow-y: scroll;
-
-        .pin-drawer .btn:after {
-            content: "Maximize menu";
-        }
-
-        .pin-drawer {
-            text-align: inherit;
-            padding-right: 10px;
-            .btn {
-                margin-right: 0 !important;
-                width: 100%;
-                &:after {
-                    content: "Maximize menu";
-                }
-            }
-        }
-
-        .list-group {
-            .list-group-item {
-                text-align: left;
-                padding: .75rem 1rem;
-            }
-        }
-
-        .list-group .list-group-item > div span.text {
-            display: inline;
-        }
     }
 }

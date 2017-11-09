@@ -134,6 +134,8 @@ $string['linkedin'] = 'Linkedin URL';
 $string['linkedindesc'] = 'Enter the URL of your Linkedin. (i.e http://www.linkedin.com/mycollege)';
 $string['youtube'] = 'Youtube URL';
 $string['youtubedesc'] = 'Enter the URL of your Youtube. (i.e https://www.youtube.com/user/moodlehq)';
+$string['instagram'] = 'Instagram URL';
+$string['instagramdesc'] = 'Enter the URL of your instagram. (i.e https://www.instagram.com/moodlehq)';
 
 $string['access'] = 'Access';
 $string['cachedef_admininfos'] = 'Site administrator dashboard infos';

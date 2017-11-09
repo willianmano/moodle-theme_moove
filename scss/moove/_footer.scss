@@ -3,15 +3,10 @@
     background-repeat: repeat-x;
     background-position: center bottom;
     padding: 40px 15px;
-    color: #fff;
-
-    h2 {
-        color: $brand-primary;
-        text-transform: uppercase;
-    }
+    color: $headings-color;
 
     h3 {
-        font-size: 1.3rem;
+        color: $brand-primary;
     }
 
     ul {
@@ -24,7 +19,7 @@
 
         i {
             margin-right: 3px;
-            width: 20px;
+            min-width: 20px;
             text-align: center;
         }
     }
@@ -33,10 +28,38 @@
         text-align: right;
         ul li {
             display: inline;
-            font-size: 4rem;
+            font-size: 3rem;
 
             a {
                 text-decoration: none;
+
+                &.facebook {
+                    color: $m-facebook-color;
+                }
+
+                &.twitter {
+                    color: $m-twitter-color;
+                }
+
+                &.googleplus {
+                    color: $m-googleplus-color;
+                }
+
+                &.linkedin {
+                    color: $m-linkedin-color;
+                }
+
+                &.youtube {
+                    color: $m-youtube-color;
+                }
+
+                &.instagram {
+                    color: $m-instagram-color;
+                }
+
+                &:hover {
+                    color: $brand-primary;
+                }
             }
         }
     }
@@ -46,7 +69,6 @@
     background-color: $m-moodle-color;
     text-align: center;
     color: #fff;
-    min-height: inherit;
 
     .madewithmoodle {
         margin-bottom: .5rem;
@@ -65,8 +87,5 @@
     }
     .madeby {
         font-size: 14px;
-        a {
-            color: $brand-primary;
-        }
     }
 }

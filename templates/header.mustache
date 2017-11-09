@@ -41,18 +41,20 @@
         </a>
 
         <ul class="navbar-nav hidden-md-down navbar-custom-menu">
-            <li data-region="drawer-toggle" class="nav-item drawer-toggle waves-effect waves-dark">
-                <a
-                    href="javascript:void(0)"
-                    aria-expanded="{{#navdraweropen}}true{{/navdraweropen}}{{^navdraweropen}}false{{/navdraweropen}}"
-                    aria-controls="nav-drawer"
-                    class="sidebartoggler hidden-sm-down text-muted"
-                    data-action="toggle-drawer"
-                    data-side="left"
-                    data-preference="drawer-open-nav">
-                        <i class="icon ti-menu" aria-hidden="true"></i><span class="sr-only">{{#str}}sidepanel, core{{/str}}</span>
-                </a>
-            </li>
+            {{#hasdrawertoggle}}
+                <li data-region="drawer-toggle" class="nav-item drawer-toggle waves-effect waves-dark">
+                    <a
+                        href="javascript:void(0)"
+                        aria-expanded="{{#navdraweropen}}true{{/navdraweropen}}{{^navdraweropen}}false{{/navdraweropen}}"
+                        aria-controls="nav-drawer"
+                        class="sidebartoggler hidden-sm-down text-muted"
+                        data-action="toggle-drawer"
+                        data-side="left"
+                        data-preference="drawer-open-nav">
+                            <i class="icon ti-menu" aria-hidden="true"></i><span class="sr-only">{{#str}}sidepanel, core{{/str}}</span>
+                    </a>
+                </li>
+            {{/hasdrawertoggle}}
             <!-- custom_menu -->
             {{{ output.custom_menu }}}
             <!-- page_heading_menu -->

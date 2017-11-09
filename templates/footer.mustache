@@ -21,11 +21,11 @@
 
     Example context (json): {}
 }}
-<div id="top-footer" class="container">
-    <div class="row">
+<div id="top-footer" class="container-fluid">
+    <div class="row-fluid">
         <div class="col-md-7 contact">
-            <h2>{{#str}}stayintouch, theme_moove{{/str}}</h2>
-            <h3>{{output.get_getintouchcontent_config}}</h3>
+            <h3>{{#str}}stayintouch, theme_moove{{/str}}</h3>
+            <h4>{{output.get_getintouchcontent_config}}</h4>
             <ul>
                 {{#output.get_website_config}}<li><i class="fa fa-globe"></i>{{output.get_website_config}}</li>{{/output.get_website_config}}
                 {{#output.get_mobile_config}}<li><i class="fa fa-mobile-phone"></i>{{output.get_mobile_config}}</li>{{/output.get_mobile_config}}
@@ -36,7 +36,7 @@
           <ul>
               {{#output.get_facebook_config}}
                 <li>
-                  <a href="{{output.get_facebook_config}}" target="_blank" />
+                  <a href="{{output.get_facebook_config}}" target="_blank" class="facebook" />
                     <i class="fa fa-facebook-square"></i>
                   </a>
                 </li>
@@ -44,42 +44,50 @@
 
               {{#output.get_twitter_config}}
                 <li>
-                  <a href="{{output.get_twitter_config}}" target="_blank" />
-                    <i class="fa fa-twitter-square"></i>
+                  <a href="{{output.get_twitter_config}}" target="_blank" class="twitter" />
+                    <i class="fa fa-twitter"></i>
                   </a>
                 </li>
               {{/output.get_twitter_config}}
 
               {{#output.get_googleplus_config}}
                 <li>
-                  <a href="{{output.get_googleplus_config}}" target="_blank" />
-                    <i class="fa fa-google-plus-square"></i>
+                  <a href="{{output.get_googleplus_config}}" target="_blank" class="googleplus" />
+                    <i class="fa fa-google-plus"></i>
                   </a>
                 </li>
               {{/output.get_googleplus_config}}
 
               {{#output.get_linkedin_config}}
                 <li>
-                  <a href="{{output.get_linkedin_config}}" target="_blank" />
-                    <i class="fa fa-linkedin-square"></i>
+                  <a href="{{output.get_linkedin_config}}" target="_blank" class="linkedin" />
+                    <i class="fa fa-linkedin"></i>
                   </a>
                 </li>
               {{/output.get_linkedin_config}}
 
               {{#output.get_youtube_config}}
                 <li>
-                  <a href="{{output.get_youtube_config}}" target="_blank" />
-                    <i class="fa fa-youtube-square"></i>
+                  <a href="{{output.get_youtube_config}}" target="_blank" class="youtube" />
+                    <i class="fa fa-youtube"></i>
                   </a>
                 </li>
               {{/output.get_youtube_config}}
+
+              {{#output.get_instagram_config}}
+                <li>
+                  <a href="{{output.get_instagram_config}}" target="_blank" class="instagram" />
+                    <i class="fa fa-instagram"></i>
+                  </a>
+                </li>
+              {{/output.get_instagram_config}}
           </ul>
         </div>
     </div>
 </div>
 
 <footer id="page-footer" class="p-y-1">
-    <div class="container">
+    <div class="container-fluid">
         <div id="course-footer">{{{ output.course_footer }}}</div>
 
         {{# output.page_doc_link }}

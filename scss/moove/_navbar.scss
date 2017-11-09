@@ -15,8 +15,6 @@ header.navbar {
 
   .drawer-toggle {
     float: left;
-    padding-left: .75rem;
-    padding-right: .75rem;
     font-size: 19px;
     line-height: 70px;
 
@@ -28,7 +26,7 @@ header.navbar {
 
   ul.navbar-nav {
     display: inline-block;
-    padding-left: 0;
+    padding-left: .75rem;
     
     li,
     .nav-item {

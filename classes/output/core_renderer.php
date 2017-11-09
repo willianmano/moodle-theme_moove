@@ -325,6 +325,19 @@ class core_renderer extends \theme_boost\output\core_renderer {
     }
 
     /**
+     * Return instagram config
+     *
+     * @return string Instagram url config
+     */
+    public function get_instagram_config() {
+        $theme = theme_config::load('moove');
+
+        $setting = $theme->settings->instagram;
+
+        return $setting != '' ? $setting : '';
+    }
+
+    /**
      * Return the site identity providers
      *
      * @return mixed

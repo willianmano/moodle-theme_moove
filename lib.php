@@ -87,10 +87,11 @@ function theme_moove_get_main_scss_content($theme) {
     }
 
     // Moove scss.
+    $moovevariables = file_get_contents($CFG->dirroot . '/theme/moove/scss/moove/_variables.scss');
     $moove = file_get_contents($CFG->dirroot . '/theme/moove/scss/moove.scss');
 
     // Combine them together.
-    return $moove . "\n" . $scss;
+    return $moovevariables . "\n" . $scss . "\n" . $moove;
 }
 
 /**

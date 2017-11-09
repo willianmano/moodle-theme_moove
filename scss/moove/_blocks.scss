@@ -1,9 +1,3 @@
-@media (min-width: 768px) {
-    body.drawer-open-right {
-        margin-right: 280px;
-    }
-}
-
 #sidepreopen-control,
 [data-region="blocks-column"] {
     -webkit-transition: right .5s ease, left .5s ease;
@@ -36,9 +30,9 @@
 
 [data-region="blocks-column"] {
     width: 280px;
-    background-color: #fff;
+    
     position: fixed;
-    top: 70px;
+    top: 85px;
     right: -280px;
     height: calc(100% - 50px);
     overflow-y: scroll;
