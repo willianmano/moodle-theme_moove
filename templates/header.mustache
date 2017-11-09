@@ -21,7 +21,7 @@
 
     Example context (json): {}
 }}
-<header role="banner" class="pos-f-t navbar navbar-full navbar-light bg-faded navbar-static-top moodle-has-zindex">
+<header role="banner" class="pos-f-t navbar navbar-full bg-faded navbar-static-top moodle-has-zindex">
 
     <div class="container-fluid navbar-nav">
 
@@ -40,26 +40,36 @@
             {{/ output.get_logo }}
         </a>
 
-        <nav class="nav navbar-nav hidden-md-down navbar-custom-menu">
+        <ul class="navbar-nav hidden-md-down navbar-custom-menu">
+            <li data-region="drawer-toggle" class="nav-item drawer-toggle waves-effect waves-dark">
+                <a
+                    href="javascript:void(0)"
+                    aria-expanded="{{#navdraweropen}}true{{/navdraweropen}}{{^navdraweropen}}false{{/navdraweropen}}"
+                    aria-controls="nav-drawer"
+                    class="sidebartoggler hidden-sm-down text-muted"
+                    data-action="toggle-drawer"
+                    data-side="left"
+                    data-preference="drawer-open-nav">
+                        <i class="icon ti-menu" aria-hidden="true"></i><span class="sr-only">{{#str}}sidepanel, core{{/str}}</span>
+                </a>
+            </li>
             <!-- custom_menu -->
             {{{ output.custom_menu }}}
             <!-- page_heading_menu -->
             {{{ output.page_heading_menu }}}
-        </nav>
+        </ul>
+        
+        <ul class="navbar-nav popover-menu-items">
+            <li class="popover-region">
+                {{{ output.render_lang_menu }}}
+            </li>
 
-        <div class="popover-menu-items">
-            <ul class="nav navbar-nav">
-                <li class="popover-region">
-                    {{{ output.render_lang_menu }}}
-                </li>
+            <!-- navbar_plugin_output -->
+            {{{ output.navbar_plugin_output }}}
 
-                <!-- navbar_plugin_output -->
-                {{{ output.navbar_plugin_output }}}
-
-                <!-- user_menu -->
-                {{{ output.user_menu }}}
-            </ul>
-        </div>
+            <!-- user_menu -->
+            {{{ output.user_menu }}}
+        </ul>
 
         <!-- search_box -->
         <span class="hidden-md-down">

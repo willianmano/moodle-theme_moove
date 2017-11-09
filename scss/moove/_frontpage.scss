@@ -22,107 +22,103 @@
         background-color: #ccc;
         background-size: 100%;
         min-height: 540px;
+        padding: 0 4rem;
 
-        .frontpage-guest-header {
+        #loginbox {
+            opacity: 0.94;
+            margin-bottom: 3rem;
 
-            #loginbox {
-                opacity: 0.94;
-                margin-bottom: 3rem;
+            #intro,
+            #boxForm {
+                margin-top: 3rem;
+            }
 
-                #intro,
-                #boxForm {
-                    margin-top: 3rem;
-                }
+            #intro {
+                text-align: left;
+                color: #fff;
 
-                #intro {
-                    text-align: left;
+                h1 {
                     color: #fff;
+                    letter-spacing: .2rem;
+                    text-shadow: 2px 4px 4px #000;
+                    text-transform: uppercase;
+                    margin-bottom: 2rem;
+                }
+                h2 {
+                    text-shadow: 1px 1px 1px #000;
+                    letter-spacing: .1rem;
+                    max-width: 70%;
+                }
+            }
 
-                    h1 {
-                        font-size: 2.3em;
-                        font-weight: bold;
-                        letter-spacing: .2rem;
-                        text-shadow: 2px 4px 4px #000;
-                        text-transform: uppercase;
-                        margin-bottom: 2rem;
-                    }
-                    h2 {
-                        font-size: 1.7em;
-                        text-shadow: 1px 1px 1px #000;
-                        letter-spacing: .1rem;
-                        max-width: 70%;
-                    }
+
+            #boxForm {
+                color: #5a5a5a;
+                background-color: #fff;
+                opacity: 1;
+                padding: 20px;
+                text-align: left;
+
+                h3 {
+                    margin-top: 0;
+                    font-size: 1.6rem;
                 }
 
+                label {
+                    font-size: 1.3rem;
+                    margin-bottom: .1rem;
+                }
 
-                #boxForm {
-                    color: #5a5a5a;
-                    background-color: #fff;
-                    opacity: 1;
-                    padding: 20px;
-                    text-align: left;
+                .input-group {
+                    margin-bottom: 10px;
 
-                    h3 {
-                        margin-top: 0;
-                        font-size: 1.6rem;
-                    }
-
-                    label {
-                        font-size: 1.3rem;
-                        margin-bottom: .1rem;
-                    }
-
-                    .input-group {
-                        margin-bottom: 10px;
-
-                        input,
-                        .input-group-addon {
-                            -webkit-border-radius: 0;
-                            -moz-border-radius: 0;
-                            border-radius: 0;
-                        }
-
-                        input {
-                            height: 40px;
-                            font-size: 1.2rem;
-                        }
-
-                        .input-group-addon {
-                            width: 40px;
-                            height: 30px;
-                            line-height: 30px;
-                            padding: 4px 10px;
-                        }
-                    }
-
-                    .sign-up-btn {
-                        .btn {
-                            padding: 10px 20px;
-                            margin-left: 0;
-                            font-size: 1.3rem;
-                            -webkit-border-radius: 0;
-                            -moz-border-radius: 0;
-                            border-radius: 0;
-                        }
-                    }
-
-                    p {
-                        text-shadow: none;
-                        margin-top: 14px;
-                        a {
-                            text-decoration: none;
-                            color: $brand-primary;
-                            font-size: 1.2rem;
-                        }
-                    }
-
-                    .btn-register {
-                        margin: 0;
-                        width: 100%;
+                    input,
+                    .input-group-addon {
                         -webkit-border-radius: 0;
                         -moz-border-radius: 0;
                         border-radius: 0;
                     }
+
+                    input {
+                        height: 40px;
+                        font-size: 1.2rem;
+                    }
+
+                    .input-group-addon {
+                        width: 40px;
+                        height: 30px;
+                        line-height: 30px;
+                        padding: 4px 10px;
+                    }
+                }
+
+                .sign-up-btn {
+                    .btn {
+                        padding: 10px 20px;
+                        margin-left: 0;
+                        font-size: 1.3rem;
+                        -webkit-border-radius: 0;
+                        -moz-border-radius: 0;
+                        border-radius: 0;
+                    }
+                }
+
+                p {
+                    text-shadow: none;
+                    margin-top: 14px;
+                    a {
+                        text-decoration: none;
+                        color: $brand-primary;
+                        font-size: 1.2rem;
+                    }
+                }
+
+                .btn-register {
+                    margin: 0;
+                    width: 100%;
+                    -webkit-border-radius: 0;
+                    -moz-border-radius: 0;
+                    border-radius: 0;
                 }
             }
         }
