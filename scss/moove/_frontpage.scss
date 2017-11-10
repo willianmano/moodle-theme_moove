@@ -134,7 +134,7 @@
         .card {
             text-align: center;
             min-height: 300px;
-        
+
             h2 {
                 color: #565656;
                 margin: 20px 0;
@@ -158,11 +158,11 @@
             }
         }
     }
+}
 
-    #frontpage-course-list {
-        h2 {
-            text-align: center;
-            color: $brand-primary;
-        }
+#frontpage-course-list {
+    h2 {
+        text-align: center;
+        color: $brand-primary;
     }
 }
