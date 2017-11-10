@@ -42,7 +42,7 @@
         }
 
         [data-key="coursehome"] > div:before {
-            content: "\e069"; // OK
+            content: "\e06a"; // OK
         }
         [data-key="mycourses"] > div:before {
             content: "\e019"; // OK
@@ -64,7 +64,7 @@
             content: "\e007"; // OK
         }
         [data-key="home"] > div:before {
-            content: "\e06a"; // OK
+            content: "\e069"; // OK
         }
         [data-key="calendar"] > div:before {
             content: "\e075"; // OK
