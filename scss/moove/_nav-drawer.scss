@@ -1,7 +1,7 @@
 #nav-drawer {
     padding: 5px;
     overflow: visible;
-    background-color: $m-dark-bg;
+    background-color: $navbar-bg;
     top: 70px;
     padding-bottom: 20px;
 
@@ -14,8 +14,8 @@
             border-radius: $card-border-radius;
 
             &:hover {
-                background-color: $body-bg;
-                color: $m-dark-bg;
+                background-color: $navbar-bg-hover;
+                color: #ffffff;
             }
 
             .m-l-0::before {
@@ -80,7 +80,7 @@
     }
 
     .list-group.m-t-1 {
-        border-top: 3px solid $m-dark-separator;
+        border-top: 3px solid $navbar-separator;
     }
 }
 
