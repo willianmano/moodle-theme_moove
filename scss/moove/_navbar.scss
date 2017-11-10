@@ -3,6 +3,7 @@ header.navbar {
   padding: 0px 15px 0 0;
   -webkit-box-shadow: 5px 0px 10px rgba(0, 0, 0, 0.5);
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
 
   .navbar-brand {
     margin-right: 0;
@@ -15,11 +16,11 @@ header.navbar {
 
   .drawer-toggle {
     float: left;
-    font-size: 19px;
+    font-size: 18px;
     line-height: 70px;
 
     .icon {
-      font-size: 19px;
+      font-size: 18px;
       color: #99abb4;
     }
   }

@@ -1,4 +1,5 @@
-#page-login-index.notloggedin {
+#page-login-index.moove-login {
+    background-color: #f1f1f1;
     margin-left: 0;
 
     #page-wrapper {
@@ -9,19 +10,21 @@
             background: url('[[pix:theme|login_bg]]') no-repeat;
             background-size: cover;
             background-position: center;
+            min-height: 100vh;
+        }
+
+        &::after {
+            min-height: 0;
         }
     }
-}
-
-$moove-login-padding: 10px;
-$moove-login-boxheight: 350px;
-
-#page-login-index.moove-login {
-    background-color: #f1f1f1;
 
     .logo {
         text-align: center;
         margin-bottom: 2rem;
+
+        img {
+            max-height: 200px;
+        }
     }
 
     .row {
@@ -29,21 +32,21 @@ $moove-login-boxheight: 350px;
     }
 
     .instructionspanel {
-        border-radius: $moove-login-padding;
+        border-radius: $m-login-padding;
         border: none;
     }
 
     .loginpanel {
-        border-radius: $moove-login-padding;
+        border-radius: $m-login-padding;
         border: none;
 
         .card-block {
             padding: 0;
 
             .form {
-                padding: 60px 15px 20px 15px;
-                height: $moove-login-boxheight;
-                max-height: $moove-login-boxheight;
+                padding: 20px 15px;
+                height: $m-login-boxheight;
+                max-height: $m-login-boxheight;
 
                 .welcome {
                     font-size: 1.2rem;
@@ -76,7 +79,7 @@ $moove-login-boxheight: 350px;
                     border-top-right-radius: 0;
                 }
                 #loginbtn {
-                    padding: 1rem;
+                    padding: 0.5rem;
                 }
             }
 
@@ -84,10 +87,10 @@ $moove-login-boxheight: 350px;
                 background-color: $brand-primary;
                 padding: 60px 15px;
                 color: #fff;
-                height: $moove-login-boxheight;
-                max-height: $moove-login-boxheight;
-                border-top-left-radius: $moove-login-padding;
-                border-bottom-left-radius: $moove-login-padding;
+                height: $m-login-boxheight;
+                max-height: $m-login-boxheight;
+                border-top-left-radius: $m-login-padding;
+                border-bottom-left-radius: $m-login-padding;
 
                 img {
                     max-width: 100%;
@@ -98,8 +101,7 @@ $moove-login-boxheight: 350px;
                 }
 
                 h2 {
-                    text-transform: uppercase;
-                    font-weight: 700;
+                    color: #ffffff;
                 }
 
                 hr {

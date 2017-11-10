@@ -317,19 +317,11 @@ class theme_moove_format_topics_renderer extends format_topics_renderer {
         $o .= html_writer::start_tag('li', array('id' => 'section-'.$section->section,
             'class' => $classattr, 'role' => 'region', 'aria-label' => $title));
 
-        $o .= html_writer::start_tag('div', array('class' => 'pgr-container'));
-        $o .= html_writer::start_tag('div', array('class' => 'col-md-3 pgr-img'));
-        $o .= html_writer::start_tag('div', array('class' => 'image'));
-        $o .= html_writer::link(
-            course_get_url($course, $section->section),
-            html_writer::empty_tag('img', array(
-                'src' => $this->output->image_url('disc_default', 'theme'),
-                'class' => "icon-disc"
-            )));
-            $o .= html_writer::end_tag('div');
-            $o .= html_writer::end_tag('div');
+        $o .= html_writer::start_tag('div', array('class' => 'card card-block'));
+        
+            $o .= html_writer::tag('div', '<i class="fa fa-laptop"></i>', array('class' => 'pgr-img'));
 
-            $o .= html_writer::start_tag('div', array('class' => 'col-md-9 pgr-content'));
+            $o .= html_writer::start_tag('div', array('class' => 'pgr-content'));
             $o .= html_writer::tag('div', '', array('class' => 'left side'));
             $o .= html_writer::tag('div', '', array('class' => 'right side'));
             $o .= html_writer::start_tag('div', array('class' => 'content'));
@@ -339,7 +331,7 @@ class theme_moove_format_topics_renderer extends format_topics_renderer {
                     array('href' => course_get_url($course, $section->section), 'class' => $linkclasses));
             }
 
-            $o .= $this->output->heading($title, 3, 'section-title');
+            $o .= $this->output->heading($title, 4, 'section-title');
 
             $o .= html_writer::start_tag('div', array('class' => 'summarytext'));
             $o .= $this->format_summary_text($section);

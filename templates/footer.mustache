@@ -37,7 +37,7 @@
               {{#output.get_facebook_config}}
                 <li>
                   <a href="{{output.get_facebook_config}}" target="_blank" class="facebook" />
-                    <i class="fa fa-facebook-square"></i>
+                    <i class="icon-social-facebook"></i>
                   </a>
                 </li>
               {{/output.get_facebook_config}}
@@ -45,7 +45,7 @@
               {{#output.get_twitter_config}}
                 <li>
                   <a href="{{output.get_twitter_config}}" target="_blank" class="twitter" />
-                    <i class="fa fa-twitter"></i>
+                    <i class="icon-social-twitter"></i>
                   </a>
                 </li>
               {{/output.get_twitter_config}}
@@ -53,7 +53,7 @@
               {{#output.get_googleplus_config}}
                 <li>
                   <a href="{{output.get_googleplus_config}}" target="_blank" class="googleplus" />
-                    <i class="fa fa-google-plus"></i>
+                    <i class="icon-social-gplus"></i>
                   </a>
                 </li>
               {{/output.get_googleplus_config}}
@@ -61,7 +61,7 @@
               {{#output.get_linkedin_config}}
                 <li>
                   <a href="{{output.get_linkedin_config}}" target="_blank" class="linkedin" />
-                    <i class="fa fa-linkedin"></i>
+                    <i class="icon-social-linkedin"></i>
                   </a>
                 </li>
               {{/output.get_linkedin_config}}
@@ -69,7 +69,7 @@
               {{#output.get_youtube_config}}
                 <li>
                   <a href="{{output.get_youtube_config}}" target="_blank" class="youtube" />
-                    <i class="fa fa-youtube"></i>
+                    <i class="icon-social-youtube"></i>
                   </a>
                 </li>
               {{/output.get_youtube_config}}
@@ -77,7 +77,7 @@
               {{#output.get_instagram_config}}
                 <li>
                   <a href="{{output.get_instagram_config}}" target="_blank" class="instagram" />
-                    <i class="fa fa-instagram"></i>
+                    <i class="icon-social-instagram"></i>
                   </a>
                 </li>
               {{/output.get_instagram_config}}
@@ -86,31 +86,34 @@
     </div>
 </div>
 
-<footer id="page-footer" class="p-y-1">
-    <div class="container-fluid">
-        <div id="course-footer">{{{ output.course_footer }}}</div>
+{{^output.get_disablebottomfooter_config}}
+  <footer id="page-footer" class="p-y-1">
+      <div class="container-fluid">
+          <div id="course-footer">{{{ output.course_footer }}}</div>
 
-        {{# output.page_doc_link }}
-            <p class="helplink">{{{ output.page_doc_link }}}</p>
-        {{/ output.page_doc_link }}
+          {{# output.page_doc_link }}
+              <p class="helplink">{{{ output.page_doc_link }}}</p>
+          {{/ output.page_doc_link }}
 
-        <div class="madewithmoodle">
-            <p>{{#str}}madewitmoodle, theme_moove{{/str}}</p>
-            <a href="https://moodle.org"><img src="{{output.get_pix_image_url_base}}/moodle-logo-white.png" alt="Moodle logo"></a>
-        </div>
+          <div class="madewithmoodle">
+              <p>{{#str}}madewitmoodle, theme_moove{{/str}}</p>
+              <a href="https://moodle.org"><img src="{{output.get_pix_image_url_base}}/moodle-logo-white.png" alt="Moodle logo"></a>
+          </div>
 
-        <div class="madeby">
-            <p>{{#str}}madeby, theme_moove{{/str}} <a href="http://conecti.me">conecti.me</a></p>
-        </div>
+          <div class="madeby">
+              <p>{{#str}}madeby, theme_moove{{/str}} <a href="http://conecti.me">conecti.me</a></p>
+          </div>
 
-        <nav class="nav navbar-nav hidden-lg-up">
-            {{# output.custom_menu_flat }}
-                <ul class="list-unstyled p-t-1">
-                    {{> theme_moove/custom_menu_footer }}
-                </ul>
-            {{/ output.custom_menu_flat }}
-        </nav>
-        {{{ output.standard_footer_html }}}
-        {{{ output.standard_end_of_body_html }}}
-    </div>
-</footer>
+          <nav class="nav navbar-nav hidden-lg-up">
+              {{# output.custom_menu_flat }}
+                  <ul class="list-unstyled p-t-1">
+                      {{> theme_moove/custom_menu_footer }}
+                  </ul>
+              {{/ output.custom_menu_flat }}
+          </nav>
+          {{{ output.standard_footer_html }}}
+      </div>
+  </footer>
+{{/output.get_disablebottomfooter_config}}
+
+{{{ output.standard_end_of_body_html }}}

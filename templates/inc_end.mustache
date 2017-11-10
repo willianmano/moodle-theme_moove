@@ -5,7 +5,6 @@
             data-action="toggle-drawer"
             data-side="right"
             data-preference="sidepre-open"
-            class="fa"
             title="{{#str}} showhideblocks, theme_moove {{/str}}">
         </i>
 
@@ -14,7 +13,9 @@
         </section>
     {{/hasblocks}}
 
-    {{> theme_moove/nav-drawer }}
+    {{#hasdrawertoggle}}
+        {{> theme_moove/nav-drawer }}
+    {{/hasdrawertoggle}}
 </div>
 
 {{> theme_moove/footer }}

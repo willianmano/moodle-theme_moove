@@ -28,7 +28,7 @@
         text-align: right;
         ul li {
             display: inline;
-            font-size: 3rem;
+            font-size: 2.4rem;
 
             a {
                 text-decoration: none;
@@ -68,6 +68,7 @@
 #page-footer {
     background-color: $m-moodle-color;
     text-align: center;
+    min-height: inherit;
     color: #fff;
 
     .madewithmoodle {

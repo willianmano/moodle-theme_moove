@@ -16,11 +16,20 @@
     height: 40px;
     border-radius: 20px;
     font-size: 20px;
-    padding: 12px 0 0 8px;
+    padding: 8px 0 0 4px;
     cursor: pointer;
 
     &:before {
-        content: '\f053';
+        font-family: 'simple-line-icons';
+        speak: none;
+        font-style: normal;
+        font-weight: normal;
+        font-variant: normal;
+        text-transform: none;
+        line-height: 1;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        content: "\e605";
     }
 
     &:hover {
@@ -30,9 +39,9 @@
 
 [data-region="blocks-column"] {
     width: 280px;
-    
+    background-color: #ffffff;
     position: fixed;
-    top: 85px;
+    top: 70px;
     right: -280px;
     height: calc(100% - 50px);
     overflow-y: scroll;
@@ -44,7 +53,7 @@ body.drawer-open-right {
         right: 265px;
 
         &:before {
-            content: '\f054';
+            content: "\e606";
         }
     }
 

@@ -338,6 +338,19 @@ class core_renderer extends \theme_boost\output\core_renderer {
     }
 
     /**
+     * Return disablebottomfooter config
+     *
+     * @return boolean disablebottomfooter config
+     */
+    public function get_disablebottomfooter_config() {
+        $theme = theme_config::load('moove');
+
+        $setting = $theme->settings->disablebottomfooter;
+
+        return $setting === '1' ? true : false;
+    }
+
+    /**
      * Return the site identity providers
      *
      * @return mixed
@@ -595,4 +608,75 @@ class core_renderer extends \theme_boost\output\core_renderer {
 
         return $this->render_from_template('core/help_icon', $context);
     }
+
+    /**
+     * The standard tags (typically performance information and validation links,
+     * if we are in developer debug mode) that should be output in the footer area
+     * of the page. Designed to be called in theme layout.php files.
+     *
+     * @return string HTML fragment.
+     */
+    // public function standard_footer_html() {
+    //     global $CFG, $SCRIPT;
+
+    //     $output = '';
+    //     if (during_initial_install()) {
+    //         // Debugging info can not work before install is finished,
+    //         // in any case we do not want any links during installation!
+    //         return $output;
+    //     }
+
+    //     // Give plugins an opportunity to add any footer elements.
+    //     // The callback must always return a string containing valid html footer content.
+    //     $pluginswithfunction = get_plugins_with_function('standard_footer_html', 'lib.php');
+        
+    //     foreach ($pluginswithfunction as $plugins) {
+    //         foreach ($plugins as $function) {
+    //             // Moodle mobile footer is hard to customize. So I disable it and print the footer manually into the theme.
+    //             if ($function = 'tool_mobile_standard_footer_html') {
+    //                 continue;
+    //             }
+    //             $output .= $function();
+    //         }
+    //     }
+
+    //     // This function is normally called from a layout.php file in {@link core_renderer::header()}
+    //     // but some of the content won't be known until later, so we return a placeholder
+    //     // for now. This will be replaced with the real content in {@link core_renderer::footer()}.
+    //     $output .= $this->unique_performance_info_token;
+    //     if ($this->page->devicetypeinuse == 'legacy') {
+    //         // The legacy theme is in use print the notification
+    //         $output .= html_writer::tag('div', get_string('legacythemeinuse'), array('class'=>'legacythemeinuse'));
+    //     }
+
+    //     // Get links to switch device types (only shown for users not on a default device)
+    //     $output .= $this->theme_switch_links();
+
+    //     if (!empty($CFG->debugpageinfo)) {
+    //         $output .= '<div class="performanceinfo pageinfo">This page is: ' . $this->page->debug_summary() . '</div>';
+    //     }
+    //     if (debugging(null, DEBUG_DEVELOPER) and has_capability('moodle/site:config', \context_system::instance())) {  // Only in developer mode
+    //         // Add link to profiling report if necessary
+    //         if (function_exists('profiling_is_running') && profiling_is_running()) {
+    //             $txt = get_string('profiledscript', 'admin');
+    //             $title = get_string('profiledscriptview', 'admin');
+    //             $url = $CFG->wwwroot . '/admin/tool/profiling/index.php?script=' . urlencode($SCRIPT);
+    //             $link= '<a title="' . $title . '" href="' . $url . '">' . $txt . '</a>';
+    //             $output .= '<div class="profilingfooter">' . $link . '</div>';
+    //         }
+    //         $purgeurl = new moodle_url('/admin/purgecaches.php', array('confirm' => 1,
+    //             'sesskey' => sesskey(), 'returnurl' => $this->page->url->out_as_local_url(false)));
+    //         $output .= '<div class="purgecaches">' .
+    //                 html_writer::link($purgeurl, get_string('purgecaches', 'admin')) . '</div>';
+    //     }
+    //     if (!empty($CFG->debugvalidators)) {
+    //         // NOTE: this is not a nice hack, $PAGE->url is not always accurate and $FULLME neither, it is not a bug if it fails. --skodak
+    //         $output .= '<div class="validators"><ul class="list-unstyled m-l-1">
+    //           <li><a href="http://validator.w3.org/check?verbose=1&amp;ss=1&amp;uri=' . urlencode(qualified_me()) . '">Validate HTML</a></li>
+    //           <li><a href="http://www.contentquality.com/mynewtester/cynthia.exe?rptmode=-1&amp;url1=' . urlencode(qualified_me()) . '">Section 508 Check</a></li>
+    //           <li><a href="http://www.contentquality.com/mynewtester/cynthia.exe?rptmode=0&amp;warnp2n3e=1&amp;url1=' . urlencode(qualified_me()) . '">WCAG 1 (2,3) Check</a></li>
+    //         </ul></div>';
+    //     }
+    //     return $output;
+    // }
 }
