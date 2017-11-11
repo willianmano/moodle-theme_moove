@@ -33,7 +33,7 @@ $string['configtitle'] = 'Moove';
 $string['generalsettings'] = 'Configurações gerais';
 $string['pluginname'] = 'Moove';
 $string['presetfiles'] = 'Arquivos de preset adicionais';
-$string['presetfiles_desc'] = 'Arquivos prese podem ser usados para alterar dramaticamente a aparência do tema. Veja <a href=https://docs.moodle.org/dev/Boost_Presets>Boost presets</a> para informações sobre criar e compartilhar seus próprios arquivos preset, e veja o <a href=http://moodle.net/moove>repositório de presets</a> que outros compartilharam.';
+$string['presetfiles_desc'] = 'Arquivos prese podem ser usados para alterar dramaticamente a aparência do tema. Veja <a href=https://docs.moodle.org/dev/Boost_Presets>Boost presets</a> para informações sobre criar e compartilhar seus próprios arquivos preset, e veja o <a href=http://moodle.net/boost>repositório de presets</a> que outros compartilharam.';
 $string['preset'] = 'Theme preset';
 $string['preset_desc'] = 'Escolha um preset para alterar a aparência do tema.';
 $string['rawscss'] = 'SCSS cru';

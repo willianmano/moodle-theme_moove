@@ -18,6 +18,20 @@
     }
 }
 
+body#page-enrol-index {
+    #region-main {
+        .generalbox {
+            float: left;
+            width: 30%;
+        }
+        .generalbox:last-of-type {
+            width: 70%;
+            padding-left: 2rem;
+            padding-right: 2rem;
+        }
+    }
+}
+
 #page {
     margin-top: 40px;
 
@@ -43,8 +57,10 @@
     .card-body {
         padding: 1.25rem;
     }
+}
 
-    img {
-        max-width: 100%;
-    }
+/* Third party plugins compatibility. */
+/* Course format grid */
+#gridshadebox_content {
+    top: 80px !important;
 }

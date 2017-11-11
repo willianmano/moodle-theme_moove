@@ -1,6 +1,6 @@
     {{#hasblocks}}
         <i id="sidepreopen-control"
-            aria-expanded="false"
+            aria-expanded="{{#draweropenright}}true{{/draweropenright}}{{^draweropenright}}false{{/draweropenright}}"
             aria-controls="sidepre-blocks"
             data-action="toggle-drawer"
             data-side="right"
