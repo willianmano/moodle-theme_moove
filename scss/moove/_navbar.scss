@@ -140,6 +140,18 @@ header.navbar {
           line-height: 70px;
       }
 
+      .lang-menu {
+          .dropdown-menu {
+              @extend .scale-up-left;
+          }
+
+          &.open {
+              .dropdown-menu {
+                  @extend .scale-up-left-show;
+              }
+          }
+      }
+
       .popover-region-toggle {
         i.fa {
           font-size: 1.4rem;
@@ -204,6 +216,7 @@ header.navbar {
                 top: 45px;
                 border-radius: $card-border-radius;
                 min-width: 180px;
+                max-width: 250px;
 
                 .dropdown-item {
                     border-bottom: none;
@@ -213,6 +226,20 @@ header.navbar {
                     &:hover {
                         background-color: $body-bg;
                         border-radius: $card-border-radius;
+                    }
+
+                    &.text-username {
+                        text-overflow: ellipsis;
+                        overflow: hidden;
+                        white-space: nowrap;
+                        &:hover {
+                            background-color: #ffffff;
+                            cursor: default;
+                        }
+                        i {
+                            display: none;
+                            font-size: 16px;
+                        }
                     }
                 }
 
