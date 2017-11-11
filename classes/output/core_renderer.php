@@ -461,7 +461,7 @@ class core_renderer extends \theme_boost\output\core_renderer {
 
         $avatarclasses = "avatars";
         $avatarcontents = html_writer::span($opts->metadata['useravatar'], 'avatar current');
-        $usertextcontents = $opts->metadata['userfullname'];
+        $usertextcontents = '';
 
         // Other user.
         if (!empty($opts->metadata['asotheruser'])) {
@@ -629,7 +629,7 @@ class core_renderer extends \theme_boost\output\core_renderer {
     //     // Give plugins an opportunity to add any footer elements.
     //     // The callback must always return a string containing valid html footer content.
     //     $pluginswithfunction = get_plugins_with_function('standard_footer_html', 'lib.php');
-        
+
     //     foreach ($pluginswithfunction as $plugins) {
     //         foreach ($plugins as $function) {
     //             // Moodle mobile footer is hard to customize. So I disable it and print the footer manually into the theme.

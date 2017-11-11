@@ -53,15 +53,91 @@ header.navbar {
 
     .popover-region {
       float: left;
+      margin-right: 0;
+
+      .popover-region-container {
+          @extend .scale-up;
+
+          top: 70px;
+
+          .popover-region-header-container {
+            height: 50px;
+            padding: 11px 20px 15px;
+            border-bottom: 1px solid rgba(120, 130, 140, 0.13);
+          }
+
+          .popover-region-content-container {
+              .content-item-container {
+                  line-height: initial;
+                  background-color: #ffffff;
+                  padding: 15px;
+
+                  &:hover {
+                      background-color: $body-bg;
+                      color: inherit;
+
+                      .content-item-footer .timestamp {
+                          color: inherit;
+                      }
+                  }
+
+                  .content-item-body {
+                      font-weight: normal;
+                      width: calc(100% - 54px);
+
+                      h3,
+                      .notification-message {
+                          font-size: 1.2rem;
+                          margin-bottom: 5px;
+                          font-weight: normal;
+                      }
+
+                      p {
+                          line-height: initial;
+                      }
+
+                      .notification-message {
+                          font-size: 1rem;
+                      }
+                  }
+
+                  .view-more {
+                      font-size: .9rem;
+                  }
+
+                  .content-item-footer .timestamp {
+                      font-size: .9rem;
+                      line-height: inherit;
+                  }
+
+                  .unread-count-container {
+                      width: 24px;
+                      .badge {
+                          background-color: $brand-primary;
+                          width: 21px;
+                          height: 21px;
+                          border-radius: 11px;
+                          line-height: 17px;
+                      }
+                  }
+              }
+          }
+      }
+
+      .popover-region-container[aria-hidden="false"] {
+          @extend .scale-up-show;
+      }
 
       .popover-region-toggle,
       .lang-menu {
-          height: 70px;
-          padding-top: 15px;
           width: inherit;
           text-align: center;
-          line-height: 50px;
           color: $brand-primary;
+
+          padding-left: .8rem;
+          padding-right: .8rem;
+          font-size: 19px;
+          line-height: 70px;
       }
 
       .popover-region-toggle {
@@ -70,10 +146,32 @@ header.navbar {
         }
 
         .count-container {
-          top: 15px;
-          right: 2px;
-          padding: 7px 7px 3px 7px;
-          border-radius: 10px;
+          top: 13px;
+          right: 0px;
+          position: absolute;
+          height: 18px;
+          width: 18px;
+          border-radius: 9px;
+          line-height: 15px;
+
+          &::before {
+            content: "";
+            top: -11px;
+            right: -11px;
+            position: absolute;
+            height: 40px;
+            width: 40px;
+            z-index: 10;
+            border: 5px solid #fc4b6c;
+            border-radius: 20px;
+            -moz-animation: heartbit 1s ease-out;
+            -moz-animation-iteration-count: infinite;
+            -o-animation: heartbit 1s ease-out;
+            -o-animation-iteration-count: infinite;
+            -webkit-animation: heartbit 1s ease-out;
+            -webkit-animation-iteration-count: infinite;
+            animation-iteration-count: infinite;
+          }
         }
       }
 
@@ -96,5 +194,86 @@ header.navbar {
         }
       }
     }
+
+    .usermenu {
+        .dropdown {
+            .dropdown-menu {
+                @extend .scale-up;
+                line-height: initial;
+                margin-top: 0;
+                top: 45px;
+                border-radius: $card-border-radius;
+                min-width: 180px;
+
+                .dropdown-item {
+                    border-bottom: none;
+                    margin: 2px 5px;
+                    padding: .5rem .7rem;
+                    width: inherit;
+                    &:hover {
+                        background-color: $body-bg;
+                        border-radius: $card-border-radius;
+                    }
+                }
+
+                .dropdown-divider {
+                    display: block;
+                    background-color: rgba(120,130,140,.13);
+                }
+            }
+
+            &.open {
+                .dropdown-menu {
+                    @extend .scale-up-show;
+                }
+            }
+        }
+    }
+  }
+}
+
+@-moz-keyframes heartbit {
+  0% {
+    -moz-transform: scale(0);
+    opacity: 0.0;
+  }
+  25% {
+    -moz-transform: scale(0.1);
+    opacity: 0.1;
+  }
+  50% {
+    -moz-transform: scale(0.3);
+    opacity: 0.3;
+  }
+  75% {
+    -moz-transform: scale(0.6);
+    opacity: 0.5;
+  }
+  100% {
+    -moz-transform: scale(0.9);
+    opacity: 0.0;
+  }
+}
+
+@-webkit-keyframes heartbit {
+  0% {
+    -webkit-transform: scale(0);
+    opacity: 0.0;
+  }
+  25% {
+    -webkit-transform: scale(0.1);
+    opacity: 0.1;
+  }
+  50% {
+    -webkit-transform: scale(0.3);
+    opacity: 0.3;
+  }
+  75% {
+    -webkit-transform: scale(0.6);
+    opacity: 0.5;
+  }
+  100% {
+    -webkit-transform: scale(0.9);
+    opacity: 0.0;
   }
 }

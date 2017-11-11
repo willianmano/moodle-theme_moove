@@ -1,0 +1,13 @@
+.scale-up {
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+    display:inline-block;
+    transform-origin: right 0px;
+}
+
+.scale-up-show {
+  transform: scale(1);
+  transform-origin: right 0px;
+}

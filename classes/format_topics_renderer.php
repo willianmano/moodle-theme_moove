@@ -318,7 +318,7 @@ class theme_moove_format_topics_renderer extends format_topics_renderer {
             'class' => $classattr, 'role' => 'region', 'aria-label' => $title));
 
         $o .= html_writer::start_tag('div', array('class' => 'card card-block'));
-        
+
             $o .= html_writer::tag('div', '<i class="fa fa-laptop"></i>', array('class' => 'pgr-img'));
 
             $o .= html_writer::start_tag('div', array('class' => 'pgr-content'));
