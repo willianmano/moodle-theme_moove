@@ -11,7 +11,8 @@
         }
     }
 
-    body.pagelayout-frontpage.notloggedin {
+    body.pagelayout-frontpage.notloggedin,
+    body#page-login-forgot_password {
         margin-left: 0;
         margin-right: 0;
     }

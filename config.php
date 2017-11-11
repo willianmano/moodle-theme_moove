@@ -84,6 +84,11 @@ $THEME->extrascsscallback = 'theme_moove_get_extra_scss';
 $THEME->prescsscallback = 'theme_moove_get_pre_scss';
 
 $THEME->layouts = [
+    // Most backwards compatible layout without the blocks - this is the layout used by default.
+    'base' => array(
+        'file' => 'base.php',
+        'regions' => array(),
+    ),
     // The site home page.
     'frontpage' => array(
         'file' => 'frontpage.php',

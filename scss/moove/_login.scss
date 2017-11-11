@@ -120,6 +120,15 @@
             }
         }
     }
+
+    .box.generalbox.boxaligncenter {
+        border-color: $card-border-color;
+        border-radius: $card-border-radius;
+        -webkit-box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.05);
+        box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.05);
+        background-color: #ffffff;
+        padding: 2rem !important;
+    }
 }
 
 #page-login-signup {
