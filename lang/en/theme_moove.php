@@ -53,7 +53,8 @@ $string['platform_access'] = 'Access to the platform';
 $string['readmore'] = 'Read More';
 $string['stayintouch'] = 'Stay in touch';
 $string['madewitmoodle'] = 'Proudly made with';
-$string['madeby'] = 'This theme was developed by';
+$string['madeby'] = 'Made with';
+$string['by'] = 'by';
 $string['discipline_progress'] = 'Discipline\'s progress';
 
 $string['frontpagesettings'] = 'Frontpage Settings';

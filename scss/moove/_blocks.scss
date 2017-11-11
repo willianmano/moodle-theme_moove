@@ -62,7 +62,9 @@ body.drawer-open-right {
 
         aside.block {
             border: none;
-            border-bottom: 1px solid rgba(238, 238, 238, 1);
+            border-radius: 0;
+            -webkit-box-shadow: 0 5px 20px rgba(0,0,0,.1);
+            box-shadow: 0 5px 20px rgba(0,0,0,.1);
         }
     }
 }
