@@ -39,7 +39,7 @@
 
 [data-region="blocks-column"] {
     width: 280px;
-    background-color: #ffffff;
+    background-color: #fff;
     position: fixed;
     top: 70px;
     right: -280px;
@@ -63,8 +63,8 @@ body.drawer-open-right {
         aside.block {
             border: none;
             border-radius: 0;
-            -webkit-box-shadow: 0 5px 20px rgba(0,0,0,.1);
-            box-shadow: 0 5px 20px rgba(0,0,0,.1);
+            -webkit-box-shadow: 0 5px 20px rgba(0, 0, 0, .1);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, .1);
         }
     }
 }
