@@ -1,4 +1,8 @@
 #page-course-view-topics {
+    .section .activity .contentwithoutlink > a,
+    .section .activity .activityinstance > a {
+        display: initial;
+    }
     .course-content {
         .topics {
             #section-0 {
@@ -11,6 +15,7 @@
                     margin: 0;
                     .mod-indent-outer {
                         padding-left: 0;
+                        display: block;
 
                         .contentwithoutlink {
                             padding-right: 0;
@@ -85,36 +90,30 @@
                     }
                 }
 
-                .pgr-container {
-                    padding-top: 10px;
-                    min-height: 110px;
-                    width: 100%;
-                    border-top: solid 1px #ebebeb;
-                    box-shadow: 0 2px 2px 0 #ebebeb, 0 3px 1px -2px #ebebeb, 0 1px 5px 0 #ebebeb;
-                }
-
                 &:last-child {
                     border-bottom: 1px;
                 }
+
                 .pgr-img {
                     margin: 0;
-                    .image {
-                        width: 90px;
-                        height: 90px;
-                        background-color: $brand-primary;
-                        border-radius: 100%;
-                        overflow: hidden;
+                    width: 90px;
+                    height: 90px;
+                    background-color: $brand-primary;
+                    border-radius: 100%;
+                    text-align: center;
+                    padding: 20px;
+                    display: inline-block;
+                    vertical-align: top;
 
-                        img {
-                            height: auto;
-                            max-width: 100%;
-                            vertical-align: middle;
-                        }
+                    i {
+                        font-size: 48px;
+                        color: #fff;
                     }
                 }
 
-                .pgr-content .section-title {
-                    font-size: 1.25rem;
+                .pgr-content {
+                    display: inline-block;
+                    width: calc(100% - 90px);
                 }
 
                 .activity-count {
@@ -125,7 +124,7 @@
                     height: 20px;
                     margin-bottom: 20px;
                     overflow: hidden;
-                    background-color: $m-dark-bg-hover;
+                    background-color: $body-bg;
                     margin-left: 12px;
                     width: inherit;
 
@@ -145,7 +144,7 @@
 
         .single-section .sectionname,
         .section .sectionname {
-            border-color: $m-dark-bg-hover;
+            border-color: $body-bg;
             border-style: solid;
             border-width: 5px 5px 5px 0;
             background: #fff;

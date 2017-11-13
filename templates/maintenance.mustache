@@ -15,21 +15,23 @@
     along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 }}
 {{!
-    @template theme_boost/login
+    @template theme_boost/maintenance
 
-    Login page template
+    Boost maintenance layout template.
+
+    Context variables required for this template:
+    * output - The core renderer for the page
 
     Example context (json):
     {
         "output": {
             "doctype": "<!DOCTYPE html>",
-            "page_title": "Login page",
+            "page_title": "Test page",
             "favicon": "favicon.ico",
-            "main_content": "<h1>Headers keep HTML validators happy</h1>"
-        }
+            "main_content": "<h1>Headings make html validators happier</h1>"
+         }
     }
 }}
-
 {{{ output.doctype }}}
 <html {{{ output.htmlattributes }}}>
 <head>
@@ -49,20 +51,22 @@
 
     {{{ output.standard_top_of_body_html }}}
 
-    <div id="page" class="container-fluid">
-        <div id="page-content" class="row">
-            <div id="region-main-box">
-                <section id="region-main" class="col-xs-12">
-                    {{{ output.course_content_header }}}
-                    {{{ output.main_content }}}
-                    {{{ output.course_content_footer }}}
-                </section>
+    <div id="page" class="container card card-block">
+
+        <div class="row">
+            <div class="col-xs-12 p-y-1">
+                {{{ output.page_heading }}}
             </div>
         </div>
+
+        <div id="page-content" class="row">
+            <section id="region-main" class="col-xs-12">
+                {{{ output.main_content }}}
+            </section>
+        </div>
+
     </div>
 </div>
-
-{{{ output.standard_footer_html }}}
 
 {{{ output.standard_end_of_body_html }}}
 

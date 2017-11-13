@@ -87,10 +87,11 @@ function theme_moove_get_main_scss_content($theme) {
     }
 
     // Moove scss.
+    $moovevariables = file_get_contents($CFG->dirroot . '/theme/moove/scss/moove/_variables.scss');
     $moove = file_get_contents($CFG->dirroot . '/theme/moove/scss/moove.scss');
 
     // Combine them together.
-    return $scss . "\n" . $moove;
+    return $moovevariables . "\n" . $scss . "\n" . $moove;
 }
 
 /**
@@ -100,8 +101,6 @@ function theme_moove_get_main_scss_content($theme) {
  * @return string
  */
 function theme_moove_get_pre_scss($theme) {
-    global $CFG;
-
     $scss = '';
     $configurable = [
         // Config key => [variableName, ...].
@@ -158,18 +157,6 @@ function theme_moove_pluginfile($course, $cm, $context, $filearea, $args, $force
     } else if ($context->contextlevel == CONTEXT_SYSTEM and $filearea === 'marketing4icon') {
         $theme = theme_config::load('moove');
         return $theme->setting_file_serve('marketing4icon', $args, $forcedownload, $options);
-    } else if ($context->contextlevel == CONTEXT_SYSTEM and $filearea === 'mainbox1icon') {
-        $theme = theme_config::load('moove');
-        return $theme->setting_file_serve('mainbox1icon', $args, $forcedownload, $options);
-    } else if ($context->contextlevel == CONTEXT_SYSTEM and $filearea === 'mainbox2icon') {
-        $theme = theme_config::load('moove');
-        return $theme->setting_file_serve('mainbox2icon', $args, $forcedownload, $options);
-    } else if ($context->contextlevel == CONTEXT_SYSTEM and $filearea === 'mainbox3icon') {
-        $theme = theme_config::load('moove');
-        return $theme->setting_file_serve('mainbox3icon', $args, $forcedownload, $options);
-    } else if ($context->contextlevel == CONTEXT_SYSTEM and $filearea === 'mainbox4icon') {
-        $theme = theme_config::load('moove');
-        return $theme->setting_file_serve('mainbox4icon', $args, $forcedownload, $options);
     } else {
         send_file_not_found();
     }
@@ -196,125 +183,4 @@ function theme_moove_get_setting($setting, $format = false) {
     } else {
         return format_string($theme->settings->$setting);
     }
-}
-
-/**
- * Get config theme marketing itens
- *
- * @return array
- */
-function theme_moove_get_marketing_items() {
-    global $PAGE, $OUTPUT;
-
-    $templatecontext = [];
-
-    // Marketing 1.
-    if (!empty($PAGE->theme->settings->marketing1icon)) {
-        $templatecontext['marketing1icon'] = $PAGE->theme->setting_file_url('marketing1icon', 'marketing1icon');
-    } else {
-        $templatecontext['marketing1icon'] = $OUTPUT->image_url('icon_default', 'theme');
-    }
-
-    $templatecontext['marketing1heading'] = '';
-    if (!empty($PAGE->theme->settings->marketing1heading)) {
-        $templatecontext['marketing1heading'] = theme_moove_get_setting('marketing1heading', true);
-    }
-
-    $templatecontext['marketing1subheading'] = '';
-    if (!empty($PAGE->theme->settings->marketing1subheading)) {
-        $templatecontext['marketing1subheading'] = theme_moove_get_setting('marketing1subheading', true);
-    }
-
-    $templatecontext['marketing1content'] = '';
-    if (!empty($PAGE->theme->settings->marketing1content)) {
-        $templatecontext['marketing1content'] = theme_moove_get_setting('marketing1content', true);
-    }
-
-    $templatecontext['marketing1url'] = '';
-    if (!empty($PAGE->theme->settings->marketing1url)) {
-        $templatecontext['marketing1url'] = $PAGE->theme->settings->marketing1url;
-    }
-
-    // Marketing 2.
-    if (!empty($PAGE->theme->settings->marketing2icon)) {
-        $templatecontext['marketing2icon'] = $PAGE->theme->setting_file_url('marketing2icon', 'marketing2icon');
-    } else {
-        $templatecontext['marketing2icon'] = $OUTPUT->image_url('icon_default', 'theme');
-    }
-
-    $templatecontext['marketing2heading'] = '';
-    if (!empty($PAGE->theme->settings->marketing2heading)) {
-        $templatecontext['marketing2heading'] = theme_moove_get_setting('marketing2heading', true);
-    }
-
-    $templatecontext['marketing2subheading'] = '';
-    if (!empty($PAGE->theme->settings->marketing2subheading)) {
-        $templatecontext['marketing2subheading'] = theme_moove_get_setting('marketing2subheading', true);
-    }
-
-    $templatecontext['marketing2content'] = '';
-    if (!empty($PAGE->theme->settings->marketing2content)) {
-        $templatecontext['marketing2content'] = theme_moove_get_setting('marketing2content', true);
-    }
-
-    $templatecontext['marketing2url'] = '';
-    if (!empty($PAGE->theme->settings->marketing2url)) {
-        $templatecontext['marketing2url'] = $PAGE->theme->settings->marketing2url;
-    }
-
-    // Marketing 3.
-    if (!empty($PAGE->theme->settings->marketing3icon)) {
-        $templatecontext['marketing3icon'] = $PAGE->theme->setting_file_url('marketing3icon', 'marketing3icon');
-    } else {
-        $templatecontext['marketing3icon'] = $OUTPUT->image_url('icon_default', 'theme');
-    }
-
-    $templatecontext['marketing3heading'] = '';
-    if (!empty($PAGE->theme->settings->marketing3heading)) {
-        $templatecontext['marketing3heading'] = theme_moove_get_setting('marketing3heading', true);
-    }
-
-    $templatecontext['marketing3subheading'] = '';
-    if (!empty($PAGE->theme->settings->marketing3subheading)) {
-        $templatecontext['marketing3subheading'] = theme_moove_get_setting('marketing3subheading', true);
-    }
-
-    $templatecontext['marketing3content'] = '';
-    if (!empty($PAGE->theme->settings->marketing3content)) {
-        $templatecontext['marketing3content'] = theme_moove_get_setting('marketing3content', true);
-    }
-
-    $templatecontext['marketing3url'] = '';
-    if (!empty($PAGE->theme->settings->marketing3url)) {
-        $templatecontext['marketing3url'] = $PAGE->theme->settings->marketing3url;
-    }
-
-    // Marketing 4.
-    if (!empty($PAGE->theme->settings->marketing4icon)) {
-        $templatecontext['marketing4icon'] = $PAGE->theme->setting_file_url('marketing4icon', 'marketing4icon');
-    } else {
-        $templatecontext['marketing4icon'] = $OUTPUT->image_url('icon_default', 'theme');
-    }
-
-    $templatecontext['marketing4heading'] = '';
-    if (!empty($PAGE->theme->settings->marketing4heading)) {
-        $templatecontext['marketing4heading'] = theme_moove_get_setting('marketing4heading', true);
-    }
-
-    $templatecontext['marketing4subheading'] = '';
-    if (!empty($PAGE->theme->settings->marketing4subheading)) {
-        $templatecontext['marketing4subheading'] = theme_moove_get_setting('marketing4subheading', true);
-    }
-
-    $templatecontext['marketing4content'] = '';
-    if (!empty($PAGE->theme->settings->marketing4content)) {
-        $templatecontext['marketing4content'] = theme_moove_get_setting('marketing4content', true);
-    }
-
-    $templatecontext['marketing4url'] = '';
-    if (!empty($PAGE->theme->settings->marketing4url)) {
-        $templatecontext['marketing4url'] = $PAGE->theme->settings->marketing4url;
-    }
-
-    return $templatecontext;
 }

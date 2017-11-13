@@ -21,88 +21,99 @@
 
     Example context (json): {}
 }}
-<div id="top-footer" class="container">
-    <div class="row">
+<div id="top-footer" class="container-fluid">
+    <div class="row-fluid">
         <div class="col-md-7 contact">
-            <h2>{{#str}}stayintouch, theme_moove{{/str}}</h2>
-            <h3>{{output.get_getintouchcontent_config}}</h3>
+            <h3>{{#str}}stayintouch, theme_moove{{/str}}</h3>
+            <h4>{{{getintouchcontent}}}</h4>
             <ul>
-                {{#output.get_website_config}}<li><i class="fa fa-globe"></i>{{output.get_website_config}}</li>{{/output.get_website_config}}
-                {{#output.get_mobile_config}}<li><i class="fa fa-mobile-phone"></i>{{output.get_mobile_config}}</li>{{/output.get_mobile_config}}
-                {{#output.get_mail_config}}<li><i class="fa fa-envelope"></i>{{output.get_mail_config}}</li>{{/output.get_mail_config}}
+                {{#website}}<li><i class="icon-globe"></i>{{{website}}}</li>{{/website}}
+                {{#mobile}}<li><i class="icon-phone"></i>{{{mobile}}}</li>{{/mobile}}
+                {{#mail}}<li><i class="icon-envelope"></i>{{{mail}}}</li>{{/mail}}
             </ul>
         </div>
         <div class="col-md-5 social">
           <ul>
-              {{#output.get_facebook_config}}
+              {{#facebook}}
                 <li>
-                  <a href="{{output.get_facebook_config}}" target="_blank" />
-                    <i class="fa fa-facebook-square"></i>
+                  <a href="{{{facebook}}}" target="_blank" class="facebook" />
+                    <i class="icon-social-facebook"></i>
                   </a>
                 </li>
-              {{/output.get_facebook_config}}
+              {{/facebook}}
 
-              {{#output.get_twitter_config}}
+              {{#twitter}}
                 <li>
-                  <a href="{{output.get_twitter_config}}" target="_blank" />
-                    <i class="fa fa-twitter-square"></i>
+                  <a href="{{{twitter}}}" target="_blank" class="twitter" />
+                    <i class="icon-social-twitter"></i>
                   </a>
                 </li>
-              {{/output.get_twitter_config}}
+              {{/twitter}}
 
-              {{#output.get_googleplus_config}}
+              {{#googleplus}}
                 <li>
-                  <a href="{{output.get_googleplus_config}}" target="_blank" />
-                    <i class="fa fa-google-plus-square"></i>
+                  <a href="{{{googleplus}}}" target="_blank" class="googleplus" />
+                    <i class="icon-social-gplus"></i>
                   </a>
                 </li>
-              {{/output.get_googleplus_config}}
+              {{/googleplus}}
 
-              {{#output.get_linkedin_config}}
+              {{#linkedin}}
                 <li>
-                  <a href="{{output.get_linkedin_config}}" target="_blank" />
-                    <i class="fa fa-linkedin-square"></i>
+                  <a href="{{{linkedin}}}" target="_blank" class="linkedin" />
+                    <i class="icon-social-linkedin"></i>
                   </a>
                 </li>
-              {{/output.get_linkedin_config}}
+              {{/linkedin}}
 
-              {{#output.get_youtube_config}}
+              {{#youtube}}
                 <li>
-                  <a href="{{output.get_youtube_config}}" target="_blank" />
-                    <i class="fa fa-youtube-square"></i>
+                  <a href="{{{youtube}}}" target="_blank" class="youtube" />
+                    <i class="icon-social-youtube"></i>
                   </a>
                 </li>
-              {{/output.get_youtube_config}}
+              {{/youtube}}
+
+              {{#instagram}}
+                <li>
+                  <a href="{{{instagram}}}" target="_blank" class="instagram" />
+                    <i class="icon-social-instagram"></i>
+                  </a>
+                </li>
+              {{/instagram}}
           </ul>
         </div>
     </div>
 </div>
 
-<footer id="page-footer" class="p-y-1">
-    <div class="container">
-        <div id="course-footer">{{{ output.course_footer }}}</div>
+{{^disablebottomfooter}}
+  <footer id="page-footer" class="p-y-1">
+      <div class="container-fluid">
+          <div id="course-footer">{{{ output.course_footer }}}</div>
 
-        {{# output.page_doc_link }}
-            <p class="helplink">{{{ output.page_doc_link }}}</p>
-        {{/ output.page_doc_link }}
+          {{# output.page_doc_link }}
+              <p class="helplink">{{{ output.page_doc_link }}}</p>
+          {{/ output.page_doc_link }}
 
-        <div class="madewithmoodle">
-            <p>{{#str}}madewitmoodle, theme_moove{{/str}}</p>
-            <a href="https://moodle.org"><img src="{{output.get_pix_image_url_base}}/moodle-logo-white.png" alt="Moodle logo"></a>
-        </div>
+          <div class="madewithmoodle">
+              <p>{{#str}}madewitmoodle, theme_moove{{/str}}</p>
+              <a href="https://moodle.org"><img src="{{output.get_pix_image_url_base}}/moodle-logo-white.png" alt="Moodle logo"></a>
+          </div>
 
-        <div class="madeby">
-            <p>{{#str}}madeby, theme_moove{{/str}} <a href="http://conecti.me">conecti.me</a></p>
-        </div>
+          <div class="madeby">
+              <p>{{#str}}madeby, theme_moove{{/str}} <i class="text-danger fa fa-heart"></i> {{#str}}by, theme_moove{{/str}} <a href="http://conecti.me">conecti.me</a></p>
+          </div>
 
-        <nav class="nav navbar-nav hidden-lg-up">
-            {{# output.custom_menu_flat }}
-                <ul class="list-unstyled p-t-1">
-                    {{> theme_moove/custom_menu_footer }}
-                </ul>
-            {{/ output.custom_menu_flat }}
-        </nav>
-        {{{ output.standard_footer_html }}}
-        {{{ output.standard_end_of_body_html }}}
-    </div>
-</footer>
+          <nav class="nav navbar-nav hidden-lg-up">
+              {{# output.custom_menu_flat }}
+                  <ul class="list-unstyled p-t-1">
+                      {{> theme_moove/custom_menu_footer }}
+                  </ul>
+              {{/ output.custom_menu_flat }}
+          </nav>
+          {{{ output.standard_footer_html }}}
+      </div>
+  </footer>
+{{/disablebottomfooter}}
+
+{{{ output.standard_end_of_body_html }}}

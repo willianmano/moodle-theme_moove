@@ -313,49 +313,41 @@ class theme_moove_format_topics_renderer extends format_topics_renderer {
         }
 
         $title = get_section_name($course, $section);
-        $o = '';
-        $o .= html_writer::start_tag('li', array('id' => 'section-'.$section->section,
+        $output = '';
+        $output .= html_writer::start_tag('li', array('id' => 'section-'.$section->section,
             'class' => $classattr, 'role' => 'region', 'aria-label' => $title));
 
-        $o .= html_writer::start_tag('div', array('class' => 'pgr-container'));
-        $o .= html_writer::start_tag('div', array('class' => 'col-md-3 pgr-img'));
-        $o .= html_writer::start_tag('div', array('class' => 'image'));
-        $o .= html_writer::link(
-            course_get_url($course, $section->section),
-            html_writer::empty_tag('img', array(
-                'src' => $this->output->image_url('disc_default', 'theme'),
-                'class' => "icon-disc"
-            )));
-            $o .= html_writer::end_tag('div');
-            $o .= html_writer::end_tag('div');
+        $output .= html_writer::start_tag('div', array('class' => 'card card-block'));
 
-            $o .= html_writer::start_tag('div', array('class' => 'col-md-9 pgr-content'));
-            $o .= html_writer::tag('div', '', array('class' => 'left side'));
-            $o .= html_writer::tag('div', '', array('class' => 'right side'));
-            $o .= html_writer::start_tag('div', array('class' => 'content'));
+        $output .= html_writer::tag('div', '<i class="fa fa-laptop"></i>', array('class' => 'pgr-img'));
 
-            if ($section->uservisible) {
-                $title = html_writer::tag('a', $title,
-                    array('href' => course_get_url($course, $section->section), 'class' => $linkclasses));
-            }
+        $output .= html_writer::start_tag('div', array('class' => 'pgr-content'));
+        $output .= html_writer::tag('div', '', array('class' => 'left side'));
+        $output .= html_writer::tag('div', '', array('class' => 'right side'));
+        $output .= html_writer::start_tag('div', array('class' => 'content'));
 
-            $o .= $this->output->heading($title, 3, 'section-title');
+        if ($section->uservisible) {
+            $title = html_writer::tag('a', $title,
+                array('href' => course_get_url($course, $section->section), 'class' => $linkclasses));
+        }
 
-            $o .= html_writer::start_tag('div', array('class' => 'summarytext'));
-            $o .= $this->format_summary_text($section);
-            $o .= html_writer::end_tag('div');
-            $o .= $this->section_activity_summary($section, $course, null);
+        $output .= $this->output->heading($title, 4, 'section-title');
 
-            $context = context_course::instance($course->id);
-            $o .= $this->section_availability_message($section,
-                has_capability('moodle/course:viewhiddensections', $context));
+        $output .= html_writer::start_tag('div', array('class' => 'summarytext'));
+        $output .= $this->format_summary_text($section);
+        $output .= html_writer::end_tag('div');
+        $output .= $this->section_activity_summary($section, $course, null);
 
-            $o .= html_writer::end_tag('div'); // Content.
-            $o .= html_writer::end_tag('div'); // Col-md-9.
-            $o .= html_writer::end_tag('div'); // Pgr-content.
-            $o .= html_writer::end_tag('li');
+        $context = context_course::instance($course->id);
+        $output .= $this->section_availability_message($section,
+            has_capability('moodle/course:viewhiddensections', $context));
 
-            return $o;
+        $output .= html_writer::end_tag('div'); // Content.
+        $output .= html_writer::end_tag('div'); // Col-md-9.
+        $output .= html_writer::end_tag('div'); // Pgr-content.
+        $output .= html_writer::end_tag('li');
+
+        return $output;
     }
 
     /**

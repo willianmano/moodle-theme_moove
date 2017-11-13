@@ -1,226 +1,95 @@
-body {
-    margin-left: 50px;
-    background-color: $m-dark-bg;
+/*******************
+Bodys
+*******************/
+@media (min-width: 768px) {
+    body {
+        margin-left: 55px;
+
+        &.drawer-open-left {
+            margin-left: 280px;
+        }
+
+        &.drawer-open-right {
+            margin-right: 280px;
+        }
+    }
+
+    body.pagelayout-frontpage.notloggedin,
+    body#page-login-forgot_password {
+        margin-left: 0;
+        margin-right: 0;
+    }
 }
 
+body#page-enrol-index {
+    #region-main {
+        .generalbox {
+            float: left;
+            width: 30%;
+        }
+        .generalbox:last-of-type {
+            width: 70%;
+            padding-left: 2rem;
+            padding-right: 2rem;
+        }
+    }
+}
+
+/*******************
+Pages
+*******************/
 #page {
-    background-color: $m-dark-bg-hover;
-    margin-top: 70px;
+    margin-top: 40px;
+
+    &.container-fluid {
+        padding: 2rem 2rem 0 2rem;
+    }
 }
 
+#page-admin-index.pagelayout-maintenance {
+    margin-left: 0;
+
+    #page-wrapper::after {
+        min-height: inherit;
+    }
+}
+
+/*******************
+Card
+*******************/
+.card {
+    border-color: $card-border-color;
+    border-radius: $card-border-radius;
+    -webkit-box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+
+    .card-body {
+        padding: 1.25rem;
+    }
+}
+
+/*******************
+Headings
+*******************/
 h1,
-.h1 {
-    font-size: 2rem;
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6 {
+    color: $headings-color;
+    font-family: "Poppins", sans-serif;
+    font-weight: $headings-font-weight;
 }
 
-#blocks-drawer {
-    width: 300px;
-    height: inherit;
-    padding: 0;
-    top: 69px;
-    right: -300px;
-    position: absolute;
-
-    &.sidebar-blocks-open {
-        right: 0;
-    }
-
-    &.display-none {
-        display: none;
-    }
-
-    aside.block {
-        margin-bottom: 0 !important;
-    }
-}
-
-@media (max-width: 767px) {
-    #page-mod-book-view #region-main {
-        float: inherit;
-    }
-}
-
-#page-header {
-    .col-xs-12 .card {
-        margin-bottom: 0;
-        .card-block {
-            padding-bottom: 0;
-        }
-    }
-
-    .breadcrumb-button.nonavbar,
-    #page-navbar .breadcrumb-button {
-        .singlebutton {
-            float: right;
-        }
-    }
-
-    .breadcrumb-button.nonavbar .singlebutton {
-        margin-bottom: 1.25rem;
-    }
-
-    #page-navbar .breadcrumb-button .singlebutton {
-        margin-top: 20px;
-    }
-
-    #page-navbar {
-        .breadcrumb-nav {
-            .breadcrumb {
-                padding: 0.5em 1em;
-                margin: 1em auto;
-                background-color: #edeff0;
-                border-radius: .25em;
-
-                &:after {
-                    content: "";
-                    display: table;
-                    clear: both;
-                }
-
-                li {
-                    display: inline-block;
-                    float: left;
-                    margin: 0.5em 0;
-
-                    &:after {
-                        /* this is the separator between items */
-                        display: inline-block;
-                        content: '\00bb';
-                        margin: 0 .6em;
-                        color: #959fa5;
-                    }
-                    &:before {
-                        content: '';
-                        padding: 0;
-                    }
-
-                    .no-link {
-                        background-color: #f7f7f7;
-                        border-color: #f7f7f7;
-                    }
-                }
-            }
-
-            .breadcrumb li:last-of-type::after {
-                /* hide separator after the last item */
-                display: none;
-            }
-            .breadcrumb li > * {
-                /* single step */
-                display: inline-block;
-                font-size: 1.2rem;
-                color: #2c3f4c;
-            }
-            .breadcrumb li.current > * {
-                /* selected step */
-                color: #96c03d;
-            }
-            .no-touch .breadcrumb a:hover {
-                /* steps already visited */
-                color: #96c03d;
-            }
-
-            @media only screen and (min-width: 768px) {
-                .breadcrumb {
-                    padding: 0 1.2em;
-                }
-                .breadcrumb li {
-                    margin: 1.2em 0;
-                }
-                .breadcrumb li::after {
-                    margin: 0 1em;
-                }
-                .breadcrumb li > * {
-                    font-size: 1.2rem;
-                }
-            }
-
-            /* --------------------------------
-            ------- Triangle breadcrumb -------
-            -------------------------------- */
-            @media only screen and (min-width: 768px) {
-                .breadcrumb {
-                    /* reset basic style */
-                    background-color: transparent;
-                    padding: 0;
-                }
-                .breadcrumb li {
-                    position: relative;
-                    padding: 0;
-                    margin: 4px 4px 4px 0;
-                }
-                .breadcrumb li:last-of-type {
-                    margin-right: 0;
-                }
-                .breadcrumb li > * {
-                    position: relative;
-                    padding: .4em .8em .4em 1.5em;
-                    color: #2c3f4c;
-                    background-color: #edeff0;
-                    /* the border color is used to style its ::after pseudo-element */
-                    border-color: #edeff0;
-                }
-                .breadcrumb li.current > * {
-                    /* selected step */
-                    color: #fff;
-                    background-color: #96c03d;
-                    border-color: #96c03d;
-                }
-                .breadcrumb li:first-of-type > * {
-                    padding-left: 1.6em;
-                    border-radius: .25em 0 0 .25em;
-                }
-                .breadcrumb li:last-of-type > * {
-                    padding-right: 1.6em;
-                    border-radius: 0 .25em .25em 0;
-                }
-                .no-touch .breadcrumb a:hover {
-                    /* steps already visited */
-                    color: #fff;
-                    background-color: #2c3f4c;
-                    border-color: #2c3f4c;
-                }
-                .breadcrumb li::after,
-                .breadcrumb li > *::after {
-                    content: '';
-                    position: absolute;
-                    top: 0;
-                    left: 100%;
-                    height: 0;
-                    width: 0;
-                    border: 20px solid transparent;
-                    border-right-width: 0;
-                    border-left-width: 10px;
-                }
-                .breadcrumb li::after {
-                    /* this is the white separator between two items */
-                    z-index: 1;
-                    -webkit-transform: translateX(4px);
-                    -moz-transform: translateX(4px);
-                    -ms-transform: translateX(4px);
-                    -o-transform: translateX(4px);
-                    transform: translateX(4px);
-                    border-left-color: #fff;
-                    margin: 0;
-                }
-                .breadcrumb li > *::after {
-                    /* this is the colored triangle after each element */
-                    z-index: 2;
-                    border-left-color: inherit;
-                }
-                .breadcrumb li:last-of-type::after,
-                .breadcrumb li:last-of-type > *::after {
-                    /* hide the triangle after the last step */
-                    display: none;
-                }
-                @-moz-document url-prefix() {
-                    .breadcrumb li::after,
-                    .breadcrumb li > *::after {
-                        /* fix a bug on Firefix - tooth edge on css triangle */
-                        border-left-style: dashed;
-                    }
-                }
-            }
-        }
-    }
+/* Third party plugins compatibility. */
+/* Course format grid */
+#gridshadebox_content {
+    top: 80px !important;
 }

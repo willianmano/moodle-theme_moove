@@ -65,6 +65,7 @@ $templatecontext = [
     'sidepreblocks' => $blockshtml,
     'hasblocks' => $hasblocks,
     'bodyattributes' => $bodyattributes,
+    'hasdrawertoggle' => true,
     'navdraweropen' => $navdraweropen,
     'draweropenright' => $draweropenright,
     'regionmainsettingsmenu' => $regionmainsettingsmenu,
@@ -72,6 +73,10 @@ $templatecontext = [
 ];
 
 $templatecontext['flatnavigation'] = $PAGE->flatnav;
+
+$themesettings = new \theme_moove\util\theme_settings();
+
+$templatecontext = array_merge($templatecontext, $themesettings->footer_items());
 
 if (isset($PAGE->cm->modname) && in_array($PAGE->cm->modname, $moduleswithnavinblocks)) {
     echo $OUTPUT->render_from_template('theme_moove/incourse', $templatecontext);

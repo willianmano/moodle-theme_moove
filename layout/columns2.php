@@ -57,6 +57,7 @@ $templatecontext = [
     'sidepreblocks' => $blockshtml,
     'hasblocks' => $hasblocks,
     'bodyattributes' => $bodyattributes,
+    'hasdrawertoggle' => true,
     'navdraweropen' => $navdraweropen,
     'draweropenright' => $draweropenright,
     'regionmainsettingsmenu' => $regionmainsettingsmenu,
@@ -64,4 +65,9 @@ $templatecontext = [
 ];
 
 $templatecontext['flatnavigation'] = $PAGE->flatnav;
+
+$themesettings = new \theme_moove\util\theme_settings();
+
+$templatecontext = array_merge($templatecontext, $themesettings->footer_items());
+
 echo $OUTPUT->render_from_template('theme_moove/columns2', $templatecontext);
