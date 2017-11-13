@@ -37,9 +37,6 @@ header.navbar {
         float: right;
         width: 24px;
         cursor: pointer;
-        -webkit-transition: width .5s ease,left .5s ease;
-        -o-transition: width .5s ease,left .5s ease;
-        transition: width .5s ease,left .5s ease;
 
         i {
             color: $brand-primary;
@@ -53,29 +50,30 @@ header.navbar {
 
       &.expanded {
           .search-input-form {
-              display: block;
+              visibility: visible;
+              opacity: 1;
           }
       }
 
       .search-input-form {
           position: absolute;
           margin: 0px;
-          display: none;
+          visibility: hidden;
+          opacity: 0;
           z-index: 110;
           width: 100%;
           top: -1px;
+          left: 0;
           -webkit-box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.2);
           box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.2);
-          left: 0px;
+          -webkit-transition: opacity 400ms, visibility 400ms;
+          transition: opacity 400ms, visibility 400ms;
 
           .form-control {
             width: 100%;
             padding: 24px 40px 24px 20px;
             border-radius: 0px;
             font-size: 17px;
-            -webkit-transition: 0.5s ease-in;
-            -o-transition: 0.5s ease-in;
-            transition: 0.5s ease-in;
           }
 
           .close-search {
