@@ -186,6 +186,16 @@ header.navbar {
                   }
               }
           }
+
+          .popover-region-footer-container {
+              height: 50px;
+              padding: 15px 20px;
+              border: 1px solid #dddddd;
+
+              .popover-region-seeall-text {
+                  line-height: initial;
+              }
+          }
       }
 
       .popover-region-container[aria-hidden="false"] {
