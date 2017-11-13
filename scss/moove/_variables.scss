@@ -1,5 +1,31 @@
-$m-navbar-height: 70px;
-$m-dark-bg: #222d32;
-$m-dark-bg-hover: #f1f1f1;
-$m-dark-separator: #374850;
-$m-moodle-color: #f98012;
+$font-family-sans-serif: "Poppins", sans-serif, !default;
+
+$headings-font-family: $font-family-sans-serif !default;
+$headings-font-weight: 400 !default;
+$headings-color: #455a64 !default;
+
+$body-bg: #eef5f9 !default;
+
+$card-border-radius: 4px !default;
+$card-border-color: #d7dfe3 !default;
+
+$navbar-height: 70px !default;
+$navbar-bg: #272c33 !default;
+$navbar-bg-hover: #26c6da !default;
+$navbar-separator: #374850 !default;
+
+$calendarEventCategoryColor: #fc4b6c !default;
+$calendarEventCourseColor: #7460ee !default;
+$calendarEventGlobalColor: #1e88e5 !default;
+$calendarEventGroupColor: #ffb22b !default;
+$calendarEventUserColor: #26c6da !default;
+
+$m-login-padding: 10px;
+$m-login-boxheight: 350px;
+$m-moodle-color: #f98012 !default;
+$m-facebook-color: #3b5998 !default;
+$m-twitter-color: #55acee !default;
+$m-youtube-color: #cc181e !default;
+$m-googleplus-color: #d34836 !default;
+$m-linkedin-color: #007bb5 !default;
+$m-instagram-color: #8a3ab9 !default;

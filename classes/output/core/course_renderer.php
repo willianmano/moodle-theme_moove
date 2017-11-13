@@ -123,7 +123,7 @@ class course_renderer extends \core_course_renderer {
         }
 
         $coursecount = 1;
-        $content .= html_writer::start_tag('div', array('class' => 'row'));
+        $content .= html_writer::start_tag('div', array('class' => 'row-fluid'));
         foreach ($courses as $course) {
             $content .= $this->coursecat_coursebox($chelper, $course, 'col-md-3');
 
@@ -175,7 +175,7 @@ class course_renderer extends \core_course_renderer {
         }
         $content = html_writer::start_tag('div', array('class' => $additionalclasses));
 
-        $classes = trim('card coursebox clearfix');
+        $classes = trim('card clearfix');
         if ($chelper->get_show_courses() >= self::COURSECAT_SHOW_COURSES_EXPANDED) {
             $nametag = 'h3';
         } else {

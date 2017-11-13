@@ -48,22 +48,7 @@
         "hasregionmainsettingsmenu": false
     }
 }}
-{{{ output.doctype }}}
-<html {{{ output.htmlattributes }}}>
-<head>
-    <title>{{{ output.page_title }}}</title>
-    <link rel="shortcut icon" href="{{{ output.favicon }}}" />
-    {{{ output.standard_head_html }}}
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
-
-<body {{{ bodyattributes }}}>
-
-<div id="page-wrapper">
-
-    {{{ output.standard_top_of_body_html }}}
-
-    {{>theme_moove/header}}
+    {{>theme_moove/inc_start}}
 
     <div id="page" class="container-fluid">
         {{{ output.full_header }}}
@@ -89,32 +74,4 @@
         </div>
     </div>
 
-    {{#hasblocks}}
-        <i id="sidepreopen-control"
-            aria-expanded="false"
-            aria-controls="sidepre-blocks"
-            data-action="toggle-drawer"
-            data-side="right"
-            data-preference="sidepre-open"
-            class="fa"
-            title="{{#str}} showhideblocks, theme_moove {{/str}}">
-        </i>
-
-        <section id="sidepre-blocks" data-region="blocks-column" class="hidden-print">
-            {{{ sidepreblocks }}}
-        </section>
-    {{/hasblocks}}
-
-    {{> theme_moove/nav-drawer }}
-</div>
-
-{{> theme_moove/footer }}
-
-</body>
-</html>
-{{#js}}
-require(['theme_boost/loader']);
-require(['theme_boost/drawer'], function(mod) {
-    mod.init();
-});
-{{/js}}
+    {{>theme_moove/inc_end}}

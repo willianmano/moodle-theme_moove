@@ -1,41 +1,9 @@
-.drawer-open-left #nav-drawer .pin-drawer .btn {
-    &:after {
-        content: "Minimize menu";
-    }
-    .fa-icon-max-menu:before {
-        content: "\f0a8";
-    }
-}
-
 #nav-drawer {
-    padding: 0;
-    background-color: $m-dark-bg;
+    padding: 5px;
+    overflow: visible;
+    background-color: $navbar-bg;
     top: 70px;
     padding-bottom: 20px;
-
-    .pin-drawer {
-        padding: 10px;
-        height: 52px;
-
-        .btn {
-            color: #fff;
-            border-radius: 0;
-            background-color: $m-dark-separator;
-            border: none;
-            box-shadow: none;
-            width: 100%;
-
-            .fa-icon-max-menu:before {
-                content: "\f0a9";
-            }
-
-            &:after {
-                padding-left: 4px;
-                text-transform: uppercase;
-                content: "Maximize menu";
-            }
-        }
-    }
 
     .list-group {
         .list-group-item {
@@ -43,21 +11,29 @@
             background-color: inherit;
             color: #fff;
             padding: .75rem 1rem;
-
-            &:first-child,
-            &:last-child {
-                border-radius: 0;
-            }
+            border-radius: $card-border-radius;
 
             &:hover {
-                background-color: $m-dark-bg-hover;
-                color: $m-dark-bg;
+                background-color: $navbar-bg-hover;
+                color: #ffffff;
+            }
+
+            .m-l-0::before {
+                font-size: 19px;
             }
         }
 
         .list-group-item > div:before {
-            font: normal normal normal 14px/1 FontAwesome;
-            content: "\f114";
+            font-family: 'simple-line-icons';
+            speak: none;
+            font-style: normal;
+            font-weight: normal;
+            font-variant: normal;
+            text-transform: none;
+            line-height: 1;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            content: "\e089";
         }
 
 
@@ -65,121 +41,77 @@
             display: inline;
         }
 
-        .list-group-item.font-weight-bold {
-            background-color: $m-dark-bg-hover;
-            border-left: 3px solid $brand-primary;
-            color: $m-dark-bg;
-        }
-
         [data-key="coursehome"] > div:before {
-            font: normal normal normal 14px/1 FontAwesome;
-            content: "\f19d";
+            content: "\e06a"; // OK
         }
         [data-key="mycourses"] > div:before {
-            font: normal normal normal 14px/1 FontAwesome;
-            content: "\f0e8";
+            content: "\e019"; // OK
         }
         [data-key="participants"] > div:before {
-            font: normal normal normal 14px/1 FontAwesome;
-            content: "\f0c0";
+            content: "\e001"; // OK
         }
         [data-key="badgesview"] > div:before {
-            font: normal normal normal 14px/1 FontAwesome;
-            content: "\f0a3";
+            content: "\e028"; // OK
         }
         // Competences
-        [data-key="2"] > div:before {
-            font: normal normal normal 14px/1 FontAwesome;
-            content: "\f058";
+        [data-key="competencies"] > div:before {
+            content: "\e09b"; // OK
         }
         [data-key="grades"] > div:before {
-            font: normal normal normal 14px/1 FontAwesome;
-            content: "\f031";
+            content: "\e04c"; // OK
         }
         [data-key="myhome"] > div:before {
-            font: normal normal normal 14px/1 FontAwesome;
-            content: "\f0e4";
+            content: "\e007"; // OK
         }
         [data-key="home"] > div:before {
-            font: normal normal normal 14px/1 FontAwesome;
-            content: "\f015";
+            content: "\e069"; // OK
         }
         [data-key="calendar"] > div:before {
-            font: normal normal normal 14px/1 FontAwesome;
-            content: "\f073";
+            content: "\e075"; // OK
         }
         // Private files
-        [data-key="5"] > div:before,
+        [data-key="privatefiles"] > div:before,
         [data-key="7"] > div:before {
-            font: normal normal normal 14px/1 FontAwesome;
-            content: "\f0c5";
+            content: "\e040"; // OK
         }
         [data-key="sitesettings"] > div:before {
-            font: normal normal normal 14px/1 FontAwesome;
-            content: "\f085";
+            content: "\e09a"; // OK
         }
     }
 
     .list-group.m-t-1 {
-        border-top: 3px solid $m-dark-separator;
+        border-top: 3px solid $navbar-separator;
     }
 }
 
 #nav-drawer.closed {
-    left: -220px;
-    overflow-y: hidden;
-
-    .pin-drawer {
-        text-align: right;
-        padding-right: 1rem;
-        .btn {
-            width: 40px;
-            &:after {
-                content: "";
-            }
-        }
-    }
+    width: 60px;
+    left: 0;
 
     .list-group {
         .list-group-item {
-            text-align: right;
-            padding: .75rem 1.7rem;
-        }
-    }
+            text-align: left;
+            padding: .75rem 1.2rem;
 
-    .list-group .list-group-item > div span.text {
-        display: none;
-    }
+            .m-l-1 {
+                margin-left: 4px !important;
+            }
 
-    &:hover {
-        left: 0;
-        overflow-y: scroll;
+            > div span.text {
+                display: none;
+            }
 
-        .pin-drawer .btn:after {
-            content: "Maximize menu";
-        }
+            &:hover {
+                width: 235px;
 
-        .pin-drawer {
-            text-align: inherit;
-            padding-right: 10px;
-            .btn {
-                margin-right: 0 !important;
-                width: 100%;
-                &:after {
-                    content: "Maximize menu";
+                > div span.text {
+                    display: inline-block;
+                }
+
+                .text {
+                    margin-left: 4px;
                 }
             }
-        }
-
-        .list-group {
-            .list-group-item {
-                text-align: left;
-                padding: .75rem 1rem;
-            }
-        }
-
-        .list-group .list-group-item > div span.text {
-            display: inline;
         }
     }
 }

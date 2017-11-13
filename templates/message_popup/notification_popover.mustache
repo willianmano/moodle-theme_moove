@@ -44,7 +44,7 @@
 
     {{$togglelabel}}{{#str}} shownotificationwindownonew, message {{/str}}{{/togglelabel}}
     {{$togglecontent}}
-        <i class="fa fa-bell-o" title="{{#str}} togglenotificationmenu, message {{/str}}"></i>
+        <i class="icon-bell" title="{{#str}} togglenotificationmenu, message {{/str}}"></i>
         <div class="count-container hidden" data-region="count-container"></div>
     {{/togglecontent}}
 
@@ -59,7 +59,7 @@
                     title="{{#str}} markallread {{/str}}"
                     data-action="mark-all-read"
                     role="button">
-                    <span class="normal-icon"><i class="fa fa-check" alt="{{#str}} markallread {{/str}}"></i></span>
+                    <span class="normal-icon"><i class="icon-check" alt="{{#str}} markallread {{/str}}"></i></span>
                     {{> core/loading }}
                 </a>
             {{/anchor}}
@@ -69,7 +69,7 @@
             {{$anchor}}
                 <a href="{{{urls.preferences}}}"
                     title="{{#str}} notificationpreferences, message {{/str}}">
-                    <i class="fa fa-cog" alt="{{#str}} notificationpreferences, message {{/str}}"></i>
+                    <i class="icon-settings" alt="{{#str}} notificationpreferences, message {{/str}}"></i>
                 </a>
             {{/anchor}}
             {{$tooltip}}{{#str}} notificationpreferences, message {{/str}}{{/tooltip}}

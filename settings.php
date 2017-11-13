@@ -110,6 +110,15 @@ if ($ADMIN->fulltree) {
     $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
 
+    // Google analytics block.
+    $name = 'theme_moove/googleanalytics';
+    $title = get_string('googleanalytics', 'theme_moove');
+    $description = get_string('googleanalyticsdesc', 'theme_moove');
+    $default = '';
+    $setting = new admin_setting_configtext($name, $title, $description, $default);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $page->add($setting);
+
     $settings->add($page);
 
     /*
@@ -418,6 +427,23 @@ if ($ADMIN->fulltree) {
     $setting = new admin_setting_configtext($name, $title, $description, $default);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
+
+    // Instagram url setting.
+    $name = 'theme_moove/instagram';
+    $title = get_string('instagram', 'theme_moove');
+    $description = get_string('instagramdesc', 'theme_moove');
+    $default = '';
+    $setting = new admin_setting_configtext($name, $title, $description, $default);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $page->add($setting);
+
+    // Disable bottom footer.
+    $name = 'theme_moove/disablebottomfooter';
+    $title = get_string('disablebottomfooter', 'theme_moove');
+    $description = get_string('disablebottomfooterdesc', 'theme_moove');
+    $setting = new admin_setting_configcheckbox($name, $title, $description, 0);
+    $page->add($setting);
+    $setting->set_updatedcallback('theme_reset_all_caches');
 
     $settings->add($page);
 }

@@ -31,6 +31,8 @@ require_once($CFG->libdir . '/behat/lib.php');
 
 $extraclasses = [];
 
+$themesettings = new \theme_moove\util\theme_settings();
+
 if (isloggedin()) {
     $blockshtml = $OUTPUT->blocks('side-pre');
     $hasblocks = strpos($blockshtml, 'data-block=') !== false;
@@ -54,6 +56,7 @@ if (isloggedin()) {
         'sidepreblocks' => $blockshtml,
         'hasblocks' => $hasblocks,
         'bodyattributes' => $bodyattributes,
+        'hasdrawertoggle' => true,
         'navdraweropen' => $navdraweropen,
         'draweropenright' => $draweropenright,
         'regionmainsettingsmenu' => $regionmainsettingsmenu,
@@ -61,6 +64,8 @@ if (isloggedin()) {
     ];
 
     $templatecontext['flatnavigation'] = $PAGE->flatnav;
+
+    $templatecontext = array_merge($templatecontext, $themesettings->footer_items());
 
     echo $OUTPUT->render_from_template('theme_moove/frontpage', $templatecontext);
 } else {
@@ -86,13 +91,14 @@ if (isloggedin()) {
         'sitename' => format_string($SITE->shortname, true, ['context' => context_course::instance(SITEID), "escape" => false]),
         'output' => $OUTPUT,
         'bodyattributes' => $bodyattributes,
+        'hasdrawertoggle' => false,
         'cansignup' => $CFG->registerauth == 'email' || !empty($CFG->registerauth),
         'bannerheading' => $bannerheading,
         'bannercontent' => $bannercontent,
         'shoulddisplaymarketing' => $shoulddisplaymarketing,
     ];
 
-    $templatecontext = array_merge($templatecontext, theme_moove_get_marketing_items());
+    $templatecontext = array_merge($templatecontext, $themesettings->footer_items(), $themesettings->marketing_items());
 
     echo $OUTPUT->render_from_template('theme_moove/frontpage_guest', $templatecontext);
 }

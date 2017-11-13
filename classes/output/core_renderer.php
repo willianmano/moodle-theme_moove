@@ -38,6 +38,7 @@ use pix_icon;
 use theme_config;
 use core_text;
 use help_icon;
+use context_system;
 
 defined('MOODLE_INTERNAL') || die;
 
@@ -208,123 +209,6 @@ class core_renderer extends \theme_boost\output\core_renderer {
     }
 
     /**
-     * Return getintouch config
-     *
-     * @return string Getintouch url config
-     */
-    public function get_getintouchcontent_config() {
-        $theme = theme_config::load('moove');
-
-        $setting = $theme->settings->getintouchcontent;
-
-        return $setting != '' ? $setting : '';
-    }
-
-    /**
-     * Return website config
-     *
-     * @return string Website url config
-     */
-    public function get_website_config() {
-        $theme = theme_config::load('moove');
-
-        $setting = $theme->settings->website;
-
-        return $setting != '' ? $setting : '';
-    }
-
-    /**
-     * Return mobile config
-     *
-     * @return string Mobile url config
-     */
-    public function get_mobile_config() {
-        $theme = theme_config::load('moove');
-
-        $setting = $theme->settings->mobile;
-
-        return $setting != '' ? $setting : '';
-    }
-
-    /**
-     * Return mail config
-     *
-     * @return string Mail url config
-     */
-    public function get_mail_config() {
-        $theme = theme_config::load('moove');
-
-        $setting = $theme->settings->mail;
-
-        return $setting != '' ? $setting : '';
-    }
-
-    /**
-     * Return facebook config
-     *
-     * @return string Facebook url config
-     */
-    public function get_facebook_config() {
-        $theme = theme_config::load('moove');
-
-        $setting = $theme->settings->facebook;
-
-        return $setting != '' ? $setting : '';
-    }
-
-    /**
-     * Return twitter config
-     *
-     * @return string Twitter url config
-     */
-    public function get_twitter_config() {
-        $theme = theme_config::load('moove');
-
-        $setting = $theme->settings->twitter;
-
-        return $setting != '' ? $setting : '';
-    }
-
-    /**
-     * Return googleplus config
-     *
-     * @return string Googleplus url config
-     */
-    public function get_googleplus_config() {
-        $theme = theme_config::load('moove');
-
-        $setting = $theme->settings->googleplus;
-
-        return $setting != '' ? $setting : '';
-    }
-
-    /**
-     * Return linkedin config
-     *
-     * @return string Linkeding url config
-     */
-    public function get_linkedin_config() {
-        $theme = theme_config::load('moove');
-
-        $setting = $theme->settings->linkedin;
-
-        return $setting != '' ? $setting : '';
-    }
-
-    /**
-     * Return youtube config
-     *
-     * @return string Youtube url config
-     */
-    public function get_youtube_config() {
-        $theme = theme_config::load('moove');
-
-        $setting = $theme->settings->youtube;
-
-        return $setting != '' ? $setting : '';
-    }
-
-    /**
      * Return the site identity providers
      *
      * @return mixed
@@ -435,7 +319,7 @@ class core_renderer extends \theme_boost\output\core_renderer {
 
         $avatarclasses = "avatars";
         $avatarcontents = html_writer::span($opts->metadata['useravatar'], 'avatar current');
-        $usertextcontents = $opts->metadata['userfullname'];
+        $usertextcontents = '';
 
         // Other user.
         if (!empty($opts->metadata['asotheruser'])) {
@@ -503,6 +387,16 @@ class core_renderer extends \theme_boost\output\core_renderer {
         if ($withlinks) {
             $navitemcount = count($opts->navitems);
             $idx = 0;
+
+            // Adds username to the first item of usermanu.
+            $userinfo = new stdClass();
+            $userinfo->itemtype = 'text';
+            $userinfo->title = $user->firstname . ' ' . $user->lastname;
+            $userinfo->url = new moodle_url('/user/profile.php', array('id' => $user->id));
+            $userinfo->pix = 'i/user';
+
+            array_unshift($opts->navitems, $userinfo);
+
             foreach ($opts->navitems as $key => $value) {
 
                 switch ($value->itemtype) {
@@ -513,6 +407,17 @@ class core_renderer extends \theme_boost\output\core_renderer {
 
                     case 'invalid':
                         // Silently skip invalid entries (should we post a notification?).
+                        break;
+
+                    case 'text':
+                        $al = new action_menu_link_secondary(
+                            $value->url,
+                            $pix = new pix_icon($value->pix, $value->title, null, array('class' => 'iconsmall')),
+                            $value->title,
+                            array('class' => 'text-username')
+                        );
+
+                        $am->add($al);
                         break;
 
                     case 'link':
@@ -544,7 +449,7 @@ class core_renderer extends \theme_boost\output\core_renderer {
                 $idx++;
 
                 // Add dividers after the first item and before the last item.
-                if ($idx == 1 || $idx == $navitemcount - 1) {
+                if ($idx == 1 || $idx == $navitemcount) {
                     $am->add($divider);
                 }
             }
@@ -581,5 +486,81 @@ class core_renderer extends \theme_boost\output\core_renderer {
         }
 
         return $this->render_from_template('core/help_icon', $context);
+    }
+
+    /**
+     * Returns a search box.
+     *
+     * @param  string $id     The search box wrapper div id, defaults to an autogenerated one.
+     * @return string         HTML with the search form hidden by default.
+     */
+    public function search_box($id = false) {
+        global $CFG;
+
+        // Accessing $CFG directly as using \core_search::is_global_search_enabled would
+        // result in an extra included file for each site, even the ones where global search
+        // is disabled.
+        if (empty($CFG->enableglobalsearch) || !has_capability('moodle/search:query', context_system::instance())) {
+            return '';
+        }
+
+        if ($id == false) {
+            $id = uniqid();
+        } else {
+            // Needs to be cleaned, we use it for the input id.
+            $id = clean_param($id, PARAM_ALPHANUMEXT);
+        }
+
+        // JS to animate the form.
+        $this->page->requires->js_call_amd('core/search-input', 'init', array($id));
+
+        $iconattrs = array(
+                        'class' => 'icon-magnifier',
+                        'title' => get_string('search', 'search'),
+                        'aria-label' => get_string('search', 'search'),
+                        'aria-hidden' => 'true');
+        $searchicon = html_writer::tag('i', '', $iconattrs);
+
+        $formattrs = array('class' => 'search-input-form', 'action' => $CFG->wwwroot . '/search/index.php');
+        $inputattrs = array('type' => 'text', 'name' => 'q', 'placeholder' => get_string('search', 'search'),
+            'size' => 13, 'tabindex' => -1, 'id' => 'id_q_' . $id, 'class' => 'form-control');
+
+        $contents = html_writer::tag('label', get_string('enteryoursearchquery', 'search'),
+            array('for' => 'id_q_' . $id, 'class' => 'accesshide')) . html_writer::tag('input', '', $inputattrs);
+
+        $btnclose = '<a class="close-search"><i class="fa fa-times"></i></a>';
+
+        $searchinput = html_writer::tag('form', $contents . $btnclose, $formattrs);
+
+        return html_writer::tag('div', $searchicon . $searchinput, array('class' => 'moove-search-input nav-link', 'id' => $id));
+    }
+
+    /**
+     * The standard tags (meta tags, links to stylesheets and JavaScript, etc.)
+     * that should be included in the <head> tag. Designed to be called in theme
+     * layout.php files.
+     *
+     * @return string HTML fragment.
+     */
+    public function standard_head_html() {
+        global $SITE, $PAGE;
+
+        $output = parent::standard_head_html();
+
+        // Add google analytics code.
+        $googleanalyticscode = "<script>
+                                    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};
+                                    ga.l=+new Date;ga('create', 'GOOGLE-ANALYTICS-CODE', 'auto');
+                                    ga('send', 'pageview');
+                                </script>
+                                <script async src='https://www.google-analytics.com/analytics.js'></script>";
+
+        $theme = theme_config::load('moove');
+
+        if (!empty($theme->settings->googleanalytics)) {
+            $output .= str_replace("GOOGLE-ANALYTICS-CODE", trim($theme->settings->googleanalytics), $googleanalyticscode);
+        }
+
+        return $output;
     }
 }

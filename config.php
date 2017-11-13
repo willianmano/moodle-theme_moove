@@ -71,7 +71,11 @@ $THEME->addblockposition = BLOCK_ADDBLOCK_POSITION_FLATNAV;
 // This is the function that returns the SCSS source for the main file in our theme. We override the boost version because
 // we want to allow presets uploaded to our own theme file area to be selected in the preset list.
 $THEME->scss = function($theme) {
-    return theme_moove_get_main_scss_content($theme);
+    // We need to load the config for our parent theme because that is where the preset setting is defined.
+    $parentconfig = theme_config::load('boost');
+    // Call a function from our parent themes lib.php.
+    // file to fetch the content of the themes main SCSS file based on it's own config, not ours.
+    return theme_moove_get_main_scss_content($parentconfig);
 };
 
 // Process extra scss to our final stylesheet.
@@ -81,6 +85,11 @@ $THEME->extrascsscallback = 'theme_moove_get_extra_scss';
 $THEME->prescsscallback = 'theme_moove_get_pre_scss';
 
 $THEME->layouts = [
+    // Most backwards compatible layout without the blocks - this is the layout used by default.
+    'base' => array(
+        'file' => 'base.php',
+        'regions' => array(),
+    ),
     // The site home page.
     'frontpage' => array(
         'file' => 'frontpage.php',
@@ -101,5 +110,12 @@ $THEME->layouts = [
         'regions' => array('side-pre'),
         'defaultregion' => 'side-pre',
         'options' => array('nonavbar' => false, 'langmenu' => true),
+    ),
+    // Used during upgrade and install, and for the 'This site is undergoing maintenance' message.
+    // This must not have any blocks, links, or API calls that would lead to database or cache interaction.
+    // Please be extremely careful if you are modifying this layout.
+    'maintenance' => array(
+        'file' => 'maintenance.php',
+        'regions' => array(),
     ),
 ];
