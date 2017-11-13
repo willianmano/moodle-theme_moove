@@ -1,3 +1,6 @@
+/*******************
+Bodys
+*******************/
 @media (min-width: 768px) {
     body {
         margin-left: 55px;
@@ -32,6 +35,9 @@ body#page-enrol-index {
     }
 }
 
+/*******************
+Pages
+*******************/
 #page {
     margin-top: 40px;
 
@@ -48,6 +54,9 @@ body#page-enrol-index {
     }
 }
 
+/*******************
+Card
+*******************/
 .card {
     border-color: $card-border-color;
     border-radius: $card-border-radius;
@@ -57,6 +66,26 @@ body#page-enrol-index {
     .card-body {
         padding: 1.25rem;
     }
+}
+
+/*******************
+Headings
+*******************/
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6 {
+  color: $headings-color;
+  font-family: "Poppins", sans-serif;
+  font-weight: $headings-font-weight;
 }
 
 /* Third party plugins compatibility. */

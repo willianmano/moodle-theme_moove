@@ -42,7 +42,7 @@
 
         <ul class="navbar-nav hidden-md-down navbar-custom-menu">
             {{#hasdrawertoggle}}
-                <li data-region="drawer-toggle" class="nav-item drawer-toggle waves-effect waves-dark">
+                <li data-region="drawer-toggle" class="nav-item drawer-toggle">
                     <a
                         href="javascript:void(0)"
                         aria-expanded="{{#navdraweropen}}true{{/navdraweropen}}{{^navdraweropen}}false{{/navdraweropen}}"
@@ -60,7 +60,7 @@
             <!-- page_heading_menu -->
             {{{ output.page_heading_menu }}}
         </ul>
-        
+
         <ul class="navbar-nav popover-menu-items">
             <li class="popover-region">
                 {{{ output.render_lang_menu }}}
