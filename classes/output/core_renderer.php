@@ -534,4 +534,28 @@ class core_renderer extends \theme_boost\output\core_renderer {
 
         return html_writer::tag('div', $searchicon . $searchinput, array('class' => 'moove-search-input nav-link', 'id' => $id));
     }
+
+    /**
+     * The standard tags (meta tags, links to stylesheets and JavaScript, etc.)
+     * that should be included in the <head> tag. Designed to be called in theme
+     * layout.php files.
+     *
+     * @return string HTML fragment.
+     */
+    public function standard_head_html() {
+        global $SITE, $PAGE;
+
+        $output = parent::standard_head_html();
+
+        // add google analytics code
+        $googleanalyticscode = "<!-- Google Analytics --><script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;ga('create', 'UA-CODE-X', 'auto');ga('send', 'pageview');</script><script async src='https://www.google-analytics.com/analytics.js'></script><!-- End Google Analytics -->";
+
+        $theme = theme_config::load('moove');
+
+        if (!empty($theme->settings->googleanalytics)) {
+            $output .= str_replace("UA-CODE-X", trim($theme->settings->googleanalytics), $googleanalyticscode);
+        }
+
+        return $output;
+    }
 }

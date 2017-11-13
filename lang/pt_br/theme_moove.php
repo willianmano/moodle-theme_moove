@@ -144,3 +144,5 @@ $string['totalusers'] = 'Total de usuários';
 $string['totalcourses'] = 'Total de cursos';
 $string['onlineusers'] = 'Usuários online(5 minutos)';
 $string['showhideblocks'] = 'Exibir/ocultar blocos';
+$string['googleanalytics'] = 'Código do Google Analytics';
+$string['googleanalyticsdesc'] = 'Por favor digite o código do Google Analytics para habilitá-lo no seu site. O código deve ter o formato [UA-XXXXX-Y]';
