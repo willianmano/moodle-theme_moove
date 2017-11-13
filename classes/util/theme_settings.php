@@ -27,6 +27,8 @@ namespace theme_moove\util;
 use theme_config;
 use stdClass;
 
+defined('MOODLE_INTERNAL') || die();
+
 /**
  * Helper to load a theme configuration.
  *
@@ -46,54 +48,15 @@ class theme_settings {
 
         $templatecontext = [];
 
-        $templatecontext['facebook'] = '';
-        if (!empty($theme->settings->facebook)) {
-            $templatecontext['facebook'] = $theme->settings->facebook;
-        }
+        $footersettings = [
+            'facebook', 'twitter', 'googleplus', 'linkedin', 'youtube', 'instagram', 'getintouchcontent',
+            'website', 'mobile', 'mail'
+        ];
 
-        $templatecontext['twitter'] = '';
-        if (!empty($theme->settings->twitter)) {
-            $templatecontext['twitter'] = $theme->settings->twitter;
-        }
-
-        $templatecontext['googleplus'] = '';
-        if (!empty($theme->settings->googleplus)) {
-            $templatecontext['googleplus'] = $theme->settings->googleplus;
-        }
-
-        $templatecontext['linkedin'] = '';
-        if (!empty($theme->settings->linkedin)) {
-            $templatecontext['linkedin'] = $theme->settings->linkedin;
-        }
-
-        $templatecontext['youtube'] = '';
-        if (!empty($theme->settings->youtube)) {
-            $templatecontext['youtube'] = $theme->settings->youtube;
-        }
-
-        $templatecontext['instagram'] = '';
-        if (!empty($theme->settings->instagram)) {
-            $templatecontext['instagram'] = $theme->settings->instagram;
-        }
-
-        $templatecontext['getintouchcontent'] = '';
-        if (!empty($theme->settings->getintouchcontent)) {
-            $templatecontext['getintouchcontent'] = $theme->settings->getintouchcontent;
-        }
-
-        $templatecontext['website'] = '';
-        if (!empty($theme->settings->website)) {
-            $templatecontext['website'] = $theme->settings->website;
-        }
-
-        $templatecontext['mobile'] = '';
-        if (!empty($theme->settings->mobile)) {
-            $templatecontext['mobile'] = $theme->settings->mobile;
-        }
-
-        $templatecontext['mail'] = '';
-        if (!empty($theme->settings->mail)) {
-            $templatecontext['mail'] = $theme->settings->mail;
+        foreach ($footersettings as $setting) {
+            if (!empty($theme->settings->$setting)) {
+                $templatecontext[$setting] = $theme->settings->$setting;
+            }
         }
 
         $templatecontext['disablebottomfooter'] = false;
@@ -116,112 +79,38 @@ class theme_settings {
 
         $templatecontext = [];
 
-        // Marketing 1.
-        if (!empty($theme->settings->marketing1icon)) {
-            $templatecontext['marketing1icon'] = $theme->setting_file_url('marketing1icon', 'marketing1icon');
-        } else {
-            $templatecontext['marketing1icon'] = $OUTPUT->image_url('icon_default', 'theme');
-        }
+        for ($i=1; $i < 5; $i++) {
+            $marketingicon = 'marketing' . $i . 'icon';
+            $marketingheading = 'marketing' . $i . 'heading';
+            $marketingsubheading = 'marketing' . $i . 'subheading';
+            $marketingcontent = 'marketing' . $i . 'content';
+            $marketingurl = 'marketing' . $i . 'url';
 
-        $templatecontext['marketing1heading'] = '';
-        if (!empty($theme->settings->marketing1heading)) {
-            $templatecontext['marketing1heading'] = theme_moove_get_setting('marketing1heading', true);
-        }
+            if (!empty($theme->settings->$marketingicon)) {
+                $templatecontext[$marketingicon] = $theme->setting_file_url($marketingicon, $marketingicon);
+            } else {
+                $templatecontext[$marketingicon] = $OUTPUT->image_url('icon_default', 'theme');
+            }
 
-        $templatecontext['marketing1subheading'] = '';
-        if (!empty($theme->settings->marketing1subheading)) {
-            $templatecontext['marketing1subheading'] = theme_moove_get_setting('marketing1subheading', true);
-        }
+            $templatecontext[$marketingheading] = '';
+            if (!empty($theme->settings->$marketingheading)) {
+                $templatecontext[$marketingheading] = theme_moove_get_setting($marketingheading, true);
+            }
 
-        $templatecontext['marketing1content'] = '';
-        if (!empty($theme->settings->marketing1content)) {
-            $templatecontext['marketing1content'] = theme_moove_get_setting('marketing1content', true);
-        }
+            $templatecontext[$marketingsubheading] = '';
+            if (!empty($theme->settings->$marketingsubheading)) {
+                $templatecontext[$marketingsubheading] = theme_moove_get_setting($marketingsubheading, true);
+            }
 
-        $templatecontext['marketing1url'] = '';
-        if (!empty($theme->settings->marketing1url)) {
-            $templatecontext['marketing1url'] = $theme->settings->marketing1url;
-        }
+            $templatecontext[$marketingcontent] = '';
+            if (!empty($theme->settings->$marketingcontent)) {
+                $templatecontext[$marketingcontent] = theme_moove_get_setting($marketingcontent, true);
+            }
 
-        // Marketing 2.
-        if (!empty($theme->settings->marketing2icon)) {
-            $templatecontext['marketing2icon'] = $theme->setting_file_url('marketing2icon', 'marketing2icon');
-        } else {
-            $templatecontext['marketing2icon'] = $OUTPUT->image_url('icon_default', 'theme');
-        }
-
-        $templatecontext['marketing2heading'] = '';
-        if (!empty($theme->settings->marketing2heading)) {
-            $templatecontext['marketing2heading'] = theme_moove_get_setting('marketing2heading', true);
-        }
-
-        $templatecontext['marketing2subheading'] = '';
-        if (!empty($theme->settings->marketing2subheading)) {
-            $templatecontext['marketing2subheading'] = theme_moove_get_setting('marketing2subheading', true);
-        }
-
-        $templatecontext['marketing2content'] = '';
-        if (!empty($theme->settings->marketing2content)) {
-            $templatecontext['marketing2content'] = theme_moove_get_setting('marketing2content', true);
-        }
-
-        $templatecontext['marketing2url'] = '';
-        if (!empty($theme->settings->marketing2url)) {
-            $templatecontext['marketing2url'] = $theme->settings->marketing2url;
-        }
-
-        // Marketing 3.
-        if (!empty($theme->settings->marketing3icon)) {
-            $templatecontext['marketing3icon'] = $theme->setting_file_url('marketing3icon', 'marketing3icon');
-        } else {
-            $templatecontext['marketing3icon'] = $OUTPUT->image_url('icon_default', 'theme');
-        }
-
-        $templatecontext['marketing3heading'] = '';
-        if (!empty($theme->settings->marketing3heading)) {
-            $templatecontext['marketing3heading'] = theme_moove_get_setting('marketing3heading', true);
-        }
-
-        $templatecontext['marketing3subheading'] = '';
-        if (!empty($theme->settings->marketing3subheading)) {
-            $templatecontext['marketing3subheading'] = theme_moove_get_setting('marketing3subheading', true);
-        }
-
-        $templatecontext['marketing3content'] = '';
-        if (!empty($theme->settings->marketing3content)) {
-            $templatecontext['marketing3content'] = theme_moove_get_setting('marketing3content', true);
-        }
-
-        $templatecontext['marketing3url'] = '';
-        if (!empty($theme->settings->marketing3url)) {
-            $templatecontext['marketing3url'] = $theme->settings->marketing3url;
-        }
-
-        // Marketing 4.
-        if (!empty($theme->settings->marketing4icon)) {
-            $templatecontext['marketing4icon'] = $theme->setting_file_url('marketing4icon', 'marketing4icon');
-        } else {
-            $templatecontext['marketing4icon'] = $OUTPUT->image_url('icon_default', 'theme');
-        }
-
-        $templatecontext['marketing4heading'] = '';
-        if (!empty($theme->settings->marketing4heading)) {
-            $templatecontext['marketing4heading'] = theme_moove_get_setting('marketing4heading', true);
-        }
-
-        $templatecontext['marketing4subheading'] = '';
-        if (!empty($theme->settings->marketing4subheading)) {
-            $templatecontext['marketing4subheading'] = theme_moove_get_setting('marketing4subheading', true);
-        }
-
-        $templatecontext['marketing4content'] = '';
-        if (!empty($theme->settings->marketing4content)) {
-            $templatecontext['marketing4content'] = theme_moove_get_setting('marketing4content', true);
-        }
-
-        $templatecontext['marketing4url'] = '';
-        if (!empty($theme->settings->marketing4url)) {
-            $templatecontext['marketing4url'] = $PAGE->theme->settings->marketing4url;
+            $templatecontext[$marketingurl] = '';
+            if (!empty($theme->settings->$marketingurl)) {
+                $templatecontext[$marketingurl] = $theme->settings->$marketingurl;
+            }
         }
 
         return $templatecontext;

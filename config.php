@@ -73,7 +73,8 @@ $THEME->addblockposition = BLOCK_ADDBLOCK_POSITION_FLATNAV;
 $THEME->scss = function($theme) {
     // We need to load the config for our parent theme because that is where the preset setting is defined.
     $parentconfig = theme_config::load('boost');
-    // Call a function from our parent themes lib.php file to fetch the content of the themes main SCSS file based on it's own config, not ours.
+    // Call a function from our parent themes lib.php.
+    // file to fetch the content of the themes main SCSS file based on it's own config, not ours.
     return theme_moove_get_main_scss_content($parentconfig);
 };
 

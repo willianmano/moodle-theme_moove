@@ -101,8 +101,6 @@ function theme_moove_get_main_scss_content($theme) {
  * @return string
  */
 function theme_moove_get_pre_scss($theme) {
-    global $CFG;
-
     $scss = '';
     $configurable = [
         // Config key => [variableName, ...].
@@ -159,18 +157,6 @@ function theme_moove_pluginfile($course, $cm, $context, $filearea, $args, $force
     } else if ($context->contextlevel == CONTEXT_SYSTEM and $filearea === 'marketing4icon') {
         $theme = theme_config::load('moove');
         return $theme->setting_file_serve('marketing4icon', $args, $forcedownload, $options);
-    } else if ($context->contextlevel == CONTEXT_SYSTEM and $filearea === 'mainbox1icon') {
-        $theme = theme_config::load('moove');
-        return $theme->setting_file_serve('mainbox1icon', $args, $forcedownload, $options);
-    } else if ($context->contextlevel == CONTEXT_SYSTEM and $filearea === 'mainbox2icon') {
-        $theme = theme_config::load('moove');
-        return $theme->setting_file_serve('mainbox2icon', $args, $forcedownload, $options);
-    } else if ($context->contextlevel == CONTEXT_SYSTEM and $filearea === 'mainbox3icon') {
-        $theme = theme_config::load('moove');
-        return $theme->setting_file_serve('mainbox3icon', $args, $forcedownload, $options);
-    } else if ($context->contextlevel == CONTEXT_SYSTEM and $filearea === 'mainbox4icon') {
-        $theme = theme_config::load('moove');
-        return $theme->setting_file_serve('mainbox4icon', $args, $forcedownload, $options);
     } else {
         send_file_not_found();
     }

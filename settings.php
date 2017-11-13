@@ -110,7 +110,7 @@ if ($ADMIN->fulltree) {
     $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
 
-    // google analytics block
+    // Google analytics block.
     $name = 'theme_moove/googleanalytics';
     $title = get_string('googleanalytics', 'theme_moove');
     $description = get_string('googleanalyticsdesc', 'theme_moove');

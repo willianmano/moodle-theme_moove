@@ -515,7 +515,7 @@ class core_renderer extends \theme_boost\output\core_renderer {
         $this->page->requires->js_call_amd('core/search-input', 'init', array($id));
 
         $iconattrs = array(
-                        'class'=>'icon-magnifier',
+                        'class' => 'icon-magnifier',
                         'title' => get_string('search', 'search'),
                         'aria-label' => get_string('search', 'search'),
                         'aria-hidden' => 'true');
@@ -547,13 +547,18 @@ class core_renderer extends \theme_boost\output\core_renderer {
 
         $output = parent::standard_head_html();
 
-        // add google analytics code
-        $googleanalyticscode = "<!-- Google Analytics --><script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;ga('create', 'UA-CODE-X', 'auto');ga('send', 'pageview');</script><script async src='https://www.google-analytics.com/analytics.js'></script><!-- End Google Analytics -->";
+        // Add google analytics code.
+        $googleanalyticscode = "<script>
+                                    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};
+                                    ga.l=+new Date;ga('create', 'GOOGLE-ANALYTICS-CODE', 'auto');
+                                    ga('send', 'pageview');
+                                </script>
+                                <script async src='https://www.google-analytics.com/analytics.js'></script>";
 
         $theme = theme_config::load('moove');
 
         if (!empty($theme->settings->googleanalytics)) {
-            $output .= str_replace("UA-CODE-X", trim($theme->settings->googleanalytics), $googleanalyticscode);
+            $output .= str_replace("GOOGLE-ANALYTICS-CODE", trim($theme->settings->googleanalytics), $googleanalyticscode);
         }
 
         return $output;
