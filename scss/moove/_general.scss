@@ -60,8 +60,8 @@ Card
 .card {
     border-color: $card-border-color;
     border-radius: $card-border-radius;
-    -webkit-box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.05);
-    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.05);
+    -webkit-box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
 
     .card-body {
         padding: 1.25rem;
@@ -83,9 +83,9 @@ h5,
 .h5,
 h6,
 .h6 {
-  color: $headings-color;
-  font-family: "Poppins", sans-serif;
-  font-weight: $headings-font-weight;
+    color: $headings-color;
+    font-family: "Poppins", sans-serif;
+    font-weight: $headings-font-weight;
 }
 
 /* Third party plugins compatibility. */

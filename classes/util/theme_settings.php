@@ -86,10 +86,9 @@ class theme_settings {
             $marketingcontent = 'marketing' . $i . 'content';
             $marketingurl = 'marketing' . $i . 'url';
 
+            $templatecontext[$marketingicon] = $OUTPUT->image_url('icon_default', 'theme');
             if (!empty($theme->settings->$marketingicon)) {
                 $templatecontext[$marketingicon] = $theme->setting_file_url($marketingicon, $marketingicon);
-            } else {
-                $templatecontext[$marketingicon] = $OUTPUT->image_url('icon_default', 'theme');
             }
 
             $templatecontext[$marketingheading] = '';

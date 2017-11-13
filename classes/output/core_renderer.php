@@ -543,8 +543,6 @@ class core_renderer extends \theme_boost\output\core_renderer {
      * @return string HTML fragment.
      */
     public function standard_head_html() {
-        global $PAGE;
-
         $output = parent::standard_head_html();
 
         // Add google analytics code.
