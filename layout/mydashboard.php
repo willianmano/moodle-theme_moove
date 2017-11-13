@@ -65,6 +65,10 @@ $templatecontext = [
     'is_siteadmin' => is_siteadmin()
 ];
 
+$themesettings = new \theme_moove\util\theme_settings();
+
+$templatecontext = array_merge($templatecontext, $themesettings->footer_items());
+
 if (is_siteadmin()) {
     global $DB;
 

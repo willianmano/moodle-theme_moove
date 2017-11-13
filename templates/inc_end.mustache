@@ -27,4 +27,19 @@ require(['theme_boost/loader']);
 require(['theme_boost/drawer'], function(mod) {
     mod.init();
 });
+
+require([], function() {
+    var iconsearch = document.querySelector('.moove-search-input .icon-magnifier');
+    var btnclosesearch = document.querySelector('.search-input-form .close-search');
+    var searchinputform = document.querySelector('.moove-search-input');
+
+    var togglesearchinputform = function() {
+        searchinputform.classList.toggle('expanded');
+    }
+
+    iconsearch.onclick = togglesearchinputform;
+
+    btnclosesearch.onclick = togglesearchinputform;
+});
+
 {{/js}}
