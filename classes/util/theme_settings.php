@@ -79,7 +79,7 @@ class theme_settings {
 
         $templatecontext = [];
 
-        for ($i=1; $i < 5; $i++) {
+        for ($i = 1; $i < 5; $i++) {
             $marketingicon = 'marketing' . $i . 'icon';
             $marketingheading = 'marketing' . $i . 'heading';
             $marketingsubheading = 'marketing' . $i . 'subheading';
