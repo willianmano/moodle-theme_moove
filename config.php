@@ -84,6 +84,9 @@ $THEME->extrascsscallback = 'theme_moove_get_extra_scss';
 // Process pre scss to our final stylesheet.
 $THEME->prescsscallback = 'theme_moove_get_pre_scss';
 
+// Add a custom icon system to the theme.
+$THEME->iconsystem = '\theme_moove\util\icon_system';
+
 $THEME->layouts = [
     // Most backwards compatible layout without the blocks - this is the layout used by default.
     'base' => array(

@@ -130,6 +130,8 @@ header.navbar {
                 }
 
                 .popover-region-content-container {
+                    height: calc(100% - 50px);
+
                     .content-item-container {
                         line-height: initial;
                         background-color: #fff;
@@ -191,6 +193,7 @@ header.navbar {
                     height: 50px;
                     padding: 15px 20px;
                     border: 1px solid #ddd;
+                    margin: 0 -1px;
 
                     .popover-region-seeall-text {
                         line-height: initial;
