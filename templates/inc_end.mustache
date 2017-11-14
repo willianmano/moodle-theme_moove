@@ -33,13 +33,15 @@ require([], function() {
     var btnclosesearch = document.querySelector('.search-input-form .close-search');
     var searchinputform = document.querySelector('.moove-search-input');
 
-    var togglesearchinputform = function() {
-        searchinputform.classList.toggle('expanded');
+    if (iconsearch) {
+
+        var togglesearchinputform = function() {
+            searchinputform.classList.toggle('expanded');
+        }
+
+        iconsearch.onclick = togglesearchinputform;
+        btnclosesearch.onclick = togglesearchinputform;
     }
-
-    iconsearch.onclick = togglesearchinputform;
-
-    btnclosesearch.onclick = togglesearchinputform;
 });
 
 {{/js}}
