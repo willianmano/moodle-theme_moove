@@ -42,40 +42,40 @@
         }
 
         [data-key="coursehome"] > div:before {
-            content: "\e06a"; // OK
+            content: "\e06a";
         }
         [data-key="mycourses"] > div:before {
-            content: "\e019"; // OK
+            content: "\e019";
         }
         [data-key="participants"] > div:before {
-            content: "\e001"; // OK
+            content: "\e001";
         }
         [data-key="badgesview"] > div:before {
-            content: "\e028"; // OK
+            content: "\e028";
         }
         // Competences
         [data-key="competencies"] > div:before {
-            content: "\e09b"; // OK
+            content: "\e09b";
         }
         [data-key="grades"] > div:before {
-            content: "\e04c"; // OK
+            content: "\e04c";
         }
         [data-key="myhome"] > div:before {
-            content: "\e007"; // OK
+            content: "\e007";
         }
         [data-key="home"] > div:before {
-            content: "\e069"; // OK
+            content: "\e069";
         }
         [data-key="calendar"] > div:before {
-            content: "\e075"; // OK
+            content: "\e075";
         }
         // Private files
         [data-key="privatefiles"] > div:before,
         [data-key="7"] > div:before {
-            content: "\e040"; // OK
+            content: "\e040";
         }
         [data-key="sitesettings"] > div:before {
-            content: "\e09a"; // OK
+            content: "\e09a";
         }
     }
 
