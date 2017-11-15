@@ -423,6 +423,8 @@ class icon_system extends icon_system_font {
     /**
      * Renders the pix icon using the icon system
      *
+     * @param renderer_base $output
+     * @param pix_icon $icon
      * @return mixed
      */
     public function render_pix_icon(renderer_base $output, pix_icon $icon) {
