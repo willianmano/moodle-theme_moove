@@ -15,11 +15,10 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Contains class \core\output\icon_system
+ * Custom moove icon system
  *
- * @package    core
- * @category   output
- * @copyright  2016 Damyon Wiese
+ * @package    theme_moove
+ * @copyright  2017 Willian Mano - http://conecti.me
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -34,14 +33,8 @@ defined('MOODLE_INTERNAL') || die();
 /**
  * Class allowing different systems for mapping and rendering icons.
  *
- * Possible icon styles are:
- *   1. standard - image tags are generated which point to pix icons stored in a plugin pix folder.
- *   2. fontawesome - font awesome markup is generated with the name of the icon mapped from the moodle icon name.
- *   3. inline - inline tags are used for svg and png so no separate page requests are made (at the expense of page size).
- *
- * @package    core
- * @category   output
- * @copyright  2016 Damyon Wiese
+ * @package    theme_moove
+ * @copyright  2017 Willian Mano - http://conecti.me
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class icon_system extends icon_system_font {
@@ -51,6 +44,11 @@ class icon_system extends icon_system_font {
      */
     private $map = [];
 
+    /**
+     * Get the icon mapping
+     *
+     * @return array
+     */
     public function get_core_icon_map() {
         return [
             'core:docs' => 'icon-info',
@@ -385,6 +383,8 @@ class icon_system extends icon_system_font {
     /**
      * Overridable function to get a mapping of all icons.
      * Default is to do no mapping.
+     *
+     * @return array
      */
     public function get_icon_name_map() {
         if ($this->map === []) {
@@ -411,11 +411,20 @@ class icon_system extends icon_system_font {
         return $this->map;
     }
 
-
+    /**
+     * Get the AMD icon system name.
+     *
+     * @return string
+     */
     public function get_amd_name() {
         return 'core/icon_system_fontawesome';
     }
 
+    /**
+     * Renders the pix icon using the icon system
+     *
+     * @return mixed
+     */
     public function render_pix_icon(renderer_base $output, pix_icon $icon) {
         $subtype = 'pix_icon_fontawesome';
         $subpix = new $subtype($icon);

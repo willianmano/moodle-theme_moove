@@ -6,8 +6,8 @@ $simple-line-icon-prefix: "icon-" !default;
 @if $simple-line-font-family == "simple-line-icons" {
     @font-face {
         font-family: '#{$simple-line-font-family}';
-        src:    url('[[font:theme|Simple-Line-Icons.eot]]?v=2.4.0');
-        src:    url('[[font:theme|Simple-Line-Icons.eot]]?v=2.4.0#iefix') format('embedded-opentype'),
+        src: url('[[font:theme|Simple-Line-Icons.eot]]?v=2.4.0');
+        src: url('[[font:theme|Simple-Line-Icons.eot]]?v=2.4.0#iefix') format('embedded-opentype'),
                 url('[[font:theme|Simple-Line-Icons.woff2]]?v=2.4.0') format('woff2'),
                 url('[[font:theme|Simple-Line-Icons.ttf]]?v=2.4.0') format('truetype'),
                 url('[[font:theme|Simple-Line-Icons.woff]]?v=2.4.0') format('woff'),
