@@ -123,7 +123,7 @@ class course_renderer extends \core_course_renderer {
         }
 
         $coursecount = 1;
-        $content .= html_writer::start_tag('div', array('class' => 'row-fluid'));
+        $content .= html_writer::start_tag('div', array('class' => 'row'));
         foreach ($courses as $course) {
             $content .= $this->coursecat_coursebox($chelper, $course, 'col-md-3');
 
