@@ -90,8 +90,8 @@ $string['marketing2subheading'] = 'Marketing2 Subheading';
 $string['marketing2subheadingdesc'] = 'Enter Marketing2 Subheading Text';
 $string['marketing2content'] = 'Marketing2 Content';
 $string['marketing2contentdesc'] = 'Enter Marketing2 Content Text';
-$string['marketing2url'] = 'Marketing1 URL';
-$string['marketing2urldesc'] = 'Enter Marketing1 URL';
+$string['marketing2url'] = 'Marketing2 URL';
+$string['marketing2urldesc'] = 'Enter Marketing2 URL';
 
 $string['marketing3icon'] = 'Marketing3 Icon';
 $string['marketing3icondesc'] = 'Upload Marketing3 Icon';
@@ -101,8 +101,8 @@ $string['marketing3subheading'] = 'Marketing3 Subheading';
 $string['marketing3subheadingdesc'] = 'Enter Marketing3 Subheading Text';
 $string['marketing3content'] = 'Marketing3 Content';
 $string['marketing3contentdesc'] = 'Enter Marketing3 Content Text';
-$string['marketing3url'] = 'Marketing1 URL';
-$string['marketing3urldesc'] = 'Enter Marketing1 URL';
+$string['marketing3url'] = 'Marketing3 URL';
+$string['marketing3urldesc'] = 'Enter Marketing3 URL';
 
 $string['marketing4icon'] = 'Marketing4 Icon';
 $string['marketing4icondesc'] = 'Upload Marketing4 Icon';
@@ -112,8 +112,8 @@ $string['marketing4subheading'] = 'Marketing4 Subheading';
 $string['marketing4subheadingdesc'] = 'Enter Marketing4 Subheading Text';
 $string['marketing4content'] = 'Marketing4 Content';
 $string['marketing4contentdesc'] = 'Enter Marketing4 Content Text';
-$string['marketing4url'] = 'Marketing1 URL';
-$string['marketing4urldesc'] = 'Enter Marketing1 URL';
+$string['marketing4url'] = 'Marketing4 URL';
+$string['marketing4urldesc'] = 'Enter Marketing4 URL';
 
 $string['footersettings'] = 'Footer settings';
 $string['getintouchcontent'] = 'Get In Touch Content';
