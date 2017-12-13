@@ -73,7 +73,9 @@ if (is_siteadmin()) {
     global $DB;
 
     // Get site total users.
-    $totalusers = $DB->count_records('user') - 1;
+    $totalactiveusers = $DB->count_records('user', array('deleted' => 0, 'suspended' => 0)) - 1;
+    $totaldeletedusers = $DB->count_records('user', array('deleted' => 1));
+    $totalsuspendedusers = $DB->count_records('user', array('suspended' => 1));
 
     // Get site total courses.
     $totalcourses = $DB->count_records('course') - 1;
@@ -101,7 +103,8 @@ if (is_siteadmin()) {
     $totalusagereadabletext = $totalusagereadable . $usageunit;
 
     $templatecontext['totalusage'] = $totalusagereadabletext;
-    $templatecontext['totalusers'] = $totalusers;
+    $templatecontext['totalactiveusers'] = $totalactiveusers;
+    $templatecontext['totalsuspendedusers'] = $totalsuspendedusers;
     $templatecontext['totalcourses'] = $totalcourses;
     $templatecontext['onlineusers'] = $onlineusers;
 }
