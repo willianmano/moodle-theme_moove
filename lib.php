@@ -209,9 +209,8 @@ function theme_moove_boostnavigation_extend_navigation(global_navigation $naviga
                 foreach ($allchildrennodes as $cn) {
                     $mycoursesnode->find($cn, null)->showinflatnavigation = false;
                 }
-            }
-            // Otherwise we have a flat navigation tree and hiding the courses is easy.
-            else {
+            } else {
+                // Otherwise we have a flat navigation tree and hiding the courses is easy.
                 $mycoursesnode->get($k)->showinflatnavigation = false;
             }
         }
@@ -240,6 +239,7 @@ function theme_moove_boostnavigation_get_all_childrenkeys(navigation_node $navig
     foreach ($childrennodeskeys as $ck) {
         $allchildren = array_merge($allchildren, theme_moove_boostnavigation_get_all_childrenkeys($navigationnode->get($ck)));
     }
+
     // And add our own children keys to the result.
     $allchildren = array_merge($allchildren, $childrennodeskeys);
 
