@@ -7,21 +7,25 @@
 
     .list-group {
         .list-group-item {
+            padding: 0;
             background-color: inherit;
             border-radius: $card-border-radius;
             border: 0;
-            color: #fff;
-            padding: .75rem 0.5rem;
-
-            &:hover {
-                background-color: $navbar-bg-hover;
-                color: #fff;
-            }
 
             a {
+                color: #fff;
+                padding: .75rem 0.5rem;
                 border: none;
                 color: #fff;
                 text-decoration: none;
+                width: 100%;
+                display: inherit;
+                border-radius: $card-border-radius;
+
+                &:hover {
+                    background-color: $navbar-bg-hover;
+                    color: #fff;
+                }
 
                 &:before {
                     font-family: 'simple-line-icons';
@@ -92,7 +96,7 @@
         }
     }
 
-    .list-group.m-t-1 {
+    .list-group + .list-group {
         border-top: 3px solid $navbar-separator;
     }
 }
@@ -104,7 +108,7 @@
     .list-group {
         .list-group-item {
             text-align: left;
-            padding: .75rem 1.2rem;
+            padding: 0 .6rem;
 
             > ul {
                 display: none;
@@ -121,7 +125,11 @@
 
             &:hover {
                 width: 260px;
-                border-bottom-right-radius: 0;
+                background-color: $navbar-bg-hover;
+
+                &[data-key="mycourses"] {
+                    border-bottom-right-radius: 0;
+                }
 
                 a .text {
                     display: inline-block;
@@ -142,6 +150,8 @@
                     width: 200px;
                     z-index: 1001;
                     padding-top: 10px;
+                    border-bottom-left-radius: $card-border-radius;
+                    border-bottom-right-radius: $card-border-radius;
 
                     li {
                         padding: .5rem .2rem;
