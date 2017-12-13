@@ -63,6 +63,9 @@ if (isloggedin()) {
         'hasregionmainsettingsmenu' => !empty($regionmainsettingsmenu)
     ];
 
+    // Improve boost navigation.
+    theme_moove_boostnavigation_extend_navigation($PAGE->navigation);
+
     $templatecontext['flatnavigation'] = $PAGE->flatnav;
 
     $templatecontext = array_merge($templatecontext, $themesettings->footer_items());

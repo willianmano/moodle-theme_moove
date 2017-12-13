@@ -7,75 +7,88 @@
 
     .list-group {
         .list-group-item {
-            border: none;
             background-color: inherit;
-            color: #fff;
-            padding: .75rem 1rem;
             border-radius: $card-border-radius;
+            border: 0;
+            color: #fff;
+            padding: .75rem 0.5rem;
 
             &:hover {
                 background-color: $navbar-bg-hover;
                 color: #fff;
             }
 
-            .m-l-0::before {
-                font-size: 19px;
+            a {
+                border: none;
+                color: #fff;
+                text-decoration: none;
+
+                &:before {
+                    font-family: 'simple-line-icons';
+                    speak: none;
+                    font-style: normal;
+                    font-weight: normal;
+                    font-variant: normal;
+                    text-transform: none;
+                    line-height: 1;
+                    -webkit-font-smoothing: antialiased;
+                    -moz-osx-font-smoothing: grayscale;
+                    content: "\e089";
+                    font-size: 19px;
+                }
+
+                .m-l-0::before {
+                    font-size: 19px;
+                }
             }
-        }
 
-        .list-group-item > div:before {
-            font-family: 'simple-line-icons';
-            speak: none;
-            font-style: normal;
-            font-weight: normal;
-            font-variant: normal;
-            text-transform: none;
-            line-height: 1;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            content: "\e089";
-        }
+            &[data-key="coursehome"] a:before {
+                content: "\e06a";
+            }
 
+            &[data-key="mycourses"] a:before {
+                content: "\e019";
+            }
 
-        .list-group-item > div {
-            display: inline;
-        }
+            &[data-key="participants"] a:before,
+            &[data-key="studentreport"] a:before {
+                content: "\e001";
+            }
 
-        [data-key="coursehome"] > div:before {
-            content: "\e06a";
-        }
-        [data-key="mycourses"] > div:before {
-            content: "\e019";
-        }
-        [data-key="participants"] > div:before {
-            content: "\e001";
-        }
-        [data-key="badgesview"] > div:before {
-            content: "\e028";
-        }
-        // Competences
-        [data-key="competencies"] > div:before {
-            content: "\e09b";
-        }
-        [data-key="grades"] > div:before {
-            content: "\e04c";
-        }
-        [data-key="myhome"] > div:before {
-            content: "\e007";
-        }
-        [data-key="home"] > div:before {
-            content: "\e069";
-        }
-        [data-key="calendar"] > div:before {
-            content: "\e075";
-        }
-        // Private files
-        [data-key="privatefiles"] > div:before,
-        [data-key="7"] > div:before {
-            content: "\e040";
-        }
-        [data-key="sitesettings"] > div:before {
-            content: "\e09a";
+            &[data-key="badgesview"] a:before {
+                content: "\e028";
+            }
+
+            // Competences
+            &[data-key="competencies"] a:before {
+                content: "\e09b";
+            }
+
+            &[data-key="grades"] a:before {
+                content: "\e04c";
+            }
+
+            &[data-key="myhome"] a:before {
+                content: "\e007";
+            }
+
+            &[data-key="home"] a:before {
+                content: "\e069";
+            }
+
+            &[data-key="calendar"] a:before {
+                content: "\e075";
+            }
+
+            // Private files
+            &[data-key="privatefiles"] a:before,
+            &[data-key="7"] a:before {
+                content: "\e040";
+            }
+
+            &[data-key="sitesettings"] a:before {
+                content: "\e09a";
+            }
         }
     }
 
@@ -93,24 +106,67 @@
             text-align: left;
             padding: .75rem 1.2rem;
 
+            > ul {
+                display: none;
+                padding: 10px;
+            }
+
             .m-l-1 {
                 margin-left: 4px !important;
             }
 
-            > div span.text {
+            a .text {
                 display: none;
             }
 
             &:hover {
-                width: 235px;
+                width: 260px;
+                border-bottom-right-radius: 0;
 
-                > div span.text {
+                a .text {
                     display: inline-block;
                 }
 
                 .text {
                     margin-left: 4px;
                 }
+
+                > ul {
+                    display: block;
+                    height: auto;
+                    overflow: auto;
+                    background-color: $navbar-bg;
+                    position: absolute;
+                    left: 60px;
+                    top: 45px;
+                    width: 200px;
+                    z-index: 1001;
+                    padding-top: 10px;
+
+                    li {
+                        padding: .5rem .2rem;
+                        width: 100%;
+
+                        a {
+                            width: 100%;
+                            padding: 0;
+                            font-size: 12px;
+
+                            &:before {
+                                font-size: 12px;
+                                content: "\e606";
+                            }
+
+                            .text {
+                                display: inline;
+                            }
+                        }
+                    }
+                }
+            }
+
+            ul li.list-group-item:hover {
+                border-bottom-right-radius: $card-border-radius;
             }
         }
     }

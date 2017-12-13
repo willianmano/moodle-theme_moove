@@ -106,6 +106,9 @@ if (is_siteadmin()) {
     $templatecontext['onlineusers'] = $onlineusers;
 }
 
+// Improve boost navigation.
+theme_moove_boostnavigation_extend_navigation($PAGE->navigation);
+
 $templatecontext['flatnavigation'] = $PAGE->flatnav;
 
 echo $OUTPUT->render_from_template('theme_moove/mydashboard', $templatecontext);

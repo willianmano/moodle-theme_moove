@@ -184,3 +184,65 @@ function theme_moove_get_setting($setting, $format = false) {
         return format_string($theme->settings->$setting);
     }
 }
+
+/**
+ * Fumble with Moodle's global navigation by leveraging Moodle's *_extend_navigation() hook.
+ *
+ * @param global_navigation $navigation
+ */
+function theme_moove_boostnavigation_extend_navigation(global_navigation $navigation) {
+    global $CFG;
+
+    // Check if admin wanted us to remove the mycourses node from Boost's nav drawer.
+    if ($mycoursesnode = $navigation->find('mycourses', global_navigation::TYPE_ROOTNODE)) {
+
+        // Hide all courses below the mycourses node.
+        $mycourseschildrennodeskeys = $mycoursesnode->get_children_key_list();
+        foreach ($mycourseschildrennodeskeys as $k) {
+            // If the admin decided to display categories, things get slightly complicated.
+            if ($CFG->navshowmycoursecategories) {
+                // We need to find all children nodes first.
+                $allchildrennodes = theme_moove_boostnavigation_get_all_childrenkeys($mycoursesnode->get($k));
+                // Then we can hide each children node.
+                // Unfortunately, the children nodes have navigation_node type TYPE_MY_CATEGORY or navigation_node type
+                // TYPE_COURSE, thus we need to search without a specific navigation_node type.
+                foreach ($allchildrennodes as $cn) {
+                    $mycoursesnode->find($cn, null)->showinflatnavigation = false;
+                }
+            }
+            // Otherwise we have a flat navigation tree and hiding the courses is easy.
+            else {
+                $mycoursesnode->get($k)->showinflatnavigation = false;
+            }
+        }
+    }
+}
+
+/**
+ * Moodle core does not have a built-in functionality to get all keys of all children of a navigation node,
+ * so we need to get these ourselves.
+ *
+ * @param navigation_node $navigationnode
+ * @return array
+ */
+function theme_moove_boostnavigation_get_all_childrenkeys(navigation_node $navigationnode) {
+    // Empty array to hold all children.
+    $allchildren = array();
+
+    // No, this node does not have children anymore.
+    if (count($navigationnode->children) == 0) {
+        return array();
+    }
+
+    // Get own children keys.
+    $childrennodeskeys = $navigationnode->get_children_key_list();
+    // Get all children keys of our children recursively.
+    foreach ($childrennodeskeys as $ck) {
+        $allchildren = array_merge($allchildren, theme_moove_boostnavigation_get_all_childrenkeys($navigationnode->get($ck)));
+    }
+    // And add our own children keys to the result.
+    $allchildren = array_merge($allchildren, $childrennodeskeys);
+
+    // Return everything.
+    return $allchildren;
+}

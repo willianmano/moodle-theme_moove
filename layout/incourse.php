@@ -72,6 +72,9 @@ $templatecontext = [
     'hasregionmainsettingsmenu' => !empty($regionmainsettingsmenu)
 ];
 
+// Improve boost navigation.
+theme_moove_boostnavigation_extend_navigation($PAGE->navigation);
+
 $templatecontext['flatnavigation'] = $PAGE->flatnav;
 
 $themesettings = new \theme_moove\util\theme_settings();

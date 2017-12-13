@@ -3,90 +3,22 @@
     .section .activity .activityinstance > a {
         display: initial;
     }
+
     .course-content {
         .topics {
             #section-0 {
                 border: none;
             }
+
             .section {
                 border: none;
 
                 .activity.label {
                     margin: 0;
+
                     .mod-indent-outer {
                         padding-left: 0;
                         display: block;
-
-                        .contentwithoutlink {
-                            padding-right: 0;
-
-                            .labelbar {
-                                margin: 1em 0;
-                                padding: 0.5em 0 0.2em 0.5em;
-                                border: 1px solid #dadada;
-                                border-top-width: .2em;
-                                letter-spacing: .1em;
-                                text-transform: uppercase;
-                                font-style: normal;
-                                font-size: 1.4rem;
-
-                                i {
-                                    margin-right: 10px;
-                                }
-                            }
-                            .labelbar.primary {
-                                border-top-color: $brand-primary;
-                                color: $brand-primary;
-                            }
-                            .labelbar.green {
-                                border-top-color: #8bc34a;
-                                color: #8bc34a;
-                            }
-                            .labelbar.orange {
-                                border-top-color: #f39c12;
-                                color: #f39c12;
-                            }
-                            .labelbar.red {
-                                border-top-color: #c0392b;
-                                color: #c0392b;
-                            }
-                            .labelbar.purple {
-                                border-top-color: #9b59b6;
-                                color: #9b59b6;
-                            }
-                            .labelbar.asphalt {
-                                border-top-color: #34495e;
-                                color: #34495e;
-                            }
-                            .labelbar.turquoise {
-                                background-color: #1abc9c;
-                                color: #1abc9c;
-                            }
-                            .labelbar.emerald {
-                                background-color: #2ecc71;
-                                color: #2ecc71;
-                            }
-                            .labelbar.peterriver {
-                                background-color: #3498db;
-                                color: #3498db;
-                            }
-                            .labelbar.amethyst {
-                                background-color: #9b59b6;
-                                color: #9b59b6;
-                            }
-                            .labelbar.carrot {
-                                background-color: #e67e22;
-                                color: #e67e22;
-                            }
-                            .labelbar.alizarin {
-                                background-color: #e74c3c;
-                                color: #e74c3c;
-                            }
-                            .labelbar.concrete {
-                                background-color: #95a5a6;
-                                color: #95a5a6;
-                            }
-                        }
                     }
                 }
 
@@ -157,6 +89,7 @@
             text-align: center;
         }
     }
+
     .section-navigation.mdl-bottom {
         .larrow,
         .rarrow {
@@ -164,6 +97,7 @@
             padding: .3em;
             text-align: center;
         }
+
         .larrow .icon-arrow-left,
         .rarrow .icon-arrow-right {
             display: block;
@@ -171,6 +105,7 @@
             width: 1em;
             margin: .1em auto;
         }
+
         .larrow {
             float: left;
             border-right: 1px solid #eee;
@@ -180,6 +115,7 @@
                 background: transparent url('[[pix:theme|left-arrow]]') no-repeat 50% 50%;
             }
         }
+
         .rarrow {
             float: right;
             border-left: 1px solid #eee;
@@ -189,6 +125,7 @@
                 background: transparent url('[[pix:theme|right-arrow]]') no-repeat 50% 50%;
             }
         }
+
         .mdl-left .text .nav_guide,
         .mdl-right .text .nav_guide {
             letter-spacing: .1em;
@@ -196,11 +133,97 @@
             font-style: normal;
             color: #565656;
         }
+
         .mdl-left .text {
             float: right;
         }
+
         .mdl-right .text {
             float: left;
         }
+    }
+}
+
+.contentwithoutlink {
+    padding-right: 0;
+
+    .labelbar {
+        margin: 1em 0;
+        padding: 0.5em 0 0.2em 0.5em;
+        border: 1px solid #dadada;
+        border-top-width: .2em;
+        letter-spacing: .1em;
+        text-transform: uppercase;
+        font-style: normal;
+        font-size: 1.4rem;
+
+        i {
+            margin-right: 10px;
+        }
+    }
+
+    .labelbar.primary {
+        border-top-color: $brand-primary;
+        color: $brand-primary;
+    }
+
+    .labelbar.green {
+        border-top-color: #8bc34a;
+        color: #8bc34a;
+    }
+
+    .labelbar.orange {
+        border-top-color: #f39c12;
+        color: #f39c12;
+    }
+
+    .labelbar.red {
+        border-top-color: #c0392b;
+        color: #c0392b;
+    }
+
+    .labelbar.purple {
+        border-top-color: #9b59b6;
+        color: #9b59b6;
+    }
+
+    .labelbar.asphalt {
+        border-top-color: #34495e;
+        color: #34495e;
+    }
+
+    .labelbar.turquoise {
+        border-top-color: #1abc9c;
+        color: #1abc9c;
+    }
+
+    .labelbar.emerald {
+        border-top-color: #2ecc71;
+        color: #2ecc71;
+    }
+
+    .labelbar.peterriver {
+        border-top-color: #3498db;
+        color: #3498db;
+    }
+
+    .labelbar.amethyst {
+        border-top-color: #9b59b6;
+        color: #9b59b6;
+    }
+
+    .labelbar.carrot {
+        border-top-color: #e67e22;
+        color: #e67e22;
+    }
+
+    .labelbar.alizarin {
+        background-color: #e74c3c;
+        color: #e74c3c;
+    }
+
+    .labelbar.concrete {
+        background-color: #95a5a6;
+        color: #95a5a6;
     }
 }
