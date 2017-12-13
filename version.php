@@ -36,7 +36,7 @@ $plugin->requires = 2017102500;
 $plugin->component = 'theme_moove';
 
 // This is the named version.
-$plugin->release = '2.0.3';
+$plugin->release = '2.1.0';
 
 // This is a stable release.
 $plugin->maturity = MATURITY_STABLE;
