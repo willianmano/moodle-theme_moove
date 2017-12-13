@@ -4,6 +4,25 @@
     -moz-transition: right .5s ease, left .5s ease;
     -o-transition: right .5s ease, left .5s ease;
     transition: right .5s ease, left .5s ease;
+
+    .dropdown-menu {
+        min-width: 245px;
+
+        .dropdown-item {
+            white-space: initial;
+        }
+    }
+
+    .card-block .content {
+        h3 {
+            font-size: 1.143rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            border-top: 1px dashed $headings-color;
+            padding-top: 4px;
+            margin-top: 10px;
+        }
+    }
 }
 
 #sidepreopen-control {
