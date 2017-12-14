@@ -75,7 +75,7 @@ if (is_siteadmin()) {
     // Get site total users.
     $totalactiveusers = $DB->count_records('user', array('deleted' => 0, 'suspended' => 0)) - 1;
     $totaldeletedusers = $DB->count_records('user', array('deleted' => 1));
-    $totalsuspendedusers = $DB->count_records('user', array('suspended' => 1));
+    $totalsuspendedusers = $DB->count_records('user', array('deleted' => 0, 'suspended' => 1));
 
     // Get site total courses.
     $totalcourses = $DB->count_records('course') - 1;
