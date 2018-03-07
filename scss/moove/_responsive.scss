@@ -19,6 +19,11 @@
 }
 
 @media (max-width: 767px) {
+  /* Hide the breadcrumb for the smallest screens. */
+  #page-navbar {
+    display: none;
+  }
+
   #page-site-index.notloggedin {
     .usermenu {
       display: none;
