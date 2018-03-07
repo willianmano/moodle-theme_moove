@@ -47,7 +47,7 @@
     <div id="page" class="container-fluid">
         <div id="page-header" class="frontpage-guest-header">
             <div class="row" id="loginbox">
-                <div class="col-md-8" id="intro">
+                <div class="col-sm-12 col-md-7 hidden-sm-down" id="intro">
                     {{#bannerheading}}
                         <h1>{{{ bannerheading }}}</h1>
                     {{/bannerheading}}
@@ -55,7 +55,7 @@
                         <h2>{{{ bannercontent }}}</h2>
                     {{/bannercontent}}
                 </div>
-                <div class="col-md-4 card" id="boxForm">
+                <div class="col-12 col-sm-12 col-md-5 card" id="boxForm">
                   <div class="card-body">
                     <h3>{{#str}}platform_access, theme_moove{{/str}}</h3>
                     <form class="signup-form" action="{{{ config.wwwroot }}}/login/index.php" method="POST" role="form">

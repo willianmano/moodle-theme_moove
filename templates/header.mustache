@@ -40,14 +40,14 @@
             {{/ output.get_logo }}
         </a>
 
-        <ul class="navbar-nav hidden-md-down navbar-custom-menu">
+        <ul class="navbar-nav navbar-custom-menu">
             {{#hasdrawertoggle}}
                 <li data-region="drawer-toggle" class="nav-item drawer-toggle">
                     <a
                         href="javascript:void(0)"
                         aria-expanded="{{#navdraweropen}}true{{/navdraweropen}}{{^navdraweropen}}false{{/navdraweropen}}"
                         aria-controls="nav-drawer"
-                        class="sidebartoggler hidden-sm-down text-muted"
+                        class="sidebartoggler text-muted"
                         data-action="toggle-drawer"
                         data-side="left"
                         data-preference="drawer-open-nav">

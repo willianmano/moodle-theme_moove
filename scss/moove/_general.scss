@@ -1,26 +1,6 @@
 /*******************
 Bodys
 *******************/
-@media (min-width: 768px) {
-    body {
-        margin-left: 55px;
-
-        &.drawer-open-left {
-            margin-left: 280px;
-        }
-
-        &.drawer-open-right {
-            margin-right: 280px;
-        }
-    }
-
-    body.pagelayout-frontpage.notloggedin,
-    body#page-login-forgot_password {
-        margin-left: 0;
-        margin-right: 0;
-    }
-}
-
 body#page-enrol-index {
     #region-main {
         .generalbox {

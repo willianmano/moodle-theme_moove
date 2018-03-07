@@ -1,0 +1,141 @@
+@media (min-width: 768px) {
+  body {
+    margin-left: 55px;
+
+    &.drawer-open-left {
+      margin-left: 280px;
+    }
+
+    &.drawer-open-right {
+      margin-right: 280px;
+    }
+  }
+
+  body.pagelayout-frontpage.notloggedin,
+  body#page-login-forgot_password {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  #page-site-index.notloggedin {
+    .usermenu {
+      display: none;
+    }
+
+    #page-header {
+      padding-top: 0;
+      margin-top: 0;
+      background-color: #fff;
+      min-height: inherit;
+
+      #loginbox {
+        margin-bottom: 0;
+
+        #boxForm {
+          float: left;
+          width: 100%;
+        }
+      }
+    }
+
+    .frontpage-marketing {
+      margin-top: 0;
+    }
+  }
+
+  body {
+    margin-left: 0;
+
+    #nav-drawer {
+      width: 60px;
+
+      .list-group {
+        .list-group-item {
+          text-align: left;
+          padding: 0 .6rem;
+
+          > ul {
+            display: none;
+            padding: 10px;
+          }
+
+          .m-l-1 {
+            margin-left: 4px !important;
+          }
+
+          a .text {
+            display: none;
+          }
+
+          &:hover {
+            width: 260px;
+            background-color: $navbar-bg-hover;
+
+            &[data-key="mycourses"] {
+              border-bottom-right-radius: 0;
+            }
+
+            a .text {
+              display: inline-block;
+            }
+
+            .text {
+              margin-left: 4px;
+            }
+
+            > ul {
+              display: block;
+              height: auto;
+              overflow: auto;
+              background-color: $navbar-bg;
+              position: absolute;
+              left: 60px;
+              top: 45px;
+              width: 200px;
+              z-index: 1001;
+              padding-top: 10px;
+              border-bottom-left-radius: $card-border-radius;
+              border-bottom-right-radius: $card-border-radius;
+
+              li {
+                padding: .5rem .2rem;
+                width: 100%;
+
+                a {
+                  width: 100%;
+                  padding: 0;
+                  font-size: 12px;
+
+                  &:before {
+                    font-size: 12px;
+                    content: "\e606";
+                  }
+
+                  .text {
+                    display: inline;
+                  }
+                }
+              }
+            }
+          }
+
+          ul li.list-group-item:hover {
+            border-bottom-right-radius: $card-border-radius;
+          }
+        }
+      }
+    }
+
+    #nav-drawer.closed {
+      width: 0;
+      overflow: hidden;
+      padding: 0;
+    }
+
+    &.drawer-open-left {
+      margin-left: 55px;
+    }
+  }
+}
