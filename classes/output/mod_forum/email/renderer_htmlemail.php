@@ -32,6 +32,8 @@ class renderer_htmlemail extends \mod_forum\output\email\renderer {
      * @return string
      */
     public function render_forum_post_email(\mod_forum\output\forum_post_email $post) {
+        global $SITE, $OUTPUT;
+
         // Was ($this, $this->target === RENDERER_TARGET_TEXTEMAIL) and as we are already 'htmlemail' it will always be false.
         $data = $post->export_for_template($this, false);
         // Add our new data.
@@ -40,10 +42,24 @@ class renderer_htmlemail extends \mod_forum\output\email\renderer {
         if ($forumhtmlemailheader) {
            $data['messageheader'] = $forumhtmlemailheader;
         }
+
         $forumhtmlemailfooter = theme_moove_get_setting('forumhtmlemailfooter', 'format_html');
         if ($forumhtmlemailfooter) {
            $data['messagefooter'] = $forumhtmlemailfooter;
         }
+
+        $data['sitelogo'] = false;
+
+        $theme = \theme_config::load('moove');
+
+        $logo = $theme->setting_file_url('logo', 'logo');
+        if ($logo) {
+            $data['sitelogo'] = $logo;
+            $data['sitelogo'] = 'https://www.moodlebrasil.org/pluginfile.php/1/theme_adaptable/logo/1520291519/mootbr.png';
+        }
+
+        $data['sitename'] = $SITE->fullname;
+
         return $this->render_from_template('mod_forum/' . $this->forum_post_template(), $data);
     }
 }

@@ -83,430 +83,139 @@
         "unsubscribediscussionlink": "https://example.com/mod/discussion/subscribe.php?id=2&d=2"
     }
 }}
+
 {{#enabletemplate}}
 <style>
 @media only screen {
-    html {
-        min-height: 100%;
-        background: #f3f3f3;
-    }
-}
-
-@media only screen and (max-width:596px) {
-    .small-float-center {
-        margin: 0 auto !important;
-        float: none !important;
-        text-align: center !important;
-    }
-    .small-text-center {
-        text-align: center !important;
-    }
-    .small-text-left {
-        text-align: left !important;
-    }
-    .small-text-right {
-        text-align: right !important;
-    }
-}
-
-@media only screen and (max-width:596px) {
-    .hide-for-large {
-        display: block !important;
-        width: auto !important;
-        overflow: visible !important;
-        max-height: none !important;
-        font-size: inherit !important;
-        line-height: inherit !important;
-    }
-}
-
-@media only screen and (max-width:596px) {
-    table.body table.container .hide-for-large, 
-    table.body table.container .row.hide-for-large {
-        display: table !important;
-        width: 100% !important;
-    }
-}
-
-@media only screen and (max-width:596px) {
-    table.body table.container .callout-inner.hide-for-large {
-        display: table-cell !important;
-        width: 100% !important;
-    }
-}
-
-@media only screen and (max-width:596px) {
-    table.body table.container .show-for-large {
-        display: none !important;
-        width: 0;
-        mso-hide: all;
-        overflow: hidden;
-    }
-}
-
-@media only screen and (max-width:596px) {
-    table.body img {
-        width: auto;
-        height: auto;
-    }
-    table.body center {
-        min-width: 0 !important;
-    }
-    table.body .container {
-        width: 95% !important;
-    }
-    table.body .column, 
-    table.body .columns {
-        height: auto !important;
-        -moz-box-sizing: border-box;
-        -webkit-box-sizing: border-box;
-        box-sizing: border-box;
-        padding-left: 16px !important;
-        padding-right: 16px !important;
-    }
-    table.body .column .column, 
-    table.body .column .columns, 
-    table.body .columns .column,
-    table.body .columns .columns {
-        padding-left: 0 !important;
-        padding-right: 0 !important;
-    }
-    table.body .collapse .column, 
-    table.body .collapse .columns {
-        padding-left: 0 !important;
-        padding-right: 0 !important;
-    }
-    td.small-1, 
-    th.small-1 {
-        display: inline-block !important;
-        width: 8.33333% !important;
-    }
-    td.small-2, 
-    th.small-2 {
-        display: inline-block !important;
-        width: 16.66667% !important;
-    }
-    td.small-3, 
-    th.small-3 {
-        display: inline-block !important;
-        width: 25% !important;
-    }
-    td.small-4, 
-    th.small-4 {
-        display: inline-block !important;
-        width: 33.33333% !important;
-    }
-    td.small-5, 
-    th.small-5 {
-        display: inline-block !important;
-        width: 41.66667% !important;
-    }
-    td.small-6, 
-    th.small-6 {
-        display: inline-block !important;
-        width: 50% !important;
-    }
-    td.small-7, 
-    th.small-7 {
-        display: inline-block !important;
-        width: 58.33333% !important;
-    }
-    td.small-8, 
-    th.small-8 {
-        display: inline-block !important;
-        width: 66.66667% !important;
-    }
-    td.small-9, 
-    th.small-9 {
-        display: inline-block !important;
-        width: 75% !important;
-    }
-    td.small-10, 
-    th.small-10 {
-        display: inline-block !important;
-        width: 83.33333% !important;
-    }
-    td.small-11, 
-    th.small-11 {
-        display: inline-block !important;
-        width: 91.66667% !important;
-    }
-    td.small-12, 
-    th.small-12 {
-        display: inline-block !important;
-        width: 100% !important;
-    }
-    .column td.small-12, 
-    .column th.small-12,
-    .columns td.small-12, 
-    .columns th.small-12 {
-        display: block !important;
-        width: 100% !important;
-    }
-    table.body td.small-offset-1,
-    table.body th.small-offset-1 {
-        margin-left: 8.33333% !important;
-    }
-    table.body td.small-offset-2,
-    table.body th.small-offset-2 {
-        margin-left: 16.66667% !important;
-    }
-    table.body td.small-offset-3,
-    table.body th.small-offset-3 {
-        margin-left: 25% !important;
-    }
-    table.body td.small-offset-4,
-    table.body th.small-offset-4 {
-        margin-left: 33.33333% !important;
-    }
-    table.body td.small-offset-5,
-    table.body th.small-offset-5 {
-        margin-left: 41.66667% !important;
-    }
-    table.body td.small-offset-6,
-    table.body th.small-offset-6 {
-        margin-left: 50% !important;
-    }
-    table.body td.small-offset-7,
-    table.body th.small-offset-7 {
-        margin-left: 58.33333% !important;
-    }
-    table.body td.small-offset-8,
-    table.body th.small-offset-8 {
-        margin-left: 66.66667% !important;
-    }
-    table.body td.small-offset-9,
-    table.body th.small-offset-9 {
-        margin-left: 75% !important;
-    }
-    table.body td.small-offset-10,
-    table.body th.small-offset-10 {
-        margin-left: 83.33333% !important;
-    }
-    table.body td.small-offset-11,
-    table.body th.small-offset-11 {
-        margin-left: 91.66667% !important;
-    }
-    table.body table.columns td.expander,
-    table.body table.columns th.expander {
-        display: none !important;
-    }
-    table.body .right-text-pad,
-    table.body .text-pad-right {
-        padding-left: 10px !important;
-    }
-    table.body .left-text-pad,
-    table.body .text-pad-left {
-        padding-right: 10px !important;
-    }
-    table.menu {
-        width: 100% !important;
-    }
-    table.menu td,
-    table.menu th {
-        width: auto !important;
-        display: inline-block !important;
-    }
-    table.menu.small-vertical td,
-    table.menu.small-vertical th,
-    table.menu.vertical td,
-    table.menu.vertical th {
-        display: block !important;
-    }
-    table.menu[align=center] {
-        width: auto !important;
-    }
-    table.button.small-expand,
-    table.button.small-expanded {
-        width: 100% !important;
-    }
-    table.button.small-expand table,
-    table.button.small-expanded table {
-        width: 100%;
-    }
-    table.button.small-expand table a,
-    table.button.small-expanded table a {
-        text-align: center !important;
-        width: 100% !important;
-        padding-left: 0 !important;
-        padding-right: 0 !important;
-    }
-    table.button.small-expand center,
-    table.button.small-expanded center {
-        min-width: 0;
+    body {
+        margin: 0;
+        -webkit-font-smoothing: antialiased;
+        width:100% !important;
+        background: #f6f6f6;
+        -webkit-text-size-adjust:none;
     }
 }
 </style>
-<table class="body" style="margin: 0; background: #f3f3f3; border-collapse: collapse; border-spacing: 0; color: #0a0a0a; font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 1.3; margin: 0; padding: 0; text-align: left; vertical-align: top; width: 100%">
+
+{{# sitelogo }}
+<table width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#FFF">
     <tbody>
-        <tr style="padding: 0; text-align: left; vertical-align: top">
-            <td class="float-center" style="-moz-hyphens: auto; -webkit-hyphens: auto; margin: 0 auto; border-collapse: collapse !important; color: #0a0a0a; float: none; font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; hyphens: auto; line-height: 1.3; margin: 0 auto; padding: 0; text-align: center; vertical-align: top; word-wrap: break-word" valign="top" align="center">
-                <center data-parsed="" style="min-width:580px;width:100%">
-                    <table class="wrapper header float-center" style="margin: 0 auto; border-collapse: collapse; border-spacing: 0; float: none; margin: 0 auto; padding: 0; text-align: center; vertical-align: top; width: 100%" bgcolor="#8a8a8a" align="center">
+    <tr>
+        <td style="display: block !important;max-width: 600px !important;margin: 0 auto !important;clear: both !important;" width="600">
+            <div style="max-width: 600px;margin: 0 auto;display: block;padding:0 20px; margin-top: 20px;">
+                <table class="main" width="100%" cellpadding="0" cellspacing="0" style="border: none;">
+                    <tbody>
+                    <tr>
+                        <td style="text-align: center;">
+                            <img style="max-height: 70px;" src="{{{sitelogo}}}" alt="{{{sitename}}}">
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </td>
+    </tr>
+</table>
+{{/ sitelogo }}
+
+<table width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#f6f6f6" style="font-family: Arial, sans-serif;">
+    <tbody>
+    <tr>
+        <td></td>
+        <td style="display: block !important;max-width: 600px !important;margin: 0 auto !important;clear: both !important;" width="600">
+            <div style="max-width: 600px;margin: 0 auto;display: block;padding:20px;">
+                {{ #messageheader }}
+                <div style="width: 100%;clear: both;">
+                    <table width="100%">
                         <tbody>
-                            <tr style="padding: 0; text-align: left; vertical-align: top">
-                                <td class="wrapper-inner" style="-moz-hyphens: auto; -webkit-hyphens: auto; margin: 0; border-collapse: collapse !important; color: #0a0a0a; font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; hyphens: auto; line-height: 1.3; margin: 0; padding: 20px; text-align: left; vertical-align: top; word-wrap: break-word">
-                                    <table class="container" style="margin: 0 auto; background: #8a8a8a; border-collapse: collapse; border-spacing: 0; margin: 0 auto; padding: 0; text-align: inherit; vertical-align: top; width: 580px" align="center">
-                                        <tbody>
-                                            <tr style="padding: 0; text-align: left; vertical-align: top">
-                                                <td style="-moz-hyphens: auto; -webkit-hyphens: auto; margin: 0; border-collapse: collapse !important; color: #0a0a0a; font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; hyphens: auto; line-height: 1.3; margin: 0; padding: 0; text-align: left; vertical-align: top; word-wrap: break-word">
-                                                    <table class="row collapse" style="border-collapse: collapse; border-spacing: 0; display: table; padding: 0; position: relative; text-align: left; vertical-align: top; width: 100%">
-                                                        <tbody>
-                                                            <tr style="padding: 0; text-align: left; vertical-align: top">
-                                                                <th class="small-6 large-6 columns first" style="margin: 0 auto; color: #0a0a0a; font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 1.3; margin: 0 auto; padding: 0; padding-bottom: 0; padding-left: 0; padding-right: 0; text-align: left; width: 385px" valign="middle">
-                                                                    <table style="border-collapse: collapse; border-spacing: 0; padding: 0; text-align: left; vertical-align: top; width: 100%">
-                                                                        <tbody>
-                                                                            <tr style="padding: 0; text-align: left; vertical-align: top">
-                                                                                <th style="margin: 0; color: #0a0a0a; font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 1.3; margin: 0; padding: 0; text-align: left">
-                                                                                    {{ #messageheader }}{{{ messageheader }}}{{ /messageheader }}
-                                                                                </th>
-                                                                            </tr>
-                                                                        </tbody>
-                                                                    </table>
-                                                                </th>
-                                                                <th class="small-6 large-6 columns last" style="margin: 0 auto; color: #0a0a0a; font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 1.3; margin: 0 auto; padding: 0; padding-bottom: 0; padding-left: 0; padding-right: 0; text-align: left; width: 195px" valign="middle">
-                                                                    <table style="border-collapse: collapse; border-spacing: 0; padding: 0; text-align: left; vertical-align: top; width: 100%">
-                                                                        <tbody>
-                                                                            <tr style="padding: 0; text-align: left; vertical-align: top">
-                                                                                <th style="margin: 0; color: #0a0a0a; font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 1.3; margin: 0; padding: 0; text-align: left">
-                                                                                    <p class="text-right" style="margin: 0; margin-bottom: 10px; color: #fff; font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 1.3; margin: 0; margin-bottom: 0; padding: 0; text-align: right">{{{ authorpicture }}}</p>
-                                                                                </th>
-                                                                            </tr>
-                                                                        </tbody>
-                                                                    </table>
-                                                                </th>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </td>
-                            </tr>
+                        <tr>
+                            <td>
+                                {{{ messageheader }}}
+                            </td>
+                        </tr>
                         </tbody>
                     </table>
-                    <table class="container float-center" style="margin: 0 auto; background: #fefefe; border-collapse: collapse; border-spacing: 0; float: none; margin: 0 auto; padding: 0; text-align: center; vertical-align: top; width: 580px" align="center">
+                </div>
+                {{ /messageheader }}
+                <table class="main" width="100%" cellpadding="0" cellspacing="0" style="background: #fff;border: 1px solid #e9e9e9;border-radius: 3px;">
+                    <tbody>
+                        <td style="font-size: 18px; color: #fff; font-weight: 500; padding: 20px; text-align: center; border-radius: 3px 3px 0 0; background: #265876;">
+                            {{{ subject }}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="font-size: 16px; color: #999; font-weight: 500; padding: 20px;">
+                            {{{ message }}}
+                        </td>
+                    </tr>
+                    {{# attachments }}
+                        <tr>
+                            <td style="color: #999; padding: 5px 20px; border-top: 1px solid #e9e9e9;">
+                                {{# grouppicture }}<span style="margin-right: 20px;">{{{ grouppicture }}}</span>{{/ grouppicture }}
+                                {{{ attachments }}}
+                            </td>
+                        </tr>
+                    {{/ attachments }}
+                    {{# canreply }}
+                    <tr>
+                        <td style="padding: 10px 20px; border-top: 1px solid #e9e9e9;">
+                            {{^ firstpost }}
+                                <a target="_blank" href="{{{ parentpostlink }}}"> {{# str }} parent, forum {{/ str }}</a>
+                                {{# canreply }} | {{/ canreply }}
+                            {{/ firstpost }}
+
+                            <a target="_blank" href="{{{ replylink }}}">{{# str }} reply, forum {{/ str }}</a>
+                        </td>
+                    </tr>
+                    {{/ canreply }}
+                    <tr>
+                        <td style="color: #000; background-color: #ebebeb; font-size: 12px; padding: 5px 20px; border-top: 1px solid #e9e9e9;">
+                            {{# str }} bynameondate, forum, { "name": {{# quote }}<a target='_blank' href='{{{ authorlink }}}'>{{ authorfullname }}</a>{{/ quote }}, "date": {{# quote }}{{ postdate }}{{/ quote }} } {{/ str }} <br>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="color: #000; background-color: #ebebeb; font-size: 12px; padding: 5px 20px;">
+                            <a target="_blank" href="{{{ permalink }}}"> {{# str }} postincontext, forum {{/ str }} </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="color: #000; background-color: #ebebeb; font-size: 12px; padding: 5px 20px;">
+                            <a target="_blank" href="{{{ courselink }}}">{{{ coursename }}}</a>
+                            &raquo;
+                            <a target="_blank" href="{{{ forumindexlink }}}">{{# str }} forums, forum {{/ str }}</a>
+                            &raquo;
+                            <a target="_blank" href="{{{ forumviewlink }}}">{{{ forumname }}}</a>
+                            {{# showdiscussionname }}
+                                &raquo;
+                                <a target="_blank" href="{{{ discussionlink }}}">{{{ discussionname }}}</a>
+                            {{/ showdiscussionname }}
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+
+                <div style="width: 100%;clear: both; padding: 20px 0;">
+                    <table width="100%">
                         <tbody>
-                            <tr style="padding: 0; text-align: left; vertical-align: top">
-                                <td style="-moz-hyphens: auto; -webkit-hyphens: auto; margin: 0; border-collapse: collapse !important; color: #0a0a0a; font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; hyphens: auto; line-height: 1.3; margin: 0; padding: 0; text-align: left; vertical-align: top; word-wrap: break-word">
-                                        <table class="spacer" style="border-collapse: collapse; border-spacing: 0; padding: 0; text-align: left; vertical-align: top; width: 100%">
-                                        <tbody>
-                                            <tr style="padding: 0; text-align: left; vertical-align: top">
-                                                <td style="-moz-hyphens: auto; -webkit-hyphens: auto; margin: 0; border-collapse: collapse !important; color: #0a0a0a; font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; hyphens: auto; line-height: 16px; margin: 0; mso-line-height-rule: exactly; padding: 0; text-align: left; vertical-align: top; word-wrap: break-word" height="16px">&nbsp;</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                    <table class="row" style="border-collapse: collapse; border-spacing: 0; display: table; padding: 0; position: relative; text-align: left; vertical-align: top; width: 100%">
-                                        <tbody>
-                                            <tr style="padding: 0; text-align: left; vertical-align: top">
-                                                <th class="small-12 large-12 columns first last" style="margin: 0 auto; color: #0a0a0a; font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 1.3; margin: 0 auto; padding: 0; padding-bottom: 16px; padding-left: 16px; padding-right: 16px; text-align: left; width: 564px">
-                                                    <table style="border-collapse: collapse; border-spacing: 0; padding: 0; text-align: left; vertical-align: top; width: 100%">
-                                                        <tbody>
-                                                            <tr style="padding: 0; text-align: left; vertical-align: top">
-                                                                <th style="margin: 0; color: #0a0a0a; font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 1.3; margin: 0; padding: 0; text-align: left">
-                                                                    <h1 style="margin: 0; margin-bottom: 10px; color: inherit; font-family: Helvetica, Arial, sans-serif; font-size: 34px; font-weight: 400; line-height: 1.3; margin: 0; margin-bottom: 10px; padding: 0; text-align: left; word-wrap: normal">{{{ subject }}}</h1>
-                                                                    <p style="margin: 0; margin-bottom: 10px; color: #0a0a0a; font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 1.3; margin: 0; margin-bottom: 10px; padding: 0; text-align: left">{{{ message }}}</p>
-                                                                    <table class="callout" style="margin-bottom: 16px; border-collapse: collapse; border-spacing: 0; margin-bottom: 16px; padding: 0; text-align: left; vertical-align: top; width: 100%">
-                                                                        <tbody>
-                                                                            <tr style="padding: 0; text-align: left; vertical-align: top">
-                                                                                <th class="callout-inner primary" style="margin: 0; background: #def0fc; border: 1px solid #444; color: #0a0a0a; font-family: Helvetica, Arial, sans-serif; font-size: 14px; font-weight: 400; line-height: 1.3; margin: 0; padding: 10px; text-align: left; width: 100%">
-                                                                                    <p style="margin: 0; margin-bottom: 10px; color: #0a0a0a; font-family: Helvetica, Arial, sans-serif; font-size: 14px; font-weight: 400; line-height: 1.3; margin: 0; margin-bottom: 10px; padding: 0; text-align: left"> {{# str }} bynameondate, forum, { "name": {{# quote }}<a target='_blank' href='{{{ authorlink }}}'>{{ authorfullname }}</a>{{/ quote }}, "date": {{# quote }}{{ postdate }}{{/ quote }} } {{/ str }} <br> <a target="_blank" href="{{{ permalink }}}"> {{# str }} postincontext, forum {{/ str }} </a></p>
-                                                                                    <div class="navbar">
-																					    <a target="_blank" href="{{{ courselink }}}">{{{ coursename }}}</a>
-																					    &raquo;
-																					    <a target="_blank" href="{{{ forumindexlink }}}">{{# str }} forums, forum {{/ str }}</a>
-																					    &raquo;
-																					    <a target="_blank" href="{{{ forumviewlink }}}">{{{ forumname }}}</a>
-																						{{# showdiscussionname }}
-																						    &raquo;
-																						    <a target="_blank" href="{{{ discussionlink }}}">{{{ discussionname }}}</a>
-																						{{/ showdiscussionname }}
-																					</div>
-                                                                                </th>
-                                                                                <th class="expander" style="margin: 0; color: #0a0a0a; font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 1.3; margin: 0; padding: 0 !important; text-align: left; visibility: hidden; width: 0"></th>
-                                                                            </tr>
-                                                                        </tbody>
-                                                                    </table>
-                                                                </th>
-                                                                <th class="expander" style="margin: 0; color: #0a0a0a; font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 1.3; margin: 0; padding: 0 !important; text-align: left; visibility: hidden; width: 0"></th>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </th>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                    <table class="wrapper secondary" style="background: #f3f3f3; border-collapse: collapse; border-spacing: 0; padding: 0; text-align: left; vertical-align: top; width: 100%" align="center">
-                                        <tbody>
-                                            <tr style="padding: 0; text-align: left; vertical-align: top">
-                                                <td class="wrapper-inner" style="-moz-hyphens: auto; -webkit-hyphens: auto; margin: 0; border-collapse: collapse !important; color: #0a0a0a; font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; hyphens: auto; line-height: 1.3; margin: 0; padding: 0; text-align: left; vertical-align: top; word-wrap: break-word">
-                                                    <table class="spacer" style="border-collapse: collapse; border-spacing: 0; padding: 0; text-align: left; vertical-align: top; width: 100%">
-                                                        <tbody>
-                                                            <tr style="padding: 0; text-align: left; vertical-align: top">
-                                                                <td style="-moz-hyphens: auto; -webkit-hyphens: auto; margin: 0; border-collapse: collapse !important; color: #0a0a0a; font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; hyphens: auto; line-height: 16px; margin: 0; mso-line-height-rule: exactly; padding: 0; text-align: left; vertical-align: top; word-wrap: break-word" height="16px">&nbsp;</td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                    <table class="row" style="border-collapse: collapse; border-spacing: 0; display: table; padding: 0; position: relative; text-align: left; vertical-align: top; width: 100%">
-                                                        <tbody>
-                                                            <tr style="padding: 0; text-align: left; vertical-align: top">
-                                                                <th class="small-12 large-6 columns first" style="margin: 0 auto; color: #0a0a0a; font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 1.3; margin: 0 auto; padding: 0; padding-bottom: 16px; padding-left: 16px; padding-right: 8px; text-align: left; width: 274px">
-                                                                        <table style="border-collapse: collapse; border-spacing: 0; padding: 0; text-align: left; vertical-align: top; width: 100%">
-                                                                        <tbody>
-                                                                            <tr style="padding: 0; text-align: left; vertical-align: top">
-                                                                                <th style="margin: 0; color: #0a0a0a; font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 1.3; margin: 0; padding: 0; text-align: left">
-                                                                                    <table class="menu vertical" style="border-collapse: collapse; border-spacing: 0; padding: 0; text-align: left; vertical-align: top; width: 100%">
-                                                                                        <tbody>
-                                                                                            <tr style="padding: 0; text-align: left; vertical-align: top">
-                                                                                                <td style="-moz-hyphens: auto; -webkit-hyphens: auto; margin: 0; border-collapse: collapse !important; color: #0a0a0a; font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; hyphens: auto; line-height: 1.3; margin: 0; padding: 0; text-align: left; vertical-align: top; word-wrap: break-word">
-                                                                                                    <table style="border-collapse: collapse; border-spacing: 0; padding: 0; text-align: left; vertical-align: top; width: 100%">
-                                                                                                        <tbody>
-                                                                                                            <tr style="padding: 0; text-align: left; vertical-align: top">
-                                                                                                                <th style="margin: 0 auto; color: #0a0a0a; display: block; float: none; font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 1.3; margin: 0 auto; padding: 10px; padding-right: 0; text-align: left">{{^ firstpost }}<a target="_blank" href="{{{ parentpostlink }}}"> {{# str }} parent, forum {{/ str }}</a>{{# canreply }} | {{/ canreply }} {{/ firstpost }} {{# canreply }}<a target="_blank" href="{{{ replylink }}}">{{# str }} reply, forum {{/ str }}</a>{{/ canreply }}</th>
-                                                                                                                <th style="margin: 0 auto; color: #0a0a0a; display: block; float: none; font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 1.3; margin: 0 auto; padding: 10px; padding-right: 0; text-align: left" class="menu-item float-center"></th>
-                                                                                                                <th style="margin: 0 auto; color: #0a0a0a; display: block; float: none; font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 1.3; margin: 0 auto; padding: 10px; padding-right: 0; text-align: left" class="menu-item float-center"></th>
-                                                                                                            </tr>
-                                                                                                        </tbody>
-                                                                                                    </table>
-                                                                                                </td>
-                                                                                            </tr>
-                                                                                        </tbody>
-                                                                                    </table>
-                                                                                </th>
-                                                                            </tr>
-                                                                        </tbody>
-                                                                    </table>
-                                                                </th>
-                                                                <th class="small-12 large-6 columns last" style="margin: 0 auto; color: #0a0a0a; font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 1.3; margin: 0 auto; padding: 0; padding-bottom: 16px; padding-left: 8px; padding-right: 16px; text-align: left; width: 274px">
-                                                                    <table style="border-collapse: collapse; border-spacing: 0; padding: 0; text-align: left; vertical-align: top; width: 100%">
-                                                                        <tbody>
-                                                                            <tr style="padding: 0; text-align: left; vertical-align: top">
-                                                                                <th style="margin: 0; color: #0a0a0a; font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 1.3; margin: 0; padding: 0; text-align: left">
-                                                                                    <p style="margin: 0; margin-bottom: 10px; color: #0a0a0a; font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 1.3; margin: 0; margin-bottom: 10px; padding: 0; text-align: left">{{# attachments }}<div class="attachments">{{{ attachments }}}</div>{{/ attachments }}</p>
-                                                                                    <p style="margin: 0; margin-bottom: 10px; color: #0a0a0a; font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 1.3; margin: 0; margin-bottom: 10px; padding: 0; text-align: left">{{# grouppicture }}{{{ grouppicture }}}{{/ grouppicture }}{{^ grouppicture }}&nbsp;{{/ grouppicture }}</p>
-                                                                                </th>
-                                                                            </tr>
-                                                                        </tbody>
-                                                                    </table>
-                                                                </th>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </td>
-                            </tr>
+                        <tr>
+                            <td style="font-size: 16px; color: #999; font-weight: bold; text-align: center; padding: 0 0 20px;">{{{sitename}}}</td>
+                        </tr>
+                        {{ #messagefooter }}
+                        <tr>
+                            <td>
+                                {{{ messagefooter }}}
+                            </td>
+                        </tr>
+                        {{ /messagefooter }}
                         </tbody>
                     </table>
-                    </center>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    {{ #messagefooter }}{{{ messagefooter }}}{{ /messagefooter }}
+                </div>
+            </div>
+        </td>
+        <td></td>
+    </tr>
+    </tbody>
+</table>
 {{/enabletemplate}}
 {{^enabletemplate}}
 <table border="0" cellpadding="3" cellspacing="0" class="forumpost">
