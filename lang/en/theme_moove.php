@@ -149,3 +149,14 @@ $string['onlineusers'] = 'Online users(last 5 minutes)';
 $string['showhideblocks'] = 'Show/hide blocks';
 $string['googleanalytics'] = 'Google Analytics Code';
 $string['googleanalyticsdesc'] = 'Please enter your Google Analytics code to enable analytics on your website. The code format shold be like [UA-XXXXX-Y]';
+
+
+// Forum.
+$string['forumsettings'] = 'Forum general';
+$string['forumsettingsdesc'] = 'Configure the general forum settings for the theme here.';
+$string['forumhtmlemailheader'] = 'Forum html email header';
+$string['forumhtmlemailheaderdesc'] = 'Configure the forum html email header for the theme here.';
+$string['forumhtmlemailfooter'] = 'Forum html email footer';
+$string['forumhtmlemailfooterdesc'] = 'Configure the forum html email footer for the theme here.';
+$string['forumcustomtemplate'] = 'Use a pretty template for forum mails';
+$string['forumcustomtemplatedesc'] = 'Enable that in order to use a pretty template for sending forum mails. Put an image in the header section of max-width 300px. If not enabled standard formatting of forum mails will be used.';
