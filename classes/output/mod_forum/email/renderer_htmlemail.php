@@ -55,7 +55,6 @@ class renderer_htmlemail extends \mod_forum\output\email\renderer {
         $logo = $theme->setting_file_url('logo', 'logo');
         if ($logo) {
             $data['sitelogo'] = $logo;
-            $data['sitelogo'] = 'https://www.moodlebrasil.org/pluginfile.php/1/theme_adaptable/logo/1520291519/mootbr.png';
         }
 
         $data['sitename'] = $SITE->fullname;
