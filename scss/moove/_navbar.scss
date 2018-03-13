@@ -109,6 +109,14 @@ header.navbar {
             .nav-link {
                 padding: 0;
             }
+
+            .dropdown-menu {
+                padding: 0;
+
+                .dropdown-item {
+                    line-height: 32px;
+                }
+            }
         }
 
         &.popover-menu-items {
