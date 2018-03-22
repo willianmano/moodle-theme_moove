@@ -449,34 +449,34 @@ if ($ADMIN->fulltree) {
 
 
 
-// Forum page....
+    // Forum page.
     $settingpage = new admin_settingpage('theme_moove_forum', get_string('forumsettings', 'theme_moove'));
 
     $settingpage->add(new admin_setting_heading('theme_moove_forumheading', null,
             format_text(get_string('forumsettingsdesc', 'theme_moove'), FORMAT_MARKDOWN)));
-    // Enable custom template
+
+    // Enable custom template.
     $name = 'theme_moove/forumcustomtemplate';
     $title = get_string('forumcustomtemplate', 'theme_moove');
     $description = get_string('forumcustomtemplatedesc', 'theme_moove');
     $default = 0;
     $setting = new admin_setting_configcheckbox($name, $title, $description, $default);
-    // No CSS change, so no need to reset caches.
     $settingpage->add($setting);
+
     // Header setting.
     $name = 'theme_moove/forumhtmlemailheader';
     $title = get_string('forumhtmlemailheader', 'theme_moove');
     $description = get_string('forumhtmlemailheaderdesc', 'theme_moove');
     $default = '';
     $setting = new admin_setting_confightmleditor($name, $title, $description, $default);
-    // No CSS change, so no need to reset caches.
     $settingpage->add($setting);
+
     // Footer setting.
     $name = 'theme_moove/forumhtmlemailfooter';
     $title = get_string('forumhtmlemailfooter', 'theme_moove');
     $description = get_string('forumhtmlemailfooterdesc', 'theme_moove');
     $default = '';
     $setting = new admin_setting_confightmleditor($name, $title, $description, $default);
-    // No CSS change, so no need to reset caches.
     $settingpage->add($setting);
 
     $settings->add($settingpage);

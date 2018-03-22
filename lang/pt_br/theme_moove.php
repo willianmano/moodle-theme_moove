@@ -127,15 +127,17 @@ $string['maildesc'] = 'Digite o E-Mail de contato';
 $string['disablebottomfooter'] = 'Desabilitar rodapé do final da página';
 $string['disablebottomfooterdesc'] = 'Esta opção desabilita o rodapé laranja do final da página';
 $string['facebook'] = 'Facebook URL';
-$string['facebookdesc'] = 'Digite a URL do Facebook. (ex: http://www.facebook.com/mycollege)';
+$string['facebookdesc'] = 'Digite a URL do Facebook. (ex: http://www.facebook.com/moodlehq)';
 $string['twitter'] = 'Twitter URL';
-$string['twitterdesc'] = 'Digite a URL do twitter. (ex: http://www.twitter.com/mycollege)';
+$string['twitterdesc'] = 'Digite a URL do twitter. (ex: http://www.twitter.com/moodlehq)';
 $string['googleplus'] = 'Google Plus URL';
-$string['googleplusdesc'] = 'Digite a URL do Google Plus. (ex: http://www.googleplus.com/mycollege)';
+$string['googleplusdesc'] = 'Digite a URL do Google Plus. (ex: http://www.googleplus.com/moodlehq)';
 $string['linkedin'] = 'Linkedin URL';
-$string['linkedindesc'] = 'Digite a URL do Linkedin. (ex: http://www.linkedin.com/mycollege)';
+$string['linkedindesc'] = 'Digite a URL do Linkedin. (ex: http://www.linkedin.com/moodlehq)';
 $string['youtube'] = 'Youtube URL';
 $string['youtubedesc'] = 'Digite a URL do Youtube. (ex: https://www.youtube.com/user/moodlehq)';
+$string['instagram'] = 'Instagram URL';
+$string['instagramdesc'] = 'Digite a URL do Instagram. (i.e https://www.instagram.com/moodlehq)';
 
 $string['access'] = 'Acessar';
 $string['cachedef_admininfos'] = 'Informações da página inicial dos administradores';
@@ -146,3 +148,13 @@ $string['onlineusers'] = 'Usuários online(5 minutos)';
 $string['showhideblocks'] = 'Exibir/ocultar blocos';
 $string['googleanalytics'] = 'Código do Google Analytics';
 $string['googleanalyticsdesc'] = 'Por favor digite o código do Google Analytics para habilitá-lo no seu site. O código deve ter o formato [UA-XXXXX-Y]';
+
+// Forum.
+$string['forumsettings'] = 'Fórum';
+$string['forumsettingsdesc'] = 'Faça aqui os ajustes das configurações do fórum geral.';
+$string['forumhtmlemailheader'] = 'Cabeçalho do email';
+$string['forumhtmlemailheaderdesc'] = 'Configure o cabeçalho do email das mensagens dos Fóruns.';
+$string['forumhtmlemailfooter'] = 'Rodapé do email';
+$string['forumhtmlemailfooterdesc'] = 'Configure o rodapé do email das mensagens dos Fóruns.';
+$string['forumcustomtemplate'] = 'Habilitar o template para os emails dos fóruns';
+$string['forumcustomtemplatedesc'] = 'Marque para habilitar um template mais agradável para os emails das mensagens dos fóruns. Se não habilitado o formato padrão para os emails será utilizado.';

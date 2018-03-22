@@ -15,7 +15,9 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 namespace theme_moove\output\mod_forum\email;
+
 defined('MOODLE_INTERNAL') || die();
+
 /**
  * Forum post renderable.
  *
@@ -32,20 +34,21 @@ class renderer_htmlemail extends \mod_forum\output\email\renderer {
      * @return string
      */
     public function render_forum_post_email(\mod_forum\output\forum_post_email $post) {
-        global $SITE, $OUTPUT;
+        global $SITE;
 
         // Was ($this, $this->target === RENDERER_TARGET_TEXTEMAIL) and as we are already 'htmlemail' it will always be false.
         $data = $post->export_for_template($this, false);
+
         // Add our new data.
         $data['enabletemplate'] = theme_moove_get_setting('forumcustomtemplate');
         $forumhtmlemailheader = theme_moove_get_setting('forumhtmlemailheader', 'format_html');
         if ($forumhtmlemailheader) {
-           $data['messageheader'] = $forumhtmlemailheader;
+            $data['messageheader'] = $forumhtmlemailheader;
         }
 
         $forumhtmlemailfooter = theme_moove_get_setting('forumhtmlemailfooter', 'format_html');
         if ($forumhtmlemailfooter) {
-           $data['messagefooter'] = $forumhtmlemailfooter;
+            $data['messagefooter'] = $forumhtmlemailfooter;
         }
 
         $data['sitelogo'] = false;
