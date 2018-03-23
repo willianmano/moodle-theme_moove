@@ -373,11 +373,6 @@ class theme_moove_format_topics_renderer extends format_topics_renderer {
         foreach ($modinfo->sections[$section->section] as $cmid) {
             $thismod = $modinfo->cms[$cmid];
 
-            if ($thismod->modname == 'label') {
-                // Labels are special (not interesting for students)!
-                continue;
-            }
-
             if ($thismod->uservisible) {
                 if (isset($sectionmods[$thismod->modname])) {
                     $sectionmods[$thismod->modname]['name'] = $thismod->modplural;
