@@ -140,6 +140,8 @@ $string['youtube'] = 'Youtube URL';
 $string['youtubedesc'] = 'Enter the URL of your Youtube. (i.e https://www.youtube.com/user/moodlehq)';
 $string['instagram'] = 'Instagram URL';
 $string['instagramdesc'] = 'Enter the URL of your Instagram. (i.e https://www.instagram.com/moodlehq)';
+$string['topfooterimg'] = 'Footer image';
+$string['topfooterimgdesc'] = 'Upload your custom footer image here if you want to replace the default image.';
 
 $string['access'] = 'Access';
 $string['cachedef_admininfos'] = 'Site administrator dashboard infos';

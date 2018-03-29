@@ -453,6 +453,14 @@ if ($ADMIN->fulltree) {
     $page->add($setting);
     $setting->set_updatedcallback('theme_reset_all_caches');
 
+    $name = 'theme_moove/topfooterimg';
+    $title = get_string('topfooterimg', 'theme_moove');
+    $description = get_string('topfooterimgdesc', 'theme_moove');
+    $opts = array('accepted_types' => array('.png', '.jpg', '.svg'));
+    $setting = new admin_setting_configstoredfile($name, $title, $description, 'topfooterimg', 0, $opts);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $page->add($setting);
+
     $settings->add($page);
 
 

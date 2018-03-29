@@ -140,6 +140,8 @@ $string['youtube'] = 'Youtube URL';
 $string['youtubedesc'] = 'Digite a URL do Youtube. (ex: https://www.youtube.com/user/moodlehq)';
 $string['instagram'] = 'Instagram URL';
 $string['instagramdesc'] = 'Digite a URL do Instagram. (i.e https://www.instagram.com/moodlehq)';
+$string['topfooterimg'] = 'Imagem do rodapé';
+$string['topfooterimgdesc'] = 'Envie sua própria imagem de rodapé caso queira substituir a imagem padrão.';
 
 $string['access'] = 'Acessar';
 $string['cachedef_admininfos'] = 'Informações da página inicial dos administradores';
