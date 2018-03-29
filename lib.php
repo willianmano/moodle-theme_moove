@@ -37,6 +37,8 @@ function theme_moove_get_extra_scss($theme) {
 
     $scss .= theme_moove_set_topfooterimg($theme);
 
+    $scss .= theme_moove_set_loginbgimg($theme);
+
     return $scss;
 }
 
@@ -76,6 +78,26 @@ function theme_moove_set_topfooterimg($theme) {
     }
 
     $headercss = "#top-footer {background-image: url('$topfooterimg');}";
+
+    return $headercss;
+}
+
+/**
+ * Adds the login page background image to CSS.
+ *
+ * @param theme_config $theme The theme config object.
+ * @return string
+ */
+function theme_moove_set_loginbgimg($theme) {
+    global $OUTPUT;
+
+    $loginbgimg = $theme->setting_file_url('loginbgimg', 'loginbgimg');
+
+    if (is_null($loginbgimg)) {
+        $loginbgimg = $OUTPUT->image_url('login_bg', 'theme');
+    }
+
+    $headercss = "#page-login-index.moove-login #page-wrapper #page {background-image: url('$loginbgimg');}";
 
     return $headercss;
 }
@@ -178,6 +200,8 @@ function theme_moove_pluginfile($course, $cm, $context, $filearea, $args, $force
         return $theme->setting_file_serve('marketing4icon', $args, $forcedownload, $options);
     } else if ($context->contextlevel == CONTEXT_SYSTEM and $filearea === 'topfooterimg') {
         return $theme->setting_file_serve('topfooterimg', $args, $forcedownload, $options);
+    } else if ($context->contextlevel == CONTEXT_SYSTEM and $filearea === 'loginbgimg') {
+        return $theme->setting_file_serve('loginbgimg', $args, $forcedownload, $options);
     } else {
         send_file_not_found();
     }

@@ -79,6 +79,15 @@ if ($ADMIN->fulltree) {
         array('maxfiles' => 20, 'accepted_types' => array('.scss')));
     $page->add($setting);
 
+    // Login page background image.
+    $name = 'theme_moove/loginbgimg';
+    $title = get_string('loginbgimg', 'theme_moove');
+    $description = get_string('loginbgimg_desc', 'theme_moove');
+    $opts = array('accepted_types' => array('.png', '.jpg', '.svg'));
+    $setting = new admin_setting_configstoredfile($name, $title, $description, 'loginbgimg', 0, $opts);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $page->add($setting);
+
     // Variable $brand-color.
     // We use an empty default value because the default colour should come from the preset.
     $name = 'theme_moove/brandcolor';
@@ -88,6 +97,7 @@ if ($ADMIN->fulltree) {
     $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
 
+    // Variable $navbar-header-color.
     // We use an empty default value because the default colour should come from the preset.
     $name = 'theme_moove/navbarheadercolor';
     $title = get_string('navbarheadercolor', 'theme_moove');
@@ -445,14 +455,7 @@ if ($ADMIN->fulltree) {
     $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
 
-    // Disable bottom footer.
-    $name = 'theme_moove/disablebottomfooter';
-    $title = get_string('disablebottomfooter', 'theme_moove');
-    $description = get_string('disablebottomfooterdesc', 'theme_moove');
-    $setting = new admin_setting_configcheckbox($name, $title, $description, 0);
-    $page->add($setting);
-    $setting->set_updatedcallback('theme_reset_all_caches');
-
+    // Top footer background image.
     $name = 'theme_moove/topfooterimg';
     $title = get_string('topfooterimg', 'theme_moove');
     $description = get_string('topfooterimgdesc', 'theme_moove');
@@ -461,9 +464,15 @@ if ($ADMIN->fulltree) {
     $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
 
+    // Disable bottom footer.
+    $name = 'theme_moove/disablebottomfooter';
+    $title = get_string('disablebottomfooter', 'theme_moove');
+    $description = get_string('disablebottomfooterdesc', 'theme_moove');
+    $setting = new admin_setting_configcheckbox($name, $title, $description, 0);
+    $page->add($setting);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+
     $settings->add($page);
-
-
 
     // Forum page.
     $settingpage = new admin_settingpage('theme_moove_forum', get_string('forumsettings', 'theme_moove'));

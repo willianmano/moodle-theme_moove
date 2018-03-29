@@ -24,29 +24,13 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['advancedsettings'] = 'Configurações avançadas';
-$string['brandcolor'] = 'Cor da marca';
-$string['brandcolor_desc'] = 'Cor principal.';
-$string['navbarheadercolor'] = 'Cor da barra do topo';
-$string['navbarheadercolor_desc'] = 'Cor da barra do topo do site.';
-$string['choosereadme'] = 'Moove é um tema moderno e altamente customizável. Este tema tem por objetivo ser usado diretamente, ou como um tema pai quando criados novos temas utilizando Bootstrap 4.';
-$string['currentinparentheses'] = '(atual)';
-$string['configtitle'] = 'Moove';
-$string['generalsettings'] = 'Configurações gerais';
 $string['pluginname'] = 'Moove';
-$string['presetfiles'] = 'Arquivos de preset adicionais';
-$string['presetfiles_desc'] = 'Arquivos prese podem ser usados para alterar dramaticamente a aparência do tema. Veja <a href=https://docs.moodle.org/dev/Boost_Presets>Boost presets</a> para informações sobre criar e compartilhar seus próprios arquivos preset, e veja o <a href=http://moodle.net/boost>repositório de presets</a> que outros compartilharam.';
-$string['preset'] = 'Theme preset';
-$string['preset_desc'] = 'Escolha um preset para alterar a aparência do tema.';
-$string['rawscss'] = 'SCSS cru';
-$string['rawscss_desc'] = 'Use este campo para fornecer código SCSS ou CSS que será injetado no final do arquivos de estilos.';
-$string['rawscsspre'] = 'SCSS cru inicial';
-$string['rawscsspre_desc'] = 'Neste campo você pode fornecer código SCSS de inicialização, ele será injetado antes de tudo. Na maioria dos casos você usará esta configuração para setar variáveis.';
-$string['region-side-pre'] = 'Direita';
+$string['configtitle'] = 'Moove';
+$string['choosereadme'] = 'Moove é um tema moderno e altamente customizável. Este tema tem por objetivo ser usado diretamente, ou como um tema pai quando criados novos temas utilizando Bootstrap 4.';
 
+$string['currentinparentheses'] = '(atual)';
+$string['region-side-pre'] = 'Direita';
 $string['login'] = 'Você possui uma conta?';
-$string['logo'] = 'Logo';
-$string['logodesc'] = 'A logo é exibida no topo da página.';
 $string['prev_section'] = 'Seção anterior';
 $string['next_section'] = 'Próxima seção';
 $string['search_site'] = 'Procurar no site';
@@ -58,21 +42,48 @@ $string['madewitmoodle'] = 'Orgulhosamente feito com o';
 $string['madeby'] = 'Feito com';
 $string['by'] = 'por';
 $string['discipline_progress'] = 'Andamento da disciplina';
+$string['access'] = 'Acessar';
+$string['cachedef_admininfos'] = 'Informações da página inicial dos administradores';
+$string['diskusage'] = 'Uso do disco(moodledata)';
+$string['totalusers'] = 'Usuáios ativos / Suspensos';
+$string['totalcourses'] = 'Total de cursos';
+$string['onlineusers'] = 'Usuários online(5 minutos)';
+$string['showhideblocks'] = 'Exibir/ocultar blocos';
 
+// General settings tab.
+$string['generalsettings'] = 'Configurações gerais';
+$string['logo'] = 'Logo';
+$string['logodesc'] = 'A logo é exibida no topo da página.';
+$string['preset'] = 'Preset do tema';
+$string['preset_desc'] = 'Escolha um preset para alterar a aparência do tema.';
+$string['presetfiles'] = 'Arquivos de preset adicionais';
+$string['presetfiles_desc'] = 'Arquivos preset podem ser usados para alterar dramaticamente a aparência do tema. Veja <a href=https://docs.moodle.org/dev/Boost_Presets>Boost presets</a> para informações sobre criar e compartilhar seus próprios arquivos preset, e veja o <a href=http://moodle.net/boost>repositório de presets</a> que outros compartilharam.';
+$string['loginbgimg'] = 'Background da página de login';
+$string['loginbgimg_desc'] = 'Envie sua própria imagem de fundo para a página de login.';
+$string['brandcolor'] = 'Cor da marca';
+$string['brandcolor_desc'] = 'Cor principal.';
+$string['navbarheadercolor'] = 'Cor da barra do topo';
+$string['navbarheadercolor_desc'] = 'Cor da barra do topo do site.';
+
+// Advanced settings tab.
+$string['advancedsettings'] = 'Configurações avançadas';
+$string['rawscsspre'] = 'SCSS inicial puro';
+$string['rawscsspre_desc'] = 'Neste campo você pode fornecer código SCSS de inicialização, ele será injetado antes de tudo. Na maioria dos casos você usará esta configuração para setar variáveis.';
+$string['rawscss'] = 'SCSS puro';
+$string['rawscss_desc'] = 'Use este campo para fornecer código SCSS ou CSS que será injetado no final do arquivos de estilos.';
+$string['googleanalytics'] = 'Código do Google Analytics';
+$string['googleanalyticsdesc'] = 'Por favor digite o código do Google Analytics para habilitá-lo no seu site. O código deve ter o formato [UA-XXXXX-Y]';
+
+// Frontpage settings tab.
 $string['frontpagesettings'] = 'Configurações da página inicial';
 $string['headerimg'] = 'Imagem do cabeçalho';
 $string['headerimgdesc'] = 'Envie sua própria imagem de cabeçalho. Tamanho recomendado 1500px x 700px';
-
 $string['bannerheading'] = 'Banner de cabeçalho';
 $string['bannerheadingdesc'] = 'Digite o texto do banner de cabeçalho';
 $string['bannercontent'] = 'Conteúdo do banner';
 $string['bannercontentdesc'] = 'Digite o texto do conteúdo';
-$string['bannerfontcolor'] = 'Cor da fonte do banner';
-$string['bannerfontcolordesc'] = 'Permite configurar a cor da fonte do banner';
-
 $string['displaymarketingbox'] = 'Exibe o Marketingbox da página inicial';
 $string['displaymarketingboxdesc'] = 'Exibe ou oculta o Marketingbox da página inicial';
-
 $string['marketing1icon'] = 'Ícone Marketing1';
 $string['marketing1icondesc'] = 'Envie o ícone do Marketing1';
 $string['marketing1heading'] = 'Cabeçalho do Marketing1';
@@ -83,7 +94,6 @@ $string['marketing1content'] = 'Conteúdo do Marketing1';
 $string['marketing1contentdesc'] = 'Digite o texto do conteúdo do Marketing1';
 $string['marketing1url'] = 'URL do Marketing1';
 $string['marketing1urldesc'] = 'Digite a URL do Marketing1';
-
 $string['marketing2icon'] = 'Ícone Marketing2';
 $string['marketing2icondesc'] = 'Envie o ícone do Marketing2';
 $string['marketing2heading'] = 'Cabeçalho do Marketing2';
@@ -94,7 +104,6 @@ $string['marketing2content'] = 'Conteúdo do Marketing2';
 $string['marketing2contentdesc'] = 'Digite o texto do conteúdo do Marketing2';
 $string['marketing2url'] = 'URL do Marketing2';
 $string['marketing2urldesc'] = 'Digite a URL do Marketing2';
-
 $string['marketing3icon'] = 'Ícone Marketing3';
 $string['marketing3icondesc'] = 'Envie o ícone do Marketing3';
 $string['marketing3heading'] = 'Cabeçalho do Marketing3';
@@ -105,7 +114,6 @@ $string['marketing3content'] = 'Conteúdo do Marketing3';
 $string['marketing3contentdesc'] = 'Digite o texto do conteúdo do Marketing3';
 $string['marketing3url'] = 'URL do Marketing3';
 $string['marketing3urldesc'] = 'Digite a URL do Marketing3';
-
 $string['marketing4icon'] = 'Ícone Marketing4';
 $string['marketing4icondesc'] = 'Envie o ícone do Marketing4';
 $string['marketing4heading'] = 'Cabeçalho do Marketing4';
@@ -117,6 +125,7 @@ $string['marketing4contentdesc'] = 'Digite o texto do conteúdo do Marketing4';
 $string['marketing4url'] = 'URL do Marketing4';
 $string['marketing4urldesc'] = 'Digite a URL do Marketing4';
 
+// Footer settings tab.
 $string['footersettings'] = 'Configurações do rodapé';
 $string['getintouchcontent'] = 'Conteúdo de matenha contato';
 $string['getintouchcontentdesc'] = 'Digite o texto de matenha contato';
@@ -126,8 +135,6 @@ $string['mobile'] = 'Celular';
 $string['mobiledesc'] = 'Digite o número de celular';
 $string['mail'] = 'E-Mail';
 $string['maildesc'] = 'Digite o E-Mail de contato';
-$string['disablebottomfooter'] = 'Desabilitar rodapé do final da página';
-$string['disablebottomfooterdesc'] = 'Esta opção desabilita o rodapé laranja do final da página';
 $string['facebook'] = 'Facebook URL';
 $string['facebookdesc'] = 'Digite a URL do Facebook. (ex: http://www.facebook.com/moodlehq)';
 $string['twitter'] = 'Twitter URL';
@@ -142,18 +149,10 @@ $string['instagram'] = 'Instagram URL';
 $string['instagramdesc'] = 'Digite a URL do Instagram. (i.e https://www.instagram.com/moodlehq)';
 $string['topfooterimg'] = 'Imagem do rodapé';
 $string['topfooterimgdesc'] = 'Envie sua própria imagem de rodapé caso queira substituir a imagem padrão.';
+$string['disablebottomfooter'] = 'Desabilitar rodapé do final da página';
+$string['disablebottomfooterdesc'] = 'Esta opção desabilita o rodapé laranja do final da página';
 
-$string['access'] = 'Acessar';
-$string['cachedef_admininfos'] = 'Informações da página inicial dos administradores';
-$string['diskusage'] = 'Uso do disco(moodledata)';
-$string['totalusers'] = 'Usuáios ativos / Suspensos';
-$string['totalcourses'] = 'Total de cursos';
-$string['onlineusers'] = 'Usuários online(5 minutos)';
-$string['showhideblocks'] = 'Exibir/ocultar blocos';
-$string['googleanalytics'] = 'Código do Google Analytics';
-$string['googleanalyticsdesc'] = 'Por favor digite o código do Google Analytics para habilitá-lo no seu site. O código deve ter o formato [UA-XXXXX-Y]';
-
-// Forum.
+// Forum settings tab.
 $string['forumsettings'] = 'Fórum';
 $string['forumsettingsdesc'] = 'Faça aqui os ajustes das configurações do fórum geral.';
 $string['forumhtmlemailheader'] = 'Cabeçalho do email';
