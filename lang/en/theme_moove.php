@@ -27,6 +27,8 @@ defined('MOODLE_INTERNAL') || die();
 $string['advancedsettings'] = 'Advanced settings';
 $string['brandcolor'] = 'Brand colour';
 $string['brandcolor_desc'] = 'The accent colour.';
+$string['navbarheadercolor'] = 'Navbar header color';
+$string['navbarheadercolor_desc'] = 'The top navbar header color';
 $string['choosereadme'] = 'Moove is a modern highly-customisable theme. This theme is intended to be used directly, or as a parent theme when creating new themes utilising Bootstrap 4.';
 $string['currentinparentheses'] = '(current)';
 $string['configtitle'] = 'Moove';

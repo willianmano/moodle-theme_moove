@@ -105,6 +105,7 @@ function theme_moove_get_pre_scss($theme) {
     $configurable = [
         // Config key => [variableName, ...].
         'brandcolor' => ['brand-primary'],
+        'navbarheadercolor' => 'navbar-header-color'
     ];
 
     // Prepend variables first.

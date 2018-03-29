@@ -88,6 +88,14 @@ if ($ADMIN->fulltree) {
     $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
 
+    // We use an empty default value because the default colour should come from the preset.
+    $name = 'theme_moove/navbarheadercolor';
+    $title = get_string('navbarheadercolor', 'theme_moove');
+    $description = get_string('navbarheadercolor_desc', 'theme_moove');
+    $setting = new admin_setting_configcolourpicker($name, $title, $description, '');
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $page->add($setting);
+
     // Must add the page after definiting all the settings!
     $settings->add($page);
 
