@@ -198,9 +198,9 @@ class core_renderer extends \theme_boost\output\core_renderer {
     }
 
     /**
-     * Whether we should display the main theme logo in the navbar.
+     * Outputs the favicon urlbase.
      *
-     * @return bool
+     * @return string an url
      */
     public function get_favicon() {
         $theme = theme_config::load('moove');
