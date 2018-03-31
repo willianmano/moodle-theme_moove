@@ -24,6 +24,8 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+define('THEME_MOOVE_DEFAULT_SLIDERCOUNT', '1');
+
 /**
  * Inject additional SCSS.
  *
@@ -204,6 +206,8 @@ function theme_moove_pluginfile($course, $cm, $context, $filearea, $args, $force
         return $theme->setting_file_serve('loginbgimg', $args, $forcedownload, $options);
     } else if ($context->contextlevel == CONTEXT_SYSTEM and $filearea === 'favicon') {
         return $theme->setting_file_serve('favicon', $args, $forcedownload, $options);
+    } else if ($context->contextlevel == CONTEXT_SYSTEM and preg_match("/^sliderimage[1-9][0-9]?$/", $filearea) !== false) {
+        return $theme->setting_file_serve($filearea, $args, $forcedownload, $options);
     } else {
         send_file_not_found();
     }

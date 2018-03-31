@@ -127,6 +127,17 @@ $string['marketing4contentdesc'] = 'Enter Marketing4 Content Text';
 $string['marketing4url'] = 'Marketing4 URL';
 $string['marketing4urldesc'] = 'Enter Marketing4 URL';
 
+$string['sliderenabled'] = 'Enable Slider';
+$string['sliderenableddesc'] = 'Enable a slider at the top of your home page';
+$string['slidercount'] = 'Slider Count';
+$string['slidercountdesc'] = 'Select how many slides you want to add <strong>then click SAVE</strong> to load the input fields';
+$string['sliderimage'] = 'Slider Picture';
+$string['sliderimagedesc'] = 'Add an image for your slide. Recommended size is 1600px x 400px or higher.';
+$string['sliderurl'] = 'Slide Link URL';
+$string['sliderurldesc'] = 'Add a URL to which your slide links to when clicked.';
+$string['slidercaption'] = 'Slider Caption';
+$string['slidercaptiondesc'] = 'Add a caption for your slide';
+
 // Footer settings tab.
 $string['footersettings'] = 'Footer settings';
 $string['getintouchcontent'] = 'Get In Touch Content';

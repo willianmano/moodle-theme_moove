@@ -1,0 +1,19 @@
+{{#sliderenabled}}
+    <div id="mooveslideshow" class="carousel slide" data-ride="carousel" data-interval="5000">
+        <ol class="carousel-indicators">
+            {{#slides}}
+                <li data-target="#mooveslideshow" data-slide-to="{{{ key }}}" {{#active}}class="active"{{/active}}></li>
+            {{/slides}}
+        </ol>
+        <div class="carousel-inner">
+            {{#slides}}
+                <div class="carousel-item {{#active}}active{{/active}}">
+                    <img class="d-block w-100" src="{{{ sliderimage }}}" alt="{{{ slidercap }}}">
+                    <div class="carousel-caption d-none d-md-block">
+                        <a href="{{{ sliderurl }}}">{{{ slidercap }}}</a>
+                    </div>
+                </div>
+            {{/slides}}
+        </div>
+    </div>
+{{/sliderenabled}}

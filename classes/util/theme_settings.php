@@ -68,6 +68,48 @@ class theme_settings {
     }
 
     /**
+     * Get config theme slideshow
+     *
+     * @return array
+     */
+    public function slideshow() {
+        global $OUTPUT;
+
+        $theme = theme_config::load('moove');
+
+        $templatecontext['sliderenabled'] = $theme->settings->sliderenabled;
+
+        if (empty($templatecontext['sliderenabled'])) {
+            return $templatecontext;
+        }
+
+        $slidercount = $theme->settings->slidercount;
+
+        for ($i = 1, $j = 0; $i <= $slidercount; $i++, $j++) {
+            $sliderimage = "sliderimage{$i}";
+            $sliderurl = "sliderurl{$i}";
+            $slidercap = "slidercap{$i}";
+
+            $templatecontext['slides'][$j]['key'] = $j;
+            $templatecontext['slides'][$j]['active'] = false;
+
+            $image = $theme->setting_file_url($sliderimage, $sliderimage);
+            if (empty($image)) {
+                $image = $OUTPUT->image_url('slide_default', 'theme');
+            }
+            $templatecontext['slides'][$j]['sliderimage'] = $image;
+            $templatecontext['slides'][$j]['sliderurl'] = $theme->settings->$sliderurl;
+            $templatecontext['slides'][$j]['slidercap'] = $theme->settings->$slidercap;
+
+            if ($i === 1) {
+                $templatecontext['slides'][$j]['active'] = true;
+            }
+        }
+
+        return $templatecontext;
+    }
+
+    /**
      * Get config theme marketing itens
      *
      * @return array

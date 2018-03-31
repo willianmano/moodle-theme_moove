@@ -171,3 +171,31 @@
         list-style: none;
     }
 }
+
+#page-site-index #mooveslideshow {
+    margin: 1rem 0;
+
+    .carousel-indicators {
+        bottom: 0px;
+
+        li {
+            width: 30px;
+            height: 10px;
+        }
+    }
+
+    .carousel-caption {
+        left: 0;
+        right: 0;
+        bottom: 0;
+        text-shadow: none;
+        background-color: rgba(0, 0, 0, .8);
+        padding-top: 10px;
+        padding-bottom: 30px;
+
+        a {
+            color: #fff;
+            text-decoration: none;
+        }
+    }
+}

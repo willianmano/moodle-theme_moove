@@ -77,7 +77,7 @@ $string['googleanalyticsdesc'] = 'Por favor digite o código do Google Analytics
 // Frontpage settings tab.
 $string['frontpagesettings'] = 'Configurações da página inicial';
 $string['headerimg'] = 'Imagem do cabeçalho';
-$string['headerimgdesc'] = 'Envie sua própria imagem de cabeçalho. Tamanho recomendado 1500px x 700px';
+$string['headerimgdesc'] = 'Envie sua própria imagem de cabeçalho. Tamanho recomendado 1400px x 700px';
 $string['bannerheading'] = 'Banner de cabeçalho';
 $string['bannerheadingdesc'] = 'Digite o texto do banner de cabeçalho';
 $string['bannercontent'] = 'Conteúdo do banner';
@@ -124,6 +124,17 @@ $string['marketing4content'] = 'Conteúdo do Marketing4';
 $string['marketing4contentdesc'] = 'Digite o texto do conteúdo do Marketing4';
 $string['marketing4url'] = 'URL do Marketing4';
 $string['marketing4urldesc'] = 'Digite a URL do Marketing4';
+
+$string['sliderenabled'] = 'Habilitar Slideshow';
+$string['sliderenableddesc'] = 'Habilita um slideshow no topo da página inicial do site.';
+$string['slidercount'] = 'Quantidade de slides';
+$string['slidercountdesc'] = 'Selecione quantos slides você quer adicionar e <strong> depois clique em SALVAR</strong> para carregar os campos do formulário.';
+$string['sliderimage'] = 'Imagem do slide';
+$string['sliderimagedesc'] = 'Adicione uma imagem para o seu slide. O tamanho recomendado é 1400px x 400px ou maior.';
+$string['sliderurl'] = 'Link do slide';
+$string['sliderurldesc'] = 'Adicione um link para onde qual você queira direcionar o usuário ao clicar no texto do slide.';
+$string['slidercaption'] = 'Texto do slide';
+$string['slidercaptiondesc'] = 'Adicione um texto para o slide';
 
 // Footer settings tab.
 $string['footersettings'] = 'Configurações do rodapé';
