@@ -43,7 +43,7 @@ if ($ADMIN->fulltree) {
     $name = 'theme_moove/logo';
     $title = get_string('logo', 'theme_moove');
     $description = get_string('logodesc', 'theme_moove');
-    $opts = array('accepted_types' => array('.png', '.jpg', '.gif', '.webp', '.tiff', '.svg'));
+    $opts = array('accepted_types' => array('.png', '.jpg', '.gif', '.webp', '.tiff', '.svg'), 'maxfiles' => 1);
     $setting = new admin_setting_configstoredfile($name, $title, $description, 'logo', 0, $opts);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
@@ -356,6 +356,56 @@ if ($ADMIN->fulltree) {
     $setting = new admin_setting_configtext($name, $title, $description, '');
     $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
+
+    // Slideshow settings.
+    $name = 'theme_moove/sliderenabled';
+    $title = get_string('sliderenabled', 'theme_moove');
+    $description = get_string('sliderenableddesc', 'theme_moove');
+    $setting = new admin_setting_configcheckbox($name, $title, $description, 0);
+    $page->add($setting);
+
+    $name = 'theme_moove/slidercount';
+    $title = get_string('slidercount', 'theme_moove');
+    $description = get_string('slidercountdesc', 'theme_moove');
+    $default = THEME_MOOVE_DEFAULT_SLIDERCOUNT;
+    $options = array();
+    for ($i = 0; $i < 13; $i++) {
+        $options[$i] = $i;
+    }
+    $setting = new admin_setting_configselect($name, $title, $description, $default, $options);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $page->add($setting);
+
+    // If we don't have an slide yet, default to the preset.
+    $slidercount = get_config('theme_moove', 'slidercount');
+
+    if (!$slidercount) {
+        $slidercount = THEME_MOOVE_DEFAULT_SLIDERCOUNT;
+    }
+
+    for ($sliderindex = 1; $sliderindex <= $slidercount; $sliderindex++) {
+        $fileid = 'sliderimage' . $sliderindex;
+        $name = 'theme_moove/sliderimage' . $sliderindex;
+        $title = get_string('sliderimage', 'theme_moove');
+        $description = get_string('sliderimagedesc', 'theme_moove');
+        $opts = array('accepted_types' => array('.png', '.jpg', '.gif', '.webp', '.tiff', '.svg'), 'maxfiles' => 1);
+        $setting = new admin_setting_configstoredfile($name, $title, $description, $fileid, 0, $opts);
+        $setting->set_updatedcallback('theme_reset_all_caches');
+        $page->add($setting);
+
+        $name = 'theme_moove/sliderurl' . $sliderindex;
+        $title = get_string('sliderurl', 'theme_moove');
+        $description = get_string('sliderurldesc', 'theme_moove');
+        $setting = new admin_setting_configtext($name, $title, $description, '', PARAM_URL);
+        $page->add($setting);
+
+        $name = 'theme_moove/slidercap' . $sliderindex;
+        $title = get_string('slidercaption', 'theme_moove');
+        $description = get_string('slidercaptiondesc', 'theme_moove');
+        $default = '';
+        $setting = new admin_setting_confightmleditor($name, $title, $description, $default);
+        $page->add($setting);
+    }
 
     $settings->add($page);
 

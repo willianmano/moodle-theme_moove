@@ -30,8 +30,12 @@ class renderer_htmlemail extends \mod_forum\output\email\renderer {
     /**
      * Display a forum post in the relevant context.
      *
-     * @param \mod_forum\output\forum_post $post The post to display.
-     * @return string
+     * @param \mod_forum\output\forum_post_email $post
+     *
+     * @return bool|string
+     *
+     * @throws \coding_exception
+     * @throws \moodle_exception
      */
     public function render_forum_post_email(\mod_forum\output\forum_post_email $post) {
         global $SITE;

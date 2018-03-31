@@ -68,7 +68,7 @@ if (isloggedin()) {
 
     $templatecontext['flatnavigation'] = $PAGE->flatnav;
 
-    $templatecontext = array_merge($templatecontext, $themesettings->footer_items());
+    $templatecontext = array_merge($templatecontext, $themesettings->footer_items(), $themesettings->slideshow());
 
     echo $OUTPUT->render_from_template('theme_moove/frontpage', $templatecontext);
 } else {
