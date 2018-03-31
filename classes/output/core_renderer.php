@@ -198,6 +198,16 @@ class core_renderer extends \theme_boost\output\core_renderer {
     }
 
     /**
+     * Outputs the favicon urlbase.
+     *
+     * @return string an url
+     */
+    public function get_favicon() {
+        $theme = theme_config::load('moove');
+        return $theme->setting_file_url('favicon', 'favicon');
+    }
+
+    /**
      * Get the main logo URL.
      *
      * @return string
