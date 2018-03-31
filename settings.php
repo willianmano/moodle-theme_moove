@@ -48,12 +48,13 @@ if ($ADMIN->fulltree) {
     $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
 
+    // Favicon setting.
     $name = 'theme_moove/favicon';
     $title = get_string('favicon', 'theme_moove');
     $description = get_string('favicondesc', 'theme_moove');
-    $opts = array('accepted_types' => array('.png', '.jpg', '.gif', '.webp', '.tiff', '.svg','.ico'));
+    $opts = array('accepted_types' => array('.ico'), 'maxfiles' => 1);
     $setting = new admin_setting_configstoredfile($name, $title, $description, 'favicon', 0, $opts);
-    $setting->set_updatedcallback('theme_reset_all_caches');    
+    $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
 
     // Preset.

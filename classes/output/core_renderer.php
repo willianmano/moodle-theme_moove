@@ -202,9 +202,16 @@ class core_renderer extends \theme_boost\output\core_renderer {
      *
      * @return string an url
      */
-    public function get_favicon() {
+    public function favicon() {
         $theme = theme_config::load('moove');
-        return $theme->setting_file_url('favicon', 'favicon');
+
+        $favicon = $theme->setting_file_url('favicon', 'favicon');
+
+        if (!empty(($favicon))) {
+            return $favicon;
+        }
+
+        return parent::favicon();
     }
 
     /**

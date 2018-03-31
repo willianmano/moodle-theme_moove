@@ -54,6 +54,8 @@ $string['showhideblocks'] = 'Show/hide blocks';
 $string['generalsettings'] = 'General settings';
 $string['logo'] = 'Logo';
 $string['logodesc'] = 'The logo is displayed in the header.';
+$string['favicon'] = 'Custom favicon';
+$string['favicondesc'] = 'Upload your own favicon.  It should be an .ico file.';
 $string['preset'] = 'Theme preset';
 $string['preset_desc'] = 'Pick a preset to broadly change the look of the theme.';
 $string['presetfiles'] = 'Additional theme preset files';
@@ -64,8 +66,6 @@ $string['brandcolor'] = 'Brand colour';
 $string['brandcolor_desc'] = 'The accent colour.';
 $string['navbarheadercolor'] = 'Navbar header color';
 $string['navbarheadercolor_desc'] = 'The top navbar header color';
-$string['favicon'] = 'Custom favicon';
-$string['favicondesc'] = 'Upload your own favicon.  It should be an .ico file.';
 
 // Advanced settings tab.
 $string['advancedsettings'] = 'Advanced settings';
