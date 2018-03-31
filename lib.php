@@ -202,6 +202,8 @@ function theme_moove_pluginfile($course, $cm, $context, $filearea, $args, $force
         return $theme->setting_file_serve('topfooterimg', $args, $forcedownload, $options);
     } else if ($context->contextlevel == CONTEXT_SYSTEM and $filearea === 'loginbgimg') {
         return $theme->setting_file_serve('loginbgimg', $args, $forcedownload, $options);
+    } else if ($context->contextlevel == CONTEXT_SYSTEM and $filearea === 'favicon') {
+        return $theme->setting_file_serve('favicon', $args, $forcedownload, $options);
     } else {
         send_file_not_found();
     }
