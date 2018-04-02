@@ -416,6 +416,14 @@ if ($ADMIN->fulltree) {
         $page->add($setting);
     }
 
+    // Enable slideshow on frontpage gust page.
+    $name = 'theme_moove/sliderfrontpage';
+    $title = get_string('sliderfrontpage', 'theme_moove');
+    $description = get_string('sliderfrontpagedesc', 'theme_moove');
+    $default = 0;
+    $setting = new admin_setting_configcheckbox($name, $title, $description, $default);
+    $page->add($setting);
+
     $settings->add($page);
 
     /*

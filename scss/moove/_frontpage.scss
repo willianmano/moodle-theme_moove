@@ -1,3 +1,55 @@
+#frontpage-course-list {
+    h2 {
+        text-align: center;
+        color: $brand-primary;
+    }
+
+    .courses .card .teachers {
+        list-style: none;
+    }
+}
+
+#page-site-index #mooveslideshow {
+    margin: 1rem 0;
+
+    .carousel-item {
+        max-height: 640px;
+        overflow: hidden;
+    }
+
+    .carousel-indicators {
+        bottom: 0px;
+
+        li {
+            width: 30px;
+            height: 10px;
+        }
+    }
+
+    .carousel-caption {
+        top: 0;
+        left: 40px;
+        bottom: inherit;
+        width: fit-content;
+        max-width: 50%;
+        text-align: inherit;
+        text-shadow: none;
+
+        .title,
+        .caption {
+            color: #fff;
+            background-color: rgba(0, 0, 0, .8);
+            margin-top: 40px;
+            padding: 20px;
+            width: inherit;
+        }
+
+        .title {
+            font-size: 2rem;
+        }
+    }
+}
+
 #page-site-index.notloggedin {
     margin-left: 0;
 
@@ -161,54 +213,23 @@
     }
 }
 
-#frontpage-course-list {
-    h2 {
-        text-align: center;
-        color: $brand-primary;
+#page-site-index.slideshow {
+    #page-header {
+        padding: 0;
+        background-image: none !important;
     }
 
-    .courses .card .teachers {
-        list-style: none;
-    }
-}
+    #mooveslideshow {
+        position: relative;
 
-#page-site-index #mooveslideshow {
-    margin: 1rem 0;
-
-    .carousel-item {
-        max-height: 640px;
-        overflow: hidden;
-    }
-
-    .carousel-indicators {
-        bottom: 0px;
-
-        li {
-            width: 30px;
-            height: 10px;
-        }
-    }
-
-    .carousel-caption {
-        top: 0;
-        left: 40px;
-        bottom: inherit;
-        width: fit-content;
-        max-width: 60%;
-        text-align: inherit;
-        text-shadow: none;
-
-        .title,
-        .caption {
-            color: #fff;
-            background-color: rgba(0, 0, 0, .8);
-            margin-top: 40px;
-            padding: 20px;
-            width: inherit;
+        #boxForm {
+            position: absolute;
+            right: 20px;
+            top: 20px;
         }
 
-        .title {
-            font-size: 2rem;
+        .carousel-indicators {
+            bottom: 80px;
         }
     }
 }

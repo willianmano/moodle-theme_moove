@@ -72,8 +72,11 @@ if (isloggedin()) {
 
     echo $OUTPUT->render_from_template('theme_moove/frontpage', $templatecontext);
 } else {
-    $bodyattributes = $OUTPUT->body_attributes($extraclasses);
-    $regionmainsettingsmenu = $OUTPUT->region_main_settings_menu();
+    $sliderfrontpage = false;
+    if (theme_moove_get_setting('sliderfrontpage', true) == true) {
+        $sliderfrontpage = true;
+        $extraclasses[] = 'slideshow';
+    }
 
     $bannerheading = '';
     if (!empty($PAGE->theme->settings->bannerheading)) {
@@ -90,6 +93,9 @@ if (isloggedin()) {
         $shoulddisplaymarketing = true;
     }
 
+    $bodyattributes = $OUTPUT->body_attributes($extraclasses);
+    $regionmainsettingsmenu = $OUTPUT->region_main_settings_menu();
+
     $templatecontext = [
         'sitename' => format_string($SITE->shortname, true, ['context' => context_course::instance(SITEID), "escape" => false]),
         'output' => $OUTPUT,
@@ -99,9 +105,14 @@ if (isloggedin()) {
         'bannerheading' => $bannerheading,
         'bannercontent' => $bannercontent,
         'shoulddisplaymarketing' => $shoulddisplaymarketing,
+        'sliderfrontpage' => $sliderfrontpage
     ];
 
     $templatecontext = array_merge($templatecontext, $themesettings->footer_items(), $themesettings->marketing_items());
+
+    if ($sliderfrontpage) {
+        $templatecontext = array_merge($templatecontext, $themesettings->slideshow());
+    }
 
     echo $OUTPUT->render_from_template('theme_moove/frontpage_guest', $templatecontext);
 }

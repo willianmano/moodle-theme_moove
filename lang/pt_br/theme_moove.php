@@ -137,6 +137,8 @@ $string['slidertitle'] = 'Título do slide';
 $string['slidertitledesc'] = 'Adicione um título para o slide.';
 $string['slidercaption'] = 'Texto do slide';
 $string['slidercaptiondesc'] = 'Adicione um texto para o slide';
+$string['sliderfrontpage'] = 'Exibir slideshow na página inicial do site';
+$string['sliderfrontpagedesc'] = 'Se habilitado, o slideshow será exibido na página inicial do site substituindo a imagem de cabeçalho.';
 
 // Footer settings tab.
 $string['footersettings'] = 'Configurações do rodapé';

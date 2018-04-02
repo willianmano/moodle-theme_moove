@@ -137,6 +137,8 @@ $string['slidertitle'] = 'Slide title';
 $string['slidertitledesc'] = 'Add the slide\'s title.';
 $string['slidercaption'] = 'Slider Caption';
 $string['slidercaptiondesc'] = 'Add a caption for your slide';
+$string['sliderfrontpage'] = 'Show slideshow in frontpage';
+$string['sliderfrontpagedesc'] = 'If enabled, the slideshow will be showed in the frontpage page replacing the header image.';
 
 // Footer settings tab.
 $string['footersettings'] = 'Footer settings';
