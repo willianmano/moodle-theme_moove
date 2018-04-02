@@ -133,8 +133,8 @@ $string['slidercount'] = 'Slider Count';
 $string['slidercountdesc'] = 'Select how many slides you want to add <strong>then click SAVE</strong> to load the input fields';
 $string['sliderimage'] = 'Slider Picture';
 $string['sliderimagedesc'] = 'Add an image for your slide. Recommended size is 1600px x 400px or higher.';
-$string['sliderurl'] = 'Slide Link URL';
-$string['sliderurldesc'] = 'Add a URL to which your slide links to when clicked.';
+$string['slidertitle'] = 'Slide title';
+$string['slidertitledesc'] = 'Add the slide\'s title.';
 $string['slidercaption'] = 'Slider Caption';
 $string['slidercaptiondesc'] = 'Add a caption for your slide';
 

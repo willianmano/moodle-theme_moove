@@ -175,6 +175,11 @@
 #page-site-index #mooveslideshow {
     margin: 1rem 0;
 
+    .carousel-item {
+        max-height: 640px;
+        overflow: hidden;
+    }
+
     .carousel-indicators {
         bottom: 0px;
 
@@ -185,17 +190,25 @@
     }
 
     .carousel-caption {
-        left: 0;
-        right: 0;
-        bottom: 0;
+        top: 0;
+        left: 40px;
+        bottom: inherit;
+        width: fit-content;
+        max-width: 60%;
+        text-align: inherit;
         text-shadow: none;
-        background-color: rgba(0, 0, 0, .8);
-        padding-top: 10px;
-        padding-bottom: 30px;
 
-        a {
+        .title,
+        .caption {
             color: #fff;
-            text-decoration: none;
+            background-color: rgba(0, 0, 0, .8);
+            margin-top: 40px;
+            padding: 20px;
+            width: inherit;
+        }
+
+        .title {
+            font-size: 2rem;
         }
     }
 }

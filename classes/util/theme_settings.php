@@ -87,7 +87,7 @@ class theme_settings {
 
         for ($i = 1, $j = 0; $i <= $slidercount; $i++, $j++) {
             $sliderimage = "sliderimage{$i}";
-            $sliderurl = "sliderurl{$i}";
+            $slidertitle = "slidertitle{$i}";
             $slidercap = "slidercap{$i}";
 
             $templatecontext['slides'][$j]['key'] = $j;
@@ -97,9 +97,9 @@ class theme_settings {
             if (empty($image)) {
                 $image = $OUTPUT->image_url('slide_default', 'theme');
             }
-            $templatecontext['slides'][$j]['sliderimage'] = $image;
-            $templatecontext['slides'][$j]['sliderurl'] = $theme->settings->$sliderurl;
-            $templatecontext['slides'][$j]['slidercap'] = $theme->settings->$slidercap;
+            $templatecontext['slides'][$j]['image'] = $image;
+            $templatecontext['slides'][$j]['title'] = $theme->settings->$slidertitle;
+            $templatecontext['slides'][$j]['caption'] = $theme->settings->$slidercap;
 
             if ($i === 1) {
                 $templatecontext['slides'][$j]['active'] = true;

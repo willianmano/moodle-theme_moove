@@ -24,8 +24,6 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-define('THEME_MOOVE_DEFAULT_SLIDERCOUNT', '1');
-
 /**
  * Inject additional SCSS.
  *

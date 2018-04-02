@@ -376,7 +376,7 @@ if ($ADMIN->fulltree) {
     $name = 'theme_moove/slidercount';
     $title = get_string('slidercount', 'theme_moove');
     $description = get_string('slidercountdesc', 'theme_moove');
-    $default = THEME_MOOVE_DEFAULT_SLIDERCOUNT;
+    $default = 1;
     $options = array();
     for ($i = 0; $i < 13; $i++) {
         $options[$i] = $i;
@@ -389,7 +389,7 @@ if ($ADMIN->fulltree) {
     $slidercount = get_config('theme_moove', 'slidercount');
 
     if (!$slidercount) {
-        $slidercount = THEME_MOOVE_DEFAULT_SLIDERCOUNT;
+        $slidercount = 1;
     }
 
     for ($sliderindex = 1; $sliderindex <= $slidercount; $sliderindex++) {
@@ -402,10 +402,10 @@ if ($ADMIN->fulltree) {
         $setting->set_updatedcallback('theme_reset_all_caches');
         $page->add($setting);
 
-        $name = 'theme_moove/sliderurl' . $sliderindex;
-        $title = get_string('sliderurl', 'theme_moove');
-        $description = get_string('sliderurldesc', 'theme_moove');
-        $setting = new admin_setting_configtext($name, $title, $description, '', PARAM_URL);
+        $name = 'theme_moove/slidertitle' . $sliderindex;
+        $title = get_string('slidertitle', 'theme_moove');
+        $description = get_string('slidertitledesc', 'theme_moove');
+        $setting = new admin_setting_configtext($name, $title, $description, '', PARAM_TEXT);
         $page->add($setting);
 
         $name = 'theme_moove/slidercap' . $sliderindex;
