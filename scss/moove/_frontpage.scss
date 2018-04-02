@@ -18,8 +18,6 @@
     }
 
     .carousel-indicators {
-        bottom: 0px;
-
         li {
             width: 30px;
             height: 10px;
@@ -205,14 +203,6 @@
             }
         }
     }
-
-    @media (min-width: 1200px) {
-        .frontpage-marketing .card {
-            &:first-child {
-                margin-left: 0;
-            }
-        }
-    }
 }
 
 #page-site-index.slideshow {
@@ -222,22 +212,44 @@
         background-image: none !important;
     }
 
-    #mooveslideshow {
-        .carousel-indicators {
-            bottom: 80px;
-        }
-    }
-
     #loginbox {
         display: none;
         position: absolute;
         right: 20px;
         top: 20px;
     }
+}
 
-    @media (min-width: 992px) {
-        #loginbox {
-            display: block;
+@media (max-width: 991px) {
+    #page-site-index.slideshow #mooveslideshow .carousel-caption {
+        max-width: calc(100% - 80px);
+
+        .title,
+        .caption {
+            margin-top: 20px;
+            padding: 10px;
+        }
+
+        .title {
+            font-size: 1.6rem;
+        }
+    }
+}
+
+@media (min-width: 992px) {
+    #page-site-index.slideshow #loginbox {
+        display: block;
+    }
+
+    #page-site-index.slideshow #mooveslideshow .carousel-indicators {
+        bottom: 80px;
+    }
+}
+
+@media (min-width: 1200px) {
+    #page-site-index.notloggedin .frontpage-marketing .card {
+        &:first-child {
+            margin-left: 0;
         }
     }
 }
