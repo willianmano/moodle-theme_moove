@@ -132,7 +132,7 @@ $string['sliderenableddesc'] = 'Habilita um slideshow no topo da página inicial
 $string['slidercount'] = 'Quantidade de slides';
 $string['slidercountdesc'] = 'Selecione quantos slides você quer adicionar e <strong> depois clique em SALVAR</strong> para carregar os campos do formulário.';
 $string['sliderimage'] = 'Imagem do slide';
-$string['sliderimagedesc'] = 'Adicione uma imagem para o seu slide. O tamanho recomendado é 1400px x 400px ou maior.';
+$string['sliderimagedesc'] = 'Adicione uma imagem para o seu slide. O tamanho recomendado é 1500px x 540px ou maior.';
 $string['slidertitle'] = 'Título do slide';
 $string['slidertitledesc'] = 'Adicione um título para o slide.';
 $string['slidercaption'] = 'Texto do slide';
@@ -163,7 +163,7 @@ $string['youtubedesc'] = 'Digite a URL do Youtube. (ex: https://www.youtube.com/
 $string['instagram'] = 'Instagram URL';
 $string['instagramdesc'] = 'Digite a URL do Instagram. (i.e https://www.instagram.com/moodlehq)';
 $string['topfooterimg'] = 'Imagem do rodapé';
-$string['topfooterimgdesc'] = 'Envie sua própria imagem de rodapé caso queira substituir a imagem padrão.';
+$string['topfooterimgdesc'] = 'Envie sua própria imagem de rodapé caso queira substituir a imagem padrão. Tamanho recomendado 1500px x 400px ou maior.';
 $string['disablebottomfooter'] = 'Desabilitar rodapé do final da página';
 $string['disablebottomfooterdesc'] = 'Esta opção desabilita o rodapé laranja do final da página';
 

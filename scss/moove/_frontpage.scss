@@ -13,7 +13,7 @@
     margin: 1rem 0;
 
     .carousel-item {
-        max-height: 640px;
+        max-height: 540px;
         overflow: hidden;
     }
 
@@ -41,7 +41,9 @@
             background-color: rgba(0, 0, 0, .8);
             margin-top: 40px;
             padding: 20px;
-            width: inherit;
+            max-width: intrinsic;
+            max-width: -moz-max-content;
+            max-width: -webkit-max-content
         }
 
         .title {
@@ -216,20 +218,26 @@
 #page-site-index.slideshow {
     #page-header {
         padding: 0;
+        position: relative;
         background-image: none !important;
     }
 
     #mooveslideshow {
-        position: relative;
-
-        #boxForm {
-            position: absolute;
-            right: 20px;
-            top: 20px;
-        }
-
         .carousel-indicators {
             bottom: 80px;
+        }
+    }
+
+    #loginbox {
+        display: none;
+        position: absolute;
+        right: 20px;
+        top: 20px;
+    }
+
+    @media (min-width: 992px) {
+        #loginbox {
+            display: block;
         }
     }
 }

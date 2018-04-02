@@ -49,6 +49,14 @@
 
             {{#sliderenabled}}
                 {{>theme_moove/slideshow}}
+
+                {{^hasdrawertoggle}}
+                    <div id="loginbox">
+                        <div class="card" id="boxForm">
+                            {{>theme_moove/frontpage_login}}
+                        </div>
+                    </div>
+                {{/hasdrawertoggle}}
             {{/sliderenabled}}
 
             {{^sliderenabled}}

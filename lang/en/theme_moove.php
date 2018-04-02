@@ -132,7 +132,7 @@ $string['sliderenableddesc'] = 'Enable a slider at the top of your home page';
 $string['slidercount'] = 'Slider Count';
 $string['slidercountdesc'] = 'Select how many slides you want to add <strong>then click SAVE</strong> to load the input fields';
 $string['sliderimage'] = 'Slider Picture';
-$string['sliderimagedesc'] = 'Add an image for your slide. Recommended size is 1600px x 400px or higher.';
+$string['sliderimagedesc'] = 'Add an image for your slide. Recommended size is 1500px x 540px or higher.';
 $string['slidertitle'] = 'Slide title';
 $string['slidertitledesc'] = 'Add the slide\'s title.';
 $string['slidercaption'] = 'Slider Caption';
@@ -163,7 +163,7 @@ $string['youtubedesc'] = 'Enter the URL of your Youtube. (i.e https://www.youtub
 $string['instagram'] = 'Instagram URL';
 $string['instagramdesc'] = 'Enter the URL of your Instagram. (i.e https://www.instagram.com/moodlehq)';
 $string['topfooterimg'] = 'Footer image';
-$string['topfooterimgdesc'] = 'Upload your custom footer image here if you want to replace the default image.';
+$string['topfooterimgdesc'] = 'Upload your custom footer image here if you want to replace the default image. Recommended size is 1500px x 400px or higher.';
 $string['disablebottomfooter'] = 'Disable bottom footer';
 $string['disablebottomfooterdesc'] = 'Disables the orange bottom footer';
 
