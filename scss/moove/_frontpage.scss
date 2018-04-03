@@ -4,8 +4,10 @@
         color: $brand-primary;
     }
 
-    .courses .card .teachers {
+    .courses .card .teachers ul {
         list-style: none;
+        margin-bottom: 0;
+        padding-left: 0;
     }
 }
 

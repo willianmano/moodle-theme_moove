@@ -255,13 +255,15 @@ class course_renderer extends \core_course_renderer {
         // Display course contacts. See course_in_list::get_course_contacts().
         if ($course->has_course_contacts()) {
             $content .= html_writer::start_tag('div', array('class' => 'card-footer teachers'));
+            $content .= html_writer::start_tag('ul');
             foreach ($course->get_course_contacts() as $userid => $coursecontact) {
                 $name = $coursecontact['rolename'].': '.
                         html_writer::link(new moodle_url('/user/view.php',
                                 array('id' => $userid, 'course' => SITEID)),
                             $coursecontact['username']);
-                $content .= html_writer::tag('span', $name);
+                $content .= html_writer::tag('li', $name);
             }
+            $content .= html_writer::end_tag('ul'); // End teachers.
             $content .= html_writer::end_tag('div'); // End teachers.
         }
 
