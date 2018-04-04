@@ -366,11 +366,19 @@ if ($ADMIN->fulltree) {
     $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
 
-    // Slideshow settings.
+    // Enable or disable Slideshow settings.
     $name = 'theme_moove/sliderenabled';
     $title = get_string('sliderenabled', 'theme_moove');
     $description = get_string('sliderenableddesc', 'theme_moove');
     $setting = new admin_setting_configcheckbox($name, $title, $description, 0);
+    $page->add($setting);
+
+    // Enable slideshow on frontpage guest page.
+    $name = 'theme_moove/sliderfrontpage';
+    $title = get_string('sliderfrontpage', 'theme_moove');
+    $description = get_string('sliderfrontpagedesc', 'theme_moove');
+    $default = 0;
+    $setting = new admin_setting_configcheckbox($name, $title, $description, $default);
     $page->add($setting);
 
     $name = 'theme_moove/slidercount';
@@ -415,14 +423,6 @@ if ($ADMIN->fulltree) {
         $setting = new admin_setting_confightmleditor($name, $title, $description, $default);
         $page->add($setting);
     }
-
-    // Enable slideshow on frontpage gust page.
-    $name = 'theme_moove/sliderfrontpage';
-    $title = get_string('sliderfrontpage', 'theme_moove');
-    $description = get_string('sliderfrontpagedesc', 'theme_moove');
-    $default = 0;
-    $setting = new admin_setting_configcheckbox($name, $title, $description, $default);
-    $page->add($setting);
 
     $settings->add($page);
 

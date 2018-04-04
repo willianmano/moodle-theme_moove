@@ -129,6 +129,8 @@ $string['marketing4urldesc'] = 'Digite a URL do Marketing4';
 
 $string['sliderenabled'] = 'Habilitar Slideshow';
 $string['sliderenableddesc'] = 'Habilita um slideshow no topo da página inicial do site.';
+$string['sliderfrontpage'] = 'Exibir slideshow na página inicial do site';
+$string['sliderfrontpagedesc'] = 'Se habilitado, o slideshow será exibido na página inicial do site substituindo a imagem de cabeçalho.';
 $string['slidercount'] = 'Quantidade de slides';
 $string['slidercountdesc'] = 'Selecione quantos slides você quer adicionar e <strong> depois clique em SALVAR</strong> para carregar os campos do formulário.';
 $string['sliderimage'] = 'Imagem do slide';
@@ -137,8 +139,6 @@ $string['slidertitle'] = 'Título do slide';
 $string['slidertitledesc'] = 'Adicione um título para o slide.';
 $string['slidercaption'] = 'Texto do slide';
 $string['slidercaptiondesc'] = 'Adicione um texto para o slide';
-$string['sliderfrontpage'] = 'Exibir slideshow na página inicial do site';
-$string['sliderfrontpagedesc'] = 'Se habilitado, o slideshow será exibido na página inicial do site substituindo a imagem de cabeçalho.';
 
 // Footer settings tab.
 $string['footersettings'] = 'Configurações do rodapé';
