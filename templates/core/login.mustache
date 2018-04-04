@@ -140,11 +140,11 @@
                 {{/canloginasguest}}
 
                 {{#hasidentityproviders}}
-                    <h6 class="m-t-2">{{#str}} potentialidps, auth {{/str}}</h6>
+                    <h3 class="m-t-1">{{#str}} potentialidps, auth {{/str}}</h3>
                     <div class="potentialidplist" class="m-t-1">
                         {{#identityproviders}}
                             <div class="potentialidp">
-                                <a href="{{{url}}}" title={{#quote}}{{name}}{{/quote}} class="btn btn-secondary btn-block">
+                                <a href="{{{url}}}" title={{#quote}}{{name}}{{/quote}} class="btn btn-secondary">
                                     {{#iconurl}}
                                         <img src="{{iconurl}}" alt="" width="24" height="24"/>
                                     {{/iconurl}}
@@ -153,6 +153,13 @@
                             </div>
                         {{/identityproviders}}
                     </div>
+                {{/hasidentityproviders}}
+
+                {{^hasidentityproviders}}
+                    {{#hasinstructions}}
+                        <h3 class="m-t-1">{{#str}}firsttime{{/str}}</h3>
+                        <div>{{{instructions}}}</div>
+                    {{/hasinstructions}}
                 {{/hasidentityproviders}}
             </div>
 
@@ -200,6 +207,12 @@
                 <div class="forgetpass m-t-1">
                     <p><a href="{{forgotpasswordurl}}">{{#str}}forgotten{{/str}}</a></p>
                 </div>
+
+                {{#cansignup}}
+                    <form class="m-t-1" action="{{signupurl}}" method="get" id="signup">
+                        <button type="submit" class="btn btn-secondary">{{#str}}startsignup{{/str}}</button>
+                    </form>
+                {{/cansignup}}
             </div>
         </div>
     </div>
@@ -208,27 +221,29 @@
 </div>
 
 
-{{#hasinstructions}}
-<div class="row">
-<div class="col-xl-8 push-xl-2 m-2-md col-sm-8 push-sm-2">
-<div class="card instructionspanel">
-    <div class="card-block">
-        <div class="card-title">
-            <h2>{{#str}}firsttime{{/str}}</h2>
-        </div>
-        <div>
-        {{{instructions}}}
-        {{#cansignup}}
-            <form class="m-t-1" action="{{signupurl}}" method="get" id="signup">
-                <button type="submit" class="btn btn-secondary">{{#str}}startsignup{{/str}}</button>
-            </form>
-        {{/cansignup}}
+{{#hasidentityproviders}}
+    {{#hasinstructions}}
+    <div class="row">
+    <div class="col-xl-8 push-xl-2 m-2-md col-sm-8 push-sm-2">
+    <div class="card instructionspanel">
+        <div class="card-block">
+            <div class="card-title">
+                <h2>{{#str}}firsttime{{/str}}</h2>
+            </div>
+            <div>
+            {{{instructions}}}
+            {{#cansignup}}
+                <form class="m-t-1" action="{{signupurl}}" method="get" id="signup">
+                    <button type="submit" class="btn btn-secondary">{{#str}}startsignup{{/str}}</button>
+                </form>
+            {{/cansignup}}
+            </div>
         </div>
     </div>
-</div>
-</div>
-</div>
-{{/hasinstructions}}
+    </div>
+    </div>
+    {{/hasinstructions}}
+{{/hasidentityproviders}}
 
 {{#js}}
     {{#error}}

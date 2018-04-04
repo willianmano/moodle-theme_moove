@@ -86,8 +86,7 @@
                 background-color: $brand-primary;
                 padding: 60px 15px;
                 color: #fff;
-                height: $m-login-boxheight;
-                max-height: $m-login-boxheight;
+                min-height: $m-login-boxheight;
                 border-top-left-radius: $m-login-padding;
                 border-bottom-left-radius: $m-login-padding;
 
@@ -99,7 +98,8 @@
                     color: #fff !important;
                 }
 
-                h2 {
+                h2,
+                h3 {
                     color: #fff;
                 }
 
