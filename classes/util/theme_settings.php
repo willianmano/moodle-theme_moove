@@ -156,4 +156,79 @@ class theme_settings {
 
         return $templatecontext;
     }
+
+    /**
+     * Get the frontpage numbers
+     *
+     * @return array
+     */
+    public function numbers() {
+        global $DB;
+
+        $templatecontext['numberusers'] = $DB->count_records('user', array('deleted' => 0, 'suspended' => 0)) - 1;
+        $templatecontext['numbercourses'] = $DB->count_records('course', array('visible' => 1)) - 1;
+        $templatecontext['numberactivities'] = $DB->count_records('course_modules');
+
+        return $templatecontext;
+    }
+
+    /**
+     * Get config theme sponsors logos and urls
+     *
+     * @return array
+     */
+    public function sponsors() {
+        $theme = theme_config::load('moove');
+
+        $templatecontext['sponsorstitle'] = $theme->settings->sponsorstitle;
+        $templatecontext['sponsorssubtitle'] = $theme->settings->sponsorssubtitle;
+
+        $sponsorscount = $theme->settings->sponsorscount;
+
+        for ($i = 1, $j = 0; $i <= $sponsorscount; $i++, $j++) {
+            $sponsorsimage = "sponsorsimage{$i}";
+            $sponsorsurl = "sponsorsurl{$i}";
+
+            $image = $theme->setting_file_url($sponsorsimage, $sponsorsimage);
+            if (empty($image)) {
+                continue;
+            }
+
+            $templatecontext['sponsors'][$j]['image'] = $image;
+            $templatecontext['sponsors'][$j]['url'] = $theme->settings->$sponsorsurl;
+
+        }
+
+        return $templatecontext;
+    }
+
+    /**
+     * Get config theme clients logos and urls
+     *
+     * @return array
+     */
+    public function clients() {
+        $theme = theme_config::load('moove');
+
+        $templatecontext['clientstitle'] = $theme->settings->clientstitle;
+        $templatecontext['clientssubtitle'] = $theme->settings->clientssubtitle;
+
+        $clientscount = $theme->settings->clientscount;
+
+        for ($i = 1, $j = 0; $i <= $clientscount; $i++, $j++) {
+            $clientsimage = "clientsimage{$i}";
+            $clientsurl = "clientsurl{$i}";
+
+            $image = $theme->setting_file_url($clientsimage, $clientsimage);
+            if (empty($image)) {
+                continue;
+            }
+
+            $templatecontext['clients'][$j]['image'] = $image;
+            $templatecontext['clients'][$j]['url'] = $theme->settings->$clientsurl;
+
+        }
+
+        return $templatecontext;
+    }
 }

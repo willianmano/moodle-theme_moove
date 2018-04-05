@@ -424,6 +424,130 @@ if ($ADMIN->fulltree) {
         $page->add($setting);
     }
 
+    // Enable or disable Slideshow settings.
+    $name = 'theme_moove/numbersfrontpage';
+    $title = get_string('numbersfrontpage', 'theme_moove');
+    $description = get_string('numbersfrontpagedesc', 'theme_moove');
+    $default = 1;
+    $setting = new admin_setting_configcheckbox($name, $title, $description, $default);
+    $page->add($setting);
+
+    // Enable sponsors on frontpage guest page.
+    $name = 'theme_moove/sponsorsfrontpage';
+    $title = get_string('sponsorsfrontpage', 'theme_moove');
+    $description = get_string('sponsorsfrontpagedesc', 'theme_moove');
+    $default = 0;
+    $setting = new admin_setting_configcheckbox($name, $title, $description, $default);
+    $page->add($setting);
+
+    $name = 'theme_moove/sponsorstitle';
+    $title = get_string('sponsorstitle', 'theme_moove');
+    $description = get_string('sponsorstitledesc', 'theme_moove');
+    $default = get_string('sponsorstitledefault', 'theme_moove');
+    $setting = new admin_setting_configtext($name, $title, $description, $default, PARAM_TEXT);
+    $page->add($setting);
+
+    $name = 'theme_moove/sponsorssubtitle';
+    $title = get_string('sponsorssubtitle', 'theme_moove');
+    $description = get_string('sponsorssubtitledesc', 'theme_moove');
+    $default = get_string('sponsorssubtitledefault', 'theme_moove');
+    $setting = new admin_setting_configtext($name, $title, $description, $default, PARAM_TEXT);
+    $page->add($setting);
+
+    $name = 'theme_moove/sponsorscount';
+    $title = get_string('sponsorscount', 'theme_moove');
+    $description = get_string('sponsorscountdesc', 'theme_moove');
+    $default = 1;
+    $options = array();
+    for ($i = 0; $i < 5; $i++) {
+        $options[$i] = $i;
+    }
+    $setting = new admin_setting_configselect($name, $title, $description, $default, $options);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $page->add($setting);
+
+    // If we don't have an slide yet, default to the preset.
+    $sponsorscount = get_config('theme_moove', 'sponsorscount');
+
+    if (!$sponsorscount) {
+        $sponsorscount = 1;
+    }
+
+    for ($sponsorsindex = 1; $sponsorsindex <= $sponsorscount; $sponsorsindex++) {
+        $fileid = 'sponsorsimage' . $sponsorsindex;
+        $name = 'theme_moove/sponsorsimage' . $sponsorsindex;
+        $title = get_string('sponsorsimage', 'theme_moove');
+        $description = get_string('sponsorsimagedesc', 'theme_moove');
+        $opts = array('accepted_types' => array('.png', '.jpg', '.gif', '.webp', '.tiff', '.svg'), 'maxfiles' => 1);
+        $setting = new admin_setting_configstoredfile($name, $title, $description, $fileid, 0, $opts);
+        $setting->set_updatedcallback('theme_reset_all_caches');
+        $page->add($setting);
+
+        $name = 'theme_moove/sponsorsurl' . $sponsorsindex;
+        $title = get_string('sponsorsurl', 'theme_moove');
+        $description = get_string('sponsorsurldesc', 'theme_moove');
+        $setting = new admin_setting_configtext($name, $title, $description, '', PARAM_TEXT);
+        $page->add($setting);
+    }
+
+    // Enable clients on frontpage guest page.
+    $name = 'theme_moove/clientsfrontpage';
+    $title = get_string('clientsfrontpage', 'theme_moove');
+    $description = get_string('clientsfrontpagedesc', 'theme_moove');
+    $default = 0;
+    $setting = new admin_setting_configcheckbox($name, $title, $description, $default);
+    $page->add($setting);
+
+    $name = 'theme_moove/clientstitle';
+    $title = get_string('clientstitle', 'theme_moove');
+    $description = get_string('clientstitledesc', 'theme_moove');
+    $default = get_string('clientstitledefault', 'theme_moove');
+    $setting = new admin_setting_configtext($name, $title, $description, $default, PARAM_TEXT);
+    $page->add($setting);
+
+    $name = 'theme_moove/clientssubtitle';
+    $title = get_string('clientssubtitle', 'theme_moove');
+    $description = get_string('clientssubtitledesc', 'theme_moove');
+    $default = get_string('clientssubtitledefault', 'theme_moove');
+    $setting = new admin_setting_configtext($name, $title, $description, $default, PARAM_TEXT);
+    $page->add($setting);
+
+    $name = 'theme_moove/clientscount';
+    $title = get_string('clientscount', 'theme_moove');
+    $description = get_string('clientscountdesc', 'theme_moove');
+    $default = 1;
+    $options = array();
+    for ($i = 0; $i < 5; $i++) {
+        $options[$i] = $i;
+    }
+    $setting = new admin_setting_configselect($name, $title, $description, $default, $options);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $page->add($setting);
+
+    // If we don't have an slide yet, default to the preset.
+    $clientscount = get_config('theme_moove', 'clientscount');
+
+    if (!$clientscount) {
+        $clientscount = 1;
+    }
+
+    for ($clientsindex = 1; $clientsindex <= $clientscount; $clientsindex++) {
+        $fileid = 'clientsimage' . $clientsindex;
+        $name = 'theme_moove/clientsimage' . $clientsindex;
+        $title = get_string('clientsimage', 'theme_moove');
+        $description = get_string('clientsimagedesc', 'theme_moove');
+        $opts = array('accepted_types' => array('.png', '.jpg', '.gif', '.webp', '.tiff', '.svg'), 'maxfiles' => 1);
+        $setting = new admin_setting_configstoredfile($name, $title, $description, $fileid, 0, $opts);
+        $setting->set_updatedcallback('theme_reset_all_caches');
+        $page->add($setting);
+
+        $name = 'theme_moove/clientsurl' . $clientsindex;
+        $title = get_string('clientsurl', 'theme_moove');
+        $description = get_string('clientsurldesc', 'theme_moove');
+        $setting = new admin_setting_configtext($name, $title, $description, '', PARAM_TEXT);
+        $page->add($setting);
+    }
+
     $settings->add($page);
 
     /*

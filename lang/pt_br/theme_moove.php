@@ -140,6 +140,44 @@ $string['slidertitledesc'] = 'Adicione um título para o slide.';
 $string['slidercaption'] = 'Texto do slide';
 $string['slidercaptiondesc'] = 'Adicione um texto para o slide';
 
+$string['numbersfrontpage'] = 'Números na página inicial';
+$string['numbersfrontpagedesc'] = 'Quando habilitado, exibe o número de usuários ativos, cursos e atividades na página inicial do site.';
+$string['frontpagenumbersome'] = 'Alguns';
+$string['frontpagenumbernumbers'] = 'Números';
+$string['frontpagenumberusers'] = 'Usuários';
+$string['frontpagenumbercourses'] = 'Cursos';
+$string['frontpagenumberactivities'] = 'Atividades';
+
+$string['sponsorstitledefault'] = 'Patrocinadores';
+$string['sponsorssubtitledefault'] = 'Empresas e Instituições que acreditam em nós';
+$string['sponsorsfrontpage'] = 'Habilitar linha de patrocinadores';
+$string['sponsorsfrontpagedesc'] = 'Se habilitado, exibe uma linha com as logos dos patrocinadores na página inicial.';
+$string['sponsorstitle'] = 'Título dos patrocinadores';
+$string['sponsorstitledesc'] = 'O título da linha dos patrocinadores.';
+$string['sponsorssubtitle'] = 'Subtítulo dos patrocinadores';
+$string['sponsorssubtitledesc'] = 'O subtítulo da linha dos patrocinadores.';
+$string['sponsorscount'] = 'Quantidade de patrocinadores';
+$string['sponsorscountdesc'] = 'Selecione quantas logos de patrocinadores você quer adicionar e <strong> depois clique em SALVAR</strong> para carregar os campos do formulário.';
+$string['sponsorsimage'] = 'Logo do patrocinador';
+$string['sponsorsimagedesc'] = 'Adicione a logo do patrocinador.';
+$string['sponsorsurl'] = 'URL do patrocinador';
+$string['sponsorsurldesc'] = 'Digite a URL do site do patrocinador';
+
+$string['clientstitledefault'] = 'Nossos clientes';
+$string['clientssubtitledefault'] = 'Clientes que acreditam em nós';
+$string['clientsfrontpage'] = 'Habilitar linha de clientes';
+$string['clientsfrontpagedesc'] = 'Se habilitado, exibe uma linha com as logos dos clientes na página inicial.';
+$string['clientstitle'] = 'Título dos clientes';
+$string['clientstitledesc'] = 'O título da linha dos clientes.';
+$string['clientssubtitle'] = 'Subtítulo dos clientes';
+$string['clientssubtitledesc'] = 'O subtítulo da linha dos clientes.';
+$string['clientscount'] = 'Quantidade de clientes';
+$string['clientscountdesc'] = 'Selecione quantas logos de clientes você quer adicionar e <strong> depois clique em SALVAR</strong> para carregar os campos do formulário.';
+$string['clientsimage'] = 'Logo do patrocinador';
+$string['clientsimagedesc'] = 'Adicione a logo do cliente.';
+$string['clientsurl'] = 'URL do cliente';
+$string['clientsurldesc'] = 'Digite a URL do site do cliente';
+
 // Footer settings tab.
 $string['footersettings'] = 'Configurações do rodapé';
 $string['getintouchcontent'] = 'Conteúdo de matenha contato';

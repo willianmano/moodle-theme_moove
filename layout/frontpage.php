@@ -78,6 +78,21 @@ if (isloggedin()) {
         $extraclasses[] = 'slideshow';
     }
 
+    $numbersfrontpage = false;
+    if (theme_moove_get_setting('numbersfrontpage', true) == true) {
+        $numbersfrontpage = true;
+    }
+
+    $sponsorsfrontpage = false;
+    if (theme_moove_get_setting('sponsorsfrontpage', true) == true) {
+        $sponsorsfrontpage = true;
+    }
+
+    $clientsfrontpage = false;
+    if (theme_moove_get_setting('clientsfrontpage', true) == true) {
+        $clientsfrontpage = true;
+    }
+
     $bannerheading = '';
     if (!empty($PAGE->theme->settings->bannerheading)) {
         $bannerheading = theme_moove_get_setting('bannerheading', true);
@@ -105,13 +120,28 @@ if (isloggedin()) {
         'bannerheading' => $bannerheading,
         'bannercontent' => $bannercontent,
         'shoulddisplaymarketing' => $shoulddisplaymarketing,
-        'sliderfrontpage' => $sliderfrontpage
+        'sliderfrontpage' => $sliderfrontpage,
+        'numbersfrontpage' => $numbersfrontpage,
+        'sponsorsfrontpage' => $sponsorsfrontpage,
+        'clientsfrontpage' => $clientsfrontpage
     ];
 
     $templatecontext = array_merge($templatecontext, $themesettings->footer_items(), $themesettings->marketing_items());
 
     if ($sliderfrontpage) {
         $templatecontext = array_merge($templatecontext, $themesettings->slideshow());
+    }
+
+    if ($numbersfrontpage) {
+        $templatecontext = array_merge($templatecontext, $themesettings->numbers());
+    }
+
+    if ($sponsorsfrontpage) {
+        $templatecontext = array_merge($templatecontext, $themesettings->sponsors());
+    }
+
+    if ($clientsfrontpage) {
+        $templatecontext = array_merge($templatecontext, $themesettings->clients());
     }
 
     echo $OUTPUT->render_from_template('theme_moove/frontpage_guest', $templatecontext);

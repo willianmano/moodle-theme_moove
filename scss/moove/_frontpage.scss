@@ -2,6 +2,7 @@
     h2 {
         text-align: center;
         color: $brand-primary;
+        margin-bottom: 2rem;
     }
 
     .courses .card .teachers ul {
@@ -180,7 +181,7 @@
     }
 
     .frontpage-marketing {
-        margin: -8em 0 2em 0;
+        margin: -4em 0 2em 0;
         padding: 2em 20px 0 20px;
         background-image: url('[[pix:theme|headerimg-bg]]');
         background-position: center top;
@@ -202,6 +203,136 @@
             p {
                 color: #9f9f9f;
                 margin: 1.5em 0;
+            }
+        }
+    }
+
+    .frontpage-numbers {
+        background: $brand-primary;
+        padding: 10em 0;
+        margin: 2em 0;
+
+        .row {
+            max-width: 1140px;
+            margin: 0 auto;
+            color: #fff;
+
+            h2 {
+                color: $brand-primary;
+                -webkit-filter: invert(100%);
+                filter: invert(100%);
+                font-weight: 800;
+                margin: 1rem 0 0 0;
+                font-size: 3.2rem;
+                text-transform: uppercase;
+
+                p {
+                    font-weight: 400;
+                }
+            }
+
+            .number {
+                text-align: center;
+
+                span {
+                    color: #fff;
+                    font-weight: 400;
+                }
+
+                h3 {
+                    color: #fff;
+                    font-size: 1.7rem;
+                    font-weight: 900;
+                    margin: 0.3em 0;
+                    padding: 0;
+                }
+
+                hr {
+                    width: 80%;
+                    background: #fff;
+                    display: inline-block;
+                }
+
+                p {
+                    color: #fff;
+                    font-weight: 100;
+                    text-transform: uppercase;
+                    font-size: 1.2em;
+                    margin: 0;
+                }
+            }
+        }
+    }
+
+    .fontpage-sponsors {
+        margin: 3em auto;
+        text-align: center;
+
+        p {
+            font-size: 1.2rem;
+            margin-top: 1rem;
+        }
+
+        .row {
+            display: table;
+            width: 100%;
+
+            .item {
+                display: table-cell;
+                margin: 0 10px;
+
+                img {
+                    vertical-align: middle;
+                }
+            }
+        }
+
+        hr {
+            margin-top: 3rem;
+            margin-bottom: 3rem;
+        }
+    }
+
+    .fontpage-faq {
+        margin: 3em auto;
+
+        h2 {
+            color: $brand-primary;
+            margin-bottom: 2rem;
+            font-size: 2rem;
+        }
+
+        #accordion {
+            .card {
+                -webkit-border-radius: 0;
+                -moz-border-radius: 0;
+                border-radius: 0;
+                -webkit-box-shadow: none;
+                -moz-box-shadow: none;
+                box-shadow: none;
+            }
+            .btn-link {
+                color: #130e24;
+                text-decoration: none;
+                font-weight: 400;
+                margin: 0;
+                padding: 0;
+                font-size: 1.2rem;
+
+                &:before {
+                    color: $brand-primary;
+                    content: "\f068";
+                    display: inline-block;
+                    font: normal normal normal 14px/1 FontAwesome;
+                    font-size: inherit;
+                    text-rendering: auto;
+                    -webkit-font-smoothing: antialiased;
+                    -moz-osx-font-smoothing: grayscale;
+                }
+
+                &.collapsed:before {
+                    content: "\f067";
+                }
             }
         }
     }

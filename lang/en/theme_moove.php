@@ -127,18 +127,56 @@ $string['marketing4contentdesc'] = 'Enter Marketing4 Content Text';
 $string['marketing4url'] = 'Marketing4 URL';
 $string['marketing4urldesc'] = 'Enter Marketing4 URL';
 
-$string['sliderenabled'] = 'Enable Slider';
+$string['sliderenabled'] = 'Enable slider';
 $string['sliderenableddesc'] = 'Enable a slider at the top of your home page';
 $string['sliderfrontpage'] = 'Show slideshow in frontpage';
 $string['sliderfrontpagedesc'] = 'If enabled, the slideshow will be showed in the frontpage page replacing the header image.';
-$string['slidercount'] = 'Slider Count';
-$string['slidercountdesc'] = 'Select how many slides you want to add <strong>then click SAVE</strong> to load the input fields';
-$string['sliderimage'] = 'Slider Picture';
+$string['slidercount'] = 'Slider count';
+$string['slidercountdesc'] = 'Select how many slides you want to add <strong>then click SAVE</strong> to load the input fields.';
+$string['sliderimage'] = 'Slider picture';
 $string['sliderimagedesc'] = 'Add an image for your slide. Recommended size is 1500px x 540px or higher.';
 $string['slidertitle'] = 'Slide title';
 $string['slidertitledesc'] = 'Add the slide\'s title.';
-$string['slidercaption'] = 'Slider Caption';
+$string['slidercaption'] = 'Slider caption';
 $string['slidercaptiondesc'] = 'Add a caption for your slide';
+
+$string['numbersfrontpage'] = 'Show site numbers on frontpage';
+$string['numbersfrontpagedesc'] = 'If enabled, display the number of active users, courses and activities in the frontpage.';
+$string['frontpagenumbersome'] = 'Some';
+$string['frontpagenumbernumbers'] = 'Numbers';
+$string['frontpagenumberusers'] = 'Users';
+$string['frontpagenumbercourses'] = 'Courses';
+$string['frontpagenumberactivities'] = 'Activities';
+
+$string['sponsorstitledefault'] = 'Sponsors';
+$string['sponsorssubtitledefault'] = 'Companies and institutions that believe in us';
+$string['sponsorsfrontpage'] = 'Enable sponsors row';
+$string['sponsorsfrontpagedesc'] = 'If enabled, display a row with the sponsors logos with its urls.';
+$string['sponsorstitle'] = 'Sponsors title';
+$string['sponsorstitledesc'] = 'The header of the sponsors row.';
+$string['sponsorssubtitle'] = 'Sponsors subtitle';
+$string['sponsorssubtitledesc'] = 'The subtitle of the sponsors row.';
+$string['sponsorscount'] = 'Sponsors count';
+$string['sponsorscountdesc'] = 'Select how many sponsor\'s logos you want to add <strong>then click SAVE</strong> to load the input fields.';
+$string['sponsorsimage'] = 'Sponsor logo';
+$string['sponsorsimagedesc'] = 'Add the sponsor\'s logo.';
+$string['sponsorsurl'] = 'Sponsor URL';
+$string['sponsorsurldesc'] = 'Enter the sponsor\'s site URL';
+
+$string['clientstitledefault'] = 'Our clients';
+$string['clientssubtitledefault'] = 'Clients that believe in us';
+$string['clientsfrontpage'] = 'Enable clients row';
+$string['clientsfrontpagedesc'] = 'If enabled, display a row with the clients logos with its urls.';
+$string['clientstitle'] = 'Clients title';
+$string['clientstitledesc'] = 'The header of the clients row.';
+$string['clientssubtitle'] = 'Clients subtitle';
+$string['clientssubtitledesc'] = 'The subtitle of the clients row.';
+$string['clientscount'] = 'Clients count';
+$string['clientscountdesc'] = 'Select how many clients\'s logos you want to add <strong>then click SAVE</strong> to load the input fields.';
+$string['clientsimage'] = 'Client logo';
+$string['clientsimagedesc'] = 'Add the client\'s logo.';
+$string['clientsurl'] = 'Client URL';
+$string['clientsurldesc'] = 'Enter the client\'s site URL';
 
 // Footer settings tab.
 $string['footersettings'] = 'Footer settings';
