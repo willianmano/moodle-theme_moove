@@ -264,7 +264,7 @@
         }
     }
 
-    .fontpage-sponsors {
+    .frontpage-sponsors {
         margin: 3em auto;
         text-align: center;
 
@@ -283,6 +283,7 @@
 
                 img {
                     vertical-align: middle;
+                    max-width: 100%;
                 }
             }
         }
@@ -350,6 +351,13 @@
         position: absolute;
         right: 20px;
         top: 20px;
+    }
+}
+
+@media (max-width: 575px) {
+    #page-site-index.notloggedin .frontpage-sponsors .row .item {
+        display: block;
+        width: 100%;
     }
 }
 
