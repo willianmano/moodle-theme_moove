@@ -49,6 +49,11 @@ if ($draweropenright && $hasblocks) {
     $extraclasses[] = 'drawer-open-right';
 }
 
+$coursepresentation = theme_moove_get_setting('coursepresentation');
+if ($coursepresentation == 2) {
+    $extraclasses[] = 'coursepresentation-cover';
+}
+
 $bodyattributes = $OUTPUT->body_attributes($extraclasses);
 $regionmainsettingsmenu = $OUTPUT->region_main_settings_menu();
 $templatecontext = [
@@ -73,4 +78,8 @@ $themesettings = new \theme_moove\util\theme_settings();
 
 $templatecontext = array_merge($templatecontext, $themesettings->footer_items());
 
-echo $OUTPUT->render_from_template('theme_moove/course', $templatecontext);
+if ($coursepresentation == 1) {
+    echo $OUTPUT->render_from_template('theme_moove/columns2', $templatecontext);
+} else if ($coursepresentation == 2) {
+    echo $OUTPUT->render_from_template('theme_moove/course_cover', $templatecontext);
+}

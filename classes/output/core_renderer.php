@@ -580,4 +580,45 @@ class core_renderer extends \theme_boost\output\core_renderer {
 
         return $output;
     }
+
+    public function courseheaderimage() {
+        global $CFG, $COURSE, $DB;
+
+        $course = $DB->get_record('course', ['id' => $COURSE->id]);
+
+        require_once($CFG->libdir. '/coursecatlib.php');
+
+        $course = new \course_in_list($course);
+
+        $courseimage = '';
+        foreach ($course->get_course_overviewfiles() as $file) {
+            $isimage = $file->is_valid_image();
+            $url = file_encode_url("$CFG->wwwroot/pluginfile.php",
+                '/'. $file->get_contextid(). '/'. $file->get_component(). '/'.
+                $file->get_filearea(). $file->get_filepath(). $file->get_filename(), !$isimage);
+
+            if ($isimage) {
+                $courseimage = $url;
+
+                break;
+            }
+        }
+
+        if (empty($courseimage)) {
+            $courseimage = $this->get_pix_image_url_base() . "/default_coursesummary.jpg";
+        }
+
+        // Create html for header.
+        $html = html_writer::start_div('headerbkg');
+
+        $html .= html_writer::start_div('withimage', array(
+            'style' => 'background-image: url("' . $courseimage . '"); background-size: cover; background-position:center;
+            width: 100%; height: 100%;'
+        ));
+        $html .= html_writer::end_div(); // End withimage inline style div.
+
+        $html .= html_writer::end_div();
+
+        return $html;
+    }
 }
