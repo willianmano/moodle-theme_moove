@@ -51,7 +51,7 @@ $string['onlineusers'] = 'Usuários online(5 minutos)';
 $string['showhideblocks'] = 'Exibir/ocultar blocos';
 
 // General settings tab.
-$string['generalsettings'] = 'Configurações gerais';
+$string['generalsettings'] = 'Geral';
 $string['logo'] = 'Logo';
 $string['logodesc'] = 'A logo é exibida no topo da página.';
 $string['favicon'] = 'Favicon personalizado';
@@ -66,9 +66,13 @@ $string['brandcolor'] = 'Cor da marca';
 $string['brandcolor_desc'] = 'Cor principal.';
 $string['navbarheadercolor'] = 'Cor da barra do topo';
 $string['navbarheadercolor_desc'] = 'Cor da barra do topo do site.';
+$string['coursepresentation'] = 'Apresentação do curso';
+$string['coursepresentationdesc'] = '<b>Apresentação padrão:</b> A aparência padrão do curso.<br><b>Imgem de capa:</b> será exibida uma imagem de capa no topo da página do curso(será usada a primeira imagem dos arquivos de resumo do curso).';
+$string['coursedefault'] = 'Apresentação padrão';
+$string['coursecover'] = 'Imagem de capa';
 
 // Advanced settings tab.
-$string['advancedsettings'] = 'Configurações avançadas';
+$string['advancedsettings'] = 'Avançado';
 $string['rawscsspre'] = 'SCSS inicial puro';
 $string['rawscsspre_desc'] = 'Neste campo você pode fornecer código SCSS de inicialização, ele será injetado antes de tudo. Na maioria dos casos você usará esta configuração para setar variáveis.';
 $string['rawscss'] = 'SCSS puro';
@@ -77,7 +81,7 @@ $string['googleanalytics'] = 'Código do Google Analytics';
 $string['googleanalyticsdesc'] = 'Por favor digite o código do Google Analytics para habilitá-lo no seu site. O código deve ter o formato [UA-XXXXX-Y]';
 
 // Frontpage settings tab.
-$string['frontpagesettings'] = 'Configurações da página inicial';
+$string['frontpagesettings'] = 'Página inicial';
 $string['headerimg'] = 'Imagem do cabeçalho';
 $string['headerimgdesc'] = 'Envie sua própria imagem de cabeçalho. Tamanho recomendado 1400px x 700px';
 $string['bannerheading'] = 'Banner de cabeçalho';
@@ -179,7 +183,7 @@ $string['clientsurl'] = 'URL do cliente';
 $string['clientsurldesc'] = 'Digite a URL do site do cliente';
 
 // Footer settings tab.
-$string['footersettings'] = 'Configurações do rodapé';
+$string['footersettings'] = 'Rodapé';
 $string['getintouchcontent'] = 'Conteúdo de matenha contato';
 $string['getintouchcontentdesc'] = 'Digite o texto de matenha contato';
 $string['website'] = 'Link do site';

@@ -115,6 +115,17 @@ if ($ADMIN->fulltree) {
     $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
 
+    // Course format option.
+    $name = 'theme_moove/coursepresentation';
+    $title = get_string('coursepresentation', 'theme_moove');
+    $description = get_string('coursepresentationdesc', 'theme_moove');
+    $options = [];
+    $options[1] = get_string('coursedefault', 'theme_moove');
+    $options[2] = get_string('coursecover', 'theme_moove');
+    $setting = new admin_setting_configselect($name, $title, $description, $default, $options);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $page->add($setting);
+
     // Must add the page after definiting all the settings!
     $settings->add($page);
 

@@ -51,7 +51,7 @@ $string['onlineusers'] = 'Online users(last 5 minutes)';
 $string['showhideblocks'] = 'Show/hide blocks';
 
 // General settings tab.
-$string['generalsettings'] = 'General settings';
+$string['generalsettings'] = 'General';
 $string['logo'] = 'Logo';
 $string['logodesc'] = 'The logo is displayed in the header.';
 $string['favicon'] = 'Custom favicon';
@@ -66,9 +66,13 @@ $string['brandcolor'] = 'Brand colour';
 $string['brandcolor_desc'] = 'The accent colour.';
 $string['navbarheadercolor'] = 'Navbar header color';
 $string['navbarheadercolor_desc'] = 'The top navbar header color';
+$string['coursepresentation'] = 'Course presentation';
+$string['coursepresentationdesc'] = '<b>Default presentation:</b> The default course appearence.<br><b>Cover image:</b> Will be showed a cover image on the top of the course page(the first image in course summary files will be used).';
+$string['coursedefault'] = 'Default presentation';
+$string['coursecover'] = 'Cover image';
 
 // Advanced settings tab.
-$string['advancedsettings'] = 'Advanced settings';
+$string['advancedsettings'] = 'Advanced';
 $string['rawscsspre'] = 'Raw initial SCSS';
 $string['rawscsspre_desc'] = 'In this field you can provide initialising SCSS code, it will be injected before everything else. Most of the time you will use this setting to define variables.';
 $string['rawscss'] = 'Raw SCSS';
@@ -77,7 +81,7 @@ $string['googleanalytics'] = 'Google Analytics Code';
 $string['googleanalyticsdesc'] = 'Please enter your Google Analytics code to enable analytics on your website. The code format shold be like [UA-XXXXX-Y]';
 
 // Frontpage settings tab.
-$string['frontpagesettings'] = 'Frontpage Settings';
+$string['frontpagesettings'] = 'Frontpage';
 $string['headerimg'] = 'Header image';
 $string['headerimgdesc'] = 'Upload your custom header-image here if you want to add it to the header.mage works best if (Image size should be 1500px x 700px)';
 $string['bannerheading'] = 'Banner Heading';
@@ -179,7 +183,7 @@ $string['clientsurl'] = 'Client URL';
 $string['clientsurldesc'] = 'Enter the client\'s site URL';
 
 // Footer settings tab.
-$string['footersettings'] = 'Footer settings';
+$string['footersettings'] = 'Footer';
 $string['getintouchcontent'] = 'Get In Touch Content';
 $string['getintouchcontentdesc'] = 'Enter Get In Touch Content Text';
 $string['website'] = 'Website URL';
@@ -206,7 +210,7 @@ $string['disablebottomfooter'] = 'Disable bottom footer';
 $string['disablebottomfooterdesc'] = 'Disables the orange bottom footer';
 
 // Forum.
-$string['forumsettings'] = 'Forum general';
+$string['forumsettings'] = 'Forum';
 $string['forumsettingsdesc'] = 'Configure the general forum settings for the theme here.';
 $string['forumhtmlemailheader'] = 'Email header';
 $string['forumhtmlemailheaderdesc'] = 'Configure the email header for the forum messages.';
