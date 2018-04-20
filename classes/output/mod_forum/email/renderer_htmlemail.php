@@ -14,6 +14,14 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
+/**
+ * Overriden forum email template.
+ *
+ * @package    theme_moove
+ * @copyright  2018 Willian Mano - http://conecti.me
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
+
 namespace theme_moove\output\mod_forum\email;
 
 defined('MOODLE_INTERNAL') || die();

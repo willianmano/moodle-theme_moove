@@ -581,6 +581,11 @@ class core_renderer extends \theme_boost\output\core_renderer {
         return $output;
     }
 
+    /**
+     * Try to return the first image on course summary files, otherwise returns a default image.
+     *
+     * @return string HTML fragment.
+     */
     public function courseheaderimage() {
         global $CFG, $COURSE, $DB;
 
