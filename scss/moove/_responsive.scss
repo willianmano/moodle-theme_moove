@@ -1,20 +1,7 @@
-@media (min-width: 768px) {
-  body {
-    margin-left: 55px;
-
-    &.drawer-open-left {
-      margin-left: 280px;
-    }
-
-    &.drawer-open-right {
-      margin-right: 280px;
-    }
-  }
-
-  body.pagelayout-frontpage.notloggedin,
-  body#page-login-forgot_password {
-    margin-left: 0;
-    margin-right: 0;
+@media (max-width: 575px) {
+  #page-site-index.notloggedin .frontpage-sponsors .row .item {
+    display: block;
+    width: 100%;
   }
 }
 
@@ -37,10 +24,18 @@
 
       #loginbox {
         margin-bottom: 0;
+        position: relative;
+        display: inline-block;
+        right: 0;
+        top: 0;
+        padding-left: 15px;
+        padding-right: 15px;
+        width: 100%;
 
         #boxForm {
           float: left;
           width: 100%;
+          margin-top: 0;
         }
       }
     }
@@ -140,6 +135,79 @@
 
     &.drawer-open-left {
       margin-left: 55px;
+    }
+  }
+
+  #page-login-index.moove-login {
+    .loginpanel .instructions {
+      border-top-right-radius: $m-login-padding;
+      -webkit-border-top-right-radius:  $m-login-padding;
+      -moz-border-radius-topright: $m-login-padding;
+
+      border-top-left-radius: $m-login-padding;
+      -webkit-border-top-left-radius:  $m-login-padding;
+      -moz-border-radius-topleft: $m-login-padding;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  body {
+    margin-left: 55px;
+
+    &.drawer-open-left {
+      margin-left: 280px;
+    }
+
+    &.drawer-open-right {
+      margin-right: 280px;
+    }
+  }
+
+  body.pagelayout-frontpage.notloggedin,
+  body#page-login-forgot_password {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  #page-login-index.moove-login {
+    .loginpanel .instructions {
+      border-top-left-radius: $m-login-padding;
+      border-bottom-left-radius: $m-login-padding;
+    }
+  }
+}
+
+@media (max-width: 991px) {
+  #page-site-index.slideshow #mooveslideshow .carousel-caption {
+    max-width: calc(100% - 80px);
+
+    .title,
+    .caption {
+      margin-top: 20px;
+      padding: 10px;
+    }
+
+    .title {
+      font-size: 1.6rem;
+    }
+  }
+}
+
+@media (min-width: 992px) {
+  #page-site-index.slideshow #loginbox {
+    display: block;
+  }
+
+  #page-site-index.slideshow #mooveslideshow .carousel-indicators {
+    bottom: 80px;
+  }
+}
+
+@media (min-width: 1200px) {
+  #page-site-index.notloggedin .frontpage-marketing .card {
+    &:first-child {
+      margin-left: 0;
     }
   }
 }
