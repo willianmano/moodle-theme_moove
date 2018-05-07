@@ -21,61 +21,44 @@
 
     Example context (json): {}
 }}
-<header role="banner" class="pos-f-t navbar navbar-full bg-faded navbar-static-top moodle-has-zindex">
+<nav class="fixed-top navbar navbar-light bg-white navbar-expand moodle-has-zindex">
 
-    <div class="container-fluid navbar-nav">
-
-        <a href="{{{ config.wwwroot }}}" class="navbar-brand {{# output.get_logo }}has-logo{{/ output.get_logo }}
-            {{^ output.get_logo }}
-                hidden-sm-down
-            {{/ output.get_logo }}
-                ">
-            {{# output.get_logo }}
-                <span class="logo hidden-sm-down">
-                    <img src="{{output.get_logo}}" alt="{{sitename}}">
-                </span>
-            {{/ output.get_logo }}
-            {{^ output.get_logo }}
-                <span class="site-name hidden-sm-down">{{{ sitename }}}</span>
-            {{/ output.get_logo }}
-        </a>
-
-        <ul class="navbar-nav navbar-custom-menu">
-            {{#hasdrawertoggle}}
-                <li data-region="drawer-toggle" class="nav-item drawer-toggle">
-                    <a
-                        href="javascript:void(0)"
-                        aria-expanded="{{#navdraweropen}}true{{/navdraweropen}}{{^navdraweropen}}false{{/navdraweropen}}"
-                        aria-controls="nav-drawer"
-                        class="sidebartoggler text-muted"
-                        data-action="toggle-drawer"
-                        data-side="left"
-                        data-preference="drawer-open-nav">
-                            <i class="icon-menu" aria-hidden="true"></i><span class="sr-only">{{#str}}sidepanel, core{{/str}}</span>
-                    </a>
-                </li>
-            {{/hasdrawertoggle}}
-            <!-- custom_menu -->
-            {{{ output.custom_menu }}}
-            <!-- page_heading_menu -->
-            {{{ output.page_heading_menu }}}
-        </ul>
-
-        <ul class="navbar-nav popover-menu-items">
-            <li class="popover-region">
-                {{{ output.render_lang_menu }}}
-            </li>
-
-            <!-- navbar_plugin_output -->
-            {{{ output.navbar_plugin_output }}}
-
-            <!-- user_menu -->
-            {{{ output.user_menu }}}
-        </ul>
-
-        <!-- search_box -->
-        <span class="hidden-md-down">
-          {{{ output.search_box }}}
-        </span>
+    <div data-region="drawer-toggle" class="d-inline-block mr-3">
+        <button aria-expanded="{{#navdraweropen}}true{{/navdraweropen}}{{^navdraweropen}}false{{/navdraweropen}}" aria-controls="nav-drawer" type="button" class="btn nav-link float-sm-left mr-1 btn-secondary" data-action="toggle-drawer" data-side="left" data-preference="drawer-open-nav">{{#pix}}i/menubars{{/pix}}<span class="sr-only">{{#str}}sidepanel, core{{/str}}</span></button>
     </div>
-</header>
+
+    <a href="{{{ config.wwwroot }}}" class="navbar-brand {{# output.get_logo }}has-logo{{/ output.get_logo }}
+        {{^ output.get_logo }}
+            d-none d-sm-inline
+        {{/ output.get_logo }}
+            ">
+        {{# output.get_logo }}
+            <span class="logo d-none d-sm-inline">
+                <img src="{{output.get_logo}}" alt="{{sitename}}">
+            </span>
+        {{/ output.get_logo }}
+        {{^ output.get_logo }}
+            <span class="site-name d-none d-md-inline">{{{ sitename }}}</span>
+        {{/ output.get_logo }}
+    </a>
+
+    <ul class="navbar-nav d-none d-md-flex">
+        <!-- custom_menu -->
+        {{{ output.custom_menu }}}
+        <!-- page_heading_menu -->
+        {{{ output.page_heading_menu }}}
+    </ul>
+    <ul class="nav navbar-nav ml-auto">
+        <div class="d-none d-lg-block">
+            {{{ output.search_box }}}
+        </div>
+        <!-- navbar_plugin_output -->
+        <li class="nav-item">
+            {{{ output.navbar_plugin_output }}}
+        </li>
+        <!-- user_menu -->
+        <li class="nav-item d-flex align-items-center">
+            {{{ output.user_menu }}}
+        </li>
+    </ul>
+</nav>
