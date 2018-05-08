@@ -73,7 +73,7 @@ if (isloggedin()) {
     echo $OUTPUT->render_from_template('theme_moove/frontpage', $templatecontext);
 } else {
     $sliderfrontpage = false;
-    if (theme_moove_get_setting('sliderfrontpage', true) == true) {
+    if ((theme_moove_get_setting('sliderenabled', true) == true) && (theme_moove_get_setting('sliderfrontpage', true) == true)) {
         $sliderfrontpage = true;
         $extraclasses[] = 'slideshow';
     }
