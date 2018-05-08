@@ -95,6 +95,10 @@ nav.navbar {
     ul.navbar-nav {
         padding-left: .75rem;
 
+        .nav-item + .nav-item {
+            margin-left: 1rem;
+        }
+
         li,
         .nav-item {
             line-height: 70px;
@@ -102,6 +106,7 @@ nav.navbar {
 
             > a {
                 text-decoration: none;
+                color: $brand-primary;
             }
 
             .nav-link {
