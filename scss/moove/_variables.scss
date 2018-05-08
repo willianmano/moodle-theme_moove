@@ -8,7 +8,7 @@ $headings-color: #455a64 !default;
 
 $body-bg: #eef5f9 !default;
 
-$card-border-radius: 4px !default;
+$card-border-radius: 0 !default;
 $card-border-color: #d7dfe3 !default;
 
 $navbar-height: 70px !default;
@@ -24,6 +24,7 @@ $calendarEventUserColor: #26c6da !default;
 
 $m-login-padding: 10px;
 $m-login-boxheight: 350px;
+$m-card-padding: 1.25rem;
 $m-moodle-color: #f98012 !default;
 $m-facebook-color: #3b5998 !default;
 $m-twitter-color: #55acee !default;

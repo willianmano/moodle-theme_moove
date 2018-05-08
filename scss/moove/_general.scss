@@ -43,8 +43,10 @@ Card
     -webkit-box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
 
+    &.card-block,
+    .card-block,
     .card-body {
-        padding: 1.25rem;
+        padding: $m-card-padding;
     }
 }
 
