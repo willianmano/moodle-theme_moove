@@ -75,3 +75,9 @@ h6,
 #gridshadebox_content {
     top: 80px !important;
 }
+
+/* Fix the broken loading icon. */
+.overlay-icon-container .loading-icon .fa-circle-o-notch,
+.fa-circle-o-notch:before {
+    content: "\f1ce" !important;
+}
