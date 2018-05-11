@@ -596,17 +596,22 @@ class core_renderer extends \theme_boost\output\core_renderer {
         $course = new \course_in_list($course);
 
         $courseimage = '';
+        $imageindex = 1;
         foreach ($course->get_course_overviewfiles() as $file) {
             $isimage = $file->is_valid_image();
-            $url = file_encode_url("$CFG->wwwroot/pluginfile.php",
-                '/'. $file->get_contextid(). '/'. $file->get_component(). '/'.
-                $file->get_filearea(). $file->get_filepath(). $file->get_filename(), !$isimage);
+
+            $url = new moodle_url("$CFG->wwwroot/pluginfile.php" . '/'. $file->get_contextid(). '/'. $file->get_component(). '/'.
+                $file->get_filearea(). $file->get_filepath(). $file->get_filename(), ['forcedownload' => !$isimage]);
 
             if ($isimage) {
                 $courseimage = $url;
+            }
 
+            if ($imageindex == 2) {
                 break;
             }
+
+            $imageindex++;
         }
 
         if (empty($courseimage)) {
