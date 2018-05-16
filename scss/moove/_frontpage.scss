@@ -12,6 +12,8 @@
     }
 }
 
+
+
 #page-site-index #mooveslideshow {
     margin: 1rem 0;
 
@@ -142,9 +144,17 @@
 
                     .input-group-addon {
                         width: 40px;
-                        height: 30px;
+                        height: 40px;
                         line-height: 30px;
                         padding: 4px 10px;
+                        margin-bottom: 0;
+                        font-size: 1rem;
+                        font-weight: 400;
+                        color: #55595c;
+                        text-align: center;
+                        background-color: #eceeef;
+                        border: 1px solid rgba(0,0,0,.15);
+                        border-right: 0;
                     }
                 }
 

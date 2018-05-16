@@ -48,15 +48,17 @@
         <div id="page-header" class="frontpage-guest-header">
 
             {{#sliderenabled}}
-                {{>theme_moove/slideshow}}
+                {{#sliderfrontpage}}
+                    {{>theme_moove/slideshow}}
 
-                {{^hasdrawertoggle}}
-                    <div id="loginbox">
-                        <div class="card" id="boxForm">
-                            {{>theme_moove/frontpage_login}}
+                    {{^hasdrawertoggle}}
+                        <div id="loginbox">
+                            <div class="card" id="boxForm">
+                                {{>theme_moove/frontpage_login}}
+                            </div>
                         </div>
-                    </div>
-                {{/hasdrawertoggle}}
+                    {{/hasdrawertoggle}}
+                {{/sliderfrontpage}}
             {{/sliderenabled}}
 
             {{^sliderenabled}}

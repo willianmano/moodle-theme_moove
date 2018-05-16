@@ -15,6 +15,12 @@ body.coursepresentation-cover {
 }
 
 #page-course-view-topics {
+    &.editing {
+        .course-content .topics .section {
+            width: calc(100% - 20px);
+        }
+    }
+
     .section .activity .contentwithoutlink > a,
     .section .activity .activityinstance > a {
         display: initial;
@@ -42,26 +48,30 @@ body.coursepresentation-cover {
                     border-bottom: 1px;
                 }
 
-                .pgr-img {
-                    margin: 0;
-                    width: 90px;
-                    height: 90px;
-                    background-color: $brand-primary;
-                    border-radius: 100%;
-                    text-align: center;
-                    padding: 20px;
-                    display: inline-block;
-                    vertical-align: top;
+                .card {
+                    display: block;
 
-                    i {
-                        font-size: 48px;
-                        color: #fff;
+                    .pgr-img {
+                        margin: 0;
+                        width: 90px;
+                        height: 90px;
+                        background-color: $brand-primary;
+                        border-radius: 100%;
+                        text-align: center;
+                        padding: 20px;
+                        display: inline-block;
+                        vertical-align: top;
+
+                        i {
+                            font-size: 48px;
+                            color: #fff;
+                        }
                     }
-                }
 
-                .pgr-content {
-                    display: inline-block;
-                    width: calc(100% - 90px);
+                    .pgr-content {
+                        display: inline-block;
+                        width: calc(100% - 90px);
+                    }
                 }
 
                 .activity-count {

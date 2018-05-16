@@ -236,7 +236,7 @@ class icon_system extends icon_system_font {
             'core:i/info' => 'fa-info',
             'core:i/invalid' => 'fa-times text-danger',
             'core:i/item' => 'fa-circle',
-            'core:i/loading' => 'fa-circle-o-notch fa-spin',
+            'core:i/loading' => 'fa-spinner fa-spin',
             'core:i/loading_small' => 'fa-circle-o-notch fa-spin',
             'core:i/lock' => 'fa-lock',
             'core:i/log' => 'fa-list-alt',

@@ -15,33 +15,32 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Moove.
+ * Overriden course topics format renderer.
  *
  * @package    theme_moove
- * @copyright  2017 Willian Mano - conecti.me
+ * @copyright  2018 Willian Mano - http://conecti.me
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-// This line protects the file from being accessed by a URL directly.
+namespace theme_moove\privacy;
+
 defined('MOODLE_INTERNAL') || die();
 
-// This is the version of the plugin.
-$plugin->version = 2018042000;
+/**
+ * The moove theme does not store any data.
+ *
+ * @copyright  2018 Willian Mano - http://conecti.me
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
+class provider implements \core_privacy\local\metadata\null_provider {
 
-// This is the version of Moodle this plugin requires.
-$plugin->requires = 2018050800;
-
-// This is the component name of the plugin - it always starts with 'theme_'
-// for themes and should be the same as the name of the folder.
-$plugin->component = 'theme_moove';
-
-// This is the named version.
-$plugin->release = '2.3.0';
-
-// This is a stable release.
-$plugin->maturity = MATURITY_STABLE;
-
-// This is a list of plugins, this plugin depends on (and their versions).
-$plugin->dependencies = [
-    'theme_boost' => 2017111300
-];
+    /**
+     * Get the language string identifier with the component's language
+     * file to explain why this plugin stores no data.
+     *
+     * @return  string
+     */
+    public static function get_reason() : string {
+        return 'privacy:metadata';
+    }
+}

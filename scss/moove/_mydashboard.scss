@@ -1,4 +1,11 @@
 #page-my-index {
+    #page-content #region-main-box .card.card-block {
+        border: none;
+        background: none;
+        box-shadow: none;
+        padding: 0;
+    }
+
     .admininfos {
         padding-bottom: 0;
 
@@ -24,7 +31,7 @@
     }
 
     .small-box {
-        border-radius: 2px;
+        border-radius: $card-border-radius;
         position: relative;
         display: block;
         margin-bottom: 20px;

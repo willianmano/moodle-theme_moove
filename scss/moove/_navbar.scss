@@ -1,9 +1,13 @@
-header.navbar {
+nav.navbar {
     min-height: $navbar-height;
-    padding: 0 15px 0 0;
     -webkit-box-shadow: 5px 0 10px rgba(0, 0, 0, 0.5);
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
     background-color: $navbar-header-color;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030;
 
     .navbar-brand {
         margin-right: 0;
@@ -19,17 +23,13 @@ header.navbar {
     }
 
     .drawer-toggle {
-        float: left;
-        font-size: 18px;
-        line-height: 70px;
-
-        .icon-menu {
+        .nav-link {
             color: $brand-primary;
         }
     }
 
     .moove-search-input {
-        margin: 0;
+        margin: 0 .8rem;
         line-height: 70px;
         padding: 0;
         overflow: hidden;
@@ -93,8 +93,11 @@ header.navbar {
     }
 
     ul.navbar-nav {
-        display: inline-block;
         padding-left: .75rem;
+
+        .nav-item + .nav-item {
+            margin-left: 1rem;
+        }
 
         li,
         .nav-item {
@@ -103,6 +106,7 @@ header.navbar {
 
             > a {
                 text-decoration: none;
+                color: $brand-primary;
             }
 
             .nav-link {
@@ -118,12 +122,7 @@ header.navbar {
             }
         }
 
-        &.popover-menu-items {
-            float: right;
-        }
-
         .popover-region {
-            float: left;
             margin-right: 0;
 
             .popover-region-container {
@@ -295,47 +294,16 @@ header.navbar {
             .dropdown {
                 .dropdown-menu {
                     @extend .scale-up;
-                    line-height: initial;
-                    margin-top: 0;
-                    top: 45px;
-                    border-radius: $card-border-radius;
-                    min-width: 180px;
-                    max-width: 250px;
-
                     .dropdown-item {
-                        border-bottom: none;
-                        margin: 2px 5px;
-                        padding: .5rem .7rem;
-                        width: inherit;
-                        &:hover {
-                            background-color: $body-bg;
-                            border-radius: $card-border-radius;
-                        }
-
                         &.text-username {
                             text-overflow: ellipsis;
                             overflow: hidden;
                             white-space: nowrap;
-
-                            &:hover {
-                                background-color: #fff;
-                                cursor: default;
-                            }
-
-                            i {
-                                display: none;
-                                font-size: 16px;
-                            }
                         }
-                    }
-
-                    .dropdown-divider {
-                        display: block;
-                        background-color: rgba(120, 130, 140, .13);
                     }
                 }
 
-                &.open {
+                &.show {
                     .dropdown-menu {
                         @extend .scale-up-show;
                     }

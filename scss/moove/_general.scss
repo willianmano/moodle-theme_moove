@@ -43,8 +43,10 @@ Card
     -webkit-box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
 
+    &.card-block,
+    .card-block,
     .card-body {
-        padding: 1.25rem;
+        padding: $m-card-padding;
     }
 }
 
@@ -72,4 +74,8 @@ h6,
 /* Course format grid */
 #gridshadebox_content {
     top: 80px !important;
+}
+
+.popover .arrow {
+    bottom: -8px;
 }

@@ -16,12 +16,12 @@ module.exports = function(grunt) {
     grunt.initConfig({
         exec: {
             decache: {
-                cmd: 'php "' + decachephp + '"',
+                cmd: 'php "' + decachephp + '" -t',
                 callback: function(error) {
                     // The exec process will output error messages.
                     // Just add one to confirm success.
                     if (!error) {
-                        grunt.log.writeln("Moodle theme cache reset.");
+                        grunt.log.writeln("Moodle theme cache reseted.");
                     }
                 }
             }
