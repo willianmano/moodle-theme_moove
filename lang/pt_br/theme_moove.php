@@ -71,6 +71,8 @@ $string['coursepresentation'] = 'Apresentação do curso';
 $string['coursepresentationdesc'] = '<b>Apresentação padrão:</b> A aparência padrão do curso.<br><b>Imgem de capa:</b> será exibida uma imagem de capa no topo da página do curso(será usada a primeira imagem dos arquivos de resumo do curso).';
 $string['coursedefault'] = 'Apresentação padrão';
 $string['coursecover'] = 'Imagem de capa';
+$string['courselistview'] = 'Cursos em lista';
+$string['courselistviewdesc'] = 'Troca a exibição dos cursos de caixas para lista';
 
 // Advanced settings tab.
 $string['advancedsettings'] = 'Avançado';

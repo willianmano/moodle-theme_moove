@@ -126,6 +126,12 @@ if ($ADMIN->fulltree) {
     $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
 
+    $name = 'theme_moove/courselistview';
+    $title = get_string('courselistview', 'theme_moove');
+    $description = get_string('courselistviewdesc', 'theme_moove');
+    $setting = new admin_setting_configcheckbox($name, $title, $description, 0);
+    $page->add($setting);
+
     // Must add the page after definiting all the settings!
     $settings->add($page);
 

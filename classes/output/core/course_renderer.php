@@ -60,6 +60,13 @@ class course_renderer extends \core_course_renderer {
      */
     protected function coursecat_courses(coursecat_helper $chelper, $courses, $totalcount = null) {
         global $CFG;
+
+        $theme = \theme_config::load('moove');
+
+        if (!empty($theme->settings->courselistview)) {
+            return parent::coursecat_courses($chelper, $courses, $totalcount);
+        }
+
         if ($totalcount === null) {
             $totalcount = count($courses);
         }
@@ -163,6 +170,13 @@ class course_renderer extends \core_course_renderer {
      */
     protected function coursecat_coursebox(coursecat_helper $chelper, $course, $additionalclasses = '') {
         global $CFG;
+
+        $theme = \theme_config::load('moove');
+
+        if (!empty($theme->settings->courselistview)) {
+            return parent::coursecat_coursebox($chelper, $course, $additionalclasses);
+        }
+
         if (!isset($this->strings->summary)) {
             $this->strings->summary = get_string('summary');
         }
@@ -210,6 +224,12 @@ class course_renderer extends \core_course_renderer {
      */
     protected function coursecat_coursebox_content(coursecat_helper $chelper, $course) {
         global $CFG;
+
+        $theme = \theme_config::load('moove');
+
+        if (!empty($theme->settings->courselistview)) {
+            return parent::coursecat_coursebox_content($chelper, $course);
+        }
 
         if ($course instanceof stdClass) {
             require_once($CFG->libdir. '/coursecatlib.php');

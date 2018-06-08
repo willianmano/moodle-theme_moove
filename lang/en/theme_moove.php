@@ -71,6 +71,8 @@ $string['coursepresentation'] = 'Course presentation';
 $string['coursepresentationdesc'] = '<b>Default presentation:</b> The default course appearence.<br><b>Cover image:</b> Will be showed a cover image on the top of the course page(the first image in course summary files will be used).';
 $string['coursedefault'] = 'Default presentation';
 $string['coursecover'] = 'Cover image';
+$string['courselistview'] = 'Enable course list view';
+$string['courselistviewdesc'] = 'Switch the courses view from box to list view';
 
 // Advanced settings tab.
 $string['advancedsettings'] = 'Advanced';
