@@ -70,6 +70,8 @@ $string['coursepresentation'] = 'Course presentation';
 $string['coursepresentationdesc'] = '<b>Default presentation:</b> The default course appearence.<br><b>Cover image:</b> Will be showed a cover image on the top of the course page(the first image in course summary files will be used).';
 $string['coursedefault'] = 'Default presentation';
 $string['coursecover'] = 'Cover image';
+$string['courselistview'] = 'Enable course list view';
+$string['courselistviewdesc'] = 'Switch the courses view from box to list view';
 
 // Advanced settings tab.
 $string['advancedsettings'] = 'Advanced';
@@ -143,9 +145,6 @@ $string['slidertitle'] = 'Slide title';
 $string['slidertitledesc'] = 'Add the slide\'s title.';
 $string['slidercaption'] = 'Slider caption';
 $string['slidercaptiondesc'] = 'Add a caption for your slide';
-
-$string['courseboxview'] = 'Enable course box';
-$string['courseboxviewdesc'] = 'Enable a enhanced course box view at the course list';
 
 $string['numbersfrontpage'] = 'Show site numbers on frontpage';
 $string['numbersfrontpagedesc'] = 'If enabled, display the number of active users, courses and activities in the frontpage.';
