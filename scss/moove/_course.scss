@@ -71,6 +71,14 @@ body.coursepresentation-cover {
                     .pgr-content {
                         display: inline-block;
                         width: calc(100% - 90px);
+
+                        .left.side {
+                            padding: 0;
+                        }
+
+                        .section-title {
+                            margin-left: 12px;
+                        }
                     }
                 }
 
@@ -95,6 +103,7 @@ body.coursepresentation-cover {
                         color: #fff;
                         text-align: center;
                         background-color: $brand-primary;
+                        overflow: hidden;
                     }
                 }
             }

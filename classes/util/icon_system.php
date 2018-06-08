@@ -205,6 +205,7 @@ class icon_system extends icon_system_font {
             'core:i/dashboard' => 'icon-speedometer',
             'core:i/lock' => 'fa-lock',
             'core:i/categoryevent' => 'fa-cubes',
+            'core:i/course' => 'fa-university',
             'core:i/courseevent' => 'fa-university',
             'core:i/db' => 'fa-database',
             'core:i/delete' => 'icon-trash',

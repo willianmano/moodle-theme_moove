@@ -151,6 +151,12 @@
   }
 }
 
+@media (min-width: 576px) {
+  .modal-dialog {
+    max-width: 540px;
+  }
+}
+
 @media (min-width: 768px) {
   body {
     margin-left: 55px;

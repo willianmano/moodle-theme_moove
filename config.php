@@ -88,11 +88,6 @@ $THEME->prescsscallback = 'theme_moove_get_pre_scss';
 $THEME->iconsystem = '\theme_moove\util\icon_system';
 
 $THEME->layouts = [
-    // Most backwards compatible layout without the blocks - this is the layout used by default.
-    'base' => array(
-        'file' => 'base.php',
-        'regions' => array(),
-    ),
     // The site home page.
     'frontpage' => array(
         'file' => 'frontpage.php',

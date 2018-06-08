@@ -84,9 +84,7 @@
                 content: "\e075";
             }
 
-            // Private files
-            &[data-key="privatefiles"] a:before,
-            &[data-key="7"] a:before {
+            &[data-key="privatefiles"] a:before {
                 content: "\e040";
             }
 
@@ -124,7 +122,7 @@
             }
 
             &:hover {
-                width: 260px;
+                width: 270px;
                 background-color: $navbar-bg-hover;
 
                 &[data-key="mycourses"] {
@@ -145,8 +143,8 @@
                     overflow: auto;
                     background-color: $navbar-bg;
                     position: absolute;
-                    left: 60px;
-                    top: 45px;
+                    left: 70px;
+                    top: 48px;
                     width: 200px;
                     z-index: 1001;
                     padding-top: 10px;

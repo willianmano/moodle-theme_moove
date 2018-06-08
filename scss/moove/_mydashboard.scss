@@ -1,11 +1,4 @@
 #page-my-index {
-    #page-content #region-main-box .card.card-block {
-        border: none;
-        background: none;
-        box-shadow: none;
-        padding: 0;
-    }
-
     .admininfos {
         padding-bottom: 0;
 
@@ -64,5 +57,15 @@
         z-index: 0;
         font-size: 48px;
         color: rgba(0, 0, 0, 0.15);
+    }
+
+    .progress-chart-container .no-progress {
+        background-color: $brand-primary;
+
+        .fa {
+            color: #fff;
+            font-size: 42px;
+            padding: 14px 8px;
+        }
     }
 }
