@@ -144,6 +144,9 @@ $string['slidertitledesc'] = 'Adicione um título para o slide.';
 $string['slidercaption'] = 'Texto do slide';
 $string['slidercaptiondesc'] = 'Adicione um texto para o slide';
 
+$string['courseboxview'] = 'Enable course box';
+$string['courseboxviewdesc'] = 'Enable a enhanced course box view at the course list';
+
 $string['numbersfrontpage'] = 'Números na página inicial';
 $string['numbersfrontpagedesc'] = 'Quando habilitado, exibe o número de usuários ativos, cursos e atividades na página inicial do site.';
 $string['frontpagenumbersome'] = 'Alguns';
