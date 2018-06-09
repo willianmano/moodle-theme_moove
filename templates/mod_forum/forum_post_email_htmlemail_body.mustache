@@ -84,7 +84,7 @@
     }
 }}
 
-{{#enabletemplate}}
+{{# enabletemplate}}
 <style>
 @media only screen {
     body {
@@ -97,34 +97,13 @@
 }
 </style>
 
-{{# sitelogo }}
-<table width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#FFF">
-    <tbody>
-    <tr>
-        <td style="display: block !important;max-width: 600px !important;margin: 0 auto !important;clear: both !important;" width="600">
-            <div style="max-width: 600px;margin: 0 auto;display: block;padding:0 20px; margin-top: 20px;">
-                <table class="main" width="100%" cellpadding="0" cellspacing="0" style="border: none;">
-                    <tbody>
-                    <tr>
-                        <td style="text-align: center;">
-                            <img style="max-height: 70px;" src="{{{sitelogo}}}" alt="{{{sitename}}}">
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
-        </td>
-    </tr>
-</table>
-{{/ sitelogo }}
-
 <table width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#f6f6f6" style="font-family: Arial, sans-serif;">
     <tbody>
     <tr>
         <td></td>
         <td style="display: block !important;max-width: 600px !important;margin: 0 auto !important;clear: both !important;" width="600">
             <div style="max-width: 600px;margin: 0 auto;display: block;padding:20px;">
-                {{ #messageheader }}
+                {{# messageheader }}
                 <div style="width: 100%;clear: both;">
                     <table width="100%">
                         <tbody>
@@ -136,7 +115,7 @@
                         </tbody>
                     </table>
                 </div>
-                {{ /messageheader }}
+                {{/ messageheader }}
                 <table class="main" width="100%" cellpadding="0" cellspacing="0" style="background: #fff;border: 1px solid #e9e9e9;border-radius: 3px;">
                     <tr>
                         <td style="font-size: 18px; color: #fff; font-weight: 500; padding: 20px; text-align: center; border-radius: 3px 3px 0 0; background: #265876;">
@@ -199,13 +178,13 @@
                         <tr>
                             <td style="font-size: 16px; color: #999; font-weight: bold; text-align: center; padding: 0 0 20px;">{{{sitename}}}</td>
                         </tr>
-                        {{ #messagefooter }}
+                        {{# messagefooter }}
                         <tr>
                             <td>
                                 {{{ messagefooter }}}
                             </td>
                         </tr>
-                        {{ /messagefooter }}
+                        {{/ messagefooter }}
                         </tbody>
                     </table>
                 </div>
@@ -215,8 +194,8 @@
     </tr>
     </tbody>
 </table>
-{{/enabletemplate}}
-{{^enabletemplate}}
+{{/ enabletemplate}}
+{{^ enabletemplate}}
 <table border="0" cellpadding="3" cellspacing="0" class="forumpost">
     <tr class="header">
         <td width="35" valign="top" class="picture left">
@@ -249,9 +228,9 @@
                     {{{ attachments }}}
                 </div>
             {{/ attachments }}
-            {{ #messageheader }}{{{ messageheader }}}{{ /messageheader }}
+            {{# messageheader }}{{{ messageheader }}}{{/ messageheader }}
             {{{ message }}}
-            {{ #messagefooter }}{{{ messagefooter }}}{{ /messagefooter }}
+            {{# messagefooter }}{{{ messagefooter }}}{{/ messagefooter }}
 
             <div class="commands">
                 {{^ firstpost }}
@@ -277,4 +256,4 @@
         </td>
     </tr>
 </table>
-{{/enabletemplate}}
+{{/ enabletemplate}}

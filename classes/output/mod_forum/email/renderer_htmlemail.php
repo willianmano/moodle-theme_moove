@@ -63,15 +63,6 @@ class renderer_htmlemail extends \mod_forum\output\email\renderer {
             $data['messagefooter'] = $forumhtmlemailfooter;
         }
 
-        $data['sitelogo'] = false;
-
-        $theme = \theme_config::load('moove');
-
-        $logo = $theme->setting_file_url('logo', 'logo');
-        if ($logo) {
-            $data['sitelogo'] = $logo;
-        }
-
         $data['sitename'] = $SITE->fullname;
 
         return $this->render_from_template('mod_forum/' . $this->forum_post_template(), $data);
