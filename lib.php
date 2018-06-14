@@ -238,8 +238,9 @@ function theme_moove_get_setting($setting, $format = false) {
     }
 }
 
+
 /**
- * Fumble with Moodle's global navigation by leveraging Moodle's *_extend_navigation() hook.
+ * Extend the Moove navigation
  *
  * @param flat_navigation $flatnav
  */
@@ -249,13 +250,18 @@ function theme_moove_extend_flat_navigation(\flat_navigation $flatnav) {
     theme_moove_delete_menuitems($flatnav);
 }
 
+/**
+ * Remove items from navigation
+ *
+ * @param flat_navigation $flatnav
+ */
 function theme_moove_delete_menuitems(\flat_navigation $flatnav) {
 
     $itemstodelete = [
         'coursehome'
     ];
 
-    foreach($flatnav as $item) {
+    foreach ($flatnav as $item) {
         if (in_array($item->key, $itemstodelete)) {
             $flatnav->remove($item->key);
 
@@ -272,6 +278,11 @@ function theme_moove_delete_menuitems(\flat_navigation $flatnav) {
     }
 }
 
+/**
+ * Improve flat navigation menu
+ *
+ * @param flat_navigation $flatnav
+ */
 function theme_moove_rebuildcoursesections(\flat_navigation $flatnav) {
     $participantsitem = $flatnav->find('participants', \navigation_node::TYPE_CONTAINER);
 
@@ -290,8 +301,8 @@ function theme_moove_rebuildcoursesections(\flat_navigation $flatnav) {
 
     $coursesections = new \flat_navigation_node($coursesectionsoptions, 0);
 
-    foreach($flatnav as $item) {
-        if ($item->type ==  \navigation_node::TYPE_SECTION) {
+    foreach ($flatnav as $item) {
+        if ($item->type == \navigation_node::TYPE_SECTION) {
             $coursesections->add_node(new \navigation_node([
                 'text' => $item->text,
                 'shorttext' => $item->shorttext,

@@ -35,11 +35,8 @@ module.exports = function(grunt) {
 
     grunt.initConfig({
         eslint: {
-            // Even though warnings dont stop the build we don't display warnings by default because
-            // at this moment we've got too many core warnings.
             options: {quiet: !grunt.option('show-lint-warnings')},
             amd: {src: amdSrc},
-            // Check YUI module source files.
             yui: {src: ['**/yui/src/**/*.js', '!*/**/yui/src/*/meta/*.js']}
         },
         uglify: {
@@ -54,7 +51,7 @@ module.exports = function(grunt) {
         },
         watch: {
             options: {
-                nospawn: true, // We need not to spawn so config can be changed dynamically.
+                nospawn: true,
                 livereload: true
             },
             amd: {
@@ -76,7 +73,6 @@ module.exports = function(grunt) {
                 options: {
                     configOverrides: {
                         rules: {
-                            // These rules have to be disabled in .stylelintrc for scss compat.
                             "at-rule-no-unknown": true,
                         }
                     }
@@ -85,11 +81,8 @@ module.exports = function(grunt) {
         },
         exec: {
             decache: {
-                // cmd: 'php ' + decachephp,
-                cmd: 'php "' + decachephp + '" -t',
+                cmd: 'php "' + decachephp,
                 callback: function(error) {
-                    // The exec process will output error messages.
-                    // Just add one to confirm success.
                     if (!error) {
                         grunt.log.writeln("Moodle theme cache reseted.");
                     }
