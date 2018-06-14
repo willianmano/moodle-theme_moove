@@ -40,10 +40,8 @@ define(['exports', 'jquery'], function(exports, $) {
     }
 
     var Util = function ($$$1) {
-        // eslint-disable-line no-shadow
         var TRANSITION_END = 'transitionend';
         var Util = {
-            // eslint-disable-line no-shadow
             TRANSITION_END: 'mmTransitionEnd',
             triggerTransitionEnd: function triggerTransitionEnd(element) {
                 $$$1(element).trigger(TRANSITION_END);
@@ -59,7 +57,7 @@ define(['exports', 'jquery'], function(exports, $) {
                 delegateType: TRANSITION_END,
                 handle: function handle(event) {
                     if ($$$1(event.target).is(this)) {
-                        return event.handleObj.handler.apply(this, arguments); // eslint-disable-line prefer-rest-params
+                        return event.handleObj.handler.apply(this, arguments);
                     }
 
                     return undefined;
@@ -83,8 +81,7 @@ define(['exports', 'jquery'], function(exports, $) {
         }
 
         function setTransitionEndSupport() {
-            $$$1.fn.mmEmulateTransitionEnd = transitionEndEmulator; // eslint-disable-line no-param-reassign
-            // eslint-disable-next-line no-param-reassign
+            $$$1.fn.mmEmulateTransitionEnd = transitionEndEmulator;
 
             $$$1.event.special[Util.TRANSITION_END] = getSpecialTransitionEndEvent();
         }
@@ -94,7 +91,6 @@ define(['exports', 'jquery'], function(exports, $) {
     }($);
 
     var MetisMenu = function ($$$1) {
-        // eslint-disable-line no-shadow
         var NAME = 'metisMenu';
         var DATA_KEY = 'metisMenu';
         var EVENT_KEY = "." + DATA_KEY;
@@ -121,9 +117,7 @@ define(['exports', 'jquery'], function(exports, $) {
         };
 
         var MetisMenu =
-            /*#__PURE__*/
             function () {
-                // eslint-disable-line no-shadow
                 function MetisMenu(element, config) {
                     this.element = element;
                     this.config = _objectSpread({}, Default, config);
@@ -196,7 +190,6 @@ define(['exports', 'jquery'], function(exports, $) {
                     this.setTransitioning(true);
 
                     var complete = function complete() {
-                        // check if disposed
                         if (!_this.config || !_this.element) {
                             return;
                         }
@@ -226,14 +219,13 @@ define(['exports', 'jquery'], function(exports, $) {
                         return;
                     }
 
-                    elem.parent(this.config.parentTrigger).removeClass(this.config.activeClass); // eslint-disable-next-line no-unused-expressions
+                    elem.parent(this.config.parentTrigger).removeClass(this.config.activeClass);
 
                     elem.height(elem.height())[0].offsetHeight;
                     elem.addClass(this.config.collapsingClass).removeClass(this.config.collapseClass).removeClass(this.config.collapseInClass);
                     this.setTransitioning(true);
 
                     var complete = function complete() {
-                        // check if disposed
                         if (!_this2.config || !_this2.element) {
                             return;
                         }
@@ -268,7 +260,6 @@ define(['exports', 'jquery'], function(exports, $) {
                 };
 
                 MetisMenu.jQueryInterface = function jQueryInterface(config) {
-                    // eslint-disable-next-line func-names
                     return this.each(function () {
                         var $this = $$$1(this);
                         var data = $this.data(DATA_KEY);
@@ -296,20 +287,13 @@ define(['exports', 'jquery'], function(exports, $) {
 
                 return MetisMenu;
             }();
-        /**
-         * ------------------------------------------------------------------------
-         * jQuery
-         * ------------------------------------------------------------------------
-         */
 
+        $$$1.fn[NAME] = MetisMenu.jQueryInterface;
 
-        $$$1.fn[NAME] = MetisMenu.jQueryInterface; // eslint-disable-line no-param-reassign
-
-        $$$1.fn[NAME].Constructor = MetisMenu; // eslint-disable-line no-param-reassign
+        $$$1.fn[NAME].Constructor = MetisMenu;
 
         $$$1.fn[NAME].noConflict = function () {
-            // eslint-disable-line no-param-reassign
-            $$$1.fn[NAME] = JQUERY_NO_CONFLICT; // eslint-disable-line no-param-reassign
+            $$$1.fn[NAME] = JQUERY_NO_CONFLICT;
 
             return MetisMenu.jQueryInterface;
         };
