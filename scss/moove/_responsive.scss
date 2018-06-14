@@ -5,10 +5,23 @@
   }
 }
 
+@media (min-width: 576px) {
+  .modal-dialog {
+    max-width: 540px;
+  }
+}
+
 @media (max-width: 767px) {
-  /* Hide the breadcrumb for the smallest screens. */
-  #page-navbar {
-    display: none;
+  #page-navbar .breadcrumb li:first-of-type > * {
+      font-size: .7375rem;
+  }
+
+  .page-header-headings h1 {
+    font-size: 1.34375rem;
+  }
+
+  #nav-drawer .metismenu .has-arrow {
+    display: none !important;
   }
 
   #page-site-index.notloggedin {
@@ -148,12 +161,6 @@
       -webkit-border-top-left-radius:  $m-login-padding;
       -moz-border-radius-topleft: $m-login-padding;
     }
-  }
-}
-
-@media (min-width: 576px) {
-  .modal-dialog {
-    max-width: 540px;
   }
 }
 

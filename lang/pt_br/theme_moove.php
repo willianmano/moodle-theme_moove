@@ -221,3 +221,5 @@ $string['forumhtmlemailfooter'] = 'Rodapé do email';
 $string['forumhtmlemailfooterdesc'] = 'Configure o rodapé do email das mensagens dos Fóruns.';
 $string['forumcustomtemplate'] = 'Habilitar o template para os emails dos fóruns';
 $string['forumcustomtemplatedesc'] = 'Marque para habilitar um template mais agradável para os emails das mensagens dos fóruns. Se não habilitado o formato padrão para os emails será utilizado.';
+
+$string['coursesections'] = 'Seções do curso';

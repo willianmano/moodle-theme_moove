@@ -241,61 +241,75 @@ function theme_moove_get_setting($setting, $format = false) {
 /**
  * Fumble with Moodle's global navigation by leveraging Moodle's *_extend_navigation() hook.
  *
- * @param global_navigation $navigation
+ * @param flat_navigation $flatnav
  */
-function theme_moove_boostnavigation_extend_navigation(global_navigation $navigation) {
-    global $CFG;
+function theme_moove_extend_flat_navigation(\flat_navigation $flatnav) {
+    theme_moove_rebuildcoursesections($flatnav);
 
-    // Check if admin wanted us to remove the mycourses node from Boost's nav drawer.
-    if ($mycoursesnode = $navigation->find('mycourses', global_navigation::TYPE_ROOTNODE)) {
+    theme_moove_delete_menuitems($flatnav);
+}
 
-        // Hide all courses below the mycourses node.
-        $mycourseschildrennodeskeys = $mycoursesnode->get_children_key_list();
-        foreach ($mycourseschildrennodeskeys as $k) {
-            // If the admin decided to display categories, things get slightly complicated.
-            if ($CFG->navshowmycoursecategories) {
-                // We need to find all children nodes first.
-                $allchildrennodes = theme_moove_boostnavigation_get_all_childrenkeys($mycoursesnode->get($k));
-                // Then we can hide each children node.
-                // Unfortunately, the children nodes have navigation_node type TYPE_MY_CATEGORY or navigation_node type
-                // TYPE_COURSE, thus we need to search without a specific navigation_node type.
-                foreach ($allchildrennodes as $cn) {
-                    $mycoursesnode->find($cn, null)->showinflatnavigation = false;
-                }
-            } else {
-                // Otherwise we have a flat navigation tree and hiding the courses is easy.
-                $mycoursesnode->get($k)->showinflatnavigation = false;
-            }
+function theme_moove_delete_menuitems(\flat_navigation $flatnav) {
+
+    $itemstodelete = [
+        'coursehome'
+    ];
+
+    foreach($flatnav as $item) {
+        if (in_array($item->key, $itemstodelete)) {
+            $flatnav->remove($item->key);
+
+            continue;
+        }
+
+        if (isset($item->parent->key) && $item->parent->key == 'mycourses' &&
+            isset($item->type) && $item->type == \navigation_node::TYPE_COURSE) {
+
+            $flatnav->remove($item->key);
+
+            continue;
         }
     }
 }
 
-/**
- * Moodle core does not have a built-in functionality to get all keys of all children of a navigation node,
- * so we need to get these ourselves.
- *
- * @param navigation_node $navigationnode
- * @return array
- */
-function theme_moove_boostnavigation_get_all_childrenkeys(navigation_node $navigationnode) {
-    // Empty array to hold all children.
-    $allchildren = array();
+function theme_moove_rebuildcoursesections(\flat_navigation $flatnav) {
+    $participantsitem = $flatnav->find('participants', \navigation_node::TYPE_CONTAINER);
 
-    // No, this node does not have children anymore.
-    if (count($navigationnode->children) == 0) {
-        return array();
+    if (!$participantsitem) {
+        return;
     }
 
-    // Get own children keys.
-    $childrennodeskeys = $navigationnode->get_children_key_list();
-    // Get all children keys of our children recursively.
-    foreach ($childrennodeskeys as $ck) {
-        $allchildren = array_merge($allchildren, theme_moove_boostnavigation_get_all_childrenkeys($navigationnode->get($ck)));
+    $coursesectionsoptions = [
+        'text' => get_string('coursesections', 'theme_moove'),
+        'shorttext' => get_string('coursesections', 'theme_moove'),
+        'icon' => new pix_icon('t/viewdetails', ''),
+        'type' => \navigation_node::COURSE_CURRENT,
+        'key' => 'course-sections',
+        'parent' => $participantsitem->parent
+    ];
+
+    $coursesections = new \flat_navigation_node($coursesectionsoptions, 0);
+
+    foreach($flatnav as $item) {
+        if ($item->type ==  \navigation_node::TYPE_SECTION) {
+            $coursesections->add_node(new \navigation_node([
+                'text' => $item->text,
+                'shorttext' => $item->shorttext,
+                'icon' => $item->icon,
+                'type' => $item->type,
+                'key' => $item->key,
+                'parent' => $coursesections
+            ]));
+        }
     }
 
-    // And add our own children keys to the result.
-    $allchildren = array_merge($allchildren, $childrennodeskeys);
+    $flatnav->add($coursesections, $participantsitem->key);
 
-    // Return everything.
-    return $allchildren;
+    $mycourses = $flatnav->find('mycourses', \navigation_node::NODETYPE_LEAF);
+
+    if ($mycourses) {
+        $flatnav->remove($mycourses->key);
+
+        $flatnav->add($mycourses, 'myhome');
+    }
 }
