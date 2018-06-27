@@ -114,10 +114,9 @@ define(['exports', 'jquery'], function(exports, $) {
             HIDE: "hide" + EVENT_KEY,
             HIDDEN: "hidden" + EVENT_KEY,
             CLICK_DATA_API: "click" + EVENT_KEY + DATA_API_KEY
-        };
+    };
 
-        var MetisMenu =
-            function () {
+        var MetisMenu = function () {
                 function MetisMenu(element, config) {
                     this.element = element;
                     this.config = _objectSpread({}, Default, config);
@@ -257,7 +256,6 @@ define(['exports', 'jquery'], function(exports, $) {
                     this.config = null;
                     this.element = null;
                 };
-
 
                 MetisMenu.jQueryInterface = function jQueryInterface(config) {
                     return this.each(function () {
