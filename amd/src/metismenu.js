@@ -98,15 +98,15 @@ define(['exports', 'jquery'], function(exports, $) {
         var JQUERY_NO_CONFLICT = $$$1.fn[NAME];
         var TRANSITION_DURATION = 350;
         var Default = {
-            toggle: true,
-            preventDefault: true,
-            activeClass: 'active',
-            collapseClass: 'collapse',
-            collapseInClass: 'in',
-            collapsingClass: 'collapsing',
-            triggerElement: 'a',
-            parentTrigger: 'li',
-            subMenu: 'ul'
+                toggle: true,
+                preventDefault: true,
+                activeClass: 'active',
+                collapseClass: 'collapse',
+                collapseInClass: 'in',
+                collapsingClass: 'collapsing',
+                triggerElement: 'a',
+                parentTrigger: 'li',
+                subMenu: 'ul'
         };
         var Event = {
             SHOW: "show" + EVENT_KEY,
@@ -133,7 +133,6 @@ define(['exports', 'jquery'], function(exports, $) {
                     $$$1(this.element).find(conf.parentTrigger + "." + conf.activeClass).has(conf.subMenu).children(conf.subMenu).addClass(conf.collapseClass + " " + conf.collapseInClass);
                     $$$1(this.element).find(conf.parentTrigger).not("." + conf.activeClass).has(conf.subMenu).children(conf.subMenu).addClass(conf.collapseClass);
                     $$$1(this.element).find(conf.parentTrigger).has(conf.subMenu).children(conf.triggerElement).on(Event.CLICK_DATA_API, function (e) {
-                        // eslint-disable-line func-names
                         var eTar = $$$1(this);
                         var paRent = eTar.parent(conf.parentTrigger);
                         var sibLings = paRent.siblings(conf.parentTrigger).children(conf.triggerElement);
@@ -259,6 +258,7 @@ define(['exports', 'jquery'], function(exports, $) {
                     this.element = null;
                 };
 
+
                 MetisMenu.jQueryInterface = function jQueryInterface(config) {
                     return this.each(function () {
                         var $this = $$$1(this);
@@ -266,22 +266,22 @@ define(['exports', 'jquery'], function(exports, $) {
 
                         var conf = _objectSpread({}, Default, $this.data(), typeof config === 'object' && config ? config : {});
 
-                        if (!data && /dispose/.test(config)) {
-                            this.dispose();
-                        }
-
-                        if (!data) {
-                            data = new MetisMenu(this, conf);
-                            $this.data(DATA_KEY, data);
-                        }
-
-                        if (typeof config === 'string') {
-                            if (data[config] === undefined) {
-                                throw new Error("No method named \"" + config + "\"");
+                            if (!data && /dispose/.test(config)) {
+                                this.dispose();
                             }
 
-                            data[config]();
-                        }
+                            if (!data) {
+                                data = new MetisMenu(this, conf);
+                                $this.data(DATA_KEY, data);
+                            }
+
+                            if (typeof config === 'string') {
+                                if (data[config] === undefined) {
+                                    throw new Error("No method named \"" + config + "\"");
+                                }
+
+                                data[config]();
+                            }
                     });
                 };
 
@@ -299,7 +299,6 @@ define(['exports', 'jquery'], function(exports, $) {
         };
 
         return MetisMenu;
-    }($);
-
+}($);
     exports.default = MetisMenu;
 });
