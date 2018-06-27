@@ -114,7 +114,7 @@ define(['exports', 'jquery'], function(exports, $) {
             HIDE: "hide" + EVENT_KEY,
             HIDDEN: "hidden" + EVENT_KEY,
             CLICK_DATA_API: "click" + EVENT_KEY + DATA_API_KEY
-        };
+    };
         var MetisMenu = function () {
             function MetisMenu(element, config) {
                 this.element = element;
@@ -297,7 +297,7 @@ define(['exports', 'jquery'], function(exports, $) {
 
         return MetisMenu;
 
-    }($);
+}($);
 
     exports.default = MetisMenu;
 });
