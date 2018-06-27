@@ -95,13 +95,8 @@ nav.navbar {
     ul.navbar-nav {
         padding-left: .75rem;
 
-        .nav-item + .nav-item {
-            margin-left: 1rem;
-        }
-
         li,
         .nav-item {
-            line-height: 70px;
             list-style-type: none;
 
             > a {
@@ -211,8 +206,7 @@ nav.navbar {
                 @extend .scale-up-show;
             }
 
-            .popover-region-toggle,
-            .lang-menu {
+            .popover-region-toggle {
                 width: inherit;
                 text-align: center;
                 color: $brand-primary;
@@ -220,18 +214,6 @@ nav.navbar {
                 padding-right: .8rem;
                 font-size: 19px;
                 line-height: 70px;
-            }
-
-            .lang-menu {
-                .dropdown-menu {
-                    @extend .scale-up-left;
-                }
-
-                &.open {
-                    .dropdown-menu {
-                        @extend .scale-up-left-show;
-                    }
-                }
             }
 
             .popover-region-toggle {
@@ -268,32 +250,58 @@ nav.navbar {
                     }
                 }
             }
+        }
 
-            .lang-menu {
-                .nav-link {
-                    padding-top: 0;
-                    color: $brand-primary;
+        .lang-menu {
+            padding-left: .8rem;
 
-                    i.fa {
-                        font-size: 1.4rem;
-                    }
+            .nav-item {
+                line-height: 70px;
+            }
+
+            .dropdown-menu {
+                @extend .scale-up-right;
+
+                right: 0;
+                left: inherit;
+
+                &.show {
+                    @extend .scale-up-right-show;
                 }
+            }
 
-                .dropdown-menu {
-                    margin-top: 0;
-                    padding: 0;
+            .dropdown-toggle::after {
+                border: none;
+            }
 
-                    a.dropdown-item {
-                        line-height: 32px;
-                    }
+            .nav-link {
+                padding-top: 0;
+                color: $brand-primary;
+
+                .icon-globe {
+                    font-size: 19px;
+                }
+            }
+
+            .dropdown-menu {
+                margin-top: 0;
+                padding: 0;
+
+                a.dropdown-item {
+                    line-height: 32px;
                 }
             }
         }
 
         .usermenu {
+            line-height: 70px;
+            padding-left: .2rem;
+
             .dropdown {
                 .dropdown-menu {
                     @extend .scale-up;
+                    margin-top: 0;
+
                     .dropdown-item {
                         &.text-username {
                             text-overflow: ellipsis;
