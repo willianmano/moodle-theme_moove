@@ -284,43 +284,47 @@ function theme_moove_delete_menuitems(\flat_navigation $flatnav) {
  * @param flat_navigation $flatnav
  */
 function theme_moove_rebuildcoursesections(\flat_navigation $flatnav) {
+    global $PAGE;
+
     $participantsitem = $flatnav->find('participants', \navigation_node::TYPE_CONTAINER);
 
     if (!$participantsitem) {
         return;
     }
 
-    $coursesectionsoptions = [
-        'text' => get_string('coursesections', 'theme_moove'),
-        'shorttext' => get_string('coursesections', 'theme_moove'),
-        'icon' => new pix_icon('t/viewdetails', ''),
-        'type' => \navigation_node::COURSE_CURRENT,
-        'key' => 'course-sections',
-        'parent' => $participantsitem->parent
-    ];
+    if ($PAGE->course->format != 'singleactivity') {
+        $coursesectionsoptions = [
+            'text' => get_string('coursesections', 'theme_moove'),
+            'shorttext' => get_string('coursesections', 'theme_moove'),
+            'icon' => new pix_icon('t/viewdetails', ''),
+            'type' => \navigation_node::COURSE_CURRENT,
+            'key' => 'course-sections',
+            'parent' => $participantsitem->parent
+        ];
 
-    $coursesections = new \flat_navigation_node($coursesectionsoptions, 0);
+        $coursesections = new \flat_navigation_node($coursesectionsoptions, 0);
 
-    foreach ($flatnav as $item) {
-        if ($item->type == \navigation_node::TYPE_SECTION) {
-            $coursesections->add_node(new \navigation_node([
-                'text' => $item->text,
-                'shorttext' => $item->shorttext,
-                'icon' => $item->icon,
-                'type' => $item->type,
-                'key' => $item->key,
-                'parent' => $coursesections
-            ]));
+        foreach ($flatnav as $item) {
+            if ($item->type == \navigation_node::TYPE_SECTION) {
+                $coursesections->add_node(new \navigation_node([
+                    'text' => $item->text,
+                    'shorttext' => $item->shorttext,
+                    'icon' => $item->icon,
+                    'type' => $item->type,
+                    'key' => $item->key,
+                    'parent' => $coursesections
+                ]));
+            }
         }
-    }
 
-    $flatnav->add($coursesections, $participantsitem->key);
+        $flatnav->add($coursesections, $participantsitem->key);
+    }
 
     $mycourses = $flatnav->find('mycourses', \navigation_node::NODETYPE_LEAF);
 
     if ($mycourses) {
         $flatnav->remove($mycourses->key);
 
-        $flatnav->add($mycourses, 'myhome');
+        $flatnav->add($mycourses, 'privatefiles');
     }
 }
