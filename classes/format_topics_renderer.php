@@ -143,6 +143,14 @@ class theme_moove_format_topics_renderer extends format_topics_renderer {
         $canviewhidden = has_capability('moodle/course:viewhiddensections', context_course::instance($course->id))
             or !$course->hiddensections;
 
+        // RTL support.
+        if (right_to_left()) {
+            $arrowleft = 'right';
+            $arrowright = 'left';
+        } else {
+            $arrowleft = 'left';
+            $arrowright = 'right';
+        }
         $links = array('previous' => '', 'next' => '');
         $back = $sectionno - 1;
         while ($back > 0 and empty($links['previous'])) {
@@ -151,7 +159,7 @@ class theme_moove_format_topics_renderer extends format_topics_renderer {
                 if (!$sections[$back]->visible) {
                     $params = array('class' => 'dimmed_text');
                 }
-                $previouslink = html_writer::tag('span', '<i class="icon-arrow-left"></i>', array('class' => 'larrow'));
+                $previouslink = html_writer::tag('span', '<i class="icon-arrow-'.$arrowleft.'"></i>', array('class' => 'larrow'));
                 $previouslink .= "<span class='text'><span class='nav_guide'>".get_string('prev_section', 'theme_moove')."</span>";
                 $previouslink .= "<br>" . get_section_name($course, $sections[$back])."</span>";
                 $links['previous'] = html_writer::link(course_get_url($course, $back), $previouslink, $params);
@@ -169,7 +177,7 @@ class theme_moove_format_topics_renderer extends format_topics_renderer {
                 }
                 $nextlink = "<span class='text'><span class='nav_guide'>".get_string('next_section', 'theme_moove')."</span><br>";
                 $nextlink .= get_section_name($course, $sections[$forward])."</span>";
-                $nextlink .= html_writer::tag('span', '<i class="icon-arrow-right"></i>', array('class' => 'rarrow'));
+                $nextlink .= html_writer::tag('span', '<i class="icon-arrow-'.$arrowright.'"></i>', array('class' => 'rarrow'));
                 $links['next'] = html_writer::link(course_get_url($course, $forward), $nextlink, $params);
             }
             $forward++;
