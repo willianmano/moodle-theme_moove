@@ -1,4 +1,7 @@
 #page-navbar {
+    .page-header-headings h1 {
+        font-size: 1.34375rem;
+    }
     .breadcrumb {
         padding: 0.5em 1em;
         background-color: $body-bg;
@@ -33,7 +36,6 @@
             }
         }
     }
-
     .breadcrumb li:last-of-type::after {
         /* hide separator after the last item */
         display: none;

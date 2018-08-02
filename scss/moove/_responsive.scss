@@ -16,45 +16,48 @@
       font-size: .7375rem;
   }
 
-  .page-header-headings h1 {
-    font-size: 1.34375rem;
-  }
-
   #nav-drawer .metismenu .has-arrow {
     display: none !important;
   }
 
   #page-site-index.notloggedin {
-    .usermenu {
-      display: none;
-    }
-
     #page-header {
       padding-top: 0;
       margin-top: 0;
       background-color: #fff;
       min-height: inherit;
-
-      #loginbox {
-        margin-bottom: 0;
-        position: relative;
-        display: inline-block;
-        right: 0;
-        top: 0;
-        padding-left: 15px;
-        padding-right: 15px;
-        width: 100%;
-
-        #boxForm {
-          float: left;
-          width: 100%;
-          margin-top: 0;
-        }
-      }
     }
 
     .frontpage-marketing {
       margin-top: 0;
+
+      .col-md-3 {
+        margin-bottom: 1rem;
+      }
+    }
+
+    #frontpage-course-list .frontpage-course-list-all .col-md-3 {
+      margin-bottom: 1rem;
+    }
+
+    .frontpage-numbers {
+      padding: 2em 0;
+
+      h2 {
+        text-align: center;
+      }
+
+      .number {
+        hr {
+          display: none !important;
+        }
+
+        p {
+          margin-bottom: 1em !important;
+          padding-bottom: 1em !important;
+          border-bottom: solid 1px #fff;
+        }
+      }
     }
   }
 
@@ -152,14 +155,30 @@
   }
 
   #page-login-index.moove-login {
-    .loginpanel .instructions {
-      border-top-right-radius: $m-login-padding;
-      -webkit-border-top-right-radius:  $m-login-padding;
-      -moz-border-radius-topright: $m-login-padding;
+    #page {
+      padding: 0;
 
-      border-top-left-radius: $m-login-padding;
-      -webkit-border-top-left-radius:  $m-login-padding;
-      -moz-border-radius-topleft: $m-login-padding;
+      #region-main-box {
+        padding: 0;
+
+        .loginpanel {
+          .instructions {
+            border-top-right-radius: $m-login-padding;
+            -webkit-border-top-right-radius: $m-login-padding;
+            -moz-border-radius-topright: $m-login-padding;
+            border-top-left-radius: $m-login-padding;
+            -webkit-border-top-left-radius: $m-login-padding;
+            -moz-border-radius-topleft: $m-login-padding;
+            padding: 20px 15px;
+            min-height: inherit;
+          }
+
+          .form {
+            height: inherit;
+            max-height: inherit;
+          }
+        }
+      }
     }
   }
 }

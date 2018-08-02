@@ -12,8 +12,6 @@
     }
 }
 
-
-
 #page-site-index #mooveslideshow {
     margin: 1rem 0;
 
@@ -26,6 +24,7 @@
         li {
             width: 30px;
             height: 10px;
+            border: 1px solid $brand-primary;
         }
     }
 
@@ -71,6 +70,14 @@
         display: none;
         opacity: 0;
         visibility: hidden;
+    }
+
+    .btn-login-top {
+        -webkit-border-radius: 20px;
+        -moz-border-radius: 20px;
+        border-radius: 20px;
+        color: $brand-primary;
+        border: 1px solid $brand-primary;
     }
 
     #page-header {
@@ -200,6 +207,10 @@
         .card {
             text-align: center;
             min-height: 300px;
+
+            img {
+              max-width: 100%;
+            }
 
             h2 {
                 color: #565656;
