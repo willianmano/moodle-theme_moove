@@ -143,14 +143,15 @@ class theme_moove_format_topics_renderer extends format_topics_renderer {
         $canviewhidden = has_capability('moodle/course:viewhiddensections', context_course::instance($course->id))
             or !$course->hiddensections;
 
+        $arrowleft = 'left';
+        $arrowright = 'right';
+
         // RTL support.
         if (right_to_left()) {
             $arrowleft = 'right';
             $arrowright = 'left';
-        } else {
-            $arrowleft = 'left';
-            $arrowright = 'right';
         }
+
         $links = array('previous' => '', 'next' => '');
         $back = $sectionno - 1;
         while ($back > 0 and empty($links['previous'])) {

@@ -148,3 +148,19 @@
         }
     }
 }
+
+.dir-rtl #page-navbar .breadcrumb li::after {
+    -webkit-transform: translateX(-4px);
+    -moz-transform: translateX(-4px);
+    -ms-transform: translateX(-4px);
+    -o-transform: translateX(-4px);
+    transform: translateX(-4px);
+    border-right-color: #fff;
+}
+
+.dir-rtl #page-navbar .breadcrumb li::after,
+.dir-rtl #page-navbar .breadcrumb li>*::after {
+    left: 95%;
+    border-right-width: 12px;
+    border-left-width: 0px;
+}
