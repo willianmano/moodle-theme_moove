@@ -224,6 +224,21 @@
       font-size: 1.6rem;
     }
   }
+
+  #page-course-view-topics {
+    .course-content {
+      .topics {
+        .card {
+          .pgr-img {
+            display: none !important;
+          }
+          .pgr-content {
+            width: 100% !important;
+          }
+        }
+      }
+    }
+  }
 }
 
 @media (min-width: 992px) {
