@@ -679,7 +679,7 @@ class core_renderer extends \theme_boost\output\core_renderer {
                 $txt = get_string('profiledscript', 'admin');
                 $title = get_string('profiledscriptview', 'admin');
                 $url = $CFG->wwwroot . '/admin/tool/profiling/index.php?script=' . urlencode($SCRIPT);
-                $link= '<a title="' . $title . '" href="' . $url . '">' . $txt . '</a>';
+                $link = '<a title="' . $title . '" href="' . $url . '">' . $txt . '</a>';
                 $output .= '<div class="profilingfooter">' . $link . '</div>';
             }
             $purgeurl = new moodle_url('/admin/purgecaches.php', array('confirm' => 1,
