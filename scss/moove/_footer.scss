@@ -62,6 +62,12 @@
             }
         }
     }
+
+    .plugins_standard_footer_html {
+        .mobilefooter a.btn {
+            white-space: inherit;
+        }
+    }
 }
 
 #page-footer {
@@ -87,5 +93,9 @@
     }
     .madeby {
         font-size: 14px;
+
+        a {
+            color: #fff;
+        }
     }
 }

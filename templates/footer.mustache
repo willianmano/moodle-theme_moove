@@ -83,6 +83,8 @@
                 </li>
               {{/instagram}}
           </ul>
+
+          {{{ output.standard_footer_html }}}
         </div>
     </div>
   </div>
@@ -93,10 +95,6 @@
       <div class="container-fluid">
           <div id="course-footer">{{{ output.course_footer }}}</div>
 
-          {{# output.page_doc_link }}
-              <p class="helplink">{{{ output.page_doc_link }}}</p>
-          {{/ output.page_doc_link }}
-
           <div class="madewithmoodle">
               <p>{{#str}}madewitmoodle, theme_moove{{/str}}</p>
               <a href="https://moodle.org"><img src="{{output.get_pix_image_url_base}}/moodle-logo-white.png" alt="Moodle logo"></a>
@@ -105,15 +103,6 @@
           <div class="madeby">
               <p>{{#str}}madeby, theme_moove{{/str}} <i class="text-danger fa fa-heart"></i> {{#str}}by, theme_moove{{/str}} <a href="http://conecti.me">conecti.me</a></p>
           </div>
-
-          <nav class="nav navbar-nav hidden-lg-up">
-              {{# output.custom_menu_flat }}
-                  <ul class="list-unstyled p-t-1">
-                      {{> theme_moove/custom_menu_footer }}
-                  </ul>
-              {{/ output.custom_menu_flat }}
-          </nav>
-          {{{ output.standard_footer_html }}}
       </div>
   </footer>
 {{/disablebottomfooter}}
