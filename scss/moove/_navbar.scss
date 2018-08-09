@@ -92,9 +92,13 @@ nav.navbar {
         }
     }
 
-    ul.navbar-nav {
-        padding-left: .75rem;
+    .custom-menus {
+        li {
+            padding-left: .75rem;
+        }
+    }
 
+    ul.navbar-nav {
         li,
         .nav-item {
             list-style-type: none;
