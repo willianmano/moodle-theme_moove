@@ -85,7 +85,6 @@
           }
 
           &:hover {
-            width: 260px;
             background-color: $navbar-bg-hover;
 
             &[data-key="mycourses"] {
@@ -93,11 +92,7 @@
             }
 
             a .text {
-              display: inline-block;
-            }
-
-            .text {
-              margin-left: 4px;
+              display: none;
             }
 
             > ul {
