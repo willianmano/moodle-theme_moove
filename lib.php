@@ -312,7 +312,8 @@ function theme_moove_rebuildcoursesections(\flat_navigation $flatnav) {
                     'icon' => $item->icon,
                     'type' => $item->type,
                     'key' => $item->key,
-                    'parent' => $coursesections
+                    'parent' => $coursesections,
+                    'action' => $item->action
                 ]));
             }
         }
