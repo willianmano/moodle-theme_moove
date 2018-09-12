@@ -324,3 +324,17 @@ nav.navbar {
         }
     }
 }
+
+.userloggedinas {
+    nav.navbar ul.navbar-nav .usermenu {
+        line-height: 35px;
+
+        .usertext .meta.viewingas {
+            line-height: initial;
+        }
+
+        .userbutton .avatars .realuser {
+            padding-top: 10px;
+        }
+    }
+}
