@@ -177,7 +177,6 @@
     }
   }
 }
-
 @media (min-width: 768px) {
   body {
     margin-left: 55px;
@@ -202,6 +201,9 @@
       border-top-left-radius: $m-login-padding;
       border-bottom-left-radius: $m-login-padding;
     }
+  }
+  .card-deck .card {
+    flex-basis: calc(25% - 30px);
   }
 }
 
