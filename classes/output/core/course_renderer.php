@@ -340,8 +340,7 @@ class course_renderer extends \core_course_renderer {
      * @return moodle_url
      * @throws \coding_exception
      */
-    protected function get_user_picture($userobject = null, $imgsize = 100)
-    {
+    protected function get_user_picture($userobject = null, $imgsize = 100) {
         global $USER, $PAGE;
 
         if (!$userobject) {
