@@ -229,10 +229,10 @@ class course_renderer extends \core_course_renderer {
 
         // Course name.
         $coursename = $chelper->get_course_formatted_name($course);
-        $coursenamelink = html_writer::link(new moodle_url('/course/view.php', array('id' => $course->id)),
-            $coursename, array('class' => $course->visible ? '' : 'dimmed'));
+        $courselink = new moodle_url('/course/view.php', array('id' => $course->id));
+        $coursenamelink = html_writer::link($courselink, $coursename, array('class' => $course->visible ? '' : 'dimmed'));
 
-        $content = $this->get_course_summary_image($course);
+        $content = $this->get_course_summary_image($course, $courselink);
 
         // Course instructors.
         if ($course->has_course_contacts()) {
@@ -302,7 +302,7 @@ class course_renderer extends \core_course_renderer {
      * @param stdClass $course the course object
      * @return string
      */
-    protected function get_course_summary_image($course) {
+    protected function get_course_summary_image($course, $courselink) {
         global $CFG;
 
         $contentimage = '';
@@ -312,8 +312,10 @@ class course_renderer extends \core_course_renderer {
                 '/'. $file->get_contextid(). '/'. $file->get_component(). '/'.
                 $file->get_filearea(). $file->get_filepath(). $file->get_filename(), !$isimage);
             if ($isimage) {
-                $contentimage = html_writer::empty_tag('img', array('src' => $url, 'alt' => 'Course Image '. $course->fullname,
-                    'class' => 'card-img-top w-100'));
+                $contentimage = html_writer::link($courselink, html_writer::empty_tag('img', array(
+                    'src' => $url,
+                    'alt' => $course->fullname,
+                    'class' => 'card-img-top w-100')));
                 break;
             }
         }
@@ -321,8 +323,10 @@ class course_renderer extends \core_course_renderer {
         if (empty($contentimage)) {
             $url = $CFG->wwwroot . "/theme/moove/pix/default_course.jpg";
 
-            $contentimage = html_writer::empty_tag('img', array('src' => $url, 'alt' => 'Course Image '. $course->fullname,
-                'class' => 'card-img-top w-100'));
+            $contentimage = html_writer::link($courselink, html_writer::empty_tag('img', array(
+                'src' => $url,
+                'alt' => $course->fullname,
+                'class' => 'card-img-top w-100')));
         }
 
         return $contentimage;
