@@ -202,8 +202,13 @@
       border-bottom-left-radius: $m-login-padding;
     }
   }
+
   .card-deck .card {
     flex-basis: calc(25% - 30px);
+  }
+
+  .pagelayout-mydashboard .card-deck .card {
+    flex-basis: calc(33% - 30px);
   }
 }
 
