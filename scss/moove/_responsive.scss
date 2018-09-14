@@ -151,6 +151,37 @@
   }
 }
 
+.card-deck {
+  display: flex;
+  flex-direction: column;
+  width: initial;
+
+  .card {
+    margin-bottom: $card-deck-margin;
+  }
+
+  @include media-breakpoint-up(sm) {
+    flex-flow: row wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+
+    .card {
+      display: flex;
+      flex: 1 0 0%;
+      flex-direction: column;
+      margin-right: 15px;;
+      margin-bottom: 2rem;
+      margin-left: 15px;;
+      flex-grow: 0;
+      flex-shrink: 0;
+
+      .card-body {
+        flex: 1 1 auto;
+      }
+    }
+  }
+}
+
 @media (min-width: 768px) {
   body {
     margin-left: 55px;
@@ -192,6 +223,12 @@
       font-size: 1.6rem;
     }
   }
+
+  .card-deck {
+    .card {
+      flex-basis: calc(50% - 30px);
+    }
+  }
 }
 
 @media (min-width: 992px) {
@@ -201,6 +238,12 @@
 
   #page-site-index.slideshow #mooveslideshow .carousel-indicators {
     bottom: 80px;
+  }
+
+  .card-deck {
+    .card {
+      flex-basis: calc(25% - 30px);
+    }
   }
 }
 

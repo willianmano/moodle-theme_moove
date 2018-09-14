@@ -1,14 +1,28 @@
 #frontpage-course-list {
     h2 {
         text-align: center;
-        color: $brand-primary;
-        margin-bottom: 2rem;
     }
 
-    .courses .card .teachers ul {
-        list-style: none;
-        margin-bottom: 0;
-        padding-left: 0;
+    .frontpage-course-list-all {
+        .card-deck .card .card-footer .icon {
+            height: 36px;
+        }
+
+        .course-contacts {
+            margin: -30px 6px -20px 6px;
+            text-align: right;
+
+            .contact {
+                margin: 0 3px;
+
+                img {
+                    width: 48px;
+                    border: 2px solid white;
+                    cursor: pointer;
+                    border-radius: 50%;
+                }
+            }
+        }
     }
 }
 
