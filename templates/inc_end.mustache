@@ -28,6 +28,10 @@ require(['theme_boost/drawer'], function(mod) {
     mod.init();
 });
 
+require(['theme_moove/metismenu', 'jquery'], function(metisMenu, $) {
+    $(".metismenu").metisMenu();
+});
+
 require([], function() {
     var iconsearch = document.querySelector('.moove-search-input .icon-magnifier');
     var btnclosesearch = document.querySelector('.search-input-form .close-search');

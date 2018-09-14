@@ -11,6 +11,14 @@
     display: none;
   }
 
+  h1 {
+    font-size: 1.634375rem;
+  }
+
+  #nav-drawer .metismenu .has-arrow {
+    display: none !important;
+  }
+
   #page-site-index.notloggedin {
     .usermenu {
       display: none;
