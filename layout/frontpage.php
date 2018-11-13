@@ -123,7 +123,8 @@ if (isloggedin()) {
         'sliderfrontpage' => $sliderfrontpage,
         'numbersfrontpage' => $numbersfrontpage,
         'sponsorsfrontpage' => $sponsorsfrontpage,
-        'clientsfrontpage' => $clientsfrontpage
+        'clientsfrontpage' => $clientsfrontpage,
+        'logintoken' => \core\session\manager::get_login_token()
     ];
 
     $templatecontext = array_merge($templatecontext, $themesettings->footer_items(), $themesettings->marketing_items());
