@@ -205,6 +205,8 @@
 
   .card-deck .card {
     flex-basis: calc(25% - 30px);
+    flex-shrink: 0;
+    flex-grow: 0;
   }
 
   .pagelayout-mydashboard .card-deck .card {
