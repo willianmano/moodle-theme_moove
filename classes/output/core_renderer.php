@@ -25,12 +25,9 @@
 namespace theme_moove\output;
 
 use html_writer;
-use custom_menu_item;
 use custom_menu;
 use action_menu_filler;
 use action_menu_link_secondary;
-use navigation_node;
-use action_link;
 use stdClass;
 use moodle_url;
 use action_menu;
@@ -39,6 +36,7 @@ use theme_config;
 use core_text;
 use help_icon;
 use context_system;
+use core_course_list_element;
 
 defined('MOODLE_INTERNAL') || die;
 
@@ -591,9 +589,7 @@ class core_renderer extends \theme_boost\output\core_renderer {
 
         $course = $DB->get_record('course', ['id' => $COURSE->id]);
 
-        require_once($CFG->libdir. '/coursecatlib.php');
-
-        $course = new \course_in_list($course);
+        $course = new core_course_list_element($course);
 
         $courseimage = '';
         $imageindex = 1;
