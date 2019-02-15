@@ -28,9 +28,24 @@
             <h3>{{#str}}stayintouch, theme_moove{{/str}}</h3>
             <h4>{{{getintouchcontent}}}</h4>
             <ul>
-                {{#website}}<li><i class="icon-globe"></i>{{{website}}}</li>{{/website}}
-                {{#mobile}}<li><i class="icon-phone"></i>{{{mobile}}}</li>{{/mobile}}
-                {{#mail}}<li><i class="icon-envelope"></i>{{{mail}}}</li>{{/mail}}
+                {{#website}}
+                    <li>
+                        <i class="icon-globe"></i>
+                        <a href="{{{website}}}" target="_blank">{{{website}}}</a>
+                    </li>
+                {{/website}}
+                {{#mobile}}
+                    <li>
+                        <i class="icon-phone"></i>
+                        <a href="tel:{{{mobile}}}">{{{mobile}}}</a>
+                    </li>
+                {{/mobile}}
+                {{#mail}}
+                    <li>
+                        <i class="icon-envelope"></i>
+                        <a href="mailto:{{{mail}}}">{{{mail}}}</a>
+                    </li>
+                {{/mail}}
             </ul>
         </div>
         <div class="col-md-5 social">
