@@ -19,7 +19,11 @@
         i {
             margin-right: 3px;
             min-width: 20px;
-            text-align: center;
+        }
+
+        a, i {
+            display: inline-block;
+            vertical-align: middle;
         }
     }
 
