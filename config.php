@@ -123,4 +123,10 @@ $THEME->layouts = [
         'file' => 'maintenance.php',
         'regions' => array(),
     ),
+    'mypublic' => array(
+        'file' => 'mypublic.php',
+        'regions' => array('side-pre'),
+        'defaultregion' => 'side-pre',
+        'options' => array('nonavbar' => false, 'langmenu' => true),
+    ),
 ];

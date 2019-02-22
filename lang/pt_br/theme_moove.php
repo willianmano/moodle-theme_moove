@@ -227,3 +227,11 @@ $string['forumcustomtemplate'] = 'Habilitar o template para os emails dos fórun
 $string['forumcustomtemplatedesc'] = 'Marque para habilitar um template mais agradável para os emails das mensagens dos fóruns. Se não habilitado o formato padrão para os emails será utilizado.';
 
 $string['coursesections'] = 'Seções do curso';
+
+// Mypublic page.
+$string['userprofile'] = 'Meu perfil';
+$string['competencyplans'] = 'Planos de aprendizagem';
+$string['details'] = 'Detalhes';
+$string['notenrolledincourses'] = 'Você ainda não está inscrito em um curso.';
+$string['startedon'] = 'Iniciado em';
+$string['notcompetencyplans'] = 'Não existem planos de aprendizagem atribuidos para você até o momento.';

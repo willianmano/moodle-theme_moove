@@ -51,6 +51,7 @@ Pages
     }
 }
 
+.pagelayout-mypublic,
 .pagelayout-mydashboard,
 .pagelayout-frontpage,
 .pagelayout-standard,
@@ -108,4 +109,29 @@ h6,
 
 .popover .arrow {
     bottom: -8px;
+}
+
+
+/*******************
+Progress
+*******************/
+.progress {
+    height: 20px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    background-color: $body-bg;
+    margin-left: 12px;
+    width: inherit;
+
+    .progress-bar {
+        float: left;
+        width: 0;
+        height: 100%;
+        font-size: 12px;
+        line-height: 20px;
+        color: #fff;
+        text-align: center;
+        background-color: $brand-primary;
+        overflow: hidden;
+    }
 }

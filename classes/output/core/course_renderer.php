@@ -32,6 +32,7 @@ use core_course_category;
 use coursecat_helper;
 use stdClass;
 use core_course_list_element;
+use theme_moove\util\extras;
 
 /**
  * Renderers to align Moove's course elements to what is expect
@@ -235,7 +236,7 @@ class course_renderer extends \core_course_renderer {
         $courselink = new moodle_url('/course/view.php', array('id' => $course->id));
         $coursenamelink = html_writer::link($courselink, $coursename, array('class' => $course->visible ? '' : 'dimmed'));
 
-        $content = $this->get_course_summary_image($course, $courselink);
+        $content = extras::get_course_summary_image($course, $courselink);
 
         // Course instructors.
         if ($course->has_course_contacts()) {
@@ -245,7 +246,7 @@ class course_renderer extends \core_course_renderer {
             foreach ($instructors as $key => $instructor) {
                 $name = $instructor['username'];
                 $url = $CFG->wwwroot.'/user/profile.php?id='.$key;
-                $picture = $this->get_user_picture($DB->get_record('user', array('id' => $key)));
+                $picture = extras::get_user_picture($DB->get_record('user', array('id' => $key)));
 
                 $content .= "<a href='{$url}' class='contact' data-toggle='tooltip' title='{$name}'>";
                 $content .= "<img src='{$picture}' class='rounded-circle' alt='{$name}'/>";
@@ -297,63 +298,5 @@ class course_renderer extends \core_course_renderer {
         }
 
         return $content;
-    }
-
-    /**
-     * Returns the first course's summary issue
-     *
-     * @param stdClass $course the course object
-     * @return string
-     */
-    protected function get_course_summary_image($course, $courselink) {
-        global $CFG;
-
-        $contentimage = '';
-        foreach ($course->get_course_overviewfiles() as $file) {
-            $isimage = $file->is_valid_image();
-            $url = file_encode_url("$CFG->wwwroot/pluginfile.php",
-                '/'. $file->get_contextid(). '/'. $file->get_component(). '/'.
-                $file->get_filearea(). $file->get_filepath(). $file->get_filename(), !$isimage);
-            if ($isimage) {
-                $contentimage = html_writer::link($courselink, html_writer::empty_tag('img', array(
-                    'src' => $url,
-                    'alt' => $course->fullname,
-                    'class' => 'card-img-top w-100')));
-                break;
-            }
-        }
-
-        if (empty($contentimage)) {
-            $url = $CFG->wwwroot . "/theme/moove/pix/default_course.jpg";
-
-            $contentimage = html_writer::link($courselink, html_writer::empty_tag('img', array(
-                'src' => $url,
-                'alt' => $course->fullname,
-                'class' => 'card-img-top w-100')));
-        }
-
-        return $contentimage;
-    }
-
-    /**
-     * Get the user profile pic
-     *
-     * @param null $userobject
-     * @param int $imgsize
-     * @return moodle_url
-     * @throws \coding_exception
-     */
-    protected function get_user_picture($userobject = null, $imgsize = 100) {
-        global $USER, $PAGE;
-
-        if (!$userobject) {
-            $userobject = $USER;
-        }
-
-        $userimg = new \user_picture($userobject);
-
-        $userimg->size = $imgsize;
-
-        return  $userimg->get_url($PAGE);
     }
 }

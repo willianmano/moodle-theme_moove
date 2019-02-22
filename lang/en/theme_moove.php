@@ -227,3 +227,11 @@ $string['forumcustomtemplate'] = 'Use a pretty template for forum mails';
 $string['forumcustomtemplatedesc'] = 'Enable that in order to use a pretty template when sending forum messages via email. If not enabled standard formatting of forum mails will be used.';
 
 $string['coursesections'] = 'Course sections';
+
+// Mypublic page.
+$string['userprofile'] = 'User profile';
+$string['competencyplans'] = 'Competency plans';
+$string['details'] = 'Details';
+$string['notenrolledincourses'] = 'You are not enrolled in any course yet.';
+$string['startedon'] = 'Started on';
+$string['notcompetencyplans'] = 'There is no one competency plan to you yet.';
