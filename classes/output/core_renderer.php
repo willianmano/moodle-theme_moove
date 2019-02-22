@@ -530,7 +530,7 @@ class core_renderer extends \theme_boost\output\core_renderer {
         $this->page->requires->js_call_amd('core/search-input', 'init', array($identifier));
 
         $iconattrs = array(
-                        'class' => 'icon-magnifier',
+                        'class' => 'slicon-magnifier',
                         'title' => get_string('search', 'search'),
                         'aria-label' => get_string('search', 'search'),
                         'aria-hidden' => 'true');
@@ -701,7 +701,7 @@ class core_renderer extends \theme_boost\output\core_renderer {
         $output = '';
         if (!empty($CFG->enablemobilewebservice) && $url = tool_mobile_create_app_download_url()) {
             $url = html_writer::link($url,
-                                "<i class='icon-screen-smartphone'></i> ".get_string('getmoodleonyourmobile', 'tool_mobile'),
+                                "<i class='slicon-screen-smartphone'></i> ".get_string('getmoodleonyourmobile', 'tool_mobile'),
                                      ['class' => 'btn btn-primary']);
 
             $output .= html_writer::div($url, 'mobilefooter mb-2');
