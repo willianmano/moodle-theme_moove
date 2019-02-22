@@ -9,7 +9,7 @@ module.exports = function(grunt) {
     var path = require('path'),
         PWD = process.env.PWD || process.cwd();
 
-    var decachephp = "../../admin/cli/purge_caches.php";
+    var decachephp = "../../admin/cli/purge_caches.php --theme";
 
     var inAMD = path.basename(PWD) == 'amd';
 

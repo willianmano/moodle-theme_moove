@@ -44,8 +44,8 @@
 
     {{$togglelabel}}{{#str}} shownotificationwindownonew, message {{/str}}{{/togglelabel}}
     {{$togglecontent}}
-        <i class="icon-bell" title="{{#str}} togglenotificationmenu, message {{/str}}"></i>
-        <div class="count-container hidden" data-region="count-container"></div>
+        <i class="slicon-bell" title="{{#str}} togglenotificationmenu, message {{/str}}"></i>
+        <div class="count-container {{^unreadcount}}hidden{{/unreadcount}}" data-region="count-container">{{unreadcount}}</div>
     {{/togglecontent}}
 
     {{$containerlabel}}{{#str}} notificationwindow, message {{/str}}{{/containerlabel}}
@@ -59,7 +59,7 @@
                     title="{{#str}} markallread {{/str}}"
                     data-action="mark-all-read"
                     role="button">
-                    <span class="normal-icon"><i class="icon-check" alt="{{#str}} markallread {{/str}}"></i></span>
+                    <span class="normal-icon"><i class="slicon-check" alt="{{#str}} markallread {{/str}}"></i></span>
                     {{> core/loading }}
                 </a>
             {{/anchor}}
@@ -69,7 +69,7 @@
             {{$anchor}}
                 <a href="{{{urls.preferences}}}"
                     title="{{#str}} notificationpreferences, message {{/str}}">
-                    <i class="icon-settings" alt="{{#str}} notificationpreferences, message {{/str}}"></i>
+                    <i class="slicon-settings" alt="{{#str}} notificationpreferences, message {{/str}}"></i>
                 </a>
             {{/anchor}}
             {{$tooltip}}{{#str}} notificationpreferences, message {{/str}}{{/tooltip}}

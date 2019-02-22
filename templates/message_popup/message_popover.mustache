@@ -44,8 +44,8 @@
 
     {{$togglelabel}}{{#str}} showmessagewindownonew, message {{/str}}{{/togglelabel}}
     {{$togglecontent}}
-        <i class="icon-bubble" title="{{#str}} togglemessagemenu, message {{/str}}"></i>
-        <div class="count-container hidden" data-region="count-container"></div>
+        <i class="slicon-bubble" title="{{#str}} togglemessagemenu, message {{/str}}"></i>
+        <div class="count-container {{^unreadcount}}hidden{{/unreadcount}}" data-region="count-container">{{unreadcount}}</div>
     {{/togglecontent}}
 
     {{$containerlabel}}{{#str}} notificationwindow, message {{/str}}{{/containerlabel}}
@@ -65,7 +65,7 @@
                     role="button"
                     title="{{#str}} markallread {{/str}}"
                     data-action="mark-all-read">
-                    <span class="normal-icon"><i class="icon-check" alt="{{#str}} markallread {{/str}}"></i></span>
+                    <span class="normal-icon"><i class="slicon-check" alt="{{#str}} markallread {{/str}}"></i></span>
                     {{> core/loading }}
                 </a>
             {{/anchor}}
@@ -75,7 +75,7 @@
             {{$anchor}}
                 <a href="{{{urls.preferences}}}"
                     title="{{#str}} messagepreferences, message {{/str}}">
-                    <i class="icon-settings" alt="{{#str}} messagepreferences, message {{/str}}"></i>
+                    <i class="slicon-settings" alt="{{#str}} messagepreferences, message {{/str}}"></i>
                 </a>
             {{/anchor}}
             {{$tooltip}}{{#str}} messagepreferences, message {{/str}}{{/tooltip}}

@@ -115,6 +115,24 @@ if ($ADMIN->fulltree) {
     $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
 
+    // Variable $navbar-bg.
+    // We use an empty default value because the default colour should come from the preset.
+    $name = 'theme_moove/navbarbg';
+    $title = get_string('navbarbg', 'theme_moove');
+    $description = get_string('navbarbg_desc', 'theme_moove');
+    $setting = new admin_setting_configcolourpicker($name, $title, $description, '');
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $page->add($setting);
+
+    // Variable $navbar-bg-hover.
+    // We use an empty default value because the default colour should come from the preset.
+    $name = 'theme_moove/navbarbghover';
+    $title = get_string('navbarbghover', 'theme_moove');
+    $description = get_string('navbarbghover_desc', 'theme_moove');
+    $setting = new admin_setting_configcolourpicker($name, $title, $description, '');
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $page->add($setting);
+
     // Course format option.
     $name = 'theme_moove/coursepresentation';
     $title = get_string('coursepresentation', 'theme_moove');
