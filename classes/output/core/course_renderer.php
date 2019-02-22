@@ -28,10 +28,10 @@ defined('MOODLE_INTERNAL') || die();
 
 use moodle_url;
 use html_writer;
-use coursecat;
+use core_course_category;
 use coursecat_helper;
 use stdClass;
-use course_in_list;
+use core_course_list_element;
 
 /**
  * Renderers to align Moove's course elements to what is expect
@@ -130,13 +130,13 @@ class course_renderer extends \core_course_renderer {
         }
 
         $coursecount = 1;
-        $content .= html_writer::start_tag('div', array('class' => 'card-deck'));
+        $content .= html_writer::start_tag('div', array('class' => 'card-deck mt-2'));
         foreach ($courses as $course) {
             $content .= $this->coursecat_coursebox($chelper, $course);
 
             if ($coursecount % 4 == 0) {
                 $content .= html_writer::end_tag('div');
-                $content .= html_writer::start_tag('div', array('class' => 'card-deck'));
+                $content .= html_writer::start_tag('div', array('class' => 'card-deck mt-2'));
             }
 
             $coursecount ++;
@@ -163,14 +163,14 @@ class course_renderer extends \core_course_renderer {
      * please use {@link core_course_renderer::course_info_box()}
      *
      * @param coursecat_helper $chelper various display options
-     * @param course_in_list|stdClass $course
+     * @param core_course_list_element|stdClass $course
      * @param string $additionalclasses additional classes to add to the main <div> tag (usually
      *    depend on the course position in list - first/last/even/odd)
      * @return string
+     *
+     * @throws \coding_exception
      */
     protected function coursecat_coursebox(coursecat_helper $chelper, $course, $additionalclasses = '') {
-        global $CFG;
-
         $theme = \theme_config::load('moove');
 
         if (!empty($theme->settings->courselistview)) {
@@ -184,8 +184,7 @@ class course_renderer extends \core_course_renderer {
             return '';
         }
         if ($course instanceof stdClass) {
-            require_once($CFG->libdir. '/coursecatlib.php');
-            $course = new course_in_list($course);
+            $course = new core_course_list_element($course);
         }
 
         $classes = trim('card');
@@ -216,15 +215,19 @@ class course_renderer extends \core_course_renderer {
      * This method is called from coursecat_coursebox() and may be re-used in AJAX
      *
      * @param coursecat_helper $chelper various display options
-     * @param stdClass|course_in_list $course
+     * @param stdClass|core_course_list_element $course
+     *
      * @return string
+     *
+     * @throws \coding_exception
+     * @throws \dml_exception
+     * @throws \moodle_exception
      */
     protected function coursecat_coursebox_content(coursecat_helper $chelper, $course) {
         global $CFG, $DB;
 
         if ($course instanceof stdClass) {
-            require_once($CFG->libdir. '/coursecatlib.php');
-            $course = new course_in_list($course);
+            $course = new core_course_list_element($course);
         }
 
         // Course name.
@@ -284,7 +287,7 @@ class course_renderer extends \core_course_renderer {
         // Display course category if necessary (for example in search results).
         if ($chelper->get_show_courses() == self::COURSECAT_SHOW_COURSES_EXPANDED_WITH_CAT) {
             require_once($CFG->libdir. '/coursecatlib.php');
-            if ($cat = coursecat::get($course->category, IGNORE_MISSING)) {
+            if ($cat = core_course_category::get($course->category, IGNORE_MISSING)) {
                 $content .= html_writer::start_tag('div', array('class' => 'coursecat'));
                 $content .= get_string('category').': '.
                     html_writer::link(new moodle_url('/course/index.php', array('categoryid' => $cat->id)),

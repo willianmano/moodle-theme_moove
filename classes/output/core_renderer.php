@@ -25,12 +25,9 @@
 namespace theme_moove\output;
 
 use html_writer;
-use custom_menu_item;
 use custom_menu;
 use action_menu_filler;
 use action_menu_link_secondary;
-use navigation_node;
-use action_link;
 use stdClass;
 use moodle_url;
 use action_menu;
@@ -39,6 +36,7 @@ use theme_config;
 use core_text;
 use help_icon;
 use context_system;
+use core_course_list_element;
 
 defined('MOODLE_INTERNAL') || die;
 
@@ -532,7 +530,7 @@ class core_renderer extends \theme_boost\output\core_renderer {
         $this->page->requires->js_call_amd('core/search-input', 'init', array($identifier));
 
         $iconattrs = array(
-                        'class' => 'icon-magnifier',
+                        'class' => 'slicon-magnifier',
                         'title' => get_string('search', 'search'),
                         'aria-label' => get_string('search', 'search'),
                         'aria-hidden' => 'true');
@@ -591,9 +589,7 @@ class core_renderer extends \theme_boost\output\core_renderer {
 
         $course = $DB->get_record('course', ['id' => $COURSE->id]);
 
-        require_once($CFG->libdir. '/coursecatlib.php');
-
-        $course = new \course_in_list($course);
+        $course = new core_course_list_element($course);
 
         $courseimage = '';
         $imageindex = 1;
@@ -705,7 +701,7 @@ class core_renderer extends \theme_boost\output\core_renderer {
         $output = '';
         if (!empty($CFG->enablemobilewebservice) && $url = tool_mobile_create_app_download_url()) {
             $url = html_writer::link($url,
-                                "<i class='icon-screen-smartphone'></i> ".get_string('getmoodleonyourmobile', 'tool_mobile'),
+                                "<i class='slicon-screen-smartphone'></i> ".get_string('getmoodleonyourmobile', 'tool_mobile'),
                                      ['class' => 'btn btn-primary']);
 
             $output .= html_writer::div($url, 'mobilefooter mb-2');

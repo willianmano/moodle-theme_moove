@@ -29,11 +29,38 @@ Pages
     }
 }
 
+#page-wrapper {
+    height: auto;
+}
+
+#region-main {
+    padding: 0;
+}
+
 #page-admin-index.pagelayout-maintenance {
     margin-left: 0;
 
+    #region-main {
+        border: 0;
+        background-color: initial;
+        padding: 1.25rem;
+    }
+
     #page-wrapper::after {
         min-height: inherit;
+    }
+}
+
+.pagelayout-mydashboard,
+.pagelayout-frontpage,
+.pagelayout-standard,
+.pagelayout-admin,
+.pagelayout-course,
+.pagelayout-incourse,
+.pagelayout-report {
+    #region-main {
+        padding: 0;
+        border: 0;
     }
 }
 

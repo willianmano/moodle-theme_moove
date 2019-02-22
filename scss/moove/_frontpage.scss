@@ -7,20 +7,20 @@
     .card-deck .card .card-footer .icon {
         height: 36px;
     }
+}
 
-    .course-contacts {
-        margin: -30px 6px -20px 6px;
-        text-align: right;
+.course-contacts {
+    margin: -30px 6px -20px 6px;
+    text-align: right;
 
-        .contact {
-            margin: 0 3px;
+    .contact {
+        margin: 0 3px;
 
-            img {
-                width: 48px;
-                border: 2px solid white;
-                cursor: pointer;
-                border-radius: 50%;
-            }
+        img {
+            width: 48px;
+            border: 2px solid white;
+            cursor: pointer;
+            border-radius: 50%;
         }
     }
 }
