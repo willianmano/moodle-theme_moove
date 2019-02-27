@@ -229,7 +229,7 @@ $string['forumcustomtemplatedesc'] = 'Marque para habilitar um template mais agr
 $string['coursesections'] = 'Seções do curso';
 
 // Mypublic page.
-$string['userprofile'] = 'Meu perfil';
+$string['userprofile'] = 'Perfil do usuário';
 $string['competencyplans'] = 'Planos de aprendizagem';
 $string['details'] = 'Detalhes';
 $string['startedon'] = 'Iniciado em';
