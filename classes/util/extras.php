@@ -215,7 +215,7 @@ class extras {
                     'progressclass' => $progressclass
                 ];
             }
-        } catch(\Exception $e) {
+        } catch (\Exception $e) {
             return [];
         }
 
