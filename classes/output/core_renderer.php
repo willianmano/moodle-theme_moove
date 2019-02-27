@@ -707,4 +707,24 @@ class core_renderer extends \theme_boost\output\core_renderer {
 
         return $output;
     }
+
+    /**
+     * Wrapper for breadcrumb elements.
+     *
+     * @return string HTML to display the main header.
+     */
+    public function breadcrumb_header() {
+        global $PAGE;
+
+        $header = new stdClass();
+        $header->hasnavbar = empty($PAGE->layout_options['nonavbar']);
+        $header->navbar = $this->navbar();
+
+        $header->contextheader = $this->context_header();
+        if ($PAGE->pagelayout == 'mypublic') {
+            $header->contextheader = "<h2>". get_string('userprofile', 'theme_moove') ."</h2>";
+        }
+
+        return $this->render_from_template('theme_moove/breadcrumb', $header);
+    }
 }
