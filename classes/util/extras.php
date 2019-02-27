@@ -172,46 +172,51 @@ class extras {
             return [];
         }
 
-        $plans = array_values(competency_api::list_user_plans($user->id));
-
-        if (empty($plans)) {
-            return [];
-        }
-
         $retorno = [];
-        foreach ($plans as $plan) {
-            $pclist = competency_api::list_plan_competencies($plan);
 
-            $ucproperty = 'usercompetency';
-            if ($plan->get('status') != 1) {
-                $ucproperty = 'usercompetencyplan';
+        try {
+            $plans = array_values(competency_api::list_user_plans($user->id));
+
+            if (empty($plans)) {
+                return [];
             }
 
-            $proficientcount = 0;
-            foreach ($pclist as $pc) {
-                $usercomp = $pc->$ucproperty;
+            foreach ($plans as $plan) {
+                $pclist = competency_api::list_plan_competencies($plan);
 
-                if ($usercomp->get('proficiency')) {
-                    $proficientcount++;
+                $ucproperty = 'usercompetency';
+                if ($plan->get('status') != 1) {
+                    $ucproperty = 'usercompetencyplan';
                 }
+
+                $proficientcount = 0;
+                foreach ($pclist as $pc) {
+                    $usercomp = $pc->$ucproperty;
+
+                    if ($usercomp->get('proficiency')) {
+                        $proficientcount++;
+                    }
+                }
+
+                $competencycount = count($pclist);
+                $proficientcompetencypercentage = ((float) $proficientcount / (float) $competencycount) * 100.0;
+
+                $progressclass = '';
+                if ($proficientcompetencypercentage == 100) {
+                    $progressclass = 'bg-success';
+                }
+
+                $retorno[] = [
+                    'id' => $plan->get('id'),
+                    'name' => $plan->get('name'),
+                    'competencycount' => $competencycount,
+                    'proficientcount' => $proficientcount,
+                    'proficientcompetencypercentage' => $proficientcompetencypercentage,
+                    'progressclass' => $progressclass
+                ];
             }
-
-            $competencycount = count($pclist);
-            $proficientcompetencypercentage = ((float) $proficientcount / (float) $competencycount) * 100.0;
-
-            $progressclass = '';
-            if ($proficientcompetencypercentage == 100) {
-                $progressclass = 'bg-success';
-            }
-
-            $retorno[] = [
-                'id' => $plan->get('id'),
-                'name' => $plan->get('name'),
-                'competencycount' => $competencycount,
-                'proficientcount' => $proficientcount,
-                'proficientcompetencypercentage' => $proficientcompetencypercentage,
-                'progressclass' => $progressclass
-            ];
+        } catch(\Exception $e) {
+            return [];
         }
 
         return $retorno;
