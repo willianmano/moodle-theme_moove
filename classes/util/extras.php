@@ -26,9 +26,22 @@ namespace theme_moove\util;
 
 use core_competency\api as competency_api;
 
+defined('MOODLE_INTERNAL') || die();
+
+
+/**
+ * Class to get some extras info in Moodle.
+ *
+ * @package    theme_moove
+ * @copyright  2019 Willian Mano - http://conecti.me
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
 class extras {
     /**
      * Returns all user enrolled courses with progress
+     *
+     * @param $user
+     *
      * @return array
      */
     public static function user_courses_with_progress($user) {
@@ -62,14 +75,14 @@ class extras {
                     $percentage = 0;
                 }
 
-                // add completion data in course object
+                // Add completion data in course object.
                 $course->completed = $completion->is_course_complete($user->id);
                 $course->progress  = $percentage;
             }
 
             $course->link = $CFG->wwwroot."/course/view.php?id=".$course->id;
 
-            // summary
+            // Summary.
             $course->summary = strip_tags($chelper->get_course_formatted_summary(
                 $courseobj,
                 array('overflowdiv' => false, 'noclean' => false, 'para' => false)
@@ -84,7 +97,9 @@ class extras {
     /**
      * Returns the first course's summary issue
      *
-     * @param stdClass $course the course object
+     * @param $course
+     * @param $courselink
+     *
      * @return string
      */
     public static function get_course_summary_image($course, $courselink) {
@@ -122,6 +137,7 @@ class extras {
      *
      * @param null $userobject
      * @param int $imgsize
+     *
      * @return \moodle_url
      * @throws \coding_exception
      */
@@ -142,7 +158,10 @@ class extras {
     /**
      * Returns an array of all user competency plans
      *
-     * @return array|bool
+     * @param $user
+     *
+     * @return array
+     *
      * @throws \coding_exception
      * @throws \required_capability_exception
      */

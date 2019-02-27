@@ -660,7 +660,7 @@ class core_renderer extends \theme_boost\output\core_renderer {
             $output .= html_writer::tag('div', get_string('legacythemeinuse'), array('class' => 'legacythemeinuse'));
         }
 
-        // Get links to switch device types (only shown for users not on a default device)
+        // Get links to switch device types (only shown for users not on a default device).
         $output .= $this->theme_switch_links();
 
         if (!empty($CFG->debugpageinfo)) {

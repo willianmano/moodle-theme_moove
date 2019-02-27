@@ -22,13 +22,13 @@
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
+defined('MOODLE_INTERNAL') || die();
+
 global $DB;
 
 // Get the profile userid.
 $userid = optional_param('id', $USER->id, PARAM_INT);
 $user = $DB->get_record('user', ['id' => $userid], '*', MUST_EXIST);
-
-defined('MOODLE_INTERNAL') || die();
 
 user_preference_allow_ajax_update('drawer-open-nav', PARAM_ALPHA);
 user_preference_allow_ajax_update('sidepre-open', PARAM_ALPHA);
