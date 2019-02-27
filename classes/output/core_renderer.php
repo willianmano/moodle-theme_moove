@@ -56,8 +56,6 @@ class core_renderer extends \theme_boost\output\core_renderer {
      * @return mixed
      */
     protected function render_custom_menu(custom_menu $menu) {
-        global $CFG;
-
         if (!$menu->has_children()) {
             return '';
         }
@@ -393,12 +391,12 @@ class core_renderer extends \theme_boost\output\core_renderer {
         $divider = new action_menu_filler();
         $divider->primary = false;
 
-        $am = new action_menu();
-        $am->set_menu_trigger(
+        $actionmenu = new action_menu();
+        $actionmenu->set_menu_trigger(
             $returnstr
         );
-        $am->set_alignment(action_menu::TR, action_menu::BR);
-        $am->set_nowrap_on_items();
+        $actionmenu->set_alignment(action_menu::TR, action_menu::BR);
+        $actionmenu->set_nowrap_on_items();
         if ($withlinks) {
             $navitemcount = count($opts->navitems);
             $idx = 0;
@@ -412,12 +410,12 @@ class core_renderer extends \theme_boost\output\core_renderer {
 
             array_unshift($opts->navitems, $userinfo);
 
-            foreach ($opts->navitems as $key => $value) {
+            foreach ($opts->navitems as $value) {
 
                 switch ($value->itemtype) {
                     case 'divider':
                         // If the nav item is a divider, add one and skip link processing.
-                        $am->add($divider);
+                        $actionmenu->add($divider);
                         break;
 
                     case 'invalid':
@@ -425,14 +423,14 @@ class core_renderer extends \theme_boost\output\core_renderer {
                         break;
 
                     case 'text':
-                        $al = new action_menu_link_secondary(
+                        $amls = new action_menu_link_secondary(
                             $value->url,
                             $pix = new pix_icon($value->pix, $value->title, null, array('class' => 'iconsmall')),
                             $value->title,
                             array('class' => 'text-username')
                         );
 
-                        $am->add($al);
+                        $actionmenu->add($amls);
                         break;
 
                     case 'link':
@@ -448,16 +446,16 @@ class core_renderer extends \theme_boost\output\core_renderer {
                             ) . $value->title;
                         }
 
-                        $al = new action_menu_link_secondary(
+                        $amls = new action_menu_link_secondary(
                             $value->url,
                             $pix,
                             $value->title,
                             array('class' => 'icon')
                         );
                         if (!empty($value->titleidentifier)) {
-                            $al->attributes['data-title'] = $value->titleidentifier;
+                            $amls->attributes['data-title'] = $value->titleidentifier;
                         }
-                        $am->add($al);
+                        $actionmenu->add($amls);
                         break;
                 }
 
@@ -465,14 +463,14 @@ class core_renderer extends \theme_boost\output\core_renderer {
 
                 // Add dividers after the first item and before the last item.
                 if ($idx == 1 || $idx == $navitemcount) {
-                    $am->add($divider);
+                    $actionmenu->add($divider);
                 }
             }
         }
 
         return html_writer::tag(
             'li',
-            $this->render($am),
+            $this->render($actionmenu),
             array('class' => $usermenuclasses)
         );
     }
