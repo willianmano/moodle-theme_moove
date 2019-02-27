@@ -125,8 +125,7 @@ class extras {
      * @return \moodle_url
      * @throws \coding_exception
      */
-    public static function get_user_picture($userobject = null, $imgsize = 100)
-    {
+    public static function get_user_picture($userobject = null, $imgsize = 100) {
         global $USER, $PAGE;
 
         if (!$userobject) {
