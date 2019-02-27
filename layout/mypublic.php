@@ -22,6 +22,12 @@
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
+global $DB;
+
+// Get the profile userid.
+$userid = optional_param('id', $USER->id, PARAM_INT);
+$user = $DB->get_record('user', ['id' => $userid], '*', MUST_EXIST);
+
 defined('MOODLE_INTERNAL') || die();
 
 user_preference_allow_ajax_update('drawer-open-nav', PARAM_ALPHA);
@@ -53,8 +59,9 @@ if ($draweropenright && $hasblocks) {
 
 $bodyattributes = $OUTPUT->body_attributes($extraclasses);
 $regionmainsettingsmenu = $OUTPUT->region_main_settings_menu();
+$context = context_course::instance(SITEID);
 $templatecontext = [
-    'sitename' => format_string($SITE->shortname, true, ['context' => context_course::instance(SITEID), "escape" => false]),
+    'sitename' => format_string($SITE->shortname, true, ['context' => $context, "escape" => false]),
     'output' => $OUTPUT,
     'sidepreblocks' => $blockshtml,
     'hasblocks' => $hasblocks,
@@ -75,12 +82,16 @@ $themesettings = new \theme_moove\util\theme_settings();
 
 $templatecontext = array_merge($templatecontext, $themesettings->footer_items());
 
-$usercourses = \theme_moove\util\extras::users_courses_with_progress();
+$usercourses = \theme_moove\util\extras::user_courses_with_progress($user);
 $templatecontext['hascourses'] = (count($usercourses)) ? true : false;
 $templatecontext['courses'] = array_values($usercourses);
-$templatecontext['user'] = $USER;
-$templatecontext['user']->profilepicture = \theme_moove\util\extras::get_user_picture($USER, 100);
+$templatecontext['user'] = $user;
+$templatecontext['user']->profilepicture = \theme_moove\util\extras::get_user_picture($user, 100);
 
-$templatecontext['competencyplans'] = \theme_moove\util\extras::get_user_competency_plans();
+$competencyplans = \theme_moove\util\extras::get_user_competency_plans($user);
+$templatecontext['hascompetencyplans'] = (count($competencyplans)) ? true : false;
+$templatecontext['competencyplans'] = $competencyplans;
+
+$templatecontext['headerbuttons'] = \theme_moove\util\extras::get_mypublic_headerbuttons($context, $user);
 
 echo $OUTPUT->render_from_template('theme_moove/mypublic', $templatecontext);

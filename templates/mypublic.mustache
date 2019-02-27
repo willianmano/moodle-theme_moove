@@ -59,6 +59,7 @@
                 <div> {{{ output.region_main_settings_menu }}} </div>
             </div>
             {{/hasregionmainsettingsmenu}}
+
             <section id="region-main">
                 <div class="card">
                     <div class="card-body">
@@ -81,72 +82,90 @@
                                             <h3>{{{firstname}}} {{{lastname}}}</h3>
                                         {{/user}}
                                     </div>
+                                    <div class="card-footer">
+                                        {{#headerbuttons}}
+                                            <a
+                                                role="button"
+                                                href="{{{url}}}"
+                                                class="{{{class}}}"
+                                                {{#linkattributes}}
+                                                id="{{{id}}}"
+                                                data-userid="{{{data-userid}}}"
+                                                data-is-contact="{{{data-is-contact}}}"
+                                                {{/linkattributes}}
+                                            >
+                                                <span>
+                                                    <i class="{{{icon}}}" aria-hidden="true" title="{{{title}}}" aria-label="{{{title}}}"></i>
+                                                    <span class="header-button-title">{{{title}}}</span>
+                                                </span>
+                                            </a>
+                                        {{/headerbuttons}}
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-sm-12 col-md-9">
                                 <div class="card">
                                     <div class="card-body">
                                         <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                            {{# hascourses }}
+                                                <li class="nav-item">
+                                                    <a class="nav-link active" id="courses-tab" data-toggle="tab" href="#cursos" role="tab" aria-controls="cursos" aria-selected="true">{{#str}}courses{{/str}}</a>
+                                                </li>
+                                            {{/ hascourses }}
+                                            {{# hascompetencyplans }}
+                                                <li class="nav-item">
+                                                    <a class="nav-link" id="competencyplans-tab" data-toggle="tab" href="#planos" role="tab" aria-controls="planos" aria-selected="false">{{#str}}competencyplans, theme_moove{{/str}}</a>
+                                                </li>
+                                            {{/ hascompetencyplans }}
                                             <li class="nav-item">
-                                                <a class="nav-link active" id="courses-tab" data-toggle="tab" href="#cursos" role="tab" aria-controls="cursos" aria-selected="true">{{#str}}courses{{/str}}</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" id="competencyplans-tab" data-toggle="tab" href="#planos" role="tab" aria-controls="planos" aria-selected="false">{{#str}}competencyplans, theme_moove{{/str}}</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" id="details-tab" data-toggle="tab" href="#detalhes" role="tab" aria-controls="detalhes" aria-selected="false">{{#str}}details, theme_moove{{/str}}</a>
+                                                <a class="nav-link {{^hascourses}}active{{/hascourses}}" id="details-tab" data-toggle="tab" href="#details" role="tab" aria-controls="details" aria-selected="{{^hascourses}}true{{/hascourses}}{{#hascourses}}false{{/hascourses}}">{{#str}}details, theme_moove{{/str}}</a>
                                             </li>
                                         </ul>
                                         <div class="tab-content" id="mypublic-tab">
-                                            <div class="tab-pane fade show active" id="cursos" role="tabpanel" aria-labelledby="courses-tab">
-                                                {{^ hascourses }}
-                                                    <div class="alert alert-info mt-1">{{#str}}notenrolledincourses, theme_moove{{/str}}</div>
-                                                {{/ hascourses }}
-                                                {{# hascourses }}
-                                                {{# courses }}
-                                                    <div id="course-{{ id }}" class="card mt-1">
-                                                        <div class="card-body row">
-                                                            <div class="col-md-3 col-sm-6 courseimage">
-                                                                {{{ courseimage }}}
-                                                            </div>
-
-                                                            <div class="media-body col-md-9 col-sm-6">
-                                                                <a href="{{ link }}"><h5 class="mt-0">{{{ fullname }}}</h5></a>
-                                                                {{# startdate }}<small>{{#str}}startedon, theme_moove{{/str}}: {{#userdate}} {{startdate}}, %A, %d %B %Y {{/userdate}}</small>{{/ startdate }}
-
-                                                                <div class="mt-1">
-                                                                    {{{ summary }}}
+                                            {{# hascourses }}
+                                                <div class="tab-pane fade show active" id="cursos" role="tabpanel" aria-labelledby="courses-tab">
+                                                    {{# courses }}
+                                                        <div id="course-{{ id }}" class="card mt-1">
+                                                            <div class="card-body row">
+                                                                <div class="col-md-3 col-sm-6 courseimage">
+                                                                    {{{ courseimage }}}
                                                                 </div>
-                                                            </div>
-                                                            {{# enablecompletion }}
-                                                                <div class="col-md-3 d-none d-md-block d-lg-block d-xl-block text-right">
-                                                                    <div class="progress-circle" data-progress="{{ progress }}"></div>
-                                                                </div>
-                                                            {{/ enablecompletion }}
-                                                        </div>
-                                                    </div>
-                                                {{/ courses }}
-                                                {{/ hascourses }}
-                                            </div>
-                                            <div class="tab-pane fade" id="planos" role="tabpanel" aria-labelledby="competencyplans-tab">
-                                                {{^ competencyplans }}
-                                                    <div class="alert alert-info mt-1">{{#str}}notcompetencyplans, theme_moove{{/str}}</div>
-                                                {{/competencyplans}}
 
-                                                {{#competencyplans}}
-                                                <div class="card card-shadow mt-1">
-                                                    <div class="card-body">
-                                                        <a href="{{config.wwwroot}}/admin/tool/lp/plan.php?id={{{id}}}"><h4>{{{name}}}</h4></a>
-                                                        <div class="progress">
-                                                            <div class="progress-bar progress-bar-striped {{{progressclass}}}" role="progressbar" style="width: {{{proficientcompetencypercentage}}}%" aria-valuenow="{{{proficientcompetencypercentage}}}" aria-valuemin="0" aria-valuemax="100"></div>
+                                                                <div class="media-body col-md-9 col-sm-6">
+                                                                    <a href="{{ link }}"><h5 class="mt-0">{{{ fullname }}}</h5></a>
+                                                                    {{# startdate }}<small>{{#str}}startedon, theme_moove{{/str}}: {{#userdate}} {{startdate}}, %A, %d %B %Y {{/userdate}}</small>{{/ startdate }}
+
+                                                                    <div class="mt-1">
+                                                                        {{{ summary }}}
+                                                                    </div>
+                                                                </div>
+                                                                {{# enablecompletion }}
+                                                                    <div class="col-md-3 d-none d-md-block d-lg-block d-xl-block text-right">
+                                                                        <div class="progress-circle" data-progress="{{ progress }}"></div>
+                                                                    </div>
+                                                                {{/ enablecompletion }}
+                                                            </div>
                                                         </div>
-                                                    </div>
+                                                    {{/ courses }}
                                                 </div>
-                                                {{/competencyplans}}
-                                            </div>
-                                            <div class="tab-pane fade pt-1" id="detalhes" role="tabpanel" aria-labelledby="details-tab">
+                                            {{/ hascourses }}
+                                            {{# hascompetencyplans }}
+                                                <div class="tab-pane fade" id="planos" role="tabpanel" aria-labelledby="competencyplans-tab">
+                                                    {{#competencyplans}}
+                                                    <div class="card card-shadow mt-1">
+                                                        <div class="card-body">
+                                                            <a href="{{config.wwwroot}}/admin/tool/lp/plan.php?id={{{id}}}"><h4>{{{name}}}</h4></a>
+                                                            <div class="progress">
+                                                                <div class="progress-bar progress-bar-striped {{{progressclass}}}" role="progressbar" style="width: {{{proficientcompetencypercentage}}}%" aria-valuenow="{{{proficientcompetencypercentage}}}" aria-valuemin="0" aria-valuemax="100"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    {{/competencyplans}}
+                                                </div>
+                                            {{/ hascompetencyplans }}
+                                            <div class="tab-pane fade pt-1 {{^hascourses}}active show{{/hascourses}}" id="details" role="tabpanel" aria-labelledby="details-tab">
                                                 {{#hasregionmainsettingsmenu}}
-                                                <div class="region_main_settings_menu_proxy"></div>
+                                                    <div class="region_main_settings_menu_proxy"></div>
                                                 {{/hasregionmainsettingsmenu}}
 
                                                 {{{ output.course_content_header }}}

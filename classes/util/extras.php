@@ -31,14 +31,18 @@ class extras {
      * Returns all user enrolled courses with progress
      * @return array
      */
-    public static function users_courses_with_progress() {
+    public static function user_courses_with_progress($user) {
         global $USER, $CFG;
+
+        if (($USER->id !== $user->id) && !is_siteadmin($USER->id)) {
+            return [];
+        }
 
         require_once($CFG->dirroot.'/course/renderer.php');
 
         $chelper = new \coursecat_helper();
 
-        $courses = enrol_get_users_courses($USER->id, true, '*', 'visible DESC, fullname ASC, sortorder ASC');
+        $courses = enrol_get_users_courses($user->id, true, '*', 'visible DESC, fullname ASC, sortorder ASC');
 
         foreach ($courses as $course) {
             $course->fullname = strip_tags($chelper->get_course_formatted_name($course));
@@ -48,7 +52,7 @@ class extras {
 
             // First, let's make sure completion is enabled.
             if ($completion->is_enabled()) {
-                $percentage = \core_completion\progress::get_course_progress_percentage($course, $USER->id);
+                $percentage = \core_completion\progress::get_course_progress_percentage($course, $user->id);
 
                 if (!is_null($percentage)) {
                     $percentage = floor($percentage);
@@ -59,7 +63,7 @@ class extras {
                 }
 
                 // add completion data in course object
-                $course->completed = $completion->is_course_complete($USER->id);
+                $course->completed = $completion->is_course_complete($user->id);
                 $course->progress  = $percentage;
             }
 
@@ -74,7 +78,7 @@ class extras {
             $course->courseimage = self::get_course_summary_image($courseobj, $course->link);
         }
 
-        return $courses;
+        return array_values($courses);
     }
 
     /**
@@ -143,13 +147,17 @@ class extras {
      * @throws \coding_exception
      * @throws \required_capability_exception
      */
-    public static function get_user_competency_plans() {
+    public static function get_user_competency_plans($user) {
         global $USER;
 
-        $plans = array_values(competency_api::list_user_plans($USER->id));
+        if (($USER->id !== $user->id) && !is_siteadmin($USER->id)) {
+            return [];
+        }
+
+        $plans = array_values(competency_api::list_user_plans($user->id));
 
         if (empty($plans)) {
-            return false;
+            return [];
         }
 
         $retorno = [];
@@ -189,5 +197,54 @@ class extras {
         }
 
         return $retorno;
+    }
+
+    /**
+     * Returns the buttons displayed at the page header
+     *
+     * @param $context
+     * @param $user
+     *
+     * @return array
+     *
+     * @throws \coding_exception
+     * @throws \moodle_exception
+     */
+    public static function get_mypublic_headerbuttons($context, $user) {
+        global $USER, $CFG;
+
+        $headerbuttons = [];
+
+        // Check to see if we should be displaying a message button.
+        if (!empty($CFG->messaging) && $USER->id != $user->id && has_capability('moodle/site:sendmessage', $context)) {
+            $iscontact = !empty(\core_message\api::get_contact($USER->id, $user->id)) ? 1 : 0;
+            $contacttitle = $iscontact ? 'removecontact' : 'addcontact';
+            $contacturlaction = $iscontact ? 'removecontact' : 'addcontact';
+            $contactimage = $iscontact ? 'slicon-user-unfollow' : 'slicon-user-follow';
+            $headerbuttons = [
+                [
+                    'title' => 'Enviar mensagem',
+                    'url' => new \moodle_url('/message/index.php', array('id' => $user->id)),
+                    'icon' => 'fa fa-comment-o',
+                    'class' => 'btn btn-block btn-outline-primary'
+                ],
+                [
+                    'title' => get_string($contacttitle, 'theme_moove'),
+                    'url' => new \moodle_url('/message/index.php', [
+                            'user1' => $USER->id,
+                            'user2' => $user->id,
+                            $contacturlaction => $user->id,
+                            'sesskey' => sesskey()]
+                    ),
+                    'icon' => $contactimage,
+                    'class' => 'btn btn-block btn-outline-dark ajax-contact-button',
+                    'linkattributes' => \core_message\helper::togglecontact_link_params($user, $iscontact),
+                ]
+            ];
+
+            \core_message\helper::togglecontact_requirejs();
+        }
+
+        return $headerbuttons;
     }
 }
