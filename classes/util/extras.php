@@ -246,7 +246,7 @@ class extras {
             $contactimage = $iscontact ? 'slicon-user-unfollow' : 'slicon-user-follow';
             $headerbuttons = [
                 [
-                    'title' => 'Enviar mensagem',
+                    'title' => get_string('sendmessage', 'core_message'),
                     'url' => new \moodle_url('/message/index.php', array('id' => $user->id)),
                     'icon' => 'fa fa-comment-o',
                     'class' => 'btn btn-block btn-outline-primary'
