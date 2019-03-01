@@ -49,7 +49,7 @@ if ($draweropenright && $hasblocks) {
     $extraclasses[] = 'drawer-open-right';
 }
 
-$moduleswithnavinblocks = ['book', 'quiz'];
+$moduleswithnavinblocks = ['book'];
 
 if (isset($PAGE->cm->modname) && in_array($PAGE->cm->modname, $moduleswithnavinblocks)) {
     $navdraweropen = false;
