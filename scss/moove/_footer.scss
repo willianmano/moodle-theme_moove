@@ -31,37 +31,37 @@
         text-align: right;
         ul li {
             display: inline;
-            font-size: 2.4rem;
 
             a {
                 text-decoration: none;
+                color: #fff;
 
                 &.facebook {
-                    color: $m-facebook-color;
+                    background-color: $m-facebook-color;
                 }
 
                 &.twitter {
-                    color: $m-twitter-color;
+                    background-color: $m-twitter-color;
                 }
 
                 &.googleplus {
-                    color: $m-googleplus-color;
+                    background-color: $m-googleplus-color;
                 }
 
                 &.linkedin {
-                    color: $m-linkedin-color;
+                    background-color: $m-linkedin-color;
                 }
 
                 &.youtube {
-                    color: $m-youtube-color;
+                    background-color: $m-youtube-color;
                 }
 
                 &.instagram {
-                    color: $m-instagram-color;
+                    background-color: $m-instagram-color;
                 }
 
                 &:hover {
-                    color: $brand-primary;
+                    background-color: $brand-primary;
                 }
             }
         }
