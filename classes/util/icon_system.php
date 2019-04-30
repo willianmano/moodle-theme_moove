@@ -204,7 +204,6 @@ class icon_system extends icon_system_font {
             'core:i/competencies' => 'slicon-check',
             'core:i/completion_self' => 'fa-user-o',
             'core:i/dashboard' => 'slicon-speedometer',
-            'core:i/lock' => 'fa-lock',
             'core:i/categoryevent' => 'fa-cubes',
             'core:i/course' => 'slicon-graduation',
             'core:i/courseevent' => 'fa-university',

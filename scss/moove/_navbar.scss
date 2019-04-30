@@ -9,6 +9,20 @@ nav.navbar {
     left: 0;
     z-index: 1030;
 
+    .drawer-toggle {
+        height: 70px;
+        width: 70px;
+        margin-left: -16px;
+        padding: 16px 9px 0 9px;
+        background-color: $navbar-bg;
+
+        .nav-link {
+            color: #fff;
+            border: none;
+            background-color: initial;
+        }
+    }
+
     .navbar-brand {
         margin-right: 0;
         padding: 0;
@@ -19,12 +33,6 @@ nav.navbar {
 
         .site-name {
             line-height: 70px;
-        }
-    }
-
-    .drawer-toggle {
-        .nav-link {
-            color: $brand-primary;
         }
     }
 
@@ -123,10 +131,11 @@ nav.navbar {
 
         .popover-region {
             margin-right: 0;
+            max-height: $navbar-height;
 
             .popover-region-container {
                 @extend .scale-up;
-                top: 70px;
+                top: $navbar-height;
 
                 .popover-region-header-container {
                     height: 50px;
@@ -211,13 +220,12 @@ nav.navbar {
             }
 
             .popover-region-toggle {
-                width: inherit;
+                width: 50px;
                 text-align: center;
                 color: $brand-primary;
-                padding-left: .8rem;
-                padding-right: .8rem;
                 font-size: 19px;
-                line-height: 70px;
+                line-height: $navbar-height;
+                padding: .2rem .8rem 0;
             }
 
             .popover-region-toggle {
@@ -299,7 +307,7 @@ nav.navbar {
 
         .usermenu {
             line-height: 70px;
-            padding-left: .2rem;
+            padding-left: .8rem;
 
             .dropdown {
                 .dropdown-menu {
