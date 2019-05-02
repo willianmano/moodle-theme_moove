@@ -149,10 +149,18 @@
         #page {
             margin-top: 0;
             padding-top: 50px;
+            padding-bottom: 50px;
         }
     }
 }
 
 .potentialidplist .potentialidp {
     margin-bottom: 5px;
+}
+
+#page-login-signup,
+#page-login-index.moove-login {
+    .plugins_standard_footer_html {
+        display: none;
+    }
 }
