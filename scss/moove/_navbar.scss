@@ -265,7 +265,8 @@ nav.navbar {
         }
 
         .lang-menu {
-            padding-left: .8rem;
+            max-height: $navbar-height;
+            padding: .2rem .8rem 0;
 
             .nav-item {
                 line-height: 70px;
@@ -287,11 +288,10 @@ nav.navbar {
             }
 
             .nav-link {
-                padding-top: 8px;
                 color: $brand-primary;
 
-                .icon-globe {
-                    font-size: 19px;
+                .slicon-globe {
+                    font-size: 1.2rem;
                 }
             }
 
