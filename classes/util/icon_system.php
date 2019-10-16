@@ -398,7 +398,7 @@ class icon_system extends icon_system_font {
      */
     public function get_icon_name_map() {
         if ($this->map === []) {
-            $cache = \cache::make('core', 'fontawesomeiconmapping');
+            $cache = \cache::make('theme_moove', 'fontawesomemooveiconmapping');
 
             $this->map = $cache->get('mapping');
 

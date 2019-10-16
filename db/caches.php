@@ -25,9 +25,16 @@
 // This line protects the file from being accessed by a URL directly.
 defined('MOODLE_INTERNAL') || die();
 
-$definitions = array(
-    'admininfos' => array(
+$definitions = [
+    'admininfos' => [
         'mode' => cache_store::MODE_APPLICATION,
         'ttl' => 3600, // One hour.
-    )
-);
+    ],
+    'fontawesomemooveiconmapping' => [
+        'mode' => cache_store::MODE_APPLICATION,
+        'simplekeys' => true,
+        'simpledata' => true,
+        'staticacceleration' => true,
+        'staticaccelerationsize' => 1
+    ]
+];
