@@ -190,6 +190,16 @@ if ($ADMIN->fulltree) {
     */
     $page = new admin_settingpage('theme_moove_frontpage', get_string('frontpagesettings', 'theme_moove'));
 
+    // Disable bottom footer.
+    $name = 'theme_moove/disablefrontpageloginbox';
+    $title = get_string('disablefrontpageloginbox', 'theme_moove');
+    $description = get_string('disablefrontpageloginboxdesc', 'theme_moove');
+    $setting = new admin_setting_configcheckbox($name, $title, $description, 0);
+    $page->add($setting);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+
+    $page->add($setting);
+
     // Headerimg file setting.
     $name = 'theme_moove/headerimg';
     $title = get_string('headerimg', 'theme_moove');

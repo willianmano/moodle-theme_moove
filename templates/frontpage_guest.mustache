@@ -51,19 +51,19 @@
                 {{#sliderfrontpage}}
                     {{>theme_moove/slideshow}}
 
-                    {{^hasdrawertoggle}}
+                    {{^disablefrontpageloginbox}}
                         <div id="loginbox" class="d-none d-lg-block">
                             <div class="card" id="boxForm">
                                 {{>theme_moove/frontpage_login}}
                             </div>
                         </div>
-                    {{/hasdrawertoggle}}
+                    {{/disablefrontpageloginbox}}
                 {{/sliderfrontpage}}
             {{/sliderenabled}}
 
             {{^sliderenabled}}
                 <div class="row" id="loginbox">
-                    <div class="col-sm-12 col-md-7 hidden-sm-down" id="intro">
+                    <div class="col-sm-12 hidden-sm-down {{#disablefrontpageloginbox}}col-md-12{{/disablefrontpageloginbox}}{{^disablefrontpageloginbox}}col-md-7{{/disablefrontpageloginbox}}" id="intro">
                         {{#bannerheading}}
                             <h1>{{{ bannerheading }}}</h1>
                         {{/bannerheading}}
@@ -71,9 +71,11 @@
                             <h2>{{{ bannercontent }}}</h2>
                         {{/bannercontent}}
                     </div>
-                    <div class="col-12 col-sm-12 col-md-5 card d-none d-lg-block" id="boxForm">
-                        {{>theme_moove/frontpage_login}}
-                    </div><!-- end of .card-body -->
+                    {{^disablefrontpageloginbox}}
+                        <div class="col-12 col-sm-12 col-md-5 card d-none d-lg-block" id="boxForm">
+                            {{>theme_moove/frontpage_login}}
+                        </div><!-- end of .card-body -->
+                    {{/disablefrontpageloginbox}}
                 </div> <!-- end of #boxForm -->
             {{/sliderenabled}}
         </div>

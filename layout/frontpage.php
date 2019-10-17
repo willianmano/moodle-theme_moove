@@ -108,6 +108,12 @@ if (isloggedin()) {
         $shoulddisplaymarketing = true;
     }
 
+    $disablefrontpageloginbox = false;
+    if (theme_moove_get_setting('disablefrontpageloginbox', true) == true) {
+        $disablefrontpageloginbox = true;
+        $extraclasses[] = 'disablefrontpageloginbox';
+    }
+
     $bodyattributes = $OUTPUT->body_attributes($extraclasses);
     $regionmainsettingsmenu = $OUTPUT->region_main_settings_menu();
 
@@ -124,6 +130,7 @@ if (isloggedin()) {
         'numbersfrontpage' => $numbersfrontpage,
         'sponsorsfrontpage' => $sponsorsfrontpage,
         'clientsfrontpage' => $clientsfrontpage,
+        'disablefrontpageloginbox' => $disablefrontpageloginbox,
         'logintoken' => \core\session\manager::get_login_token()
     ];
 

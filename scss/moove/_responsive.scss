@@ -16,6 +16,10 @@
     font-size: 1.634375rem;
   }
 
+  h2 {
+    font-size: 1.234375rem;
+  }
+
   #nav-drawer .metismenu .has-arrow {
     display: none !important;
   }
@@ -230,6 +234,17 @@
     }
   }
 
+  #page-site-index.notloggedin #page-header #loginbox #intro {
+    flex: 0 0 100%;
+    max-width: 100%;
+    margin-top: 0;
+
+    h1 {
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+    }
+  }
+
   #page-course-view-topics {
     .course-content {
       .topics {
@@ -253,6 +268,10 @@
 
   #page-site-index.slideshow #mooveslideshow .carousel-indicators {
     bottom: 80px;
+  }
+
+  #page-site-index.notloggedin:not(.disablefrontpageloginbox) .btn-login-top {
+    display: none;
   }
 }
 

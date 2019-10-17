@@ -89,6 +89,8 @@ $string['googleanalyticsdesc'] = 'Por favor digite o código do Google Analytics
 
 // Frontpage settings tab.
 $string['frontpagesettings'] = 'Página inicial';
+$string['disablefrontpageloginbox'] = 'Desabilitar caixa de login da página inicial';
+$string['disablefrontpageloginboxdesc'] = 'Se você marcar isto, a caixa de login da página inicial será oculta e um link para a página de login será exibido na barra de cabeçalho.';
 $string['headerimg'] = 'Imagem do cabeçalho';
 $string['headerimgdesc'] = 'Envie sua própria imagem de cabeçalho. Tamanho recomendado 1400px x 700px';
 $string['bannerheading'] = 'Banner de cabeçalho';

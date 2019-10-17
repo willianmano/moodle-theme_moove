@@ -89,6 +89,8 @@ $string['googleanalyticsdesc'] = 'Please enter your Google Analytics code to ena
 
 // Frontpage settings tab.
 $string['frontpagesettings'] = 'Frontpage';
+$string['disablefrontpageloginbox'] = 'Disable frontpage login box';
+$string['disablefrontpageloginboxdesc'] = 'If you check it, the frontpage login box will be hidden and a link to the login page will be printed in the header bar.';
 $string['headerimg'] = 'Header image';
 $string['headerimgdesc'] = 'Upload your custom header-image here if you want to add it to the header.mage works best if (Image size should be 1500px x 700px)';
 $string['bannerheading'] = 'Banner Heading';
