@@ -60,7 +60,7 @@ $string['favicondesc'] = 'Envie seu próprio favicon. O arquivo deve ter a exten
 $string['preset'] = 'Preset do tema';
 $string['preset_desc'] = 'Escolha um preset para alterar a aparência do tema.';
 $string['presetfiles'] = 'Arquivos de preset adicionais';
-$string['presetfiles_desc'] = 'Arquivos preset podem ser usados para alterar dramaticamente a aparência do tema. Veja <a href=https://docs.moodle.org/dev/Boost_Presets>Boost presets</a> para informações sobre criar e compartilhar seus próprios arquivos preset, e veja o <a href=http://moodle.net/boost>repositório de presets</a> que outros compartilharam.';
+$string['presetfiles_desc'] = 'Arquivos preset podem ser usados para alterar dramaticamente a aparência do tema. Veja <a href="https://docs.moodle.org/dev/Boost_Presets">Boost presets</a>.';
 $string['loginbgimg'] = 'Background da página de login';
 $string['loginbgimg_desc'] = 'Envie sua própria imagem de fundo para a página de login.';
 $string['brandcolor'] = 'Cor da marca';
