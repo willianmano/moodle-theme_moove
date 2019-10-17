@@ -194,17 +194,23 @@ class core_renderer extends \theme_boost\output\core_renderer {
     }
 
     /**
-     * Outputs the favicon urlbase.
+     * Returns the moodle_url for the favicon.
      *
-     * @return string an url
+     * @since Moodle 2.5.1 2.6
+     * @return moodle_url The moodle_url for the favicon
      */
     public function favicon() {
+        global $CFG;
+
         $theme = theme_config::load('moove');
 
         $favicon = $theme->setting_file_url('favicon', 'favicon');
 
         if (!empty(($favicon))) {
-            return $favicon;
+            $urlreplace = preg_replace('|^https?://|i', '//', $CFG->wwwroot);
+            $favicon = str_replace($urlreplace, '', $favicon);
+
+            return new moodle_url($favicon);
         }
 
         return parent::favicon();
