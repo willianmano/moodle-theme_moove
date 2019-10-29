@@ -306,14 +306,29 @@ class core_renderer extends \theme_boost\output\core_renderer {
                 $returnstr .= "<a class='btn btn-login-top' href=\"$loginurl\">" . get_string('login') . '</a>';
             }
 
-            return html_writer::tag(
-                'li',
-                html_writer::span(
-                    $returnstr,
-                    'login'
-                ),
-                array('class' => $usermenuclasses)
-            );
+            $theme = theme_config::load('moove');
+
+            if (!$theme->settings->disablefrontpageloginbox) {
+                return html_writer::tag(
+                    'li',
+                    html_writer::span(
+                        $returnstr,
+                        'login'
+                    ),
+                    array('class' => $usermenuclasses)
+                );
+            }
+
+            $context = [
+                'loginurl' => $loginurl,
+                'logintoken' => \core\session\manager::get_login_token(),
+                'canloginasguest' => $CFG->guestloginbutton and !isguestuser(),
+                'canloginbyemail' => !empty($CFG->authloginviaemail),
+                'cansignup' => $CFG->registerauth == 'email' || !empty($CFG->registerauth)
+
+            ];
+
+            return $this->render_from_template('theme_moove/frontpage_guest_loginbtn', $context);
         }
 
         // If logged in as a guest user, show a string to that effect.
