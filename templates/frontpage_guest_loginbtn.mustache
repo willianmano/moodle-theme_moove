@@ -32,9 +32,9 @@
     }
 }}
 
-<li class="usermenu">
+<li class="usermenu d-none d-lg-block">
     <div class="dropdown">
-        <a class="btn btn-login-top dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="btn btn-login-top dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             {{#str}}login{{/str}}
         </a>
 
@@ -44,4 +44,7 @@
             </div>
         </div>
     </div>
+</li>
+<li class="usermenu d-lg-none">
+    <a class="btn btn-login-top" href="{{{loginurl}}}">{{#str}}login{{/str}}</a>';
 </li>

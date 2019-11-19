@@ -101,6 +101,7 @@
         border-radius: 20px;
         color: $brand-primary;
         border: 1px solid $brand-primary;
+        cursor: pointer;
     }
 
     #page-header {
@@ -220,7 +221,6 @@
 
         &.dropdown-menu {
             right: 0;
-            top: initial;
             width: 340px;
             line-height: 32px;
 
