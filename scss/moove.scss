@@ -4,14 +4,16 @@
 @import "extras/animate";
 @import "extras/metismenu";
 @import "extras/progress";
+@import "extras/opendyslexic";
 @import "moove/general";
-@import "moove/breadcrumb";
 @import "moove/navbar";
+@import "moove/blocks";
+@import "moove/nav-drawer";
+@import "moove/accessibilitybar";
+@import "moove/breadcrumb";
 @import "moove/frontpage";
 @import "moove/login";
 @import "moove/footer";
-@import "moove/nav-drawer";
-@import "moove/blocks";
 @import "moove/mydashboard";
 @import "moove/course";
 @import "moove/mypublic";
@@ -19,3 +21,6 @@
 @import "moove/btnapp";
 @import "moove/calendar";
 @import "moove/responsive";
+
+@import "moove/mixins/accessibilityfontsize";
+@import "moove/accessibilitystyles";

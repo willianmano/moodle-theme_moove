@@ -1,0 +1,180 @@
+$fontsize-dec-1: $font-size-base - 0.1rem;
+$fontsize-dec-2: $font-size-base - 0.2rem;
+$fontsize-dec-3: $font-size-base - 0.3rem;
+$fontsize-dec-4: $font-size-base - 0.4rem;
+$fontsize-dec-5: $font-size-base - 0.5rem;
+$fontsize-dec-6: $font-size-base - 0.6rem;
+
+$fontsize-inc-1: $font-size-base + 0.1rem;
+$fontsize-inc-2: $font-size-base + 0.2rem;
+$fontsize-inc-3: $font-size-base + 0.3rem;
+$fontsize-inc-4: $font-size-base + 0.4rem;
+$fontsize-inc-5: $font-size-base + 0.5rem;
+$fontsize-inc-6: $font-size-base + 0.6rem;
+
+$accessibility-sizes: () !default;
+// stylelint-disable-next-line scss/dollar-variable-default
+$accessibility-sizes: map-merge(
+                (
+                        "fontsize-dec-1":  $fontsize-dec-1,
+                        "fontsize-dec-2":  $fontsize-dec-2,
+                        "fontsize-dec-3":  $fontsize-dec-3,
+                        "fontsize-dec-4":  $fontsize-dec-4,
+                        "fontsize-dec-5":  $fontsize-dec-5,
+                        "fontsize-dec-6":  $fontsize-dec-6,
+                        "fontsize-inc-1":  $fontsize-inc-1,
+                        "fontsize-inc-2":  $fontsize-inc-2,
+                        "fontsize-inc-3":  $fontsize-inc-3,
+                        "fontsize-inc-4":  $fontsize-inc-4,
+                        "fontsize-inc-5":  $fontsize-inc-5,
+                        "fontsize-inc-6":  $fontsize-inc-6
+                ),
+                $accessibility-sizes
+);
+
+@each $classname, $basesize in $accessibility-sizes {
+    body {
+        &.#{$classname} {
+            @include accessibilityfontsize($basesize);
+        }
+    }
+}
+
+#accessibilitybar .bars {
+    font-size: $font-size-base;
+}
+
+body {
+    &.sitecolor_color2 {
+        .forumpost .topic {
+            background-image: none !important;
+        }
+
+        *:not([class*="mce"]):not([id*="mce"]):not([id*="editor"]) {
+            /* it works well only with * selector but mce editor gets unusable */
+            background-color: #ffffcc !important;
+            background-image: none !important;
+            text-shadow:none !important;
+        }
+
+        #sitecolor_color2 {
+            background-color:#ffffcc;
+        }
+
+        #sitecolor_color3 {
+            background-color:#99ccff;
+        }
+
+        #sitecolor_color4 {
+            color:#ffff00;
+            background-color:#000000;
+        }
+    }
+
+    &.sitecolor_color3 {
+        .forumpost .topic {
+            background-image: none !important;
+        }
+
+        *:not([class*="mce"]):not([id*="mce"]):not([id*="editor"]){
+            /* it works well only with * selector but mce editor gets unusable */
+            background-color: #99ccff !important;
+            background-image: none !important;
+            text-shadow:none !important;
+        }
+
+        #sitecolor_color2 {
+            background-color:#ffffcc;
+        }
+
+        #sitecolor_color3 {
+            background-color:#99ccff;
+        }
+
+        #sitecolor_color4 {
+            color:#ffff00;
+            background-color:#000000;
+        }
+    }
+
+    &.sitecolor_color4 {
+        background-color: #000000;
+
+        .forumpost .topic {
+            background-image: none !important;
+        }
+
+        *:not([class*="mce"]):not([id*="mce"]):not([id*="editor"]){
+            /* it works well only with * selector but mce editor gets unusable */
+            background-color: #000000 !important;
+            background-image: none !important;
+            text-shadow:none !important;
+        }
+
+        #nav-drawer,
+        #accessibilitybar,
+        .block_accessibility .outer,
+        .course-content .section .sectionname,
+        .course-content .single-section .sectionname {
+            background-color: #000000 !important;
+        }
+
+        *:not([class*="mce"]):not([id*="mce"]):not([id*="editor"]){
+            /* it works well only with * selector but mce editor gets unusable */
+            color: #ffff00 !important;
+        }
+
+        #content a, .tabrow0 span {
+            color: #ffff00 !important;
+        }
+
+        .tabrow0 span:hover {
+            text-decoration: underline;
+        }
+
+        #accessibilitybar,
+        #nav-drawer {
+            border: 1px solid #fff !important;
+        }
+
+        #nav-drawer .nav-drawer-footer {
+            border-top: 1px solid #fff !important;
+        }
+
+        #nav-drawer .list-group+.list-group {
+            border-top: 1px solid #fff;
+        }
+
+        #nav-drawer .nav-drawer-footer #themesettings-control i {
+            background-color: initial !important;
+        }
+
+        #sidepreopen-control {
+            background-color: #fff !important;
+            color: #000 !important;
+        }
+
+        .contentwithoutlink .labelbar.primary {
+            border-top-color: #fff;
+        }
+
+        nav.navbar,
+        #nav-drawer .nav-drawer-footer,
+        #nav-drawer .nav-drawer-footer #themesettings-control {
+            background-color: initial !important;
+        }
+
+        #sitecolor_color2 {
+            background-color:#ffffcc !important;
+            color: #000 !important;
+        }
+
+        #sitecolor_color3 {
+            background-color:#99ccff !important;
+        }
+
+        #sitecolor_color4{
+            color:#ffff00 !important;
+        }
+    }
+}

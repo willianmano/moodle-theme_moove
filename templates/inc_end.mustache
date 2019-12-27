@@ -26,6 +26,11 @@
 </html>
 {{#js}}
 require(['theme_boost/loader']);
+
+require(['theme_moove/accessibilitybar'], function(bar) {
+    bar.init();
+});
+
 require(['theme_boost/drawer'], function(mod) {
     mod.init();
 });
@@ -48,6 +53,10 @@ require([], function() {
         iconsearch.onclick = togglesearchinputform;
         btnclosesearch.onclick = togglesearchinputform;
     }
+});
+
+require(['theme_moove/themesettings'], function(themesettings) {
+    themesettings.init();
 });
 
 {{/js}}

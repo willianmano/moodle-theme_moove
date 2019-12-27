@@ -104,7 +104,8 @@
                 content: "\e040";
             }
 
-            &[data-key="sitesettings"] a:before {
+            &[data-key="sitesettings"] a:before,
+            &[data-key="themesettings"] a:before {
                 content: "\e09a";
             }
         }
@@ -112,6 +113,28 @@
 
     .list-group + .list-group {
         border-top: 3px solid $navbar-separator;
+    }
+
+    .nav-drawer-footer {
+        text-align: center;
+        position: fixed;
+        display: block;
+        width: 285px;
+        bottom: 0;
+        margin: 0 -5px;
+        background-color: $navbar-bg-hover;
+
+        #themesettings-control {
+            padding: .75rem 0;
+            display: block;
+            color: #fff;
+            cursor: pointer;
+
+            i {
+                font-size: 19px;
+                padding: 15px 0;
+            }
+        }
     }
 }
 

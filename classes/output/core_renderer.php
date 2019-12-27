@@ -748,4 +748,27 @@ class core_renderer extends \theme_boost\output\core_renderer {
 
         return $this->render_from_template('theme_moove/breadcrumb', $header);
     }
+
+    /**
+     * Returns HTML attributes to use within the body tag. This includes an ID and classes.
+     *
+     * @since Moodle 2.5.1 2.6
+     * @param string|array $additionalclasses Any additional classes to give the body tag,
+     * @return string
+     */
+    public function body_attributes($additionalclasses = array()) {
+        $additionalclasses[] = 'hasaccessibilitybar';
+
+        $currentfontsizeclass = get_user_preferences('accessibilitystyles_fontsizeclass', '');
+
+        if ($currentfontsizeclass) {
+            $additionalclasses[] = $currentfontsizeclass;
+        }
+
+        if (!is_array($additionalclasses)) {
+            $additionalclasses = explode(' ', $additionalclasses);
+        }
+
+        return ' id="'. $this->body_id().'" class="'.$this->body_css_classes($additionalclasses).'"';
+    }
 }

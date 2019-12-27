@@ -18,6 +18,43 @@ body#page-enrol-index {
 body.pagelayout-popup {
     margin-left: 0;
 }
+
+/*******************
+Headings
+*******************/
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6 {
+    color: $headings-color;
+    font-family: "Poppins", sans-serif;
+    font-weight: $headings-font-weight;
+}
+
+body.odafont {
+    h1,
+    .h1,
+    h2,
+    .h2,
+    h3,
+    .h3,
+    h4,
+    .h4,
+    h5,
+    .h5,
+    h6,
+    .h6 {
+        font-family: oda, comic sans ms, clfallback, Verdana;
+    }
+}
 /*******************
 Pages
 *******************/
@@ -81,26 +118,6 @@ Card
     }
 }
 
-/*******************
-Headings
-*******************/
-h1,
-.h1,
-h2,
-.h2,
-h3,
-.h3,
-h4,
-.h4,
-h5,
-.h5,
-h6,
-.h6 {
-    color: $headings-color;
-    font-family: "Poppins", sans-serif;
-    font-weight: $headings-font-weight;
-}
-
 /* Third party plugins compatibility. */
 /* Course format grid */
 #gridshadebox_content {
@@ -134,4 +151,8 @@ Progress
         background-color: $brand-primary;
         overflow: hidden;
     }
+}
+
+.opendyslexicfont {
+
 }
