@@ -132,7 +132,6 @@
 
             i {
                 font-size: 19px;
-                padding: 15px 0;
             }
         }
     }
@@ -220,6 +219,14 @@
             ul li.list-group-item:hover {
                 border-bottom-right-radius: $card-border-radius;
             }
+        }
+    }
+
+    .nav-drawer-footer {
+        width: 70px;
+
+        #themesettings-control .text {
+            display: none;
         }
     }
 }
