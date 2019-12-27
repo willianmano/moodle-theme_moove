@@ -45,7 +45,7 @@ $accessibility-sizes: map-merge(
 }
 
 body {
-    &.sitecolor_color2 {
+    &.sitecolor-color-2 {
         .forumpost .topic {
             background-image: none !important;
         }
@@ -71,7 +71,7 @@ body {
         }
     }
 
-    &.sitecolor_color3 {
+    &.sitecolor-color-3 {
         .forumpost .topic {
             background-image: none !important;
         }
@@ -97,7 +97,7 @@ body {
         }
     }
 
-    &.sitecolor_color4 {
+    &.sitecolor-color-4 {
         background-color: #000000;
 
         .forumpost .topic {

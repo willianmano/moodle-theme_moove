@@ -26,6 +26,7 @@ define(['jquery', 'core/ajax'], function(jQuery, Ajax) {
 
     var SELECTORS = {
         FONT_SIZE: '#fontsize_dec, #fontsize_reset, #fontsize_inc',
+        SITE_COLOR: '#sitecolor_color1, #sitecolor_color2, #sitecolor_color3, #sitecolor_color4',
         CHANGE_STYLE: '.sidebar-toggle'
     };
 
@@ -33,6 +34,8 @@ define(['jquery', 'core/ajax'], function(jQuery, Ajax) {
     var fontsizeClassOp = null;
     var fontsizeClassSize = null;
     var fontsizeCurrentAction = null;
+
+    var sitecolorCurrentAction = null;
 
     var AccessibilityBar = function() {
         var classList = jQuery('body').attr('class').split(/\s+/);
@@ -59,6 +62,14 @@ define(['jquery', 'core/ajax'], function(jQuery, Ajax) {
 
             this.fontSize();
         }.bind(this));
+
+        jQuery(SELECTORS.SITE_COLOR).click(function(element) {
+            var btn = jQuery(element.currentTarget);
+
+            sitecolorCurrentAction = btn.data('action');
+
+            this.siteColor();
+        }.bind(this));
     };
 
     AccessibilityBar.prototype.fontSize = function() {
@@ -72,6 +83,16 @@ define(['jquery', 'core/ajax'], function(jQuery, Ajax) {
         request[0].done(function() {
             this.reloadFontsizeClass();
         }.bind(this));
+    };
+
+    AccessibilityBar.prototype.siteColor = function() {
+        $('body').removeClass(function (index, className) {
+            return (className.match(/(^|\s)sitecolor-color-\S+/g) || []).join(' ');
+        });
+
+        if (sitecolorCurrentAction !== 'reset') {
+            jQuery('body').addClass(sitecolorCurrentAction);
+        }
     };
 
     AccessibilityBar.prototype.reloadFontsizeClass = function() {
