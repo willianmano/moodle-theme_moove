@@ -45,7 +45,27 @@ $accessibility-sizes: map-merge(
 }
 
 body {
+    &.sitecolor-color-2,
+    &.sitecolor-color-3,
+    &.sitecolor-color-4 {
+        nav.navbar {
+            -webkit-box-shadow: none;
+            box-shadow: none;
+        }
+
+        #page {
+            margin-top: 52px;
+        }
+
+        nav.navbar ul.navbar-nav .lang-menu .nav-link,
+        nav.navbar ul.navbar-nav .popover-region .popover-region-toggle {
+            background-color: initial !important;
+        }
+    }
+
     &.sitecolor-color-2 {
+        background-color: #ffffcc;
+
         .forumpost .topic {
             background-image: none !important;
         }
@@ -57,21 +77,53 @@ body {
             text-shadow:none !important;
         }
 
+        *:not([class*="mce"]):not([id*="mce"]):not([id*="editor"]){
+            /* it works well only with * selector but mce editor gets unusable */
+            color: #fff !important;
+        }
+
+        .contentwithoutlink .labelbar.primary {
+            border-top-color: #eef5f9;
+        }
+
         #sitecolor_color2 {
-            background-color:#ffffcc;
+            background-color:#ffffcc !important;
+            color: #000 !important;
         }
 
         #sitecolor_color3 {
-            background-color:#99ccff;
+            background-color:#99ccff !important;;
+            color: #000 !important;
         }
 
         #sitecolor_color4 {
-            color:#ffff00;
-            background-color:#000000;
+            color:#ffff00 !important;
+            background-color:#000000 !important;;
+        }
+
+        #accessibilitybar,
+        #nav-drawer {
+            border: 1px solid #d7dfe3 !important;
+        }
+
+        #nav-drawer .nav-drawer-footer {
+            border-top: 1px solid #d7dfe3 !important;
+        }
+
+        #nav-drawer .list-group+.list-group {
+            border-top: 1px solid #d7dfe3;
+        }
+
+        nav.navbar,
+        #nav-drawer .nav-drawer-footer,
+        #nav-drawer .nav-drawer-footer #themesettings-control {
+            background-color: initial !important;
         }
     }
 
     &.sitecolor-color-3 {
+        background-color: #99ccff;
+
         .forumpost .topic {
             background-image: none !important;
         }
@@ -83,17 +135,46 @@ body {
             text-shadow:none !important;
         }
 
+        *:not([class*="mce"]):not([id*="mce"]):not([id*="editor"]){
+            /* it works well only with * selector but mce editor gets unusable */
+            color: #fff !important;
+        }
+
+        .contentwithoutlink .labelbar.primary {
+            border-top-color: #fff;
+        }
+
         #sitecolor_color2 {
-            background-color:#ffffcc;
+            background-color: #ffffcc !important;
+            color: #000 !important;
         }
 
         #sitecolor_color3 {
-            background-color:#99ccff;
+            background-color: #99ccff;
         }
 
         #sitecolor_color4 {
-            color:#ffff00;
-            background-color:#000000;
+            color: #ffff00 !important;
+            background-color: #000 !important;
+        }
+
+        #accessibilitybar,
+        #nav-drawer {
+            border: 1px solid #d7dfe3 !important;
+        }
+
+        #nav-drawer .nav-drawer-footer {
+            border-top: 1px solid #d7dfe3 !important;
+        }
+
+        #nav-drawer .list-group+.list-group {
+            border-top: 1px solid #d7dfe3;
+        }
+
+        nav.navbar,
+        #nav-drawer .nav-drawer-footer,
+        #nav-drawer .nav-drawer-footer #themesettings-control {
+            background-color: initial !important;
         }
     }
 

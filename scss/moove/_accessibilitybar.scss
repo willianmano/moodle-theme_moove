@@ -7,8 +7,9 @@ body.hasaccessibilitybar {
         margin-top: 70px;
     }
 
-    [data-region="blocks-column"] {
-        top: 104px;
+    [data-region="blocks-column"],
+    [data-region=right-hand-drawer].drawer {
+        top: 100px;
     }
 
     #nav-drawer {
