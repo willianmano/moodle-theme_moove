@@ -33,17 +33,20 @@ use external_value;
 
 class accessibility extends external_api {
     public static function fontsize_parameters() {
-        return new external_function_parameters(
-            [
-                'action' => new external_value(PARAM_RAW, 'The action value'),
-            ]
-        );
+        return new external_function_parameters([
+            'action' => new external_value(PARAM_RAW, 'The action value'),
+        ]);
     }
 
+    /**
+     * @param $action
+     * @return array
+     * @throws \coding_exception
+     * @throws \invalid_parameter_exception
+     */
     public static function fontsize($action) {
         $params = self::validate_parameters(self::fontsize_parameters(), ['action' => $action]);
 
-//        user_preference_allow_ajax_update('accessibilitystyles_fontsize', PARAM_INT);
         $currentfontsizeclass = get_user_preferences('accessibilitystyles_fontsizeclass', '');
         $newfontsizeclass = null;
 
@@ -92,7 +95,9 @@ class accessibility extends external_api {
             $newfontsizeclass = null;
         }
 
-        set_user_preference('accessibilitystyles_fontsizeclass', $newfontsizeclass);
+        if (isloggedin() && !isguestuser()) {
+            set_user_preference('accessibilitystyles_fontsizeclass', $newfontsizeclass);
+        }
 
         return ['newfontsizeclass' => $newfontsizeclass];
     }
@@ -104,29 +109,24 @@ class accessibility extends external_api {
     }
 
     public static function sitecolor_parameters() {
-        return new external_function_parameters(
-            [
-                'colorscheme' => new external_value(PARAM_RAW, 'The colorscheme value'),
-            ]
-        );
+        return new external_function_parameters([
+            'action' => new external_value(PARAM_RAW, 'The colorscheme value'),
+        ]);
     }
 
-    public static function sitecolor($formdata) {
-        $params = self::validate_parameters(self::sitecolor_parameters(), ['formdata' => $formdata]);
+    public static function sitecolor($action) {
+        $params = self::validate_parameters(self::fontsize_parameters(), ['action' => $action]);
 
-        $data = [];
-        parse_str($params['formdata'], $data);
-
-        if ($data['action'] == 'increase') {
-
+        $newsitecolorclass = null;
+        switch ($params['action']) {
+            case 'sitecolor-color-2':
+            case 'sitecolor-color-3':
+            case 'sitecolor-color-4':
+                $newsitecolorclass = $params['action'];
         }
 
-        if ($data['action'] == 'decrease') {
-
-        }
-
-        if ($data['action'] == 'reset') {
-
+        if (isloggedin() && !isguestuser()) {
+            set_user_preference('accessibilitystyles_sitecolorclass', $newsitecolorclass);
         }
 
         return ['success' => true];
@@ -135,6 +135,64 @@ class accessibility extends external_api {
     public static function sitecolor_returns() {
         return new external_single_structure([
             'success' => new external_value(PARAM_BOOL, 'Operation response')
+        ]);
+    }
+
+    public static function savethemesettings_parameters() {
+        return new external_function_parameters([
+            'formdata' => new external_value(PARAM_RAW, 'The theme settings form data'),
+        ]);
+    }
+
+    public static function savethemesettings($formdata) {
+        $params = self::validate_parameters(self::savethemesettings_parameters(), ['formdata' => $formdata]);
+
+        $data = [];
+        parse_str($params['formdata'], $data);
+
+        if ($data['fonttype'] && in_array($data['fonttype'], ['default', 'odafont'])) {
+            $fonttype = null;
+
+            if ($data['fonttype'] == 'odafont') {
+                $fonttype = 'odafont';
+            }
+
+            set_user_preference('thememoovesettings_fonttype', $fonttype);
+        }
+
+        $enableaccessibilitytoolbar = null;
+        if ($data['enableaccessibilitytoolbar']) {
+            $enableaccessibilitytoolbar = true;
+        }
+
+        set_user_preference('thememoovesettings_enableaccessibilitytoolbar', $enableaccessibilitytoolbar);
+
+        \core\notification::success(get_string('themesettinggsavedsuccessfully', 'theme_moove'));
+
+        return ['success' => true];
+    }
+
+    public static function savethemesettings_returns() {
+        return new external_single_structure([
+            'success' => new external_value(PARAM_BOOL, 'Operation response')
+        ]);
+    }
+
+    public static function getthemesettings_parameters() {
+        return new external_function_parameters([]);
+    }
+
+    public static function getthemesettings() {
+        return [
+            'fonttype' => get_user_preferences('thememoovesettings_fonttype', 'default'),
+            'enableaccessibilitytoolbar' => get_user_preferences('thememoovesettings_enableaccessibilitytoolbar', false)
+        ];
+    }
+
+    public static function getthemesettings_returns() {
+        return new external_single_structure([
+            'fonttype' => new external_value(PARAM_TEXT, 'the user selected font'),
+            'enableaccessibilitytoolbar' => new external_value(PARAM_BOOL, 'the user selected toolbar option')
         ]);
     }
 }

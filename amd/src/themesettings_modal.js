@@ -20,8 +20,8 @@
  * @copyright  2019 Willian Mano - http://conecti.me
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-define(['jquery', 'core/notification', 'core/custom_interaction_events', 'core/modal', 'core/modal_registry'],
-    function($, Notification, CustomEvents, Modal, ModalRegistry) {
+define(['jquery', 'core/notification', 'core/custom_interaction_events', 'core/modal', 'core/modal_registry', 'core/ajax'],
+    function(jQuery, Notification, CustomEvents, Modal, ModalRegistry, Ajax) {
 
         var registered = false;
         var SELECTORS = {
@@ -36,6 +36,19 @@ define(['jquery', 'core/notification', 'core/custom_interaction_events', 'core/m
          */
         var ThemeSettingsModal = function(root) {
             Modal.call(this, root);
+
+            var request = Ajax.call([{
+                methodname: 'theme_moove_getthemesettings',
+                args: {}
+            }]);
+
+            request[0].done(function(result) {
+                document.getElementById('fonttype').value = result.fonttype;
+
+                if (result.enableaccessibilitytoolbar) {
+                    document.getElementById('enableaccessibilitytoolbar').checked = true;
+                }
+            });
         };
 
         ThemeSettingsModal.TYPE = 'theme_moove-themesettings_modal';
@@ -52,17 +65,31 @@ define(['jquery', 'core/notification', 'core/custom_interaction_events', 'core/m
             Modal.prototype.registerEventListeners.call(this);
 
             this.getModal().on(CustomEvents.events.activate, SELECTORS.SAVE_BUTTON, function(e, data) {
-                // Repository.create(this.getFormData())
-                    // .then(function() {
-                    //     Notification.addNotification({
-                    //         message: 'Problema reportado com sucesso. Obrigado por nos ajudar a evoluir nossa plataforma.',
-                    //         type: 'success'
-                    //     });
-                    // })
-                    // .catch(Notification.exception);
+                var request = Ajax.call([{
+                    methodname: 'theme_moove_savethemesettings',
+                    args: {
+                        formdata: this.getFormData()
+                    }
+                }]);
 
-                this.hide();
-                this.destroy();
+                request[0].done(function() {
+                    document.location.reload(true);
+                }.bind(this)).fail(function(error){
+                    var message = error.message;
+
+                    if (!message) {
+                        message = error.error;
+                    }
+
+                    Notification.addNotification({
+                        message: message,
+                        type: 'error'
+                    });
+
+                    this.hide();
+
+                    this.destroy();
+                }.bind(this));
             }.bind(this));
 
             this.getModal().on(CustomEvents.events.activate, SELECTORS.CANCEL_BUTTON, function(e, data) {

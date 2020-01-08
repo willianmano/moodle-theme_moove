@@ -237,3 +237,22 @@ $string['details'] = 'Detalhes';
 $string['startedon'] = 'Iniciado em';
 $string['addcontact'] = 'Adicionar contato';
 $string['removecontact'] = 'Remover contato';
+
+// Theme settings.
+$string['themesettingstitle'] = 'Configurações de tema';
+$string['themesettingsfonttype'] = 'Tipo de fonte';
+$string['themesettingsdefaultfont'] = 'Fonte padrão';
+$string['themesettingsdyslexicfont'] = 'Fonte para dislexicos';
+$string['themesettingsenableaccessibilitytoolbar'] = 'Habilitar barra de acessibilidade';
+$string['themesettinggsavedsuccessfully'] = 'Configurações de tema salvas com sucesso';
+
+// Accessibility features.
+$string['accessibilityfontsize'] = 'Tamanho da fonte';
+$string['accessibilityincreasefont'] = 'Aumentar tamanho da fonte';
+$string['accessibilityresetfont'] = 'Redefinir tamanho da fonte';
+$string['accessibilitydecreasefont'] = 'Diminuir tamanho da fonte';
+$string['accessibilitysitecolor'] = 'Cor do site';
+$string['accessibilityresetsitecolor'] = 'Redefinir cor do site';
+$string['accessibilitysitecolor2'] = 'Baixo contraste 1';
+$string['accessibilitysitecolor3'] = 'Baixo contraste 2';
+$string['accessibilitysitecolor4'] = 'Alto contraste';

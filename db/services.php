@@ -31,15 +31,27 @@ $functions = array(
         'methodname' => 'fontsize',
         'description' => 'Increase or decrease the site font size.',
         'type' => 'write',
-        'ajax' => true,
-        'services' => array(MOODLE_OFFICIAL_MOBILE_SERVICE)
+        'ajax' => true
     ),
     'theme_moove_sitecolor' => array(
         'classname' => 'theme_moove\api\accessibility',
         'methodname' => 'sitecolor',
         'description' => 'Changes the site color aspect.',
         'type' => 'write',
-        'ajax' => true,
-        'services' => array(MOODLE_OFFICIAL_MOBILE_SERVICE)
+        'ajax' => true
+    ),
+    'theme_moove_savethemesettings' => array(
+        'classname' => 'theme_moove\api\accessibility',
+        'methodname' => 'savethemesettings',
+        'description' => 'Store the user theme settings.',
+        'type' => 'write',
+        'ajax' => true
+    ),
+    'theme_moove_getthemesettings' => array(
+        'classname' => 'theme_moove\api\accessibility',
+        'methodname' => 'getthemesettings',
+        'description' => 'Get the user theme settings.',
+        'type' => 'read',
+        'ajax' => true
     )
 );

@@ -1,4 +1,4 @@
-body.hasaccessibilitybar {
+body.hasaccessibilitybar:not(.notloggedin) {
     nav.navbar {
         top: 30px;
     }

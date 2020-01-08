@@ -85,16 +85,6 @@ define(['jquery', 'core/ajax'], function(jQuery, Ajax) {
         }.bind(this));
     };
 
-    AccessibilityBar.prototype.siteColor = function() {
-        $('body').removeClass(function (index, className) {
-            return (className.match(/(^|\s)sitecolor-color-\S+/g) || []).join(' ');
-        });
-
-        if (sitecolorCurrentAction !== 'reset') {
-            jQuery('body').addClass(sitecolorCurrentAction);
-        }
-    };
-
     AccessibilityBar.prototype.reloadFontsizeClass = function() {
         if (fontsizeCurrentAction === 'reset'
             || (fontsizeCurrentAction === 'increase' && fontsizeClass === 'fontsize-dec-1')
@@ -178,6 +168,29 @@ define(['jquery', 'core/ajax'], function(jQuery, Ajax) {
             if (fontsizeClassSize < 6) {
                 jQuery('#fontsize_dec').removeClass('disabled');
             }
+        }
+    };
+
+    AccessibilityBar.prototype.siteColor = function() {
+        var request = Ajax.call([{
+            methodname: 'theme_moove_sitecolor',
+            args: {
+                action: sitecolorCurrentAction
+            }
+        }]);
+
+        request[0].done(function() {
+            this.reloadSitecolorClass();
+        }.bind(this));
+    };
+
+    AccessibilityBar.prototype.reloadSitecolorClass = function() {
+        $('body').removeClass(function (index, className) {
+            return (className.match(/(^|\s)sitecolor-color-\S+/g) || []).join(' ');
+        });
+
+        if (sitecolorCurrentAction !== 'reset') {
+            jQuery('body').addClass(sitecolorCurrentAction);
         }
     };
 
