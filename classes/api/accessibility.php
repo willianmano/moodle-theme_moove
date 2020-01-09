@@ -53,7 +53,7 @@ class accessibility extends external_api {
     /**
      * Font size endpoint implementation
      *
-     * @param $action
+     * @param array $action
      *
      * @return array
      *
@@ -143,7 +143,7 @@ class accessibility extends external_api {
     /**
      * Site color endpoint implementation
      *
-     * @param $action
+     * @param array $action
      *
      * @return array
      *
@@ -193,7 +193,7 @@ class accessibility extends external_api {
     /**
      * Save theme settings endpoint implementation
      *
-     * @param $formdata
+     * @param string $formdata
      *
      * @return array
      *

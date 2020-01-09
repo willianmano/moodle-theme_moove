@@ -43,10 +43,13 @@ class provider implements
     // This plugin has some sitewide user preferences to export.
     user_preference_provider {
 
-    /** The user preference for the navigation drawer. */
+    /** The user preference for the font size. */
     const FONTSIZE = 'accessibilitystyles_fontsizeclass';
+    /** The user preference for the site color. */
     const SITECOLOR = 'accessibilitystyles_sitecolorclass';
+    /** The user preference for the font type. */
     const FONTTYPE = 'thememoovesettings_fonttype';
+    /** The user preference for the enable accessibility toolbar. */
     const TOOLBAR = 'thememoovesettings_enableaccessibilitytoolbar';
 
     /**

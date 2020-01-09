@@ -28,7 +28,6 @@ use core_competency\api as competency_api;
 
 defined('MOODLE_INTERNAL') || die();
 
-
 /**
  * Class to get some extras info in Moodle.
  *
@@ -40,7 +39,7 @@ class extras {
     /**
      * Returns all user enrolled courses with progress
      *
-     * @param $user
+     * @param \stdClass $user
      *
      * @return array
      */
@@ -97,8 +96,8 @@ class extras {
     /**
      * Returns the first course's summary issue
      *
-     * @param $course
-     * @param $courselink
+     * @param \core_course_list_element $course
+     * @param string $courselink
      *
      * @return string
      */
@@ -158,7 +157,7 @@ class extras {
     /**
      * Returns an array of all user competency plans
      *
-     * @param $user
+     * @param \stdClass $user
      *
      * @return array
      *
@@ -225,8 +224,8 @@ class extras {
     /**
      * Returns the buttons displayed at the page header
      *
-     * @param $context
-     * @param $user
+     * @param \context_course $context
+     * @param \stdClass $user
      *
      * @return array
      *
