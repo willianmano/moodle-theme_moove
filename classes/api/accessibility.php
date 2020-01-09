@@ -76,15 +76,15 @@ class accessibility extends external_api {
                 $newfontsizeclass = 'fontsize-inc-1';
             }
 
-            if (isset($currentfontsize[1]) && $currentfontsize[1]  == 'inc' && $currentfontsize[2] < 6) {
+            if (isset($currentfontsize[1]) && $currentfontsize[1] == 'inc' && $currentfontsize[2] < 6) {
                 $newfontsizeclass = 'fontsize-inc-' . ($currentfontsize[2] + 1);
             }
 
-            if (isset($currentfontsize[1]) && $currentfontsize[1]  == 'dec' && $currentfontsize[2] > 1) {
+            if (isset($currentfontsize[1]) && $currentfontsize[1] == 'dec' && $currentfontsize[2] > 1) {
                 $newfontsizeclass = 'fontsize-dec-' . ($currentfontsize[2] - 1);
             }
 
-            if (isset($currentfontsize[1]) && $currentfontsize[1]  == 'dec' && $currentfontsize[2] == 1) {
+            if (isset($currentfontsize[1]) && $currentfontsize[1] == 'dec' && $currentfontsize[2] == 1) {
                 $newfontsizeclass = null;
             }
         }
@@ -94,15 +94,15 @@ class accessibility extends external_api {
                 $newfontsizeclass = 'fontsize-dec-1';
             }
 
-            if (isset($currentfontsize[1]) && $currentfontsize[1]  == 'dec' && $currentfontsize[2] < 6) {
+            if (isset($currentfontsize[1]) && $currentfontsize[1] == 'dec' && $currentfontsize[2] < 6) {
                 $newfontsizeclass = 'fontsize-dec-' . ($currentfontsize[2] + 1);
             }
 
-            if (isset($currentfontsize[1]) && $currentfontsize[1]  == 'inc' && $currentfontsize[2] > 1) {
+            if (isset($currentfontsize[1]) && $currentfontsize[1] == 'inc' && $currentfontsize[2] > 1) {
                 $newfontsizeclass = 'fontsize-inc-' . ($currentfontsize[2] - 1);
             }
 
-            if (isset($currentfontsize[1]) && $currentfontsize[1]  == 'inc' && $currentfontsize[2] == 1) {
+            if (isset($currentfontsize[1]) && $currentfontsize[1] == 'inc' && $currentfontsize[2] == 1) {
                 $newfontsizeclass = null;
             }
         }
