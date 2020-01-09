@@ -258,12 +258,12 @@ $string['accessibilitysitecolor3'] = 'Baixo contraste 2';
 $string['accessibilitysitecolor4'] = 'Alto contraste';
 
 // Data privacy.
-$string['privacy:metadata:preference:accessibilitystyles_fontsizeclass'] = 'The user\'s preference for font size.';
-$string['privacy:metadata:preference:accessibilitystyles_sitecolorclass'] = 'The user\'s preference for site color.';
-$string['privacy:metadata:preference:thememoovesettings_fonttype'] = 'The user\'s preference for font type.';
-$string['privacy:metadata:preference:thememoovesettings_enableaccessibilitytoolbar'] = 'The user\'s preference for enable the accessibility toolbar.';
+$string['privacy:metadata:preference:accessibilitystyles_fontsizeclass'] = 'Preferências do usuário para tamanho da fonte.';
+$string['privacy:metadata:preference:accessibilitystyles_sitecolorclass'] = 'Preferências do usuário para cor do site.';
+$string['privacy:metadata:preference:thememoovesettings_fonttype'] = 'Preferências do usuário para tipo de fonte.';
+$string['privacy:metadata:preference:thememoovesettings_enableaccessibilitytoolbar'] = 'Preferências do usuário para habilitar a barra de acessibilidade.';
 
-$string['privacy:accessibilitystyles_fontsizeclass'] = 'The current preference for the font size is: {$a}.';
-$string['privacy:accessibilitystyles_sitecolorclass'] = 'The current preference for the site color is: {$a}.';
-$string['privacy:thememoovesettings_fonttype'] = 'The current preference for the font type is: {$a}.';
-$string['privacy:thememoovesettings_enableaccessibilitytoolbar'] = 'The current preference for enable accessibility toolbar is to show it.';
+$string['privacy:accessibilitystyles_fontsizeclass'] = 'A preferência atual para o tamanho da fonte é: {$a}.';
+$string['privacy:accessibilitystyles_sitecolorclass'] = 'A preferência atual para a cor do site é: {$a}.';
+$string['privacy:thememoovesettings_fonttype'] = 'A preferência atual para o tipo de fonte é: {$a}.';
+$string['privacy:thememoovesettings_enableaccessibilitytoolbar'] = 'A preferência atual para habilitar a barra de acessibilidade é para exibi-lá';

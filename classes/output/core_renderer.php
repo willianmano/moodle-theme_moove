@@ -733,6 +733,9 @@ class core_renderer extends \theme_boost\output\core_renderer {
      * Wrapper for breadcrumb elements.
      *
      * @return string HTML to display the main header.
+     *
+     * @throws \coding_exception
+     * @throws \moodle_exception
      */
     public function breadcrumb_header() {
         global $PAGE;
@@ -752,9 +755,13 @@ class core_renderer extends \theme_boost\output\core_renderer {
     /**
      * Returns HTML attributes to use within the body tag. This includes an ID and classes.
      *
-     * @since Moodle 2.5.1 2.6
      * @param string|array $additionalclasses Any additional classes to give the body tag,
+     *
      * @return string
+     *
+     * @throws \coding_exception
+     *
+     * @since Moodle 2.5.1 2.6
      */
     public function body_attributes($additionalclasses = array()) {
         $hasaccessibilitybar = get_user_preferences('thememoovesettings_enableaccessibilitytoolbar', '');

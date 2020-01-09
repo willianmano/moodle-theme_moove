@@ -1,24 +1,37 @@
 language: php
 
-sudo: false
+sudo: true
+
+addons:
+  firefox: "latest"
+  postgresql: "9.4"
+
+services:
+  - mysql
+  - postgresql
 
 cache:
   directories:
     - $HOME/.composer/cache
+    - $HOME/.npm
 
 php:
+  - 7.0
   - 7.1
 
-matrix:
-  include:
-      - env: DB=pgsql MOODLE_BRANCH=master
-      - env: DB=mysqli MOODLE_BRANCH=master
+env:
+  global:
+    - MOODLE_BRANCH=MOODLE_38_STABLE
+  matrix:
+    - DB=pgsql
+    - DB=mysqli
 
 before_install:
   - phpenv config-rm xdebug.ini
+  - nvm install 8.9
+  - nvm use 8.9
   - cd ../..
-  - composer selfupdate
-  - composer create-project -n --no-dev --prefer-dist blackboard-open-source/moodle-plugin-ci ci ^1
+  - composer create-project -n --no-dev --prefer-dist blackboard-open-source/moodle-plugin-ci ci ^2
   - export PATH="$(cd ci/bin; pwd):$(cd ci/vendor/bin; pwd):$PATH"
 
 install:
@@ -26,12 +39,13 @@ install:
 
 script:
   - moodle-plugin-ci phplint
-  # - moodle-plugin-ci phpcpd
+  - moodle-plugin-ci phpcpd
   - moodle-plugin-ci phpmd
   - moodle-plugin-ci codechecker
-  - moodle-plugin-ci csslint
-  - moodle-plugin-ci shifter
-  # - moodle-plugin-ci jshint
   - moodle-plugin-ci validate
+  - moodle-plugin-ci savepoints
+  - moodle-plugin-ci mustache
+  - moodle-plugin-ci grunt
+  - moodle-plugin-ci phpdoc
   - moodle-plugin-ci phpunit
   - moodle-plugin-ci behat

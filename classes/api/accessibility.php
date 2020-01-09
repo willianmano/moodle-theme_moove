@@ -18,7 +18,7 @@
  * Accessibility API endpoints
  *
  * @package    theme_moove
- * @copyright  2019 Willian Mano - http://conecti.me
+ * @copyright  2020 Willian Mano - http://conecti.me
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -31,7 +31,19 @@ use external_function_parameters;
 use external_single_structure;
 use external_value;
 
+/**
+ * Accessibility API endpoints class
+ *
+ * @package    theme_moove
+ * @copyright  2020 Willian Mano - http://conecti.me
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
 class accessibility extends external_api {
+    /**
+     * Font size endpoint parameters definition
+     *
+     * @return external_function_parameters
+     */
     public static function fontsize_parameters() {
         return new external_function_parameters([
             'action' => new external_value(PARAM_RAW, 'The action value'),
@@ -39,8 +51,12 @@ class accessibility extends external_api {
     }
 
     /**
+     * Font size endpoint implementation
+     *
      * @param $action
+     *
      * @return array
+     *
      * @throws \coding_exception
      * @throws \invalid_parameter_exception
      */
@@ -102,18 +118,38 @@ class accessibility extends external_api {
         return ['newfontsizeclass' => $newfontsizeclass];
     }
 
+    /**
+     * Font size endpoint return definition
+     *
+     * @return external_single_structure
+     */
     public static function fontsize_returns() {
         return new external_single_structure([
             'newfontsizeclass' => new external_value(PARAM_RAW, 'The new fontsize class')
         ]);
     }
 
+    /**
+     * Site color endpoint parameters definition
+     *
+     * @return external_function_parameters
+     */
     public static function sitecolor_parameters() {
         return new external_function_parameters([
             'action' => new external_value(PARAM_RAW, 'The colorscheme value'),
         ]);
     }
 
+    /**
+     * Site color endpoint implementation
+     *
+     * @param $action
+     *
+     * @return array
+     *
+     * @throws \coding_exception
+     * @throws \invalid_parameter_exception
+     */
     public static function sitecolor($action) {
         $params = self::validate_parameters(self::fontsize_parameters(), ['action' => $action]);
 
@@ -132,18 +168,38 @@ class accessibility extends external_api {
         return ['success' => true];
     }
 
+    /**
+     * Site color endpoint return definition
+     *
+     * @return external_single_structure
+     */
     public static function sitecolor_returns() {
         return new external_single_structure([
             'success' => new external_value(PARAM_BOOL, 'Operation response')
         ]);
     }
 
+    /**
+     * Save theme settings endpoint parameters definition
+     *
+     * @return external_function_parameters
+     */
     public static function savethemesettings_parameters() {
         return new external_function_parameters([
             'formdata' => new external_value(PARAM_RAW, 'The theme settings form data'),
         ]);
     }
 
+    /**
+     * Save theme settings endpoint implementation
+     *
+     * @param $formdata
+     *
+     * @return array
+     *
+     * @throws \coding_exception
+     * @throws \invalid_parameter_exception
+     */
     public static function savethemesettings($formdata) {
         $params = self::validate_parameters(self::savethemesettings_parameters(), ['formdata' => $formdata]);
 
@@ -172,16 +228,33 @@ class accessibility extends external_api {
         return ['success' => true];
     }
 
+    /**
+     * Save theme settings endpoint return definition
+     *
+     * @return external_single_structure
+     */
     public static function savethemesettings_returns() {
         return new external_single_structure([
             'success' => new external_value(PARAM_BOOL, 'Operation response')
         ]);
     }
 
+    /**
+     * Get theme settings endpoint parameters definition
+     *
+     * @return external_function_parameters
+     */
     public static function getthemesettings_parameters() {
         return new external_function_parameters([]);
     }
 
+    /**
+     * Get theme settings endpoint implementation
+     *
+     * @return array
+     *
+     * @throws \coding_exception
+     */
     public static function getthemesettings() {
         return [
             'fonttype' => get_user_preferences('thememoovesettings_fonttype', 'default'),
@@ -189,6 +262,11 @@ class accessibility extends external_api {
         ];
     }
 
+    /**
+     * Get theme settings endpoint return definition
+     *
+     * @return external_single_structure
+     */
     public static function getthemesettings_returns() {
         return new external_single_structure([
             'fonttype' => new external_value(PARAM_TEXT, 'the user selected font'),
