@@ -1,23 +1,5 @@
-body.hasaccessibilitybar:not(.notloggedin) {
-    nav.navbar {
-        top: 30px;
-    }
-
-    #page {
-        margin-top: 70px;
-    }
-
-    [data-region="blocks-column"],
-    [data-region=right-hand-drawer].drawer {
-        top: 100px;
-    }
-
-    #nav-drawer {
-        top: 100px;
-    }
-}
-
 #accessibilitybar {
+    display: none;
     background-color: #fff;
     padding: .2rem;
     height: 30px;
@@ -69,5 +51,30 @@ body.hasaccessibilitybar:not(.notloggedin) {
             color: #ffff00;
             background-color: #000000;
         }
+    }
+}
+
+body.hasaccessibilitybar:not(.notloggedin) {
+    nav.navbar {
+        top: 30px;
+    }
+
+    #page {
+        margin-top: 70px;
+    }
+
+    [data-region="blocks-column"],
+    [data-region=right-hand-drawer].drawer {
+        top: 100px;
+    }
+
+    #nav-drawer {
+        top: 100px;
+    }
+}
+
+body.hasaccessibilitybar {
+    #accessibilitybar {
+        display: block;
     }
 }
