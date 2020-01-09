@@ -72,39 +72,11 @@ class accessibility extends external_api {
         }
 
         if ($params['action'] == 'increase') {
-            if ($currentfontsizeclass == '') {
-                $newfontsizeclass = 'fontsize-inc-1';
-            }
-
-            if (isset($currentfontsize[1]) && $currentfontsize[1] == 'inc' && $currentfontsize[2] < 6) {
-                $newfontsizeclass = 'fontsize-inc-' . ($currentfontsize[2] + 1);
-            }
-
-            if (isset($currentfontsize[1]) && $currentfontsize[1] == 'dec' && $currentfontsize[2] > 1) {
-                $newfontsizeclass = 'fontsize-dec-' . ($currentfontsize[2] - 1);
-            }
-
-            if (isset($currentfontsize[1]) && $currentfontsize[1] == 'dec' && $currentfontsize[2] == 1) {
-                $newfontsizeclass = null;
-            }
+            $newfontsizeclass = self::fontsize_increase($currentfontsizeclass, $currentfontsize[1], $currentfontsize[2]);
         }
 
         if ($params['action'] == 'decrease') {
-            if ($currentfontsizeclass == '') {
-                $newfontsizeclass = 'fontsize-dec-1';
-            }
-
-            if (isset($currentfontsize[1]) && $currentfontsize[1] == 'dec' && $currentfontsize[2] < 6) {
-                $newfontsizeclass = 'fontsize-dec-' . ($currentfontsize[2] + 1);
-            }
-
-            if (isset($currentfontsize[1]) && $currentfontsize[1] == 'inc' && $currentfontsize[2] > 1) {
-                $newfontsizeclass = 'fontsize-inc-' . ($currentfontsize[2] - 1);
-            }
-
-            if (isset($currentfontsize[1]) && $currentfontsize[1] == 'inc' && $currentfontsize[2] == 1) {
-                $newfontsizeclass = null;
-            }
+            $newfontsizeclass = self::fontsize_decrease($currentfontsizeclass, $currentfontsize[1], $currentfontsize[2]);
         }
 
         if ($params['action'] == 'reset') {
@@ -116,6 +88,68 @@ class accessibility extends external_api {
         }
 
         return ['newfontsizeclass' => $newfontsizeclass];
+    }
+
+    /**
+     * Returns the new incremented font size class
+     *
+     * @param string $currentfontsizeclass
+     * @param null $action
+     * @param null $value
+     *
+     * @return string|null
+     */
+    public static function fontsize_increase($currentfontsizeclass = '', $action = null, $value = null) {
+        $newfontsizeclass = null;
+
+        if ($currentfontsizeclass == '') {
+            $newfontsizeclass = 'fontsize-inc-1';
+        }
+
+        if (isset($action) && $action == 'inc' && $value < 6) {
+            $newfontsizeclass = 'fontsize-inc-' . ($value + 1);
+        }
+
+        if (isset($action) && $action == 'dec' && $value > 1) {
+            $newfontsizeclass = 'fontsize-dec-' . ($value - 1);
+        }
+
+        if (isset($action) && $action == 'dec' && $value == 1) {
+            $newfontsizeclass = null;
+        }
+
+        return $newfontsizeclass;
+    }
+
+    /**
+     * Returns the new decremented font size class
+     *
+     * @param string $currentfontsizeclass
+     * @param null $action
+     * @param null $value
+     *
+     * @return string|null
+     */
+    public static function fontsize_decrease($currentfontsizeclass = '', $action = null, $value = null) {
+        $newfontsizeclass = null;
+
+        if ($currentfontsizeclass == '') {
+            $newfontsizeclass = 'fontsize-dec-1';
+        }
+
+        if (isset($action) && $action == 'dec' && $value < 6) {
+            $newfontsizeclass = 'fontsize-dec-' . ($value + 1);
+        }
+
+        if (isset($action) && $action == 'inc' && $value > 1) {
+            $newfontsizeclass = 'fontsize-inc-' . ($value - 1);
+        }
+
+        if (isset($action) && $action == 'inc' && $value == 1) {
+            $newfontsizeclass = null;
+        }
+
+        return $newfontsizeclass;
     }
 
     /**
