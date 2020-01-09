@@ -256,3 +256,14 @@ $string['accessibilityresetsitecolor'] = 'Reset site color';
 $string['accessibilitysitecolor2'] = 'Low contrast 1';
 $string['accessibilitysitecolor3'] = 'Low contrast 2';
 $string['accessibilitysitecolor4'] = 'High contrast';
+
+// Data privacy.
+$string['privacy:metadata:preference:accessibilitystyles_fontsizeclass'] = 'The user\'s preference for font size.';
+$string['privacy:metadata:preference:accessibilitystyles_sitecolorclass'] = 'The user\'s preference for site color.';
+$string['privacy:metadata:preference:thememoovesettings_fonttype'] = 'The user\'s preference for font type.';
+$string['privacy:metadata:preference:thememoovesettings_enableaccessibilitytoolbar'] = 'The user\'s preference for enable the accessibility toolbar.';
+
+$string['privacy:accessibilitystyles_fontsizeclass'] = 'The current preference for the font size is: {$a}.';
+$string['privacy:accessibilitystyles_sitecolorclass'] = 'The current preference for the site color is: {$a}.';
+$string['privacy:thememoovesettings_fonttype'] = 'The current preference for the font type is: {$a}.';
+$string['privacy:thememoovesettings_enableaccessibilitytoolbar'] = 'The current preference for enable accessibility toolbar is to show it.';

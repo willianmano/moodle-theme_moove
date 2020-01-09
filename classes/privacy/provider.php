@@ -24,6 +24,11 @@
 
 namespace theme_moove\privacy;
 
+use \core_privacy\local\metadata\collection;
+use \core_privacy\local\metadata\provider as baseprovider;
+use \core_privacy\local\request\user_preference_provider;
+use \core_privacy\local\request\writer;
+
 defined('MOODLE_INTERNAL') || die();
 
 /**
@@ -32,15 +37,77 @@ defined('MOODLE_INTERNAL') || die();
  * @copyright  2018 Willian Mano - http://conecti.me
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class provider implements \core_privacy\local\metadata\null_provider {
+class provider implements
+    // This plugin has data.
+    baseprovider,
+    // This plugin has some sitewide user preferences to export.
+    user_preference_provider {
+
+    /** The user preference for the navigation drawer. */
+    const FONTSIZE = 'accessibilitystyles_fontsizeclass';
+    const SITECOLOR = 'accessibilitystyles_sitecolorclass';
+    const FONTTYPE = 'thememoovesettings_fonttype';
+    const TOOLBAR = 'thememoovesettings_enableaccessibilitytoolbar';
 
     /**
-     * Get the language string identifier with the component's language
-     * file to explain why this plugin stores no data.
+     * Returns meta data about this system.
      *
-     * @return  string
+     * @param  collection $items The initialised item collection to add items to.
+     * @return collection A listing of user data stored through this system.
      */
-    public static function get_reason() : string {
-        return 'privacy:metadata';
+    public static function get_metadata(collection $items) : collection {
+        $items->add_user_preference(self::FONTSIZE, 'privacy:metadata:preference:accessibilitystyles_fontsizeclass');
+        $items->add_user_preference(self::SITECOLOR, 'privacy:metadata:preference:accessibilitystyles_sitecolorclass');
+        $items->add_user_preference(self::FONTTYPE, 'privacy:metadata:preference:thememoovesettings_fonttype');
+        $items->add_user_preference(self::TOOLBAR, 'privacy:metadata:preference:thememoovesettings_enableaccessibilitytoolbar');
+        return $items;
+    }
+
+    /**
+     * Store all user preferences for the plugin.
+     *
+     * @param int $userid The userid of the user whose data is to be exported.
+     * @throws \coding_exception
+     */
+    public static function export_user_preferences(int $userid) {
+        $toolbar = get_user_preferences(self::TOOLBAR, null, $userid);
+        if (isset($toolbar)) {
+            writer::export_user_preference(
+                'theme_moove',
+                self::TOOLBAR,
+                $toolbar,
+                get_string('privacy:thememoovesettings_enableaccessibilitytoolbar', 'theme_moove', $toolbar)
+            );
+
+            $fontsize = get_user_preferences(self::FONTSIZE, null, $userid);
+            if (isset($fontsize)) {
+                writer::export_user_preference(
+                    'theme_moove',
+                    self::FONTSIZE,
+                    $fontsize,
+                    get_string('privacy:accessibilitystyles_fontsizeclass', 'theme_moove', $fontsize)
+                );
+            }
+
+            $sitecolor = get_user_preferences(self::SITECOLOR, null, $userid);
+            if (isset($sitecolor)) {
+                writer::export_user_preference(
+                    'theme_moove',
+                    self::SITECOLOR,
+                    $sitecolor,
+                    get_string('privacy:accessibilitystyles_sitecolorclass', 'theme_moove', $sitecolor)
+                );
+            }
+        }
+
+        $fonttype = get_user_preferences(self::FONTTYPE, null, $userid);
+        if (isset($fonttype)) {
+            writer::export_user_preference(
+                'theme_moove',
+                self::FONTTYPE,
+                $fonttype,
+                get_string('privacy:thememoovesettings_fonttype', 'theme_moove', $fonttype)
+            );
+        }
     }
 }

@@ -757,24 +757,24 @@ class core_renderer extends \theme_boost\output\core_renderer {
      * @return string
      */
     public function body_attributes($additionalclasses = array()) {
-        $currentfontsizeclass = get_user_preferences('accessibilitystyles_fontsizeclass', '');
-        if ($currentfontsizeclass) {
-            $additionalclasses[] = $currentfontsizeclass;
-        }
+        $hasaccessibilitybar = get_user_preferences('thememoovesettings_enableaccessibilitytoolbar', '');
+        if ($hasaccessibilitybar) {
+            $additionalclasses[] = 'hasaccessibilitybar';
 
-        $currentsitecolorclass = get_user_preferences('accessibilitystyles_sitecolorclass', '');
-        if ($currentsitecolorclass) {
-            $additionalclasses[] = $currentsitecolorclass;
+            $currentfontsizeclass = get_user_preferences('accessibilitystyles_fontsizeclass', '');
+            if ($currentfontsizeclass) {
+                $additionalclasses[] = $currentfontsizeclass;
+            }
+
+            $currentsitecolorclass = get_user_preferences('accessibilitystyles_sitecolorclass', '');
+            if ($currentsitecolorclass) {
+                $additionalclasses[] = $currentsitecolorclass;
+            }
         }
 
         $fonttype = get_user_preferences('thememoovesettings_fonttype', '');
         if ($fonttype) {
             $additionalclasses[] = $fonttype;
-        }
-
-        $hasaccessibilitybar = get_user_preferences('thememoovesettings_enableaccessibilitytoolbar', '');
-        if ($hasaccessibilitybar) {
-            $additionalclasses[] = 'hasaccessibilitybar';;
         }
 
         if (!is_array($additionalclasses)) {
