@@ -22,16 +22,18 @@ define(['exports', 'jquery'], function(exports, $) {
 
     function _objectSpread(target) {
         for (var i = 1; i < arguments.length; i++) {
-            var source = arguments[i] != null ? arguments[i] : {};
+            var source = arguments[i] !== null ? arguments[i] : {};
             var ownKeys = Object.keys(source);
 
             if (typeof Object.getOwnPropertySymbols === 'function') {
-                ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) {
-                    return Object.getOwnPropertyDescriptor(source, sym).enumerable;
+                ownKeys = ownKeys.concat(
+                    Object.getOwnPropertySymbols(source)
+                    .filter(function(sym) {// eslint-disable-line no-loop-func
+                        return Object.getOwnPropertyDescriptor(source, sym).enumerable;
                 }));
             }
 
-            ownKeys.forEach(function (key) {
+            ownKeys.forEach(function (key) {// eslint-disable-line no-loop-func
                 _defineProperty(target, key, source[key]);
             });
         }
@@ -39,7 +41,7 @@ define(['exports', 'jquery'], function(exports, $) {
         return target;
     }
 
-    var Util = function ($$$1) {
+    var Util = function($$$1) {// eslint-disable-line wrap-iife
         var TRANSITION_END = 'transitionend';
         var Util = {
             TRANSITION_END: 'mmTransitionEnd',
@@ -90,7 +92,7 @@ define(['exports', 'jquery'], function(exports, $) {
         return Util;
     }($);
 
-    var MetisMenu = function ($$$1) {
+    var MetisMenu = function($$$1) {// eslint-disable-line wrap-iife
         var NAME = 'metisMenu';
         var DATA_KEY = 'metisMenu';
         var EVENT_KEY = "." + DATA_KEY;
@@ -115,7 +117,7 @@ define(['exports', 'jquery'], function(exports, $) {
             HIDDEN: "hidden" + EVENT_KEY,
             CLICK_DATA_API: "click" + EVENT_KEY + DATA_API_KEY
     };
-        var MetisMenu = function () {
+        var MetisMenu = function() {// eslint-disable-line wrap-iife
             function MetisMenu(element, config) {
                 this.element = element;
                 this.config = _objectSpread({}, Default, config);
@@ -128,37 +130,47 @@ define(['exports', 'jquery'], function(exports, $) {
             _proto.init = function init() {
                 var self = this;
                 var conf = this.config;
-                $$$1(this.element).find(conf.parentTrigger + "." + conf.activeClass).has(conf.subMenu).children(conf.subMenu).addClass(conf.collapseClass + " " + conf.collapseInClass);
-                $$$1(this.element).find(conf.parentTrigger).not("." + conf.activeClass).has(conf.subMenu).children(conf.subMenu).addClass(conf.collapseClass);
-                $$$1(this.element).find(conf.parentTrigger).has(conf.subMenu).children(conf.triggerElement).on(Event.CLICK_DATA_API, function (e) {
-                    var eTar = $$$1(this);
-                    var paRent = eTar.parent(conf.parentTrigger);
-                    var sibLings = paRent.siblings(conf.parentTrigger).children(conf.triggerElement);
-                    var List = paRent.children(conf.subMenu);
+                $$$1(this.element).find(conf.parentTrigger + "." + conf.activeClass)
+                    .has(conf.subMenu)
+                    .children(conf.subMenu)
+                    .addClass(conf.collapseClass + " " + conf.collapseInClass);
+                $$$1(this.element).find(conf.parentTrigger)
+                    .not("." + conf.activeClass)
+                    .has(conf.subMenu)
+                    .children(conf.subMenu)
+                    .addClass(conf.collapseClass);
+                $$$1(this.element).find(conf.parentTrigger)
+                    .has(conf.subMenu)
+                    .children(conf.triggerElement)
+                    .on(Event.CLICK_DATA_API, function (e) {
+                        var eTar = $$$1(this);
+                        var paRent = eTar.parent(conf.parentTrigger);
+                        var sibLings = paRent.siblings(conf.parentTrigger).children(conf.triggerElement);
+                        var List = paRent.children(conf.subMenu);
 
-                    if (conf.preventDefault) {
-                        e.preventDefault();
-                    }
-
-                    if (eTar.attr('aria-disabled') === 'true') {
-                        return;
-                    }
-
-                    if (paRent.hasClass(conf.activeClass)) {
-                        eTar.attr('aria-expanded', false);
-                        self.hide(List);
-                    } else {
-                        self.show(List);
-                        eTar.attr('aria-expanded', true);
-
-                        if (conf.toggle) {
-                            sibLings.attr('aria-expanded', false);
+                        if (conf.preventDefault) {
+                            e.preventDefault();
                         }
-                    }
 
-                    if (conf.onTransitionStart) {
-                        conf.onTransitionStart(e);
-                    }
+                        if (eTar.attr('aria-disabled') === 'true') {
+                            return;
+                        }
+
+                        if (paRent.hasClass(conf.activeClass)) {
+                            eTar.attr('aria-expanded', false);
+                            self.hide(List);
+                        } else {
+                            self.show(List);
+                            eTar.attr('aria-expanded', true);
+
+                            if (conf.toggle) {
+                                sibLings.attr('aria-expanded', false);
+                            }
+                        }
+
+                        if (conf.onTransitionStart) {
+                            conf.onTransitionStart(e);
+                        }
                 });
             };
 
@@ -180,7 +192,9 @@ define(['exports', 'jquery'], function(exports, $) {
                 elem.parent(this.config.parentTrigger).addClass(this.config.activeClass);
 
                 if (this.config.toggle) {
-                    this.hide(elem.parent(this.config.parentTrigger).siblings().children(this.config.subMenu + "." + this.config.collapseInClass));
+                    this.hide(elem.parent(this.config.parentTrigger)
+                        .siblings()
+                        .children(this.config.subMenu + "." + this.config.collapseInClass));
                 }
 
                 elem.removeClass(this.config.collapseClass).addClass(this.config.collapsingClass).height(0);
@@ -191,7 +205,9 @@ define(['exports', 'jquery'], function(exports, $) {
                         return;
                     }
 
-                    elem.removeClass(_this.config.collapsingClass).addClass(_this.config.collapseClass + " " + _this.config.collapseInClass).height('');
+                    elem.removeClass(_this.config.collapsingClass)
+                        .addClass(_this.config.collapseClass + " " + _this.config.collapseInClass)
+                        .height('');
 
                     _this.setTransitioning(false);
 
@@ -218,8 +234,10 @@ define(['exports', 'jquery'], function(exports, $) {
 
                 elem.parent(this.config.parentTrigger).removeClass(this.config.activeClass);
 
-                elem.height(elem.height())[0].offsetHeight;
-                elem.addClass(this.config.collapsingClass).removeClass(this.config.collapseClass).removeClass(this.config.collapseInClass);
+                elem.addClass(this.config.collapsingClass)
+                    .removeClass(this.config.collapseClass)
+                    .removeClass(this.config.collapseInClass);
+
                 this.setTransitioning(true);
 
                 var complete = function complete() {
@@ -250,7 +268,11 @@ define(['exports', 'jquery'], function(exports, $) {
 
             _proto.dispose = function dispose() {
                 $$$1.removeData(this.element, DATA_KEY);
-                $$$1(this.element).find(this.config.parentTrigger).has(this.config.subMenu).children(this.config.triggerElement).off('click');
+                $$$1(this.element).find(this.config.parentTrigger)
+                    .has(this.config.subMenu)
+                    .children(this.config.triggerElement)
+                    .off('click');
+
                 this.transitioning = null;
                 this.config = null;
                 this.element = null;

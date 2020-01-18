@@ -42,7 +42,7 @@ define(['jquery', 'core/modal_factory', 'theme_moove/themesettings_modal'],
          * @method toggleThemeSettings
          * @param {Event} e
          */
-        ThemeSettings.prototype.openThemeSettings = function(e) {
+        ThemeSettings.prototype.openThemeSettings = function() {
             ModalFactory.create({
                 type: ThemeSettingsModal.TYPE
             })

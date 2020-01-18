@@ -56,7 +56,7 @@ module.exports = function(grunt) {
             },
             amd: {
                 files: ['**/amd/src/**/*.js'],
-                tasks: ['amd', 'decache']
+                tasks: [    'amd', 'decache']
             },
             css: {
                 files: ["scss/**/*.scss"],

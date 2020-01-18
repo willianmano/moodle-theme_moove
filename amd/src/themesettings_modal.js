@@ -64,7 +64,7 @@ define(['jquery', 'core/notification', 'core/custom_interaction_events', 'core/m
             // Apply parent event listeners.
             Modal.prototype.registerEventListeners.call(this);
 
-            this.getModal().on(CustomEvents.events.activate, SELECTORS.SAVE_BUTTON, function(e, data) {
+            this.getModal().on(CustomEvents.events.activate, SELECTORS.SAVE_BUTTON, function() {
                 var request = Ajax.call([{
                     methodname: 'theme_moove_savethemesettings',
                     args: {
@@ -92,7 +92,7 @@ define(['jquery', 'core/notification', 'core/custom_interaction_events', 'core/m
                 }.bind(this));
             }.bind(this));
 
-            this.getModal().on(CustomEvents.events.activate, SELECTORS.CANCEL_BUTTON, function(e, data) {
+            this.getModal().on(CustomEvents.events.activate, SELECTORS.CANCEL_BUTTON, function() {
                 this.hide();
                 this.destroy();
             }.bind(this));
