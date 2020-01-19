@@ -26,7 +26,7 @@
 defined('MOODLE_INTERNAL') || die();
 
 // This is the version of the plugin.
-$plugin->version = 2020010800;
+$plugin->version = 2020011800;
 
 // This is the version of Moodle this plugin requires.
 $plugin->requires = 2019111200;
@@ -36,7 +36,7 @@ $plugin->requires = 2019111200;
 $plugin->component = 'theme_moove';
 
 // This is the named version.
-$plugin->release = '3.8.1';
+$plugin->release = '3.8.2';
 
 // This is a stable release.
 $plugin->maturity = MATURITY_STABLE;
