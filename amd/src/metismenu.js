@@ -207,7 +207,7 @@ define(['exports', 'jquery'], function(exports, $) {
 
                     elem.removeClass(_this.config.collapsingClass)
                         .addClass(_this.config.collapseClass + " " + _this.config.collapseInClass)
-                        .height('');
+                        .height("");
 
                     _this.setTransitioning(false);
 
@@ -271,7 +271,7 @@ define(['exports', 'jquery'], function(exports, $) {
                 $$$1(this.element).find(this.config.parentTrigger)
                     .has(this.config.subMenu)
                     .children(this.config.triggerElement)
-                    .off('click');
+                    .off("click");
 
                 this.transitioning = null;
                 this.config = null;
