@@ -45,6 +45,3 @@ $plugin->requires = 2019111200;
 $plugin->dependencies = [
     'theme_boost' => 2019111800
 ];
-
-// Cron time.
-$plugin->cron = 0;
