@@ -238,8 +238,11 @@ class course_renderer extends \core_course_renderer {
 
         $content = extras::get_course_summary_image($course, $courselink);
 
+
+        $theme = \theme_config::load('moove');
+
         // Course instructors.
-        if ($course->has_course_contacts()) {
+        if ($course->has_course_contacts() && !($theme->settings->disableteacherspic)) {
             $content .= html_writer::start_tag('div', array('class' => 'course-contacts'));
 
             $instructors = $course->get_course_contacts();

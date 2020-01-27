@@ -141,6 +141,8 @@ $string['marketing4content'] = 'Conteúdo do Marketing4';
 $string['marketing4contentdesc'] = 'Digite o texto do conteúdo do Marketing4';
 $string['marketing4url'] = 'URL do Marketing4';
 $string['marketing4urldesc'] = 'Digite a URL do Marketing4';
+$string['disableteacherspic'] = 'Desabilitar fotos dos professores';
+$string['disableteacherspicdesc'] = 'Esta configuração oculta as fotos dos professores nos cards dos cursos.';
 
 $string['sliderenabled'] = 'Habilitar Slideshow';
 $string['sliderenableddesc'] = 'Habilita um slideshow no topo da página inicial do site.';

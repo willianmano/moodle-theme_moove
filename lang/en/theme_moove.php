@@ -141,6 +141,8 @@ $string['marketing4content'] = 'Marketing4 Content';
 $string['marketing4contentdesc'] = 'Enter Marketing4 Content Text';
 $string['marketing4url'] = 'Marketing4 URL';
 $string['marketing4urldesc'] = 'Enter Marketing4 URL';
+$string['disableteacherspic'] = 'Disable teachers picture';
+$string['disableteacherspicdesc'] = 'This setting hides the teachers\' pictures from the course cards.';
 
 $string['sliderenabled'] = 'Enable slider';
 $string['sliderenableddesc'] = 'Enable a slider at the top of your home page';
