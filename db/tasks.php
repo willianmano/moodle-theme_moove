@@ -15,36 +15,24 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Moove.
+ * Defines the theme tasks
  *
- * @package    theme_moove
- * @copyright  2017 Willian Mano - conecti.me
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package   theme_moove
+ * @copyright 2020 Willian Mano - http://conecti.me
+ * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 // This line protects the file from being accessed by a URL directly.
 defined('MOODLE_INTERNAL') || die();
 
-// This is the component name of the plugin - it always starts with 'theme_'
-// for themes and should be the same as the name of the folder.
-$plugin->component = 'theme_moove';
-
-// This is the version of the plugin.
-$plugin->version = 2020012600;
-
-// This is the named version.
-$plugin->release = '3.8.4';
-
-// This is a stable release.
-$plugin->maturity = MATURITY_STABLE;
-
-// This is the version of Moodle this plugin requires.
-$plugin->requires = 2019111200;
-
-// This is a list of plugins, this plugin depends on (and their versions).
-$plugin->dependencies = [
-    'theme_boost' => 2019111800
+$tasks = [
+    [
+        'classname' => 'theme_moove\task\diskusage',
+        'blocking' => 1,
+        'minute' => '0',
+        'hour' => '4',
+        'day' => '*',
+        'month' => '*',
+        'dayofweek' => '*',
+    ],
 ];
-
-// Cron time.
-$plugin->cron = 0;

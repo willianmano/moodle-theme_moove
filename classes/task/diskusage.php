@@ -15,26 +15,49 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Defines the cache usage
+ * Calculates the disk usage
  *
  * @package   theme_moove
- * @copyright 2017 Willian Mano - http://conecti.me
+ * @copyright 2020 Willian Mano - http://conecti.me
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
+
+namespace theme_moove\task;
 
 // This line protects the file from being accessed by a URL directly.
 defined('MOODLE_INTERNAL') || die();
 
-$definitions = [
-    'admininfos' => [
-        'mode' => cache_store::MODE_APPLICATION,
-        'ttl' => 86400, // A day.
-    ],
-    'fontawesomemooveiconmapping' => [
-        'mode' => cache_store::MODE_APPLICATION,
-        'simplekeys' => true,
-        'simpledata' => true,
-        'staticacceleration' => true,
-        'staticaccelerationsize' => 1
-    ]
-];
+use cache;
+
+/**
+ * Calculates the disk usage
+ */
+class diskusage extends \core\task\scheduled_task {
+
+    /**
+     * Return the task's name as shown in admin screens.
+     *
+     * @return string
+     *
+     * @throws \coding_exception
+     */
+    public function get_name() {
+        return get_string('calculatediskusagetask', 'theme_moove');
+    }
+
+    /**
+     * Execute the task.
+     */
+    public function execute() {
+        global $CFG;
+
+        $cache = cache::make('theme_moove', 'admininfos');
+
+        $totalusage = get_directory_size($CFG->dataroot);
+        $totalusagereadable = number_format(ceil($totalusage / 1048576));
+
+        $cache->set('totalusagereadable', $totalusagereadable);
+
+        return true;
+    }
+}
