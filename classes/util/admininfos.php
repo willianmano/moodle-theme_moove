@@ -27,10 +27,10 @@ namespace theme_moove\util;
 defined('MOODLE_INTERNAL') || die();
 
 /**
- * Class to get some admin infoss in Moodle.
+ * Class to get some admin infos in Moodle.
  *
  * @package    theme_moove
- * @copyright  2019 Willian Mano - http://conecti.me
+ * @copyright  2020 Willian Mano - http://conecti.me
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class admininfos {

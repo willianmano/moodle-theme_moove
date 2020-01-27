@@ -30,7 +30,11 @@ defined('MOODLE_INTERNAL') || die();
 use cache;
 
 /**
- * Calculates the disk usage
+ * Task to calculates the disk usage
+ *
+ * @package    theme_moove
+ * @copyright  2020 Willian Mano - http://conecti.me
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class diskusage extends \core\task\scheduled_task {
 
