@@ -42,8 +42,7 @@ class certificates {
      *
      * @param $user
      */
-    public function __construct($user)
-    {
+    public function __construct($user) {
         $this->user = $user;
     }
 
