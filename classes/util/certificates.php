@@ -34,13 +34,16 @@ defined('MOODLE_INTERNAL') || die();
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class certificates {
-    /* The target user */
+
+    /**
+     * @var \stdClass $user The target user.
+     */
     protected $user;
 
     /**
      * Certificates constructor.
      *
-     * @param $user
+     * @param \stdClass $user
      */
     public function __construct($user) {
         $this->user = $user;
@@ -174,7 +177,7 @@ class certificates {
     /**
      * Group certificates by course.
      *
-     * @param $certificates
+     * @param array $certificates
      *
      * @return array
      */
