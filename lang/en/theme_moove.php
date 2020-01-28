@@ -241,6 +241,7 @@ $string['details'] = 'Details';
 $string['startedon'] = 'Started on';
 $string['addcontact'] = 'Add contact';
 $string['removecontact'] = 'Remove contact';
+$string['certificates'] = 'Certificates';
 
 // Theme settings.
 $string['themesettingstitle'] = 'Theme settings';

@@ -269,6 +269,4 @@ class extras {
 
         return $headerbuttons;
     }
-
-
 }
