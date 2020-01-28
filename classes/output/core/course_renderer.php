@@ -238,7 +238,6 @@ class course_renderer extends \core_course_renderer {
 
         $content = extras::get_course_summary_image($course, $courselink);
 
-
         $theme = \theme_config::load('moove');
 
         // Course instructors.
