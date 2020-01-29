@@ -94,10 +94,4 @@ $templatecontext['competencyplans'] = $competencyplans;
 
 $templatecontext['headerbuttons'] = \theme_moove\util\extras::get_mypublic_headerbuttons($context, $user);
 
-$certificates = new \theme_moove\util\certificates($user);
-$issuedcertificates = $certificates->get_all_certificates();
-
-$templatecontext['hascertificates'] = (count($issuedcertificates)) ? true : false;
-$templatecontext['coursescertificates'] = $issuedcertificates;
-
 echo $OUTPUT->render_from_template('theme_moove/mypublic', $templatecontext);

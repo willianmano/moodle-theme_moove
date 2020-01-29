@@ -41,12 +41,18 @@ class certificates {
     protected $user;
 
     /**
+     * @var int $courseid The course id.
+     */
+    protected $courseid;
+
+    /**
      * Certificates constructor.
      *
      * @param \stdClass $user
      */
-    public function __construct($user) {
+    public function __construct($user, $courseid = 0) {
         $this->user = $user;
+        $this->courseid = $courseid;
     }
 
     /**
@@ -98,10 +104,15 @@ class certificates {
                 FROM {simplecertificate_issues} sci
                 INNER JOIN {simplecertificate} sc ON sc.id = sci.certificateid
                 INNER JOIN {course} c ON sc.course = c.id
-                WHERE sci.timedeleted IS NULL AND sci.userid = :userid
-                ORDER BY c.fullname, sci.timecreated';
-
+                WHERE sci.timedeleted IS NULL AND sci.userid = :userid';
         $params = ['userid' => $this->user->id];
+
+        if ($this->courseid) {
+            $sql .= ' AND c.id = :courseid';
+            $params['courseid'] = $this->courseid;
+        }
+
+        $sql .= ' ORDER BY c.fullname, sci.timecreated';
 
         $certificates = $DB->get_records_sql($sql, $params);
 
@@ -150,10 +161,16 @@ class certificates {
                 FROM {customcert_issues} ci
                 INNER JOIN {customcert} cc ON cc.id = ci.customcertid
                 INNER JOIN {course} c ON c.id = cc.course
-                WHERE ci.userid = :userid
-                ORDER BY c.fullname, ci.timecreated';
+                WHERE ci.userid = :userid';
 
         $params = ['userid' => $this->user->id];
+
+        if ($this->courseid) {
+            $sql .= ' AND c.id = :courseid';
+            $params['courseid'] = $this->courseid;
+        }
+
+        $sql .= ' ORDER BY c.fullname, ci.timecreated';
 
         $certificates = $DB->get_records_sql($sql, $params);
 

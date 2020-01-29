@@ -105,9 +105,12 @@
                 content: "\e040";
             }
 
-            &[data-key="sitesettings"] a:before,
-            &[data-key="themesettings"] a:before {
+            &[data-key="sitesettings"] a:before {
                 content: "\e09a";
+            }
+
+            &[data-key="certificates"] a:before {
+                content: "\e034";
             }
         }
     }

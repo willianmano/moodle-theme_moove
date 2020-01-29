@@ -275,9 +275,58 @@ function theme_moove_get_setting($setting, $format = false) {
  * @param flat_navigation $flatnav
  */
 function theme_moove_extend_flat_navigation(\flat_navigation $flatnav) {
-    theme_moove_rebuildcoursesections($flatnav);
+    theme_moove_add_certificatesmenuitem($flatnav);
 
     theme_moove_delete_menuitems($flatnav);
+
+    theme_moove_add_coursesections_to_navigation($flatnav);
+}
+
+/**
+ * Add items to flat navigation menu
+ *
+ * @param flat_navigation $flatnav
+ *
+ */
+function theme_moove_add_certificatesmenuitem(\flat_navigation $flatnav) {
+    global $COURSE;
+
+    try {
+        if (!theme_moove_has_certificates_plugin()) {
+            return;
+        }
+
+        $actionurl = new \moodle_url('/theme/moove/certificates.php');
+
+        // Course page.
+        if ($COURSE->id > 1) {
+            $parentitem = $flatnav->find('competencies', \navigation_node::TYPE_SETTING);
+
+            $actionurl = new \moodle_url('/theme/moove/certificates.php', ['id' => $COURSE->id]);
+        }
+
+        if ($COURSE->id == 1 && !$parentitem = $flatnav->find('privatefiles', \navigation_node::TYPE_SETTING)) {
+            return;
+        }
+
+        $certificatesitemoptions = [
+            'action' => $actionurl,
+            'text' => get_string('certificates', 'theme_moove'),
+            'shorttext' => get_string('certificates', 'theme_moove'),
+            'icon' => new pix_icon('i/export', ''),
+            'type' => \navigation_node::TYPE_SETTING,
+            'key' => 'certificates',
+            'parent' => $parentitem->parent
+        ];
+
+        $certificatesitem = new \flat_navigation_node($certificatesitemoptions, 0);
+
+        $flatnav->add($certificatesitem, $parentitem->key);
+    } catch (\coding_exception $e) {
+        debugging($e->getMessage(), DEBUG_DEVELOPER, $e->getTrace());
+    } catch (\moodle_exception $e) {
+        debugging($e->getMessage(), DEBUG_NORMAL, $e->getTrace());
+    }
 }
 
 /**
@@ -313,7 +362,7 @@ function theme_moove_delete_menuitems(\flat_navigation $flatnav) {
  *
  * @param flat_navigation $flatnav
  */
-function theme_moove_rebuildcoursesections(\flat_navigation $flatnav) {
+function theme_moove_add_coursesections_to_navigation(\flat_navigation $flatnav) {
     global $PAGE;
 
     $participantsitem = $flatnav->find('participants', \navigation_node::TYPE_CONTAINER);
@@ -358,4 +407,21 @@ function theme_moove_rebuildcoursesections(\flat_navigation $flatnav) {
 
         $flatnav->add($mycourses, 'privatefiles');
     }
+}
+
+/**
+ * Check if a certificate plugin is installed.
+ *
+ * @return bool
+ */
+function theme_moove_has_certificates_plugin() {
+    $simplecertificate = \core_plugin_manager::instance()->get_plugin_info('mod_simplecertificate');
+
+    $customcert = \core_plugin_manager::instance()->get_plugin_info('mod_customcert');
+
+    if ($simplecertificate || $customcert) {
+        return true;
+    }
+
+    return false;
 }

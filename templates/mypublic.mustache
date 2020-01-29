@@ -117,11 +117,6 @@
                                                     <a class="nav-link" id="competencyplans-tab" data-toggle="tab" href="#planos" role="tab" aria-controls="planos" aria-selected="false">{{#str}}competencyplans, theme_moove{{/str}}</a>
                                                 </li>
                                             {{/ hascompetencyplans }}
-                                            {{# hascertificates }}
-                                                <li class="nav-item">
-                                                    <a class="nav-link" id="certificates-tab" data-toggle="tab" href="#certificates" role="tab" aria-controls="certificates" aria-selected="true">{{#str}}certificates, theme_moove{{/str}}</a>
-                                                </li>
-                                            {{/ hascertificates }}
                                             <li class="nav-item">
                                                 <a class="nav-link {{^hascourses}}active{{/hascourses}}" id="details-tab" data-toggle="tab" href="#details" role="tab" aria-controls="details" aria-selected="{{^hascourses}}true{{/hascourses}}{{#hascourses}}false{{/hascourses}}">{{#str}}details, theme_moove{{/str}}</a>
                                             </li>
@@ -168,20 +163,6 @@
                                                     {{/competencyplans}}
                                                 </div>
                                             {{/ hascompetencyplans }}
-                                            {{# hascertificates }}
-                                                <div class="tab-pane fade show" id="certificates" role="tabpanel" aria-labelledby="certificates-tab">
-                                                    {{# coursescertificates }}
-                                                        <div class="card mt-1">
-                                                            <div class="card-body">
-                                                                <h5 class="card-title">{{{ fullname }}}</h5>
-                                                                {{#certificates}}
-                                                                    <p class="card-text"><a target="_blank" href="{{ downloadurl }}">{{# pix }} icon, {{{ module }}} {{/ pix }} {{{ name }}}</a></p>
-                                                                {{/certificates}}
-                                                            </div>
-                                                        </div>
-                                                    {{/ coursescertificates }}
-                                                </div>
-                                            {{/ hascertificates }}
                                             <div class="tab-pane fade pt-1 {{^hascourses}}active show{{/hascourses}}" id="details" role="tabpanel" aria-labelledby="details-tab">
                                                 {{#hasregionmainsettingsmenu}}
                                                     <div class="region_main_settings_menu_proxy"></div>

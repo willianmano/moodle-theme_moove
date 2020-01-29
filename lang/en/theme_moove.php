@@ -232,6 +232,9 @@ $string['forumhtmlemailfooterdesc'] = 'Configure the email footer for the forum 
 $string['forumcustomtemplate'] = 'Use a pretty template for forum mails';
 $string['forumcustomtemplatedesc'] = 'Enable that in order to use a pretty template when sending forum messages via email. If not enabled standard formatting of forum mails will be used.';
 
+$string['certificates'] = 'Certificates';
+$string['certificatestitle'] = 'My certificates';
+$string['nohavecertificates'] = 'You no have certificates yet';
 $string['coursesections'] = 'Course sections';
 
 // Mypublic page.
