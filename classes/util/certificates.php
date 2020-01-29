@@ -49,6 +49,7 @@ class certificates {
      * Certificates constructor.
      *
      * @param \stdClass $user
+     * @param int $courseid
      */
     public function __construct($user, $courseid = 0) {
         $this->user = $user;
