@@ -274,11 +274,3 @@
     display: none;
   }
 }
-
-@media (min-width: 1200px) {
-  #page-site-index.notloggedin .frontpage-marketing .card {
-    &:first-child {
-      margin-left: 0;
-    }
-  }
-}

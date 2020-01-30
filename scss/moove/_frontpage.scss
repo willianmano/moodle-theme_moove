@@ -244,8 +244,9 @@
         padding: 2em 0;
 
         .card {
+            flex-basis: calc(25% - 1rem);
             text-align: center;
-            min-height: 300px;
+            margin: 0 .5rem;
 
             img {
               max-width: 100%;
