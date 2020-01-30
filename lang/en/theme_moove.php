@@ -234,6 +234,8 @@ $string['forumcustomtemplatedesc'] = 'Enable that in order to use a pretty templ
 
 $string['certificates'] = 'Certificates';
 $string['certificatestitle'] = 'My certificates';
+$string['subtitleallcertificates'] = 'Certificates from all courses';
+$string['subtitlecoursecertificates'] = 'Course certificates';
 $string['nohavecertificates'] = 'You no have certificates yet';
 $string['coursesections'] = 'Course sections';
 

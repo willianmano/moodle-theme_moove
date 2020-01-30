@@ -234,6 +234,8 @@ $string['forumcustomtemplatedesc'] = 'Marque para habilitar um template mais agr
 
 $string['certificates'] = 'Certificados';
 $string['certificatestitle'] = 'Meus certificados';
+$string['subtitleallcertificates'] = 'Certificados de todos os cursos';
+$string['subtitlecoursecertificates'] = 'Certificados do curso';
 $string['nohavecertificates'] = 'Você não possui certificados ainda.';
 $string['coursesections'] = 'Seções do curso';
 

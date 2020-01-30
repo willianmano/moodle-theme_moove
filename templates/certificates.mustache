@@ -1,15 +1,29 @@
-{{#hascertificates}}
-    {{#coursescertificates}}
-        <div class="card mt-1">
-            <div class="card-body">
-                <h5 class="card-title">{{{ fullname }}}</h5>
-                {{#certificates}}
-                    <p class="card-text"><a target="_blank" href="{{ downloadurl }}">{{# pix }} icon, {{{ module }}} {{/ pix }} {{{ name }}}</a></p>
-                {{/certificates}}
+<h2 class="card-title">{{{ title }}}</h2>
+<h3 class="card-subtitle mb-2 text-muted">{{{ subtitle }}}</h3>
+
+<div class="row">
+    <div class="col-md-4">
+        <img src="{{config.wwwroot}}/theme/moove/pix/default_course.jpg" class="img-responsive">
+    </div>
+    <div class="col-md-8">
+        {{#hascertificates}}
+            {{#coursescertificates}}
+                <div class="card mb-1">
+                    <div class="card-body">
+                        <h5 class="card-title">{{{ fullname }}}</h5>
+                        {{#certificates}}
+                            <p class="card-text"><a target="_blank" href="{{ downloadurl }}">{{# pix }} icon, {{{ module }}} {{/ pix }} {{{ name }}}</a></p>
+                        {{/certificates}}
+                    </div>
+                </div>
+            {{/coursescertificates}}
+        {{/hascertificates }}
+        {{^hascertificates}}
+            <div class="card mt-1">
+                <div class="card-body">
+                    <p class="card-text">{{#str}}nohavecertificates, theme_moove{{/str}}</p>
+                </div>
             </div>
-        </div>
-    {{/coursescertificates}}
-{{/hascertificates }}
-{{^hascertificates}}
-    <h2>{{#str}}nohavecertificates, theme_moove{{/str}}</h2>
-{{/hascertificates}}
+        {{/hascertificates}}
+    </div>
+</div>

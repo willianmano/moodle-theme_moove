@@ -48,7 +48,7 @@ class certificates implements renderable, templatable {
      *
      * @param int $courseid
      */
-    public function __construct($courseid = 0) {
+    public function __construct($courseid) {
         $this->courseid = $courseid;
     }
 
@@ -69,9 +69,18 @@ class certificates implements renderable, templatable {
 
         $issuedcertificates = $certificates->get_all_certificates();
 
+        $title = get_string('certificatestitle', 'theme_moove');
+        $subtitle = get_string('subtitleallcertificates', 'theme_moove');
+
+        if ($this->courseid) {
+            $subtitle = get_string('subtitlecoursecertificates', 'theme_moove');
+        }
+
         return [
             'hascertificates' => (count($issuedcertificates)) ? true : false,
-            'coursescertificates' => $issuedcertificates
+            'coursescertificates' => $issuedcertificates,
+            'title' => $title,
+            'subtitle' => $subtitle
         ];
     }
 }
