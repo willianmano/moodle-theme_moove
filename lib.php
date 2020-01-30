@@ -350,9 +350,7 @@ function theme_moove_delete_menuitems(\flat_navigation $flatnav) {
         if (isset($item->parent->key) && $item->parent->key == 'mycourses' &&
             isset($item->type) && $item->type == \navigation_node::TYPE_COURSE) {
 
-            $flatnav->remove($item->key);
-
-            continue;
+            $flatnav->remove($item->key, \navigation_node::TYPE_COURSE);
         }
     }
 }
