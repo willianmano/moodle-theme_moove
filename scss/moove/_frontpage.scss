@@ -240,8 +240,8 @@
     }
 
     .frontpage-marketing {
-        margin: -4em 0 0 0;
-        padding: 2em 0;
+        margin: -4rem 0 0 0;
+        padding: 2rem 0;
 
         .card {
             flex-basis: calc(25% - 1rem);
@@ -270,7 +270,7 @@
 
     .frontpage-numbers {
         background: $brand-primary;
-        padding: 8em 0;
+        padding: 8rem 0;
 
         .row {
             max-width: 1140px;
@@ -325,12 +325,13 @@
     }
 
     .frontpage-maincontent {
-        padding-top: 2em;
-        padding-bottom: 2em;
+        padding-top: 2rem;
+        padding-bottom: 2rem;
     }
 
     .frontpage-sponsors {
-        padding: 2em auto;
+        padding-top: 2rem;
+        padding-bottom: 2rem;
         text-align: center;
 
         p {
@@ -360,7 +361,8 @@
     }
 
     .fontpage-faq {
-        padding: 3em auto;
+        padding-top: 2rem;
+        padding-bottom: 2rem;
 
         h2 {
             color: $brand-primary;

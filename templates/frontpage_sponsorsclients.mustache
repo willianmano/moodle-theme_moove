@@ -1,5 +1,5 @@
-<div class="container frontpage-sponsors">
-    {{#sponsorsfrontpage}}
+{{#sponsorsfrontpage}}
+    <div class="container frontpage-sponsors">
         <h2>{{{sponsorstitle}}}</h2>
         <p>{{{sponsorssubtitle}}}</p>
         <div class="row">
@@ -11,11 +11,13 @@
             </div>
             {{/sponsors}}
         </div>
+    </div>
 
-        <hr />
-    {{/sponsorsfrontpage}}
+    <hr />
+{{/sponsorsfrontpage}}
 
-    {{#clientsfrontpage}}
+{{#clientsfrontpage}}
+    <div class="container frontpage-sponsors">
         <h2>{{{clientstitle}}}</h2>
         <p>{{{clientssubtitle}}}</p>
         <div class="row">
@@ -27,7 +29,5 @@
                 </div>
             {{/clients}}
         </div>
-
-        <hr />
-    {{/clientsfrontpage}}
-</div>
+    </div>
+{{/clientsfrontpage}}
