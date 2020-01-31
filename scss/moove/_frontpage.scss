@@ -324,39 +324,33 @@
         }
     }
 
+    .frontpage-maincontent,
+    .fontpage-faq {
+        h2 {
+            color: $brand-primary;
+            text-align: center;
+
+            &:before,
+            &:after {
+                display: inline-block;
+                content: "";
+                border-bottom: 1px solid $brand-primary;
+                border-top: 1px solid $brand-primary;
+                width: 8rem;
+                height: 5px;
+                margin: 0 .5rem;
+                vertical-align: bottom;
+                transform: translateY(-1rem);
+            }
+        }
+    }
+
     .frontpage-maincontent {
         padding-top: 2rem;
         padding-bottom: 2rem;
-    }
 
-    .frontpage-sponsors {
-        padding-top: 2rem;
-        padding-bottom: 2rem;
-        text-align: center;
-
-        p {
-            font-size: 1.2rem;
-            margin-top: 1rem;
-        }
-
-        .row {
-            display: table;
-            width: 100%;
-
-            .item {
-                display: table-cell;
-                margin: 0 10px;
-
-                img {
-                    vertical-align: middle;
-                    max-width: 100%;
-                }
-            }
-        }
-
-        hr {
-            margin-top: 3rem;
-            margin-bottom: 3rem;
+        h2 {
+            margin-bottom: 4rem;
         }
     }
 
@@ -365,9 +359,7 @@
         padding-bottom: 2rem;
 
         h2 {
-            color: $brand-primary;
-            margin-bottom: 2rem;
-            font-size: 2rem;
+            margin: 2rem 0 4rem 0;
         }
 
         #accordion {
@@ -404,6 +396,52 @@
             }
         }
     }
+
+    .frontpage-sponsors,
+    .frontpage-clients {
+        padding-top: 2rem;
+        text-align: center;
+
+        h2 {
+            color: $brand-primary;
+        }
+
+        p {
+            font-size: 1.2rem;
+            margin-top: 1rem;
+        }
+
+        .row {
+            display: table;
+            width: 100%;
+
+            .item {
+                display: table-cell;
+                margin: 0 10px;
+
+                img {
+                    vertical-align: middle;
+                    max-width: 100%;
+                }
+            }
+        }
+    }
+
+    .frontpage-sponsors {
+        padding-bottom: 0;
+
+        &:after {
+            content: "";
+            display: block;
+            border-bottom: 1px solid $brand-primary;
+            width: 50%;
+            margin: 2rem auto;
+        }
+    }
+
+    .frontpage-clients {
+        padding-bottom: 2rem;
+    }
 }
 
 #page-site-index.slideshow {
@@ -418,5 +456,35 @@
         position: absolute;
         right: 20px;
         top: 20px;
+    }
+}
+
+@include media-breakpoint-down(md) {
+    #page-site-index.notloggedin {
+        .frontpage-marketing {
+            padding-bottom: 0;
+
+            .card {
+                margin-bottom: .25rem;
+
+                &:last-of-type {
+                    margin-bottom: 0;
+                }
+            }
+        }
+
+        .fontpage-faq h2,
+        .frontpage-maincontent h2 {
+            margin-bottom: 2rem;
+
+            &:after,
+            &:before {
+                display: none;
+            }
+        }
+
+        .fontpage-faq {
+            padding-top: 0;
+        }
     }
 }
