@@ -62,7 +62,7 @@ Pages
     margin-top: 40px;
 
     &.container-fluid {
-        padding: 2rem 2rem 0 2rem;
+        padding: 2rem;
     }
 }
 
@@ -108,8 +108,6 @@ Card
 .card {
     border-color: $card-border-color;
     border-radius: $card-border-radius;
-    -webkit-box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
 
     &.card-block,
     .card-block,
@@ -153,6 +151,6 @@ Progress
     }
 }
 
-.opendyslexicfont {
-
+.region_main_settings_menu_proxy {
+    background-color: initial;
 }

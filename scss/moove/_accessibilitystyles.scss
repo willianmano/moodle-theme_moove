@@ -45,9 +45,12 @@ $accessibility-sizes: map-merge(
 }
 
 body {
-    #region-main a,
-    .section-navigation > a {
-        text-decoration: underline;
+    &.pagelayout-course,
+    &.pagelayout-incourse {
+        #region-main a,
+        .section-navigation > a {
+            text-decoration: underline;
+        }
     }
 
     &.sitecolor-color-2,
