@@ -1,6 +1,6 @@
 {
   "name": "theme-moove-tasks",
-  "version": "0.1.0",
+  "version": "3.8.5",
   "description": "Grunt tasks for Moodle MOOVE theme.",
   "main": "Gruntfile.js",
   "author": {

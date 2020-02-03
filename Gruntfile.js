@@ -108,8 +108,5 @@ module.exports = function(grunt) {
     grunt.registerTask("default", ["watch"]);
     grunt.registerTask("decache", ["exec:decache"]);
 
-    grunt.registerTask("compile", [
-        "uglify",
-        "decache"
-    ]);
+    grunt.registerTask("compile", ["uglify", "decache"]);
 };
