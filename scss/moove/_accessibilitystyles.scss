@@ -45,9 +45,18 @@ $accessibility-sizes: map-merge(
 }
 
 body {
+    #region-main a,
+    .section-navigation > a {
+        text-decoration: underline;
+    }
+
     &.sitecolor-color-2,
     &.sitecolor-color-3,
     &.sitecolor-color-4 {
+        a {
+            text-decoration: underline;
+        }
+
         nav.navbar {
             -webkit-box-shadow: none;
             box-shadow: none;
