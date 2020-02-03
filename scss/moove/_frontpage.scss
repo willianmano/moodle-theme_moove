@@ -444,18 +444,41 @@
     }
 }
 
-#page-site-index.slideshow {
-    #page-header {
-        padding: 0;
-        position: relative;
-        background-image: none !important;
+#page-site-index {
+    #frontpage-available-course-list {
+        h2 {
+            color: $brand-primary;
+            text-align: center;
+            margin-bottom: 1.25rem;
+
+            &:before,
+            &:after {
+                display: inline-block;
+                content: "";
+                border-bottom: 1px solid $brand-primary;
+                border-top: 1px solid $brand-primary;
+                width: 8rem;
+                height: 5px;
+                margin: 0 .5rem;
+                vertical-align: bottom;
+                transform: translateY(-1rem);
+            }
+        }
     }
 
-    #loginbox {
-        display: none;
-        position: absolute;
-        right: 20px;
-        top: 20px;
+    .slideshow {
+        #page-header {
+            padding: 0;
+            position: relative;
+            background-image: none !important;
+        }
+
+        #loginbox {
+            display: none;
+            position: absolute;
+            right: 20px;
+            top: 20px;
+        }
     }
 }
 
