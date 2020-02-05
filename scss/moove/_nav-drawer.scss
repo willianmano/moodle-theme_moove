@@ -240,3 +240,22 @@ body.drawer-open-left #nav-drawer-footer {
         display: inline-block;
     }
 }
+
+@include media-breakpoint-down(sm) {
+    #nav-drawer-footer {
+        display: none;
+    }
+
+    body.drawer-open-left {
+        #nav-drawer-footer {
+            width: 70px;
+            display: block;
+
+            #themesettings-control {
+                .text {
+                    display: none;
+                }
+            }
+        }
+    }
+}
