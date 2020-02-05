@@ -309,19 +309,21 @@ function theme_moove_add_certificatesmenuitem(\flat_navigation $flatnav) {
             return;
         }
 
-        $certificatesitemoptions = [
-            'action' => $actionurl,
-            'text' => get_string('certificates', 'theme_moove'),
-            'shorttext' => get_string('certificates', 'theme_moove'),
-            'icon' => new pix_icon('i/export', ''),
-            'type' => \navigation_node::TYPE_SETTING,
-            'key' => 'certificates',
-            'parent' => $parentitem->parent
-        ];
+        if (!is_null($parentitem->parent)) {
+            $certificatesitemoptions = [
+                'action' => $actionurl,
+                'text' => get_string('certificates', 'theme_moove'),
+                'shorttext' => get_string('certificates', 'theme_moove'),
+                'icon' => new pix_icon('i/export', ''),
+                'type' => \navigation_node::TYPE_SETTING,
+                'key' => 'certificates',
+                'parent' => $parentitem->parent
+            ];
 
-        $certificatesitem = new \flat_navigation_node($certificatesitemoptions, 0);
+            $certificatesitem = new \flat_navigation_node($certificatesitemoptions, 0);
 
-        $flatnav->add($certificatesitem, $parentitem->key);
+            $flatnav->add($certificatesitem, $parentitem->key);
+        }
     } catch (\coding_exception $e) {
         debugging($e->getMessage(), DEBUG_DEVELOPER, $e->getTrace());
     } catch (\moodle_exception $e) {

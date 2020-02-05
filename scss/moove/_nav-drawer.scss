@@ -2,7 +2,7 @@
     padding: 5px;
     background-color: $navbar-bg;
     top: 70px;
-    height: calc(100% - #{$navbar-height} - 50px);
+    height: calc(100% - #{$navbar-height} - 80px);
     padding-bottom: 20px;
     overflow-y: auto;
 
@@ -118,28 +118,6 @@
     .list-group + .list-group {
         border-top: 3px solid $navbar-separator;
     }
-
-    .nav-drawer-footer {
-        text-align: center;
-        position: fixed;
-        display: block;
-        width: 285px;
-        height: 50px;
-        bottom: 0;
-        margin: 0 -5px;
-        background-color: $navbar-bg-hover;
-
-        #themesettings-control {
-            padding: .75rem 0;
-            display: block;
-            color: #fff;
-            cursor: pointer;
-
-            i {
-                font-size: 19px;
-            }
-        }
-    }
 }
 
 #nav-drawer.closed {
@@ -226,12 +204,39 @@
             }
         }
     }
+}
 
-    .nav-drawer-footer {
-        width: 70px;
+#nav-drawer-footer {
+    text-align: center;
+    position: fixed;
+    display: block;
+    height: 50px;
+    left: 5px;
+    bottom: 0;
+    margin: 0 -5px;
+    background-color: $navbar-bg-hover;
+    width: 70px;
 
-        #themesettings-control .text {
+    #themesettings-control {
+        padding: .75rem 0;
+        display: block;
+        color: #fff;
+        cursor: pointer;
+
+        i {
+            font-size: 19px;
+        }
+
+        .text {
             display: none;
         }
+    }
+}
+
+body.drawer-open-left #nav-drawer-footer {
+    width: 285px;
+
+    #themesettings-control .text {
+        display: inline-block;
     }
 }

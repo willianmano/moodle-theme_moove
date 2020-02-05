@@ -73,6 +73,13 @@ body {
         nav.navbar ul.navbar-nav .popover-region .popover-region-toggle {
             background-color: initial !important;
         }
+
+        #frontpage-available-course-list h2 {
+            &:before,
+            &:after {
+                display: none !important;
+            }
+        }
     }
 
     &.sitecolor-color-2 {
@@ -91,11 +98,15 @@ body {
 
         *:not([class*="mce"]):not([id*="mce"]):not([id*="editor"]){
             /* it works well only with * selector but mce editor gets unusable */
-            color: #fff !important;
+            color: #000 !important;
         }
 
         .contentwithoutlink .labelbar.primary {
             border-top-color: #eef5f9;
+        }
+
+        .btn {
+            border-color: #d7dfe3;
         }
 
         #sitecolor_color2 {
@@ -117,8 +128,9 @@ body {
             border: 1px solid #d7dfe3 !important;
         }
 
-        #nav-drawer .nav-drawer-footer {
-            border-top: 1px solid #d7dfe3 !important;
+        #nav-drawer-footer {
+            border: 1px solid #d7dfe3 !important;
+            border-top: none !important;
         }
 
         #nav-drawer .list-group+.list-group {
@@ -126,8 +138,8 @@ body {
         }
 
         nav.navbar,
-        #nav-drawer .nav-drawer-footer,
-        #nav-drawer .nav-drawer-footer #themesettings-control {
+        #nav-drawer-footer,
+        #nav-drawer-footer #themesettings-control {
             background-color: initial !important;
         }
     }
@@ -148,7 +160,11 @@ body {
 
         *:not([class*="mce"]):not([id*="mce"]):not([id*="editor"]){
             /* it works well only with * selector but mce editor gets unusable */
-            color: #fff !important;
+            color: #000 !important;
+        }
+
+        .btn {
+            border-color: #d7dfe3;
         }
 
         .contentwithoutlink .labelbar.primary {
@@ -174,8 +190,9 @@ body {
             border: 1px solid #d7dfe3 !important;
         }
 
-        #nav-drawer .nav-drawer-footer {
-            border-top: 1px solid #d7dfe3 !important;
+        #nav-drawer-footer {
+            border: 1px solid #d7dfe3 !important;
+            border-top: none !important;
         }
 
         #nav-drawer .list-group+.list-group {
@@ -183,8 +200,8 @@ body {
         }
 
         nav.navbar,
-        #nav-drawer .nav-drawer-footer,
-        #nav-drawer .nav-drawer-footer #themesettings-control {
+        #nav-drawer-footer,
+        #nav-drawer-footer #themesettings-control {
             background-color: initial !important;
         }
     }
@@ -201,6 +218,10 @@ body {
             background-color: #000000 !important;
             background-image: none !important;
             text-shadow:none !important;
+        }
+
+        .btn {
+            border-color: #fff;
         }
 
         #nav-drawer,
@@ -229,15 +250,16 @@ body {
             border: 1px solid #fff !important;
         }
 
-        #nav-drawer .nav-drawer-footer {
-            border-top: 1px solid #fff !important;
+        #nav-drawer-footer {
+            border: 1px solid #fff !important;
+            border-top: none !important;
         }
 
         #nav-drawer .list-group+.list-group {
             border-top: 1px solid #fff;
         }
 
-        #nav-drawer .nav-drawer-footer #themesettings-control i {
+        #nav-drawer-footer #themesettings-control i {
             background-color: initial !important;
         }
 
@@ -251,8 +273,8 @@ body {
         }
 
         nav.navbar,
-        #nav-drawer .nav-drawer-footer,
-        #nav-drawer .nav-drawer-footer #themesettings-control {
+        #nav-drawer-footer,
+        #nav-drawer-footer #themesettings-control {
             background-color: initial !important;
         }
 
