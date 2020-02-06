@@ -27,7 +27,7 @@ Willian Mano
 
 Moodle profile: https://moodle.org/user/profile.php?id=968235
 
-Linkedin:       https://www.linkedin.com/in/willianmano
+Linkedin: https://www.linkedin.com/in/willianmano
 
 Installation
 ------------

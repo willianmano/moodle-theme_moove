@@ -249,12 +249,12 @@ $string['removecontact'] = 'Remover contato';
 $string['certificates'] = 'Certificados';
 
 // Theme settings.
-$string['themesettingstitle'] = 'Configurações de tema';
+$string['themesettingstitle'] = 'Acessibilidade';
 $string['themesettingsfonttype'] = 'Tipo de fonte';
 $string['themesettingsdefaultfont'] = 'Fonte padrão';
 $string['themesettingsdyslexicfont'] = 'Fonte para dislexicos';
 $string['themesettingsenableaccessibilitytoolbar'] = 'Habilitar barra de acessibilidade';
-$string['themesettinggsavedsuccessfully'] = 'Configurações de tema salvas com sucesso';
+$string['themesettinggsavedsuccessfully'] = 'Configurações de acessibilidade salvas com sucesso';
 
 // Accessibility features.
 $string['accessibilityfontsize'] = 'Tamanho da fonte';
