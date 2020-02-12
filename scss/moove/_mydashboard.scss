@@ -70,17 +70,21 @@
     }
 
     #region-main-box #region-main {
-        .card {
+        .card:not([class*="dashboard-card"]) {
             border-top: solid 2px $brand-primary;
         }
 
-         > .card {
-             border: none;
-             background-color: initial;
+        .card.mymaincontent {
+            border: none;
+            background-color: initial;
 
-             .card-body {
-                 padding: 0;
-             }
-         }
+            > .card-body {
+                padding: 0;
+            }
+        }
+
+        .block .block-cards .progress {
+            margin-left: 0;
+        }
     }
 }
