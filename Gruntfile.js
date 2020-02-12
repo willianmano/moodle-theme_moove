@@ -46,7 +46,10 @@ module.exports = function(grunt) {
                     src: amdSrc,
                     rename: uglifyRename
                 }],
-                options: {report: "none"}
+                options: {
+                    report: "min",
+                    sourceMap: true
+                }
             }
         },
         watch: {
