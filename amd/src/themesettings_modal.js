@@ -28,7 +28,6 @@ define(['jquery', 'core/notification', 'core/custom_interaction_events', 'core/m
             SAVE_BUTTON: '[data-action="save"]',
             CANCEL_BUTTON: '[data-action="cancel"]'
         };
-        var teste = 'teste';
 
         /**
          * Constructor for the Modal.
@@ -37,8 +36,6 @@ define(['jquery', 'core/notification', 'core/custom_interaction_events', 'core/m
          */
         var ThemeSettingsModal = function(root) {
             Modal.call(this, root);
-
-            teste = 'a';
 
             var request = Ajax.call([{
                 methodname: 'theme_moove_getthemesettings',

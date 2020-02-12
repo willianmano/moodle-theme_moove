@@ -27,8 +27,6 @@ define(['jquery', 'core/modal_factory', 'theme_moove/themesettings_modal'],
             TOGGLE_REGION: '#themesettings-control'
         };
 
-        var teste = 'teste';
-
         /**
          * Constructor for the ThemeSettings.
          *
@@ -36,8 +34,6 @@ define(['jquery', 'core/modal_factory', 'theme_moove/themesettings_modal'],
          */
         var ThemeSettings = function() {
             this.registerEventListeners();
-
-            teste = 'a';
         };
 
         /**

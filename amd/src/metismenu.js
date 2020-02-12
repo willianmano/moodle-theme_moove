@@ -27,8 +27,6 @@ define(['exports', 'jquery'], function(exports, $) {
 
     var $ = _interopDefault(require('jquery'));
 
-    var teste = 'teste';
-
     function _defineProperty(obj, key, value) {
         if (key in obj) {
             Object.defineProperty(obj, key, {
@@ -40,8 +38,6 @@ define(['exports', 'jquery'], function(exports, $) {
         } else {
             obj[key] = value;
         }
-
-        teste = 'a';
 
         return obj;
     }
@@ -87,6 +83,7 @@ define(['exports', 'jquery'], function(exports, $) {
                     if ($$$1(event.target).is(this)) {
                         return event.handleObj.handler.apply(this, arguments);
                     }
+
                     return undefined;
                 }
             };
