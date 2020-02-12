@@ -14,10 +14,10 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Contain the logic for a drawer.
+ * Theme settings logic.
  *
- * @package    theme_olm
- * @copyright  2019 Willian Mano - http://conecti.me
+ * @package    theme_moove
+ * @copyright  2020 Willian Mano - http://conecti.me
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 define(['jquery', 'core/modal_factory', 'theme_moove/themesettings_modal'],
@@ -27,6 +27,8 @@ define(['jquery', 'core/modal_factory', 'theme_moove/themesettings_modal'],
             TOGGLE_REGION: '#themesettings-control'
         };
 
+        var teste = 'teste';
+
         /**
          * Constructor for the ThemeSettings.
          *
@@ -34,6 +36,8 @@ define(['jquery', 'core/modal_factory', 'theme_moove/themesettings_modal'],
          */
         var ThemeSettings = function() {
             this.registerEventListeners();
+
+            teste = 'a';
         };
 
         /**

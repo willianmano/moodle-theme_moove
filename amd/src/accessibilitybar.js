@@ -14,10 +14,10 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Contain the logic for a drawer.
+ * Contain the logic for accessibility bar.
  *
- * @package    theme_olm
- * @copyright  2019 Willian Mano - http://conecti.me
+ * @package    theme_moove
+ * @copyright  2020 Willian Mano - http://conecti.me
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 define(['jquery', 'core/ajax'], function(jQuery, Ajax) {

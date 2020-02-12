@@ -14,10 +14,10 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Contain the logic for a drawer.
+ * Theme settings modal.
  *
- * @package    theme_olm
- * @copyright  2019 Willian Mano - http://conecti.me
+ * @package    theme_moove
+ * @copyright  2020 Willian Mano - http://conecti.me
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 define(['jquery', 'core/notification', 'core/custom_interaction_events', 'core/modal', 'core/modal_registry', 'core/ajax'],
@@ -28,6 +28,7 @@ define(['jquery', 'core/notification', 'core/custom_interaction_events', 'core/m
             SAVE_BUTTON: '[data-action="save"]',
             CANCEL_BUTTON: '[data-action="cancel"]'
         };
+        var teste = 'teste';
 
         /**
          * Constructor for the Modal.
@@ -36,6 +37,8 @@ define(['jquery', 'core/notification', 'core/custom_interaction_events', 'core/m
          */
         var ThemeSettingsModal = function(root) {
             Modal.call(this, root);
+
+            teste = 'a';
 
             var request = Ajax.call([{
                 methodname: 'theme_moove_getthemesettings',
