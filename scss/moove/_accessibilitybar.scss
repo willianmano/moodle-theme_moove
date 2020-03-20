@@ -77,4 +77,12 @@ body.hasaccessibilitybar {
     #accessibilitybar {
         display: block;
     }
+
+    #nav-drawer {
+        height: calc(100% - #{$navbar-height} - 80px);
+    }
+
+    .message-app .footer-container {
+        top: -30px;
+    }
 }
