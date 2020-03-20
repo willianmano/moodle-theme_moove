@@ -25,10 +25,15 @@
 
     .list-group {
         .list-group-item {
-            padding: 0;
+            min-height: 50px;
+            padding: 0 0 0 .5rem;
             background-color: inherit;
             border-radius: $card-border-radius;
             border: 0;
+
+            &:hover {
+                background-color: $navbar-bg-hover;
+            }
 
             a {
                 color: #fff;
@@ -40,7 +45,6 @@
                 border-radius: $card-border-radius;
 
                 &:hover {
-                    background-color: $navbar-bg-hover;
                     color: #fff;
                 }
 
@@ -120,6 +124,10 @@
     }
 }
 
+#nav-drawer[aria-hidden=true] .list-group-item {
+    display: inherit;
+}
+
 #nav-drawer.closed {
     overflow: visible;
     width: 70px;
@@ -132,7 +140,7 @@
     .list-group {
         .list-group-item {
             text-align: left;
-            padding: 0 .6rem;
+            padding: 0 .5rem;
 
             > ul {
                 display: none;
@@ -160,7 +168,7 @@
                 }
 
                 .text {
-                    margin-left: 4px;
+                    margin-left: 4px !important;
                 }
 
                 > ul {
