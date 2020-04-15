@@ -122,6 +122,7 @@ if (isloggedin()) {
         'output' => $OUTPUT,
         'bodyattributes' => $bodyattributes,
         'hasdrawertoggle' => false,
+        'canloginasguest' => $CFG->guestloginbutton and !isguestuser(),
         'cansignup' => $CFG->registerauth == 'email' || !empty($CFG->registerauth),
         'bannerheading' => $bannerheading,
         'bannercontent' => $bannercontent,
