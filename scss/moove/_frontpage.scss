@@ -466,7 +466,7 @@
         }
     }
 
-    .slideshow {
+    &.slideshow {
         #page-header {
             padding: 0;
             position: relative;
@@ -508,6 +508,6 @@
 
         .fontpage-faq {
             padding-top: 0;
-        }
+        }   
     }
 }
