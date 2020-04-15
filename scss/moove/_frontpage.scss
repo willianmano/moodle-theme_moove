@@ -117,11 +117,6 @@
         opacity: 0.94;
         margin-bottom: 3rem;
 
-        #intro,
-        #boxForm {
-            margin-top: 3rem;
-        }
-
         #intro {
             text-align: left;
             color: #fff;
@@ -212,11 +207,11 @@
         }
 
         #boxForm {
-            color: #5a5a5a;
             background-color: #fff;
-            opacity: 1;
-            padding: 20px;
+            color: #5a5a5a;
+            margin-top: 1rem;
             text-align: left;
+            opacity: 1;
         }
 
         &.dropdown-menu {

@@ -25,19 +25,9 @@
             <button type="submit" class="btn btn-primary">{{#str}}login{{/str}}</button>
         </div>
     </form>
-    
-    {{#canloginasguest}}
-      <h5 class="m-t-2">{{#str}} guest {{/str}}</h5>
-      <form action="{{{ config.wwwroot }}}/login/index.php" method="post" id="guestlogin">
-          <input type="hidden" name="username" value="guest" />
-          <input type="hidden" name="password" value="guest" />
-          <input type="hidden" name="logintoken" value="{{logintoken}}">
-          <button class="btn btn-primary" type="submit">{{#str}}loginguest{{/str}}</button>
-      </form>
-    {{/canloginasguest}}
 
     {{#output.has_identity_providers}}
-        <h5 class="m-t-2">{{#str}} potentialidps, auth {{/str}}</h5>
+        <h5 class="mt-2">{{#str}} potentialidps, auth {{/str}}</h5>
         <div class="potentialidplist" class="m-t-1">
             {{#output.get_identity_providers}}
                 <div class="potentialidp">
@@ -52,9 +42,18 @@
         </div>
     {{/output.has_identity_providers}}
 
-    <p><a href="{{{ config.wwwroot }}}/login/forgot_password.php">{{#str}}forgotten{{/str}}</a></p>
+    <p class="my-2"><a href="{{{ config.wwwroot }}}/login/forgot_password.php">{{#str}}forgotten{{/str}}</a></p>
 
     {{#cansignup}}
         <a class="btn btn-register btn-primary" href="{{{ config.wwwroot }}}/login/signup.php?">{{#str}}newaccount{{/str}}</a>
     {{/cansignup}}
+
+    {{#canloginasguest}}
+        <form action="{{{ config.wwwroot }}}/login/index.php" method="post" id="guestlogin">
+            <input type="hidden" name="username" value="guest" />
+            <input type="hidden" name="password" value="guest" />
+            <input type="hidden" name="logintoken" value="{{logintoken}}">
+            <button class="btn btn-default btn-block mt-2" type="submit">{{#str}}loginguest{{/str}}</button>
+        </form>
+    {{/canloginasguest}}
 </div>
