@@ -136,18 +136,43 @@ class core_renderer extends \theme_boost\output\core_renderer {
      * @return string
      */
     public function render_login(\core_auth\output\login $form) {
-        global $SITE;
+        global $CFG, $SITE;
 
         $context = $form->export_for_template($this);
 
         // Override because rendering is not supported in template yet.
-        $context->cookieshelpiconformatted = $this->help_icon('cookiesenabled');
+        if ($CFG->rememberusername == 0) {
+            $context->cookieshelpiconformatted = $this->help_icon('cookiesenabledonlysession');
+        } else {
+            $context->cookieshelpiconformatted = $this->help_icon('cookiesenabled');
+        }
         $context->errorformatted = $this->error_text($context->error);
 
         $context->logourl = $this->get_logo();
-        $context->sitename = format_string($SITE->fullname, true, array('context' => \context_course::instance(SITEID)));
 
-        return $this->render_from_template('core/login', $context);
+        $context->sitename = format_string($SITE->fullname, true,
+            ['context' => \context_course::instance(SITEID), "escape" => false]);
+
+        return $this->render_from_template('core/loginform', $context);
+    }
+
+    /**
+     * Render the login signup form into a nice template for the theme.
+     *
+     * @param mform $form
+     * @return string
+     */
+    public function render_login_signup_form($form) {
+        global $SITE;
+
+        $context = $form->export_for_template($this);
+
+        $context['logourl'] = $this->get_logo();
+
+        $context['sitename'] = format_string($SITE->fullname, true,
+            ['context' => \context_course::instance(SITEID), "escape" => false]);
+
+        return $this->render_from_template('core/signup_form_layout', $context);
     }
 
     /**

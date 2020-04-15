@@ -11,17 +11,18 @@
 <div class="container-fluid">
     <div class="row row justify-content-center">
         <div class="col-8">
-            <div class="card">
+
+            <div class="text-center">
+                {{#logourl}}
+                    <h2><img src="{{logourl}}" title="{{sitename}}" alt="{{sitename}}"/></h2>
+                {{/logourl}}
+                {{^logourl}}
+                    <h2>{{sitename}}</h2>
+                {{/logourl}}
+            </div>
+
+            <div class="card my-4">
                 <div class="card-block">
-                    <div class="card-title text-xs-center">
-                        {{#logourl}}
-                            <h2><img src="{{logourl}}" title="{{sitename}}" alt="{{sitename}}"/></h2>
-                        {{/logourl}}
-                        {{^logourl}}
-                            <h2>{{sitename}}</h2>
-                        {{/logourl}}
-                        <hr>
-                    </div>
                     <div class="card-title">
                         <h3>{{#str}}newaccount{{/str}}</h3>
                     </div>

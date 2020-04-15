@@ -33,4 +33,8 @@ $templatecontext = [
     'bodyattributes' => $bodyattributes
 ];
 
+if ($this->page->pagetype == 'login-signup') {
+    $templatecontext['logourl'] = $OUTPUT->get_logo();
+}
+
 echo $OUTPUT->render_from_template('theme_moove/login', $templatecontext);
