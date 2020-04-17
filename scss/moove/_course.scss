@@ -158,6 +158,73 @@ body.coursepresentation-cover {
     }
 }
 
+body.pagelayout-incourse {
+    .activity-navigation {
+        border-top: none;
+
+        #prev-activity-link,
+        #next-activity-link {
+            background-color: $brand-primary;
+            border-color: $brand-primary;
+            text-decoration: none;
+            color: #fff;
+
+            &:hover {
+                background-color: darken($brand-primary, 10%);
+                border-color: darken($brand-primary, 10%);
+            }
+        }
+    }
+}
+
+body#page-mod-quiz-attempt.pagelayout-secure {
+    nav.navbar {
+        top: 0;
+    }
+
+    #page {
+        margin-top: 40px;
+    }
+
+    #region-main {
+        padding: 1.25rem;
+    }
+
+    [data-region="blocks-column"] {
+        width: 360px;
+        float: right;
+        top: 0;
+        right: 0;
+        position: relative;
+        height: 100%;
+        overflow-y: inherit;
+        background-color: initial;
+    }
+
+    #page-footer {
+        display: none;
+    }
+}
+
+@include media-breakpoint-down(md) {
+    body.pagelayout-incourse {
+        .activity-navigation {
+            .col-md-4 {
+                margin-bottom: 1rem;
+
+                &:last-of-type {
+                    margin-bottom: 0;
+                }
+
+                > div {
+                    float: initial !important;
+                    text-align: center;
+                }
+            }
+        }
+    }
+}
+
 .contentwithoutlink {
     padding-right: 0;
 

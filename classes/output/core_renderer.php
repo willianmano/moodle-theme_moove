@@ -108,13 +108,11 @@ class core_renderer extends \theme_boost\output\core_renderer {
      * @return string HTML to display the main header.
      */
     public function mydashboard_admin_header() {
-        global $PAGE;
-
         $html = html_writer::start_div('row');
         $html .= html_writer::start_div('col-xs-12 p-a-1');
 
         $pageheadingbutton = $this->page_heading_button();
-        if (empty($PAGE->layout_options['nonavbar'])) {
+        if (empty($this->page->layout_options['nonavbar'])) {
             $html .= html_writer::start_div('clearfix w-100 pull-xs-left', array('id' => 'page-navbar'));
             $html .= html_writer::tag('div', $this->navbar(), array('class' => 'breadcrumb-nav'));
             $html .= html_writer::div($pageheadingbutton, 'breadcrumb-button');
@@ -763,14 +761,12 @@ class core_renderer extends \theme_boost\output\core_renderer {
      * @throws \moodle_exception
      */
     public function breadcrumb_header() {
-        global $PAGE;
-
         $header = new stdClass();
-        $header->hasnavbar = empty($PAGE->layout_options['nonavbar']);
+        $header->hasnavbar = empty($this->page->layout_options['nonavbar']);
         $header->navbar = $this->navbar();
 
         $header->contextheader = $this->context_header();
-        if ($PAGE->pagelayout == 'mypublic') {
+        if ($this->page->pagelayout == 'mypublic') {
             $header->contextheader = "<h2>". get_string('userprofile', 'theme_moove') ."</h2>";
         }
 
