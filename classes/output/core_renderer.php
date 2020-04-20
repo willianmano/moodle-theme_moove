@@ -688,6 +688,12 @@ class core_renderer extends \theme_boost\output\core_renderer {
         $pluginswithfunction = get_plugins_with_function('standard_footer_html', 'lib.php');
         foreach ($pluginswithfunction as $plugins) {
             foreach ($plugins as $function) {
+                if ($function === 'tool_dataprivacy_standard_footer_html') {
+                    $output .= $this->get_dataprivacyurl();
+
+                    continue;
+                }
+
                 if ($function === 'tool_mobile_standard_footer_html') {
                     $output .= $this->get_mobileappurl();
 
@@ -727,6 +733,38 @@ class core_renderer extends \theme_boost\output\core_renderer {
         }
 
         $output .= '</div>';
+
+        return $output;
+    }
+
+    /**
+     * Returns the dataprivacy url
+     *
+     * @return string
+     *
+     * @throws \coding_exception
+     * @throws \dml_exception
+     * @throws \moodle_exception
+     */
+    private function get_dataprivacyurl() {
+        $output = '';
+
+        // A returned 0 means that the setting was set and disabled, false means that there is no value for the provided setting.
+        $showsummary = get_config('tool_dataprivacy', 'showdataretentionsummary');
+        if ($showsummary === false) {
+            // This means that no value is stored in db. We use the default value in this case.
+            $showsummary = true;
+        }
+
+        if ($showsummary) {
+            $url = new moodle_url('/admin/tool/dataprivacy/summary.php');
+            $output = html_writer::link($url,
+                "<i class='slicon-folder-alt'></i> " . get_string('dataretentionsummary', 'tool_dataprivacy'),
+                ['class' => 'btn btn-default']
+            );
+
+            $output = html_writer::div($output, 'tool_dataprivacy mb-2');
+        }
 
         return $output;
     }

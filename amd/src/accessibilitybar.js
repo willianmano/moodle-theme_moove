@@ -33,7 +33,6 @@ define(['jquery', 'core/ajax'], function(jQuery, Ajax) {
     var fontsizeClassOp = null;
     var fontsizeClassSize = null;
     var fontsizeCurrentAction = null;
-
     var sitecolorCurrentAction = null;
 
     var AccessibilityBar = function() {

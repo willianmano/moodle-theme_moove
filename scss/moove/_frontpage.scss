@@ -505,4 +505,19 @@
             padding-top: 0;
         }
     }
+
+    #page-site-index {
+        #frontpage-available-course-list {
+            h2 {
+                &:before,
+                &:after {
+                    display: none;
+                }
+            }
+
+            .card-title {
+                font-size: 1.171875rem;
+            }
+        }
+    }
 }

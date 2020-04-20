@@ -107,3 +107,13 @@
         }
     }
 }
+
+@include media-breakpoint-down(md) {
+    #top-footer .social {
+        text-align: left;
+
+        .plugins_standard_footer_html {
+            padding-left: 1rem;
+        }
+    }
+}

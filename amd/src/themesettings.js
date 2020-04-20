@@ -14,7 +14,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Theme settings logic.
+ * Theme settings js logic.
  *
  * @package    theme_moove
  * @copyright  2020 Willian Mano - http://conecti.me

@@ -95,7 +95,7 @@ body.coursepresentation-cover {
             border-width: 5px 5px 5px 0;
             background: #fff;
             margin: 0 0 0 -20px;
-            padding: 12px 15px 5px 15px;
+            padding: .75rem;
             letter-spacing: .1em;
             text-transform: uppercase;
             color: $brand-primary;
@@ -220,6 +220,24 @@ body#page-mod-quiz-attempt.pagelayout-secure {
                     float: initial !important;
                     text-align: center;
                 }
+            }
+        }
+    }
+
+    body#page-course-view-topics {
+        .course-content .topics .section {
+            padding-bottom: 0;
+
+            ul.section {
+                margin: 1rem 0;
+                padding-left: 0;
+
+                .activity .contentwithoutlink > a,
+                .activity .activityinstance > a {
+                    padding-left: 0;
+                    text-indent: 0;
+                }
+
             }
         }
     }
