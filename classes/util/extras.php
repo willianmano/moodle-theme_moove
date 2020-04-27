@@ -197,8 +197,11 @@ class extras {
                     }
                 }
 
+                $proficientcompetencypercentage = 0;
                 $competencycount = count($pclist);
-                $proficientcompetencypercentage = ((float) $proficientcount / (float) $competencycount) * 100.0;
+                if ($competencycount) {
+                    $proficientcompetencypercentage = ((float) $proficientcount / (float) $competencycount) * 100.0;
+                }
 
                 $progressclass = '';
                 if ($proficientcompetencypercentage == 100) {
