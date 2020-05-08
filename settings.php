@@ -661,15 +661,6 @@ if ($ADMIN->fulltree) {
     $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
 
-    // Googleplus url setting.
-    $name = 'theme_moove/googleplus';
-    $title = get_string('googleplus', 'theme_moove');
-    $description = get_string('googleplusdesc', 'theme_moove');
-    $default = '';
-    $setting = new admin_setting_configtext($name, $title, $description, $default);
-    $setting->set_updatedcallback('theme_reset_all_caches');
-    $page->add($setting);
-
     // Linkdin url setting.
     $name = 'theme_moove/linkedin';
     $title = get_string('linkedin', 'theme_moove');
@@ -692,6 +683,15 @@ if ($ADMIN->fulltree) {
     $name = 'theme_moove/instagram';
     $title = get_string('instagram', 'theme_moove');
     $description = get_string('instagramdesc', 'theme_moove');
+    $default = '';
+    $setting = new admin_setting_configtext($name, $title, $description, $default);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $page->add($setting);
+
+    // Whatsapp url setting.
+    $name = 'theme_moove/whatsapp';
+    $title = get_string('whatsapp', 'theme_moove');
+    $description = get_string('whatsappdesc', 'theme_moove');
     $default = '';
     $setting = new admin_setting_configtext($name, $title, $description, $default);
     $setting->set_updatedcallback('theme_reset_all_caches');
