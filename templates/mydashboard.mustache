@@ -52,12 +52,12 @@
 
     <div id="page" class="container-fluid">
 
-        {{#is_siteadmin}}
+        {{#canviewadmininfos}}
             {{>theme_moove/mydashboard_admin}}
-        {{/is_siteadmin}}
-        {{^is_siteadmin}}
+        {{/canviewadmininfos}}
+        {{^canviewadmininfos}}
             {{{ output.full_header }}}
-        {{/is_siteadmin}}
+        {{/canviewadmininfos}}
 
         <div id="page-content" class="row">
             <div id="region-main-box" class="col-xs-12">
