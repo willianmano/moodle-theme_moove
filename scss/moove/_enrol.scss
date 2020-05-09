@@ -1,3 +1,9 @@
+body#page-enrol-index {
+    #region-main .generalbox.info .card-footer{
+        display: none;
+    }
+}
+
 @include media-breakpoint-down(md) {
     body#page-enrol-index {
         #page-header {
