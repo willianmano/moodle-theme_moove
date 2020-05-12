@@ -51,7 +51,8 @@ $string['totalusers'] = 'Usuários ativos / Suspensos';
 $string['totalcourses'] = 'Total de cursos';
 $string['onlineusers'] = 'Usuários online(5 minutos)';
 $string['showhideblocks'] = 'Exibir/ocultar blocos';
-$string['privacy:metadata'] = 'O tema Moove theme não guarda qualquer informação pessoal de qualquer usuário.';
+$string['prev_activity'] = 'Atividade anterior';
+$string['next_activity'] = 'Próxima atividade';
 
 // General settings tab.
 $string['generalsettings'] = 'Geral';

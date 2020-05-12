@@ -1,3 +1,5 @@
+// stylelint-disable declaration-no-important
+
 body.coursepresentation-cover {
     #page {
         padding-top: 280px;
@@ -162,17 +164,56 @@ body.pagelayout-incourse {
     .activity-navigation {
         border-top: none;
 
+        .nav-guide {
+            display: block;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            font-style: normal;
+        }
+
+        #next-activity .nav-guide {
+            text-align: right;
+        }
+
         #prev-activity-link,
         #next-activity-link {
-            background-color: $brand-primary;
-            border-color: $brand-primary;
             text-decoration: none;
+            padding-left: 0;
+
+            &:hover {
+                color: darken($brand-primary, 20%);
+                text-decoration: underline;
+            }
+        }
+
+        #prev-activity-link {
+            padding-left: 0;
+        }
+
+        #next-activity-link {
+            padding-right: 0;
+        }
+    }
+
+    &#page-mod-book-view {
+        .bookprev,
+        .booknext {
+            padding: .375rem .75rem;
+            background-color: $brand-primary;
+            text-decoration: none !important;
             color: #fff;
 
             &:hover {
                 background-color: darken($brand-primary, 10%);
-                border-color: darken($brand-primary, 10%);
             }
+
+            .icon {
+                margin: 0;
+            }
+        }
+
+        .bookprev {
+            margin-right: .5rem;
         }
     }
 }
@@ -220,6 +261,10 @@ body#page-mod-quiz-attempt.pagelayout-secure {
                     float: initial !important;
                     text-align: center;
                 }
+            }
+
+            #next-activity .nav-guide {
+                text-align: center;
             }
         }
     }

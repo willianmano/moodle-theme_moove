@@ -47,8 +47,8 @@ $accessibility-sizes: map-merge(
 body {
     &.pagelayout-course,
     &.pagelayout-incourse {
-        #region-main a,
-        .section-navigation > a {
+        #region-main a:not(.btn),
+        .section-navigation > a:not(.btn) {
             text-decoration: underline;
         }
     }
@@ -56,7 +56,7 @@ body {
     &.sitecolor-color-2,
     &.sitecolor-color-3,
     &.sitecolor-color-4 {
-        a {
+        a:not(.btn) {
             text-decoration: underline;
         }
 
