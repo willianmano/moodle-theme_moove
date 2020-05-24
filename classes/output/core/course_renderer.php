@@ -271,21 +271,23 @@ class course_renderer extends \core_course_renderer {
 
         $content .= html_writer::end_tag('div');
 
-        $content .= html_writer::start_tag('div', array('class' => 'card-footer'));
+        if (isloggedin()) {
+            $content .= html_writer::start_tag('div', array('class' => 'card-footer'));
 
-        // Print enrolmenticons.
-        if ($icons = enrol_get_course_info_icons($course)) {
-            foreach ($icons as $pixicon) {
-                $content .= $this->render($pixicon);
+            // Print enrolmenticons.
+            if ($icons = enrol_get_course_info_icons($course)) {
+                foreach ($icons as $pixicon) {
+                    $content .= $this->render($pixicon);
+                }
             }
+
+            $content .= html_writer::start_tag('div', array('class' => 'pull-right'));
+            $content .= html_writer::link(new moodle_url('/course/view.php', array('id' => $course->id)),
+                get_string('access', 'theme_moove'), array('class' => 'card-link btn btn-primary'));
+            $content .= html_writer::end_tag('div'); // End pull-right.
+
+            $content .= html_writer::end_tag('div'); // End card-footer.
         }
-
-        $content .= html_writer::start_tag('div', array('class' => 'pull-right'));
-        $content .= html_writer::link(new moodle_url('/course/view.php', array('id' => $course->id)),
-            get_string('access', 'theme_moove'), array('class' => 'card-link btn btn-primary'));
-        $content .= html_writer::end_tag('div'); // End pull-right.
-
-        $content .= html_writer::end_tag('div'); // End card-block.
 
         // Display course category if necessary (for example in search results).
         if ($chelper->get_show_courses() == self::COURSECAT_SHOW_COURSES_EXPANDED_WITH_CAT) {
