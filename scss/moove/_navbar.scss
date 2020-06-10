@@ -152,6 +152,10 @@ nav.navbar {
                         background-color: #fff;
                         padding: 15px;
 
+                        &.unread {
+                            background-color: #f4f4f4;
+                        }
+
                         &:hover {
                             background-color: $body-bg;
                             color: inherit;

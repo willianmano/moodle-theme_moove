@@ -45,12 +45,15 @@ $accessibility-sizes: map-merge(
 }
 
 body {
-    &.pagelayout-course,
     &.pagelayout-incourse {
         #region-main a:not(.btn),
         .section-navigation > a:not(.btn) {
             text-decoration: underline;
         }
+    }
+
+    &.pagelayout-course #region-main .modtype_label a:not(.btn) {
+        text-decoration: underline;
     }
 
     &.sitecolor-color-2,
