@@ -51,15 +51,14 @@
 }}
     {{>theme_moove/inc_start}}
 
-    <div id="page" class="container-fluid">
+    <div id="page" class="container-fluid d-print-block">
         {{{ output.courseheaderimage }}}
 
-        <div id="page-content" class="row">
-
-            <div id="region-main-box" class="col-xs-12">
+        <div id="page-content" class="row pb-3 d-print-block">
+            <div id="region-main-box" class="col-12">
 
                 {{#hasregionmainsettingsmenu}}
-                    <div id="region-main-settings-menu" class="hidden-print">
+                    <div id="region-main-settings-menu" class="d-print-none">
                         <div> {{{ output.region_main_settings_menu }}} </div>
                     </div>
                 {{/hasregionmainsettingsmenu}}
