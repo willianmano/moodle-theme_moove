@@ -48,6 +48,12 @@
                     color: #fff;
                 }
 
+                &:focus {
+                    background-color: initial;
+                    -webkit-box-shadow: none;
+                    box-shadow: none;
+                }
+
                 &:before {
                     font-family: 'simple-line-icons';
                     speak: none;
@@ -116,6 +122,10 @@
             &[data-key="certificates"] a:before {
                 content: "\e034";
             }
+
+            &[data-key="contentbank"] a:before {
+                content: "\e05b";
+            }
         }
     }
 
@@ -178,7 +188,7 @@
                     background-color: $navbar-bg;
                     position: absolute;
                     left: 70px;
-                    top: 48px;
+                    top: 50px;
                     width: 200px;
                     z-index: 1001;
                     padding-top: 10px;
@@ -187,12 +197,14 @@
 
                     li {
                         padding: .5rem .2rem;
+                        min-height: initial;
                         width: 100%;
 
                         a {
                             width: 100%;
                             padding: 0;
                             font-size: 12px;
+                            min-height: initial;
 
                             &:before {
                                 font-size: 12px;

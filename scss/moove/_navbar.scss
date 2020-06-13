@@ -271,7 +271,6 @@ nav.navbar {
 
         .lang-menu {
             max-height: $navbar-height;
-            padding: .2rem .8rem 0;
 
             .nav-item {
                 line-height: 70px;
@@ -294,6 +293,7 @@ nav.navbar {
 
             .nav-link {
                 color: $brand-primary;
+                padding: .2rem .8rem 0 1.2rem;
 
                 .slicon-globe {
                     font-size: 1.2rem;
