@@ -58,7 +58,7 @@ class course_renderer extends \core_course_renderer {
      * @param int|null $totalcount total number of courses (affects display mode if it is AUTO or pagination if applicable),
      *     defaulted to count($courses)
      * @return string
-     * 
+     *
      * @throws \coding_exception
      * @throws \dml_exception
      * @throws \moodle_exception
