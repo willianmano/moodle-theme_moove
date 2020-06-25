@@ -111,6 +111,7 @@ define(['exports', 'jquery'], function(exports, $) {
         }
 
         setTransitionEndSupport();
+
         return Util;
     }($);
 
