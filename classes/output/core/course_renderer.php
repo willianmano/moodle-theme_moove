@@ -239,7 +239,6 @@ class course_renderer extends \core_course_renderer {
         $coursenamelink = html_writer::link($courselink, $coursename, array('class' => $course->visible ? '' : 'dimmed'));
 
         $content = extras::get_course_summary_image($course, $courselink);
-        $content .= $this->course_summary($chelper, $course);
         $content .= $this->course_contacts($course);
         $content .= $this->course_card_body($chelper, $course, $coursenamelink);
         $content .= $this->course_card_footer($course);
@@ -319,13 +318,7 @@ class course_renderer extends \core_course_renderer {
 
         $content .= html_writer::tag('h4', $coursenamelink, ['class' => 'card-title']);
 
-        // Display course summary.
-        if ($course->has_summary()) {
-            $content .= html_writer::start_tag('p', ['class' => 'card-text']);
-            $content .= $chelper->get_course_formatted_summary($course,
-                ['overflowdiv' => true, 'noclean' => true, 'para' => false]);
-            $content .= html_writer::end_tag('p'); // End summary.
-        }
+        $content .= $this->course_summary($chelper, $course);
 
         $content .= html_writer::end_tag('div');
 
