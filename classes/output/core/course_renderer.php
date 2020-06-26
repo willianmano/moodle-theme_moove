@@ -46,7 +46,7 @@ class course_renderer extends \core_course_renderer {
     /**
      * Renders the list of courses
      *
-     * This is internal function, please use {@link core_course_renderer::courses_list()} or another public
+     * This is internal function, please use core_course_renderer::courses_list()    or another public
      * method from outside of the class
      *
      * If list of courses is specified in $courses; the argument $chelper is only used
@@ -161,7 +161,7 @@ class course_renderer extends \core_course_renderer {
      * Displays one course in the list of courses.
      *
      * This is an internal function, to display an information about just one course
-     * please use {@link core_course_renderer::course_info_box()}
+     * please use core_course_renderer::course_info_box()
      *
      * @param coursecat_helper $chelper various display options
      * @param core_course_list_element|stdClass $course
