@@ -101,11 +101,19 @@ class certificates {
             return [];
         }
 
-        $sql = 'SELECT sci.code, sci.pathnamehash, sc.name, c.id as courseid, c.fullname, c.shortname, "simplecertificate" as module
+        $sql = "SELECT
+                    sci.code,
+                    sci.pathnamehash,
+                    sc.name,
+                    c.id as courseid,
+                    c.fullname,
+                    c.shortname,
+                    'simplecertificate' as module
                 FROM {simplecertificate_issues} sci
                 INNER JOIN {simplecertificate} sc ON sc.id = sci.certificateid
                 INNER JOIN {course} c ON sc.course = c.id
-                WHERE sci.timedeleted IS NULL AND sci.userid = :userid';
+                WHERE sci.timedeleted IS NULL AND sci.userid = :userid";
+
         $params = ['userid' => $this->user->id];
 
         if ($this->courseid) {
@@ -158,11 +166,17 @@ class certificates {
             return [];
         }
 
-        $sql = 'SELECT ci.customcertid, cc.name, c.id as courseid, c.fullname, c.shortname, "customcert" as module
+        $sql = "SELECT
+                  ci.customcertid,
+                  cc.name,
+                  c.id as courseid,
+                  c.fullname,
+                  c.shortname,
+                  'customcert' as module
                 FROM {customcert_issues} ci
                 INNER JOIN {customcert} cc ON cc.id = ci.customcertid
                 INNER JOIN {course} c ON c.id = cc.course
-                WHERE ci.userid = :userid';
+                WHERE ci.userid = :userid";
 
         $params = ['userid' => $this->user->id];
 
