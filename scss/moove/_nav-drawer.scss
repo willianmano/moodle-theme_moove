@@ -81,6 +81,19 @@
                 content: "\e019";
             }
 
+            &[data-key="course-sections"] {
+                a {
+                    &:before {
+                        content: "\e067";
+                    }
+                }
+
+                .list-group-item a:before {
+                    content: "\e606";
+                    font-size: 11px;
+                }
+            }
+
             &[data-key="participants"] a:before,
             &[data-key="studentreport"] a:before {
                 content: "\e001";
@@ -124,7 +137,7 @@
             }
 
             &[data-key="contentbank"] a:before {
-                content: "\e05b";
+                content: "\e04f";
             }
         }
     }
@@ -279,7 +292,8 @@ body.drawer-open-left #nav-drawer-footer {
         }
     }
 
-    .metismenu [data-key="course-sections"] {
+    .metismenu [data-key="course-sections"],
+    .metismenu [data-key="mycourses"] {
         display: none;
     }
 }
