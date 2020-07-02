@@ -1,16 +1,6 @@
 [![Build Status](https://travis-ci.org/willianmano/moodle-theme_moove.svg?branch=master)](https://travis-ci.org/willianmano/moodle-theme_moove)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/e1c12730e50b4e479dc9a65dbeff6671)](https://www.codacy.com/app/willianmanoaraujo/moodle-theme_moove?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=willianmano/moodle-theme_moove&amp;utm_campaign=Badge_Grade)
 
-Differences:
-===============================
-
-In slideshow.mustache:
-
-Removed alt tag until address the problem with caption text containing html tags (without strip_tags).
-Removed bootstrap .d-none and .d-md-block attributes as the text blocks should displayed always no matter what is the display resolution.
-Added javascript function to force start slideshow as it isnt started in our Moodle instances despite the fdix mentioned in the latest release.
-
-
 Moodle "Moove" theme repository
 ===============================
 
