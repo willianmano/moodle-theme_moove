@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<libraries>
+  <library>
+    <location>amd/src/metismenu.js</location>
+    <name>Metis Menu</name>
+    <license>MIT</license>
+    <version>3.0.3</version>
+    <licenseversion>2016</licenseversion>
+  </library>
+</libraries>
