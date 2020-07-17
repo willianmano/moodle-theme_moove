@@ -16,9 +16,11 @@ body.coursepresentation-cover {
     }
 }
 
-#page-course-view-topics {
+#page-course-view-topics,
+#page-course-view-preview {
     &.editing {
-        .course-content .topics .section {
+        .course-content .topics .section,
+        .course-content .preview .section{
             width: calc(100% - 20px);
         }
     }
@@ -29,7 +31,8 @@ body.coursepresentation-cover {
     }
 
     .course-content {
-        .topics {
+        .topics,
+        .preview {
             #section-0 {
                 border: none;
             }
@@ -269,8 +272,10 @@ body#page-mod-quiz-attempt.pagelayout-secure {
         }
     }
 
-    body#page-course-view-topics {
-        .course-content .topics .section {
+    body#page-course-view-topics,
+    body#page-course-view-preview {
+        .course-content .topics .section,
+        .course-content .preview .section {
             padding-bottom: 0;
 
             ul.section {
