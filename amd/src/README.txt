@@ -3,7 +3,7 @@ Metis Menu
 
 Description of Metis Menu Copyright (c) 2014-2018 Osman Nuri Okumuş
 
-We now use a vanilla version of Metis Menu and do our customisations in the metismenu.js
+We do not use a vanilla version of Metis Menu and our customisations are in the metismenu.js
 
 For more information on this version of PHPMailer, check out https://github.com/onokumus/metismenu/releases/tag/v2.7.9
 
