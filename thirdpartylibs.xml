@@ -8,6 +8,13 @@
     <licenseversion>1.1</licenseversion>
   </library>
   <library>
+    <location>fonts</location>
+    <name>Simple line icons</name>
+    <license>MIT</license>
+    <version>2.4.1</version>
+    <licenseversion>2016</licenseversion>
+  </library>
+  <library>
     <location>amd/src/metismenu.js</location>
     <name>Metis Menu</name>
     <license>MIT</license>
