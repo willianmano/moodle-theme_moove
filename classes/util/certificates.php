@@ -113,6 +113,7 @@ class certificates {
                 INNER JOIN {simplecertificate} sc ON sc.id = sci.certificateid
                 INNER JOIN {course} c ON sc.course = c.id
                 WHERE sci.timedeleted IS NULL AND sci.userid = :userid";
+
         $params = ['userid' => $this->user->id];
 
         if ($this->courseid) {
