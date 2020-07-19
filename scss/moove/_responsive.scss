@@ -20,8 +20,16 @@
     font-size: 1.234375rem;
   }
 
-  #nav-drawer .metismenu .has-arrow {
-    display: none !important;
+  #page-header .card {
+    border: 1px solid $card-border-color;
+
+    .card-body {
+      padding: 1.25rem;
+    }
+  }
+
+  .breadcrumb:not(:empty) {
+    border: none;
   }
 
   #page-site-index.notloggedin {

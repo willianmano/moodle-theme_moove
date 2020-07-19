@@ -25,6 +25,7 @@
 namespace theme_moove\util;
 
 use core_competency\api as competency_api;
+use moodle_url;
 
 defined('MOODLE_INTERNAL') || die();
 
@@ -107,9 +108,9 @@ class extras {
         $contentimage = '';
         foreach ($course->get_course_overviewfiles() as $file) {
             $isimage = $file->is_valid_image();
-            $url = file_encode_url("$CFG->wwwroot/pluginfile.php",
-                '/'. $file->get_contextid(). '/'. $file->get_component(). '/'.
-                $file->get_filearea(). $file->get_filepath(). $file->get_filename(), !$isimage);
+            $url = moodle_url::make_file_url("$CFG->wwwroot/pluginfile.php",
+                '/' . $file->get_contextid() . '/' . $file->get_component() . '/' .
+                $file->get_filearea() . $file->get_filepath() . $file->get_filename(), !$isimage);
             if ($isimage) {
                 $contentimage = \html_writer::link($courselink, \html_writer::empty_tag('img', array(
                     'src' => $url,

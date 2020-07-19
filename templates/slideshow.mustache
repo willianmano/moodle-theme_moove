@@ -42,9 +42,9 @@
         <div class="carousel-inner">
             {{#slides}}
                 <div class="carousel-item {{#active}}active{{/active}}">
-                    <img class="d-block w-100 animated fadeIn" src="{{{ image }}}" alt="{{{ caption }}}">
+                    <img class="d-block w-100 animated fadeIn" src="{{{ image }}}">
 
-                    <div class="carousel-caption d-none d-md-block animated fadeInRightBig">
+                    <div class="carousel-caption animated fadeInRightBig">
                         {{#title}}<h2 class="title">{{{ title }}}</h2>{{/title}}
 
                         {{#caption}}<div class="caption">{{{ caption }}}</div>{{/caption}}
@@ -53,4 +53,12 @@
             {{/slides}}
         </div>
     </div>
+    {{#js}}
+        require(['jquery', 'theme_boost/bootstrap/carousel'], function($, carousel) {
+            $('#mooveslideshow').carousel({
+                interval: 5000,
+                pause: 'hover'
+            });
+        })
+    {{/js}}
 {{/sliderenabled}}

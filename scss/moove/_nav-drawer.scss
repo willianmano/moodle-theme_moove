@@ -48,6 +48,12 @@
                     color: #fff;
                 }
 
+                &:focus {
+                    background-color: initial;
+                    -webkit-box-shadow: none;
+                    box-shadow: none;
+                }
+
                 &:before {
                     font-family: 'simple-line-icons';
                     speak: none;
@@ -73,6 +79,19 @@
 
             &[data-key="mycourses"] a:before {
                 content: "\e019";
+            }
+
+            &[data-key="course-sections"] {
+                a {
+                    &:before {
+                        content: "\e067";
+                    }
+                }
+
+                .list-group-item a:before {
+                    content: "\e606";
+                    font-size: 11px;
+                }
             }
 
             &[data-key="participants"] a:before,
@@ -115,6 +134,10 @@
 
             &[data-key="certificates"] a:before {
                 content: "\e034";
+            }
+
+            &[data-key="contentbank"] a:before {
+                content: "\e04f";
             }
         }
     }
@@ -178,7 +201,7 @@
                     background-color: $navbar-bg;
                     position: absolute;
                     left: 70px;
-                    top: 48px;
+                    top: 50px;
                     width: 200px;
                     z-index: 1001;
                     padding-top: 10px;
@@ -187,12 +210,14 @@
 
                     li {
                         padding: .5rem .2rem;
+                        min-height: initial;
                         width: 100%;
 
                         a {
                             width: 100%;
                             padding: 0;
                             font-size: 12px;
+                            min-height: initial;
 
                             &:before {
                                 font-size: 12px;
@@ -267,7 +292,8 @@ body.drawer-open-left #nav-drawer-footer {
         }
     }
 
-    .metismenu [data-key="course-sections"] {
+    .metismenu [data-key="course-sections"],
+    .metismenu [data-key="mycourses"] {
         display: none;
     }
 }

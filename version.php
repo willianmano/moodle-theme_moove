@@ -39,7 +39,7 @@ $plugin->release = '3.8.13';
 $plugin->maturity = MATURITY_STABLE;
 
 // This is the version of Moodle this plugin requires.
-$plugin->requires = 2019111200;
+$plugin->requires = 2020060900;
 
 // This is a list of plugins, this plugin depends on (and their versions).
 $plugin->dependencies = [
