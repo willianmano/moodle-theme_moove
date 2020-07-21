@@ -37,17 +37,12 @@ defined('MOODLE_INTERNAL') || die();
  * @copyright  2017 Willian Mano - http://conecti.me
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class moove_icon_system extends icon_system_font {
+class icon_system extends icon_system_font {
 
     /**
      * @var array $map Cached map of moodle icon names to font awesome icon names.
      */
     private $map = [];
-
-    /**
-     * @const FONTAWESOME Default icon system.
-     */
-    const FONTAWESOME = '\\theme_moove\\util\\moove_icon_system';
 
     /**
      * Get the icon mapping
@@ -467,7 +462,7 @@ class moove_icon_system extends icon_system_font {
      * @return string
      */
     public function get_amd_name() {
-        return 'theme_moove\util\moove_icon_system';
+        return 'core/icon_system_fontawesome';
     }
 
     /**
