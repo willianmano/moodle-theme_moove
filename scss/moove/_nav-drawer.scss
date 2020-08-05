@@ -2,6 +2,7 @@
     padding: 5px;
     background-color: $navbar-bg;
     top: 70px;
+    height: calc(100% - #{$navbar-height} - 50px);
     padding-bottom: 20px;
     overflow-y: auto;
 
@@ -24,10 +25,15 @@
 
     .list-group {
         .list-group-item {
-            padding: 0;
+            min-height: 50px;
+            padding: 0 0 0 .5rem;
             background-color: inherit;
             border-radius: $card-border-radius;
             border: 0;
+
+            &:hover {
+                background-color: $navbar-bg-hover;
+            }
 
             a {
                 color: #fff;
@@ -39,8 +45,13 @@
                 border-radius: $card-border-radius;
 
                 &:hover {
-                    background-color: $navbar-bg-hover;
                     color: #fff;
+                }
+
+                &:focus {
+                    background-color: initial;
+                    -webkit-box-shadow: none;
+                    box-shadow: none;
                 }
 
                 &:before {
@@ -68,6 +79,19 @@
 
             &[data-key="mycourses"] a:before {
                 content: "\e019";
+            }
+
+            &[data-key="course-sections"] {
+                a {
+                    &:before {
+                        content: "\e067";
+                    }
+                }
+
+                .list-group-item a:before {
+                    content: "\e606";
+                    font-size: 11px;
+                }
             }
 
             &[data-key="participants"] a:before,
@@ -107,12 +131,24 @@
             &[data-key="sitesettings"] a:before {
                 content: "\e09a";
             }
+
+            &[data-key="certificates"] a:before {
+                content: "\e034";
+            }
+
+            &[data-key="contentbank"] a:before {
+                content: "\e04f";
+            }
         }
     }
 
     .list-group + .list-group {
         border-top: 3px solid $navbar-separator;
     }
+}
+
+#nav-drawer[aria-hidden=true] .list-group-item {
+    display: inherit;
 }
 
 #nav-drawer.closed {
@@ -127,7 +163,7 @@
     .list-group {
         .list-group-item {
             text-align: left;
-            padding: 0 .6rem;
+            padding: 0 .5rem;
 
             > ul {
                 display: none;
@@ -155,7 +191,7 @@
                 }
 
                 .text {
-                    margin-left: 4px;
+                    margin-left: 4px !important;
                 }
 
                 > ul {
@@ -165,7 +201,7 @@
                     background-color: $navbar-bg;
                     position: absolute;
                     left: 70px;
-                    top: 48px;
+                    top: 50px;
                     width: 200px;
                     z-index: 1001;
                     padding-top: 10px;
@@ -174,12 +210,14 @@
 
                     li {
                         padding: .5rem .2rem;
+                        min-height: initial;
                         width: 100%;
 
                         a {
                             width: 100%;
                             padding: 0;
                             font-size: 12px;
+                            min-height: initial;
 
                             &:before {
                                 font-size: 12px;
@@ -198,5 +236,64 @@
                 border-bottom-right-radius: $card-border-radius;
             }
         }
+    }
+}
+
+#nav-drawer-footer {
+    text-align: center;
+    position: fixed;
+    display: block;
+    height: 50px;
+    left: 5px;
+    bottom: 0;
+    margin: 0 -5px;
+    background-color: $navbar-bg-hover;
+    width: 70px;
+
+    #themesettings-control {
+        padding: .75rem 0;
+        display: block;
+        color: #fff;
+        cursor: pointer;
+
+        i {
+            font-size: 19px;
+        }
+
+        .text {
+            display: none;
+        }
+    }
+}
+
+body.drawer-open-left #nav-drawer-footer {
+    width: 285px;
+
+    #themesettings-control .text {
+        display: inline-block;
+    }
+}
+
+@include media-breakpoint-down(sm) {
+    #nav-drawer-footer {
+        display: none;
+    }
+
+    body.drawer-open-left {
+        #nav-drawer-footer {
+            width: 70px;
+            display: block;
+
+            #themesettings-control {
+                .text {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    .metismenu [data-key="course-sections"],
+    .metismenu [data-key="mycourses"] {
+        display: none;
     }
 }

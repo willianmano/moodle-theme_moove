@@ -62,51 +62,23 @@ $templatecontext = [
     'draweropenright' => $draweropenright,
     'regionmainsettingsmenu' => $regionmainsettingsmenu,
     'hasregionmainsettingsmenu' => !empty($regionmainsettingsmenu),
-    'is_siteadmin' => is_siteadmin()
+    'canviewadmininfos' => false
 ];
 
 $themesettings = new \theme_moove\util\theme_settings();
 
 $templatecontext = array_merge($templatecontext, $themesettings->footer_items());
 
-if (is_siteadmin()) {
-    global $DB;
+if (is_siteadmin() && $PAGE->pagetype == 'my-index') {
+    $adminifos = new \theme_moove\util\admininfos();
 
-    // Get site total users.
-    $totalactiveusers = $DB->count_records('user', array('deleted' => 0, 'suspended' => 0)) - 1;
-    $totaldeletedusers = $DB->count_records('user', array('deleted' => 1));
-    $totalsuspendedusers = $DB->count_records('user', array('deleted' => 0, 'suspended' => 1));
+    $templatecontext['totalusage'] = $adminifos->get_totaldiskusage();
+    $templatecontext['totalactiveusers'] = $adminifos->get_totalactiveusers();
+    $templatecontext['totalsuspendedusers'] = $adminifos->get_suspendedusers();
+    $templatecontext['totalcourses'] = $adminifos->get_totalcourses();
+    $templatecontext['onlineusers'] = $adminifos->get_totalonlineusers();
 
-    // Get site total courses.
-    $totalcourses = $DB->count_records('course') - 1;
-
-    // Get the last online users in the past 5 minutes.
-    $onlineusers = new \block_online_users\fetcher(null, time(), 300, null, CONTEXT_SYSTEM, null);
-    $onlineusers = $onlineusers->count_users();
-
-    // Get the disk usage.
-    $cache = cache::make('theme_moove', 'admininfos');
-    $totalusagereadable = $cache->get('totalusagereadable');
-
-    if (!$totalusagereadable) {
-        $totalusage = get_directory_size($CFG->dataroot);
-        $totalusagereadable = number_format(ceil($totalusage / 1048576));
-
-        $cache->set('totalusagereadable', $totalusagereadable);
-    }
-
-    $usageunit = ' MB';
-    if ($totalusagereadable > 1024) {
-        $usageunit = ' GB';
-    }
-
-    $totalusagereadabletext = $totalusagereadable . $usageunit;
-
-    $templatecontext['totalusage'] = $totalusagereadabletext;
-    $templatecontext['totalactiveusers'] = $totalactiveusers;
-    $templatecontext['totalsuspendedusers'] = $totalsuspendedusers;
-    $templatecontext['totalcourses'] = $totalcourses;
-    $templatecontext['onlineusers'] = $onlineusers;
+    $templatecontext['canviewadmininfos'] = true;
 }
 
 // Improve boost navigation.

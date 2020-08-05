@@ -9,12 +9,12 @@ module.exports = function(grunt) {
     var path = require('path'),
         PWD = process.env.PWD || process.cwd();
 
-    var decachephp = "../../admin/cli/purge_caches.php --theme";
+    var decachephp = "../../admin/cli/purge_caches.php";
 
     var inAMD = path.basename(PWD) == 'amd';
 
     // Globbing pattern for matching all AMD JS source files.
-    var amdSrc = [inAMD ? PWD + '/src/*.js' : '**/amd/src/*.js'];
+    var amdSrc = [inAMD ? PWD + "/src/*.js" : "**/amd/src/*.js"];
 
     /**
      * Function to generate the destination for the uglify task
@@ -27,17 +27,17 @@ module.exports = function(grunt) {
      * @return {String} The rewritten destination path.
      */
     var uglifyRename = function(destPath, srcPath) {
-        destPath = srcPath.replace('src', 'build');
-        destPath = destPath.replace('.js', '.min.js');
+        destPath = srcPath.replace("src", "build");
+        destPath = destPath.replace(".js", ".min.js");
         destPath = path.resolve(PWD, destPath);
         return destPath;
     };
 
     grunt.initConfig({
         eslint: {
-            options: {quiet: !grunt.option('show-lint-warnings')},
+            options: {quiet: !grunt.option("show-lint-warnings")},
             amd: {src: amdSrc},
-            yui: {src: ['**/yui/src/**/*.js', '!*/**/yui/src/*/meta/*.js']}
+            yui: {src: ["**/yui/src/**/*.js", "!*/**/yui/src/*/meta/*.js"]}
         },
         uglify: {
             amd: {
@@ -46,7 +46,10 @@ module.exports = function(grunt) {
                     src: amdSrc,
                     rename: uglifyRename
                 }],
-                options: {report: 'none'}
+                options: {
+                    report: "min",
+                    sourceMap: true
+                }
             }
         },
         watch: {
@@ -55,8 +58,8 @@ module.exports = function(grunt) {
                 livereload: true
             },
             amd: {
-                files: ['**/amd/src/**/*.js'],
-                tasks: ['amd', 'decache']
+                files: ["**/amd/src/**/*.js"],
+                tasks: ["amd", "decache"]
             },
             css: {
                 files: ["scss/**/*.scss"],
@@ -65,11 +68,11 @@ module.exports = function(grunt) {
         },
         stylelint: {
             scss: {
-                options: {syntax: 'scss'},
-                src: ['*/**/*.scss']
+                options: {syntax: "scss"},
+                src: ["*/**/*.scss"]
             },
             css: {
-                src: ['*/**/*.css'],
+                src: ["*/**/*.css"],
                 options: {
                     configOverrides: {
                         rules: {
@@ -81,7 +84,7 @@ module.exports = function(grunt) {
         },
         exec: {
             decache: {
-                cmd: 'php ' + decachephp,
+                cmd: "php " + decachephp,
                 callback: function(error) {
                     if (!error) {
                         grunt.log.writeln("Moodle theme cache reseted.");
@@ -97,19 +100,16 @@ module.exports = function(grunt) {
 
     // Load core tasks.
     grunt.loadNpmTasks("grunt-contrib-uglify");
-    grunt.loadNpmTasks('grunt-eslint');
+    grunt.loadNpmTasks("grunt-eslint");
     grunt.loadNpmTasks("grunt-stylelint");
 
     // Register CSS taks.
     grunt.registerTask("css", ["stylelint:scss", "stylelint:css"]);
 
     // Register tasks.
-    grunt.registerTask('amd', ['uglify']);
+    grunt.registerTask("amd", ["uglify"]);
     grunt.registerTask("default", ["watch"]);
     grunt.registerTask("decache", ["exec:decache"]);
 
-    grunt.registerTask("compile", [
-        "uglify",
-        "decache"
-    ]);
+    grunt.registerTask("compile", ["uglify", "decache"]);
 };

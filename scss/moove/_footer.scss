@@ -38,30 +38,44 @@
 
                 &.facebook {
                     background-color: $m-facebook-color;
+                    &:hover {
+                        background-color: darken($m-facebook-color, 20%);
+                    }
                 }
 
                 &.twitter {
                     background-color: $m-twitter-color;
-                }
-
-                &.googleplus {
-                    background-color: $m-googleplus-color;
+                    &:hover {
+                        background-color: darken($m-twitter-color, 20%);
+                    }
                 }
 
                 &.linkedin {
                     background-color: $m-linkedin-color;
+                    &:hover {
+                        background-color: darken($m-linkedin-color, 20%);
+                    }
                 }
 
                 &.youtube {
                     background-color: $m-youtube-color;
+                    &:hover {
+                        background-color: darken($m-youtube-color, 20%);
+                    }
                 }
 
                 &.instagram {
                     background-color: $m-instagram-color;
+                    &:hover {
+                        background-color: darken($m-instagram-color, 20%);
+                    }
                 }
 
-                &:hover {
-                    background-color: $brand-primary;
+                &.whatsapp {
+                    background-color: $m-whatsapp-color;
+                    &:hover {
+                        background-color: darken($m-whatsapp-color, 20%);
+                    }
                 }
             }
         }
@@ -100,6 +114,20 @@
 
         a {
             color: #fff;
+        }
+
+        p {
+            margin-bottom: 0;
+        }
+    }
+}
+
+@include media-breakpoint-down(md) {
+    #top-footer .social {
+        text-align: left;
+
+        .plugins_standard_footer_html {
+            padding-left: 1rem;
         }
     }
 }

@@ -190,6 +190,22 @@ if ($ADMIN->fulltree) {
     */
     $page = new admin_settingpage('theme_moove_frontpage', get_string('frontpagesettings', 'theme_moove'));
 
+    // Disable bottom footer.
+    $name = 'theme_moove/disablefrontpageloginbox';
+    $title = get_string('disablefrontpageloginbox', 'theme_moove');
+    $description = get_string('disablefrontpageloginboxdesc', 'theme_moove');
+    $setting = new admin_setting_configcheckbox($name, $title, $description, 0);
+    $page->add($setting);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $page->add($setting);
+
+    // Disable teachers from cards.
+    $name = 'theme_moove/disableteacherspic';
+    $title = get_string('disableteacherspic', 'theme_moove');
+    $description = get_string('disableteacherspicdesc', 'theme_moove');
+    $setting = new admin_setting_configcheckbox($name, $title, $description, 0);
+    $page->add($setting);
+
     // Headerimg file setting.
     $name = 'theme_moove/headerimg';
     $title = get_string('headerimg', 'theme_moove');
@@ -645,15 +661,6 @@ if ($ADMIN->fulltree) {
     $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
 
-    // Googleplus url setting.
-    $name = 'theme_moove/googleplus';
-    $title = get_string('googleplus', 'theme_moove');
-    $description = get_string('googleplusdesc', 'theme_moove');
-    $default = '';
-    $setting = new admin_setting_configtext($name, $title, $description, $default);
-    $setting->set_updatedcallback('theme_reset_all_caches');
-    $page->add($setting);
-
     // Linkdin url setting.
     $name = 'theme_moove/linkedin';
     $title = get_string('linkedin', 'theme_moove');
@@ -676,6 +683,15 @@ if ($ADMIN->fulltree) {
     $name = 'theme_moove/instagram';
     $title = get_string('instagram', 'theme_moove');
     $description = get_string('instagramdesc', 'theme_moove');
+    $default = '';
+    $setting = new admin_setting_configtext($name, $title, $description, $default);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $page->add($setting);
+
+    // Whatsapp url setting.
+    $name = 'theme_moove/whatsapp';
+    $title = get_string('whatsapp', 'theme_moove');
+    $description = get_string('whatsappdesc', 'theme_moove');
     $default = '';
     $setting = new admin_setting_configtext($name, $title, $description, $default);
     $setting->set_updatedcallback('theme_reset_all_caches');

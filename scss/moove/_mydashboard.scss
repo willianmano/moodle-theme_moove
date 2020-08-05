@@ -68,4 +68,23 @@
             padding: 14px 8px;
         }
     }
+
+    #region-main-box #region-main {
+        .card:not([class*="dashboard-card"]) {
+            border-top: solid 2px $brand-primary;
+        }
+
+        .card.mymaincontent {
+            border: none;
+            background-color: initial;
+
+            > .card-body {
+                padding: 0;
+            }
+        }
+
+        .block .block-cards .progress {
+            margin-left: 0;
+        }
+    }
 }

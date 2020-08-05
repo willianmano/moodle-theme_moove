@@ -66,14 +66,6 @@
                 </li>
               {{/twitter}}
 
-              {{#googleplus}}
-                <li>
-                  <a href="{{{googleplus}}}" target="_blank" class="googleplus btn">
-                    <i class="slicon-social-google"></i>
-                  </a>
-                </li>
-              {{/googleplus}}
-
               {{#linkedin}}
                 <li>
                   <a href="{{{linkedin}}}" target="_blank" class="linkedin btn">
@@ -97,6 +89,14 @@
                   </a>
                 </li>
               {{/instagram}}
+
+              {{#whatsapp}}
+                  <li>
+                      <a href="https://api.whatsapp.com/send?phone={{{whatsapp}}}" target="_blank" class="whatsapp btn">
+                          <i class="fa fa-whatsapp"></i>
+                      </a>
+                  </li>
+              {{/whatsapp}}
           </ul>
 
           {{{ output.standard_footer_html }}}

@@ -50,24 +50,23 @@
 }}
     {{>theme_moove/inc_start}}
 
-    <div id="page" class="container-fluid">
-
-        {{#is_siteadmin}}
+    <div id="page" class="container-fluid d-print-block">
+        {{#canviewadmininfos}}
             {{>theme_moove/mydashboard_admin}}
-        {{/is_siteadmin}}
-        {{^is_siteadmin}}
+        {{/canviewadmininfos}}
+        {{^canviewadmininfos}}
             {{{ output.full_header }}}
-        {{/is_siteadmin}}
+        {{/canviewadmininfos}}
 
-        <div id="page-content" class="row">
-            <div id="region-main-box" class="col-xs-12">
+        <div id="page-content" class="row pb-3 d-print-block">
+            <div id="region-main-box" class="col-12">
                 {{#hasregionmainsettingsmenu}}
                 <div id="region-main-settings-menu" class="hidden-print">
                     <div> {{{ output.region_main_settings_menu }}} </div>
                 </div>
                 {{/hasregionmainsettingsmenu}}
                 <section id="region-main">
-                    <div class="card">
+                    <div class="card mymaincontent">
                         <div class="card-body">
                             {{#hasregionmainsettingsmenu}}
                                 <div class="region_main_settings_menu_proxy"></div>

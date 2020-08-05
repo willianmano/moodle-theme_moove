@@ -51,19 +51,19 @@
                 {{#sliderfrontpage}}
                     {{>theme_moove/slideshow}}
 
-                    {{^hasdrawertoggle}}
+                    {{^disablefrontpageloginbox}}
                         <div id="loginbox" class="d-none d-lg-block">
                             <div class="card" id="boxForm">
                                 {{>theme_moove/frontpage_login}}
                             </div>
                         </div>
-                    {{/hasdrawertoggle}}
+                    {{/disablefrontpageloginbox}}
                 {{/sliderfrontpage}}
             {{/sliderenabled}}
 
             {{^sliderenabled}}
                 <div class="row" id="loginbox">
-                    <div class="col-sm-12 col-md-7 hidden-sm-down" id="intro">
+                    <div class="col-sm-12 hidden-sm-down {{#disablefrontpageloginbox}}col-md-12{{/disablefrontpageloginbox}}{{^disablefrontpageloginbox}}col-md-7{{/disablefrontpageloginbox}}" id="intro">
                         {{#bannerheading}}
                             <h1>{{{ bannerheading }}}</h1>
                         {{/bannerheading}}
@@ -71,68 +71,18 @@
                             <h2>{{{ bannercontent }}}</h2>
                         {{/bannercontent}}
                     </div>
-                    <div class="col-12 col-sm-12 col-md-5 card d-none d-lg-block" id="boxForm">
-                        {{>theme_moove/frontpage_login}}
-                    </div><!-- end of .card-body -->
+                    {{^disablefrontpageloginbox}}
+                        <div class="col-12 col-sm-12 col-md-5 card d-none d-lg-block" id="boxForm">
+                            {{>theme_moove/frontpage_login}}
+                        </div><!-- end of .card-body -->
+                    {{/disablefrontpageloginbox}}
                 </div> <!-- end of #boxForm -->
             {{/sliderenabled}}
         </div>
 
-        {{#shoulddisplaymarketing}}
-          <div class="frontpage-marketing row">
-              <div class="col-md-3">
-                <div class="card">
-                  <div class="card-body">
-                    <img src="{{{ marketing1icon }}}" />
-                    <h2>{{{ marketing1heading }}}</h2>
-                    <h3>{{{ marketing1subheading }}}</h3>
-                    <p>{{{ marketing1content }}}</p>
-                    {{#marketing1url}}<a class="btn btn-primary" href="{{{ marketing1url }}}">{{#str}}readmore, theme_moove{{/str}}</a>{{/marketing1url}}
-                  </div>
-                </div>
-              </div>
+        {{>theme_moove/frontpage_marketing}}
 
-              <div class="col-md-3">
-                <div class="card">
-                  <div class="card-body">
-                    <img src="{{{ marketing2icon }}}" />
-                    <h2>{{{ marketing2heading }}}</h2>
-                    <h3>{{{ marketing2subheading }}}</h3>
-                    <p>{{{ marketing2content }}}</p>
-                    {{#marketing2url}}<a class="btn btn-primary" href="{{{ marketing2url }}}">{{#str}}readmore, theme_moove{{/str}}</a>{{/marketing2url}}
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-md-3">
-                <div class="card">
-                  <div class="card-body">
-                    <img src="{{{ marketing3icon }}}" />
-                    <h2>{{{ marketing3heading }}}</h2>
-                    <h3>{{{ marketing3subheading }}}</h3>
-                    <p>{{{ marketing3content }}}</p>
-                    {{#marketing3url}}<a class="btn btn-primary" href="{{{ marketing3url }}}">{{#str}}readmore, theme_moove{{/str}}</a>{{/marketing3url}}
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-md-3">
-                <div class="card">
-                  <div class="card-body">
-                    <img src="{{{ marketing4icon }}}" />
-                    <h2>{{{ marketing4heading }}}</h2>
-                    <h3>{{{ marketing4subheading }}}</h3>
-                    <p>{{{ marketing4content }}}</p>
-                    {{#marketing4url}}<a class="btn btn-primary" href="{{{ marketing4url }}}">{{#str}}readmore, theme_moove{{/str}}</a>{{/marketing4url}}
-                  </div>
-                </div>
-              </div>
-
-              <div class="clearfix"></div>
-          </div>
-        {{/shoulddisplaymarketing}}
-
-        <div class="container-fluid">
+        <div class="container frontpage-maincontent">
           {{{ output.main_content }}}
         </div>
 

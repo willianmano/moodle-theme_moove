@@ -1,6 +1,6 @@
 nav.navbar {
     min-height: $navbar-height;
-    -webkit-box-shadow: 5px 0 10px rgba(0, 0, 0, 0.5);
+    -webkit-box-shadow: 5px 0 10px rgba(0, 0, 0, 0.1);
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
     background-color: $navbar-header-color;
     position: fixed;
@@ -81,6 +81,7 @@ nav.navbar {
                 padding: 24px 40px 24px 20px;
                 border-radius: 0;
                 font-size: 17px;
+                height: 70px;
             }
 
             .close-search {
@@ -150,6 +151,10 @@ nav.navbar {
                         line-height: initial;
                         background-color: #fff;
                         padding: 15px;
+
+                        &.unread {
+                            background-color: #f4f4f4;
+                        }
 
                         &:hover {
                             background-color: $body-bg;
@@ -266,7 +271,6 @@ nav.navbar {
 
         .lang-menu {
             max-height: $navbar-height;
-            padding: .2rem .8rem 0;
 
             .nav-item {
                 line-height: 70px;
@@ -289,6 +293,7 @@ nav.navbar {
 
             .nav-link {
                 color: $brand-primary;
+                padding: .2rem .8rem 0 1.2rem;
 
                 .slicon-globe {
                     font-size: 1.2rem;

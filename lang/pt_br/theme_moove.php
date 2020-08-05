@@ -43,13 +43,17 @@ $string['madeby'] = 'Feito com';
 $string['by'] = 'por';
 $string['discipline_progress'] = 'Progresso';
 $string['access'] = 'Acessar';
-$string['cachedef_admininfos'] = 'Informações da página inicial dos administradores';
+$string['cachedef_admininfos'] = 'Definição do cache das informações do painel do administrador';
+$string['cachedef_fontawesomemooveiconmapping'] = 'Definição de cache dos ícones do tema';
 $string['diskusage'] = 'Uso do disco(moodledata)';
-$string['totalusers'] = 'Usuáios ativos / Suspensos';
+$string['notcalculatedyet'] = 'Não calculado';
+$string['calculatediskusagetask'] = 'Tarefa para calcular o uso do disco';
+$string['totalusers'] = 'Usuários ativos / Suspensos';
 $string['totalcourses'] = 'Total de cursos';
 $string['onlineusers'] = 'Usuários online(5 minutos)';
 $string['showhideblocks'] = 'Exibir/ocultar blocos';
-$string['privacy:metadata'] = 'O tema Moove theme não guarda qualquer informação pessoal de qualquer usuário.';
+$string['prev_activity'] = 'Atividade anterior';
+$string['next_activity'] = 'Próxima atividade';
 
 // General settings tab.
 $string['generalsettings'] = 'Geral';
@@ -60,7 +64,7 @@ $string['favicondesc'] = 'Envie seu próprio favicon. O arquivo deve ter a exten
 $string['preset'] = 'Preset do tema';
 $string['preset_desc'] = 'Escolha um preset para alterar a aparência do tema.';
 $string['presetfiles'] = 'Arquivos de preset adicionais';
-$string['presetfiles_desc'] = 'Arquivos preset podem ser usados para alterar dramaticamente a aparência do tema. Veja <a href=https://docs.moodle.org/dev/Boost_Presets>Boost presets</a> para informações sobre criar e compartilhar seus próprios arquivos preset, e veja o <a href=http://moodle.net/boost>repositório de presets</a> que outros compartilharam.';
+$string['presetfiles_desc'] = 'Arquivos preset podem ser usados para alterar dramaticamente a aparência do tema. Veja <a href="https://docs.moodle.org/dev/Boost_Presets">Boost presets</a>.';
 $string['loginbgimg'] = 'Background da página de login';
 $string['loginbgimg_desc'] = 'Envie sua própria imagem de fundo para a página de login.';
 $string['brandcolor'] = 'Cor da marca';
@@ -89,6 +93,8 @@ $string['googleanalyticsdesc'] = 'Por favor digite o código do Google Analytics
 
 // Frontpage settings tab.
 $string['frontpagesettings'] = 'Página inicial';
+$string['disablefrontpageloginbox'] = 'Desabilitar caixa de login da página inicial';
+$string['disablefrontpageloginboxdesc'] = 'Se você marcar isto, a caixa de login da página inicial será oculta e um link para a página de login será exibido na barra de cabeçalho.';
 $string['headerimg'] = 'Imagem do cabeçalho';
 $string['headerimgdesc'] = 'Envie sua própria imagem de cabeçalho. Tamanho recomendado 1400px x 700px';
 $string['bannerheading'] = 'Banner de cabeçalho';
@@ -137,6 +143,8 @@ $string['marketing4content'] = 'Conteúdo do Marketing4';
 $string['marketing4contentdesc'] = 'Digite o texto do conteúdo do Marketing4';
 $string['marketing4url'] = 'URL do Marketing4';
 $string['marketing4urldesc'] = 'Digite a URL do Marketing4';
+$string['disableteacherspic'] = 'Desabilitar fotos dos professores';
+$string['disableteacherspicdesc'] = 'Esta configuração oculta as fotos dos professores nos cards dos cursos.';
 
 $string['sliderenabled'] = 'Habilitar Slideshow';
 $string['sliderenableddesc'] = 'Habilita um slideshow no topo da página inicial do site.';
@@ -203,14 +211,14 @@ $string['facebook'] = 'Facebook URL';
 $string['facebookdesc'] = 'Digite a URL do Facebook. (ex: http://www.facebook.com/moodlehq)';
 $string['twitter'] = 'Twitter URL';
 $string['twitterdesc'] = 'Digite a URL do twitter. (ex: http://www.twitter.com/moodlehq)';
-$string['googleplus'] = 'Google Plus URL';
-$string['googleplusdesc'] = 'Digite a URL do Google Plus. (ex: http://www.googleplus.com/moodlehq)';
 $string['linkedin'] = 'Linkedin URL';
 $string['linkedindesc'] = 'Digite a URL do Linkedin. (ex: http://www.linkedin.com/moodlehq)';
 $string['youtube'] = 'Youtube URL';
 $string['youtubedesc'] = 'Digite a URL do Youtube. (ex: https://www.youtube.com/user/moodlehq)';
 $string['instagram'] = 'Instagram URL';
 $string['instagramdesc'] = 'Digite a URL do Instagram. (i.e https://www.instagram.com/moodlehq)';
+$string['whatsapp'] = 'Whatsapp';
+$string['whatsappdesc'] = 'Digite o número do seu whatsapp para contato.';
 $string['topfooterimg'] = 'Imagem do rodapé';
 $string['topfooterimgdesc'] = 'Envie sua própria imagem de rodapé caso queira substituir a imagem padrão. Tamanho recomendado 1500px x 400px ou maior.';
 $string['disablebottomfooter'] = 'Desabilitar rodapé do final da página';
@@ -226,6 +234,11 @@ $string['forumhtmlemailfooterdesc'] = 'Configure o rodapé do email das mensagen
 $string['forumcustomtemplate'] = 'Habilitar o template para os emails dos fóruns';
 $string['forumcustomtemplatedesc'] = 'Marque para habilitar um template mais agradável para os emails das mensagens dos fóruns. Se não habilitado o formato padrão para os emails será utilizado.';
 
+$string['certificates'] = 'Certificados';
+$string['certificatestitle'] = 'Meus certificados';
+$string['subtitleallcertificates'] = 'Certificados de todos os cursos';
+$string['subtitlecoursecertificates'] = 'Certificados do curso';
+$string['nohavecertificates'] = 'Você não possui certificados ainda.';
 $string['coursesections'] = 'Seções do curso';
 
 // Mypublic page.
@@ -235,3 +248,34 @@ $string['details'] = 'Detalhes';
 $string['startedon'] = 'Iniciado em';
 $string['addcontact'] = 'Adicionar contato';
 $string['removecontact'] = 'Remover contato';
+$string['certificates'] = 'Certificados';
+
+// Theme settings.
+$string['themesettingstitle'] = 'Acessibilidade';
+$string['themesettingsfonttype'] = 'Tipo de fonte';
+$string['themesettingsdefaultfont'] = 'Fonte padrão';
+$string['themesettingsdyslexicfont'] = 'Fonte para dislexicos';
+$string['themesettingsenableaccessibilitytoolbar'] = 'Habilitar barra de acessibilidade';
+$string['themesettinggsavedsuccessfully'] = 'Configurações de acessibilidade salvas com sucesso';
+
+// Accessibility features.
+$string['accessibilityfontsize'] = 'Tamanho da fonte';
+$string['accessibilityincreasefont'] = 'Aumentar tamanho da fonte';
+$string['accessibilityresetfont'] = 'Redefinir tamanho da fonte';
+$string['accessibilitydecreasefont'] = 'Diminuir tamanho da fonte';
+$string['accessibilitysitecolor'] = 'Cor do site';
+$string['accessibilityresetsitecolor'] = 'Redefinir cor do site';
+$string['accessibilitysitecolor2'] = 'Baixo contraste 1';
+$string['accessibilitysitecolor3'] = 'Baixo contraste 2';
+$string['accessibilitysitecolor4'] = 'Alto contraste';
+
+// Data privacy.
+$string['privacy:metadata:preference:accessibilitystyles_fontsizeclass'] = 'Preferências do usuário para tamanho da fonte.';
+$string['privacy:metadata:preference:accessibilitystyles_sitecolorclass'] = 'Preferências do usuário para cor do site.';
+$string['privacy:metadata:preference:thememoovesettings_fonttype'] = 'Preferências do usuário para tipo de fonte.';
+$string['privacy:metadata:preference:thememoovesettings_enableaccessibilitytoolbar'] = 'Preferências do usuário para habilitar a barra de acessibilidade.';
+
+$string['privacy:accessibilitystyles_fontsizeclass'] = 'A preferência atual para o tamanho da fonte é: {$a}.';
+$string['privacy:accessibilitystyles_sitecolorclass'] = 'A preferência atual para a cor do site é: {$a}.';
+$string['privacy:thememoovesettings_fonttype'] = 'A preferência atual para o tipo de fonte é: {$a}.';
+$string['privacy:thememoovesettings_enableaccessibilitytoolbar'] = 'A preferência atual para habilitar a barra de acessibilidade é para exibi-lá';

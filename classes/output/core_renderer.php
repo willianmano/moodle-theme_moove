@@ -108,13 +108,11 @@ class core_renderer extends \theme_boost\output\core_renderer {
      * @return string HTML to display the main header.
      */
     public function mydashboard_admin_header() {
-        global $PAGE;
-
         $html = html_writer::start_div('row');
         $html .= html_writer::start_div('col-xs-12 p-a-1');
 
         $pageheadingbutton = $this->page_heading_button();
-        if (empty($PAGE->layout_options['nonavbar'])) {
+        if (empty($this->page->layout_options['nonavbar'])) {
             $html .= html_writer::start_div('clearfix w-100 pull-xs-left', array('id' => 'page-navbar'));
             $html .= html_writer::tag('div', $this->navbar(), array('class' => 'breadcrumb-nav'));
             $html .= html_writer::div($pageheadingbutton, 'breadcrumb-button');
@@ -136,18 +134,43 @@ class core_renderer extends \theme_boost\output\core_renderer {
      * @return string
      */
     public function render_login(\core_auth\output\login $form) {
-        global $SITE;
+        global $CFG, $SITE;
 
         $context = $form->export_for_template($this);
 
         // Override because rendering is not supported in template yet.
-        $context->cookieshelpiconformatted = $this->help_icon('cookiesenabled');
+        if ($CFG->rememberusername == 0) {
+            $context->cookieshelpiconformatted = $this->help_icon('cookiesenabledonlysession');
+        } else {
+            $context->cookieshelpiconformatted = $this->help_icon('cookiesenabled');
+        }
         $context->errorformatted = $this->error_text($context->error);
 
         $context->logourl = $this->get_logo();
-        $context->sitename = format_string($SITE->fullname, true, array('context' => \context_course::instance(SITEID)));
 
-        return $this->render_from_template('core/login', $context);
+        $context->sitename = format_string($SITE->fullname, true,
+            ['context' => \context_course::instance(SITEID), "escape" => false]);
+
+        return $this->render_from_template('core/loginform', $context);
+    }
+
+    /**
+     * Render the login signup form into a nice template for the theme.
+     *
+     * @param mform $form
+     * @return string
+     */
+    public function render_login_signup_form($form) {
+        global $SITE;
+
+        $context = $form->export_for_template($this);
+
+        $context['logourl'] = $this->get_logo();
+
+        $context['sitename'] = format_string($SITE->fullname, true,
+            ['context' => \context_course::instance(SITEID), "escape" => false]);
+
+        return $this->render_from_template('core/signup_form_layout', $context);
     }
 
     /**
@@ -194,17 +217,23 @@ class core_renderer extends \theme_boost\output\core_renderer {
     }
 
     /**
-     * Outputs the favicon urlbase.
+     * Returns the moodle_url for the favicon.
      *
-     * @return string an url
+     * @since Moodle 2.5.1 2.6
+     * @return moodle_url The moodle_url for the favicon
      */
     public function favicon() {
+        global $CFG;
+
         $theme = theme_config::load('moove');
 
         $favicon = $theme->setting_file_url('favicon', 'favicon');
 
         if (!empty(($favicon))) {
-            return $favicon;
+            $urlreplace = preg_replace('|^https?://|i', '//', $CFG->wwwroot);
+            $favicon = str_replace($urlreplace, '', $favicon);
+
+            return new moodle_url($favicon);
         }
 
         return parent::favicon();
@@ -297,17 +326,32 @@ class core_renderer extends \theme_boost\output\core_renderer {
         if (!isloggedin()) {
             $returnstr = '';
             if (!$loginpage) {
-                $returnstr .= "<a class='btn btn-login-top d-lg-none' href=\"$loginurl\">" . get_string('login') . '</a>';
+                $returnstr .= "<a class='btn btn-login-top' href=\"$loginurl\">" . get_string('login') . '</a>';
             }
 
-            return html_writer::tag(
-                'li',
-                html_writer::span(
-                    $returnstr,
-                    'login'
-                ),
-                array('class' => $usermenuclasses)
-            );
+            $theme = theme_config::load('moove');
+
+            if (!$theme->settings->disablefrontpageloginbox) {
+                return html_writer::tag(
+                    'li',
+                    html_writer::span(
+                        $returnstr,
+                        'login'
+                    ),
+                    array('class' => $usermenuclasses)
+                );
+            }
+
+            $context = [
+                'loginurl' => $loginurl,
+                'logintoken' => \core\session\manager::get_login_token(),
+                'canloginasguest' => $CFG->guestloginbutton and !isguestuser(),
+                'canloginbyemail' => !empty($CFG->authloginviaemail),
+                'cansignup' => $CFG->registerauth == 'email' || !empty($CFG->registerauth)
+
+            ];
+
+            return $this->render_from_template('theme_moove/frontpage_guest_loginbtn', $context);
         }
 
         // If logged in as a guest user, show a string to that effect.
@@ -644,6 +688,12 @@ class core_renderer extends \theme_boost\output\core_renderer {
         $pluginswithfunction = get_plugins_with_function('standard_footer_html', 'lib.php');
         foreach ($pluginswithfunction as $plugins) {
             foreach ($plugins as $function) {
+                if ($function === 'tool_dataprivacy_standard_footer_html') {
+                    $output .= $this->get_dataprivacyurl();
+
+                    continue;
+                }
+
                 if ($function === 'tool_mobile_standard_footer_html') {
                     $output .= $this->get_mobileappurl();
 
@@ -688,6 +738,38 @@ class core_renderer extends \theme_boost\output\core_renderer {
     }
 
     /**
+     * Returns the dataprivacy url
+     *
+     * @return string
+     *
+     * @throws \coding_exception
+     * @throws \dml_exception
+     * @throws \moodle_exception
+     */
+    private function get_dataprivacyurl() {
+        $output = '';
+
+        // A returned 0 means that the setting was set and disabled, false means that there is no value for the provided setting.
+        $showsummary = get_config('tool_dataprivacy', 'showdataretentionsummary');
+        if ($showsummary === false) {
+            // This means that no value is stored in db. We use the default value in this case.
+            $showsummary = true;
+        }
+
+        if ($showsummary) {
+            $url = new moodle_url('/admin/tool/dataprivacy/summary.php');
+            $output = html_writer::link($url,
+                "<i class='slicon-folder-alt'></i> " . get_string('dataretentionsummary', 'tool_dataprivacy'),
+                ['class' => 'btn btn-default']
+            );
+
+            $output = html_writer::div($output, 'tool_dataprivacy mb-2');
+        }
+
+        return $output;
+    }
+
+    /**
      * Returns the mobile app url
      *
      * @return string
@@ -712,19 +794,59 @@ class core_renderer extends \theme_boost\output\core_renderer {
      * Wrapper for breadcrumb elements.
      *
      * @return string HTML to display the main header.
+     *
+     * @throws \coding_exception
+     * @throws \moodle_exception
      */
     public function breadcrumb_header() {
-        global $PAGE;
-
         $header = new stdClass();
-        $header->hasnavbar = empty($PAGE->layout_options['nonavbar']);
+        $header->hasnavbar = empty($this->page->layout_options['nonavbar']);
         $header->navbar = $this->navbar();
 
         $header->contextheader = $this->context_header();
-        if ($PAGE->pagelayout == 'mypublic') {
+        if ($this->page->pagelayout == 'mypublic') {
             $header->contextheader = "<h2>". get_string('userprofile', 'theme_moove') ."</h2>";
         }
 
         return $this->render_from_template('theme_moove/breadcrumb', $header);
+    }
+
+    /**
+     * Returns HTML attributes to use within the body tag. This includes an ID and classes.
+     *
+     * @param string|array $additionalclasses Any additional classes to give the body tag,
+     *
+     * @return string
+     *
+     * @throws \coding_exception
+     *
+     * @since Moodle 2.5.1 2.6
+     */
+    public function body_attributes($additionalclasses = array()) {
+        $hasaccessibilitybar = get_user_preferences('thememoovesettings_enableaccessibilitytoolbar', '');
+        if ($hasaccessibilitybar) {
+            $additionalclasses[] = 'hasaccessibilitybar';
+
+            $currentfontsizeclass = get_user_preferences('accessibilitystyles_fontsizeclass', '');
+            if ($currentfontsizeclass) {
+                $additionalclasses[] = $currentfontsizeclass;
+            }
+
+            $currentsitecolorclass = get_user_preferences('accessibilitystyles_sitecolorclass', '');
+            if ($currentsitecolorclass) {
+                $additionalclasses[] = $currentsitecolorclass;
+            }
+        }
+
+        $fonttype = get_user_preferences('thememoovesettings_fonttype', '');
+        if ($fonttype) {
+            $additionalclasses[] = $fonttype;
+        }
+
+        if (!is_array($additionalclasses)) {
+            $additionalclasses = explode(' ', $additionalclasses);
+        }
+
+        return ' id="'. $this->body_id().'" class="'.$this->body_css_classes($additionalclasses).'"';
     }
 }

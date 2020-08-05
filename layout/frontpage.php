@@ -108,6 +108,12 @@ if (isloggedin()) {
         $shoulddisplaymarketing = true;
     }
 
+    $disablefrontpageloginbox = false;
+    if (theme_moove_get_setting('disablefrontpageloginbox', true) == true) {
+        $disablefrontpageloginbox = true;
+        $extraclasses[] = 'disablefrontpageloginbox';
+    }
+
     $bodyattributes = $OUTPUT->body_attributes($extraclasses);
     $regionmainsettingsmenu = $OUTPUT->region_main_settings_menu();
 
@@ -116,6 +122,7 @@ if (isloggedin()) {
         'output' => $OUTPUT,
         'bodyattributes' => $bodyattributes,
         'hasdrawertoggle' => false,
+        'canloginasguest' => $CFG->guestloginbutton and !isguestuser(),
         'cansignup' => $CFG->registerauth == 'email' || !empty($CFG->registerauth),
         'bannerheading' => $bannerheading,
         'bannercontent' => $bannercontent,
@@ -124,6 +131,7 @@ if (isloggedin()) {
         'numbersfrontpage' => $numbersfrontpage,
         'sponsorsfrontpage' => $sponsorsfrontpage,
         'clientsfrontpage' => $clientsfrontpage,
+        'disablefrontpageloginbox' => $disablefrontpageloginbox,
         'logintoken' => \core\session\manager::get_login_token()
     ];
 
