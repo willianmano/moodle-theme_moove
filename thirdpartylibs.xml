@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<libraries>
+  <library>
+    <location>fonts</location>
+    <name>OpenDyslexic</name>
+    <license>SIL-OFL</license>
+    <version>3</version>
+    <licenseversion>1.1</licenseversion>
+  </library>
+  <library>
+    <location>fonts</location>
+    <name>Simple line icons</name>
+    <license>MIT</license>
+    <version>2.4.1</version>
+    <licenseversion>2016</licenseversion>
+  </library>
+  <library>
+    <location>amd/src/metismenu.js</location>
+    <name>Metis Menu</name>
+    <license>MIT</license>
+    <version>3.0.3</version>
+    <licenseversion>2016</licenseversion>
+  </library>
+</libraries>

@@ -24,7 +24,7 @@
 
 namespace theme_moove\util;
 
-use core\output\icon_system_font;
+use core\output\icon_system_fontawesome;
 use renderer_base;
 use pix_icon;
 
@@ -37,7 +37,7 @@ defined('MOODLE_INTERNAL') || die();
  * @copyright  2017 Willian Mano - http://conecti.me
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class icon_system extends icon_system_font {
+class icon_system extends icon_system_fontawesome {
 
     /**
      * @var array $map Cached map of moodle icon names to font awesome icon names.
@@ -485,4 +485,3 @@ class icon_system extends icon_system_font {
     }
 
 }
-
