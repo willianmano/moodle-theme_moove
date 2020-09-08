@@ -230,6 +230,12 @@ class course_renderer extends \core_course_renderer {
      * @throws \moodle_exception
      */
     protected function coursecat_coursebox_content(coursecat_helper $chelper, $course) {
+        $theme = \theme_config::load('moove');
+
+        if (!empty($theme->settings->courselistview)) {
+            return parent::coursecat_coursebox_content($chelper, $course);
+        }
+
         if ($course instanceof stdClass) {
             $course = new core_course_list_element($course);
         }
@@ -254,6 +260,12 @@ class course_renderer extends \core_course_renderer {
      * @return string
      */
     protected function course_summary(coursecat_helper $chelper, core_course_list_element $course): string {
+        $theme = \theme_config::load('moove');
+
+        if (!empty($theme->settings->courselistview)) {
+            return parent::course_summary($chelper, $course);
+        }
+
         $content = '';
         if ($course->has_summary()) {
             $content .= html_writer::start_tag('p', ['class' => 'card-text']);
@@ -278,6 +290,10 @@ class course_renderer extends \core_course_renderer {
         global $CFG, $DB;
 
         $theme = \theme_config::load('moove');
+
+        if (!empty($theme->settings->courselistview)) {
+            return parent::course_contacts($course);
+        }
 
         $content = '';
         if ($course->has_course_contacts() && !($theme->settings->disableteacherspic)) {
@@ -336,6 +352,12 @@ class course_renderer extends \core_course_renderer {
      * @throws \moodle_exception
      */
     protected function course_category_name(coursecat_helper $chelper, core_course_list_element $course): string {
+        $theme = \theme_config::load('moove');
+
+        if (!empty($theme->settings->courselistview)) {
+            return parent::course_category_name($chelper, $course);
+        }
+
         $content = '';
 
         if ($cat = core_course_category::get($course->category, IGNORE_MISSING)) {
@@ -386,6 +408,12 @@ class course_renderer extends \core_course_renderer {
      * @return string
      */
     protected function course_custom_fields(core_course_list_element $course): string {
+        $theme = \theme_config::load('moove');
+
+        if (!empty($theme->settings->courselistview)) {
+            return parent::course_custom_fields($course);
+        }
+
         $content = '';
 
         if ($course->has_custom_fields()) {

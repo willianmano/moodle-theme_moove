@@ -102,7 +102,6 @@ body.coursepresentation-cover {
             margin: 0 0 0 -20px;
             padding: .75rem;
             letter-spacing: .1em;
-            text-transform: uppercase;
             color: $brand-primary;
             font-weight: 700;
             text-align: center;
@@ -148,7 +147,6 @@ body.coursepresentation-cover {
         .mdl-left .text .nav_guide,
         .mdl-right .text .nav_guide {
             letter-spacing: .1em;
-            text-transform: uppercase;
             font-style: normal;
             color: #565656;
         }
@@ -170,7 +168,6 @@ body.pagelayout-incourse {
         .nav-guide {
             display: block;
             letter-spacing: .1em;
-            text-transform: uppercase;
             font-style: normal;
         }
 
@@ -302,7 +299,6 @@ body#page-mod-quiz-attempt.pagelayout-secure {
         border: 1px solid #dadada;
         border-top-width: .2em;
         letter-spacing: .1em;
-        text-transform: uppercase;
         font-style: normal;
         font-size: 1.4rem;
 
