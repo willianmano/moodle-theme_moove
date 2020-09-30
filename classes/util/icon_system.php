@@ -382,7 +382,7 @@ class icon_system extends icon_system_fontawesome {
             'core:t/groups' => 'slicon-user-follow',
             'core:t/groupv' => 'fa-user-circle-o',
             'core:t/hide' => 'fa-eye',
-            'core:t/left' => 'slicon-action-undo',
+            'core:t/left' => 'fa-arrow-left',
             'core:t/less' => 'fa-caret-up',
             'core:t/locked' => 'fa-lock',
             'core:t/lock' => 'fa-unlock',
