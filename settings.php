@@ -706,14 +706,6 @@ if ($ADMIN->fulltree) {
     $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
 
-    // Disable bottom footer.
-    $name = 'theme_moove/disablebottomfooter';
-    $title = get_string('disablebottomfooter', 'theme_moove');
-    $description = get_string('disablebottomfooterdesc', 'theme_moove');
-    $setting = new admin_setting_configcheckbox($name, $title, $description, 0);
-    $page->add($setting);
-    $setting->set_updatedcallback('theme_reset_all_caches');
-
     $settings->add($page);
 
     // Forum page.

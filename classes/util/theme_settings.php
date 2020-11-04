@@ -59,11 +59,6 @@ class theme_settings {
             }
         }
 
-        $templatecontext['disablebottomfooter'] = false;
-        if (!empty($theme->settings->disablebottomfooter)) {
-            $templatecontext['disablebottomfooter'] = true;
-        }
-
         return $templatecontext;
     }
 

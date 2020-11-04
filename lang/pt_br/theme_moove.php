@@ -221,8 +221,6 @@ $string['whatsapp'] = 'Whatsapp';
 $string['whatsappdesc'] = 'Digite o número do seu whatsapp para contato.';
 $string['topfooterimg'] = 'Imagem do rodapé';
 $string['topfooterimgdesc'] = 'Envie sua própria imagem de rodapé caso queira substituir a imagem padrão. Tamanho recomendado 1500px x 400px ou maior.';
-$string['disablebottomfooter'] = 'Desabilitar rodapé do final da página';
-$string['disablebottomfooterdesc'] = 'Esta opção desabilita o rodapé laranja do final da página';
 
 // Forum settings tab.
 $string['forumsettings'] = 'Fórum';
