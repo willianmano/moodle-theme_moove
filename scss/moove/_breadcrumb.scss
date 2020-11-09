@@ -19,7 +19,6 @@
             margin: 0.5em 0;
 
             &:after {
-                /* this is the separator between items */
                 display: inline-block;
                 content: '\00bb';
                 margin: 0 .6em;
@@ -37,20 +36,16 @@
         }
     }
     .breadcrumb li:last-of-type::after {
-        /* hide separator after the last item */
         display: none;
     }
     .breadcrumb li > * {
-        /* single step */
         display: inline-block;
         color: #2c3f4c;
     }
     .breadcrumb li.current > * {
-        /* selected step */
         color: #96c03d;
     }
     .no-touch .breadcrumb a:hover {
-        /* steps already visited */
         color: #96c03d;
     }
 
@@ -71,7 +66,6 @@
         padding: .4em .8em .4em 1.5em;
         color: #2c3f4c;
         background-color: $body-bg;
-        /* the border color is used to style its ::after pseudo-element */
         border-color: $body-bg;
     }
 
@@ -80,7 +74,6 @@
     }
 
     .breadcrumb li.current > * {
-        /* selected step */
         color: #fff;
         background-color: #96c03d;
         border-color: #96c03d;
@@ -97,7 +90,6 @@
     }
 
     .no-touch .breadcrumb a:hover {
-        /* steps already visited */
         color: #fff;
         background-color: #2c3f4c;
         border-color: #2c3f4c;
@@ -117,7 +109,6 @@
     }
 
     .breadcrumb li::after {
-        /* this is the white separator between two items */
         z-index: 1;
         -webkit-transform: translateX(4px);
         -moz-transform: translateX(4px);
@@ -129,21 +120,18 @@
     }
 
     .breadcrumb li > *::after {
-        /* this is the colored triangle after each element */
         z-index: 2;
         border-left-color: inherit;
     }
 
     .breadcrumb li:last-of-type::after,
     .breadcrumb li:last-of-type > *::after {
-        /* hide the triangle after the last step */
         display: none;
     }
 
     @-moz-document url-prefix() {
         .breadcrumb li::after,
         .breadcrumb li > *::after {
-            /* fix a bug on Firefix - tooth edge on css triangle */
             border-left-style: dashed;
         }
     }
@@ -162,5 +150,5 @@
 .dir-rtl #page-navbar .breadcrumb li>*::after {
     left: 95%;
     border-right-width: 12px;
-    border-left-width: 0px;
+    border-left-width: 0;
 }

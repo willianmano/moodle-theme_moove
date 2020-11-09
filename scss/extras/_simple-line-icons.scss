@@ -1,8 +1,6 @@
-// Default Variables
 $simple-line-font-family: "simple-line-icons" !default;
 $simple-line-icon-prefix: "slicon-" !default;
 
-// Fonts
 @if $simple-line-font-family == "simple-line-icons" {
     @font-face {
         font-family: '#{$simple-line-font-family}';

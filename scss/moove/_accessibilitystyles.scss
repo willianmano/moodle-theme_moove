@@ -13,7 +13,6 @@ $fontsize-inc-5: $font-size-base + 0.5rem;
 $fontsize-inc-6: $font-size-base + 0.6rem;
 
 $accessibility-sizes: () !default;
-// stylelint-disable-next-line scss/dollar-variable-default
 $accessibility-sizes: map-merge(
                 (
                         "fontsize-dec-1":  $fontsize-dec-1,

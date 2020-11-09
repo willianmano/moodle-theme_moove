@@ -1,6 +1,3 @@
-/*******************
-Bodys
-*******************/
 body#page-enrol-index {
     #region-main {
         .generalbox {
@@ -19,9 +16,6 @@ body.pagelayout-popup {
     margin-left: 0;
 }
 
-/*******************
-Headings
-*******************/
 h1,
 .h1,
 h2,
@@ -55,9 +49,7 @@ body.odafont {
         font-family: oda, comic sans ms, clfallback, Verdana;
     }
 }
-/*******************
-Pages
-*******************/
+
 #page {
     margin-top: 40px;
 
@@ -102,9 +94,6 @@ Pages
     }
 }
 
-/*******************
-Card
-*******************/
 .card {
     border-color: $card-border-color;
     border-radius: $card-border-radius;
@@ -116,8 +105,6 @@ Card
     }
 }
 
-/* Third party plugins compatibility. */
-/* Course format grid */
 #gridshadebox_content {
     top: 80px !important;
 }
@@ -126,10 +113,6 @@ Card
     bottom: -8px;
 }
 
-
-/*******************
-Progress
-*******************/
 .progress {
     height: 20px;
     margin-bottom: 20px;

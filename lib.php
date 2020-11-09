@@ -135,7 +135,9 @@ function theme_moove_get_main_scss_content($theme) {
     $moove = file_get_contents($CFG->dirroot . '/theme/moove/scss/moove.scss');
 
     // Combine them together.
-    return $moovevariables . "\n" . $scss . "\n" . $moove;
+    $allscss = $moovevariables . "\n" . $scss . "\n" . $moove;
+
+    return $allscss;
 }
 
 /**
