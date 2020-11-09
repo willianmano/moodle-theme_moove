@@ -30,18 +30,18 @@ defined('MOODLE_INTERNAL') || die();
 $plugin->component = 'theme_moove';
 
 // This is the version of the plugin.
-$plugin->version = 2020071900;
+$plugin->version = 2020011090;
 
 // This is the named version.
-$plugin->release = '3.9.08';
+$plugin->release = '3.10.01';
 
 // This is a stable release.
 $plugin->maturity = MATURITY_STABLE;
 
 // This is the version of Moodle this plugin requires.
-$plugin->requires = 2020060900;
+$plugin->requires = 2020110300;
 
 // This is a list of plugins, this plugin depends on (and their versions).
 $plugin->dependencies = [
-    'theme_boost' => 2019111800
+    'theme_boost' => 2020110900
 ];
