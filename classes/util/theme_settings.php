@@ -205,8 +205,9 @@ class theme_settings {
     public function clients() {
         $theme = theme_config::load('moove');
 
-        $templatecontext['clientstitle'] = $theme->settings->clientstitle;
-        $templatecontext['clientssubtitle'] = $theme->settings->clientssubtitle;
+        $templatecontext['clientstitle'] = format_string($theme->settings->clientstitle);
+        $templatecontext['clientssubtitle'] = format_string($theme->settings->clientssubtitle);
+
 
         $clientscount = $theme->settings->clientscount;
 
