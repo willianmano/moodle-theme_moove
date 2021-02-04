@@ -93,8 +93,8 @@ class theme_settings {
                 $image = $OUTPUT->image_url('slide_default', 'theme');
             }
             $templatecontext['slides'][$j]['image'] = $image;
-            $templatecontext['slides'][$j]['title'] = $theme->settings->$slidertitle;
-            $templatecontext['slides'][$j]['caption'] = $theme->settings->$slidercap;
+            $templatecontext['slides'][$j]['title'] = format_string($theme->settings->$slidertitle);
+            $templatecontext['slides'][$j]['caption'] = format_string($theme->settings->$slidercap);
 
             if ($i === 1) {
                 $templatecontext['slides'][$j]['active'] = true;
