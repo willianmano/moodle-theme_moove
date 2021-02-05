@@ -94,7 +94,7 @@ class theme_settings {
             }
             $templatecontext['slides'][$j]['image'] = $image;
             $templatecontext['slides'][$j]['title'] = format_string($theme->settings->$slidertitle);
-            $templatecontext['slides'][$j]['caption'] = format_string($theme->settings->$slidercap);
+            $templatecontext['slides'][$j]['caption'] = format_text($theme->settings->$slidercap);
 
             if ($i === 1) {
                 $templatecontext['slides'][$j]['active'] = true;
