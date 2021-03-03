@@ -93,8 +93,8 @@ class theme_settings {
                 $image = $OUTPUT->image_url('slide_default', 'theme');
             }
             $templatecontext['slides'][$j]['image'] = $image;
-            $templatecontext['slides'][$j]['title'] = $theme->settings->$slidertitle;
-            $templatecontext['slides'][$j]['caption'] = $theme->settings->$slidercap;
+            $templatecontext['slides'][$j]['title'] = format_string($theme->settings->$slidertitle);
+            $templatecontext['slides'][$j]['caption'] = format_text($theme->settings->$slidercap);
 
             if ($i === 1) {
                 $templatecontext['slides'][$j]['active'] = true;
@@ -205,8 +205,9 @@ class theme_settings {
     public function clients() {
         $theme = theme_config::load('moove');
 
-        $templatecontext['clientstitle'] = $theme->settings->clientstitle;
-        $templatecontext['clientssubtitle'] = $theme->settings->clientssubtitle;
+        $templatecontext['clientstitle'] = format_string($theme->settings->clientstitle);
+        $templatecontext['clientssubtitle'] = format_string($theme->settings->clientssubtitle);
+
 
         $clientscount = $theme->settings->clientscount;
 
