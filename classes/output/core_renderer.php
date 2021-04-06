@@ -448,7 +448,7 @@ class core_renderer extends \theme_boost\output\core_renderer {
             // Adds username to the first item of usermanu.
             $userinfo = new stdClass();
             $userinfo->itemtype = 'text';
-            $userinfo->title = $user->firstname . ' ' . $user->lastname;
+            $userinfo->title = fullname($user);
             $userinfo->url = new moodle_url('/user/profile.php', array('id' => $user->id));
             $userinfo->pix = 'i/user';
 

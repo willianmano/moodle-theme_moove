@@ -87,6 +87,7 @@ $templatecontext['hascourses'] = (count($usercourses)) ? true : false;
 $templatecontext['courses'] = array_values($usercourses);
 $templatecontext['user'] = $user;
 $templatecontext['user']->profilepicture = \theme_moove\util\extras::get_user_picture($user, 100);
+$templatecontext['user']->fullname = fullname($user);
 
 $competencyplans = \theme_moove\util\extras::get_user_competency_plans($user);
 $templatecontext['hascompetencyplans'] = (count($competencyplans)) ? true : false;
