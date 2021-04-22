@@ -246,6 +246,17 @@ body#page-mod-quiz-attempt.pagelayout-secure {
     }
 }
 
+#page-mod-quiz-review [data-region="blocks-column"] {
+    width: 360px;
+    float: right;
+    top: 0;
+    right: 0;
+    position: relative;
+    height: 100%;
+    overflow-y: inherit;
+    background-color: initial;
+}
+
 @include media-breakpoint-down(md) {
     body.pagelayout-incourse {
         .activity-navigation {
