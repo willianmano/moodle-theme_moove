@@ -208,7 +208,6 @@ class theme_settings {
         $templatecontext['clientstitle'] = format_string($theme->settings->clientstitle);
         $templatecontext['clientssubtitle'] = format_string($theme->settings->clientssubtitle);
 
-
         $clientscount = $theme->settings->clientscount;
 
         for ($i = 1, $j = 0; $i <= $clientscount; $i++, $j++) {
