@@ -219,6 +219,8 @@ $string['instagram'] = 'Instagram URL';
 $string['instagramdesc'] = 'Digite a URL do Instagram. (i.e https://www.instagram.com/moodlehq)';
 $string['whatsapp'] = 'Whatsapp';
 $string['whatsappdesc'] = 'Digite o número do seu whatsapp para contato.';
+$string['telegram'] = 'Telegram';
+$string['telegramdesc'] = 'Digite seu contato do Telegram ou link do grupo.';
 $string['topfooterimg'] = 'Imagem do rodapé';
 $string['topfooterimgdesc'] = 'Envie sua própria imagem de rodapé caso queira substituir a imagem padrão. Tamanho recomendado 1500px x 400px ou maior.';
 

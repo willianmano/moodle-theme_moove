@@ -49,7 +49,7 @@ class theme_settings {
         $templatecontext = [];
 
         $footersettings = [
-            'facebook', 'twitter', 'whatsapp', 'linkedin', 'youtube', 'instagram', 'getintouchcontent',
+            'facebook', 'twitter', 'whatsapp', 'telegram', 'linkedin', 'youtube', 'instagram', 'getintouchcontent',
             'website', 'mobile', 'mail'
         ];
 

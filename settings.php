@@ -697,6 +697,15 @@ if ($ADMIN->fulltree) {
     $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
 
+    // Telegram url setting.
+    $name = 'theme_moove/telegram';
+    $title = get_string('telegram', 'theme_moove');
+    $description = get_string('telegramdesc', 'theme_moove');
+    $default = '';
+    $setting = new admin_setting_configtext($name, $title, $description, $default);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $page->add($setting);
+
     // Top footer background image.
     $name = 'theme_moove/topfooterimg';
     $title = get_string('topfooterimg', 'theme_moove');

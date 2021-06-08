@@ -219,6 +219,8 @@ $string['instagram'] = 'Instagram URL';
 $string['instagramdesc'] = 'Enter the URL of your Instagram. (i.e https://www.instagram.com/moodlehq)';
 $string['whatsapp'] = 'Whatsapp number';
 $string['whatsappdesc'] = 'Enter your whatsapp number for contact.';
+$string['telegram'] = 'Telegram';
+$string['telegramdesc'] = 'Enter your Telegram contact or group link.';
 $string['topfooterimg'] = 'Footer image';
 $string['topfooterimgdesc'] = 'Upload your custom footer image here if you want to replace the default image. Recommended size is 1500px x 400px or higher.';
 

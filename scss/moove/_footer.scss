@@ -77,6 +77,13 @@
                         background-color: darken($m-whatsapp-color, 20%);
                     }
                 }
+
+                &.telegram {
+                    background-color: $m-telegram-color;
+                    &:hover {
+                        background-color: darken($m-telegram-color, 20%);
+                    }
+                }
             }
         }
     }
