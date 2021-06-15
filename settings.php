@@ -215,6 +215,15 @@ if ($ADMIN->fulltree) {
     $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
 
+    // Homepage alert
+    $name = 'theme_moove/alertmsg';
+    $title = get_string('alert', 'theme_moove');
+    $description = get_string('alert_desc', 'theme_moove');
+    $default = '';
+    $setting = new admin_setting_confightmleditor($name, $title, $description, $default);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $page->add($setting);
+
     // Bannerheading.
     $name = 'theme_moove/bannerheading';
     $title = get_string('bannerheading', 'theme_moove');
