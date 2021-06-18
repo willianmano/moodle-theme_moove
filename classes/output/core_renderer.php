@@ -602,13 +602,18 @@ class core_renderer extends \theme_boost\output\core_renderer {
     public function standard_head_html() {
         $output = parent::standard_head_html();
 
-        // Add google analytics code.
-        $googleanalyticscode = "<script>
-                                    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};
-                                    ga.l=+new Date;ga('create', 'GOOGLE-ANALYTICS-CODE', 'auto');
-                                    ga('send', 'pageview');
-                                </script>
-                                <script async src='https://www.google-analytics.com/analytics.js'></script>";
+        $googleanalyticscode = "<script
+                                    async
+                                    src='https://www.googletagmanager.com/gtag/js?id=GOOGLE-ANALYTICS-CODE'>
+                                </script>;
+                                <script>
+                                    window.dataLayer = window.dataLayer || [];
+                                    function gtag() {
+                                        dataLayer.push(arguments);
+                                    }
+                                    gtag('js', new Date());
+                                    gtag('config', 'GOOGLE-ANALYTICS-CODE');
+                                </script>";
 
         $theme = theme_config::load('moove');
 

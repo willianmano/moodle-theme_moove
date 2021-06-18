@@ -88,8 +88,8 @@ $string['rawscsspre'] = 'SCSS inicial puro';
 $string['rawscsspre_desc'] = 'Neste campo você pode fornecer código SCSS de inicialização, ele será injetado antes de tudo. Na maioria dos casos você usará esta configuração para setar variáveis.';
 $string['rawscss'] = 'SCSS puro';
 $string['rawscss_desc'] = 'Use este campo para fornecer código SCSS ou CSS que será injetado no final do arquivos de estilos.';
-$string['googleanalytics'] = 'Código do Google Analytics';
-$string['googleanalyticsdesc'] = 'Por favor digite o código do Google Analytics para habilitá-lo no seu site. O código deve ter o formato [UA-XXXXX-Y]';
+$string['googleanalytics'] = 'Código do Google Analytics V4';
+$string['googleanalyticsdesc'] = 'Por favor digite o código do Google Analytics V4 para habilitá-lo no seu site. O código deve ter o formato [G-XXXXXXXXXX]';
 
 // Frontpage settings tab.
 $string['frontpagesettings'] = 'Página inicial';
