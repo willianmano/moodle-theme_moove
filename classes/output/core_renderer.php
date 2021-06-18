@@ -569,8 +569,6 @@ class core_renderer extends \theme_boost\output\core_renderer {
         }
 
         // JS to animate the form.
-        $this->page->requires->js_call_amd('core/search-input', 'init', array($identifier));
-
         $iconattrs = array(
                         'class' => 'slicon-magnifier',
                         'title' => get_string('search', 'search'),
