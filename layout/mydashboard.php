@@ -49,6 +49,9 @@ if ($draweropenright && $hasblocks) {
     $extraclasses[] = 'drawer-open-right';
 }
 
+$alertcontent = (empty($PAGE->theme->settings->alertmsg)) ? false : format_text($PAGE->theme->settings->alertmsg,
+    FORMAT_HTML, array('noclean' => true));
+
 $bodyattributes = $OUTPUT->body_attributes($extraclasses);
 $regionmainsettingsmenu = $OUTPUT->region_main_settings_menu();
 $templatecontext = [
@@ -62,7 +65,8 @@ $templatecontext = [
     'draweropenright' => $draweropenright,
     'regionmainsettingsmenu' => $regionmainsettingsmenu,
     'hasregionmainsettingsmenu' => !empty($regionmainsettingsmenu),
-    'canviewadmininfos' => false
+    'canviewadmininfos' => false,
+    'alertcontent' => $alertcontent
 ];
 
 $themesettings = new \theme_moove\util\theme_settings();
