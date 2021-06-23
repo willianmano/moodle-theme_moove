@@ -304,11 +304,19 @@ function theme_moove_add_certificatesmenuitem(\flat_navigation $flatnav) {
         if ($COURSE->id > 1) {
             $parentitem = $flatnav->find('competencies', \navigation_node::TYPE_SETTING);
 
+            if (!$parentitem || !$parentitem instanceof \flat_navigation_node) {
+                $parentitem = $flatnav->find('home', \navigation_node::TYPE_SETTING);
+            }
+
             $actionurl = new \moodle_url('/theme/moove/certificates.php', ['id' => $COURSE->id]);
         }
 
-        if ($COURSE->id == 1 && !$parentitem = $flatnav->find('privatefiles', \navigation_node::TYPE_SETTING)) {
-            return;
+        if ($COURSE->id == 1) {
+            $parentitem = $flatnav->find('privatefiles', \navigation_node::TYPE_SETTING);
+
+            if (!$parentitem || (!empty($parentitem) && empty($parentitem->id))) {
+                return;
+            }
         }
 
         if (!is_null($parentitem->parent)) {
@@ -369,7 +377,7 @@ function theme_moove_add_coursesections_to_navigation(\flat_navigation $flatnav)
 
     $participantsitem = $flatnav->find('participants', \navigation_node::TYPE_CONTAINER);
 
-    if (!$participantsitem) {
+    if (!$participantsitem || $participantsitem instanceof \navigation_node) {
         return;
     }
 
