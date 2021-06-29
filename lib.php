@@ -377,7 +377,7 @@ function theme_moove_add_coursesections_to_navigation(\flat_navigation $flatnav)
 
     $participantsitem = $flatnav->find('participants', \navigation_node::TYPE_CONTAINER);
 
-    if (!$participantsitem || $participantsitem instanceof \navigation_node) {
+    if (!$participantsitem) {
         return;
     }
 
