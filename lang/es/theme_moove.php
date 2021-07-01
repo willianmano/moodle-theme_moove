@@ -54,6 +54,7 @@ $string['onlineusers'] = 'Usuarios en línea (últimos 5 minutos)';
 $string['showhideblocks'] = 'Mostrar / ocultar bloques';
 $string['prev_activity'] = 'Actividad anterior';
 $string['next_activity'] = 'Actividad siguiente';
+$string['myactivecourses'] = 'Mis cursos activos';
 
 // General settings tab.
 $string['generalsettings'] = 'General';
