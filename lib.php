@@ -425,7 +425,9 @@ function theme_moove_rename_menuitems(\flat_navigation $flatnav) {
 
     $item = $flatnav->find('mycourses');
 
-    $item->text = get_string('myactivecourses', 'theme_moove');
+    if ($item) {
+        $item->text = get_string('myactivecourses', 'theme_moove');
+    }
 }
 
 /**

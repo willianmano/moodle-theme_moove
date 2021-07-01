@@ -300,9 +300,15 @@ body#page-mod-quiz-attempt.pagelayout-secure {
     }
 }
 
-.availabilityinfo.isrestricted .badge a{
-    color: #fff;
-    text-decoration: underline;
+body.pagelayout-course {
+    .availabilityinfo.isrestricted .badge a {
+        color: #fff;
+        text-decoration: underline;
+    }
+
+    .section .badge {
+        white-space: initial;
+    }
 }
 
 .contentwithoutlink {
