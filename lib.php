@@ -316,7 +316,7 @@ function theme_moove_add_certificatesmenuitem(\flat_navigation $flatnav) {
         if ($COURSE->id == 1) {
             $parentitem = $flatnav->find('privatefiles', \navigation_node::TYPE_SETTING);
 
-            if (!$parentitem || (!empty($parentitem) && empty($parentitem->id))) {
+            if (!$parentitem || !$parentitem instanceof \flat_navigation_node) {
                 return;
             }
         }
