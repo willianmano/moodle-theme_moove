@@ -351,7 +351,8 @@ function theme_moove_add_certificatesmenuitem(\flat_navigation $flatnav) {
 function theme_moove_delete_menuitems(\flat_navigation $flatnav) {
 
     $itemstodelete = [
-        'coursehome'
+        'coursehome',
+        'courseindexpage'
     ];
 
     foreach ($flatnav as $item) {
@@ -369,6 +370,10 @@ function theme_moove_delete_menuitems(\flat_navigation $flatnav) {
 
         if ($item->key === 'mycourses') {
             foreach ($item->children as $key => $child) {
+                if (!is_numeric($child->key) || $child->key == 'courseindexpage') {
+                    continue;
+                }
+
                 if (!theme_moove_is_course_available_to_display_in_navbar($child->key)) {
                     $item->children->remove($child->key);
                 }

@@ -160,6 +160,27 @@ body.coursepresentation-cover {
     }
 }
 
+.course-content .current {
+    .sectionname {
+        background-color: $brand-primary !important;
+        span a {
+            color: #fff !important;
+        }
+    }
+
+    &:before {
+        font: normal normal normal 32px/1 FontAwesome;
+        content: "\f006";
+        top: 5px;
+        height: 55px;
+        width: 65px;
+        padding: 12px 0;
+        border-left: none;
+        text-align: center;
+        color: #fff;
+    }
+}
+
 body.pagelayout-incourse {
     .activity-navigation {
         border-top: none;
