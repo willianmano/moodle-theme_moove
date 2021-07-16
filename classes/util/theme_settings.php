@@ -105,6 +105,50 @@ class theme_settings {
     }
 
     /**
+     * Get config theme slideshow
+     *
+     * @return array
+     */
+    public function cloutsslideshow() {
+        global $OUTPUT;
+
+        $theme = theme_config::load('moove');
+
+        $cloutsslidercount = $theme->settings->cloutsslidercount;
+
+        if (empty($cloutsslidercount)) {
+            $templatecontext['cloutsslideshow'] = false;
+
+            return $templatecontext;
+        }
+
+        $templatecontext['cloutsslideshow'] = true;
+
+        for ($i = 1, $j = 0; $i <= $cloutsslidercount; $i++, $j++) {
+            $sliderimage = "cloutssliderimage{$i}";
+            $slidertitle = "cloutsslidertitle{$i}";
+            $slidercap = "cloutsslidercap{$i}";
+
+            $templatecontext['slides'][$j]['key'] = $j;
+            $templatecontext['slides'][$j]['active'] = false;
+
+            $image = $theme->setting_file_url($sliderimage, $sliderimage);
+            if (empty($image)) {
+                $image = $OUTPUT->image_url('slide_default', 'theme');
+            }
+            $templatecontext['slides'][$j]['image'] = $image;
+            $templatecontext['slides'][$j]['title'] = format_string($theme->settings->$slidertitle);
+            $templatecontext['slides'][$j]['caption'] = format_text($theme->settings->$slidercap);
+
+            if ($i === 1) {
+                $templatecontext['slides'][$j]['active'] = true;
+            }
+        }
+
+        return $templatecontext;
+    }
+
+    /**
      * Get config theme marketing itens
      *
      * @return array

@@ -68,44 +68,14 @@ if (isloggedin()) {
 
     $templatecontext['flatnavigation'] = $PAGE->flatnav;
 
-    $templatecontext = array_merge($templatecontext, $themesettings->footer_items(), $themesettings->slideshow());
+    $templatecontext = array_merge($templatecontext, $themesettings->footer_items(), $themesettings->cloutsslideshow());
 
     echo $OUTPUT->render_from_template('theme_moove/frontpage', $templatecontext);
 } else {
-    $sliderfrontpage = false;
-    if ((theme_moove_get_setting('sliderenabled', true) == true) && (theme_moove_get_setting('sliderfrontpage', true) == true)) {
-        $sliderfrontpage = true;
+    $sliderenabled = false;
+    if ((theme_moove_get_setting('sliderenabled', true) == true)) {
+        $sliderenabled = true;
         $extraclasses[] = 'slideshow';
-    }
-
-    $numbersfrontpage = false;
-    if (theme_moove_get_setting('numbersfrontpage', true) == true) {
-        $numbersfrontpage = true;
-    }
-
-    $sponsorsfrontpage = false;
-    if (theme_moove_get_setting('sponsorsfrontpage', true) == true) {
-        $sponsorsfrontpage = true;
-    }
-
-    $clientsfrontpage = false;
-    if (theme_moove_get_setting('clientsfrontpage', true) == true) {
-        $clientsfrontpage = true;
-    }
-
-    $bannerheading = '';
-    if (!empty($PAGE->theme->settings->bannerheading)) {
-        $bannerheading = theme_moove_get_setting('bannerheading', true);
-    }
-
-    $bannercontent = '';
-    if (!empty($PAGE->theme->settings->bannercontent)) {
-        $bannercontent = theme_moove_get_setting('bannercontent', true);
-    }
-
-    $shoulddisplaymarketing = false;
-    if (theme_moove_get_setting('displaymarketingbox', true) == true) {
-        $shoulddisplaymarketing = true;
     }
 
     $disablefrontpageloginbox = false;
@@ -124,33 +94,14 @@ if (isloggedin()) {
         'hasdrawertoggle' => false,
         'canloginasguest' => $CFG->guestloginbutton and !isguestuser(),
         'cansignup' => $CFG->registerauth == 'email' || !empty($CFG->registerauth),
-        'bannerheading' => $bannerheading,
-        'bannercontent' => $bannercontent,
-        'shoulddisplaymarketing' => $shoulddisplaymarketing,
-        'sliderfrontpage' => $sliderfrontpage,
-        'numbersfrontpage' => $numbersfrontpage,
-        'sponsorsfrontpage' => $sponsorsfrontpage,
-        'clientsfrontpage' => $clientsfrontpage,
-        'disablefrontpageloginbox' => $disablefrontpageloginbox,
+        'sliderenabled' => $sliderenabled,
         'logintoken' => \core\session\manager::get_login_token()
     ];
 
     $templatecontext = array_merge($templatecontext, $themesettings->footer_items(), $themesettings->marketing_items());
 
-    if ($sliderfrontpage) {
+    if (sliderenabled) {
         $templatecontext = array_merge($templatecontext, $themesettings->slideshow());
-    }
-
-    if ($numbersfrontpage) {
-        $templatecontext = array_merge($templatecontext, $themesettings->numbers());
-    }
-
-    if ($sponsorsfrontpage) {
-        $templatecontext = array_merge($templatecontext, $themesettings->sponsors());
-    }
-
-    if ($clientsfrontpage) {
-        $templatecontext = array_merge($templatecontext, $themesettings->clients());
     }
 
     echo $OUTPUT->render_from_template('theme_moove/frontpage_guest', $templatecontext);

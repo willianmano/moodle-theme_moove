@@ -32,19 +32,26 @@
     }
 }}
 
-<li class="usermenu d-none d-lg-block">
-    <div class="dropdown">
-        <a class="btn btn-login-top dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            {{#str}}login{{/str}}
-        </a>
-
-        <div class="dropdown-menu dropdown-menu-right" id="loginbox">
-            <div class="card">
-                {{>theme_moove/frontpage_login}}
-            </div>
+<div class="loginform">
+    <form class="form-inline login-form" action="{{{ config.wwwroot }}}/login/index.php" method="POST" role="form">
+        <input type="hidden" name="logintoken" value="{{logintoken}}">
+        <div class="form-group mb-2">
+            <label for="username" class="mr-2">
+                {{^canloginbyemail}}
+                    {{#str}}username{{/str}}
+                {{/canloginbyemail}}
+                {{#canloginbyemail}}
+                    {{#str}}usernameemail{{/str}}
+                {{/canloginbyemail}}
+            </label>
+            <input type="text" class="form-control" id="username" name="username" placeholder="{{#str}}username{{/str}}" required />
         </div>
-    </div>
-</li>
-<li class="usermenu d-lg-none">
-    <a class="btn btn-login-top" href="{{{loginurl}}}">{{#str}}login{{/str}}</a>
-</li>
+        <div class="form-group mx-sm-3 mb-2">
+            <label for="password" class="mr-2">{{#str}}password{{/str}}</label>
+            <input type="password" class="form-control" id="password" name="password" placeholder="{{#str}}password{{/str}}" required />
+        </div>
+        <button type="submit" class="btn btn-primary mb-2">{{#str}}login{{/str}}</button>
+    </form>
+    <p class="login-mobile"><a class="btn btn-primary text-white" href="{{{ config.wwwroot }}}/login/index.php">{{#str}}login{{/str}}</a></p>
+    <p class="m-0 text-right">{{#str}}forgottenpassword, theme_moove{{/str}} <a href="{{{ config.wwwroot }}}/login/forgot_password.php">{{#str}}clickhere, theme_moove{{/str}}</a></p>
+</div>

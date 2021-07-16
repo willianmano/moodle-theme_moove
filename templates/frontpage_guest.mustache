@@ -42,53 +42,62 @@
         "shoulddisplaymarketing": true
     }
 }}
-    {{>theme_moove/inc_start}}
+{{{ output.doctype }}}
+<html {{{ output.htmlattributes }}}>
+<head>
+    <title>{{{ output.page_title }}}</title>
+    <link rel="shortcut icon" href="{{{ output.favicon }}}" />
+    {{{ output.standard_head_html }}}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+</head>
+
+<body {{{ bodyattributes }}}>
+{{> core/local/toast/wrapper}}
+
+<nav class="fixed-top navbar navbar-light navbar-expand moodle-has-zindex">
+    <a href="{{{ config.wwwroot }}}" class="navbar-brand has-logo">
+        <span class="logo d-none d-sm-inline">
+            <img src="{{config.wwwroot}}/theme/moove/pix/logo_clouts.svg" alt="{{sitename}}">
+        </span>
+    </a>
+
+    <ul class="nav navbar-nav ml-auto">
+        {{{ output.user_menu }}}
+    </ul>
+</nav>
+
+<div id="page-wrapper">
+
+    {{{ output.standard_top_of_body_html }}}
 
     <div id="page" class="container-fluid">
         <div id="page-header" class="frontpage-guest-header">
-
             {{#sliderenabled}}
-                {{#sliderfrontpage}}
-                    {{>theme_moove/slideshow}}
-
-                    {{^disablefrontpageloginbox}}
-                        <div id="loginbox" class="d-none d-lg-block">
-                            <div class="card" id="boxForm">
-                                {{>theme_moove/frontpage_login}}
-                            </div>
-                        </div>
-                    {{/disablefrontpageloginbox}}
-                {{/sliderfrontpage}}
-            {{/sliderenabled}}
-
-            {{^sliderenabled}}
-                <div class="row" id="loginbox">
-                    <div class="col-sm-12 hidden-sm-down {{#disablefrontpageloginbox}}col-md-12{{/disablefrontpageloginbox}}{{^disablefrontpageloginbox}}col-md-7{{/disablefrontpageloginbox}}" id="intro">
-                        {{#bannerheading}}
-                            <h1>{{{ bannerheading }}}</h1>
-                        {{/bannerheading}}
-                        {{#bannercontent}}
-                            <h2>{{{ bannercontent }}}</h2>
-                        {{/bannercontent}}
-                    </div>
-                    {{^disablefrontpageloginbox}}
-                        <div class="col-12 col-sm-12 col-md-5 card d-none d-lg-block" id="boxForm">
-                            {{>theme_moove/frontpage_login}}
-                        </div><!-- end of .card-body -->
-                    {{/disablefrontpageloginbox}}
-                </div> <!-- end of #boxForm -->
+                {{>theme_moove/slideshow}}
             {{/sliderenabled}}
         </div>
-
-        {{>theme_moove/frontpage_marketing}}
 
         <div class="container frontpage-maincontent">
           {{{ output.main_content }}}
         </div>
-
-        {{>theme_moove/frontpage_numbers}}
-
-        {{>theme_moove/frontpage_sponsorsclients}}
     </div>
 
-{{>theme_moove/inc_end}}
+    {{{ output.standard_after_main_region_html }}}
+
+    {{{ output.standard_end_of_body_html }}}
+
+    </body>
+</html>
+{{#js}}
+    require(['theme_boost/loader']);
+
+    require(['jquery', 'theme_boost/bootstrap/carousel'], function($, carousel) {
+        $('#mooveslideshow').carousel({
+            interval: 500000
+        });
+    })
+{{/js}}

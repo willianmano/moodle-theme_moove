@@ -32,33 +32,21 @@
         ]
     }
 }}
-{{#sliderenabled}}
-    <div id="mooveslideshow" class="carousel slide" data-ride="carousel" data-interval="5000">
-        <ol class="carousel-indicators">
-            {{#slides}}
-                <li data-target="#mooveslideshow" data-slide-to="{{{ key }}}" {{#active}}class="active"{{/active}}></li>
-            {{/slides}}
-        </ol>
-        <div class="carousel-inner">
-            {{#slides}}
-                <div class="carousel-item {{#active}}active{{/active}}">
-                    <img class="d-block w-100 animated fadeIn" src="{{{ image }}}">
+<div id="mooveslideshow" class="carousel slide" data-ride="carousel" data-interval="5000">
+    <ol class="carousel-indicators">
+        {{#slides}}
+            <li data-target="#mooveslideshow" data-slide-to="{{{ key }}}" {{#active}}class="active"{{/active}}></li>
+        {{/slides}}
+    </ol>
+    <div class="carousel-inner">
+        {{#slides}}
+            <div class="carousel-item animated fadeIn {{#active}}active{{/active}}" style="background-image: url('{{image}}'); background-repeat: no-repeat; background-attachment: fixed; background-size: cover; background-position: right;">
+                <div class="carousel-caption animated fadeInRightBig">
+                    {{#title}}<h2 class="title">{{{ title }}}</h2>{{/title}}
 
-                    <div class="carousel-caption animated fadeInRightBig">
-                        {{#title}}<h2 class="title">{{{ title }}}</h2>{{/title}}
-
-                        {{#caption}}<div class="caption">{{{ caption }}}</div>{{/caption}}
-                    </div>
+                    {{#caption}}<div class="caption">{{{ caption }}}</div>{{/caption}}
                 </div>
-            {{/slides}}
-        </div>
+            </div>
+        {{/slides}}
     </div>
-    {{#js}}
-        require(['jquery', 'theme_boost/bootstrap/carousel'], function($, carousel) {
-            $('#mooveslideshow').carousel({
-                interval: 5000,
-                pause: 'hover'
-            });
-        })
-    {{/js}}
-{{/sliderenabled}}
+</div>

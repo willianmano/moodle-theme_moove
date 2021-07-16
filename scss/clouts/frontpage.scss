@@ -1,0 +1,111 @@
+#page-site-index.notloggedin {
+  nav.navbar {
+    min-height: 100px;
+
+    .navbar-brand .logo img {
+      max-height: 90px;
+    }
+  }
+
+  #page {
+    margin-top: 100px;
+  }
+
+  .frontpage-maincontent {
+    display: none;
+  }
+
+  .loginform {
+    p,
+    a {
+      color: $brand-primary;
+    }
+
+    a {
+      text-decoration: underline;
+    }
+
+    .login-mobile {
+      text-align: right;
+
+      .btn {
+        border-radius: 20px;
+        text-decoration: none;
+      }
+    }
+  }
+
+  #page-header {
+    height: calc(100vh - 100px);
+    overflow: hidden;
+  }
+}
+
+#page-site-index {
+  #mooveslideshow,
+  #cloutsslideshow {
+    height: calc(100vh - 80px);
+
+    .carousel-item {
+      height: calc(100vh - 90px);
+      max-height: initial;
+    }
+
+    .carousel-caption .title {
+      background-color: initial;
+      font-size: 6rem;
+      color: $brand-primary;
+      padding: 0 20px;
+    }
+
+    .carousel-caption .caption {
+      background-color: initial;
+      margin-top: 0;
+      padding: 0 0 0 60px;
+      color: $brand-primary;
+      font-size: 2rem;
+    }
+  }
+
+  #cloutsslideshow {
+    max-height: 400px;
+    overflow: hidden;
+    margin-top: 1rem;
+  }
+}
+
+@include media-breakpoint-up(sm) {
+  #page-site-index.notloggedin {
+    .login-mobile {
+      display: none;
+    }
+  }
+}
+
+@include media-breakpoint-down(sm) {
+  #page-site-index.notloggedin {
+    .login-form {
+      display: none;
+    }
+
+    .login-mobile {
+      display: block;
+      margin-bottom: .5rem;
+    }
+
+    #mooveslideshow {
+      .carousel-caption .title {
+        font-size: 3.5rem;
+      }
+
+      .carousel-caption .caption {
+        padding: 0 0 0 40px;
+        font-size: 1rem;
+      }
+
+      .carousel-indicators {
+        bottom: 20px;
+      }
+    }
+  }
+}

@@ -277,3 +277,6 @@ $string['privacy:accessibilitystyles_fontsizeclass'] = 'A preferência atual par
 $string['privacy:accessibilitystyles_sitecolorclass'] = 'A preferência atual para a cor do site é: {$a}.';
 $string['privacy:thememoovesettings_fonttype'] = 'A preferência atual para o tipo de fonte é: {$a}.';
 $string['privacy:thememoovesettings_enableaccessibilitytoolbar'] = 'A preferência atual para habilitar a barra de acessibilidade é para exibi-lá';
+
+$string['forgottenpassword'] = 'Esqueceu o seu nome de utilizador ou palavra-passe?';
+$string['clickhere'] = 'Clique aqui';

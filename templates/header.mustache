@@ -31,19 +31,10 @@
         </div>
     {{/hasdrawertoggle}}
 
-    <a href="{{{ config.wwwroot }}}" class="navbar-brand {{# output.get_logo }}has-logo{{/ output.get_logo }}
-        {{^ output.get_logo }}
-            d-none d-sm-inline
-        {{/ output.get_logo }}
-            ">
-        {{# output.get_logo }}
-            <span class="logo d-none d-sm-inline">
-                <img src="{{output.get_logo}}" alt="{{sitename}}">
-            </span>
-        {{/ output.get_logo }}
-        {{^ output.get_logo }}
-            <span class="site-name d-none d-md-inline">{{{ sitename }}}</span>
-        {{/ output.get_logo }}
+    <a href="{{{ config.wwwroot }}}" class="navbar-brand has-logo">
+        <span class="logo d-none d-sm-inline">
+            <img src="{{config.wwwroot}}/theme/moove/pix/logo_clouts.svg" alt="{{sitename}}">
+        </span>
     </a>
 
     <ul class="navbar-nav d-none d-md-flex custom-menus">

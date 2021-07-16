@@ -238,6 +238,10 @@ function theme_moove_pluginfile($course, $cm, $context, $filearea, $args, $force
         return $theme->setting_file_serve($filearea, $args, $forcedownload, $options);
     }
 
+    if ($context->contextlevel == CONTEXT_SYSTEM and preg_match("/^cloutssliderimage[1-9][0-9]?$/", $filearea) !== false) {
+        return $theme->setting_file_serve($filearea, $args, $forcedownload, $options);
+    }
+
     send_file_not_found();
 }
 
