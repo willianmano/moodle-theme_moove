@@ -93,160 +93,65 @@
 
 <div class="my-1 my-sm-5"></div>
 
-{{# logourl }}
-    <div class="row justify-content-center logo">
-        <img src="{{logourl}}" title="{{sitename}}" alt="{{sitename}}"/>
+<div class="row justify-content-center logo">
+    <img src="{{config.wwwroot}}/theme/moove/pix/logo_login.png" class="img-responsive" title="{{sitename}}" alt="{{sitename}}"/>
+</div>
+
+<div class="content row">
+    <div class="col-md-8 title">
+        <h1>Bem-vindo ao seu espaço!</h1>
     </div>
-{{/ logourl }}
-
-<div class="row justify-content-center my-4">
-<div class="col-12 col-md-12 col-lg-8">
-
-{{#error}}
-    <div class="loginerrors">
-        <a href="#" id="loginerrormessage" class="accesshide">{{error}}</a>
-        <div class="alert alert-danger" role="alert">{{error}}</div>
-    </div>
-{{/error}}
-
-<div class="card loginpanel">
-    <div class="card-block">
-        {{#cansignup}}
-            <div class="sr-only">
-                <a href="{{signupurl}}">{{#str}} tocreatenewaccount {{/str}}</a>
+    <div class="loginpanel col-md-4">
+        {{#error}}
+            <div class="loginerrors">
+                <a href="#" id="loginerrormessage" class="accesshide">{{error}}</a>
+                <div class="alert alert-danger" role="alert">{{error}}</div>
             </div>
-        {{/cansignup}}
+        {{/error}}
 
-        <div class="row">
-            <div class="col-md-7 instructions">
-                <h2>{{sitename}}</h2>
-                <hr align="left" />
+        <div class="form">
+            <form action="{{loginurl}}" method="post" id="login">
+                <input id="anchor" type="hidden" name="anchor" value="">
+                <script>document.getElementById('anchor').value = location.hash;</script>
+                <input type="hidden" name="logintoken" value="{{logintoken}}">
 
-                <div class="m-t-1">
-                    <i class="fa fa-check-circle-o"></i>
-                    {{#str}} cookiesenabled {{/str}}
-                    {{{cookieshelpiconformatted}}}
-                </div>
+                <p class="welcome">Você possui uma conta?</p>
 
-                {{#canloginasguest}}
-                    <div class="m-t-2">
-                        <p><i class="fa fa-user-circle-o"></i> {{#str}}someallowguest{{/str}}</p>
-                        <form action="{{loginurl}}" method="post" id="guestlogin">
-                            <input type = "hidden" name = "logintoken" value = "{{logintoken}}">
-                            <input type="hidden" name="username" value="guest" />
-                            <input type="hidden" name="password" value="guest" />   
-                            <input type="hidden" name="logintoken" value="{{logintoken}}">
-                            <button class="btn btn-secondary" type="submit">{{#str}}loginguest{{/str}}</button>
-                        </form>
+                <input type="text" name="username" id="username"
+                       class="form-control"
+                       value="{{username}}"
+                       placeholder="Usuário">
+
+                <input type="password" name="password" id="password" value=""
+                       class="form-control"
+                       placeholder="Senha">
+
+                {{#rememberusername}}
+                    <div class="rememberpass m-t-1">
+                        <input type="checkbox" name="rememberusername" id="rememberusername" value="1" {{#username}}checked="checked"{{/username}} />
+                        <label for="rememberusername">{{#str}} rememberusername, admin {{/str}}</label>
                     </div>
-                {{/canloginasguest}}
+                {{/rememberusername}}
 
-                {{#hasidentityproviders}}
-                    <h3 class="m-t-1">{{#str}} potentialidps, auth {{/str}}</h3>
-                    <div class="potentialidplist" class="m-t-1">
-                        {{#identityproviders}}
-                            <div class="potentialidp">
-                                <a href="{{{url}}}" title={{#quote}}{{name}}{{/quote}} class="btn btn-secondary">
-                                    {{#iconurl}}
-                                        <img src="{{iconurl}}" alt="" width="24" height="24"/>
-                                    {{/iconurl}}
-                                    {{name}}
-                                </a>
-                            </div>
-                        {{/identityproviders}}
-                    </div>
-                {{/hasidentityproviders}}
+                <button type="submit" class="btn btn-primary" id="loginbtn">Entrar</button>
+            </form>
 
-                {{^hasidentityproviders}}
-                    {{#hasinstructions}}
-                        <h3 class="m-t-1">{{#str}}firsttime{{/str}}</h3>
-                        <div>{{{instructions}}}</div>
-                    {{/hasinstructions}}
-                {{/hasidentityproviders}}
-            </div>
-
-            <div class="col-md-5 form">
-                <form action="{{loginurl}}" method="post" id="login">
-                    <input id="anchor" type="hidden" name="anchor" value="">
-                    <script>document.getElementById('anchor').value = location.hash;</script>
-                    <input type="hidden" name="logintoken" value="{{logintoken}}">
-
-                    <p class="welcome">{{#str}}login, theme_moove{{/str}}</p>
-
-                    <label for="username" class="sr-only">
-                        {{^canloginbyemail}}
-                            {{#str}} username {{/str}}
-                        {{/canloginbyemail}}
-                        {{#canloginbyemail}}
-                            {{#str}} usernameemail {{/str}}
-                        {{/canloginbyemail}}
-                    </label>
-                    <div class="input-group input-group-username">
-                        <span class="input-group-addon"><i class="fa fa-user-circle"></i></span>
-                        <input type="text" name="username" id="username"
-                            class="form-control"
-                            value="{{username}}"
-                            placeholder={{#quote}}{{^canloginbyemail}}{{#str}}username{{/str}}{{/canloginbyemail}}{{#canloginbyemail}}{{#str}}usernameemail{{/str}}{{/canloginbyemail}}{{/quote}}>
-                    </div>
-
-                    <label for="password" class="sr-only">{{#str}} password {{/str}}</label>
-                    <div class="input-group input-group-password">
-                        <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                        <input type="password" name="password" id="password" value=""
-                            class="form-control"
-                            placeholder={{#quote}}{{#str}}password{{/str}}{{/quote}}>
-                    </div>
-
-                    {{#rememberusername}}
-                        <div class="rememberpass m-t-1">
-                            <input type="checkbox" name="rememberusername" id="rememberusername" value="1" {{#username}}checked="checked"{{/username}} />
-                            <label for="rememberusername">{{#str}} rememberusername, admin {{/str}}</label>
-                        </div>
-                    {{/rememberusername}}
-
-                    <button type="submit" class="btn btn-primary btn-block" id="loginbtn">{{#str}}login{{/str}}</button>
-                </form>
-
-                <div class="forgetpass m-t-1">
-                    <p><a href="{{forgotpasswordurl}}">{{#str}}forgotten{{/str}}</a></p>
-                </div>
-
-                {{#cansignup}}
-                    <form class="m-t-1" action="{{signupurl}}" method="get" id="signup">
-                        <button type="submit" class="btn btn-secondary">{{#str}}startsignup{{/str}}</button>
-                    </form>
-                {{/cansignup}}
+            <div class="forgetpass m-t-1">
+                <p><a href="{{forgotpasswordurl}}">Esqueceu seu usuário ou senha?</a></p>
             </div>
         </div>
     </div>
 </div>
-</div>
-</div>
 
+<div class="footer">
+    <h2>Uma parceria UEMA e SEMED Balsas</h2>
 
-{{#hasidentityproviders}}
-    {{#hasinstructions}}
-    <div class="row justify-content-center">
-    <div class="col-xl-8 push-xl-2 m-2-md col-sm-8 push-sm-2">
-    <div class="card instructionspanel">
-        <div class="card-block">
-            <div class="card-title">
-                <h2>{{#str}}firsttime{{/str}}</h2>
-            </div>
-            <div>
-            {{{instructions}}}
-            {{#cansignup}}
-                <form class="m-t-1" action="{{signupurl}}" method="get" id="signup">
-                    <button type="submit" class="btn btn-secondary">{{#str}}startsignup{{/str}}</button>
-                </form>
-            {{/cansignup}}
-            </div>
-        </div>
+    <div class="logos">
+        <img class="img-responsive balsas" src="{{config.wwwroot}}/theme/moove/pix/logo_semed_neg.png" alt="SEMED Balsas">
+        <img class="img-responsive uemanet" src="{{config.wwwroot}}/theme/moove/pix/logo_uemanet_neg.png" alt="UEMANET">
+        <img class="img-responsive uema" src="{{config.wwwroot}}/theme/moove/pix/logo_uema_neg.png" alt="UEMA">
     </div>
-    </div>
-    </div>
-    {{/hasinstructions}}
-{{/hasidentityproviders}}
+</div>
 
 {{#js}}
     {{#error}}

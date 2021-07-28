@@ -1,0 +1,44 @@
+#page-footer {
+  display: none;
+}
+
+.card,
+.card-body,
+#region-main,
+.form-control,
+.custom-select,
+.btn,
+.dropdown-menu,
+#nav-drawer .list-group .list-group-item {
+  border-radius: 20px !important;
+}
+
+.popover-region-notifications {
+  .popover-region-toggle {
+    &:before {
+      right: 20px;
+    }
+    &:after {
+      right: 21px;
+    }
+  }
+
+  .popover-region-container {
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+  }
+
+  .popover-region-footer-container {
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+  }
+}
+
+.nav.nav-tabs .nav-item .nav-link {
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.activity-navigation {
+  margin-top: 1rem;
+}
