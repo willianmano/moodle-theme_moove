@@ -605,7 +605,7 @@ class core_renderer extends \theme_boost\output\core_renderer {
         $googleanalyticscode = "<script
                                     async
                                     src='https://www.googletagmanager.com/gtag/js?id=GOOGLE-ANALYTICS-CODE'>
-                                </script>;
+                                </script>
                                 <script>
                                     window.dataLayer = window.dataLayer || [];
                                     function gtag() {
