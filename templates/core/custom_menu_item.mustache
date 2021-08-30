@@ -25,7 +25,7 @@
 {{#haschildren}}
 <div class="dropdown nav-item">
     <a class="dropdown-toggle nav-link" id="drop-down-{{uniqid}}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">
-        {{text}}
+        {{{text}}}
     </a>
     <div class="dropdown-menu" aria-labelledby="drop-down-{{uniqid}}">
         {{#children}}
@@ -40,6 +40,6 @@
 </div>
 {{/haschildren}}
 {{^haschildren}}
-<li class="nav-item"><a class="nav-link" href="{{{url}}}" {{#title}}title="{{{title}}}"{{/title}}>{{text}}</a></li>
+<li class="nav-item"><a class="nav-link" href="{{{url}}}" {{#title}}title="{{{title}}}"{{/title}}>{{{text}}}</a></li>
 {{/haschildren}}
 {{/divider}}
