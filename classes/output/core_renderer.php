@@ -151,6 +151,17 @@ class core_renderer extends \theme_boost\output\core_renderer {
         $context->sitename = format_string($SITE->fullname, true,
             ['context' => \context_course::instance(SITEID), "escape" => false]);
 
+        $context->shoulddisplaymarketing = false;
+        if (theme_moove_get_setting('displaymarketingbox', true) == true) {
+            $context->shoulddisplaymarketing = true;
+        }
+
+        $themesettings = new \theme_moove\util\theme_settings();
+
+        foreach ($themesettings->marketing_items() as $key => $value) {
+            $context->$key = $value;
+        }
+
         return $this->render_from_template('core/loginform', $context);
     }
 

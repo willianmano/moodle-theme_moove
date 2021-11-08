@@ -87,7 +87,8 @@
         "cookieshelpiconformatted": "",
         "errorformatted": "",
         "logourl": false,
-        "sitename": "Beer & Chips"
+        "sitename": "Beer & Chips",
+        "shoulddisplaymarketing": true
     }
 }}
 
@@ -223,6 +224,9 @@
 </div>
 </div>
 
+{{#shoulddisplaymarketing}}
+    {{>theme_moove/frontpage_marketing}}
+{{/shoulddisplaymarketing}}
 
 {{#hasidentityproviders}}
     {{#hasinstructions}}

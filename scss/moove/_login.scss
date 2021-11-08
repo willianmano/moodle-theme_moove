@@ -30,6 +30,34 @@
         margin: 0;
     }
 
+    frontpage-marketing {
+        padding: 2rem 0;
+
+        .card {
+            flex-basis: calc(25% - 1rem);
+            text-align: center;
+            margin: 0 .5rem;
+
+            img {
+                max-width: 100%;
+            }
+
+            h2 {
+                color: #565656;
+                margin: 20px 0;
+            }
+
+            h3 {
+                color: #a4a3a3;
+            }
+
+            p {
+                color: #9f9f9f;
+                margin: 1.5em 0;
+            }
+        }
+    }
+
     .instructionspanel {
         border-radius: $m-login-padding;
         border: none;
