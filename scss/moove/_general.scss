@@ -29,7 +29,7 @@ h5,
 h6,
 .h6 {
     color: $headings-color;
-    font-family: "Poppins", sans-serif;
+    font-family: $headings-font-family;
     font-weight: $headings-font-weight;
 }
 

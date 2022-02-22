@@ -324,24 +324,6 @@ class core_renderer extends \theme_boost\output\core_renderer {
         $loginurl = get_login_url();
         // If not logged in, show the typical not-logged-in string.
         if (!isloggedin()) {
-            $returnstr = '';
-            if (!$loginpage) {
-                $returnstr .= "<a class='btn btn-login-top' href=\"$loginurl\">" . get_string('login') . '</a>';
-            }
-
-            $theme = theme_config::load('moove');
-
-            if (!$theme->settings->disablefrontpageloginbox) {
-                return html_writer::tag(
-                    'li',
-                    html_writer::span(
-                        $returnstr,
-                        'login'
-                    ),
-                    array('class' => $usermenuclasses)
-                );
-            }
-
             $context = [
                 'loginurl' => $loginurl,
                 'logintoken' => \core\session\manager::get_login_token(),
