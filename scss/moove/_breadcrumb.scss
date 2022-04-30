@@ -34,6 +34,14 @@
                 border-color: #f7f7f7;
             }
         }
+
+        .breadcrumb-item.dimmed_text_fhs a {
+            background-color: #c5c8cc;
+        }
+    }
+    
+    .breadcrumb li.dimmed_text_fhs > * {
+        border-color: #c5c8cc;
     }
     .breadcrumb li:last-of-type::after {
         display: none;
