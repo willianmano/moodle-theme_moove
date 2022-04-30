@@ -5,7 +5,7 @@
   "main": "Gruntfile.js",
   "author": {
     "name": "Willian Mano",
-    "url": "http://www.conecti.me"
+    "url": "https://www.conecti.me"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.3",

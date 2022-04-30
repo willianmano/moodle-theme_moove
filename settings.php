@@ -45,7 +45,6 @@ if ($ADMIN->fulltree) {
     $description = get_string('logodesc', 'theme_moove');
     $opts = array('accepted_types' => array('.png', '.jpg', '.gif', '.webp', '.tiff', '.svg'), 'maxfiles' => 1);
     $setting = new admin_setting_configstoredfile($name, $title, $description, 'logo', 0, $opts);
-    $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
 
     // Favicon setting.
@@ -54,7 +53,6 @@ if ($ADMIN->fulltree) {
     $description = get_string('favicondesc', 'theme_moove');
     $opts = array('accepted_types' => array('.ico'), 'maxfiles' => 1);
     $setting = new admin_setting_configstoredfile($name, $title, $description, 'favicon', 0, $opts);
-    $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
 
     // Preset.
@@ -85,7 +83,7 @@ if ($ADMIN->fulltree) {
     $description = get_string('presetfiles_desc', 'theme_moove');
 
     $setting = new admin_setting_configstoredfile($name, $title, $description, 'preset', 0,
-        array('maxfiles' => 20, 'accepted_types' => array('.scss')));
+        array('maxfiles' => 10, 'accepted_types' => array('.scss')));
     $page->add($setting);
 
     // Login page background image.
@@ -94,7 +92,6 @@ if ($ADMIN->fulltree) {
     $description = get_string('loginbgimg_desc', 'theme_moove');
     $opts = array('accepted_types' => array('.png', '.jpg', '.svg'));
     $setting = new admin_setting_configstoredfile($name, $title, $description, 'loginbgimg', 0, $opts);
-    $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
 
     // Variable $brand-color.
@@ -102,7 +99,7 @@ if ($ADMIN->fulltree) {
     $name = 'theme_moove/brandcolor';
     $title = get_string('brandcolor', 'theme_moove');
     $description = get_string('brandcolor_desc', 'theme_moove');
-    $setting = new admin_setting_configcolourpicker($name, $title, $description, '');
+    $setting = new admin_setting_configcolourpicker($name, $title, $description, '#0f47ad');
     $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
 
@@ -113,41 +110,6 @@ if ($ADMIN->fulltree) {
     $description = get_string('navbarheadercolor_desc', 'theme_moove');
     $setting = new admin_setting_configcolourpicker($name, $title, $description, '');
     $setting->set_updatedcallback('theme_reset_all_caches');
-    $page->add($setting);
-
-    // Variable $navbar-bg.
-    // We use an empty default value because the default colour should come from the preset.
-    $name = 'theme_moove/navbarbg';
-    $title = get_string('navbarbg', 'theme_moove');
-    $description = get_string('navbarbg_desc', 'theme_moove');
-    $setting = new admin_setting_configcolourpicker($name, $title, $description, '');
-    $setting->set_updatedcallback('theme_reset_all_caches');
-    $page->add($setting);
-
-    // Variable $navbar-bg-hover.
-    // We use an empty default value because the default colour should come from the preset.
-    $name = 'theme_moove/navbarbghover';
-    $title = get_string('navbarbghover', 'theme_moove');
-    $description = get_string('navbarbghover_desc', 'theme_moove');
-    $setting = new admin_setting_configcolourpicker($name, $title, $description, '');
-    $setting->set_updatedcallback('theme_reset_all_caches');
-    $page->add($setting);
-
-    // Course format option.
-    $name = 'theme_moove/coursepresentation';
-    $title = get_string('coursepresentation', 'theme_moove');
-    $description = get_string('coursepresentationdesc', 'theme_moove');
-    $options = [];
-    $options[1] = get_string('coursedefault', 'theme_moove');
-    $options[2] = get_string('coursecover', 'theme_moove');
-    $setting = new admin_setting_configselect($name, $title, $description, $default, $options);
-    $setting->set_updatedcallback('theme_reset_all_caches');
-    $page->add($setting);
-
-    $name = 'theme_moove/courselistview';
-    $title = get_string('courselistview', 'theme_moove');
-    $description = get_string('courselistviewdesc', 'theme_moove');
-    $setting = new admin_setting_configcheckbox($name, $title, $description, 0);
     $page->add($setting);
 
     // Must add the page after definiting all the settings!
@@ -712,15 +674,6 @@ if ($ADMIN->fulltree) {
     $description = get_string('telegramdesc', 'theme_moove');
     $default = '';
     $setting = new admin_setting_configtext($name, $title, $description, $default);
-    $setting->set_updatedcallback('theme_reset_all_caches');
-    $page->add($setting);
-
-    // Top footer background image.
-    $name = 'theme_moove/topfooterimg';
-    $title = get_string('topfooterimg', 'theme_moove');
-    $description = get_string('topfooterimgdesc', 'theme_moove');
-    $opts = array('accepted_types' => array('.png', '.jpg', '.svg'));
-    $setting = new admin_setting_configstoredfile($name, $title, $description, 'topfooterimg', 0, $opts);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
 

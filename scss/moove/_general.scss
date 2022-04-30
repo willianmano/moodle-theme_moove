@@ -1,139 +1,103 @@
-body#page-enrol-index {
-    #region-main {
-        .generalbox {
-            float: left;
-            width: 30%;
-        }
-        .generalbox:last-of-type {
-            width: 70%;
-            padding-left: 2rem;
-            padding-right: 2rem;
-        }
-    }
+body {
+    background-color: $background !important; /* stylelint-disable-line */
 }
 
-body.pagelayout-popup {
-    margin-left: 0;
-}
-
-h1,
-.h1,
-h2,
-.h2,
-h3,
-.h3,
-h4,
-.h4,
-h5,
-.h5,
-h6,
-.h6 {
-    color: $headings-color;
-    font-family: "Poppins", sans-serif;
-    font-weight: $headings-font-weight;
-}
-
-body.odafont {
-    h1,
-    .h1,
-    h2,
-    .h2,
-    h3,
-    .h3,
-    h4,
-    .h4,
-    h5,
-    .h5,
-    h6,
-    .h6 {
-        font-family: oda, comic sans ms, clfallback, Verdana;
-    }
-}
-
-#page {
-    margin-top: 40px;
-
-    &.container-fluid {
-        padding: 2rem;
-    }
-}
-
-#page-wrapper {
-    height: auto;
-}
-
-#region-main {
+#page-header {
+    margin: 1.25rem auto;
     padding: 0;
+
+    h1 {
+        margin-bottom: 0;
+    }
+
+    #page-navbar {
+        display: flex;
+        align-items: center;
+        justify-content: right;
+    }
+
+    .courseheader {
+        display: flex;
+        align-items: center;
+        white-space: nowrap;
+    }
 }
 
-#page-admin-index.pagelayout-maintenance {
-    margin-left: 0;
-
-    #region-main {
-        border: 0;
-        background-color: initial;
-        padding: 1.25rem;
-    }
-
-    #page-wrapper::after {
-        min-height: inherit;
-    }
+.pagelayout-incourse #region-main,
+.pagelayout-admin #region-main,
+.pagelayout-report #region-main {
+    padding-top: 15px;
+    padding-bottom: 15px;
 }
 
-.pagelayout-mypublic,
-.pagelayout-mydashboard,
-.pagelayout-frontpage,
-.pagelayout-standard,
-.pagelayout-admin,
-.pagelayout-course,
-.pagelayout-incourse,
-.pagelayout-report {
-    #region-main {
-        padding: 0;
-        border: 0;
-    }
+.moove-container-fluid {
+    padding: 0;
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
 }
 
 .card {
-    border-color: $card-border-color;
-    border-radius: $card-border-radius;
+    border: none;
+    -webkit-box-shadow: 0 0 35px 0 rgba(154, 161, 171, 0.15);
+    box-shadow: 0 0 35px 0 rgba(154, 161, 171, 0.15);
+}
 
-    &.card-block,
-    .card-block,
-    .card-body {
-        padding: $m-card-padding;
+.moove-container-fluid,
+.container-fluid {
+    max-width: 85%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+a {
+    transition: all 0.25s ease-out;
+    color: $brand-primary;
+}
+
+.dropdown-item:active,
+.dropdown-item:hover,
+.dropdown-item:focus,
+.dropdown-item:focus-within {
+    background-color: darken($brand-primary, 10%);
+}
+
+@include media-breakpoint-up(md) {
+    .pagelayout-standard #page.drawers .main-inner,
+    body.limitedwidth #page.drawers .main-inner,
+    #page.drawers .main-inner,
+    .moove-container-fluid,
+    .container-fluid,
+    .container-lg,
+    .container-md,
+    .container-sm,
+    .container-xl,
+    .container-xxl {
+        max-width: 85%;
+        padding-right: 15px;
+        padding-left: 15px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    .header-maxwidth {
+        max-width: 100%;
     }
 }
 
-#gridshadebox_content {
-    top: 80px !important;
-}
-
-.popover .arrow {
-    bottom: -8px;
-}
-
-.progress {
-    height: 20px;
-    margin-bottom: 20px;
-    overflow: hidden;
-    background-color: $body-bg;
-    margin-left: 12px;
-    width: inherit;
-
-    .progress-bar {
-        float: left;
-        width: 0;
-        height: 100%;
-        font-size: 12px;
-        line-height: 20px;
-        color: #fff;
-        text-align: center;
-        background-color: $brand-primary;
-        overflow: hidden;
+@include media-breakpoint-down(md) {
+    .pagelayout-standard #page.drawers .main-inner,
+    body.limitedwidth #page.drawers .main-inner,
+    #page.drawers .main-inner,
+    .moove-container-fluid,
+    .container-fluid,
+    .container-lg,
+    .container-md,
+    .container-sm,
+    .container-xl,
+    .container-xxl {
+        max-width: 95%;
     }
-}
-
-.region_main_settings_menu_proxy {
-    background-color: initial;
 }

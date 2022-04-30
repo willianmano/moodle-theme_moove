@@ -17,9 +17,9 @@
 /**
  * Theme moove functions and service definitions.
  *
- * @package   theme_moove
- * @copyright 2019 Willian Mano - http://conecti.me
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    theme_moove
+ * @copyright  2022 Willian Mano {@link https://conecti.me}
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 defined('MOODLE_INTERNAL') || die();

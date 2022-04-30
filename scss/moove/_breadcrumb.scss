@@ -1,154 +1,21 @@
-#page-navbar {
-    .page-header-headings h1 {
-        font-size: 1.34375rem;
-    }
-    .breadcrumb {
-        padding: 0.5em 1em;
-        background-color: $body-bg;
-        border-radius: .25em;
+.breadcrumb {
+    justify-content: flex-end;
 
-        &:after {
-            content: "";
-            display: table;
-            clear: both;
-        }
-
-        li {
-            display: inline-block;
-            float: left;
-            margin: 0.5em 0;
-
-            &:after {
-                display: inline-block;
-                content: '\00bb';
-                margin: 0 .6em;
-                color: #959fa5;
-            }
-            &:before {
-                content: '';
-                padding: 0;
-            }
-
-            .no-link {
-                background-color: #f7f7f7;
-                border-color: #f7f7f7;
-            }
-        }
-    }
-    .breadcrumb li:last-of-type::after {
-        display: none;
-    }
-    .breadcrumb li > * {
-        display: inline-block;
-        color: #2c3f4c;
-    }
-    .breadcrumb li.current > * {
-        color: #96c03d;
-    }
-    .no-touch .breadcrumb a:hover {
-        color: #96c03d;
-    }
-
-    .breadcrumb {
-        padding: 0;
-        background-color: transparent;
-    }
-    .breadcrumb li {
-        position: relative;
-        padding: 0;
-        margin: 4px 4px 4px 0;
-    }
-    .breadcrumb li::after {
-        margin: 0 1em;
-    }
-    .breadcrumb li > * {
-        position: relative;
-        padding: .4em .8em .4em 1.5em;
-        color: #2c3f4c;
-        background-color: $body-bg;
-        border-color: $body-bg;
-    }
-
-    .breadcrumb li:last-of-type {
-        margin-right: 0;
-    }
-
-    .breadcrumb li.current > * {
-        color: #fff;
-        background-color: #96c03d;
-        border-color: #96c03d;
-    }
-
-    .breadcrumb li:first-of-type > * {
-        padding-left: 1.6em;
-        border-radius: .25em 0 0 .25em;
-    }
-
-    .breadcrumb li:last-of-type > * {
-        padding-right: 1.6em;
-        border-radius: 0 .25em .25em 0;
-    }
-
-    .no-touch .breadcrumb a:hover {
-        color: #fff;
-        background-color: #2c3f4c;
-        border-color: #2c3f4c;
-    }
-
-    .breadcrumb li::after,
-    .breadcrumb li > *::after {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 100%;
-        height: 0;
-        width: 0;
-        border: 17px solid transparent;
-        border-right-width: 0;
-        border-left-width: 10px;
-    }
-
-    .breadcrumb li::after {
-        z-index: 1;
-        -webkit-transform: translateX(4px);
-        -moz-transform: translateX(4px);
-        -ms-transform: translateX(4px);
-        -o-transform: translateX(4px);
-        transform: translateX(4px);
-        border-left-color: #fff;
-        margin: 0;
-    }
-
-    .breadcrumb li > *::after {
-        z-index: 2;
-        border-left-color: inherit;
-    }
-
-    .breadcrumb li:last-of-type::after,
-    .breadcrumb li:last-of-type > *::after {
-        display: none;
-    }
-
-    @-moz-document url-prefix() {
-        .breadcrumb li::after,
-        .breadcrumb li > *::after {
-            border-left-style: dashed;
-        }
+    .breadcrumb-item + .breadcrumb-item::before {
+        font: normal normal normal 12px/1 FontAwesome;
+        text-rendering: auto;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        content: "\f054";
+        display: flex;
+        align-items: center;
+        white-space: nowrap;
+        height: 100%;
+        color: #ced4da;
     }
 }
 
-.dir-rtl #page-navbar .breadcrumb li::after {
-    -webkit-transform: translateX(-4px);
-    -moz-transform: translateX(-4px);
-    -ms-transform: translateX(-4px);
-    -o-transform: translateX(-4px);
-    transform: translateX(-4px);
-    border-right-color: #fff;
-}
-
-.dir-rtl #page-navbar .breadcrumb li::after,
-.dir-rtl #page-navbar .breadcrumb li>*::after {
-    left: 95%;
-    border-right-width: 12px;
-    border-left-width: 0;
+.context-header-settings-menu,
+.region-main-settings-menu {
+    margin-left: .5rem;
 }

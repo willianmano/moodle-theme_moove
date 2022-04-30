@@ -1,0 +1,12 @@
+// Import all scss moove files.
+@import "../../boost/scss/preset/default";
+@import "moove/variables";
+@import "moove/general";
+@import "moove/drawers";
+@import "moove/navbar";
+@import "moove/breadcrumb";
+@import "moove/course";
+@import "moove/mixins/accessibilityfontsize";
+@import "moove/accessibilitybar";
+@import "moove/accessibilitystyles";
+@import "extras/opendyslexic";

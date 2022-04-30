@@ -253,24 +253,26 @@ $string['addcontact'] = 'Add contact';
 $string['removecontact'] = 'Remove contact';
 $string['certificates'] = 'Certificates';
 
+// NEW STRINGS
+
 // Theme settings.
-$string['themesettingstitle'] = 'Accessibility settings';
-$string['themesettingsfonttype'] = 'Font type';
-$string['themesettingsdefaultfont'] = 'Default font';
-$string['themesettingsdyslexicfont'] = 'Dyslexic font';
-$string['themesettingsenableaccessibilitytoolbar'] = 'Enable accessibility toolbar';
-$string['themesettinggsavedsuccessfully'] = 'Accessibility settings saved successfully';
+$string['themesettings:accessibility'] = 'Accessibility';
+$string['themesettings:fonttype'] = 'Font type';
+$string['themesettings:defaultfont'] = 'Default font';
+$string['themesettings:dyslexicfont'] = 'Dyslexic font';
+$string['themesettings:enableaccessibilitytoolbar'] = 'Enable accessibility toolbar';
+$string['themesettingg:successfullysaved'] = 'Accessibility settings successfully saved';
 
 // Accessibility features.
-$string['accessibilityfontsize'] = 'Font size';
-$string['accessibilitydecreasefont'] = 'Decrease font size';
-$string['accessibilityresetfont'] = 'Reset font size';
-$string['accessibilityincreasefont'] = 'Increase font size';
-$string['accessibilitysitecolor'] = 'Site color';
-$string['accessibilityresetsitecolor'] = 'Reset site color';
-$string['accessibilitysitecolor2'] = 'Low contrast 1';
-$string['accessibilitysitecolor3'] = 'Low contrast 2';
-$string['accessibilitysitecolor4'] = 'High contrast';
+$string['accessibility:fontsize'] = 'Font size';
+$string['accessibility:decreasefont'] = 'Decrease font size';
+$string['accessibility:resetfont'] = 'Reset font size';
+$string['accessibility:increasefont'] = 'Increase font size';
+$string['accessibility:sitecolor'] = 'Site color';
+$string['accessibility:resetsitecolor'] = 'Reset site color';
+$string['accessibility:sitecolor2'] = 'Low contrast 1';
+$string['accessibility:sitecolor3'] = 'Low contrast 2';
+$string['accessibility:sitecolor4'] = 'High contrast';
 
 // Data privacy.
 $string['privacy:metadata:preference:accessibilitystyles_fontsizeclass'] = 'The user\'s preference for font size.';

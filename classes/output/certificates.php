@@ -18,7 +18,7 @@
  * Certificates page renderer
  *
  * @package    theme_moove
- * @copyright  2020 Willian Mano - http://conecti.me
+ * @copyright  2022 Willian Mano {@link https://conecti.me}
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -34,7 +34,7 @@ use renderer_base;
  * My certificates page renderer
  *
  * @package    theme_moove
- * @copyright  2020 Willian Mano - http://conecti.me
+ * @copyright  2022 Willian Mano {@link https://conecti.me}
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class certificates implements renderable, templatable {

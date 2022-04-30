@@ -22,25 +22,31 @@
     Example context (json): {}
 }}
 <div id="accessibilitybar" class="fixed-top">
-    <div class="container">
+    <div class="container-fluid">
         <div class="bars">
             <div class="fontsize">
-                <span>{{#str}}accessibilityfontsize, theme_moove{{/str}}</span>
+                <span>{{#str}}accessibility:fontsize, theme_moove{{/str}}</span>
                 <ul>
-                    <li><a class="btn btn-default" data-action="decrease" title="{{#str}}accessibilitydecreasefont, theme_moove{{/str}}" id="fontsize_dec">A-</a></li>
-                    <li><a class="btn btn-default" data-action="reset" title="{{#str}}accessibilityresetfont, theme_moove{{/str}}" id="fontsize_reset">A</a></li>
-                    <li><a class="btn btn-default" data-action="increase" title="{{#str}}accessibilityincreasefont, theme_moove{{/str}}" id="fontsize_inc">A+</a></li>
+                    <li><a class="btn btn-default" data-action="decrease" title="{{#str}}accessibility:decreasefont, theme_moove{{/str}}" id="fontsize_dec">A-</a></li>
+                    <li><a class="btn btn-default" data-action="reset" title="{{#str}}accessibility:resetfont, theme_moove{{/str}}" id="fontsize_reset">A</a></li>
+                    <li><a class="btn btn-default" data-action="increase" title="{{#str}}accessibility:increasefont, theme_moove{{/str}}" id="fontsize_inc">A+</a></li>
                 </ul>
             </div>
             <div class="sitecolor">
-                <span>{{#str}}accessibilitysitecolor, theme_moove{{/str}}</span>
+                <span>{{#str}}accessibility:sitecolor, theme_moove{{/str}}</span>
                 <ul>
-                    <li><a class="btn btn-default" data-action="reset" title="{{#str}}accessibilityresetsitecolor, theme_moove{{/str}}" id="sitecolor_color1">R</a></li>
-                    <li><a class="btn btn-default" data-action="sitecolor-color-2" title="{{#str}}accessibilitysitecolor2, theme_moove{{/str}}" id="sitecolor_color2">A</a></li>
-                    <li><a class="btn btn-default" data-action="sitecolor-color-3" title="{{#str}}accessibilitysitecolor3, theme_moove{{/str}}" id="sitecolor_color3">A</a></li>
-                    <li><a class="btn btn-default" data-action="sitecolor-color-4" title="{{#str}}accessibilitysitecolor4, theme_moove{{/str}}" id="sitecolor_color4">A</a></li>
+                    <li><a class="btn btn-default" data-action="reset" title="{{#str}}accessibility:resetsitecolor, theme_moove{{/str}}" id="sitecolor_color1">R</a></li>
+                    <li><a class="btn btn-default" data-action="sitecolor-color-2" title="{{#str}}accessibility:sitecolor2, theme_moove{{/str}}" id="sitecolor_color2">A</a></li>
+                    <li><a class="btn btn-default" data-action="sitecolor-color-3" title="{{#str}}accessibility:sitecolor3, theme_moove{{/str}}" id="sitecolor_color3">A</a></li>
+                    <li><a class="btn btn-default" data-action="sitecolor-color-4" title="{{#str}}accessibility:sitecolor4, theme_moove{{/str}}" id="sitecolor_color4">A</a></li>
                 </ul>
             </div>
         </div>
     </div>
 </div>
+
+{{#js}}
+    require(['theme_moove/accessibilitybar'], function(AccessibilityBar) {
+        AccessibilityBar.init();
+    });
+{{/js}}

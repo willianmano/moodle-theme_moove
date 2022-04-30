@@ -44,6 +44,23 @@ $accessibility-sizes: map-merge(
 }
 
 body {
+    &.odafont {
+        h1,
+        .h1,
+        h2,
+        .h2,
+        h3,
+        .h3,
+        h4,
+        .h4,
+        h5,
+        .h5,
+        h6,
+        .h6 {
+            font-family: oda, comic sans ms, clfallback, Verdana;
+        }
+    }
+
     &.pagelayout-incourse {
         #region-main a:not(.btn),
         .section-navigation > a:not(.btn) {
