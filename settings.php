@@ -106,10 +106,10 @@ if ($ADMIN->fulltree) {
 
     // Variable $navbar-header-color.
     // We use an empty default value because the default colour should come from the preset.
-    $name = 'theme_moove/navbarheadercolor';
-    $title = get_string('navbarheadercolor', 'theme_moove');
-    $description = get_string('navbarheadercolor_desc', 'theme_moove');
-    $setting = new admin_setting_configcolourpicker($name, $title, $description, '');
+    $name = 'theme_moove/secondarymenucolor';
+    $title = get_string('secondarymenucolor', 'theme_moove');
+    $description = get_string('secondarymenucolor_desc', 'theme_moove');
+    $setting = new admin_setting_configcolourpicker($name, $title, $description, '#0f47ad');
     $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
 

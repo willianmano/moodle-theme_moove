@@ -61,6 +61,10 @@
 }
 
 body.hasaccessibilitybar {
+    #page, #page.drawers {
+        margin-top: 100px;
+    }
+
     .navbar.fixed-top {
         top: 30px;
     }
@@ -70,7 +74,7 @@ body.hasaccessibilitybar {
     }
 
     .secondary-navigation.moove {
-        margin-top: 100px;
+        margin-top: 30px;
     }
 }
 
@@ -90,6 +94,11 @@ body.hasaccessibilitybar {
     }
 
     body.has-secondarynavigation.hasaccessibilitybar:not(.notloggedin) {
+        #page,
+        #page.drawers {
+            margin-top: 160px;
+        }
+
         .drawer-left-toggle,
         .drawer-right-toggle {
             top: 160px;

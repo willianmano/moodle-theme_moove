@@ -1,10 +1,10 @@
 #page,
 #page.drawers {
     margin-top: 70px;
-    padding: 0;
 }
 
 #page.drawers {
+    padding: 0 15px;
     height: initial;
 
     .main-inner {
@@ -61,7 +61,7 @@
 body.has-secondarynavigation {
     #page,
     #page.drawers {
-        margin-top: 0;
+        margin-top: 130px;
     }
 
     .drawer-left-toggle,
