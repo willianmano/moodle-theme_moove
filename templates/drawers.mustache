@@ -57,8 +57,6 @@
 
     {{{ output.standard_top_of_body_html }}}
 
-    {{> theme_moove/navbar }}
-
     {{#courseindex}}
         {{< theme_boost/drawer }}
             {{$id}}theme_boost-drawers-courseindex{{/id}}
@@ -91,6 +89,8 @@
         {{/ theme_boost/drawer}}
     {{/hasblocks}}
     <div id="page" data-region="mainpage" data-usertour="scroller" class="drawers {{#courseindexopen}}show-drawer-left{{/courseindexopen}} {{#blockdraweropen}}show-drawer-right{{/blockdraweropen}} drag-container">
+
+        {{> theme_moove/navbar }}
 
         {{{ output.full_header }}}
 

@@ -1,5 +1,4 @@
 .navbar.fixed-top {
-    border: none;
     height: 70px;
 
     .primary-navigation {
@@ -23,17 +22,20 @@
 .secondary-navigation {
     border: none;
     align-items: stretch;
-    padding-top: 0;
-    padding-bottom: 0;
-    position: relative;
+    padding: 0;
     z-index: 1021;
     background-color: $brand-primary;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.5));
+    position: relative;
+    margin-top: 70px;
+
+    > .moove-container-fluid {
+        padding: 0;
+    }
 
     &.moove {
         width: 100%;
         max-width: 100%;
-        margin-top: 70px;
     }
 
     .moremenu {

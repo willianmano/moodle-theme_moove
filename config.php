@@ -30,7 +30,7 @@ $THEME->name = 'moove';
 $THEME->sheets = [];
 $THEME->editor_sheets = [];
 $THEME->editor_scss = ['editor'];
-$THEME->usefallback = true;
+$THEME->usefallback = false;
 $THEME->scss = function($theme) {
     return theme_moove_get_main_scss_content($theme);
 };
@@ -168,19 +168,19 @@ $THEME->layouts = [
     )
 ];
 
-$THEME->parents = [];
+$THEME->parents = ['boost'];
 $THEME->enable_dock = false;
 $THEME->extrascsscallback = 'theme_moove_get_extra_scss';
 $THEME->prescsscallback = 'theme_moove_get_pre_scss';
 $THEME->precompiledcsscallback = 'theme_moove_get_precompiled_css';
-$THEME->yuicssmodules = array();
+$THEME->yuicssmodules = [];
 $THEME->rendererfactory = 'theme_overridden_renderer_factory';
 $THEME->requiredblocks = '';
 $THEME->addblockposition = BLOCK_ADDBLOCK_POSITION_FLATNAV;
 $THEME->iconsystem = \core\output\icon_system::FONTAWESOME;
 $THEME->haseditswitch = true;
 $THEME->usescourseindex = true;
-// By default, all moove theme do not need their titles displayed.
+// By default, all Moodle theme do not need their titles displayed.
 $THEME->activityheaderconfig = [
     'notitle' => true
 ];

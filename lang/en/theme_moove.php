@@ -227,16 +227,6 @@ $string['telegramdesc'] = 'Enter your Telegram contact or group link.';
 $string['topfooterimg'] = 'Footer image';
 $string['topfooterimgdesc'] = 'Upload your custom footer image here if you want to replace the default image. Recommended size is 1500px x 400px or higher.';
 
-// Forum.
-$string['forumsettings'] = 'Forum';
-$string['forumsettingsdesc'] = 'Configure the general forum settings for the theme here.';
-$string['forumhtmlemailheader'] = 'Email header';
-$string['forumhtmlemailheaderdesc'] = 'Configure the email header for the forum messages.';
-$string['forumhtmlemailfooter'] = 'Email footer';
-$string['forumhtmlemailfooterdesc'] = 'Configure the email footer for the forum messages.';
-$string['forumcustomtemplate'] = 'Use a pretty template for forum mails';
-$string['forumcustomtemplatedesc'] = 'Enable that in order to use a pretty template when sending forum messages via email. If not enabled standard formatting of forum mails will be used.';
-
 $string['certificates'] = 'Certificates';
 $string['certificatestitle'] = 'My certificates';
 $string['subtitleallcertificates'] = 'Certificates from all courses';
@@ -254,6 +244,8 @@ $string['removecontact'] = 'Remove contact';
 $string['certificates'] = 'Certificates';
 
 // NEW STRINGS
+$string['fontsite'] = 'Font site';
+$string['fontsite_desc'] = 'Default font site. You can try out the fonts on <a href="https://fonts.google.com">Google Fonts site</a>.';
 
 // Theme settings.
 $string['themesettings:accessibility'] = 'Accessibility';

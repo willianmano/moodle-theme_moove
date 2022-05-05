@@ -92,6 +92,7 @@ if ($ADMIN->fulltree) {
     $description = get_string('loginbgimg_desc', 'theme_moove');
     $opts = array('accepted_types' => array('.png', '.jpg', '.svg'));
     $setting = new admin_setting_configstoredfile($name, $title, $description, 'loginbgimg', 0, $opts);
+    $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
 
     // Variable $brand-color.
@@ -109,6 +110,30 @@ if ($ADMIN->fulltree) {
     $title = get_string('navbarheadercolor', 'theme_moove');
     $description = get_string('navbarheadercolor_desc', 'theme_moove');
     $setting = new admin_setting_configcolourpicker($name, $title, $description, '');
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $page->add($setting);
+
+    $fontsarr = [
+        'Roboto' => 'Roboto',
+        'Poppins' => 'Poppins',
+        'Montserrat' => 'Montserrat',
+        'Open Sans' => 'Open Sans',
+        'Lato' => 'Lato',
+        'Raleway' => 'Raleway',
+        'Inter' => 'Inter',
+        'Nunito' => 'Nunito',
+        'Encode Sans' => 'Encode Sans',
+        'Work Sans' => 'Work Sans',
+        'Oxygen' => 'Oxygen',
+        'Manrope' => 'Manrope',
+        'Sora' => 'Sora',
+        'Epilogue' => 'Epilogue'
+    ];
+
+    $name = 'theme_moove/fontsite';
+    $title = get_string('fontsite', 'theme_moove');
+    $description = get_string('fontsite_desc', 'theme_moove');
+    $setting = new admin_setting_configselect($name, $title, $description, 'Roboto', $fontsarr);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
 
@@ -678,36 +703,4 @@ if ($ADMIN->fulltree) {
     $page->add($setting);
 
     $settings->add($page);
-
-    // Forum page.
-    $settingpage = new admin_settingpage('theme_moove_forum', get_string('forumsettings', 'theme_moove'));
-
-    $settingpage->add(new admin_setting_heading('theme_moove_forumheading', null,
-            format_text(get_string('forumsettingsdesc', 'theme_moove'), FORMAT_MARKDOWN)));
-
-    // Enable custom template.
-    $name = 'theme_moove/forumcustomtemplate';
-    $title = get_string('forumcustomtemplate', 'theme_moove');
-    $description = get_string('forumcustomtemplatedesc', 'theme_moove');
-    $default = 0;
-    $setting = new admin_setting_configcheckbox($name, $title, $description, $default);
-    $settingpage->add($setting);
-
-    // Header setting.
-    $name = 'theme_moove/forumhtmlemailheader';
-    $title = get_string('forumhtmlemailheader', 'theme_moove');
-    $description = get_string('forumhtmlemailheaderdesc', 'theme_moove');
-    $default = '';
-    $setting = new admin_setting_confightmleditor($name, $title, $description, $default);
-    $settingpage->add($setting);
-
-    // Footer setting.
-    $name = 'theme_moove/forumhtmlemailfooter';
-    $title = get_string('forumhtmlemailfooter', 'theme_moove');
-    $description = get_string('forumhtmlemailfooterdesc', 'theme_moove');
-    $default = '';
-    $setting = new admin_setting_confightmleditor($name, $title, $description, $default);
-    $settingpage->add($setting);
-
-    $settings->add($settingpage);
 }

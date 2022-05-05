@@ -25,6 +25,7 @@
 namespace theme_moove\output;
 
 use theme_config;
+use context_course;
 
 defined('MOODLE_INTERNAL') || die;
 
@@ -64,6 +65,12 @@ class core_renderer extends \theme_boost\output\core_renderer {
         if (!empty($theme->settings->googleanalytics)) {
             $output .= str_replace("GOOGLE-ANALYTICS-CODE", trim($theme->settings->googleanalytics), $googleanalyticscode);
         }
+
+        $sitefont = isset($theme->settings->fontsite) ? $theme->settings->fontsite : 'Roboto';
+
+        $output .= '<link rel="preconnect" href="https://fonts.googleapis.com">
+                       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+                       <link href="https://fonts.googleapis.com/css2?family='.$sitefont.':ital,wght@0,300;0,400;0,500;0,700;1,400" rel="stylesheet">';
 
         return $output;
     }
@@ -105,5 +112,75 @@ class core_renderer extends \theme_boost\output\core_renderer {
         }
 
         return ' id="'. $this->body_id().'" class="'.$this->body_css_classes($additionalclasses).'"';
+    }
+
+    /**
+     * Whether we should display the main theme or site logo in the navbar.
+     *
+     * @return bool
+     */
+    public function should_display_logo() {
+        if ($this->should_display_theme_logo() || parent::should_display_navbar_logo()) {
+            return true;
+        }
+
+        return false;
+    }
+
+    /**
+     * Whether we should display the main theme logo in the navbar.
+     *
+     * @return bool
+     */
+    public function should_display_theme_logo() {
+        $logo = $this->get_theme_logo_url();
+
+        return !empty($logo);
+    }
+
+    public function get_logo() {
+        $logo = $this->get_theme_logo_url();
+
+        if ($logo) {
+            return $logo;
+        }
+
+        $logo = $this->get_logo_url();
+
+        if ($logo) {
+            return $logo->out(false);
+        }
+
+        return false;
+    }
+
+    /**
+     * Get the main logo URL.
+     *
+     * @return string
+     */
+    public function get_theme_logo_url() {
+        $theme = theme_config::load('moove');
+
+        return $theme->setting_file_url('logo', 'logo');
+    }
+
+    /**
+     * Renders the login form.
+     *
+     * @param \core_auth\output\login $form The renderable.
+     * @return string
+     */
+    public function render_login(\core_auth\output\login $form) {
+        global $SITE;
+
+        $context = $form->export_for_template($this);
+
+        $context->errorformatted = $this->error_text($context->error);
+        $context->logourl = $this->get_logo();
+        $context->sitename = format_string($SITE->fullname, true,
+            ['context' => context_course::instance(SITEID), "escape" => false]);
+
+        return $this->render_from_template('core/loginform', $context);
     }
 }

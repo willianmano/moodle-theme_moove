@@ -46,10 +46,17 @@ function theme_moove_get_main_scss_content($theme) {
         $scss .= $presetfile->get_content();
     } else {
         // Safety fallback - maybe new installs etc.
-        $scss .= file_get_contents($CFG->dirroot . '/theme/moove/scss/default.scss');
+        $scss .= file_get_contents($CFG->dirroot . '/theme/boost/scss/preset/default.scss');
     }
 
-    return $scss;
+    // Moove scss.
+    $moovevariables = file_get_contents($CFG->dirroot . '/theme/moove/scss/moove/_variables.scss');
+    $moove = file_get_contents($CFG->dirroot . '/theme/moove/scss/default.scss');
+
+    // Combine them together.
+    $allscss = $moovevariables . "\n" . $scss . "\n" . $moove;
+
+    return $allscss;
 }
 
 /**
@@ -84,7 +91,8 @@ function theme_moove_get_pre_scss($theme) {
     $configurable = [
         // Config key => [variableName, ...].
         'brandcolor' => ['brand-primary'],
-        'navbarheadercolor' => 'navbar-header-color'
+        'navbarheadercolor' => 'navbar-header-color',
+        'fontsite' => 'font-family-sans-serif'
     ];
 
     // Prepend variables first.
@@ -94,7 +102,11 @@ function theme_moove_get_pre_scss($theme) {
             continue;
         }
         array_map(function($target) use (&$scss, $value) {
-            $scss .= '$' . $target . ': ' . $value . ";\n";
+            if ($target == 'fontsite') {
+                $scss .= '$' . $target . ': "' . $value . '", sans-serif !default' .";\n";
+            } else {
+                $scss .= '$' . $target . ': ' . $value . ";\n";
+            }
         }, (array) $targets);
     }
 
@@ -132,16 +144,13 @@ function theme_moove_get_precompiled_css() {
 function theme_moove_pluginfile($course, $cm, $context, $filearea, $args, $forcedownload, array $options = array()) {
     $theme = theme_config::load('moove');
 
-    if ($context->contextlevel == CONTEXT_SYSTEM and $filearea === 'logo') {
-        return $theme->setting_file_serve('logo', $args, $forcedownload, $options);
-    }
-
-    if ($context->contextlevel == CONTEXT_SYSTEM and $filearea === 'loginbgimg') {
-        return $theme->setting_file_serve('loginbgimg', $args, $forcedownload, $options);
-    }
-
-    if ($context->contextlevel == CONTEXT_SYSTEM and $filearea === 'favicon') {
-        return $theme->setting_file_serve('favicon', $args, $forcedownload, $options);
+    if ($context->contextlevel == CONTEXT_SYSTEM && ($filearea === 'logo' || $filearea === 'loginbgimg' || $filearea == 'favicon')) {
+        $theme = theme_config::load('moove');
+        // By default, theme files must be cache-able by both browsers and proxies.
+        if (!array_key_exists('cacheability', $options)) {
+            $options['cacheability'] = 'public';
+        }
+        return $theme->setting_file_serve($filearea, $args, $forcedownload, $options);
     }
 
     if ($context->contextlevel == CONTEXT_SYSTEM and preg_match("/^sliderimage[1-9][0-9]?$/", $filearea) !== false) {
