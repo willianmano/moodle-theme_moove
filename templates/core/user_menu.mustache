@@ -75,13 +75,13 @@
             <div id="user-action-menu" class="dropdown-menu dropdown-menu-right">
                 <div id="usermenu-carousel" class="carousel slide" data-touch="false" data-interval="false" data-keyboard="false">
                     <div class="carousel-inner">
-                        <a id="accessibilitysettings-control" href="#" class="dropdown-item" role="menuitem" tabindex="-1" aria-label="{{#str}}themesettings:accessibility, theme_moove{{/str}}">
-                            {{#str}}themesettings:accessibility, theme_moove{{/str}}
-                        </a>
-
-                        <div class="dropdown-divider"></div>
-
                         <div id="carousel-item-main" class="carousel-item active" role="menu" tabindex="-1" aria-label="{{#str}}user{{/str}}">
+                            <a id="accessibilitysettings-control" href="#" class="dropdown-item" role="menuitem" tabindex="-1" aria-label="{{#str}}themesettings:accessibility, theme_moove{{/str}}">
+                                {{#str}}themesettings:accessibility, theme_moove{{/str}}
+                            </a>
+
+                            <div class="dropdown-divider"></div>
+
                             {{> core/user_action_menu_items }}
                         </div>
                         {{#submenus}}
