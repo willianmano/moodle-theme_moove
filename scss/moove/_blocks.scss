@@ -1,5 +1,5 @@
 .dashboard-card {
-    border: 1px solid $gray-500;
+    border: 1px solid $gray-200;
 
     .dashboard-card-img {
         padding: .5rem;
@@ -57,5 +57,17 @@
         .progress {
             margin-left: auto;
         }
+    }
+}
+
+.block-myoverview .dashboard-card-deck:not(.fixed-width-cards) .dashboard-card {
+    width: calc(33.33% - 2rem);
+    margin: 1rem;
+}
+
+@include media-breakpoint-down(md) {
+    .block-myoverview .dashboard-card-deck:not(.fixed-width-cards) .dashboard-card {
+        width: calc(100%);
+        margin: 1rem 0;
     }
 }

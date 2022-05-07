@@ -80,9 +80,8 @@ body.hasaccessibilitybar {
 
 @include media-breakpoint-up(md) {
     body.hasaccessibilitybar:not(.notloggedin) {
-        .drawer-left-toggle,
-        .drawer-right-toggle {
-            top: 100px;
+        .drawer-toggles .drawer-toggler {
+            top: 110px;
             position: fixed;
         }
 
@@ -99,9 +98,8 @@ body.hasaccessibilitybar {
             margin-top: 160px;
         }
 
-        .drawer-left-toggle,
-        .drawer-right-toggle {
-            top: 160px;
+        .drawer-toggles .drawer-toggler {
+            top: 170px;
         }
 
         .drawer-left,

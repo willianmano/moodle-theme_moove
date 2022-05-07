@@ -54,9 +54,13 @@
     }
 }
 
-.drawer-left-toggle,
-.drawer-right-toggle {
-    top: 70px;
+.drawer-toggles .drawer-toggler {
+    top: 80px;
+
+    .btn {
+        background-color: $brand-primary;
+        color: #fff;
+    }
 }
 
 body.has-secondarynavigation {
@@ -65,10 +69,9 @@ body.has-secondarynavigation {
         margin-top: 130px;
     }
 
-    .drawer-left-toggle,
-    .drawer-right-toggle {
+    .drawer-toggles .drawer-toggler {
         position: fixed;
-        top: 130px;
+        top: 140px;
     }
 }
 
