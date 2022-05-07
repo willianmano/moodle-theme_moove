@@ -39,6 +39,14 @@
             .right-column {
                 padding-left: 2rem;
                 border-left: 1px solid $gray-300;
+
+                .column-content {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    height: 100%;
+                }
             }
         }
     }
@@ -65,6 +73,27 @@
     #page-login-index {
         #page {
             padding-top: 1rem;
+        }
+
+        .login-container {
+            .loginform {
+                .left-column {
+                    padding-right: 0;
+                }
+
+                .right-column {
+                    padding-left: 0;
+                    border-left: none;
+
+                    .column-content {
+                        display: block;
+
+                        .login-heading {
+                            margin-top: 1rem;
+                        }
+                    }
+                }
+            }
         }
     }
 }

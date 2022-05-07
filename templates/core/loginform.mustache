@@ -93,7 +93,7 @@
     }
 }}
 <div class="loginform row {{#hastwocolumns}}hastwocolumns{{/hastwocolumns}}">
-    <div class="{{#hastwocolumns}}col-md-6 left-column{{/hastwocolumns}}{{^hastwocolumns}}col{{/hastwocolumns}}">
+    <div class="{{#hastwocolumns}}col-lg-6 col-md-12 left-column{{/hastwocolumns}}{{^hastwocolumns}}col{{/hastwocolumns}}">
         {{#logourl}}
             <div id="loginlogo" class="login-logo">
                 <img id="logoimage" src="{{logourl}}" class="img-fluid" alt="{{sitename}}"/>
@@ -103,7 +103,6 @@
         {{^logourl}}
             <h1 class="login-heading mb-4">{{#str}} loginto, core, {{sitename}} {{/str}}</h1>
         {{/logourl}}
-        <p>{{#str}}logindesc, theme_moove, {{^canloginbyemail}}{{#cleanstr}}username{{/cleanstr}}{{/canloginbyemail}}{{#canloginbyemail}}{{#cleanstr}}usernameemail{{/cleanstr}}{{/canloginbyemail}}{{/str}}</p>
         {{#maintenance}}
             <div class="alert alert-danger login-maintenance">
                 {{{maintenance}}}
@@ -170,45 +169,47 @@
         {{/hastwocolumns}}
     </div>
     {{#hastwocolumns}}
-        <div class="col-md-6 right-column">
-            {{#hasidentityproviders}}
-                <div class="login-identityproviders">
-                    <p class="login-heading text-center">{{#str}}signinwith, theme_moove{{/str}}</p>
-                    {{#identityproviders}}
-                        <a class="btn login-identityprovider-btn btn-block {{#isfacebook}}facebook{{/isfacebook}}" href="{{url}}">
-                            {{#iconurl}}
-                                <img src="{{iconurl}}" alt="" width="24" height="24"/>
-                            {{/iconurl}}
-                            {{name}}
-                        </a>
-                    {{/identityproviders}}
-                </div>
-
-                <div class="login-divider"></div>
-            {{/hasidentityproviders}}
-            {{#hasinstructions}}
-                {{{instructions}}}
-            {{/hasinstructions}}
-            {{#canloginasguest}}
-                <form action="{{loginurl}}" method="post" id="guestlogin">
-                    <input type="hidden" name="logintoken" value="{{logintoken}}">
-                    <input type="hidden" name="username" value="guest" />
-                    <input type="hidden" name="password" value="guest" />
-                    <button class="btn btn-secondary btn-block" type="submit">{{#str}}loginguest{{/str}}</button>
-                </form>
-            {{/canloginasguest}}
-
-            <div class="d-flex mt-2">
-                {{#languagemenu}}
-                    <div class="login-languagemenu">
-                        {{>core/action_menu}}
+        <div class="col-lg-6 col-md-12 right-column">
+            <div class="column-content">
+                {{#hasidentityproviders}}
+                    <div class="login-identityproviders">
+                        <p class="login-heading text-center">{{#str}}signinwith, theme_moove{{/str}}</p>
+                        {{#identityproviders}}
+                            <a class="btn login-identityprovider-btn btn-block {{#isfacebook}}facebook{{/isfacebook}}" href="{{url}}">
+                                {{#iconurl}}
+                                    <img src="{{iconurl}}" alt="" width="24" height="24"/>
+                                {{/iconurl}}
+                                {{name}}
+                            </a>
+                        {{/identityproviders}}
                     </div>
-                {{/languagemenu}}
-                <button type="button" class="ml-auto btn btn-link" {{!
-                }} data-modal="alert"{{!
-                }} data-modal-title-str='["cookiesenabled", "core"]' {{!
-                }} data-modal-content-str='["cookiesenabled_help_html", "core"]'{{!
-                }}><i class="fa fa-question-circle"></i> {{#str}}cookiesnotice{{/str}}</button>
+
+                    <div class="login-divider"></div>
+                {{/hasidentityproviders}}
+                {{#hasinstructions}}
+                    {{{instructions}}}
+                {{/hasinstructions}}
+                {{#canloginasguest}}
+                    <form action="{{loginurl}}" method="post" id="guestlogin">
+                        <input type="hidden" name="logintoken" value="{{logintoken}}">
+                        <input type="hidden" name="username" value="guest" />
+                        <input type="hidden" name="password" value="guest" />
+                        <button class="btn btn-secondary btn-block" type="submit">{{#str}}loginguest{{/str}}</button>
+                    </form>
+                {{/canloginasguest}}
+
+                <div class="d-flex mt-2">
+                    {{#languagemenu}}
+                        <div class="login-languagemenu">
+                            {{>core/action_menu}}
+                        </div>
+                    {{/languagemenu}}
+                    <button type="button" class="ml-auto btn btn-link" {{!
+                    }} data-modal="alert"{{!
+                    }} data-modal-title-str='["cookiesenabled", "core"]' {{!
+                    }} data-modal-content-str='["cookiesenabled_help_html", "core"]'{{!
+                    }}><i class="fa fa-question-circle"></i> {{#str}}cookiesnotice{{/str}}</button>
+                </div>
             </div>
         </div>
     {{/hastwocolumns}}

@@ -248,7 +248,6 @@ $string['fontsite'] = 'Font site';
 $string['fontsite_desc'] = 'Default font site. You can try out the fonts on <a href="https://fonts.google.com">Google Fonts site</a>.';
 $string['donthaveanaccount'] = 'Don\'t have an account?';
 $string['signinwith'] = 'Sign in with';
-$string['logindesc'] = 'Enter your {$a} and Password to access the platform.';
 
 // Theme settings.
 $string['themesettings:accessibility'] = 'Accessibility';
