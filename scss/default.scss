@@ -1,6 +1,7 @@
 // Import all scss moove files.
 @import "moove/variables";
 @import "moove/general";
+@import "moove/blocks";
 @import "moove/drawers";
 @import "moove/navbar";
 @import "moove/breadcrumb";
@@ -9,3 +10,4 @@
 @import "moove/accessibilitybar";
 @import "moove/accessibilitystyles";
 @import "moove/login";
+@import "moove/mydashboard";
