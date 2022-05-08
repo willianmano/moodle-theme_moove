@@ -52,6 +52,10 @@ body {
     margin-left: auto;
 }
 
+.container-fluid.tertiary-navigation {
+    max-width: 100%;
+}
+
 a {
     transition: all 0.25s ease-out;
     color: $brand-primary;

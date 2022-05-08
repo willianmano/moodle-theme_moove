@@ -1,0 +1,27 @@
+.pagelayout-frontpage,
+.pagelayout-coursecategory {
+    .dashboard-card {
+        position: relative;
+        width: calc(33.33% - 2rem) !important;
+        margin: 1rem;
+
+        .dashboard-card-footer {
+            border-radius: .5rem;
+        }
+
+        .course-contacts {
+            position: absolute;
+            bottom: -12px;
+            right: 0;
+
+            .contact {
+                margin: 0 .25rem;
+
+                img {
+                    width: 48px;
+                    height: 48px;
+                }
+            }
+        }
+    }
+}

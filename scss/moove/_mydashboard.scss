@@ -6,10 +6,6 @@
     }
 
     #block-region-content {
-        .block.card > .card-body {
-            padding: 3rem !important;
-        }
-
         .dashboard-card-deck:not(.fixed-width-cards) .dashboard-card {
             width: calc(33.33% - 2rem);
             margin: 1rem;
@@ -18,10 +14,6 @@
 }
 
 #page-my-index.page-mycourses {
-    #page.drawers .block_myoverview > .card-body {
-        padding: 3rem !important;
-    }
-
     .header-actions-container .header-action .btn-group > .btn:not(:last-child):not(.dropdown-toggle) {
         background-color: $brand-primary;
 
@@ -42,16 +34,6 @@
                 width: calc(100%);
                 margin: 1rem 0;
             }
-
-            .card {
-                .card-body {
-                    padding: 1rem !important;
-                }
-            }
         }
-    }
-
-    #page-my-index.page-mycourses #page.drawers .block_myoverview > .card-body {
-        padding: 1rem !important;
     }
 }
