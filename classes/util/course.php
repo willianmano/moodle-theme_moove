@@ -157,4 +157,8 @@ class course {
 
         return [];
     }
+
+    public function get_progress($userid = null) {
+        return \core_completion\progress::get_course_progress_percentage($this->course, $userid);
+    }
 }

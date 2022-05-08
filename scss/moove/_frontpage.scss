@@ -9,19 +9,55 @@
             border-radius: .5rem;
         }
 
-        .course-contacts {
+        .enrolmenticons {
             position: absolute;
-            bottom: -12px;
+            bottom: 8px;
             right: 0;
+
+            .enrolmenticon {
+                padding: 4px 8px;
+                background-color: #fff;
+                color: $brand-primary;
+                border-radius: .5rem;
+                margin: 0 4px;
+
+                .icon {
+                    margin-right: 0;
+                }
+            }
+        }
+
+        .course-contacts {
+            padding: 0 0.8rem 0.8rem 0.8rem;
 
             .contact {
                 margin: 0 .25rem;
+                display: block;
+
+                &:not(:first-of-type) {
+                    margin-top: .4rem;
+                }
 
                 img {
                     width: 48px;
                     height: 48px;
+                    border: 1px solid $gray-300;
+                }
+
+                span {
+                    margin-left: .4rem;
                 }
             }
         }
+    }
+}
+
+@include media-breakpoint-down(md) {
+    .pagelayout-frontpage .dashboard-card,
+    .pagelayout-coursecategory .dashboard-card {
+        width: 100% !important;
+        margin: 1rem 0;
+        -webkit-box-shadow: none;
+        box-shadow: none;
     }
 }

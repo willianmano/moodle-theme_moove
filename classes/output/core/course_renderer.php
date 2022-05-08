@@ -200,6 +200,9 @@ class course_renderer extends \core_course_renderer {
         $courseenrolmenticons = $courseutil->get_enrolment_icons();
         $courseenrolmenticons = !empty($courseenrolmenticons) ? $this->render_enrolment_icons($courseenrolmenticons) : false;
 
+        $courseprogress = $courseutil->get_progress();
+        $hasprogress = $courseprogress != null;
+
         $data = [
             'id' => $course->id,
             'fullname' => $chelper->get_course_formatted_name($course),
@@ -208,6 +211,9 @@ class course_renderer extends \core_course_renderer {
             'summary' => $courseutil->get_summary($chelper),
             'category' => $courseutil->get_category(),
             'customfields' => $courseutil->get_custom_fields(),
+            'hasprogress' => $hasprogress,
+            'progress' => (int) $courseprogress,
+            'hasenrolmenticons' => $courseenrolmenticons != false,
             'enrolmenticons' => $courseenrolmenticons,
             'hascontacts' => !empty($coursecontacts),
             'contacts' => $coursecontacts

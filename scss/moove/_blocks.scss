@@ -60,9 +60,16 @@
     }
 }
 
-.block-myoverview .dashboard-card-deck:not(.fixed-width-cards) .dashboard-card {
-    width: calc(33.33% - 2rem);
-    margin: 1rem;
+.block_myoverview {
+    &.block {
+        -webkit-box-shadow: none;
+        box-shadow: none;
+    }
+
+    .dashboard-card-deck:not(.fixed-width-cards) .dashboard-card {
+        width: calc(33.33% - 2rem);
+        margin: 1rem;
+    }
 }
 
 @include media-breakpoint-down(md) {
