@@ -9,3 +9,11 @@
         padding-top: 0 !important;
     }
 }
+
+#page-course-view-participants {
+    .tertiary-navigation {
+        .navitem:last-of-type {
+            margin-left: auto;
+        }
+    }
+}
