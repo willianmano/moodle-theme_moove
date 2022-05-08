@@ -59,9 +59,7 @@ class course {
      * @return string
      */
     public function get_summary_image() {
-        global $CFG;
-
-        $contentimage = '';
+        global $CFG, $OUTPUT;
 
         foreach ($this->course->get_course_overviewfiles() as $file) {
             if ($file->is_valid_image()) {
@@ -73,9 +71,7 @@ class course {
             }
         }
 
-        $url = new moodle_url('/theme/moove/pix/default_course.jpg');
-
-        return $url->out();
+        return $OUTPUT->get_generated_image_for_id($this->course->id);
     }
 
     /**
