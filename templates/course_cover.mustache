@@ -66,7 +66,7 @@
 
                     {{{ output.full_header }}}
 
-                    <div class="card">
+                    <div class="card test55">
                         <div class="card-body">
                             {{{ output.moove_course_header }}}
 
@@ -74,6 +74,9 @@
                                 <div class="region_main_settings_menu_proxy"></div>
                             {{/hasregionmainsettingsmenu}}
                             {{{ output.course_content_header }}}
+							{{#headercontent}}
+								{{> core/activity_header }}
+							{{/headercontent}}
                             {{{ output.main_content }}}
                             {{{ output.activity_navigation }}}
                             {{{ output.course_content_footer }}}

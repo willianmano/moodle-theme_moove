@@ -54,6 +54,10 @@ if ($coursepresentation == 2) {
     $extraclasses[] = 'coursepresentation-cover';
 }
 
+$renderer = $PAGE->get_renderer('core');
+$header = $PAGE->activityheader;
+$headercontent = $header->export_for_template($renderer);
+
 $bodyattributes = $OUTPUT->body_attributes($extraclasses);
 $regionmainsettingsmenu = $OUTPUT->region_main_settings_menu();
 $templatecontext = [
@@ -66,7 +70,8 @@ $templatecontext = [
     'navdraweropen' => $navdraweropen,
     'draweropenright' => $draweropenright,
     'regionmainsettingsmenu' => $regionmainsettingsmenu,
-    'hasregionmainsettingsmenu' => !empty($regionmainsettingsmenu)
+    'hasregionmainsettingsmenu' => !empty($regionmainsettingsmenu),
+    'headercontent' => $headercontent
 ];
 
 // Improve boost navigation.
