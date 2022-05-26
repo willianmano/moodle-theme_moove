@@ -57,6 +57,11 @@ if ($draweropenright && $hasblocks) {
     $extraclasses[] = 'drawer-open-right';
 }
 
+$PAGE->set_secondary_navigation(false);
+$renderer = $PAGE->get_renderer('core');
+$header = $PAGE->activityheader;
+$headercontent = $header->export_for_template($renderer);
+
 $bodyattributes = $OUTPUT->body_attributes($extraclasses);
 $regionmainsettingsmenu = $OUTPUT->region_main_settings_menu();
 $context = context_course::instance(SITEID);
@@ -70,7 +75,8 @@ $templatecontext = [
     'navdraweropen' => $navdraweropen,
     'draweropenright' => $draweropenright,
     'regionmainsettingsmenu' => $regionmainsettingsmenu,
-    'hasregionmainsettingsmenu' => !empty($regionmainsettingsmenu)
+    'hasregionmainsettingsmenu' => !empty($regionmainsettingsmenu),
+    'headercontent' => $headercontent
 ];
 
 // Improve boost navigation.

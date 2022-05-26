@@ -50,13 +50,14 @@ if ($navdraweropen) {
 if ($draweropenright && $hasblocks) {
     $extraclasses[] = 'drawer-open-right';
 }
-
+$PAGE->set_secondary_navigation(false);
 $renderer = $PAGE->get_renderer('core');
 $header = $PAGE->activityheader;
 $headercontent = $header->export_for_template($renderer);
 
 $bodyattributes = $OUTPUT->body_attributes($extraclasses);
 $regionmainsettingsmenu = $OUTPUT->region_main_settings_menu();
+
 $templatecontext = [
     'sitename' => format_string($SITE->shortname, true, ['context' => context_course::instance(SITEID), "escape" => false]),
     'output' => $OUTPUT,

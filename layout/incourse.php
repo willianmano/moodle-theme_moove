@@ -57,6 +57,11 @@ if (isset($PAGE->cm->modname) && in_array($PAGE->cm->modname, $moduleswithnavinb
     $extraclasses = [];
 }
 
+$PAGE->set_secondary_navigation(false);
+$renderer = $PAGE->get_renderer('core');
+$header = $PAGE->activityheader;
+$headercontent = $header->export_for_template($renderer);
+
 $bodyattributes = $OUTPUT->body_attributes($extraclasses);
 $regionmainsettingsmenu = $OUTPUT->region_main_settings_menu();
 $templatecontext = [
@@ -69,7 +74,8 @@ $templatecontext = [
     'navdraweropen' => $navdraweropen,
     'draweropenright' => $draweropenright,
     'regionmainsettingsmenu' => $regionmainsettingsmenu,
-    'hasregionmainsettingsmenu' => !empty($regionmainsettingsmenu)
+    'hasregionmainsettingsmenu' => !empty($regionmainsettingsmenu),
+    'headercontent' => $headercontent
 ];
 
 // Improve boost navigation.

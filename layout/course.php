@@ -54,6 +54,7 @@ if ($coursepresentation == 2) {
     $extraclasses[] = 'coursepresentation-cover';
 }
 
+$PAGE->set_secondary_navigation(false);
 $renderer = $PAGE->get_renderer('core');
 $header = $PAGE->activityheader;
 $headercontent = $header->export_for_template($renderer);
