@@ -1,5 +1,24 @@
 #page-footer {
     margin: 0 -15px;
+    background-color: #282829;
+    color: #fff;
+
+    a:not(.btn) {
+        color: #fff;
+    }
+
+    .contactsitesupport {
+        border: 1px solid #fff;
+        color: #fff;
+    }
+
+    .popover.footer .popover-body .footer-section {
+        color: #1d2125;
+
+        a {
+            color: #1d2125;
+        }
+    }
 
     .footer-columns {
         padding: 15px;
@@ -122,6 +141,10 @@
 
     .column-center {
         text-align: center;
+
+        > a {
+            display: none;
+        }
     }
 
     .column-right {
@@ -143,37 +166,19 @@
         text-align: center;
         min-height: inherit;
         color: #fff;
-
-        .madewithmoodle {
-            margin-bottom: .5rem;
-            padding-top: 15px;
-
-            p {
-                text-transform: uppercase;
-                font-weight: 500;
-                font-size: 14px;
-                margin-bottom: 0;
-                display: inline-block;
-            }
-
-            img {
-                max-width: 100px;
-                margin-top: -12px;
-            }
-        }
+        margin-bottom: 0;
 
         .madeby {
-            padding-bottom: 10px;
-
-            a {
-                color: #fff;
-                text-decoration: underline;
-            }
+            padding: .5rem 0;
 
             p {
                 margin-bottom: 0;
             }
         }
+    }
+
+    .btn-footer-popover {
+        bottom: 1rem;
     }
 }
 

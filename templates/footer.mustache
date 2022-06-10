@@ -32,17 +32,10 @@
     }
 }}
 
-<footer id="page-footer" class="bg-white">
+<footer id="page-footer">
     <div class="moove-container-fluid footer-columns">
         <div class="row">
             <div class="col-md-4 column-left">
-                {{# output.should_display_logo }}
-                    <img src="{{output.get_logo}}" class="logo" alt="{{sitename}}">
-                {{/ output.should_display_logo }}
-                {{^ output.should_display_logo }}
-                    <h2>{{{ sitename }}}</h2>
-                {{/ output.should_display_logo }}
-
                 <div class="contact">
                     <h3 class="footer-title">{{#str}}contactus, theme_moove{{/str}}</h3>
 
@@ -141,29 +134,25 @@
                 {{{ output.login_info }}}
 
                 {{{ output.standard_footer_html }}}
+
+                <div class="tool_usertours-resettourcontainer"></div>
             </div>
             <div class="col-md-4 column-right">
-                <div class="tool_usertours-resettourcontainer"></div>
-
                 {{#enablemobilewebservice}}
                     <h3 class="footer-title">{{#str}}getmoodleonyourmobile, tool_mobile{{/str}}</h3>
                     <div class="stores">
                         {{#androidappid}}
                             <a href="https://play.google.com/store/apps/details?id={{androidappid}}">
-                                <img src="{{config.wwwroot}}/theme/moove/pix/store_google.png" alt="Play Store">
+                                <img src="{{config.wwwroot}}/theme/moove/pix/store_google.svg" alt="Play Store">
                             </a>
                         {{/androidappid}}
                         {{#iosappid}}
                             <a class="mt-1" href="https://apps.apple.com/app/id{{iosappid}}">
-                                <img src="{{config.wwwroot}}/theme/moove/pix/store_apple.png" alt="App Store">
+                                <img src="{{config.wwwroot}}/theme/moove/pix/store_apple.svg" alt="App Store">
                             </a>
                         {{/iosappid}}
                     </div>
                 {{/enablemobilewebservice}}
-
-
-
-                {{{ output.standard_end_of_body_html }}}
             </div>
         </div>
     </div>
@@ -174,14 +163,47 @@
         </div>
     </div>
 
-    <div class="copyright">
-        <div class="madewithmoodle">
-            <p>{{#str}}madewitmoodle, theme_moove{{/str}}</p>
-            <a href="https://moodle.org"><img src="{{config.wwwroot}}/theme/moove/pix/moodle-logo-white.png" alt="Moodle logo"></a>
-        </div>
+    <div data-region="footer-container-popover">
+        <button class="btn btn-icon bg-secondary icon-no-margin btn-footer-popover" data-action="footer-popover" aria-label="{{#str}}showfooter, theme_boost{{/str}}">
+            {{#pix}}e/question, core{{/pix}}
+        </button>
+    </div>
+    <div class="footer-content-popover container" data-region="footer-content-popover">
+        {{# output.has_popover_links }}
+            <div class="footer-section p-3 border-bottom">
+                {{# output.page_doc_link }}
+                    <div>{{{ output.page_doc_link }}}</div>
+                {{/ output.page_doc_link }}
 
+                {{# output.services_support_link }}
+                    <div>{{{ output.services_support_link }}}</div>
+                {{/ output.services_support_link }}
+            </div>
+        {{/ output.has_popover_links }}
+        <div class="footer-section p-3">
+            <div>{{#str}}poweredbymoodle, core{{/str}}</div>
+            {{#output.moodle_release}}
+                <div>
+                    {{#str}}version, core{{/str}} {{{ output.moodle_release }}}
+                </div>
+            {{/output.moodle_release}}
+        </div>
+    </div>
+
+    <div class="copyright">
         <div class="madeby">
-            <p>{{#str}}madeby, theme_moove{{/str}} <i class="text-danger fa fa-heart"></i> {{#str}}by, theme_moove{{/str}} <a href="https://conecti.me">conecti.me</a></p>
+            <p>{{#str}}thememadeby, theme_moove{{/str}}</p>
+            <a href="https://conecti.me">
+                <img src="{{config.wwwroot}}/theme/moove/pix/logo_conectime.svg" alt="Conecti.me" style="height: 40px;">
+            </a>
         </div>
     </div>
 </footer>
+
+{{{ output.standard_end_of_body_html }}}
+
+{{#js}}
+    require(['theme_boost/footer-popover'], function(FooterPopover) {
+        FooterPopover.init();
+    });
+{{/js}}

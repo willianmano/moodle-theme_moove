@@ -15,33 +15,42 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Moove.
+ * Adds moove to boost usertours
  *
  * @package    theme_moove
- * @copyright  2022 Willian Mano - conecti.me
+ * @copyright  2022 Willian Mano {@link https://conecti.me}
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
-// This line protects the file from being accessed by a URL directly.
 defined('MOODLE_INTERNAL') || die();
 
-// This is the component name of the plugin - it always starts with 'theme_'
-// for themes and should be the same as the name of the folder.
-$plugin->component = 'theme_moove';
 
-// This is the version of the plugin.
-$plugin->version = 2022052800;
+/**
+ * Adds moove to boost usertours
+ *
+ * @return bool
+ */
+function xmldb_theme_moove_install() {
+    global $DB;
 
-// This is the named version.
-$plugin->release = '4.0.0';
+    $usertours = $DB->get_records('tool_usertours_tours');
 
-// This is a stable release.
-$plugin->maturity = MATURITY_STABLE;
+    if ($usertours) {
+        foreach ($usertours as $usertour) {
+            $configdata = json_decode($usertour->configdata);
 
-// This is the version of Moodle this plugin requires.
-$plugin->requires = 2022041200;
+            if (in_array('boost', $configdata->filtervalues->theme)) {
+                $configdata->filtervalues->theme[] = 'moove';
+            }
 
-// This is a list of plugins, this plugin depends on (and their versions).
-$plugin->dependencies = [
-    'theme_boost' => 2022041900
-];
+            $updatedata = new stdClass();
+            $updatedata->id = $usertour->id;
+            $updatedata->configdata = json_encode($configdata);
+
+            $DB->update_record('tool_usertours_tours', $updatedata);
+        }
+    }
+
+    return true;
+}
+
+
