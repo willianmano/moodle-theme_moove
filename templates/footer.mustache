@@ -35,7 +35,7 @@
 <footer id="page-footer" class="bg-white">
     <div class="moove-container-fluid footer-columns">
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-4 column-left">
                 {{# output.should_display_logo }}
                     <img src="{{output.get_logo}}" class="logo" alt="{{sitename}}">
                 {{/ output.should_display_logo }}
@@ -44,7 +44,7 @@
                 {{/ output.should_display_logo }}
 
                 <div class="contact">
-                    <h3 class="footer-title">Contact us</h3>
+                    <h3 class="footer-title">{{#str}}contactus, theme_moove{{/str}}</h3>
 
                     <ul>
                         {{#website}}
@@ -72,7 +72,7 @@
                 </div>
 
                 <div class="socialnetworks">
-                    <h3 class="footer-title">Follow us</h3>
+                    <h3 class="footer-title">{{#str}}followus, theme_moove{{/str}}</h3>
 
                     <ul class="mb-0">
                         {{#facebook}}
@@ -133,33 +133,35 @@
                     </ul>
                 </div>
             </div>
-            <div class="col-md-4 text-center">
+            <div class="col-md-4 column-center">
+                {{# output.supportemail }}
+                    <div class="supportemail">{{{ output.supportemail }}}</div>
+                {{/ output.supportemail }}
+
                 {{{ output.login_info }}}
 
-                {{# output.supportemail }}
-                    <div class="mt-2">{{{ output.supportemail }}}</div>
-                {{/ output.supportemail }}
+                {{{ output.standard_footer_html }}}
             </div>
-            <div class="col-md-4 text-right">
+            <div class="col-md-4 column-right">
                 <div class="tool_usertours-resettourcontainer"></div>
 
                 {{#enablemobilewebservice}}
-                    <h3 class="footer-title">Get the mobile APP</h3>
+                    <h3 class="footer-title">{{#str}}getmoodleonyourmobile, tool_mobile{{/str}}</h3>
                     <div class="stores">
                         {{#androidappid}}
-                            <a class="d-block" href="https://play.google.com/store/apps/details?id={{androidappid}}">
-                                <img style="max-width: 160px;" src="{{config.wwwroot}}/theme/moove/pix/store_google.png" alt="Play Store">
+                            <a href="https://play.google.com/store/apps/details?id={{androidappid}}">
+                                <img src="{{config.wwwroot}}/theme/moove/pix/store_google.png" alt="Play Store">
                             </a>
                         {{/androidappid}}
                         {{#iosappid}}
-                            <a class="d-block mt-1" href="https://apps.apple.com/app/id{{iosappid}}">
-                                <img style="max-width: 160px;" src="{{config.wwwroot}}/theme/moove/pix/store_apple.png" alt="App Store">
+                            <a class="mt-1" href="https://apps.apple.com/app/id{{iosappid}}">
+                                <img src="{{config.wwwroot}}/theme/moove/pix/store_apple.png" alt="App Store">
                             </a>
                         {{/iosappid}}
                     </div>
                 {{/enablemobilewebservice}}
 
-                {{{ output.standard_footer_html }}}
+
 
                 {{{ output.standard_end_of_body_html }}}
             </div>

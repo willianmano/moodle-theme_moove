@@ -202,8 +202,6 @@ $string['clientsurldesc'] = 'Enter the client\'s site URL';
 
 // Footer settings tab.
 $string['footersettings'] = 'Footer';
-$string['getintouchcontent'] = 'Get In Touch Content';
-$string['getintouchcontentdesc'] = 'Enter Get In Touch Content Text';
 $string['website'] = 'Website URL';
 $string['websitedesc'] = 'Main company Website';
 $string['mobile'] = 'Mobile';
@@ -224,8 +222,8 @@ $string['whatsapp'] = 'Whatsapp number';
 $string['whatsappdesc'] = 'Enter your whatsapp number for contact.';
 $string['telegram'] = 'Telegram';
 $string['telegramdesc'] = 'Enter your Telegram contact or group link.';
-$string['topfooterimg'] = 'Footer image';
-$string['topfooterimgdesc'] = 'Upload your custom footer image here if you want to replace the default image. Recommended size is 1500px x 400px or higher.';
+$string['contactus'] = 'Contact us';
+$string['followus'] = 'Follow us';
 
 $string['certificates'] = 'Certificates';
 $string['certificatestitle'] = 'My certificates';
@@ -235,13 +233,10 @@ $string['nohavecertificates'] = 'You have no certificates yet.';
 $string['coursesections'] = 'Course sections';
 
 // Mypublic page.
-$string['userprofile'] = 'User profile';
-$string['competencyplans'] = 'Competency plans';
-$string['details'] = 'Details';
-$string['startedon'] = 'Started on';
+$string['aboutme'] = 'About me';
+$string['personalinformation'] = 'Personal information';
 $string['addcontact'] = 'Add contact';
 $string['removecontact'] = 'Remove contact';
-$string['certificates'] = 'Certificates';
 
 // NEW STRINGS
 $string['fontsite'] = 'Site font';

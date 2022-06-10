@@ -26,6 +26,8 @@ namespace theme_moove\output;
 
 use theme_config;
 use context_course;
+use moodle_url;
+use html_writer;
 
 defined('MOODLE_INTERNAL') || die;
 
@@ -216,18 +218,107 @@ class core_renderer extends \theme_boost\output\core_renderer {
         global $CFG;
 
         $label = get_string('contactsitesupport', 'admin');
-        $icon = $this->pix_icon('t/email', '', 'moodle', ['class' => 'iconhelp icon-pre']);
+        $icon = $this->pix_icon('t/life-ring', '', 'moodle', ['class' => 'iconhelp icon-pre']);
         $content = $icon . $label;
 
         if (!empty($CFG->supportpage)) {
-            $attributes = ['href' => $CFG->supportpage, 'target' => 'blank', 'class' => 'btn contactsitesupport btn-secondary'];
-            $content .= $this->pix_icon('i/externallink', '', 'moodle', ['class' => 'iconhelp icon-pre']);
+            $attributes = ['href' => $CFG->supportpage, 'target' => 'blank', 'class' => 'btn contactsitesupport btn-outline-info'];
+            $content .= $this->pix_icon('t/life-ring', '', 'moodle', ['class' => 'iconhelp icon-pre']);
         } else {
-            $attributes = ['href' => $CFG->wwwroot . '/user/contactsitesupport.php', 'class' => 'btn contactsitesupport btn-secondary'];
+            $attributes = ['href' => $CFG->wwwroot . '/user/contactsitesupport.php', 'class' => 'btn contactsitesupport btn-outline-info'];
         }
 
         $attributes += $customattribs;
 
         return \html_writer::tag('a', $content, $attributes);
+    }
+
+    /**
+     * Returns the moodle_url for the favicon.
+     *
+     * @since Moodle 2.5.1 2.6
+     * @return moodle_url The moodle_url for the favicon
+     */
+    public function favicon() {
+        global $CFG;
+
+        $theme = theme_config::load('moove');
+
+        $favicon = $theme->setting_file_url('favicon', 'favicon');
+
+        if (!empty(($favicon))) {
+            $urlreplace = preg_replace('|^https?://|i', '//', $CFG->wwwroot);
+            $favicon = str_replace($urlreplace, '', $favicon);
+
+            return new moodle_url($favicon);
+        }
+
+        return parent::favicon();
+    }
+
+    /**
+     * Renders the header bar.
+     *
+     * @param context_header $contextheader Header bar object.
+     * @return string HTML for the header bar.
+     */
+    protected function render_context_header(\context_header $contextheader) {
+        if ($this->page->pagelayout == 'mypublic') {
+            return '';
+        }
+
+        // Generate the heading first and before everything else as we might have to do an early return.
+        if (!isset($contextheader->heading)) {
+            $heading = $this->heading($this->page->heading, $contextheader->headinglevel, 'h2');
+        } else {
+            $heading = $this->heading($contextheader->heading, $contextheader->headinglevel, 'h2');
+        }
+
+        // All the html stuff goes here.
+        $html = html_writer::start_div('page-context-header');
+
+        // Image data.
+        if (isset($contextheader->imagedata)) {
+            // Header specific image.
+            $html .= html_writer::div($contextheader->imagedata, 'page-header-image mr-2');
+        }
+
+        // Headings.
+        if (isset($contextheader->prefix)) {
+            $prefix = html_writer::div($contextheader->prefix, 'text-muted text-uppercase small line-height-3');
+            $heading = $prefix . $heading;
+        }
+        $html .= html_writer::tag('div', $heading, array('class' => 'page-header-headings'));
+
+        // Buttons.
+        if (isset($contextheader->additionalbuttons)) {
+            $html .= html_writer::start_div('btn-group header-button-group');
+            foreach ($contextheader->additionalbuttons as $button) {
+                if (!isset($button->page)) {
+                    // Include js for messaging.
+                    if ($button['buttontype'] === 'togglecontact') {
+                        \core_message\helper::togglecontact_requirejs();
+                    }
+                    if ($button['buttontype'] === 'message') {
+                        \core_message\helper::messageuser_requirejs();
+                    }
+                    $image = $this->pix_icon($button['formattedimage'], $button['title'], 'moodle', array(
+                        'class' => 'iconsmall',
+                        'role' => 'presentation'
+                    ));
+                    $image .= html_writer::span($button['title'], 'header-button-title');
+                } else {
+                    $image = html_writer::empty_tag('img', array(
+                        'src' => $button['formattedimage'],
+                        'role' => 'presentation'
+                    ));
+                }
+                $html .= html_writer::link($button['url'], html_writer::tag('span', $image), $button['linkattributes']);
+            }
+            $html .= html_writer::end_div();
+        }
+        $html .= html_writer::end_div();
+
+        return $html;
     }
 }

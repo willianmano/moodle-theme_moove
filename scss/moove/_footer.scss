@@ -10,8 +10,9 @@
     }
 
     h3.footer-title {
-        font-size: $h5-font-size;
+        font-size: $h6-font-size;
         line-height: 1.2;
+        font-weight: 500;
     }
 
     .socialnetworks,
@@ -113,6 +114,30 @@
         }
     }
 
+    .supportemail,
+    .logininfo,
+    .tool_dataprivacy{
+        margin: .5rem 0;
+    }
+
+    .column-center {
+        text-align: center;
+    }
+
+    .column-right {
+        text-align: right;
+
+        .stores {
+            a {
+                display: block;
+            }
+
+            img {
+                max-width: 160px;
+            }
+        }
+    }
+
     .copyright {
         background-color: $moodle-color;
         text-align: center;
@@ -125,7 +150,7 @@
 
             p {
                 text-transform: uppercase;
-                font-weight: 700;
+                font-weight: 500;
                 font-size: 14px;
                 margin-bottom: 0;
                 display: inline-block;
@@ -151,3 +176,18 @@
         }
     }
 }
+
+@include media-breakpoint-down(sm) {
+    #page-footer {
+        .column-right,
+        .column-left {
+            text-align: center;
+        }
+
+        .column-center,
+        .column-right {
+            margin-top: 1rem;
+        }
+    }
+}
+
