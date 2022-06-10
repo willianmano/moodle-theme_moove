@@ -1,0 +1,153 @@
+#page-footer {
+    margin: 0 -15px;
+
+    .footer-columns {
+        padding: 15px;
+    }
+
+    .logo {
+        max-width: 50%;
+    }
+
+    h3.footer-title {
+        font-size: $h5-font-size;
+        line-height: 1.2;
+    }
+
+    .socialnetworks,
+    .contact {
+        margin-top: .5rem;
+
+        ul {
+            padding-left: 0;
+
+            li {
+                display: inline;
+
+                a {
+                    text-decoration: none;
+                    color: #fff;
+                    width: 38px;
+                    height: 38px;
+
+                    &.btn-rounded {
+                        border-radius: 50%;
+                    }
+
+                    &.website {
+                        background-color: $brand-primary;
+                        &:hover {
+                            background-color: darken($brand-primary, 20%);
+                        }
+                    }
+
+                    &.mobile {
+                        background-color: $brand-primary;
+                        &:hover {
+                            background-color: darken($brand-primary, 20%);
+                        }
+                    }
+
+                    &.mail {
+                        background-color: $brand-primary;
+                        &:hover {
+                            background-color: darken($brand-primary, 20%);
+                        }
+                    }
+
+                    &.facebook {
+                        background-color: $facebook-color;
+                        &:hover {
+                            background-color: darken($facebook-color, 20%);
+                        }
+                    }
+
+                    &.twitter {
+                        background-color: $twitter-color;
+                        &:hover {
+                            background-color: darken($twitter-color, 20%);
+                        }
+                    }
+
+                    &.linkedin {
+                        background-color: $linkedin-color;
+                        &:hover {
+                            background-color: darken($linkedin-color, 20%);
+                        }
+                    }
+
+                    &.youtube {
+                        background-color: $youtube-color;
+                        &:hover {
+                            background-color: darken($youtube-color, 20%);
+                        }
+                    }
+
+                    &.instagram {
+                        background-color: $instagram-color;
+                        &:hover {
+                            background-color: darken($instagram-color, 20%);
+                        }
+                    }
+
+                    &.whatsapp {
+                        background-color: $whatsapp-color;
+                        &:hover {
+                            background-color: darken($whatsapp-color, 20%);
+                        }
+                    }
+
+                    &.telegram {
+                        background-color: $telegram-color;
+
+                        &:hover {
+                            background-color: darken($telegram-color, 20%);
+                        }
+
+                        .fa {
+                            margin-left: -1px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .copyright {
+        background-color: $moodle-color;
+        text-align: center;
+        min-height: inherit;
+        color: #fff;
+
+        .madewithmoodle {
+            margin-bottom: .5rem;
+            padding-top: 15px;
+
+            p {
+                text-transform: uppercase;
+                font-weight: 700;
+                font-size: 14px;
+                margin-bottom: 0;
+                display: inline-block;
+            }
+
+            img {
+                max-width: 100px;
+                margin-top: -12px;
+            }
+        }
+
+        .madeby {
+            padding-bottom: 10px;
+
+            a {
+                color: #fff;
+                text-decoration: underline;
+            }
+
+            p {
+                margin-bottom: 0;
+            }
+        }
+    }
+}

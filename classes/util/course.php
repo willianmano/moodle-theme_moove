@@ -80,9 +80,10 @@ class course {
      * @return array
      */
     public function get_course_contacts() {
-        $contacts = [];
+        $theme = \theme_config::load('moove');
 
-        if ($this->course->has_course_contacts()) {
+        $contacts = [];
+        if ($this->course->has_course_contacts() && !($theme->settings->disableteacherspic)) {
             $instructors = $this->course->get_course_contacts();
 
             foreach ($instructors as $key => $instructor) {

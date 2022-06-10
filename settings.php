@@ -163,8 +163,7 @@ if ($ADMIN->fulltree) {
     $name = 'theme_moove/googleanalytics';
     $title = get_string('googleanalytics', 'theme_moove');
     $description = get_string('googleanalyticsdesc', 'theme_moove');
-    $default = '';
-    $setting = new admin_setting_configtext($name, $title, $description, $default);
+    $setting = new admin_setting_configtext($name, $title, $description, '');
     $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
 
@@ -206,8 +205,7 @@ if ($ADMIN->fulltree) {
     $name = 'theme_moove/alertmsg';
     $title = get_string('alert', 'theme_moove');
     $description = get_string('alert_desc', 'theme_moove');
-    $default = '';
-    $setting = new admin_setting_confightmleditor($name, $title, $description, $default);
+    $setting = new admin_setting_confightmleditor($name, $title, $description, '');
     $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
 
@@ -466,8 +464,7 @@ if ($ADMIN->fulltree) {
         $name = 'theme_moove/slidercap' . $sliderindex;
         $title = get_string('slidercaption', 'theme_moove');
         $description = get_string('slidercaptiondesc', 'theme_moove');
-        $default = '';
-        $setting = new admin_setting_confightmleditor($name, $title, $description, $default);
+        $setting = new admin_setting_confightmleditor($name, $title, $description, '');
         $page->add($setting);
     }
 
@@ -604,20 +601,11 @@ if ($ADMIN->fulltree) {
     */
     $page = new admin_settingpage('theme_moove_footer', get_string('footersettings', 'theme_moove'));
 
-    $name = 'theme_moove/getintouchcontent';
-    $title = get_string('getintouchcontent', 'theme_moove');
-    $description = get_string('getintouchcontentdesc', 'theme_moove');
-    $default = 'Conecti.me';
-    $setting = new admin_setting_configtextarea($name, $title, $description, $default);
-    $setting->set_updatedcallback('theme_reset_all_caches');
-    $page->add($setting);
-
     // Website.
     $name = 'theme_moove/website';
     $title = get_string('website', 'theme_moove');
     $description = get_string('websitedesc', 'theme_moove');
-    $default = 'http://conecti.me';
-    $setting = new admin_setting_configtext($name, $title, $description, $default);
+    $setting = new admin_setting_configtext($name, $title, $description, '');
     $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
 
@@ -625,8 +613,7 @@ if ($ADMIN->fulltree) {
     $name = 'theme_moove/mobile';
     $title = get_string('mobile', 'theme_moove');
     $description = get_string('mobiledesc', 'theme_moove');
-    $default = 'Mobile : +55 (98) 00123-45678';
-    $setting = new admin_setting_configtext($name, $title, $description, $default);
+    $setting = new admin_setting_configtext($name, $title, $description, '');
     $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
 
@@ -634,8 +621,7 @@ if ($ADMIN->fulltree) {
     $name = 'theme_moove/mail';
     $title = get_string('mail', 'theme_moove');
     $description = get_string('maildesc', 'theme_moove');
-    $default = 'willianmano@conecti.me';
-    $setting = new admin_setting_configtext($name, $title, $description, $default);
+    $setting = new admin_setting_configtext($name, $title, $description, '');
     $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
 
@@ -643,8 +629,7 @@ if ($ADMIN->fulltree) {
     $name = 'theme_moove/facebook';
     $title = get_string('facebook', 'theme_moove');
     $description = get_string('facebookdesc', 'theme_moove');
-    $default = '';
-    $setting = new admin_setting_configtext($name, $title, $description, $default);
+    $setting = new admin_setting_configtext($name, $title, $description, '');
     $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
 
@@ -652,8 +637,7 @@ if ($ADMIN->fulltree) {
     $name = 'theme_moove/twitter';
     $title = get_string('twitter', 'theme_moove');
     $description = get_string('twitterdesc', 'theme_moove');
-    $default = '';
-    $setting = new admin_setting_configtext($name, $title, $description, $default);
+    $setting = new admin_setting_configtext($name, $title, $description, '');
     $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
 
@@ -661,8 +645,7 @@ if ($ADMIN->fulltree) {
     $name = 'theme_moove/linkedin';
     $title = get_string('linkedin', 'theme_moove');
     $description = get_string('linkedindesc', 'theme_moove');
-    $default = '';
-    $setting = new admin_setting_configtext($name, $title, $description, $default);
+    $setting = new admin_setting_configtext($name, $title, $description, '');
     $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
 
@@ -670,8 +653,7 @@ if ($ADMIN->fulltree) {
     $name = 'theme_moove/youtube';
     $title = get_string('youtube', 'theme_moove');
     $description = get_string('youtubedesc', 'theme_moove');
-    $default = '';
-    $setting = new admin_setting_configtext($name, $title, $description, $default);
+    $setting = new admin_setting_configtext($name, $title, $description, '');
     $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
 
@@ -679,8 +661,7 @@ if ($ADMIN->fulltree) {
     $name = 'theme_moove/instagram';
     $title = get_string('instagram', 'theme_moove');
     $description = get_string('instagramdesc', 'theme_moove');
-    $default = '';
-    $setting = new admin_setting_configtext($name, $title, $description, $default);
+    $setting = new admin_setting_configtext($name, $title, $description, '');
     $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
 
@@ -688,8 +669,7 @@ if ($ADMIN->fulltree) {
     $name = 'theme_moove/whatsapp';
     $title = get_string('whatsapp', 'theme_moove');
     $description = get_string('whatsappdesc', 'theme_moove');
-    $default = '';
-    $setting = new admin_setting_configtext($name, $title, $description, $default);
+    $setting = new admin_setting_configtext($name, $title, $description, '');
     $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
 
@@ -697,8 +677,7 @@ if ($ADMIN->fulltree) {
     $name = 'theme_moove/telegram';
     $title = get_string('telegram', 'theme_moove');
     $description = get_string('telegramdesc', 'theme_moove');
-    $default = '';
-    $setting = new admin_setting_configtext($name, $title, $description, $default);
+    $setting = new admin_setting_configtext($name, $title, $description, '');
     $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
 

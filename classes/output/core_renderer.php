@@ -205,4 +205,29 @@ class core_renderer extends \theme_boost\output\core_renderer {
 
         return $this->render_from_template('core/loginform', $context);
     }
+
+    /**
+     * Returns the HTML for the site support email link
+     *
+     * @param array $customattribs Array of custom attributes for the support email anchor tag.
+     * @return string The html code for the support email link.
+     */
+    public function supportemail(array $customattribs = []): string {
+        global $CFG;
+
+        $label = get_string('contactsitesupport', 'admin');
+        $icon = $this->pix_icon('t/email', '', 'moodle', ['class' => 'iconhelp icon-pre']);
+        $content = $icon . $label;
+
+        if (!empty($CFG->supportpage)) {
+            $attributes = ['href' => $CFG->supportpage, 'target' => 'blank', 'class' => 'btn contactsitesupport btn-secondary'];
+            $content .= $this->pix_icon('i/externallink', '', 'moodle', ['class' => 'iconhelp icon-pre']);
+        } else {
+            $attributes = ['href' => $CFG->wwwroot . '/user/contactsitesupport.php', 'class' => 'btn contactsitesupport btn-secondary'];
+        }
+
+        $attributes += $customattribs;
+
+        return \html_writer::tag('a', $content, $attributes);
+    }
 }
