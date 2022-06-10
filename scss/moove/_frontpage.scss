@@ -52,6 +52,99 @@
     }
 }
 
+#page-site-index.notloggedin {
+    #slideshow {
+        margin-top: 2rem;
+        padding: 0;
+
+        .carousel-inner {
+            border-radius: .5rem;
+        }
+    }
+
+    #feature {
+        margin-top: 2rem;
+        background-color: #f1f6fd;
+        padding: 5.625rem 0;
+
+        .card {
+            border: 1px solid #e2e8f0;
+        }
+
+        .icon-lg {
+            width: 3.5rem;
+            height: 3.5rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-size: 1.5rem;
+            line-height: 1;
+        }
+    }
+
+    #numbers {
+        margin-top: 2rem;
+        padding: 5.625rem 0;
+
+        .user-rating-box-area {
+            .rate-box {
+                box-shadow: 0 6px 0 rgb(23 135 252 / 65%);
+                border-radius: 25px;
+                padding: 30px 40px 35px 40px;
+
+                &.bg-primary {
+                    background-color: #1787fc !important;
+                }
+
+                &.bg-cloudburst {
+                    background-color: #213053;
+                }
+
+                h3 {
+                    color: #fff;
+                    font-size: 60px;
+                    font-weight: 600;
+                    font-style: normal;
+                    letter-spacing: -1px;
+                    line-height: 66px;
+                    margin-bottom: 30px;
+                }
+
+                p {
+                    color: #fff;
+                    font-size: 17px;
+                    font-weight: 400;
+                    font-style: normal;
+                    letter-spacing: normal;
+                    line-height: 30px;
+                    margin-bottom: 0;
+                }
+            }
+
+            .rate-box-2 {
+                box-shadow: 0 6px 0 rgb(33 48 83 / 65%);
+            }
+        }
+    }
+
+    #topofscroll {
+        background-color: #f1f6fd;
+        margin-top: 2rem;
+
+        #page-content,
+        #region-main {
+            background-color: #f1f6fd;
+        }
+
+        #frontpage-available-course-list {
+            h2 {
+                text-align: center;;
+            }
+        }
+    }
+}
+
 @include media-breakpoint-down(md) {
     .pagelayout-frontpage .dashboard-card,
     .pagelayout-coursecategory .dashboard-card {

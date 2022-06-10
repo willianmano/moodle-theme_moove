@@ -17,7 +17,7 @@
 /**
  * A drawer based layout for the moove theme.
  *
- * @package    theme_boost
+ * @package    theme_moove
  * @copyright  2022 Willian Mano {@link https://conecti.me}
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */

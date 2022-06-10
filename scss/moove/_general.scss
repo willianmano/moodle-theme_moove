@@ -68,6 +68,10 @@ a {
     background-color: darken($brand-primary, 10%);
 }
 
+.shadow {
+    box-shadow: 0 0.375rem 1.5rem 0 rgb(140 152 164 / 13%) !important;
+}
+
 @include media-breakpoint-up(md) {
     .pagelayout-standard #page.drawers .main-inner,
     body.limitedwidth #page.drawers .main-inner,

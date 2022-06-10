@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * A drawer based layout for the moove theme.
+ * Frontpage layout for the moove theme.
  *
  * @package    theme_moove
  * @copyright  2022 Willian Mano {@link https://conecti.me}
@@ -118,4 +118,8 @@ $themesettings = new \theme_moove\util\settings();
 
 $templatecontext = array_merge($templatecontext, $themesettings->footer());
 
-echo $OUTPUT->render_from_template('theme_moove/drawers', $templatecontext);
+if (isloggedin()) {
+    echo $OUTPUT->render_from_template('theme_moove/drawers', $templatecontext);
+} else {
+    echo $OUTPUT->render_from_template('theme_moove/frontpage', $templatecontext);
+}
