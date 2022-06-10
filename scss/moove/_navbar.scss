@@ -72,3 +72,104 @@
         }
     }
 }
+
+.popover-region-notifications .popover-region-container {
+    @extend .scale-up;
+    top: 70px;
+
+    .popover-region-header-container {
+        height: 50px;
+        padding: 11px 20px 15px;
+        border-bottom: 1px solid rgba(120, 130, 140, 0.13);
+    }
+
+    .popover-region-content-container {
+        height: calc(100% - 50px);
+
+        .content-item-container {
+            line-height: initial;
+            background-color: #fff;
+            padding: 15px;
+
+            &.unread {
+                background-color: #f4f4f4;
+            }
+
+            &:hover {
+                background-color: $body-bg;
+                color: inherit;
+
+                .content-item-footer .timestamp {
+                    color: inherit;
+                }
+            }
+
+            .content-item-body {
+                font-weight: normal;
+                width: calc(100% - 54px);
+
+                h3,
+                .notification-message {
+                    font-size: 1.2rem;
+                    margin-bottom: 5px;
+                    font-weight: normal;
+                }
+
+                p {
+                    line-height: initial;
+                }
+
+                .notification-message {
+                    font-size: 1rem;
+                }
+            }
+
+            .view-more {
+                font-size: .9rem;
+            }
+
+            .content-item-footer .timestamp {
+                font-size: .9rem;
+                line-height: inherit;
+            }
+
+            .unread-count-container {
+                width: 24px;
+
+                .badge {
+                    background-color: $brand-primary;
+                    width: 21px;
+                    height: 21px;
+                    border-radius: 11px;
+                    line-height: 17px;
+                }
+            }
+        }
+    }
+
+    .popover-region-footer-container {
+        height: 50px;
+        padding: 15px 20px;
+        border: 1px solid #ddd;
+        margin: 0 -1px;
+
+        .popover-region-seeall-text {
+            line-height: initial;
+        }
+    }
+}
+
+.popover-region-notifications .popover-region-container[aria-hidden="false"] {
+    @extend .scale-up-show;
+}
+
+[data-region=right-hand-drawer].drawer {
+    top: 70px;
+    height: calc(100% - 70px);
+
+    .footer-container {
+        padding: .5rem 0;
+        background-color: #fff;
+        color: #1d2125;
+    }
+}
