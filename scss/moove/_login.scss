@@ -12,10 +12,6 @@
     .login-identityprovider-btn.facebook {
         background-color: $facebook-color;
         color: #fff;
-
-        &:hover {
-            background-color: darken($facebook-color, 5%);
-        }
     }
 }
 
