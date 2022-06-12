@@ -47,8 +47,6 @@ class core_renderer extends \theme_boost\output\core_renderer {
      * @return string HTML fragment.
      */
     public function standard_head_html() {
-        global $CFG;
-
         $output = parent::standard_head_html();
 
         $googleanalyticscode = "<script
@@ -75,8 +73,6 @@ class core_renderer extends \theme_boost\output\core_renderer {
         $output .= '<link rel="preconnect" href="https://fonts.googleapis.com">
                        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
                        <link href="https://fonts.googleapis.com/css2?family='.$sitefont.':ital,wght@0,300;0,400;0,500;0,700;1,400" rel="stylesheet">';
-
-        $output .= "<link rel='manifest' href='{$CFG->wwwroot}/theme/moove/mobile.webmanifest.php'>";
 
         return $output;
     }
