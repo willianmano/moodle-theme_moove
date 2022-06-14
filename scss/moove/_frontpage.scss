@@ -124,6 +124,7 @@
             }
 
             .rate-box-2 {
+                margin-top: 0;
                 box-shadow: 0 6px 0 rgb(33 48 83 / 65%);
             }
         }
@@ -190,5 +191,25 @@
         margin: 1rem 0;
         -webkit-box-shadow: none;
         box-shadow: none;
+    }
+
+    #page-site-index.notloggedin {
+        .footer-content-popover .footer-section {
+            text-align: center;
+        }
+
+        .column-right .footer-title {
+            display: none;
+        }
+    }
+}
+
+@media (max-width: 576px) {
+    #page-site-index.notloggedin {
+        #numbers {
+            .rate-box-2 {
+                margin-top: 1rem !important;
+            }
+        }
     }
 }

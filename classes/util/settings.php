@@ -90,6 +90,11 @@ class settings {
             if (!empty($androidappid)) {
                 $templatecontext['androidappid'] = $androidappid;
             }
+
+            $setuplink = get_config('tool_mobile', 'setuplink');
+            if (!empty($setuplink)) {
+                $templatecontext['mobilesetuplink'] = $setuplink;
+            }
         }
 
         return $templatecontext;

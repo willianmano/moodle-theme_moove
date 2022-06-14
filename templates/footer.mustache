@@ -139,7 +139,12 @@
             </div>
             <div class="col-md-4 column-right">
                 {{#enablemobilewebservice}}
-                    <h3 class="footer-title">{{#str}}getmoodleonyourmobile, tool_mobile{{/str}}</h3>
+                    {{#mobilesetuplink}}
+                        <a href="{{{mobilesetuplink}}}">{{#str}}getmoodleonyourmobile, tool_mobile{{/str}}</a>
+                    {{/mobilesetuplink}}
+                    {{^mobilesetuplink}}
+                        <h3 class="footer-title">{{#str}}getmoodleonyourmobile, tool_mobile{{/str}}</h3>
+                    {{/mobilesetuplink}}
                     <div class="stores">
                         {{#androidappid}}
                             <a href="https://play.google.com/store/apps/details?id={{androidappid}}">
