@@ -27,8 +27,6 @@ namespace theme_moove\output\core_user;
 use core_user\output\myprofile\category;
 use core_user\output\myprofile\renderer;
 
-defined('MOODLE_INTERNAL') || die;
-
 /**
  * Overriden my profile core renderer.
  *

@@ -24,8 +24,6 @@
 
 namespace theme_moove\api;
 
-defined('MOODLE_INTERNAL') || die;
-
 use external_api;
 use external_function_parameters;
 use external_single_structure;

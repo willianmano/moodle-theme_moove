@@ -24,14 +24,10 @@
 
 namespace theme_moove\util;
 
-defined('MOODLE_INTERNAL') || die();
-
 use moodle_url;
 use core_course_list_element;
-use html_writer;
 use coursecat_helper;
 use core_course_category;
-
 
 /**
  * Course class utility class
@@ -41,6 +37,9 @@ use core_course_category;
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class course {
+    /**
+     * @var \stdClass $course The course object.
+     */
     protected $course;
 
     /**
@@ -121,7 +120,9 @@ class course {
      */
     public function get_summary(coursecat_helper $chelper): string {
         if ($this->course->has_summary()) {
-            return $chelper->get_course_formatted_summary($this->course, ['overflowdiv' => true, 'noclean' => true, 'para' => false]);
+            return $chelper->get_course_formatted_summary($this->course,
+                ['overflowdiv' => true, 'noclean' => true, 'para' => false]
+            );
         }
 
         return false;
@@ -155,6 +156,11 @@ class course {
         return [];
     }
 
+    /**
+     * Get the user progress in the course.
+     *
+     * @return mixed
+     */
     public function get_progress($userid = null) {
         return \core_completion\progress::get_course_progress_percentage($this->course, $userid);
     }

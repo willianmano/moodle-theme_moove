@@ -23,8 +23,6 @@
  */
 namespace theme_moove\output\core_course;
 
-defined('MOODLE_INTERNAL') || die();
-
 use renderable;
 use templatable;
 use url_select;

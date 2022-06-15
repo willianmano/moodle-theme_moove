@@ -26,8 +26,6 @@ namespace theme_moove\util;
 
 use moodle_url;
 
-defined('MOODLE_INTERNAL') || die();
-
 /**
  * Class to get some extras info in Moodle.
  *
@@ -86,6 +84,18 @@ class extras {
         return $headerbuttons;
     }
 
+    /**
+     * Returns edit profile url
+     *
+     * @param \stdClass $user
+     * @param int $courseid
+     *
+     * @return false|moodle_url
+     *
+     * @throws \coding_exception
+     * @throws \dml_exception
+     * @throws \moodle_exception
+     */
     public static function get_mypublic_editprofile_url($user, $courseid = 1) {
         global $USER;
 
@@ -96,8 +106,11 @@ class extras {
 
         // Edit profile.
         if (isloggedin() && !isguestuser($user) && !is_mnet_remote_user($user)) {
-            if (($iscurrentuser || is_siteadmin($USER) || !is_siteadmin($user)) && has_capability('moodle/user:update', $systemcontext)) {
-                return new moodle_url('/user/editadvanced.php', array('id' => $user->id, 'course' => $courseid, 'returnto' => 'profile'));
+            if (($iscurrentuser || is_siteadmin($USER)) ||
+                (!is_siteadmin($user) && has_capability('moodle/user:update', $systemcontext))) {
+                return new moodle_url('/user/editadvanced.php',
+                    ['id' => $user->id, 'course' => $courseid, 'returnto' => 'profile']
+                );
             }
 
             if ((has_capability('moodle/user:editprofile', $usercontext) && !is_siteadmin($user))

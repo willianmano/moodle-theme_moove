@@ -36,6 +36,8 @@ $string['themedevelopedby'] = 'This theme was developed by';
 $string['access'] = 'Access';
 $string['prev_activity'] = 'Previous activity';
 $string['next_activity'] = 'Next activity';
+$string['donthaveanaccount'] = 'Don\'t have an account?';
+$string['signinwith'] = 'Sign in with';
 
 // General settings tab.
 $string['generalsettings'] = 'General';
@@ -57,6 +59,8 @@ $string['navbarbg'] = 'Navbar color';
 $string['navbarbg_desc'] = 'The left navbar color';
 $string['navbarbghover'] = 'Navbar hover color';
 $string['navbarbghover_desc'] = 'The left navbar hover color';
+$string['fontsite'] = 'Site font';
+$string['fontsite_desc'] = 'Default font site. You can try out the fonts on <a href="https://fonts.google.com">Google Fonts site</a>.';
 
 // Advanced settings tab.
 $string['advancedsettings'] = 'Advanced';
@@ -134,12 +138,6 @@ $string['aboutme'] = 'About me';
 $string['personalinformation'] = 'Personal information';
 $string['addcontact'] = 'Add contact';
 $string['removecontact'] = 'Remove contact';
-
-// NEW STRINGS
-$string['fontsite'] = 'Site font';
-$string['fontsite_desc'] = 'Default font site. You can try out the fonts on <a href="https://fonts.google.com">Google Fonts site</a>.';
-$string['donthaveanaccount'] = 'Don\'t have an account?';
-$string['signinwith'] = 'Sign in with';
 
 // Theme settings.
 $string['themesettings:accessibility'] = 'Accessibility';

@@ -23,8 +23,6 @@
  */
 namespace theme_moove\output;
 
-defined('MOODLE_INTERNAL') || die;
-
 use plugin_renderer_base;
 
 /**
@@ -35,16 +33,4 @@ use plugin_renderer_base;
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class renderer extends plugin_renderer_base {
-    /**
-     * Return the main content for the view page.
-     *
-     * @param \renderable $main The main renderable
-     *
-     * @return string HTML string
-     *
-     * @throws \moodle_exception
-     */
-    public function render_certificates(\renderable $main) {
-        return $this->render_from_template('theme_moove/certificates', $main->export_for_template($this));
-    }
 }

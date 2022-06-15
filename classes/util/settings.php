@@ -26,8 +26,6 @@ namespace theme_moove\util;
 
 use theme_config;
 
-defined('MOODLE_INTERNAL') || die();
-
 /**
  * Helper to load a theme configuration.
  *
@@ -36,7 +34,13 @@ defined('MOODLE_INTERNAL') || die();
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class settings {
+    /**
+     * @var \stdClass $theme The theme object.
+     */
     protected $theme;
+    /**
+     * @var array $files Theme file settings.
+     */
     protected $files = [
         'loginbg',
         'sliderimage1', 'sliderimage2', 'sliderimage3', 'sliderimage4',
@@ -52,6 +56,8 @@ class settings {
 
     /**
      * Magic method to get theme settings
+     *
+     * @param $name
      *
      * @return mixed
      */
@@ -114,7 +120,11 @@ class settings {
      * @return array
      */
     public function frontpage() {
-        return array_merge($this->frontpage_slideshow(), $this->frontpage_marketingboxes(), $this->frontpage_numbers(), $this->faq());
+        return array_merge($this->frontpage_slideshow(),
+            $this->frontpage_marketingboxes(),
+            $this->frontpage_numbers(),
+            $this->faq()
+        );
     }
 
     /**
@@ -156,7 +166,8 @@ class settings {
 
                 $templatecontext['marketingboxes'][$j]['icon'] = $this->$marketingicon ?: $defaultimage->out();
                 $templatecontext['marketingboxes'][$j]['heading'] = $this->$marketingheading ?: 'Lorem';
-                $templatecontext['marketingboxes'][$j]['content'] = $this->$marketingcontent ?: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.';
+                $templatecontext['marketingboxes'][$j]['content'] = $this->$marketingcontent ?:
+                    'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.';
             }
         }
 

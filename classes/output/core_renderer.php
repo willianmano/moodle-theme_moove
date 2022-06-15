@@ -30,8 +30,6 @@ use moodle_url;
 use html_writer;
 use theme_moove\output\core_course\activity_navigation;
 
-defined('MOODLE_INTERNAL') || die;
-
 /**
  * Renderers to align Moodle's HTML with that expected by Bootstrap
  *
@@ -73,7 +71,9 @@ class core_renderer extends \theme_boost\output\core_renderer {
 
         $output .= '<link rel="preconnect" href="https://fonts.googleapis.com">
                        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-                       <link href="https://fonts.googleapis.com/css2?family='.$sitefont.':ital,wght@0,300;0,400;0,500;0,700;1,400" rel="stylesheet">';
+                       <link href="https://fonts.googleapis.com/css2?family='
+                        . $sitefont .
+                       ':ital,wght@0,300;0,400;0,500;0,700;1,400" rel="stylesheet">';
 
         return $output;
     }
@@ -141,6 +141,11 @@ class core_renderer extends \theme_boost\output\core_renderer {
         return !empty($logo);
     }
 
+    /**
+     * Get the main logo URL.
+     *
+     * @return string
+     */
     public function get_logo() {
         $logo = $this->get_theme_logo_url();
 
@@ -198,7 +203,7 @@ class core_renderer extends \theme_boost\output\core_renderer {
             foreach ($context->identityproviders as $key => $provider) {
                 $isfacebook = false;
 
-                if(strpos($provider['iconurl'], 'facebook') !== false) {
+                if (strpos($provider['iconurl'], 'facebook') !== false) {
                     $isfacebook = true;
                 }
 
@@ -226,7 +231,10 @@ class core_renderer extends \theme_boost\output\core_renderer {
             $attributes = ['href' => $CFG->supportpage, 'target' => 'blank', 'class' => 'btn contactsitesupport btn-outline-info'];
             $content .= $this->pix_icon('t/life-ring', '', 'moodle', ['class' => 'iconhelp icon-pre']);
         } else {
-            $attributes = ['href' => $CFG->wwwroot . '/user/contactsitesupport.php', 'class' => 'btn contactsitesupport btn-outline-info'];
+            $attributes = [
+                'href' => $CFG->wwwroot . '/user/contactsitesupport.php',
+                'class' => 'btn contactsitesupport btn-outline-info'
+            ];
         }
 
         $attributes += $customattribs;

@@ -24,8 +24,6 @@
 
 namespace theme_moove\util;
 
-defined('MOODLE_INTERNAL') || die();
-
 use stdClass;
 use user_picture;
 
@@ -37,6 +35,9 @@ use user_picture;
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class user {
+    /**
+     * @var \stdClass $user The user object.
+     */
     protected $user;
 
     /**
@@ -62,7 +63,6 @@ class user {
     /**
      * Returns the user picture
      *
-     * @param null $userobject
      * @param int $imgsize
      *
      * @return \moodle_url

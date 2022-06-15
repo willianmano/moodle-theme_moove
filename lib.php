@@ -22,8 +22,6 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-defined('MOODLE_INTERNAL') || die();
-
 /**
  * Returns the main SCSS content.
  *
@@ -144,7 +142,8 @@ function theme_moove_get_precompiled_css() {
 function theme_moove_pluginfile($course, $cm, $context, $filearea, $args, $forcedownload, array $options = array()) {
     $theme = theme_config::load('moove');
 
-    if ($context->contextlevel == CONTEXT_SYSTEM && ($filearea === 'logo' || $filearea === 'loginbgimg' || $filearea == 'favicon')) {
+    if ($context->contextlevel == CONTEXT_SYSTEM &&
+        ($filearea === 'logo' || $filearea === 'loginbgimg' || $filearea == 'favicon')) {
         $theme = theme_config::load('moove');
         // By default, theme files must be cache-able by both browsers and proxies.
         if (!array_key_exists('cacheability', $options)) {

@@ -23,8 +23,6 @@
  *
  */
 
-defined('MOODLE_INTERNAL') || die;
-
 /**
  * Upgrade.
  *
