@@ -41,7 +41,7 @@ class course_renderer extends \core_course_renderer {
     /**
      * Renders the list of courses
      *
-     * This is internal function, please use {@link \core_course_renderer::courses_list()} or another public
+     * This is internal function, please use core_course_renderer::courses_list() or another public
      * method from outside of the class
      *
      * If list of courses is specified in $courses; the argument $chelper is only used
@@ -117,7 +117,7 @@ class course_renderer extends \core_course_renderer {
         foreach ($courses as $course) {
             $content .= $this->coursecat_coursebox($chelper, $course);
 
-            if ($coursecount % 4 == 0) {
+            if ($coursecount % 3 == 0) {
                 $content .= html_writer::end_tag('div');
                 $content .= html_writer::start_tag('div', array('class' => 'card-deck dashboard-card-deck mt-2'));
             }
@@ -227,7 +227,7 @@ class course_renderer extends \core_course_renderer {
      *
      * @return array
      */
-    private function render_enrolment_icons($icons) {
+    protected function render_enrolment_icons($icons): array {
         $data = [];
 
         foreach ($icons as $icon) {

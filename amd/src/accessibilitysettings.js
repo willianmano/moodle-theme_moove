@@ -38,11 +38,12 @@ define(['jquery', 'core/modal_factory', 'theme_moove/accessibilitysettings_modal
          * Open / close the blocks drawer.
          */
         AccessibilitySettings.prototype.openAccessibilitySettingsModal = function() {
+            // eslint-disable-next-line promise/catch-or-return
             ModalFactory.create({
                 type: AccessibilitySettingsModal.TYPE
             })
             .then(function(modal) {
-                modal.show();
+                return modal.show();
             });
         };
 

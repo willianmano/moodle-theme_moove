@@ -159,6 +159,8 @@ class course {
     /**
      * Get the user progress in the course.
      *
+     * @param null $userid
+     *
      * @return mixed
      */
     public function get_progress($userid = null) {
