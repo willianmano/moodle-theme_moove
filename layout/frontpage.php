@@ -121,5 +121,7 @@ $templatecontext = array_merge($templatecontext, $themesettings->footer());
 if (isloggedin()) {
     echo $OUTPUT->render_from_template('theme_moove/drawers', $templatecontext);
 } else {
+    $templatecontext = array_merge($templatecontext, $themesettings->frontpage());
+
     echo $OUTPUT->render_from_template('theme_moove/frontpage', $templatecontext);
 }

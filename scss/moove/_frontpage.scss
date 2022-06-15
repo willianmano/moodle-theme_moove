@@ -53,8 +53,9 @@
 }
 
 #page-site-index.notloggedin {
-    #slideshow {
+    #mooveslideshow {
         margin-top: 2rem;
+        margin-bottom: 2rem;
         padding: 0;
 
         .carousel-inner {
@@ -63,7 +64,6 @@
     }
 
     #feature {
-        margin-top: 2rem;
         background-color: #f1f6fd;
         padding: 4rem 0;
         margin-left: -15px;
@@ -74,19 +74,25 @@
         }
 
         .icon-lg {
-            width: 3.5rem;
-            height: 3.5rem;
+            width: 6rem;
+            height: 6rem;
             display: inline-flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            font-size: 1.5rem;
-            line-height: 1;
+
+            img {
+                max-width: 100%;
+            }
         }
     }
 
     #numbers {
         padding: 5.625rem 0;
+
+        .sectionheading p {
+            line-height: 1;
+        }
 
         .user-rating-box-area {
             .rate-box {

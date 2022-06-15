@@ -62,130 +62,95 @@
     <div id="page" data-region="mainpage" data-usertour="scroller" class="drawers drag-container bg-white">
 
 
-        <div id="slideshow" class="container-fluid">
-            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <div id="mooveslideshow" class="container-fluid">
+            <div id="carouselIndicators" class="carousel slide" data-ride="carousel">
                 <ol class="carousel-indicators">
-                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                    {{#slides}}
+                        <li data-target="#mooveslideshow" data-slide-to="{{{ key }}}" {{#active}}class="active"{{/active}}></li>
+                    {{/slides}}
                 </ol>
                 <div class="carousel-inner">
-                    <div class="carousel-item active" style="width: 100%; height: 600px; background: url('{{config.wwwroot}}/theme/moove/pix/slide1.png') no-repeat; background-size: cover; background-position: center;">
-                    </div>
-                    <div class="carousel-item" style="width: 100%; height: 600px; background: url('{{config.wwwroot}}/theme/moove/pix/slide2.png') no-repeat; background-size: cover; background-position: center;">
-                    </div>
+                    {{#slides}}
+                        <div class="carousel-item {{#active}}active{{/active}}" style="width: 100%; height: 600px; background: url('{{image}}') no-repeat; background-size: cover; background-position: center;">
+                        </div>
+                    {{/slides}}
                 </div>
-                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <a class="carousel-control-prev" href="#carouselIndicators" role="button" data-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
+                    <span class="sr-only">{{#str}}previous{{/str}}</span>
                 </a>
-                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <a class="carousel-control-next" href="#carouselIndicators" role="button" data-slide="next">
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
+                    <span class="sr-only">{{#str}}next{{/str}}</span>
                 </a>
             </div>
         </div>
 
-        <section id="feature">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-4 my-3 wow fadeInLeft" data-wow-duration="0.5s" data-wow-delay="0.1s" style="visibility: visible; animation-duration: 0.5s; animation-delay: 0.1s; animation-name: fadeInLeft;">
-                        <h3 class="h1 mt-3 mb-3">Awesome App Features</h3>
-                        <p>Mombo is a HTML5 template based on Sass and Bootstrap 5 with modern and creative multipurpose design you can use it as a startups.</p>
+        {{#displaymarketingbox}}
+            <section id="feature">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-4 my-3">
+                            <h3 class="h1 mt-3 mb-3">{{{marketingheading}}}</h3>
+                            <p>{{{marketingcontent}}}</p>
+                        </div>
+                        <div class="col-lg-8 ps-xl-8">
+                            <div class="row">
+                                {{#marketingboxes}}
+                                    <div class="col-sm-6 mt-4">
+                                        <div class="card card-body shadow">
+                                            <div class="d-flex">
+                                                <div class="icon-lg text-white rounded-circle">
+                                                    <img src="{{{icon}}}">
+                                                </div>
+                                                <div class="col ps-3">
+                                                    <h5>{{{heading}}}</h5>
+                                                    <p class="m-0">{{{content}}}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                {{/marketingboxes}}
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-lg-8 ps-xl-8 wow fadeInRight" data-wow-duration="0.5s" data-wow-delay="0.1s" style="visibility: visible; animation-duration: 0.5s; animation-delay: 0.1s; animation-name: fadeInRight;">
-                        <div class="row">
-                            <div class="col-sm-6 mt-4">
-                                <div class="card card-body shadow">
-                                    <div class="d-flex">
-                                        <div class="icon-lg bg-primary text-white rounded-circle"><i class="fa fa-code"></i></div>
-                                        <div class="col ps-3">
-                                            <h5>Clean Design</h5>
-                                            <p class="m-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.</p>
-                                        </div>
+                </div>
+            </section>
+        {{/displaymarketingbox}}
+
+        {{#numbersfrontpage}}
+            <section id="numbers">
+                <div class="moove-container-fluid">
+                    <div class="row customer-area-l1 justify-content-center align-items-center ">
+                        <div class="col-xl-5 col-lg-5 col-md-10">
+                            <div class="sectionheading">
+                                {{{numberscontent}}}
+                            </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-7 col-md-10 offset-xl-1">
+                            <div class="row user-rating-box-area">
+                                <div class="col-sm-6 col-xs-8">
+                                    <div class="h-100 rate-box bg-primary">
+                                        <h3>
+                                            {{{numbersusers}}}
+                                        </h3>
+                                        <p>{{#str}}numbersusers, theme_moove{{/str}}</p>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-sm-6 mt-4">
-                                <div class="card card-body shadow">
-                                    <div class="d-flex">
-                                        <div class="icon-lg bg-primary text-white rounded-circle"><i class="fa fa-coffee"></i></div>
-                                        <div class="col ps-3">
-                                            <h5>Customizable</h5>
-                                            <p class="m-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-6 mt-4">
-                                <div class="card card-body shadow">
-                                    <div class="d-flex">
-                                        <div class="icon-lg bg-primary text-white rounded-circle"><i class="fa fa-laptop"></i></div>
-                                        <div class="col ps-3">
-                                            <h5>Fully Responsive</h5>
-                                            <p class="m-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-6 mt-4">
-                                <div class="card card-body shadow">
-                                    <div class="d-flex">
-                                        <div class="icon-lg bg-primary text-white rounded-circle"><i class="fa fa-cog"></i></div>
-                                        <div class="col ps-3">
-                                            <h5>Retina Ready</h5>
-                                            <p class="m-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.</p>
-                                        </div>
+                                <div class="col-sm-6 col-xs-8">
+                                    <div class="h-100 rate-box rate-box-2 bg-cloudburst">
+                                        <h3>
+                                            {{{numberscourses}}}
+                                        </h3>
+                                        <p>{{#str}}numberscourses, theme_moove{{/str}}</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
-
-
-        <section id="numbers">
-            <div class="moove-container-fluid">
-                <div class="row customer-area-l1 justify-content-center align-items-center ">
-                    <div class="col-xl-5 col-lg-5 col-md-10">
-                        <div class="section__heading">
-                            <h2>Trusted by 25,000+ happy customers.</h2>
-                            <p>With lots of unique blocks, you can easily build <br class="d-none d-sm-block d-md-none d-xl-block">
-                                a page without coding. Build your next website <br class="d-none d-sm-block d-md-none d-xl-block">
-                                within few minutes.</p>
-                        </div>
-                    </div>
-                    <div class="col-xl-6 col-lg-7 col-md-10 offset-xl-1">
-                        <div class="row user-rating-box-area">
-                            <div class="col-sm-6 col-xs-8">
-                                <div class="h-100 rate-box bg-primary">
-                                    <h3>
-                                        15k
-                                    </h3>
-                                    <p>Active users visiting <br> us every month!</p>
-                                </div>
-                            </div>
-                            <div class="col-sm-6 col-xs-8">
-                                <div class="h-100 rate-box rate-box-2 bg-cloudburst">
-                                    <h3>
-                                        4.9
-                                    </h3>
-                                    <ul class="list-inline d-flex">
-                                        <li class="text-white"><i class="fa fa-star"></i></li>
-                                        <li class="text-white"><i class="fa fa-star"></i></li>
-                                        <li class="text-white"><i class="fa fa-star"></i></li>
-                                        <li class="text-white"><i class="fa fa-star"></i></li>
-                                        <li class="text-white"><i class="fa fa-star"></i></li>
-                                    </ul>
-                                    <p>1,938 Rating</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+            </section>
+        {{/numbersfrontpage}}
 
         <div id="topofscroll">
             <div id="page-content" class="d-print-block main-inner">
@@ -199,62 +164,33 @@
             </div>
         </div>
 
-        <section id="faq">
-            <div class="moove-container-fluid">
-                <h2>FAQ</h2>
+        {{#faqenabled}}
+            <section id="faq" class="scale-up scale-up-show">
+                <div class="moove-container-fluid">
+                    <h2>{{#str}}faq, theme_moove{{/str}}</h2>
 
-                <div class="accordion" id="accordionFaq">
-                    <div class="card shadow">
-                        <div class="card-header" id="headingOne">
-                            <h2 class="mb-0">
-                                <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                    Collapsible Group Item #1
-                                </button>
-                            </h2>
-                        </div>
+                    <div class="accordion" id="accordionFaq">
+                        {{#faq}}
+                            <div class="card shadow">
+                                <div class="card-header" id="heading-{{{id}}}">
+                                    <h2 class="mb-0">
+                                        <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapse-{{{id}}}" aria-expanded="false" aria-controls="collapse-{{{id}}}">
+                                            {{{question}}}
+                                        </button>
+                                    </h2>
+                                </div>
 
-                        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionFaq">
-                            <div class="card-body">
-                                Some placeholder content for the first accordion panel. This panel is shown by default, thanks to the <code>.show</code> class.
-                                Some placeholder content for the first accordion panel. This panel is shown by default, thanks to the <code>.show</code> class.
-                                Some placeholder content for the first accordion panel. This panel is shown by default, thanks to the <code>.show</code> class.
-                                Some placeholder content for the first accordion panel. This panel is shown by default, thanks to the <code>.show</code> class.
-                                Some placeholder content for the first accordion panel. This panel is shown by default, thanks to the <code>.show</code> class.
-                                Some placeholder content for the first accordion panel. This panel is shown by default, thanks to the <code>.show</code> class.
+                                <div id="collapse-{{{id}}}" class="collapse" aria-labelledby="heading-{{{id}}}" data-parent="#accordionFaq">
+                                    <div class="card-body">
+                                        {{{answer}}}
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="card shadow">
-                        <div class="card-header" id="headingTwo">
-                            <h2 class="mb-0">
-                                <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                    Collapsible Group Item #2
-                                </button>
-                            </h2>
-                        </div>
-                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionFaq">
-                            <div class="card-body">
-                                Some placeholder content for the second accordion panel. This panel is hidden by default.
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card shadow">
-                        <div class="card-header" id="headingThree">
-                            <h2 class="mb-0">
-                                <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                    Collapsible Group Item #3
-                                </button>
-                            </h2>
-                        </div>
-                        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionFaq">
-                            <div class="card-body">
-                                And lastly, the placeholder content for the third and final accordion panel. This panel is hidden by default.
-                            </div>
-                        </div>
+                        {{/faq}}
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
+        {{/faqenabled}}
 
         {{> theme_moove/footer }}
     </div>

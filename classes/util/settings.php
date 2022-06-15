@@ -37,12 +37,24 @@ defined('MOODLE_INTERNAL') || die();
  */
 class settings {
     protected $theme;
-    protected $files = ['loginbg'];
+    protected $files = [
+        'loginbg',
+        'sliderimage1', 'sliderimage2', 'sliderimage3', 'sliderimage4',
+        'marketing1icon', 'marketing2icon', 'marketing3icon', 'marketing4icon'
+    ];
 
+    /**
+     * Class constructor
+     */
     public function __construct() {
         $this->theme = theme_config::load('moove');
     }
 
+    /**
+     * Magic method to get theme settings
+     *
+     * @return mixed
+     */
     public function __get($name) {
         if (in_array($name, $this->files)) {
             return $this->theme->setting_file_url($name, $name);
@@ -63,19 +75,15 @@ class settings {
     public function footer() {
         global $CFG;
 
-        $theme = theme_config::load('moove');
-
         $templatecontext = [];
 
-        $footersettings = [
+        $settings = [
             'facebook', 'twitter', 'linkedin', 'youtube', 'instagram', 'whatsapp', 'telegram',
-            'website', 'mobile', 'mail', 'disablebottomfooter'
+            'website', 'mobile', 'mail'
         ];
 
-        foreach ($footersettings as $setting) {
-            if (!empty($theme->settings->$setting)) {
-                $templatecontext[$setting] = $theme->settings->$setting;
-            }
+        foreach ($settings as $setting) {
+            $templatecontext[$setting] = $this->$setting;
         }
 
         $templatecontext['enablemobilewebservice'] = $CFG->enablemobilewebservice;
@@ -94,6 +102,110 @@ class settings {
             $setuplink = get_config('tool_mobile', 'setuplink');
             if (!empty($setuplink)) {
                 $templatecontext['mobilesetuplink'] = $setuplink;
+            }
+        }
+
+        return $templatecontext;
+    }
+
+    /**
+     * Get frontpage settings
+     *
+     * @return array
+     */
+    public function frontpage() {
+        return array_merge($this->frontpage_slideshow(), $this->frontpage_marketingboxes(), $this->frontpage_numbers(), $this->faq());
+    }
+
+    /**
+     * Get config theme slideshow
+     *
+     * @return array
+     */
+    public function frontpage_slideshow() {
+        $templatecontext['slidercount'] = $this->slidercount;
+
+        $defaultimage = new \moodle_url('/theme/moove/pix/default_slide.jpg');
+        for ($i = 1, $j = 0; $i <= $templatecontext['slidercount']; $i++, $j++) {
+            $sliderimage = "sliderimage{$i}";
+
+            $templatecontext['slides'][$j]['key'] = $j;
+            $templatecontext['slides'][$j]['active'] = $i === 1;
+            $templatecontext['slides'][$j]['image'] = $this->$sliderimage ?: $defaultimage->out();
+        }
+
+        return $templatecontext;
+    }
+
+    /**
+     * Get config theme slideshow
+     *
+     * @return array
+     */
+    public function frontpage_marketingboxes() {
+        if ($templatecontext['displaymarketingbox'] = $this->displaymarketingbox) {
+            $templatecontext['marketingheading'] = $this->marketingheading;
+            $templatecontext['marketingcontent'] = $this->marketingcontent;
+
+            $defaultimage = new \moodle_url('/theme/moove/pix/default_markegingicon.svg');
+
+            for ($i = 1, $j = 0; $i < 5; $i++, $j++) {
+                $marketingicon = 'marketing' . $i . 'icon';
+                $marketingheading = 'marketing' . $i . 'heading';
+                $marketingcontent = 'marketing' . $i . 'content';
+
+                $templatecontext['marketingboxes'][$j]['icon'] = $this->$marketingicon ?: $defaultimage->out();
+                $templatecontext['marketingboxes'][$j]['heading'] = $this->$marketingheading ?: 'Lorem';
+                $templatecontext['marketingboxes'][$j]['content'] = $this->$marketingcontent ?: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.';
+            }
+        }
+
+        return $templatecontext;
+    }
+
+    /**
+     * Get config theme slideshow
+     *
+     * @return array
+     */
+    public function frontpage_numbers() {
+        global $DB;
+
+        if ($templatecontext['numbersfrontpage'] = $this->numbersfrontpage) {
+            $templatecontext['numberscontent'] = $this->numbersfrontpagecontent ? format_text($this->numbersfrontpagecontent) : '';
+            $templatecontext['numbersusers'] = $DB->count_records('user', ['deleted' => 0, 'suspended' => 0]) - 1;
+            $templatecontext['numberscourses'] = $DB->count_records('course', ['visible' => 1]) - 1;
+        }
+
+        return $templatecontext;
+    }
+
+    /**
+     * Get config theme slideshow
+     *
+     * @return array
+     */
+    public function faq() {
+        $templatecontext['faqenabled'] = false;
+
+        if ($this->faqcount) {
+            for ($i = 1; $i <= $this->faqcount; $i++) {
+                $faqquestion = 'faqquestion' . $i;
+                $faqanswer = 'faqanswer' . $i;
+
+                if (!$this->$faqquestion || !$this->$faqanswer) {
+                    continue;
+                }
+
+                $templatecontext['faq'][] = [
+                    'id' => $i,
+                    'question' => $this->$faqquestion,
+                    'answer' => $this->$faqanswer
+                ];
+            }
+
+            if (count($templatecontext['faq'])) {
+                $templatecontext['faqenabled'] = true;
             }
         }
 

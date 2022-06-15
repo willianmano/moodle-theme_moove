@@ -157,12 +157,20 @@ function theme_moove_pluginfile($course, $cm, $context, $filearea, $args, $force
         return $theme->setting_file_serve($filearea, $args, $forcedownload, $options);
     }
 
-    if ($context->contextlevel == CONTEXT_SYSTEM and preg_match("/^sponsorsimage[1-9][0-9]?$/", $filearea) !== false) {
-        return $theme->setting_file_serve($filearea, $args, $forcedownload, $options);
+    if ($context->contextlevel == CONTEXT_SYSTEM and $filearea === 'marketing1icon') {
+        return $theme->setting_file_serve('marketing1icon', $args, $forcedownload, $options);
     }
 
-    if ($context->contextlevel == CONTEXT_SYSTEM and preg_match("/^clientsimage[1-9][0-9]?$/", $filearea) !== false) {
-        return $theme->setting_file_serve($filearea, $args, $forcedownload, $options);
+    if ($context->contextlevel == CONTEXT_SYSTEM and $filearea === 'marketing2icon') {
+        return $theme->setting_file_serve('marketing2icon', $args, $forcedownload, $options);
+    }
+
+    if ($context->contextlevel == CONTEXT_SYSTEM and $filearea === 'marketing3icon') {
+        return $theme->setting_file_serve('marketing3icon', $args, $forcedownload, $options);
+    }
+
+    if ($context->contextlevel == CONTEXT_SYSTEM and $filearea === 'marketing4icon') {
+        return $theme->setting_file_serve('marketing4icon', $args, $forcedownload, $options);
     }
 
     send_file_not_found();
