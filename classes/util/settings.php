@@ -57,11 +57,11 @@ class settings {
     /**
      * Magic method to get theme settings
      *
-     * @param $name
+     * @param $name string
      *
      * @return mixed
      */
-    public function __get($name) {
+    public function __get(string $name) {
         if (in_array($name, $this->files)) {
             return $this->theme->setting_file_url($name, $name);
         }

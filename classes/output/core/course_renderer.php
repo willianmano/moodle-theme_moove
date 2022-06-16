@@ -223,11 +223,11 @@ class course_renderer extends \core_course_renderer {
     /**
      * Returns enrolment icons
      *
-     * @param $icons
+     * @param $icons array
      *
      * @return array
      */
-    protected function render_enrolment_icons($icons): array {
+    protected function render_enrolment_icons(array $icons): array {
         $data = [];
 
         foreach ($icons as $icon) {
