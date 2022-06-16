@@ -137,6 +137,14 @@ if ($ADMIN->fulltree) {
     $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
 
+    $name = 'theme_moove/enablecourseindex';
+    $title = get_string('enablecourseindex', 'theme_moove');
+    $description = get_string('enablecourseindex_desc', 'theme_moove');
+    $default = 1;
+    $choices = array(0 => get_string('no'), 1 => get_string('yes'));
+    $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
+    $page->add($setting);
+
     // Must add the page after definiting all the settings!
     $settings->add($page);
 

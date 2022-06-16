@@ -56,7 +56,15 @@ $hasblocks = (strpos($blockshtml, 'data-block=') !== false || !empty($addblockbu
 if (!$hasblocks) {
     $blockdraweropen = false;
 }
-$courseindex = core_course_drawer();
+
+$themesettings = new \theme_moove\util\settings();
+
+if (!$themesettings->enablecourseindex) {
+    $courseindex = '';
+} else {
+    $courseindex = core_course_drawer();
+}
+
 if (!$courseindex) {
     $courseindexopen = false;
 }
@@ -111,10 +119,9 @@ $templatecontext = [
     'hasregionmainsettingsmenu' => !empty($regionmainsettingsmenu),
     'overflow' => $overflow,
     'headercontent' => $headercontent,
-    'addblockbutton' => $addblockbutton
+    'addblockbutton' => $addblockbutton,
+    'enablecourseindex' => $themesettings->enablecourseindex
 ];
-
-$themesettings = new \theme_moove\util\settings();
 
 $templatecontext = array_merge($templatecontext, $themesettings->footer());
 

@@ -61,6 +61,8 @@ $string['navbarbghover'] = 'Navbar hover color';
 $string['navbarbghover_desc'] = 'The left navbar hover color';
 $string['fontsite'] = 'Site font';
 $string['fontsite_desc'] = 'Default font site. You can try out the fonts on <a href="https://fonts.google.com">Google Fonts site</a>.';
+$string['enablecourseindex'] = 'Enable course index';
+$string['enablecourseindex_desc'] = 'You can show/hide course index navigation';
 
 // Advanced settings tab.
 $string['advancedsettings'] = 'Advanced';
