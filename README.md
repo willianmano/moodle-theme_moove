@@ -1,16 +1,9 @@
-[![Build Status](https://travis-ci.org/willianmano/moodle-theme_moove.svg?branch=master)](https://travis-ci.org/willianmano/moodle-theme_moove)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/e1c12730e50b4e479dc9a65dbeff6671)](https://www.codacy.com/app/willianmanoaraujo/moodle-theme_moove?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=willianmano/moodle-theme_moove&amp;utm_campaign=Badge_Grade)
-
 Moodle "Moove" theme repository
 ===============================
 
-![screenshot](pix/screenshot.jpg "Moove Screenshot")
-
----------
-
 Moove is Moodle's theme that makes online environments more clean and intuitive for learners and educators. Its intuitive layout is optimised for online learning, focusing on the things that matter - your learning activities and content.
 
-Moovee is built on Boostrap4 and Mustache templates.
+Moove is built on Boostrap4 and Mustache templates.
 
 Documentation
 =============
