@@ -110,6 +110,10 @@ class course {
     public function get_category(): string {
         $cat = core_course_category::get($this->course->category, IGNORE_MISSING);
 
+        if (!$cat) {
+            return '';
+        }
+
         return $cat->get_formatted_name();
     }
 
