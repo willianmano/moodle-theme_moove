@@ -57,9 +57,9 @@ class settings {
     /**
      * Magic method to get theme settings
      *
-     * @param $name string
+     * @param string $name
      *
-     * @return mixed
+     * @return false|string|null
      */
     public function __get(string $name) {
         if (in_array($name, $this->files)) {

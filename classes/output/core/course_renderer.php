@@ -223,7 +223,7 @@ class course_renderer extends \core_course_renderer {
     /**
      * Returns enrolment icons
      *
-     * @param $icons array
+     * @param array $icons
      *
      * @return array
      */
