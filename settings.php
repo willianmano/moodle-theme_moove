@@ -248,7 +248,7 @@ if ($ADMIN->fulltree) {
         $name = 'theme_moove/marketingcontent';
         $title = get_string('marketingsectioncontent', 'theme_moove');
         $default = 'Moove is a Moodle template based on Boost with modern and creative design.';
-        $setting = new admin_setting_configtextarea($name, $title, '', $default);
+        $setting = new admin_setting_confightmleditor($name, $title, '', $default);
         $page->add($setting);
 
         for ($i = 1; $i < 5; $i++) {
@@ -268,7 +268,7 @@ if ($ADMIN->fulltree) {
             $name = "theme_moove/marketing{$i}content";
             $title = get_string('marketingcontent', 'theme_moove', $i . '');
             $default = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.';
-            $setting = new admin_setting_configtextarea($name, $title, '', $default);
+            $setting = new admin_setting_confightmleditor($name, $title, '', $default);
             $page->add($setting);
         }
 
@@ -319,7 +319,7 @@ if ($ADMIN->fulltree) {
 
             $name = "theme_moove/faqanswer{$i}";
             $title = get_string('faqanswer', 'theme_moove', $i . '');
-            $setting = new admin_setting_configtextarea($name, $title, '', '');
+            $setting = new admin_setting_confightmleditor($name, $title, '', '');
             $page->add($setting);
         }
 
