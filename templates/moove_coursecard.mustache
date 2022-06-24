@@ -16,7 +16,7 @@
             {{/hasenrolmenticons}}
         </div>
     </a>
-    <div class="card-body pr-1 course-info-container">
+    <div class="card-body course-info-container">
         <div class="d-flex align-items-start">
             <div class="w-100 text-truncate">
                 <a href="{{config.wwwroot}}/course/view.php?id={{{id}}}" class="aalink coursename mr-2 mb-1">
@@ -24,6 +24,10 @@
                     <span class="multiline">{{{fullname}}}</span>
                 </a>
             </div>
+        </div>
+
+        <div class="customfields">
+            {{{customfields}}}
         </div>
 
         <div class="course-summary">

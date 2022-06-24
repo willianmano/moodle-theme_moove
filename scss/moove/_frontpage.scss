@@ -9,6 +9,31 @@
             border-radius: .5rem;
         }
 
+        .card-body {
+            padding: .8rem;
+        }
+
+        .customfields {
+            .customfield {
+                background-color: var(--secondary);
+                color: $gray-900;
+                padding: 4px 6px;
+                border-radius: 0.5rem;
+                width: fit-content;
+                font-size: 80%;
+                margin-bottom: .25rem;
+
+                &:last-of-type {
+                    margin-bottom: 0;
+                }
+
+                .customfieldname,
+                .customfieldseparator {
+                    font-weight: 500;
+                }
+            }
+        }
+
         .enrolmenticons {
             position: absolute;
             bottom: 8px;
@@ -31,7 +56,6 @@
             padding: 0 0.8rem 0.8rem 0.8rem;
 
             .contact {
-                margin: 0 .25rem;
                 display: block;
 
                 &:not(:first-of-type) {
@@ -48,6 +72,10 @@
                     margin-left: .4rem;
                 }
             }
+        }
+
+        .dashboard-card-footer {
+            padding: 0 .8rem .8rem .8rem;
         }
     }
 }
