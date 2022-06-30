@@ -174,20 +174,3 @@ function theme_moove_pluginfile($course, $cm, $context, $filearea, $args, $force
 
     send_file_not_found();
 }
-
-/**
- * Check if a certificate plugin is installed.
- *
- * @return bool
- */
-function theme_moove_has_certificates_plugin() {
-    $simplecertificate = \core_plugin_manager::instance()->get_plugin_info('mod_simplecertificate');
-
-    $customcert = \core_plugin_manager::instance()->get_plugin_info('mod_customcert');
-
-    if ($simplecertificate || $customcert) {
-        return true;
-    }
-
-    return false;
-}

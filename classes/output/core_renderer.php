@@ -411,4 +411,24 @@ class core_renderer extends \theme_boost\output\core_renderer {
         $renderer = $this->page->get_renderer('core', 'course');
         return $renderer->render($activitynav);
     }
+
+    public function get_navbar_callbacks_data() {
+        $callbacks = get_plugins_with_function('moove_additional_header', 'lib.php');
+
+        if (!$callbacks) {
+            return '';
+        }
+
+        $output = '';
+
+        foreach ($callbacks as $plugins) {
+            foreach ($plugins as $pluginfunction) {
+                if (function_exists($pluginfunction)) {
+                    $output .= $pluginfunction();
+                }
+            }
+        }
+
+        return $output;
+    }
 }
