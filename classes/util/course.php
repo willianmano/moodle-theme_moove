@@ -85,14 +85,15 @@ class course {
         if ($this->course->has_course_contacts() && !($theme->settings->disableteacherspic)) {
             $instructors = $this->course->get_course_contacts();
 
-            foreach ($instructors as $key => $instructor) {
+            foreach ($instructors as $instructor) {
                 $user = $instructor['user'];
                 $userutil = new user($user->id);
 
                 $contacts[] = [
                     'id' => $user->id,
                     'fullname' => fullname($user),
-                    'userpicture' => $userutil->get_user_picture()
+                    'userpicture' => $userutil->get_user_picture(),
+                    'role' => $instructor['role']->displayname
                 ];
             }
         }

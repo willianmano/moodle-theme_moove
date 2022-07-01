@@ -40,7 +40,7 @@
                 <div class="progress">
                     <div class="progress-bar" role="progressbar" aria-valuenow="{{{progress}}}" style="width: {{{progress}}}%" aria-valuemin="0" aria-valuemax="{{{progress}}}"></div>
                 </div>
-                <p class="mb-0">{{{progress}}}% completo</p>
+                <p class="mb-0">{{#str}}completepercent, block_myoverview, {{progress}}{{/str}}</p>
             </div>
         </div>
     {{/hasprogress}}
@@ -50,7 +50,10 @@
             {{#contacts}}
                 <a href="{{config.wwwroot}}/user/profile.php?id={{{id}}}" class="contact" data-toggle="tooltip" title="{{{fullname}}}">
                     <img src="{{{userpicture}}}" class="rounded-circle" alt="{{{fullname}}}">
-                    <span>{{{fullname}}}</span>
+                    <div class="info">
+                        <p class="name">{{{fullname}}}</p>
+                        <p class="role">{{{role}}}</p>
+                    </div>
                 </a>
             {{/contacts}}
         </div>
