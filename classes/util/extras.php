@@ -106,8 +106,8 @@ class extras {
 
         // Edit profile.
         if (isloggedin() && !isguestuser($user) && !is_mnet_remote_user($user)) {
-            if (($iscurrentuser || is_siteadmin($USER)) ||
-                (!is_siteadmin($user) && has_capability('moodle/user:update', $systemcontext))) {
+            if (($iscurrentuser || is_siteadmin($USER) || !is_siteadmin($user)) && has_capability('moodle/user:update',
+                    $systemcontext)) {
                 return new moodle_url('/user/editadvanced.php',
                     ['id' => $user->id, 'course' => $courseid, 'returnto' => 'profile']
                 );
