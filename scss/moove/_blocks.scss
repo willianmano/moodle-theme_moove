@@ -20,6 +20,10 @@
             }
         }
     }
+
+    .card-body.course-info-container .coursename .text-truncate {
+        white-space: initial    ;
+    }
 }
 
 .block .block-cards .moove-card-footer {
