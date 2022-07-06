@@ -229,7 +229,6 @@ class core_renderer extends \theme_boost\output\core_renderer {
 
         if (!empty($CFG->supportpage)) {
             $attributes = ['href' => $CFG->supportpage, 'target' => 'blank', 'class' => 'btn contactsitesupport btn-outline-info'];
-            $content .= $this->pix_icon('t/life-ring', '', 'moodle', ['class' => 'iconhelp icon-pre']);
         } else {
             $attributes = [
                 'href' => $CFG->wwwroot . '/user/contactsitesupport.php',
