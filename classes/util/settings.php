@@ -154,8 +154,8 @@ class settings {
      */
     public function frontpage_marketingboxes() {
         if ($templatecontext['displaymarketingbox'] = $this->displaymarketingbox) {
-            $templatecontext['marketingheading'] = $this->marketingheading;
-            $templatecontext['marketingcontent'] = $this->marketingcontent;
+            $templatecontext['marketingheading'] = format_text($this->marketingheading, FORMAT_HTML);
+            $templatecontext['marketingcontent'] = format_text($this->marketingcontent, FORMAT_HTML);
 
             $defaultimage = new \moodle_url('/theme/moove/pix/default_markegingicon.svg');
 
@@ -165,8 +165,8 @@ class settings {
                 $marketingcontent = 'marketing' . $i . 'content';
 
                 $templatecontext['marketingboxes'][$j]['icon'] = $this->$marketingicon ?: $defaultimage->out();
-                $templatecontext['marketingboxes'][$j]['heading'] = $this->$marketingheading ?: 'Lorem';
-                $templatecontext['marketingboxes'][$j]['content'] = $this->$marketingcontent ?:
+                $templatecontext['marketingboxes'][$j]['heading'] = $this->$marketingheading ? format_text($this->$marketingheading, FORMAT_HTML) : 'Lorem';
+                $templatecontext['marketingboxes'][$j]['content'] = $this->$marketingcontent ? format_text($this->$marketingcontent, FORMAT_HTML) :
                     'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.';
             }
         }
