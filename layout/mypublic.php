@@ -29,6 +29,7 @@ global $DB, $USER, $OUTPUT, $SITE, $PAGE;
 // Get the profile userid.
 $courseid = optional_param('course', 1, PARAM_INT);
 $userid = optional_param('id', $USER->id, PARAM_INT);
+$userid = $userid ? $userid : $USER->id;
 $user = $DB->get_record('user', ['id' => $userid], '*', MUST_EXIST);
 
 $primary = new core\navigation\output\primary($PAGE);
