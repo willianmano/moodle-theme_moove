@@ -140,10 +140,16 @@ class settings {
         $defaultimage = new \moodle_url('/theme/moove/pix/default_slide.jpg');
         for ($i = 1, $j = 0; $i <= $templatecontext['slidercount']; $i++, $j++) {
             $sliderimage = "sliderimage{$i}";
+            $slidertitle = "slidertitle{$i}";
+            $slidercap = "slidercap{$i}";
+
+            $image = $this->$sliderimage;
 
             $templatecontext['slides'][$j]['key'] = $j;
             $templatecontext['slides'][$j]['active'] = $i === 1;
-            $templatecontext['slides'][$j]['image'] = $this->$sliderimage ?: $defaultimage->out();
+            $templatecontext['slides'][$j]['image'] = $image ?: $defaultimage->out();
+            $templatecontext['slides'][$j]['title'] = format_string($this->$slidertitle);
+            $templatecontext['slides'][$j]['caption'] = format_text($this->$slidercap);
         }
 
         return $templatecontext;

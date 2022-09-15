@@ -14,7 +14,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Theme accessibility settings js logic.
+ * Theme settings js logic
  *
  * @package
  * @copyright  2020 Willian Mano - http://conecti.me
@@ -22,7 +22,9 @@
  */
 define(['jquery', 'core/modal_factory', 'theme_moove/accessibilitysettings_modal'],
     function($, ModalFactory, AccessibilitySettingsModal) {
-
+        /**
+         * Toogle region selectors.
+         */
         var SELECTORS = {
             TOGGLE_REGION: '#accessibilitysettings-control'
         };

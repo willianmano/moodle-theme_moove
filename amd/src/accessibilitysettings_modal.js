@@ -22,8 +22,14 @@
  */
 define(['jquery', 'core/notification', 'core/custom_interaction_events', 'core/modal', 'core/modal_registry', 'core/ajax'],
     function(jQuery, Notification, CustomEvents, Modal, ModalRegistry, Ajax) {
-
+        /**
+         * Is modal registered?
+         */
         var registered = false;
+
+        /**
+         * Elements selectors.
+         */
         var SELECTORS = {
             SAVE_BUTTON: '[data-action="save"]',
             CANCEL_BUTTON: '[data-action="cancel"]'

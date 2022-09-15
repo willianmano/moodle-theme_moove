@@ -411,6 +411,11 @@ class core_renderer extends \theme_boost\output\core_renderer {
         return $renderer->render($activitynav);
     }
 
+    /**
+     * Returns plugins callback renderable data to be printed on navbar.
+     *
+     * @return string Final html code.
+     */
     public function get_navbar_callbacks_data() {
         $callbacks = get_plugins_with_function('moove_additional_header', 'lib.php');
 
