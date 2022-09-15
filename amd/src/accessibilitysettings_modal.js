@@ -17,7 +17,7 @@
  * Theme settings modal js.
  *
  * @package
- * @copyright  2020 Willian Mano - http://conecti.me
+ * @copyright  2022 Willian Mano - https://conecti.me
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 define(['jquery', 'core/notification', 'core/custom_interaction_events', 'core/modal', 'core/modal_registry', 'core/ajax'],
@@ -26,7 +26,6 @@ define(['jquery', 'core/notification', 'core/custom_interaction_events', 'core/m
          * Is modal registered?
          */
         var registered = false;
-
         /**
          * Elements selectors.
          */

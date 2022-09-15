@@ -17,7 +17,7 @@
  * Theme settings js logic
  *
  * @package
- * @copyright  2020 Willian Mano - http://conecti.me
+ * @copyright  2022 Willian Mano - https://conecti.me
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 define(['jquery', 'core/modal_factory', 'theme_moove/accessibilitysettings_modal'],

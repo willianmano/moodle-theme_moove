@@ -17,7 +17,7 @@
  * Contain the logic for accessibility bar.
  *
  * @package
- * @copyright  2020 Willian Mano - http://conecti.me
+ * @copyright  2022 Willian Mano - https://conecti.me
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 define(['jquery', 'core/ajax'], function(jQuery, Ajax) {
@@ -28,6 +28,7 @@ define(['jquery', 'core/ajax'], function(jQuery, Ajax) {
         FONT_SIZE: '#fontsize_dec, #fontsize_reset, #fontsize_inc',
         SITE_COLOR: '#sitecolor_color1, #sitecolor_color2, #sitecolor_color3, #sitecolor_color4'
     };
+
     var fontsizeClass = null;
     var fontsizeClassOp = null;
     var fontsizeClassSize = null;

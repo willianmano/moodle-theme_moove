@@ -86,17 +86,11 @@ if ($usercanviewprofile) {
 
         $showuseridentityfields = \core_user\fields::get_identity_fields($context, false);
 
-        if ($user->maildisplay == core_user::MAILDISPLAY_EVERYONE
-            or ($user->maildisplay == core_user::MAILDISPLAY_COURSE_MEMBERS_ONLY and enrol_sharing_course($user, $USER))
-            or $canviewuseremail) {// TODO: Deprecate/remove for MDL-37479.
-
-        }
-
         if (($user->maildisplay == core_user::MAILDISPLAY_EVERYONE
-            or ($user->maildisplay == core_user::MAILDISPLAY_COURSE_MEMBERS_ONLY and enrol_sharing_course($user, $USER))
-            or $canviewuseremail  // TODO: Deprecate/remove for MDL-37479.
+            || ($user->maildisplay == core_user::MAILDISPLAY_COURSE_MEMBERS_ONLY && enrol_sharing_course($user, $USER))
+            || $canviewuseremail  // TODO: Deprecate/remove for MDL-37479.
             )
-            or in_array('email', $showuseridentityfields)) {
+            || in_array('email', $showuseridentityfields)) {
             $templatecontext['useremail'] = $user->email;
         }
     }
