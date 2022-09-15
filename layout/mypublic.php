@@ -72,9 +72,34 @@ if ($usercanviewprofile) {
     $countries = get_string_manager()->get_list_of_countries(true);
 
     $templatecontext['userdescription'] = format_text($user->description, $user->descriptionformat, ['overflowdiv' => true]);
-    $templatecontext['useremail'] = $user->email;
     $templatecontext['usercountry'] = $user->country ? $countries[$user->country] : '';
     $templatecontext['usercity'] = $user->city;
+
+    if ($userid == $USER->id) {
+        $templatecontext['useremail'] = $user->email;
+    } else {
+        if (!empty($courseid)) {
+            $canviewuseremail = has_capability('moodle/course:useremail', $context);
+        } else {
+            $canviewuseremail = false;
+        }
+
+        $showuseridentityfields = \core_user\fields::get_identity_fields($context, false);
+
+        if ($user->maildisplay == core_user::MAILDISPLAY_EVERYONE
+            or ($user->maildisplay == core_user::MAILDISPLAY_COURSE_MEMBERS_ONLY and enrol_sharing_course($user, $USER))
+            or $canviewuseremail) {// TODO: Deprecate/remove for MDL-37479.
+
+        }
+
+        if (($user->maildisplay == core_user::MAILDISPLAY_EVERYONE
+            or ($user->maildisplay == core_user::MAILDISPLAY_COURSE_MEMBERS_ONLY and enrol_sharing_course($user, $USER))
+            or $canviewuseremail  // TODO: Deprecate/remove for MDL-37479.
+            )
+            or in_array('email', $showuseridentityfields)) {
+            $templatecontext['useremail'] = $user->email;
+        }
+    }
 }
 
 $themesettings = new \theme_moove\util\settings();
