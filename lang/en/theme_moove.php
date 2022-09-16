@@ -106,7 +106,7 @@ $string['numbersfrontpagecontentdefault'] = '<h2>Trusted by 25,000+ happy custom
                         a page without coding. Build your next website <br class="d-none d-sm-block d-md-none d-xl-block">
                         within few minutes.</p>';
 $string['numbersusers'] = 'Active users accessing our amazing resources';
-$string['numberscourses'] = 'Courses made for your that you can trust!';
+$string['numberscourses'] = 'Courses made for you that you can trust!';
 
 $string['faq'] = 'FAQ';
 $string['faqcount'] = 'FAQ questions';
