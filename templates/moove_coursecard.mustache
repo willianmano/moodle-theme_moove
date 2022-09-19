@@ -1,36 +1,22 @@
 <div class="card dashboard-card" role="listitem" data-region="course-content" data-course-id="{{{id}}}">
     <a href="{{config.wwwroot}}/course/view.php?id={{{id}}}" tabindex="-1">
-        <div class="card-img dashboard-card-img" style="background-image: url({{{image}}});">
+        <div class="card-img dashboard-card-img">
             <span class="sr-only">{{#str}}aria:courseimage, core_course{{/str}} {{{fullname}}}</span>
-            <div class="course-category">
-                {{{category}}}
-            </div>
-            {{#hasenrolmenticons}}
-                <div class="enrolmenticons d-flex">
-                    {{#enrolmenticons}}
-                        <div class="enrolmenticon">
-                            {{{.}}}
-                        </div>
-                    {{/enrolmenticons}}
-                </div>
-            {{/hasenrolmenticons}}
+            <img src="{{{image}}}" alt="{{fullname}}" class="img-responsive">
         </div>
     </a>
     <div class="card-body course-info-container">
         <div class="d-flex align-items-start">
             <div class="w-100">
+                <div class="course-category mb-1">
+                    <div class="badge badge-secondary">
+                        {{#str}}category{{/str}}: {{{category}}}
+                    </div>
+                </div>
                 <a href="{{config.wwwroot}}/course/view.php?id={{{id}}}" class="aalink coursename mr-2 mb-1">
                     {{{fullname}}}
                 </a>
             </div>
-        </div>
-
-        <div class="customfields">
-            {{{customfields}}}
-        </div>
-
-        <div class="course-summary">
-            {{{summary}}}
         </div>
     </div>
     {{#hasprogress}}
@@ -57,4 +43,23 @@
             {{/contacts}}
         </div>
     {{/hascontacts}}
+    <div class="card-footer">
+        <div class="d-flex">
+            {{#cost}}
+                <div class="d-flex align-items-center font-weight-bold">
+                    R$ {{.}}
+                </div>
+            {{/cost}}
+            <div class="action ml-auto">
+                <a href="{{config.wwwroot}}/course/view.php?id={{id}}" class="btn btn-primary">
+                    {{#hasprogress}}
+                        Acessar curso
+                    {{/hasprogress}}
+                    {{^hasprogress}}
+                        Ver detalhes do curso
+                    {{/hasprogress}}
+                </a>
+            </div>
+        </div>
+    </div>
 </div>

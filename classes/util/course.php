@@ -161,6 +161,22 @@ class course {
         return [];
     }
 
+    public function get_cost($courseid) {
+        $instances = enrol_get_instances($courseid, true);
+
+        foreach ($instances as $instance) {
+            if (!in_array($instance->enrol, ['pagseguro'])) {
+                continue;
+            }
+
+            if ($instance->cost) {
+                return number_format($instance->cost, 2, ',', '.');
+            }
+        }
+
+        return false;
+    }
+
     /**
      * Get the user progress in the course.
      *

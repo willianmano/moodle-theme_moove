@@ -195,9 +195,6 @@ class course_renderer extends \core_course_renderer {
 
         $coursecontacts = $courseutil->get_course_contacts();
 
-        $courseenrolmenticons = $courseutil->get_enrolment_icons();
-        $courseenrolmenticons = !empty($courseenrolmenticons) ? $this->render_enrolment_icons($courseenrolmenticons) : false;
-
         $courseprogress = $courseutil->get_progress();
         $hasprogress = $courseprogress != null;
 
@@ -211,8 +208,7 @@ class course_renderer extends \core_course_renderer {
             'customfields' => $courseutil->get_custom_fields(),
             'hasprogress' => $hasprogress,
             'progress' => (int) $courseprogress,
-            'hasenrolmenticons' => $courseenrolmenticons != false,
-            'enrolmenticons' => $courseenrolmenticons,
+            'cost' => $courseutil->get_cost($course->id),
             'hascontacts' => !empty($coursecontacts),
             'contacts' => $coursecontacts
         ];

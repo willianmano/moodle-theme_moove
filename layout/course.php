@@ -80,7 +80,7 @@ $overflow = '';
 if ($PAGE->has_secondary_navigation()) {
     $secondary = $PAGE->secondarynav;
 
-    if ($secondary->get_children_key_list()) {
+    if ($secondary->get_children_key_list() && ($PAGE->course->format != 'preview' || has_capability('moodle/course:update', $PAGE->context))) {
         $tablistnav = $PAGE->has_tablist_secondary_navigation();
         $moremenu = new \core\navigation\output\more_menu($PAGE->secondarynav, 'nav-tabs', true, $tablistnav);
         $secondarynavigation = $moremenu->export_for_template($OUTPUT);

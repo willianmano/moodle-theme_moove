@@ -38,7 +38,8 @@
     data-region="course-content"
     data-course-id="{{{id}}}">
     <a href="{{viewurl}}" tabindex="-1">
-        <div class="card-img dashboard-card-img" style='background-image: url("{{{courseimage}}}");'>
+        <div class="card-img dashboard-card-img">
+            <img src="{{{courseimage}}}" alt="{{shortname}}" class="img-responsive">
             <div class="course-category">
                 {{$coursecategory}}{{/coursecategory}}
             </div>
