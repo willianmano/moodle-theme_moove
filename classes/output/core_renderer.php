@@ -438,6 +438,31 @@ class core_renderer extends \theme_boost\output\core_renderer {
     }
 
     /**
+     * Returns plugins callback renderable data to be printed on navbar.
+     *
+     * @return string Final html code.
+     */
+    public function get_module_footer_callbacks_data() {
+        $callbacks = get_plugins_with_function('moove_module_footer', 'lib.php');
+
+        if (!$callbacks) {
+            return '';
+        }
+
+        $output = '';
+
+        foreach ($callbacks as $plugins) {
+            foreach ($plugins as $pluginfunction) {
+                if (function_exists($pluginfunction)) {
+                    $output .= $pluginfunction();
+                }
+            }
+        }
+
+        return $output;
+    }
+
+    /**
      * Redirects the user by any means possible given the current state
      *
      * This function should not be called directly, it should always be called using

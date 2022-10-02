@@ -24,6 +24,10 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+if (isguestuser() || !isloggedin()) {
+    return redirect(new moodle_url('/'));
+}
+
 require_once($CFG->libdir . '/behat/lib.php');
 require_once($CFG->dirroot . '/course/lib.php');
 
