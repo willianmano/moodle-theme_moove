@@ -24,8 +24,8 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-if (isguestuser() || !isloggedin()) {
-    return redirect(new moodle_url('/'));
+if (!is_enrolled($PAGE->context) && !is_siteadmin()) {
+    redirect($CFG->wwwroot);
 }
 
 require_once($CFG->libdir . '/behat/lib.php');
