@@ -24,7 +24,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-if (!is_enrolled($PAGE->context) && !is_siteadmin()) {
+if (!is_enrolled($PAGE->context) && !has_capability('moodle/course:update', $PAGE->context)) {
     redirect($CFG->wwwroot);
 }
 
