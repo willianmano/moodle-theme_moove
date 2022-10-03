@@ -24,6 +24,10 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+if (!is_enrolled($PAGE->context) && !has_capability('moodle/course:update', $PAGE->context)) {
+    redirect($CFG->wwwroot);
+}
+
 global $DB, $USER, $OUTPUT, $SITE, $PAGE;
 
 // Get the profile userid.

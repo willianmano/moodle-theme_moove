@@ -27,6 +27,10 @@ defined('MOODLE_INTERNAL') || die();
 require_once($CFG->libdir . '/behat/lib.php');
 require_once($CFG->dirroot . '/course/lib.php');
 
+if (!is_enrolled($PAGE->context) && !has_capability('moodle/course:update', $PAGE->context)) {
+    redirect($CFG->wwwroot);
+}
+
 // Add block button in editing mode.
 $addblockbutton = $OUTPUT->addblockbutton();
 
