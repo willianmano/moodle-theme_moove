@@ -24,7 +24,9 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-if (!is_enrolled($PAGE->context) && !has_capability('moodle/course:update', $PAGE->context)) {
+$context = context_course::instance(SITEID);
+
+if (!is_enrolled($context) && !has_capability('moodle/course:update', $context)) {
     redirect($CFG->wwwroot);
 }
 
@@ -105,7 +107,7 @@ $headercontent = $header->export_for_template($renderer);
 
 $bodyattributes = $OUTPUT->body_attributes($extraclasses);
 $templatecontext = [
-    'sitename' => format_string($SITE->shortname, true, ['context' => context_course::instance(SITEID), "escape" => false]),
+    'sitename' => format_string($SITE->shortname, true, ['context' => $context, "escape" => false]),
     'output' => $OUTPUT,
     'sidepreblocks' => $blockshtml,
     'hasblocks' => $hasblocks,

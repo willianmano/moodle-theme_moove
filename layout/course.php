@@ -51,11 +51,19 @@ if ($courseindexopen) {
     $extraclasses[] = 'drawer-open-index';
 }
 
-$blockshtml = $OUTPUT->blocks('side-pre');
-$hasblocks = (strpos($blockshtml, 'data-block=') !== false || !empty($addblockbutton));
+$blockshtml = null;
+$hasblocks = false;
 
-$addcontentblockbutton = $OUTPUT->addblockbutton('content');
-$contentblocks = $OUTPUT->custom_block_region('content');
+$addcontentblockbutton = null;
+$contentblocks = null;
+
+if (!isguestuser($USER)) {
+    $blockshtml = $OUTPUT->blocks('side-pre');
+    $hasblocks = (strpos($blockshtml, 'data-block=') !== false || !empty($addblockbutton));
+
+    $addcontentblockbutton = $OUTPUT->addblockbutton('content');
+    $contentblocks = $OUTPUT->custom_block_region('content');
+}
 
 if (!$hasblocks) {
     $blockdraweropen = false;
