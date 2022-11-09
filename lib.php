@@ -174,3 +174,29 @@ function theme_moove_pluginfile($course, $cm, $context, $filearea, $args, $force
 
     send_file_not_found();
 }
+
+/**
+ * Returns user image or avatar.
+ *
+ * @param null $user
+ * @return mixed
+ * @throws coding_exception
+ */
+function theme_moove_get_user_avatar_or_image($user = null) {
+    global $USER, $PAGE;
+
+    if (!$user) {
+        $user = $USER;
+    }
+
+    if (class_exists(\local_gamechanger\util\user::class)) {
+        $userutil = new \local_gamechanger\util\user();
+
+        return $userutil->get_user_avatar_or_image($user);
+    }
+
+    $userpicture = new \user_picture($user);
+    $userpicture->size = 1;
+
+    return $userpicture->get_url($PAGE);
+}

@@ -24,14 +24,9 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$courseid = SITEID;
-if (isset($COURSE->id)) {
-    $courseid = $COURSE->id;
-}
+$context = context_course::instance(SITEID);
 
-$context = context_course::instance($courseid);
-
-if (!is_enrolled($context) && !has_capability('moodle/course:update', $context)) {
+if (is_guest($context)) {
     redirect($CFG->wwwroot);
 }
 
@@ -130,9 +125,10 @@ $templatecontext = [
     'hasregionmainsettingsmenu' => !empty($regionmainsettingsmenu),
     'overflow' => $overflow,
     'headercontent' => $headercontent,
-    'addblockbutton' => $addblockbutton
+    'addblockbutton' => $addblockbutton,
+    'enablecourseindex' => $themesettings->enablecourseindex
 ];
 
 $templatecontext = array_merge($templatecontext, $themesettings->footer());
 
-echo $OUTPUT->render_from_template('theme_moove/incourse', $templatecontext);
+echo $OUTPUT->render_from_template('theme_moove/drawers', $templatecontext);

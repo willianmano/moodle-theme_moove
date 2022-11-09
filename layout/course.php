@@ -27,6 +27,13 @@ defined('MOODLE_INTERNAL') || die();
 require_once($CFG->libdir . '/behat/lib.php');
 require_once($CFG->dirroot . '/course/lib.php');
 
+$courseid = SITEID;
+if (isset($COURSE->id)) {
+    $courseid = $COURSE->id;
+}
+
+$context = context_course::instance($courseid);
+
 // Add block button in editing mode.
 $addblockbutton = $OUTPUT->addblockbutton();
 
@@ -57,7 +64,7 @@ $hasblocks = false;
 $addcontentblockbutton = null;
 $contentblocks = null;
 
-if (!isguestuser($USER)) {
+if (is_enrolled($context) || has_capability('moodle/course:update', $context)) {
     $blockshtml = $OUTPUT->blocks('side-pre');
     $hasblocks = (strpos($blockshtml, 'data-block=') !== false || !empty($addblockbutton));
 
@@ -88,7 +95,7 @@ $overflow = '';
 if ($PAGE->has_secondary_navigation()) {
     $secondary = $PAGE->secondarynav;
 
-    if ($secondary->get_children_key_list() && ($PAGE->course->format != 'preview' || has_capability('moodle/course:update', $PAGE->context))) {
+    if ($secondary->get_children_key_list() && ($PAGE->course->format != 'preview' || has_capability('moodle/course:update', $context))) {
         $tablistnav = $PAGE->has_tablist_secondary_navigation();
         $moremenu = new \core\navigation\output\more_menu($PAGE->secondarynav, 'nav-tabs', true, $tablistnav);
         $secondarynavigation = $moremenu->export_for_template($OUTPUT);
@@ -101,7 +108,7 @@ if ($PAGE->has_secondary_navigation()) {
     }
 }
 
-$primary = new core\navigation\output\primary($PAGE);
+$primary = new \theme_moove\output\core\navigation\primary($PAGE);
 $renderer = $PAGE->get_renderer('core');
 $primarymenu = $primary->export_for_template($renderer);
 $buildregionmainsettings = !$PAGE->include_region_main_settings_in_header_actions() && !$PAGE->has_secondary_navigation();
@@ -113,7 +120,7 @@ $headercontent = $header->export_for_template($renderer);
 
 $bodyattributes = $OUTPUT->body_attributes($extraclasses);
 $templatecontext = [
-    'sitename' => format_string($SITE->shortname, true, ['context' => context_course::instance(SITEID), "escape" => false]),
+    'sitename' => format_string($SITE->shortname, true, ['context' => $context, "escape" => false]),
     'output' => $OUTPUT,
     'sidepreblocks' => $blockshtml,
     'hasblocks' => $hasblocks,

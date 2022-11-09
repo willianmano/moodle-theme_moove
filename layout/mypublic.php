@@ -38,7 +38,7 @@ $userid = optional_param('id', $USER->id, PARAM_INT);
 $userid = $userid ? $userid : $USER->id;
 $user = $DB->get_record('user', ['id' => $userid], '*', MUST_EXIST);
 
-$primary = new core\navigation\output\primary($PAGE);
+$primary = new \theme_moove\output\core\navigation\primary($PAGE);
 $renderer = $PAGE->get_renderer('core');
 $primarymenu = $primary->export_for_template($renderer);
 $buildregionmainsettings = !$PAGE->include_region_main_settings_in_header_actions() && !$PAGE->has_secondary_navigation();
