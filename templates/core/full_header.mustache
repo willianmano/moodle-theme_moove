@@ -31,11 +31,6 @@
 }}
 <header id="page-header" class="moove-container-fluid">
     <div class="d-flex flex-wrap">
-        {{#hasnavbar}}
-            <div id="page-navbar">
-                {{{navbar}}}
-            </div>
-        {{/hasnavbar}}
         <div class="ml-auto d-flex">
             {{{pageheadingbutton}}}
         </div>
@@ -57,5 +52,11 @@
                 <div class="header-action ml-2">{{{.}}}</div>
             {{/headeractions}}
         </div>
+
+        {{#hasnavbar}}
+            <div class="d-none d-md-block" id="page-navbar">
+                {{{navbar}}}
+            </div>
+        {{/hasnavbar}}
     </div>
 </header>
