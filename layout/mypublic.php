@@ -29,7 +29,8 @@ global $DB, $USER, $OUTPUT, $SITE, $PAGE;
 // Get the profile userid.
 $courseid = optional_param('course', 1, PARAM_INT);
 $userid = optional_param('id', $USER->id, PARAM_INT);
-$userid = $userid ? $userid : $USER->id;
+$userid = $userid ?: $USER->id;
+
 $user = $DB->get_record('user', ['id' => $userid], '*', MUST_EXIST);
 
 $primary = new core\navigation\output\primary($PAGE);
@@ -42,8 +43,6 @@ $regionmainsettingsmenu = $buildregionmainsettings ? $OUTPUT->region_main_settin
 $header = $PAGE->activityheader;
 $headercontent = $header->export_for_template($renderer);
 
-$bodyattributes = $OUTPUT->body_attributes([]);
-
 $userimg = new \user_picture($user);
 $userimg->size = 100;
 
@@ -51,11 +50,33 @@ $context = context_course::instance(SITEID);
 
 $usercanviewprofile = user_can_view_profile($user);
 
+$extraclasses = [];
+$secondarynavigation = false;
+$overflow = '';
+if ($PAGE->has_secondary_navigation()) {
+    $secondary = $PAGE->secondarynav;
+
+    if ($secondary->get_children_key_list()) {
+        $tablistnav = $PAGE->has_tablist_secondary_navigation();
+        $moremenu = new \core\navigation\output\more_menu($PAGE->secondarynav, 'nav-tabs', true, $tablistnav);
+        $secondarynavigation = $moremenu->export_for_template($OUTPUT);
+        $extraclasses[] = 'has-secondarynavigation';
+    }
+
+    $overflowdata = $PAGE->secondarynav->get_overflow_menu_data();
+    if (!is_null($overflowdata)) {
+        $overflow = $overflowdata->export_for_template($OUTPUT);
+    }
+}
+
+$bodyattributes = $OUTPUT->body_attributes($extraclasses);
+
 $templatecontext = [
     'sitename' => format_string($SITE->shortname, true, ['context' => context_course::instance(SITEID), "escape" => false]),
     'output' => $OUTPUT,
     'bodyattributes' => $bodyattributes,
     'primarymoremenu' => $primarymenu['moremenu'],
+    'secondarymoremenu' => $secondarynavigation ?: false,
     'mobileprimarynav' => $primarymenu['mobileprimarynav'],
     'usermenu' => $primarymenu['user'],
     'langmenu' => $primarymenu['lang'],
