@@ -48,8 +48,6 @@ $userimg->size = 100;
 
 $context = context_course::instance(SITEID);
 
-$usercanviewprofile = user_can_view_profile($user);
-
 $extraclasses = [];
 $secondarynavigation = false;
 $overflow = '';
@@ -85,37 +83,10 @@ $templatecontext = [
     'userpicture' => $userimg->get_url($PAGE),
     'userfullname' => fullname($user),
     'headerbuttons' => \theme_moove\util\extras::get_mypublic_headerbuttons($context, $user),
-    'editprofileurl' => \theme_moove\util\extras::get_mypublic_editprofile_url($user, $courseid),
-    'usercanviewprofile' => $usercanviewprofile
+    'editprofileurl' => \theme_moove\util\extras::get_mypublic_editprofile_url($user, $courseid)
 ];
 
-if ($usercanviewprofile) {
-    $countries = get_string_manager()->get_list_of_countries(true);
-
-    $templatecontext['userdescription'] = format_text($user->description, $user->descriptionformat, ['overflowdiv' => true]);
-    $templatecontext['usercountry'] = $user->country ? $countries[$user->country] : '';
-    $templatecontext['usercity'] = $user->city;
-
-    if ($userid == $USER->id) {
-        $templatecontext['useremail'] = $user->email;
-    } else {
-        if (!empty($courseid)) {
-            $canviewuseremail = has_capability('moodle/course:useremail', $context);
-        } else {
-            $canviewuseremail = false;
-        }
-
-        $showuseridentityfields = \core_user\fields::get_identity_fields($context, false);
-
-        if (($user->maildisplay == core_user::MAILDISPLAY_EVERYONE
-            || ($user->maildisplay == core_user::MAILDISPLAY_COURSE_MEMBERS_ONLY && enrol_sharing_course($user, $USER))
-            || $canviewuseremail  // TODO: Deprecate/remove for MDL-37479.
-            )
-            || in_array('email', $showuseridentityfields)) {
-            $templatecontext['useremail'] = $user->email;
-        }
-    }
-}
+$templatecontext['userdescription'] = format_text($user->description, $user->descriptionformat, ['overflowdiv' => true]);
 
 $themesettings = new \theme_moove\util\settings();
 
