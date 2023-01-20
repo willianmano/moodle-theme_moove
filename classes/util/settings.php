@@ -220,8 +220,8 @@ class settings {
 
                 $templatecontext['faq'][] = [
                     'id' => $i,
-                    'question' => $this->$faqquestion,
-                    'answer' => $this->$faqanswer
+                    'question' => format_text($this->$faqquestion),
+                    'answer' => format_text($this->$faqanswer)
                 ];
             }
 
