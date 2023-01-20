@@ -83,10 +83,9 @@ $templatecontext = [
     'userpicture' => $userimg->get_url($PAGE),
     'userfullname' => fullname($user),
     'headerbuttons' => \theme_moove\util\extras::get_mypublic_headerbuttons($context, $user),
-    'editprofileurl' => \theme_moove\util\extras::get_mypublic_editprofile_url($user, $courseid)
+    'editprofileurl' => \theme_moove\util\extras::get_mypublic_editprofile_url($user, $courseid),
+    'userdescription' => format_text($user->description, $user->descriptionformat, ['overflowdiv' => true])
 ];
-
-$templatecontext['userdescription'] = format_text($user->description, $user->descriptionformat, ['overflowdiv' => true]);
 
 $themesettings = new \theme_moove\util\settings();
 
