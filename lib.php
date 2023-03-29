@@ -50,9 +50,10 @@ function theme_moove_get_main_scss_content($theme) {
     // Moove scss.
     $moovevariables = file_get_contents($CFG->dirroot . '/theme/moove/scss/moove/_variables.scss');
     $moove = file_get_contents($CFG->dirroot . '/theme/moove/scss/default.scss');
+    $security = file_get_contents($CFG->dirroot . '/theme/moove/scss/moove/_security.scss');
 
     // Combine them together.
-    $allscss = $moovevariables . "\n" . $scss . "\n" . $moove;
+    $allscss = $moovevariables . "\n" . $scss . "\n" . $moove . "\n" . $security;
 
     return $allscss;
 }
