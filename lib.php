@@ -69,11 +69,15 @@ function theme_moove_get_extra_scss($theme) {
 
     // Sets the login background image.
     $loginbgimgurl = $theme->setting_file_url('loginbgimg', 'loginbgimg');
-    if (!empty($loginbgimgurl)) {
-        $content .= 'body.pagelayout-login #page { ';
-        $content .= "background-image: url('$loginbgimgurl'); background-size: cover;";
-        $content .= ' }';
+
+    if (empty($loginbgimgurl)) {
+        $loginbgimgurl = new \moodle_url('/theme/moove/pix/loginbg.png');
+        $loginbgimgurl->out();
     }
+
+    $content .= 'body.pagelayout-login #page { ';
+    $content .= "background-image: url('$loginbgimgurl'); background-size: cover;";
+    $content .= ' }';
 
     // Always return the background image with the scss when we have it.
     return !empty($theme->settings->scss) ? $theme->settings->scss . ' ' . $content : $content;

@@ -63,24 +63,33 @@
         {{#slidercount}}
             <div id="mooveslideshow" class="container-fluid">
                 <div id="carousel-indicators" class="carousel slide carousel-fade" data-ride="carousel">
+                    {{^slidersingleslide}}
                     <ol class="carousel-indicators">
                         {{#slides}}
                             <li data-target="#carousel-indicators" data-slide-to="{{{ key }}}" {{#active}}class="active"{{/active}}></li>
                         {{/slides}}
                     </ol>
+                    {{/slidersingleslide}}
                     <div class="carousel-inner">
                         {{#slides}}
                             <div class="carousel-item {{#active}}active{{/active}}">
                                 <img src="{{image}}" alt="{{slidertitle}}" class="w-100">
-                                <div class="carousel-caption d-none d-md-block">
-                                    <h5 class="title">{{{title}}}</h5>
-                                    <div class="caption">
-                                        {{{caption}}}
+                                {{#hascaption}}
+                                    <div class="carousel-caption d-none d-md-block">
+                                        {{#title}}
+                                            <h5 class="title">{{.}}</h5>
+                                        {{/title}}
+                                        {{#caption}}
+                                            <div class="caption">
+                                                {{{.}}}
+                                            </div>
+                                        {{/caption}}
                                     </div>
-                                </div>
+                                {{/hascaption}}
                             </div>
                         {{/slides}}
                     </div>
+                    {{^slidersingleslide}}
                     <a class="carousel-control-prev" href="#carousel-indicators" role="button" data-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                         <span class="sr-only">{{#str}}previous{{/str}}</span>
@@ -89,6 +98,7 @@
                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                         <span class="sr-only">{{#str}}next{{/str}}</span>
                     </a>
+                    {{/slidersingleslide}}
                 </div>
             </div>
         {{/slidercount}}
