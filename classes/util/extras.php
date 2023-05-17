@@ -37,7 +37,7 @@ class extras {
     /**
      * Returns the buttons displayed at the page header
      *
-     * @param \context_course $context
+     * @param \core\context\course $context
      * @param \stdClass $user
      *
      * @return array
@@ -101,8 +101,8 @@ class extras {
 
         $iscurrentuser = $user->id == $USER->id;
 
-        $systemcontext = \context_system::instance();
-        $usercontext = \context_user::instance($USER->id);
+        $systemcontext = \core\context\system::instance();
+        $usercontext = \core\context\user::instance($USER->id);
 
         // Edit profile.
         if (isloggedin() && !isguestuser($user) && !is_mnet_remote_user($user)) {

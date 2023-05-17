@@ -46,7 +46,7 @@ $headercontent = $header->export_for_template($renderer);
 $userimg = new \user_picture($user);
 $userimg->size = 100;
 
-$context = context_course::instance(SITEID);
+$context = \core\context\course::instance(SITEID);
 
 $extraclasses = [];
 $secondarynavigation = false;
@@ -70,7 +70,7 @@ if ($PAGE->has_secondary_navigation()) {
 $bodyattributes = $OUTPUT->body_attributes($extraclasses);
 
 $templatecontext = [
-    'sitename' => format_string($SITE->shortname, true, ['context' => context_course::instance(SITEID), "escape" => false]),
+    'sitename' => format_string($SITE->shortname, true, ['context' => \core\context\course::instance(SITEID), "escape" => false]),
     'output' => $OUTPUT,
     'bodyattributes' => $bodyattributes,
     'primarymoremenu' => $primarymenu['moremenu'],

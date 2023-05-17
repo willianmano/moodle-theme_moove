@@ -61,7 +61,7 @@ if ($ADMIN->fulltree) {
     $description = get_string('preset_desc', 'theme_moove');
     $default = 'default.scss';
 
-    $context = context_system::instance();
+    $context = \core\context\system::instance();
     $fs = get_file_storage();
     $files = $fs->get_area_files($context->id, 'theme_moove', 'preset', 0, 'itemid, filepath, filename', false);
 

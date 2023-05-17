@@ -25,7 +25,7 @@
 namespace theme_moove\output;
 
 use theme_config;
-use context_course;
+use core\context\course as context_course;
 use moodle_url;
 use html_writer;
 use theme_moove\output\core_course\activity_navigation;

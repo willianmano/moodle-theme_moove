@@ -30,10 +30,10 @@ defined('MOODLE_INTERNAL') || die();
 $plugin->component = 'theme_moove';
 
 // This is the version of the plugin.
-$plugin->version = 2023042400;
+$plugin->version = 2023051000;
 
 // This is the named version.
-$plugin->release = '4.2.0';
+$plugin->release = '4.2.1';
 
 // This is a stable release.
 $plugin->maturity = MATURITY_STABLE;
