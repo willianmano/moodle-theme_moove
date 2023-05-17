@@ -146,7 +146,7 @@ class settings {
 
             $image = $this->$sliderimage;
 
-            $hascaption = $templatecontext['slides'][$j]['title'] || $templatecontext['slides'][$j]['caption'];
+            $hascaption = isset($templatecontext['slides'][$j]['title']) || isset($templatecontext['slides'][$j]['caption']);
 
             $templatecontext['slides'][$j]['key'] = $j;
             $templatecontext['slides'][$j]['active'] = $i === 1;

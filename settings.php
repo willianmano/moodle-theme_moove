@@ -114,6 +114,7 @@ if ($ADMIN->fulltree) {
     $page->add($setting);
 
     $fontsarr = [
+        'Moodle' => 'Moodle Font',
         'Roboto' => 'Roboto',
         'Poppins' => 'Poppins',
         'Montserrat' => 'Montserrat',

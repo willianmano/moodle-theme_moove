@@ -104,6 +104,11 @@ function theme_moove_get_pre_scss($theme) {
         if (empty($value)) {
             continue;
         }
+
+        if ($configkey == 'fontsite' && $value == 'Moodle') {
+            continue;
+        }
+
         array_map(function($target) use (&$scss, $value) {
             if ($target == 'fontsite') {
                 $scss .= '$' . $target . ': "' . $value . '", sans-serif !default' .";\n";
