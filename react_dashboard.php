@@ -33,7 +33,7 @@ $PAGE->set_pagelayout('react_dashboard');
 // Print the header.
 echo $OUTPUT->header();
 
-echo '<div id="root"></div>';
+echo '<div id="root" data-test="otrodato"></div>';
 
 $PAGE->requires->js('/theme/moove/react_components/dashboard/dist/bundle.js');
 // Get the assign to render the page.
