@@ -26,14 +26,14 @@ require_once("../../config.php");
 // For this type of page this is the course id.
 
 require_login();
-global $PAGE, $OUTPUT;
+global $PAGE, $OUTPUT, $USER, $CFG;
 $PAGE->set_url('/theme/moove/react_dashboard.php');
 $PAGE->set_pagelayout('react_dashboard');
 
 // Print the header.
 echo $OUTPUT->header();
 
-echo '<div id="root" data-test="otrodato"></div>';
+echo "<div id='root' data-username='$USER->firstname' data-lastname='$USER->lastname' data-sesskey='$USER->sesskey' data-wwwroot='$CFG->wwwroot' ></div>";
 
 $PAGE->requires->js('/theme/moove/react_components/dashboard/dist/bundle.js');
 // Get the assign to render the page.
