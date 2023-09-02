@@ -214,7 +214,8 @@ class course_renderer extends \core_course_renderer {
             'hasenrolmenticons' => $courseenrolmenticons != false,
             'enrolmenticons' => $courseenrolmenticons,
             'hascontacts' => !empty($coursecontacts),
-            'contacts' => $coursecontacts
+            'contacts' => $coursecontacts,
+            'courseurl' => $this->get_course_url($course->id)
         ];
 
         return $this->render_from_template('theme_moove/moove_coursecard', $data);
@@ -235,5 +236,13 @@ class course_renderer extends \core_course_renderer {
         }
 
         return $data;
+    }
+
+    private function get_course_url($courseid) {
+        if (class_exists('\local_course\output\index')) {
+            return new \moodle_url('/local/course/index.php', ['id' => $courseid]);
+        }
+
+        return new \moodle_url('/course/view.php', ['id' => $courseid]);
     }
 }
