@@ -5,6 +5,8 @@
         padding: .5rem;
         position: relative;
         height: 10rem !important;
+        background-position: center;
+        background-size: cover;
 
         .course-category {
             background-color: $brand-primary;
