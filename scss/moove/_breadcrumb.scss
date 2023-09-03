@@ -2,7 +2,8 @@
     justify-content: flex-end;
 
     .breadcrumb-item + .breadcrumb-item::before {
-        font: normal normal normal 12px/1 FontAwesome;
+        font-family: "Font Awesome 6 Free";
+        font-weight: 900;
         text-rendering: auto;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
