@@ -1,4 +1,4 @@
-<div class="card dashboard-card" role="listitem" data-region="course-content" data-course-id="{{{id}}}">
+<div class="card dashboard-card {{^visible}}dimmed{{/visible}}" role="listitem" data-region="course-content" data-course-id="{{{id}}}">
     <a href="{{courseurl}}" tabindex="-1">
         <div class="card-img dashboard-card-img" style="background-image: url({{{image}}});">
             <span class="sr-only">{{#str}}aria:courseimage, core_course{{/str}} {{{fullname}}}</span>
@@ -19,7 +19,7 @@
     <div class="card-body course-info-container">
         <div class="d-flex align-items-start">
             <div class="w-100">
-                <a href="{{courseurl}}" class="aalink coursename mr-2 mb-1">
+                <a href="{{courseurl}}" class="aalink coursename mr-2 mb-1 {{^visible}}dimmed{{/visible}}">
                     {{{fullname}}}
                 </a>
             </div>
