@@ -216,21 +216,29 @@ class core_renderer extends \theme_boost\output\core_renderer {
         return $this->render_from_template('core/loginform', $context);
     }
 
-    /**
-     * Returns the HTML for the site support email link
-     *
-     * @param array $customattribs Array of custom attributes for the support email anchor tag.
-     * @return string The html code for the support email link.
-     */
-    public function supportemail(array $customattribs = []): string {
+    public function supportemail(array $customattribs = [], bool $embed = false): string {
         global $CFG;
+
+        // Do not provide a link to contact site support if it is unavailable to this user. This would be where the site has
+        // disabled support, or limited it to authenticated users and the current user is a guest or not logged in.
+        if (!isset($CFG->supportavailability) ||
+            $CFG->supportavailability == CONTACT_SUPPORT_DISABLED ||
+            ($CFG->supportavailability == CONTACT_SUPPORT_AUTHENTICATED && (!isloggedin() || isguestuser()))) {
+            return '';
+        }
 
         $label = get_string('contactsitesupport', 'admin');
         $icon = $this->pix_icon('t/life-ring', '', 'moodle', ['class' => 'iconhelp icon-pre']);
         $content = $icon . $label;
 
+        if ($embed) {
+            $content = $label;
+        }
+
         if (!empty($CFG->supportpage)) {
             $attributes = ['href' => $CFG->supportpage, 'target' => 'blank', 'class' => 'btn contactsitesupport btn-outline-info'];
+
+            $content .= $this->pix_icon('i/externallink', '', 'moodle', ['class' => 'ml-1']);
         } else {
             $attributes = [
                 'href' => $CFG->wwwroot . '/user/contactsitesupport.php',
@@ -240,7 +248,7 @@ class core_renderer extends \theme_boost\output\core_renderer {
 
         $attributes += $customattribs;
 
-        return \html_writer::tag('a', $content, $attributes);
+        return html_writer::tag('a', $content, $attributes);
     }
 
     /**
