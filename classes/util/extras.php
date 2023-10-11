@@ -59,22 +59,22 @@ class extras {
             $headerbuttons = [
                 [
                     'title' => get_string('sendmessage', 'core_message'),
-                    'url' => new \moodle_url('/message/index.php', array('id' => $user->id)),
+                    'url' => new \moodle_url('/message/index.php', ['id' => $user->id]),
                     'icon' => 'fa fa-comment-o',
-                    'class' => 'btn-header btn btn-sm btn-success'
+                    'class' => 'btn-header btn btn-sm btn-success',
                 ],
                 [
                     'title' => get_string($contacttitle, 'theme_moove'),
                     'url' => new \moodle_url('/message/index.php', [
-                            'user1' => $USER->id,
-                            'user2' => $user->id,
-                            $contacturlaction => $user->id,
-                            'sesskey' => sesskey()]
-                    ),
+                        'user1' => $USER->id,
+                        'user2' => $user->id,
+                        $contacturlaction => $user->id,
+                        'sesskey' => sesskey(),
+                    ]),
                     'icon' => $contactimage,
                     'class' => 'btn-header btn btn-sm btn-dark ajax-contact-button',
                     'linkattributes' => \core_message\helper::togglecontact_link_params($user, $iscontact),
-                ]
+                ],
             ];
 
             \core_message\helper::togglecontact_requirejs();
@@ -124,11 +124,14 @@ class extras {
                     $url = $userauthplugin->edit_profile_url();
                     if (empty($url)) {
                         if (empty($course)) {
-                            return new moodle_url('/user/edit.php', array('id' => $user->id, 'returnto' => 'profile'));
+                            return new moodle_url('/user/edit.php', ['id' => $user->id, 'returnto' => 'profile']);
                         }
 
-                        return new moodle_url('/user/edit.php', array('id' => $user->id, 'course' => $course->id,
-                            'returnto' => 'profile'));
+                        return new moodle_url('/user/edit.php', [
+                            'id' => $user->id,
+                            'course' => $course->id,
+                            'returnto' => 'profile',
+                        ]);
                     }
                 }
             }

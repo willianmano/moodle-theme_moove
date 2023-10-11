@@ -165,7 +165,7 @@ $THEME->layouts = [
         'file' => 'secure.php',
         'regions' => ['side-pre'],
         'defaultregion' => 'side-pre',
-    ]
+    ],
 ];
 
 $THEME->parents = ['boost'];
@@ -182,5 +182,5 @@ $THEME->haseditswitch = true;
 $THEME->usescourseindex = true;
 // By default, all Moodle theme do not need their titles displayed.
 $THEME->activityheaderconfig = [
-    'notitle' => true
+    'notitle' => true,
 ];

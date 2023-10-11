@@ -29,6 +29,7 @@ use coursecat_helper;
 use stdClass;
 use core_course_list_element;
 use theme_moove\util\course;
+use moodle_url;
 
 /**
  * Renderers to align Moove's course elements to what is expect
@@ -241,15 +242,16 @@ class course_renderer extends \core_course_renderer {
     /**
      * Returns the course URL based on some criterias.
      *
-     * @param $courseid
-     * @return \moodle_url
+     * @param int $courseid
+     *
+     * @return moodle_url
      * @throws \moodle_exception
      */
     private function get_course_url($courseid) {
         if (class_exists('\local_course\output\index')) {
-            return new \moodle_url('/local/course/index.php', ['id' => $courseid]);
+            return new moodle_url('/local/course/index.php', ['id' => $courseid]);
         }
 
-        return new \moodle_url('/course/view.php', ['id' => $courseid]);
+        return new moodle_url('/course/view.php', ['id' => $courseid]);
     }
 }

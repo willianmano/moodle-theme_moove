@@ -249,7 +249,7 @@ class core_renderer extends \theme_boost\output\core_renderer {
         } else {
             $attributes = [
                 'href' => $CFG->wwwroot . '/user/contactsitesupport.php',
-                'class' => 'btn contactsitesupport btn-outline-info'
+                'class' => 'btn contactsitesupport btn-outline-info',
             ];
         }
 
