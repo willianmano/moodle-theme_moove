@@ -95,7 +95,7 @@ function theme_moove_get_pre_scss($theme) {
         // Config key => [variableName, ...].
         'brandcolor' => ['brand-primary'],
         'secondarymenucolor' => 'secondary-menu-color',
-        'fontsite' => 'font-family-sans-serif'
+        'fontsite' => 'font-family-sans-serif',
     ];
 
     // Prepend variables first.
@@ -149,7 +149,7 @@ function theme_moove_get_precompiled_css() {
  * @param array $options
  * @return mixed
  */
-function theme_moove_pluginfile($course, $cm, $context, $filearea, $args, $forcedownload, array $options = array()) {
+function theme_moove_pluginfile($course, $cm, $context, $filearea, $args, $forcedownload, array $options = []) {
     $theme = theme_config::load('moove');
 
     if ($context->contextlevel == CONTEXT_SYSTEM &&

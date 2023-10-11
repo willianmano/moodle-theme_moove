@@ -116,7 +116,7 @@ $templatecontext = [
     'overflow' => $overflow,
     'headercontent' => $headercontent,
     'addblockbutton' => $addblockbutton,
-    'enablecourseindex' => $themesettings->enablecourseindex
+    'enablecourseindex' => $themesettings->enablecourseindex,
 ];
 
 $templatecontext = array_merge($templatecontext, $themesettings->footer());

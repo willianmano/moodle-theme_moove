@@ -127,8 +127,8 @@ class extras {
                             return new moodle_url('/user/edit.php', array('id' => $user->id, 'returnto' => 'profile'));
                         }
 
-                         return new moodle_url('/user/edit.php', array('id' => $user->id, 'course' => $course->id,
-                                'returnto' => 'profile'));
+                        return new moodle_url('/user/edit.php', array('id' => $user->id, 'course' => $course->id,
+                            'returnto' => 'profile'));
                     }
                 }
             }

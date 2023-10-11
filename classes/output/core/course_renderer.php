@@ -83,10 +83,10 @@ class course_renderer extends \core_course_renderer {
                 $perpage = $chelper->get_courses_display_option('limit', $CFG->coursesperpage);
                 $page = $chelper->get_courses_display_option('offset') / $perpage;
                 $pagingbar = $this->paging_bar($totalcount, $page, $perpage,
-                    $paginationurl->out(false, array('perpage' => $perpage)));
+                    $paginationurl->out(false, ['perpage' => $perpage]));
                 if ($paginationallowall) {
-                    $pagingbar .= html_writer::tag('div', html_writer::link($paginationurl->out(false, array('perpage' => 'all')),
-                        get_string('showall', '', $totalcount)), array('class' => 'paging paging-showall'));
+                    $pagingbar .= html_writer::tag('div', html_writer::link($paginationurl->out(false, ['perpage' => 'all']),
+                        get_string('showall', '', $totalcount)), ['class' => 'paging paging-showall']);
                 }
             } else if ($viewmoreurl = $chelper->get_courses_display_option('viewmoreurl')) {
                 // The option for 'View more' link was specified, display more link.
@@ -100,8 +100,8 @@ class course_renderer extends \core_course_renderer {
         } else if (($totalcount > $CFG->coursesperpage) && $paginationurl && $paginationallowall) {
             // There are more than one page of results and we are in 'view all' mode, suggest to go back to paginated view mode.
             $pagingbar = html_writer::tag('div',
-                html_writer::link($paginationurl->out(false, array('perpage' => $CFG->coursesperpage)),
-                get_string('showperpage', '', $CFG->coursesperpage)), array('class' => 'paging paging-showperpage'));
+                html_writer::link($paginationurl->out(false, ['perpage' => $CFG->coursesperpage]),
+                    get_string('showperpage', '', $CFG->coursesperpage)), ['class' => 'paging paging-showperpage']);
         }
 
         // Display list of courses.
@@ -113,13 +113,13 @@ class course_renderer extends \core_course_renderer {
         }
 
         $coursecount = 1;
-        $content .= html_writer::start_tag('div', array('class' => 'card-deck dashboard-card-deck mt-2'));
+        $content .= html_writer::start_tag('div', ['class' => 'card-deck dashboard-card-deck mt-2']);
         foreach ($courses as $course) {
             $content .= $this->coursecat_coursebox($chelper, $course);
 
             if ($coursecount % 3 == 0) {
                 $content .= html_writer::end_tag('div');
-                $content .= html_writer::start_tag('div', array('class' => 'card-deck dashboard-card-deck mt-2'));
+                $content .= html_writer::start_tag('div', ['class' => 'card-deck dashboard-card-deck mt-2']);
             }
 
             $coursecount ++;
@@ -215,7 +215,7 @@ class course_renderer extends \core_course_renderer {
             'enrolmenticons' => $courseenrolmenticons,
             'hascontacts' => !empty($coursecontacts),
             'contacts' => $coursecontacts,
-            'courseurl' => $this->get_course_url($course->id)
+            'courseurl' => $this->get_course_url($course->id),
         ];
 
         return $this->render_from_template('theme_moove/moove_coursecard', $data);
@@ -238,6 +238,13 @@ class course_renderer extends \core_course_renderer {
         return $data;
     }
 
+    /**
+     * Returns the course URL based on some criterias.
+     *
+     * @param $courseid
+     * @return \moodle_url
+     * @throws \moodle_exception
+     */
     private function get_course_url($courseid) {
         if (class_exists('\local_course\output\index')) {
             return new \moodle_url('/local/course/index.php', ['id' => $courseid]);

@@ -45,7 +45,7 @@ class settings {
         'loginbg',
         'sliderimage1', 'sliderimage2', 'sliderimage3', 'sliderimage4', 'sliderimage5', 'sliderimage6',
         'sliderimage7', 'sliderimage8', 'sliderimage9', 'sliderimage10', 'sliderimage11', 'sliderimage12',
-        'marketing1icon', 'marketing2icon', 'marketing3icon', 'marketing4icon'
+        'marketing1icon', 'marketing2icon', 'marketing3icon', 'marketing4icon',
     ];
 
     /**
@@ -86,7 +86,7 @@ class settings {
 
         $settings = [
             'facebook', 'twitter', 'linkedin', 'youtube', 'instagram', 'whatsapp', 'telegram',
-            'website', 'mobile', 'mail'
+            'website', 'mobile', 'mail',
         ];
 
         foreach ($settings as $setting) {
@@ -229,7 +229,7 @@ class settings {
                 $templatecontext['faq'][] = [
                     'id' => $i,
                     'question' => format_text($this->$faqquestion),
-                    'answer' => format_text($this->$faqanswer)
+                    'answer' => format_text($this->$faqanswer),
                 ];
             }
 

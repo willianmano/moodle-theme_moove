@@ -91,7 +91,7 @@ class core_renderer extends \theme_boost\output\core_renderer {
      *
      * @since Moodle 2.5.1 2.6
      */
-    public function body_attributes($additionalclasses = array()) {
+    public function body_attributes($additionalclasses = []) {
         $hasaccessibilitybar = get_user_preferences('thememoovesettings_enableaccessibilitytoolbar', '');
         if ($hasaccessibilitybar) {
             $additionalclasses[] = 'hasaccessibilitybar';
@@ -216,6 +216,13 @@ class core_renderer extends \theme_boost\output\core_renderer {
         return $this->render_from_template('core/loginform', $context);
     }
 
+    /**
+     * Returns the HTML for the site support email link
+     *
+     * @param array $customattribs Array of custom attributes for the support email anchor tag.
+     * @param bool $embed Set to true if you want to embed the link in other inline content.
+     * @return string The html code for the support email link.
+     */
     public function supportemail(array $customattribs = [], bool $embed = false): string {
         global $CFG;
 
@@ -306,7 +313,7 @@ class core_renderer extends \theme_boost\output\core_renderer {
             $prefix = html_writer::div($contextheader->prefix, 'text-muted text-uppercase small line-height-3');
             $heading = $prefix . $heading;
         }
-        $html .= html_writer::tag('div', $heading, array('class' => 'page-header-headings'));
+        $html .= html_writer::tag('div', $heading, ['class' => 'page-header-headings']);
 
         // Buttons.
         if (isset($contextheader->additionalbuttons)) {
@@ -320,16 +327,16 @@ class core_renderer extends \theme_boost\output\core_renderer {
                     if ($button['buttontype'] === 'message') {
                         \core_message\helper::messageuser_requirejs();
                     }
-                    $image = $this->pix_icon($button['formattedimage'], $button['title'], 'moodle', array(
+                    $image = $this->pix_icon($button['formattedimage'], $button['title'], 'moodle', [
                         'class' => 'iconsmall',
-                        'role' => 'presentation'
-                    ));
+                        'role' => 'presentation',
+                    ]);
                     $image .= html_writer::span($button['title'], 'header-button-title');
                 } else {
-                    $image = html_writer::empty_tag('img', array(
+                    $image = html_writer::empty_tag('img', [
                         'src' => $button['formattedimage'],
-                        'role' => 'presentation'
-                    ));
+                        'role' => 'presentation',
+                    ]);
                 }
                 $html .= html_writer::link($button['url'], html_writer::tag('span', $image), $button['linkattributes']);
             }
@@ -385,7 +392,7 @@ class core_renderer extends \theme_boost\output\core_renderer {
                 $modname .= ' ' . get_string('hiddenwithbrackets');
             }
             // Module URL.
-            $linkurl = new moodle_url($module->url, array('forceview' => 1));
+            $linkurl = new moodle_url($module->url, ['forceview' => 1]);
             // Add module URL (as key) and name (as value) to the activity list array.
             $activitylist[$linkurl->out(false)] = $modname;
         }

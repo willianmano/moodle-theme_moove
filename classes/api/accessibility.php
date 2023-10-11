@@ -157,7 +157,7 @@ class accessibility extends external_api {
      */
     public static function fontsize_returns() {
         return new external_single_structure([
-            'newfontsizeclass' => new external_value(PARAM_RAW, 'The new fontsize class')
+            'newfontsizeclass' => new external_value(PARAM_RAW, 'The new fontsize class'),
         ]);
     }
 
@@ -207,7 +207,7 @@ class accessibility extends external_api {
      */
     public static function sitecolor_returns() {
         return new external_single_structure([
-            'success' => new external_value(PARAM_BOOL, 'Operation response')
+            'success' => new external_value(PARAM_BOOL, 'Operation response'),
         ]);
     }
 
@@ -267,7 +267,7 @@ class accessibility extends external_api {
      */
     public static function savethemesettings_returns() {
         return new external_single_structure([
-            'success' => new external_value(PARAM_BOOL, 'Operation response')
+            'success' => new external_value(PARAM_BOOL, 'Operation response'),
         ]);
     }
 
@@ -290,7 +290,7 @@ class accessibility extends external_api {
     public static function getthemesettings() {
         return [
             'fonttype' => get_user_preferences('thememoovesettings_fonttype', 'default'),
-            'enableaccessibilitytoolbar' => get_user_preferences('thememoovesettings_enableaccessibilitytoolbar', false)
+            'enableaccessibilitytoolbar' => get_user_preferences('thememoovesettings_enableaccessibilitytoolbar', false),
         ];
     }
 
@@ -302,7 +302,7 @@ class accessibility extends external_api {
     public static function getthemesettings_returns() {
         return new external_single_structure([
             'fonttype' => new external_value(PARAM_TEXT, 'the user selected font'),
-            'enableaccessibilitytoolbar' => new external_value(PARAM_BOOL, 'the user selected toolbar option')
+            'enableaccessibilitytoolbar' => new external_value(PARAM_BOOL, 'the user selected toolbar option'),
         ]);
     }
 }
