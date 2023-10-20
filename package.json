@@ -7,6 +7,7 @@
     "name": "Willian Mano",
     "url": "https://www.conecti.me"
   },
+  "type": "module",
   "devDependencies": {
     "babel-eslint": "^10.0.3",
     "eslint": "^4.19.1",

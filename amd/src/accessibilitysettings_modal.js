@@ -20,115 +20,70 @@
  * @copyright  2022 Willian Mano - https://conecti.me
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-define(['jquery', 'core/notification', 'core/custom_interaction_events', 'core/modal', 'core/modal_registry', 'core/ajax'],
-    function(jQuery, Notification, CustomEvents, Modal, ModalRegistry, Ajax) {
-        /**
-         * Is modal registered?
-         */
-        var registered = false;
-        /**
-         * Elements selectors.
-         */
-        var SELECTORS = {
-            SAVE_BUTTON: '[data-action="save"]',
-            CANCEL_BUTTON: '[data-action="cancel"]'
-        };
+import Ajax from 'core/ajax';
+import Modal from 'core/modal';
+import * as CustomEvents from 'core/custom_interaction_events';
+import Notification from 'core/notification';
 
-        /**
-         * Constructor for the Modal.
-         *
-         * @param {object} root The root jQuery element for the modal
-         */
-        var AccessibilityModal = function(root) {
-            Modal.call(this, root);
+export default class AccessibilityModal extends Modal {
+    static TYPE = "theme_moove/themesettings_modal";
+    static TEMPLATE = "theme_moove/accessibilitysettings_modal";
 
-            var request = Ajax.call([{
-                methodname: 'theme_moove_getthemesettings',
-                args: {}
+    constructor(root) {
+        super(root);
+
+        let request = Ajax.call([{
+            methodname: 'theme_moove_getthemesettings',
+            args: {}
+        }]);
+
+        request[0].done(function(result) {
+            document.getElementById('fonttype').value = result.fonttype;
+
+            if (result.enableaccessibilitytoolbar) {
+                document.getElementById('enableaccessibilitytoolbar').checked = true;
+            }
+        });
+    }
+
+    /**
+     * Set up all of the event handling for the modal.
+     */
+    registerEventListeners() {
+        // Apply parent event listeners.
+        super.registerEventListeners(this);
+
+        this.getModal().on(CustomEvents.events.activate, '[data-action="save"]', function() {
+            let request = Ajax.call([{
+                methodname: 'theme_moove_savethemesettings',
+                args: {
+                    formdata: this.getBody().find('form').serialize()
+                }
             }]);
 
-            request[0].done(function(result) {
-                document.getElementById('fonttype').value = result.fonttype;
+            request[0].done(function() {
+                document.location.reload(true);
+            }).fail(function(error) {
+                let message = error.message;
 
-                if (result.enableaccessibilitytoolbar) {
-                    document.getElementById('enableaccessibilitytoolbar').checked = true;
+                if (!message) {
+                    message = error.error;
                 }
-            });
-        };
 
-        AccessibilityModal.TYPE = 'theme_moove-themesettings_modal';
-        AccessibilityModal.prototype = Object.create(Modal.prototype);
-        AccessibilityModal.prototype.constructor = AccessibilityModal;
+                Notification.addNotification({
+                    message: message,
+                    type: 'error'
+                });
 
-        /**
-         * Set up all of the event handling for the modal.
-         *
-         * @method registerEventListeners
-         */
-        AccessibilityModal.prototype.registerEventListeners = function() {
-            // Apply parent event listeners.
-            Modal.prototype.registerEventListeners.call(this);
-
-            this.getModal().on(CustomEvents.events.activate, SELECTORS.SAVE_BUTTON, function() {
-                var request = Ajax.call([{
-                    methodname: 'theme_moove_savethemesettings',
-                    args: {
-                        formdata: this.getFormData()
-                    }
-                }]);
-
-                request[0].done(function() {
-                    document.location.reload(true);
-                }).fail(function(error) {
-                    var message = error.message;
-
-                    if (!message) {
-                        message = error.error;
-                    }
-
-                    Notification.addNotification({
-                        message: message,
-                        type: 'error'
-                    });
-
-                    this.hide();
-
-                    this.destroy();
-                }.bind(this));
-            }.bind(this));
-
-            this.getModal().on(CustomEvents.events.activate, SELECTORS.CANCEL_BUTTON, function() {
                 this.hide();
+
                 this.destroy();
             }.bind(this));
-        };
+        }.bind(this));
 
-        /**
-         * Get the serialised form data.
-         *
-         * @method getFormData
-         * @return {string} serialised form data
-         */
-        AccessibilityModal.prototype.getFormData = function() {
-            return this.getForm().serialize();
-        };
-
-        /**
-         * Get the form element from the modal.
-         *
-         * @method getForm
-         * @return {object}
-         */
-        AccessibilityModal.prototype.getForm = function() {
-            return this.getBody().find('form');
-        };
-
-        // Automatically register with the modal registry the first time this module is imported so that you can create modals
-        // of this type using the modal factory.
-        if (!registered) {
-            ModalRegistry.register(AccessibilityModal.TYPE, AccessibilityModal, 'theme_moove/accessibilitysettings_modal');
-            registered = true;
-        }
-
-        return AccessibilityModal;
-    });
+        this.getModal().on(CustomEvents.events.activate, '[data-action="cancel"]', function() {
+            this.hide();
+            this.destroy();
+        }.bind(this));
+    }
+}
