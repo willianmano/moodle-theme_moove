@@ -40,8 +40,6 @@ function theme_moove_get_main_scss_content($theme) {
         $scss .= file_get_contents($CFG->dirroot . '/theme/boost/scss/preset/default.scss');
     } else if ($filename == 'plain.scss') {
         $scss .= file_get_contents($CFG->dirroot . '/theme/boost/scss/preset/plain.scss');
-    } else if ($filename && ($presetfile = $fs->get_file($context->id, 'theme_moove', 'preset', 0, '/', $filename))) {
-        $scss .= $presetfile->get_content();
     } else {
         // Safety fallback - maybe new installs etc.
         $scss .= file_get_contents($CFG->dirroot . '/theme/boost/scss/preset/default.scss');
@@ -52,8 +50,13 @@ function theme_moove_get_main_scss_content($theme) {
     $moove = file_get_contents($CFG->dirroot . '/theme/moove/scss/default.scss');
     $security = file_get_contents($CFG->dirroot . '/theme/moove/scss/moove/_security.scss');
 
+    $lastpreset = '';
+    if ($filename && ($presetfile = $fs->get_file($context->id, 'theme_moove', 'preset', 0, '/', $filename))) {
+        $lastpreset = $presetfile->get_content();
+    }
+
     // Combine them together.
-    $allscss = $moovevariables . "\n" . $scss . "\n" . $moove . "\n" . $security;
+    $allscss = $moovevariables . "\n" . $scss . "\n" . $moove . "\n" . $lastpreset .    "\n" . $security;
 
     return $allscss;
 }
