@@ -20,49 +20,20 @@
  * @copyright  2022 Willian Mano - https://conecti.me
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-define(['jquery', 'core/modal_factory', 'theme_moove/accessibilitysettings_modal'],
-    function($, ModalFactory, AccessibilitySettingsModal) {
-        /**
-         * Toogle region selectors.
-         */
-        var SELECTORS = {
-            TOGGLE_REGION: '#accessibilitysettings-control'
-        };
 
-        /**
-         * Constructor for the AccessibilitySettings.
-         */
-        var AccessibilitySettings = function() {
-            this.registerEventListeners();
-        };
+import AccessibilitySettingsModal from 'theme_moove/accessibilitysettings_modal';
+import $ from 'jquery';
 
-        /**
-         * Open / close the blocks drawer.
-         */
-        AccessibilitySettings.prototype.openAccessibilitySettingsModal = function() {
-            // eslint-disable-next-line promise/catch-or-return
-            ModalFactory.create({
-                type: AccessibilitySettingsModal.TYPE
-            })
-            .then(function(modal) {
-                return modal.show();
-            });
-        };
+export const init = async() => {
+    $('#accessibilitysettings-control').click(function(e) {
+        e.preventDefault();
 
-        /**
-         * Set up all of the event handling for the modal.
-         */
-        AccessibilitySettings.prototype.registerEventListeners = function() {
-            $(SELECTORS.TOGGLE_REGION).click(function(e) {
-                this.openAccessibilitySettingsModal(e);
-                e.preventDefault();
-            }.bind(this));
-        };
+        openModal();
+    });
+};
 
-        return {
-            'init': function() {
-                return new AccessibilitySettings();
-            }
-        };
-    }
-);
+const openModal = async() => {
+    const modal = await AccessibilitySettingsModal.create({});
+
+    modal.show();
+};

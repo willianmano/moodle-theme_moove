@@ -220,17 +220,32 @@ class core_renderer extends \theme_boost\output\core_renderer {
      * Returns the HTML for the site support email link
      *
      * @param array $customattribs Array of custom attributes for the support email anchor tag.
+     * @param bool $embed Set to true if you want to embed the link in other inline content.
      * @return string The html code for the support email link.
      */
-    public function supportemail(array $customattribs = []): string {
+    public function supportemail(array $customattribs = [], bool $embed = false): string {
         global $CFG;
+
+        // Do not provide a link to contact site support if it is unavailable to this user. This would be where the site has
+        // disabled support, or limited it to authenticated users and the current user is a guest or not logged in.
+        if (!isset($CFG->supportavailability) ||
+            $CFG->supportavailability == CONTACT_SUPPORT_DISABLED ||
+            ($CFG->supportavailability == CONTACT_SUPPORT_AUTHENTICATED && (!isloggedin() || isguestuser()))) {
+            return '';
+        }
 
         $label = get_string('contactsitesupport', 'admin');
         $icon = $this->pix_icon('t/life-ring', '', 'moodle', ['class' => 'iconhelp icon-pre']);
         $content = $icon . $label;
 
+        if ($embed) {
+            $content = $label;
+        }
+
         if (!empty($CFG->supportpage)) {
             $attributes = ['href' => $CFG->supportpage, 'target' => 'blank', 'class' => 'btn contactsitesupport btn-outline-info'];
+
+            $content .= $this->pix_icon('i/externallink', '', 'moodle', ['class' => 'ml-1']);
         } else {
             $attributes = [
                 'href' => $CFG->wwwroot . '/user/contactsitesupport.php',
@@ -240,7 +255,7 @@ class core_renderer extends \theme_boost\output\core_renderer {
 
         $attributes += $customattribs;
 
-        return \html_writer::tag('a', $content, $attributes);
+        return html_writer::tag('a', $content, $attributes);
     }
 
     /**
@@ -459,6 +474,70 @@ class core_renderer extends \theme_boost\output\core_renderer {
                 }
             }
         }
+
+        return $output;
+    }
+
+    /**
+     * Redirects the user by any means possible given the current state
+     *
+     * This function should not be called directly, it should always be called using
+     * the redirect function in lib/weblib.php
+     *
+     * The redirect function should really only be called before page output has started
+     * however it will allow itself to be called during the state STATE_IN_BODY
+     *
+     * @param string $encodedurl The URL to send to encoded if required
+     * @param string $message The message to display to the user if any
+     * @param int $delay The delay before redirecting a user, if $message has been
+     *         set this is a requirement and defaults to 3, set to 0 no delay
+     * @param boolean $debugdisableredirect this redirect has been disabled for
+     *         debugging purposes. Display a message that explains, and don't
+     *         trigger the redirect.
+     * @param string $messagetype The type of notification to show the message in.
+     *         See constants on \core\output\notification.
+     * @return string The HTML to display to the user before dying, may contain
+     *         meta refresh, javascript refresh, and may have set header redirects
+     */
+    public function redirect_message($encodedurl, $message, $delay, $debugdisableredirect,
+                                     $messagetype = \core\output\notification::NOTIFY_INFO) {
+        $url = str_replace('&amp;', '&', $encodedurl);
+
+        switch ($this->page->state) {
+            case \moodle_page::STATE_BEFORE_HEADER :
+                // No output yet it is safe to delivery the full arsenal of redirect methods
+                if (!$debugdisableredirect) {
+                    // Don't use exactly the same time here, it can cause problems when both redirects fire at the same time.
+                    $this->metarefreshtag = '<meta http-equiv="refresh" content="'. $delay .'; url='. $encodedurl .'" />'."\n";
+                    $this->page->requires->js_function_call('document.location.replace', array($url), false, ($delay + 3));
+                }
+                $output = $this->header();
+                break;
+            case \moodle_page::STATE_PRINTING_HEADER :
+                // We should hopefully never get here
+                throw new coding_exception('You cannot redirect while printing the page header');
+                break;
+            case \moodle_page::STATE_IN_BODY :
+                // We really shouldn't be here but we can deal with this
+                debugging("You should really redirect before you start page output");
+                if (!$debugdisableredirect) {
+                    $this->page->requires->js_function_call('document.location.replace', array($url), false, $delay);
+                }
+                $output = $this->opencontainers->pop_all_but_last();
+                break;
+            case \moodle_page::STATE_DONE :
+                // Too late to be calling redirect now
+                throw new \coding_exception('You cannot redirect after the entire page has been generated');
+                break;
+        }
+
+        $output .= $this->render_from_template('theme_moove/loading-overlay', ['encodedurl' => $encodedurl]);
+
+        if ($debugdisableredirect) {
+            $output .= '<p><strong>'.get_string('erroroutput', 'error').'</strong></p>';
+        }
+
+        $output .= $this->footer();
 
         return $output;
     }

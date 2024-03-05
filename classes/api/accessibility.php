@@ -249,7 +249,7 @@ class accessibility extends external_api {
         }
 
         $enableaccessibilitytoolbar = null;
-        if ($data['enableaccessibilitytoolbar']) {
+        if (isset($data['enableaccessibilitytoolbar'])) {
             $enableaccessibilitytoolbar = true;
         }
 
@@ -267,7 +267,7 @@ class accessibility extends external_api {
      */
     public static function savethemesettings_returns() {
         return new external_single_structure([
-            'success' => new external_value(PARAM_BOOL, 'Operation response')
+            'success' => new external_value(PARAM_BOOL, 'Operation response'),
         ]);
     }
 

@@ -52,7 +52,7 @@
     #page-login-index {
         .login-container {
             max-width: 100%;
-            width: 100%;
+            width: 100% !important; /* stylelint-disable-line declaration-no-important */
         }
 
         .loginform {
