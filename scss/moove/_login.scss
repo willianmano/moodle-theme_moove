@@ -63,6 +63,10 @@
             }
         }
     }
+
+    .login-container {
+        width: 100% !important; /* stylelint-disable-line declaration-no-important */
+    }
 }
 
 @include media-breakpoint-down(md) {

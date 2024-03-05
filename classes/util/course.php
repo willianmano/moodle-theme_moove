@@ -93,7 +93,7 @@ class course {
                     'id' => $user->id,
                     'fullname' => fullname($user),
                     'userpicture' => $userutil->get_user_picture(),
-                    'role' => $instructor['role']->displayname
+                    'role' => $instructor['role']->displayname,
                 ];
             }
         }
