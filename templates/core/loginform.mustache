@@ -112,6 +112,10 @@
             <a href="#" id="loginerrormessage" class="sr-only">{{error}}</a>
             <div class="alert alert-danger" role="alert">{{error}}</div>
         {{/error}}
+        {{#info}}
+            <a href="#" id="logininfomessage" class="sr-only">{{info}}</a>
+            <div class="alert alert-info" role="alert">{{info}}</div>
+        {{/info}}
         {{#cansignup}}
             <a href="{{signupurl}}" class="sr-only">{{#str}} tocreatenewaccount {{/str}}</a>
         {{/cansignup}}
@@ -141,6 +145,11 @@
                 !}}placeholder="{{#cleanstr}}password{{/cleanstr}}" {{!
                 !}}autocomplete="current-password">
             </div>
+            {{#recaptcha}}
+                <div class="login-form-recaptcha form-group">
+                    {{{recaptcha}}}
+                </div>
+            {{/recaptcha}}
             <div class="login-form-submit form-group">
                 <button class="btn btn-primary btn-block btn-lg" type="submit" id="loginbtn">{{#str}}login{{/str}}</button>
             </div>
