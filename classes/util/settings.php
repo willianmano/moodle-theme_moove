@@ -37,7 +37,7 @@ class settings {
     /**
      * @var \stdClass $theme The theme object.
      */
-    protected $theme    ;
+    protected $theme;
     /**
      * @var array $files Theme file settings.
      */

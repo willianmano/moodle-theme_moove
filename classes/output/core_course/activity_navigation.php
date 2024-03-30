@@ -43,7 +43,7 @@ class activity_navigation extends \core_course\output\activity_navigation {
      * @param \cm_info|null $nextmod The next module to display, null if none.
      * @param array $activitylist The list of activity URLs (as key) and names (as value) for the activity dropdown menu.
      */
-    public function __construct($prevmod, $nextmod, $activitylist = []) {
+    public function __construct(?\cm_info $prevmod, ?\cm_info $nextmod, array $activitylist = []) {
         // Check if there is a previous module to display.
         if ($prevmod) {
             $linkurl = new \moodle_url($prevmod->url, ['forceview' => 1]);

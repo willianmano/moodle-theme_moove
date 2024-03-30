@@ -46,7 +46,7 @@ class user {
      * @param stdClass $user
      *
      */
-    public function __construct($user = null) {
+    public function __construct(stdClass $user = null) {
         global $USER, $DB;
 
         if (!is_object($user)) {

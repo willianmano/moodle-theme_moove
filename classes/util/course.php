@@ -48,7 +48,7 @@ class course {
      * @param core_course_list_element $course
      *
      */
-    public function __construct($course) {
+    public function __construct(core_course_list_element $course) {
         $this->course = $course;
     }
 
