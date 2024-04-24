@@ -3,6 +3,7 @@
     .dashboard-card {
         position: relative;
         width: calc(33.33% - 2rem) !important;
+        max-width: calc(33.33% - 2rem) !important;
         margin: 1rem;
 
         &.dimmed .card-img::after {
@@ -15,6 +16,11 @@
             bottom: 0;
             border-top-left-radius: .5rem;;
             border-top-right-radius: .5rem;;
+        }
+
+        .card-img.dashboard-card-img {
+            border-bottom-right-radius: 0;
+            border-bottom-left-radius: 0;
         }
 
         .dashboard-card-footer {
