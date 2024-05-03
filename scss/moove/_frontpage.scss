@@ -3,7 +3,7 @@
     .dashboard-card {
         position: relative;
         width: calc(33.33% - 2rem) !important;
-        max-width: calc(33.33% - 2rem) !important;
+        max-width: calc(100% - 2rem) !important;
         margin: 1rem;
 
         &.dimmed .card-img::after {
