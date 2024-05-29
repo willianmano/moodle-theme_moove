@@ -3,7 +3,7 @@
     .dashboard-card {
         position: relative;
         width: calc(33.33% - 2rem) !important;
-        max-width: calc(100% - 2rem) !important;
+        max-width: calc(33.33% - 2rem) !important;
         margin: 1rem;
 
         &.dimmed .card-img::after {
@@ -288,6 +288,7 @@
     .pagelayout-frontpage .dashboard-card,
     .pagelayout-coursecategory .dashboard-card {
         width: 100% !important;
+        max-width: 100% !important;
         margin: 1rem 0;
         -webkit-box-shadow: none;
         box-shadow: none;
