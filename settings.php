@@ -194,6 +194,15 @@ if ($ADMIN->fulltree) {
     $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
     $page->add($setting);
 
+    // Enable blog in frontpage
+    $name = 'theme_moove/enableblogfrontpage';
+    $title = get_string('enableblogfrontpage', 'theme_moove');
+    $description = get_string('enableblogfrontpagedesc', 'theme_moove');
+    $default = 0;
+    $choices = [0 => get_string('no'), 1 => get_string('yes')];
+    $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
+    $page->add($setting);
+
     // Slideshow.
     $name = 'theme_moove/slidercount';
     $title = get_string('slidercount', 'theme_moove');

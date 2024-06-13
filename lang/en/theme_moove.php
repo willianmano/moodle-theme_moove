@@ -83,6 +83,9 @@ $string['marketingicon'] = 'Marketing Icon {$a}';
 $string['marketingheading'] = 'Marketing Heading {$a}';
 $string['marketingcontent'] = 'Marketing Content {$a}';
 
+$string['enableblogfrontpage'] = 'Show front page blog section';
+$string['enableblogfrontpagedesc'] = 'If you want to see the blog section, select yes <strong>then click SAVE</strong> to load the input fields.';
+
 $string['disableteacherspic'] = 'Disable teachers picture';
 $string['disableteacherspicdesc'] = 'This setting hides the teachers\' pictures from the course cards.';
 
@@ -107,6 +110,8 @@ $string['numbersfrontpagecontentdefault'] = '<h2>Trusted by 25,000+ happy custom
                         within few minutes.</p>';
 $string['numbersusers'] = 'Active users accessing our amazing resources';
 $string['numberscourses'] = 'Courses made for you that you can trust!';
+
+$string['siteblog'] = 'Site Blog';
 
 $string['faq'] = 'FAQ';
 $string['faqcount'] = 'FAQ questions';

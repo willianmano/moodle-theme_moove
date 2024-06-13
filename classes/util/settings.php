@@ -125,8 +125,14 @@ class settings {
             $this->frontpage_slideshow(),
             $this->frontpage_marketingboxes(),
             $this->frontpage_numbers(),
+            $this->frontpage_blog(),
             $this->faq()
         );
+    }
+
+    public function frontpage_blog() {
+        $templatecontext['enableblogfrontpage'] = $this->theme->settings->enableblogfrontpage;
+        return $templatecontext;
     }
 
     /**

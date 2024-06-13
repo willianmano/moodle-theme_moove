@@ -26,6 +26,8 @@ defined('MOODLE_INTERNAL') || die();
 
 require_once($CFG->libdir . '/behat/lib.php');
 require_once($CFG->dirroot . '/course/lib.php');
+require_once($CFG->dirroot .'/blog/lib.php');
+require_once($CFG->dirroot .'/blog/locallib.php');
 
 // Add block button in editing mode.
 $addblockbutton = $OUTPUT->addblockbutton();
@@ -119,6 +121,13 @@ if (isloggedin()) {
     echo $OUTPUT->render_from_template('theme_moove/drawers', $templatecontext);
 } else {
     $templatecontext = array_merge($templatecontext, $themesettings->frontpage());
+
+    if (isset($templatecontext['enableblogfrontpage'])) {
+        $bloglisting = new blog_listing([]);
+        ob_start();
+        $bloglisting->print_entries();
+        $templatecontext['blogfrontpage'] = ob_get_clean();
+    }
 
     echo $OUTPUT->render_from_template('theme_moove/frontpage', $templatecontext);
 }
