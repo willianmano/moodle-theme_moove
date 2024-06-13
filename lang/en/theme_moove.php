@@ -85,6 +85,7 @@ $string['marketingcontent'] = 'Marketing Content {$a}';
 
 $string['enableblogfrontpage'] = 'Show front page blog section';
 $string['enableblogfrontpagedesc'] = 'If you want to see the blog section, select yes <strong>then click SAVE</strong> to load the input fields.';
+$string['changebloglevel'] = 'Please change <a target="_blank" href="/admin/settings.php?section=blog"><strong>Blog visibility</strong></a> to "All site users can see all blog entries" then change "Public to" opstion to "Anyone in the world" in your blog post before you change this to <strong>Yes</strong>';
 
 $string['disableteacherspic'] = 'Disable teachers picture';
 $string['disableteacherspicdesc'] = 'This setting hides the teachers\' pictures from the course cards.';

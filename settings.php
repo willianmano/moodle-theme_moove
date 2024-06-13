@@ -197,7 +197,13 @@ if ($ADMIN->fulltree) {
     // Enable blog in frontpage
     $name = 'theme_moove/enableblogfrontpage';
     $title = get_string('enableblogfrontpage', 'theme_moove');
+
+    $bloglevel = $CFG->bloglevel;
     $description = get_string('enableblogfrontpagedesc', 'theme_moove');
+    if ($bloglevel != BLOG_GLOBAL_LEVEL) {
+        $description = get_string('changebloglevel', 'theme_moove');
+    }
+
     $default = 0;
     $choices = [0 => get_string('no'), 1 => get_string('yes')];
     $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
