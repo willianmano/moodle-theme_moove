@@ -235,15 +235,32 @@
 {{#js}}
     {{^error}}
         {{#autofocusform}}
-            var userNameField = document.getElementById('username');
-            if (userNameField.value.length == 0) {
-                userNameField.focus();
-            } else {
-                document.getElementById('password').focus();
-            }
+            require(['core_form/events'], function(FormEvent) {
+                function autoFocus() {
+                    const userNameField = document.getElementById('username');
+                    if (userNameField.value.length == 0) {
+                        userNameField.focus();
+                    } else {
+                        document.getElementById('password').focus();
+                    }
+                }
+                autoFocus();
+                window.addEventListener(FormEvent.eventTypes.fieldStructureChanged, autoFocus);
+            });
         {{/autofocusform}}
     {{/error}}
     {{#error}}
         document.getElementById('loginerrormessage').focus();
     {{/error}}
+    {{#togglepassword}}
+        require(['core/togglesensitive'], function(ToggleSensitive) {
+            ToggleSensitive.init("password", {{smallscreensonly}});
+        });
+    {{/togglepassword}}
+        require(['core_form/submit'], function(Submit) {
+            Submit.init("loginbtn");
+            {{#canloginasguest}}
+                Submit.init("loginguestbtn");
+            {{/canloginasguest}}
+        });
 {{/js}}
