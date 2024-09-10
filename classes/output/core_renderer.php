@@ -531,6 +531,8 @@ class core_renderer extends \theme_boost\output\core_renderer {
                 break;
         }
 
+        $output .= $this->notification($message, $messagetype);
+
         $output .= $this->render_from_template('theme_moove/loading-overlay', ['encodedurl' => $encodedurl]);
 
         if ($debugdisableredirect) {
