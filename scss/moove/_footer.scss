@@ -176,6 +176,10 @@
     .btn-footer-popover {
         bottom: 1rem;
     }
+
+    .btn-footer-communication {
+        bottom: 4rem;
+    }
 }
 
 @include media-breakpoint-down(sm) {

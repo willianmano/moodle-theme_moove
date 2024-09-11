@@ -23054,6 +23054,7 @@ a.text-dark:hover, a.text-dark:focus {
 .dir-rtl .popover.bs-popover-right .arrow, .dir-rtl .popover.bs-popover-auto[x-placement^=right] .arrow {
   transform: rotate(180deg);
   left: calc(-0.5rem - 1px);
+  right: auto;
 }
 .dir-rtl .popover.bs-popover-left, .dir-rtl .popover.bs-popover-auto[x-placement^=left] {
   margin-right: 0.5rem;
@@ -23061,6 +23062,7 @@ a.text-dark:hover, a.text-dark:focus {
 }
 .dir-rtl .popover.bs-popover-left .arrow, .dir-rtl .popover.bs-popover-auto[x-placement^=left] .arrow {
   transform: rotate(180deg);
+  left: auto;
   right: calc(-0.5rem - 1px);
 }
 
@@ -23368,12 +23370,8 @@ a.autolink.glossary:hover {
   display: none;
 }
 
-.visibleifjs {
+body:not(.jsenabled) .visibleifjs {
   display: none;
-}
-
-.jsenabled .visibleifjs {
-  display: inline;
 }
 
 .jsenabled .collapsibleregion {
@@ -25054,20 +25052,13 @@ nav.navbar .logo img {
 .page-context-header {
   overflow: hidden;
   padding: 0.25rem 0;
-  display: flex;
 }
 .page-context-header .page-header-image > a {
   display: inline-block;
 }
-.page-context-header .page-header-headings,
-.page-context-header .header-button-group {
-  position: relative;
-  line-height: 24px;
-  vertical-align: middle;
-}
-.page-context-header .header-button-group {
-  display: block;
-  float: left;
+.page-context-header .page-header-image .userinitials,
+.page-context-header .page-header-image .userpicture {
+  margin-right: 1rem;
 }
 
 ul.dragdrop-keyboard-drag li {
@@ -25080,6 +25071,10 @@ a.disabled {
   cursor: default;
   font-style: italic;
   color: #6a737b;
+}
+
+a.btn.disabled {
+  opacity: 1;
 }
 
 body.lockscroll {
@@ -25137,9 +25132,6 @@ dd:after {
 }
 .inplaceeditable.inplaceeditingon select {
   margin-bottom: 0;
-}
-.inplaceeditable .quickediticon .icon {
-  font-size: medium;
 }
 .inplaceeditable .quickediticon img {
   opacity: 0.2;
@@ -25277,6 +25269,8 @@ h3.sectionname .inplaceeditable.inplaceeditingon .editinstructions {
 .footer-dark a {
   color: #fff;
   text-decoration: underline;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
 }
 .footer-dark a .icon {
   color: #fff;
@@ -26090,7 +26084,11 @@ blockquote {
   margin: 0 0.5rem 1rem;
   padding-left: 1rem;
   color: #495057;
-  border-left: 5px solid #ced4da;
+  border-left: 5px solid #8f959e;
+}
+
+.page-header-headings {
+  background-color: #fff;
 }
 
 /* Prevent long strings exceeding page width */
@@ -27638,13 +27636,13 @@ aside[id^=block-region-side-] .block_recentlyaccesseditems .card:nth-of-type(n+4
   width: 98%;
   margin: 10px auto;
 }
-.maincalendar .calendar_event_category:hover a,
-.maincalendar .calendar_event_course:hover a,
-.maincalendar .calendar_event_site:hover a,
-.maincalendar .calendar_event_group:hover a,
-.maincalendar .calendar_event_user:hover a {
-  color: #094478;
-  text-decoration: underline;
+.maincalendar .calendar_event_category a:has(> .icon):hover,
+.maincalendar .calendar_event_course a:has(> .icon):hover,
+.maincalendar .calendar_event_site a:has(> .icon):hover,
+.maincalendar .calendar_event_group a:has(> .icon):hover,
+.maincalendar .calendar_event_user a:has(> .icon):hover {
+  color: #07345a;
+  text-decoration: none;
 }
 .maincalendar .calendar_event_category {
   border-color: #e0cbe0;
@@ -27863,7 +27861,10 @@ table.calendartable caption {
   section:not(#region-main) .block.block_calendar_month .maincalendar .calendarwrapper .previous,
   section:not(#region-main) .block.block_calendar_month .maincalendar .calendarwrapper .next {
     width: 30%;
-    font-size: 0.8em;
+  }
+  section:not(#region-main) .block.block_calendar_month .maincalendar .calendarwrapper .previous .arrow_text,
+  section:not(#region-main) .block.block_calendar_month .maincalendar .calendarwrapper .next .arrow_text {
+    display: none;
   }
   section:not(#region-main) .block.block_calendar_month .maincalendar .calendartable.calendarmonth th,
   section:not(#region-main) .block.block_calendar_month .maincalendar .calendartable.calendarmonth td {
@@ -28564,6 +28565,7 @@ span.editinstructions {
   text-decoration: none;
   z-index: 9999;
   border: 0 solid transparent;
+  width: fit-content;
   color: #00434e;
   background-color: #cce6ea;
   border-color: #b8dce2;
@@ -29885,6 +29887,9 @@ span.editinstructions .alert-link {
 .bulkenabled .bulk-hidden {
   display: none !important;
 }
+.bulkenabled .section {
+  margin-left: 1rem;
+}
 .bulkenabled .section:not(:first-child) {
   margin-top: 1.5rem;
 }
@@ -30438,11 +30443,6 @@ body.drawer-ease {
 /* The javascript is adding a style="height: 0px;" to this element - we need to set the min-height so the height is ignored. */
 .filepicker .moodle-dialogue-bd {
   min-height: 520px;
-}
-
-.file-picker .fp-navbar {
-  min-height: 40px;
-  padding: 4px;
 }
 
 .fp-navbar {
@@ -33035,13 +33035,6 @@ body.path-question-type .mform fieldset.hidden {
   margin-bottom: 4px;
 }
 
-.mform .d-flex .form-control {
-  width: auto;
-  max-width: 100%;
-}
-.mform .d-flex textarea.form-control {
-  width: 100%;
-}
 .mform .d-flex .fitem {
   margin: 0.1rem 0.25rem 0.1rem 0 !important; /* stylelint-disable-line declaration-no-important */
 }
@@ -33049,6 +33042,14 @@ body.path-question-type .mform fieldset.hidden {
   justify-content: flex-start;
   width: 100%;
   margin-right: 0;
+}
+
+.d-flex > .form-control {
+  width: auto;
+  max-width: 100%;
+}
+.d-flex > textarea.form-control {
+  width: 100%;
 }
 
 .custom-select {
@@ -34501,7 +34502,7 @@ img.userpicture {
   max-width: none;
 }
 
-#page-mod-quiz-mod #id_reviewoptionshdr .fitem {
+#page-mod-quiz-mod #id_reviewoptionshdr .fcontainer > .fitem {
   float: left;
   width: 20rem;
   display: inline-block;
@@ -36913,6 +36914,25 @@ span[data-flexitour=container][x-placement=right] div[data-role=arrow]:after, sp
 }
 .modal .close:not(:disabled):not(.disabled):hover, .modal .close:not(:disabled):not(.disabled):focus {
   opacity: inherit;
+}
+
+/* Bug fix for TinyMCE menu when in fullscreen mode. */
+body.tox-fullscreen .modal-dialog {
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+}
+body.tox-fullscreen .modal-dialog .modal-header {
+  height: 0;
+  padding: 0;
+}
+body.tox-fullscreen .modal-dialog .tox-tinymce-aux {
+  position: relative;
+}
+
+/* Bug fix TinyMCE menu width dropdowns when in fullscreen mode. */
+body.tox-fullscreen .tox.tox-tinymce-aux {
+  position: relative !important;
 }
 
 .layout.fullscreen {
@@ -39766,6 +39786,9 @@ body.has-secondarynavigation .drawer-toggles .drawer-toggler {
 }
 #page-footer .btn-footer-popover {
   bottom: 1rem;
+}
+#page-footer .btn-footer-communication {
+  bottom: 4rem;
 }
 
 @media (max-width: 767.98px) {
