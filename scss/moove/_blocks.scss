@@ -1,6 +1,14 @@
 .dashboard-card {
     border: 1px solid $gray-200;
 
+    &.dimmed {
+        color: $text-muted;
+
+        a {
+            color: $text-muted;
+        }
+    }
+
     .dashboard-card-img {
         padding: .5rem;
         position: relative;

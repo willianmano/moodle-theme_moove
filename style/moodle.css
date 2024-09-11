@@ -39318,6 +39318,12 @@ a {
 .dashboard-card {
   border: 1px solid #e9ecef;
 }
+.dashboard-card.dimmed {
+  color: #6a737b;
+}
+.dashboard-card.dimmed a {
+  color: #6a737b;
+}
 .dashboard-card .dashboard-card-img {
   padding: 0.5rem;
   position: relative;
