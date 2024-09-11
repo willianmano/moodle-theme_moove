@@ -88,7 +88,7 @@ class extras {
 
     /**
      * Returns local_mail plugin button.
-     * 
+     *
      * @param $courseid
      * @param $userid
      * @return array

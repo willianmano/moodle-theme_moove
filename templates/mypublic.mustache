@@ -109,7 +109,7 @@
                                 </div>
                             </div>
                         {{/user}}
-                        <div class="col-md-8">
+                        <div class="{{#user}}col-md-8{{/user}}{{^user}}col-md-12{{/user}}">
                             <section id="region-main" aria-label="{{#str}}content{{/str}}">
                                 {{{ output.main_content }}}
                             </section>
