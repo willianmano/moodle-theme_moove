@@ -80,12 +80,17 @@ $templatecontext = [
     'langmenu' => $primarymenu['lang'],
     'regionmainsettingsmenu' => $regionmainsettingsmenu,
     'hasregionmainsettingsmenu' => !empty($regionmainsettingsmenu),
-    'userpicture' => $userimg->get_url($PAGE),
-    'userfullname' => fullname($user),
-    'headerbuttons' => \theme_moove\util\extras::get_mypublic_headerbuttons($context, $user),
-    'editprofileurl' => \theme_moove\util\extras::get_mypublic_editprofile_url($user, $courseid),
-    'userdescription' => format_text($user->description, $user->descriptionformat, ['overflowdiv' => true]),
 ];
+
+if (user_can_view_profile($user, null, $context)) {
+    $templatecontext['user'] = [
+        'userpicture' => $userimg->get_url($PAGE),
+        'userfullname' => fullname($user),
+        'headerbuttons' => \theme_moove\util\extras::get_mypublic_headerbuttons($context, $user),
+        'editprofileurl' => \theme_moove\util\extras::get_mypublic_editprofile_url($user, $courseid),
+        'userdescription' => format_text($user->description, $user->descriptionformat, ['overflowdiv' => true]),
+    ];
+}
 
 $themesettings = new \theme_moove\util\settings();
 

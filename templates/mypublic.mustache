@@ -66,47 +66,49 @@
             <div id="page-content" class="d-print-block">
                 <div id="region-main-box">
                     <div class="row">
-                        <div class="col-md-4">
-                            <div class="card card-body card-profile">
-                                <div class="userpicture">
-                                    <img src="{{{userpicture}}}" alt="{{{userfullname}}}">
-                                </div>
+                        {{#user}}
+                            <div class="col-md-4">
+                                <div class="card card-body card-profile">
+                                    <div class="userpicture">
+                                        <img src="{{{userpicture}}}" alt="{{{userfullname}}}">
+                                    </div>
 
-                                <h3>{{{userfullname}}}</h3>
+                                    <h3>{{{userfullname}}}</h3>
 
-                                <div class="headerbuttons">
-                                    {{#headerbuttons}}
-                                        <a role="button" href="{{{url}}}" class="{{{class}}}"
-                                            {{#linkattributes}}
-                                               id="{{{id}}}"
-                                               data-userid="{{{data-userid}}}"
-                                               data-is-contact="{{{data-is-contact}}}"
-                                               data-currentuserid="{{{data-currentuserid}}}"
-                                            {{/linkattributes}}
-                                        >
-                                            <i class="{{{icon}}}" title="{{{title}}}" aria-label="{{{title}}}"></i>
-                                            {{{title}}}
-                                        </a>
-                                    {{/headerbuttons}}
-                                </div>
+                                    <div class="headerbuttons">
+                                        {{#headerbuttons}}
+                                            <a role="button" href="{{{url}}}" class="{{{class}}}"
+                                                {{#linkattributes}}
+                                                   id="{{{id}}}"
+                                                   data-userid="{{{data-userid}}}"
+                                                   data-is-contact="{{{data-is-contact}}}"
+                                                   data-currentuserid="{{{data-currentuserid}}}"
+                                                {{/linkattributes}}
+                                            >
+                                                <i class="{{{icon}}}" title="{{{title}}}" aria-label="{{{title}}}"></i>
+                                                {{{title}}}
+                                            </a>
+                                        {{/headerbuttons}}
+                                    </div>
 
-                                {{#editprofileurl}}
-                                    <a href="{{{editprofileurl}}}" class="btn btn-sm btn-primary btn-block my-2"><i class="fa fa-edit"></i> {{#str}}editmyprofile{{/str}}</a>
-                                {{/editprofileurl}}
+                                    {{#editprofileurl}}
+                                        <a href="{{{editprofileurl}}}" class="btn btn-sm btn-primary btn-block my-2"><i class="fa fa-edit"></i> {{#str}}editmyprofile{{/str}}</a>
+                                    {{/editprofileurl}}
 
-                                <div class="userinfo my-2">
-                                    {{#userdescription}}
-                                        <hr>
+                                    <div class="userinfo my-2">
+                                        {{#userdescription}}
+                                            <hr>
 
-                                        <h6>{{#str}}aboutme, theme_moove{{/str}}</h6>
+                                            <h6>{{#str}}aboutme, theme_moove{{/str}}</h6>
 
-                                        <div class="userdescription">{{{userdescription}}}</div>
+                                            <div class="userdescription">{{{userdescription}}}</div>
 
-                                        <hr>
-                                    {{/userdescription}}
+                                            <hr>
+                                        {{/userdescription}}
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        {{/user}}
                         <div class="col-md-8">
                             <section id="region-main" aria-label="{{#str}}content{{/str}}">
                                 {{{ output.main_content }}}
