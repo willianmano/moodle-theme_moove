@@ -43,10 +43,10 @@ class user {
     /**
      * Class constructor
      *
-     * @param stdClass|int $user
+     * @param stdClass|int|null $user
      *
      */
-    public function __construct(stdClass|int $user = null) {
+    public function __construct(stdClass|int|null $user = null) {
         global $USER, $DB;
 
         if (!is_object($user) && is_numeric($user)) {
