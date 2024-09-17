@@ -39005,6 +39005,9 @@ body {
   align-items: center;
   white-space: nowrap;
 }
+#page-header .page-header-headings {
+  background-color: initial;
+}
 
 .moove-container-fluid {
   padding: 0;
