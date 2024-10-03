@@ -165,6 +165,10 @@ function theme_moove_pluginfile($course, $cm, $context, $filearea, $args, $force
         return $theme->setting_file_serve($filearea, $args, $forcedownload, $options);
     }
 
+    if ($filearea === 'hvp') {
+        return theme_moove_serve_hvp_css($args[1], $theme);
+    }
+
     if ($context->contextlevel == CONTEXT_SYSTEM && preg_match("/^sliderimage[1-9][0-9]?$/", $filearea) !== false) {
         return $theme->setting_file_serve($filearea, $args, $forcedownload, $options);
     }
@@ -185,9 +189,60 @@ function theme_moove_pluginfile($course, $cm, $context, $filearea, $args, $force
         return $theme->setting_file_serve('marketing4icon', $args, $forcedownload, $options);
     }
 
-    if ($context->contextlevel == CONTEXT_SYSTEM && $filearea === 'h5pcss') {
-        return $theme->setting_file_serve('h5pcss', $args, $forcedownload, $options);
+    send_file_not_found();
+}
+
+/**
+ * Serves the H5P Custom CSS.
+ *
+ * @param string $filename The filename.
+ * @param theme_config $theme The theme config object.
+ *
+ * @throws dml_exception
+ */
+function theme_moove_serve_hvp_css($filename, $theme) {
+    global $CFG, $PAGE;
+
+    require_once($CFG->dirroot.'/lib/configonlylib.php'); // For min_enable_zlib_compression().
+
+    $PAGE->set_context(\core\context\system::instance());
+    $themename = $theme->name;
+
+    $settings = new \theme_moove\util\settings();
+    $content = $settings->hvpcss;
+
+    $md5content = md5($content);
+    $md5stored = get_config('theme_moove', 'hvpccssmd5');
+    if ((empty($md5stored)) || ($md5stored != $md5content)) {
+        // Content changed, so the last modified time needs to change.
+        set_config('hvpccssmd5', $md5content, $themename);
+        $lastmodified = time();
+        set_config('hvpccsslm', $lastmodified, $themename);
+    } else {
+        $lastmodified = get_config($themename, 'hvpccsslm');
+        if (empty($lastmodified)) {
+            $lastmodified = time();
+        }
     }
 
-    send_file_not_found();
+    // Sixty days only - the revision may get incremented quite often.
+    $lifetime = 60 * 60 * 24 * 60;
+
+    header('HTTP/1.1 200 OK');
+
+    header('Etag: "'.$md5content.'"');
+    header('Content-Disposition: inline; filename="'.$filename.'"');
+    header('Last-Modified: '.gmdate('D, d M Y H:i:s', $lastmodified).' GMT');
+    header('Expires: '.gmdate('D, d M Y H:i:s', time() + $lifetime).' GMT');
+    header('Pragma: ');
+    header('Cache-Control: public, max-age='.$lifetime);
+    header('Accept-Ranges: none');
+    header('Content-Type: text/css; charset=utf-8');
+    if (!min_enable_zlib_compression()) {
+        header('Content-Length: '.strlen($content));
+    }
+
+    echo $content;
+
+    die;
 }

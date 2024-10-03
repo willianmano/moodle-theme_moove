@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Class theme_moove_mod_hvp_renderer.
+ * Class theme_moove_core_h5p_renderer.
  *
  * See: https://tracker.moodle.org/browse/MDL-69087 and
  *      https://github.com/sarjona/h5pmods-moodle-plugin.
@@ -24,15 +24,15 @@
  * @copyright   2022 Willian Mano - http://conecti.me
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class theme_moove_mod_hvp_renderer extends \mod_hvp_renderer {
+class theme_moove_core_h5p_renderer extends \core_h5p\output\renderer {
     /**
-     * Add styles when an HVP is displayed.
+     * Add styles when an H5P is displayed.
      *
-     * @param object $styles List of stylesheets that will be loaded
-     * @param array $libraries Array of libraries indexed by the library's machineName
-     * @param string $embedtype Possible values: div, iframe, external, editor
+     * @param array $styles Styles that will be applied.
+     * @param array $libraries Libraries that will be shown.
+     * @param string $embedtype How the H5P is displayed.
      */
-    public function hvp_alter_styles(&$styles, $libraries, $embedtype) {
+    public function h5p_alter_styles(&$styles, array $libraries, string $embedtype) {
         $theme = \theme_config::load('moove');
 
         $content = $theme->settings->hvpcss;

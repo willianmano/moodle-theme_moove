@@ -184,11 +184,8 @@ if ($ADMIN->fulltree) {
     $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
 
-    // Raw H5P SCSS to include after the content.
-    $title = get_string('h5pcss', 'theme_moove');
-    $description = get_string('h5pcss_desc', 'theme_moove');
-    $setting = new admin_setting_configstoredfile('theme_moove/h5pcss', $title, $description, 'h5pcss', 0,
-        array('maxfiles' => 1, 'accepted_types' => array('.css')));
+    // H5P custom CSS.
+    $setting = new admin_setting_configtextarea('theme_moove/hvpcss', get_string('hvpcss', 'theme_moove'), get_string('hvpcss_desc', 'theme_moove'), '');
     $page->add($setting);
 
     $settings->add($page);

@@ -74,8 +74,8 @@ $string['rawscss'] = 'Raw SCSS';
 $string['rawscss_desc'] = 'Use this field to provide SCSS or CSS code which will be injected at the end of the style sheet.';
 $string['googleanalytics'] = 'Google Analytics V4 Code';
 $string['googleanalyticsdesc'] = 'Please enter your Google Analytics V4 code to enable analytics on your website. The code format shold be like [G-XXXXXXXXXX]';
-$string['h5pcss'] = 'Raw H5P CSS';
-$string['h5pcss_desc'] = 'Use this field to provide a CSS file which will be injected on mod_hvp plugin pages.';
+$string['hvpcss'] = 'Raw H5P CSS';
+$string['hvpcss_desc'] = 'Use this field to provide a CSS file which will be injected on mod_hvp plugin pages.';
 
 // Frontpage settings tab.
 $string['frontpagesettings'] = 'Frontpage';
