@@ -185,5 +185,9 @@ function theme_moove_pluginfile($course, $cm, $context, $filearea, $args, $force
         return $theme->setting_file_serve('marketing4icon', $args, $forcedownload, $options);
     }
 
+    if ($context->contextlevel == CONTEXT_SYSTEM && $filearea === 'h5pcss') {
+        return $theme->setting_file_serve('h5pcss', $args, $forcedownload, $options);
+    }
+
     send_file_not_found();
 }
