@@ -38987,6 +38987,14 @@ body {
 body {
   background-color: #f2f3f7 !important; /* stylelint-disable-line */
 }
+body.admin.path-admin #page-header .headerandnav, body.pagelayout-incourse #page-header .headerandnav {
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+body.admin.path-admin #page-header .headerandnav #page-navbar, body.pagelayout-incourse #page-header .headerandnav #page-navbar {
+  flex-basis: 100%;
+  display: flex !important;
+}
 
 #page-header {
   margin: 1.25rem auto;
@@ -39832,6 +39840,9 @@ body.has-secondarynavigation .drawer-toggles .drawer-toggler {
   margin-left: 0.5rem;
 }
 
+.pagelayout-course.path-course-view #page-header {
+  max-width: 100%;
+}
 .pagelayout-course .page-context-header {
   padding: 0;
 }

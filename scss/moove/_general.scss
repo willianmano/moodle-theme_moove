@@ -1,5 +1,18 @@
 body {
     background-color: $background !important; /* stylelint-disable-line */
+
+    &.admin.path-admin,
+    &.pagelayout-incourse {
+        #page-header .headerandnav {
+            flex-wrap: wrap;
+            justify-content: space-between;
+
+            #page-navbar {
+                flex-basis: 100%;
+                display: flex !important;
+            }
+        }
+    }
 }
 
 #page-header {

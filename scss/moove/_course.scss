@@ -1,4 +1,8 @@
 .pagelayout-course {
+    &.path-course-view #page-header {
+        max-width: 100%;
+    }
+
     .page-context-header {
         padding: 0;
     }
