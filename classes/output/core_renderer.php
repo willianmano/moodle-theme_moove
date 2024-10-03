@@ -543,4 +543,14 @@ class core_renderer extends \theme_boost\output\core_renderer {
 
         return $output;
     }
+
+    /**
+     * Renders the "breadcrumb" for all pages in boost.
+     *
+     * @return string the HTML for the navbar.
+     */
+    public function navbar(): string {
+        $newnav = new \theme_moove\output\boostnavbar($this->page);
+        return $this->render_from_template('core/navbar', $newnav);
+    }
 }
