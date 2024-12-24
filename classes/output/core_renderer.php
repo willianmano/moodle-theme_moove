@@ -434,7 +434,7 @@ class core_renderer extends \theme_boost\output\core_renderer {
      * @return string Final html code.
      */
     public function get_navbar_callbacks_data() {
-        $callbacks = get_plugins_with_function('moove_additional_header', 'lib.php');
+        $callbacks = get_plugins_with_function('moove_additional_header', 'lib.php', true, true);
 
         if (!$callbacks) {
             return '';
@@ -459,7 +459,7 @@ class core_renderer extends \theme_boost\output\core_renderer {
      * @return string Final html code.
      */
     public function get_module_footer_callbacks_data() {
-        $callbacks = get_plugins_with_function('moove_module_footer', 'lib.php');
+        $callbacks = get_plugins_with_function('moove_module_footer', 'lib.php', true, true);
 
         if (!$callbacks) {
             return '';

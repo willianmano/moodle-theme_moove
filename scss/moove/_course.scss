@@ -87,6 +87,18 @@
     }
 }
 
+.path-grade-report-grader {
+    .gradeparent tr.heading {
+        top: 130px;
+    }
+
+    &.hasaccessibilitybar {
+        .gradeparent tr.heading {
+            top: 160px;
+        }
+    }
+}
+
 @include media-breakpoint-down(md) {
     .activity-navigation {
         .larrow,
