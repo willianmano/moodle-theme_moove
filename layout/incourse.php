@@ -72,6 +72,16 @@ $overflow = '';
 if ($PAGE->has_secondary_navigation()) {
     $secondary = $PAGE->secondarynav;
 
+    if (is_array($secondary->get_children_key_list()) && in_array('modulepage', $secondary->get_children_key_list())) {
+        $coursenode = $secondary->create(
+            get_string('course', 'core'),
+            new moodle_url('/course/view.php', ['id' => $PAGE->course->id]),
+            $secondary::TYPE_COURSE
+        );
+
+        $secondary->add_node($coursenode, 'modulepage');
+    }
+
     if ($secondary->get_children_key_list()) {
         $tablistnav = $PAGE->has_tablist_secondary_navigation();
         $moremenu = new \core\navigation\output\more_menu($PAGE->secondarynav, 'nav-tabs', true, $tablistnav);
