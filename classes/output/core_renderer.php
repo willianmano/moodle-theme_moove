@@ -203,7 +203,7 @@ class core_renderer extends \theme_boost\output\core_renderer {
             foreach ($context->identityproviders as $key => $provider) {
                 $isfacebook = false;
 
-                if (strpos($provider['iconurl'], 'facebook') !== false) {
+                if (!empty($provider['iconurl']) && strpos($provider['iconurl'], 'facebook') !== false) {
                     $isfacebook = true;
                 }
 
