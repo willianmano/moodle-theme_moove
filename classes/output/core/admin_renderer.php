@@ -29,6 +29,7 @@ use core\context\course as context_course;
 use moodle_url;
 use html_writer;
 use theme_moove\output\core_course\activity_navigation;
+require_once($CFG->dirroot . '/admin/renderer.php');
 
 /**
  * Standard HTML output renderer for core_admin subsystem.
