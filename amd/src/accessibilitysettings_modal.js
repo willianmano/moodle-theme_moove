@@ -27,7 +27,7 @@ import Notification from 'core/notification';
 
 export default class AccessibilityModal extends Modal {
     static TYPE = "theme_moove/themesettings_modal";
-    static TEMPLATE = "theme_moove/accessibilitysettings_modal";
+    static TEMPLATE = "theme_moove/moove/accessibilitysettings_modal";
 
     constructor(root) {
         super(root);

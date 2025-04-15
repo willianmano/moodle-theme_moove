@@ -230,6 +230,7 @@ class settings {
                     'id' => $i,
                     'question' => format_text($this->$faqquestion),
                     'answer' => format_text($this->$faqanswer),
+                    'active' => $i === 1,
                 ];
             }
 

@@ -48,11 +48,11 @@
         <div class="course-contacts">
             {{#contacts}}
                 <a href="{{config.wwwroot}}/user/profile.php?id={{{id}}}" class="contact" data-toggle="tooltip" title="{{{fullname}}}">
-                    <img src="{{{userpicture}}}" class="rounded-circle" alt="{{{fullname}}}">
-                    <div class="info">
-                        <p class="name">{{{fullname}}}</p>
-                        <p class="role">{{{role}}}</p>
-                    </div>
+                <img src="{{{userpicture}}}" class="rounded-circle" alt="{{{fullname}}}">
+                <div class="info">
+                    <p class="name">{{{fullname}}}</p>
+                    <p class="role">{{{role}}}</p>
+                </div>
                 </a>
             {{/contacts}}
         </div>

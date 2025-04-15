@@ -74,8 +74,7 @@ function theme_moove_get_extra_scss($theme) {
     $loginbgimgurl = $theme->setting_file_url('loginbgimg', 'loginbgimg');
 
     if (empty($loginbgimgurl)) {
-        $loginbgimgurl = new \moodle_url('/theme/moove/pix/loginbg.png');
-        $loginbgimgurl->out();
+        return '';
     }
 
     $content .= 'body.pagelayout-login #page { ';

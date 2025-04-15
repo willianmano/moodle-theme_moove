@@ -51,5 +51,3 @@ function xmldb_theme_moove_install() {
 
     return true;
 }
-
-

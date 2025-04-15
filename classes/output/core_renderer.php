@@ -197,7 +197,7 @@ class core_renderer extends \theme_boost\output\core_renderer {
         }
 
         $context->hastwocolumns = false;
-        if ($context->hasidentityproviders || $CFG->auth_instructions) {
+        if ($CFG->auth_instructions) {
             $context->hastwocolumns = true;
         }
 

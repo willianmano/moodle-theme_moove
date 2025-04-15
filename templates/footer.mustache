@@ -1,18 +1,18 @@
 {{!
-    This file is part of Moodle - http://moodle.org/
+This file is part of Moodle - http://moodle.org/
 
-    Moodle is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
+Moodle is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
 
-    Moodle is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
+Moodle is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
 
-    You should have received a copy of the GNU General Public License
-    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+You should have received a copy of the GNU General Public License
+along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 }}
 {{!
     @template theme_moove/footer
@@ -111,7 +111,7 @@
                         {{#whatsapp}}
                             <li>
                                 <a href="https://api.whatsapp.com/send?phone={{{whatsapp}}}" target="_blank" class="whatsapp btn btn-link btn-rounded">
-                                    <i class="fa fa-whatsapp"></i>
+                                <i class="fa fa-whatsapp"></i>
                                 </a>
                             </li>
                         {{/whatsapp}}
@@ -148,7 +148,7 @@
                     <div class="stores">
                         {{#androidappid}}
                             <a href="https://play.google.com/store/apps/details?id={{androidappid}}">
-                                <img src="{{config.wwwroot}}/theme/moove/pix/store_google.svg" alt="Play Store">
+                            <img src="{{config.wwwroot}}/theme/moove/pix/store_google.svg" alt="Play Store">
                             </a>
                         {{/androidappid}}
                         {{#iosappid}}
@@ -214,6 +214,6 @@
 
 {{#js}}
     require(['theme_boost/footer-popover'], function(FooterPopover) {
-        FooterPopover.init();
+    FooterPopover.init();
     });
 {{/js}}

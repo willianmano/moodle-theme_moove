@@ -17,7 +17,7 @@
 {{!
     @template theme_moove/drawers
 
-    Boost drawer template.
+    Moove drawer template.
 
     Context variables required for this template:
     * sitename - The name of the site
@@ -49,18 +49,18 @@
         "addblockbutton": ""
     }
 }}
-{{> theme_moove/head }}
+{{> theme_boost/head }}
 
 <body {{{ bodyattributes }}}>
-{{> theme_moove/accessibilitybar }}
+{{> theme_moove/moove/accessibilitybar }}
 
 {{> core/local/toast/wrapper}}
+
 <div id="page-wrapper" class="d-print-block">
 
     {{{ output.standard_top_of_body_html }}}
 
     {{> theme_moove/navbar }}
-
     {{#courseindex}}
         {{< theme_boost/drawer }}
             {{$id}}theme_boost-drawers-courseindex{{/id}}
@@ -82,10 +82,10 @@
             {{$id}}theme_boost-drawers-blocks{{/id}}
             {{$drawerclasses}}drawer drawer-right{{#blockdraweropen}} show{{/blockdraweropen}}{{/drawerclasses}}
             {{$drawercontent}}
-                <section class="d-print-none" aria-label="{{#str}}blocks{{/str}}">
+                <div class="d-print-none">
                     {{{ addblockbutton }}}
                     {{{ sidepreblocks }}}
-                </section>
+                </div>
             {{/drawercontent}}
             {{$drawerpreferencename}}drawer-open-block{{/drawerpreferencename}}
             {{$forceopen}}{{#forceblockdraweropen}}1{{/forceblockdraweropen}}{{/forceopen}}
@@ -118,7 +118,7 @@
                     </div>
                 {{/courseindex}}
                 {{#hasblocks}}
-                    <div class="drawer-toggler drawer-right-toggle ml-auto d-print-none">
+                    <div class="drawer-toggler drawer-right-toggle ms-auto d-print-none">
                         <button
                             class="btn icon-no-margin"
                             data-toggler="drawers"
@@ -136,14 +136,14 @@
                 {{/hasblocks}}
             </div>
 
-            <div id="page-content" class="d-print-block">
+            <div id="page-content" class="pb-3 d-print-block">
                 <div id="region-main-box">
                     {{#hasregionmainsettingsmenu}}
                     <div id="region-main-settings-menu" class="d-print-none">
                         <div> {{{ regionmainsettingsmenu }}} </div>
                     </div>
                     {{/hasregionmainsettingsmenu}}
-                    <section id="region-main" aria-label="{{#str}}content{{/str}}">
+                    <div id="region-main">
 
                         {{#hasregionmainsettingsmenu}}
                             <div class="region_main_settings_menu_proxy"></div>
@@ -163,13 +163,13 @@
                         {{{ output.activity_navigation }}}
                         {{{ output.course_content_footer }}}
 
-                    </section>
+                    </div>
                 </div>
             </div>
         </div>
-
-        {{> theme_moove/footer }}
     </div>
+    {{> theme_moove/footer }}
+
     {{{ output.standard_after_main_region_html }}}
 </div>
 

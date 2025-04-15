@@ -24,8 +24,11 @@
         "progress": 50
     }
 }}
+
 <div class="progress">
+    <span class="visually-hidden">{{#str}}aria:courseprogress, block_myoverview{{/str}}</span>
     <div class="progress-bar" role="progressbar" aria-valuenow="{{progress}}" style="width: {{progress}}%" aria-valuemin="0" aria-valuemax="{{progress}}"></div>
 </div>
 
 <p class="mb-0">{{#str}}completepercent, block_myoverview, {{progress}}{{/str}}</p>
+

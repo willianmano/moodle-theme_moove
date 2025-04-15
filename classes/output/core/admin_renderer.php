@@ -71,15 +71,14 @@ class admin_renderer extends \core_admin_renderer {
                                              $themedesignermode = false, $devlibdir = false, $mobileconfigured = false,
                                              $overridetossl = false, $invalidforgottenpasswordurl = false, $croninfrequent = false,
                                              $showcampaigncontent = false, bool $showfeedbackencouragement = false, bool $showservicesandsupport = false,
-                                             $xmlrpcwarning = '')
-    {
+                                             $xmlrpcwarning = '') {
+
         global $CFG;
         $output = '';
 
         $output .= $this->header();
         $output .= $this->output->heading(get_string('notifications', 'admin'));
         $output .= $this->conectime_services_and_support_content();
-        $output .= $this->upgrade_news_message();
         $output .= $this->maturity_info($maturity);
         $output .= empty($CFG->disableupdatenotifications) ? $this->available_updates($availableupdates, $availableupdatesfetch) : '';
         $output .= $this->insecure_dataroot_warning($insecuredataroot);
@@ -118,6 +117,6 @@ class admin_renderer extends \core_admin_renderer {
      * @return string the campaign content raw html.
      */
     private function conectime_services_and_support_content(): string {
-        return $this->render_from_template('theme_moove/conectime_services_and_support_content_banner', []);
+        return $this->render_from_template('theme_moove/moove/conectime_services_and_support_content_banner', []);
     }
 }
