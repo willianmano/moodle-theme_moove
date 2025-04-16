@@ -20,7 +20,7 @@ use core\navigation\views\view;
 use navigation_node;
 use moodle_url;
 use action_link;
-use lang_string;
+use core\lang_string;
 use theme_moove\util\settings;
 
 /**

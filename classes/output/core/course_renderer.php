@@ -30,6 +30,7 @@ use html_writer;
 use coursecat_helper;
 use core_course_list_element;
 use theme_moove\util\course;
+use core\lang_string;
 
 /**
  * The core course renderer
