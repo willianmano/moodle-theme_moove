@@ -42,7 +42,7 @@ class course_renderer extends \core_course_renderer {
     /**
      * Renders the list of courses
      *
-     * This is internal function, please use {@link core_course_renderer::courses_list()} or another public
+     * This is internal function, please use core_course_renderer::courses_list or another public
      * method from outside of the class
      *
      * If list of courses is specified in $courses; the argument $chelper is only used
@@ -66,7 +66,7 @@ class course_renderer extends \core_course_renderer {
         }
 
         if ($chelper->get_show_courses() == self::COURSECAT_SHOW_COURSES_AUTO) {
-            // In 'auto' course display mode we analyse if number of courses is more or less than $CFG->courseswithsummarieslimit
+            // In 'auto' course display mode we analyse if number of courses is more or less than $CFG->courseswithsummarieslimit.
             if ($totalcount <= $CFG->courseswithsummarieslimit) {
                 $chelper->set_show_courses(self::COURSECAT_SHOW_COURSES_EXPANDED);
             } else {
@@ -74,23 +74,23 @@ class course_renderer extends \core_course_renderer {
             }
         }
 
-        // prepare content of paging bar if it is needed
+        // Prepare content of paging bar if it is needed.
         $paginationurl = $chelper->get_courses_display_option('paginationurl');
         $paginationallowall = $chelper->get_courses_display_option('paginationallowall');
         if ($totalcount > count($courses)) {
-            // there are more results that can fit on one page
+            // There are more results that can fit on one page.
             if ($paginationurl) {
-                // the option paginationurl was specified, display pagingbar
+                // The option paginationurl was specified, display pagingbar.
                 $perpage = $chelper->get_courses_display_option('limit', $CFG->coursesperpage);
                 $page = $chelper->get_courses_display_option('offset') / $perpage;
                 $pagingbar = $this->paging_bar($totalcount, $page, $perpage,
-                    $paginationurl->out(false, array('perpage' => $perpage)));
+                    $paginationurl->out(false, ['perpage' => $perpage]));
                 if ($paginationallowall) {
-                    $pagingbar .= html_writer::tag('div', html_writer::link($paginationurl->out(false, array('perpage' => 'all')),
-                        get_string('showall', '', $totalcount)), array('class' => 'paging paging-showall'));
+                    $pagingbar .= html_writer::tag('div', html_writer::link($paginationurl->out(false, ['perpage' => 'all']),
+                        get_string('showall', '', $totalcount)), ['class' => 'paging paging-showall']);
                 }
             } else if ($viewmoreurl = $chelper->get_courses_display_option('viewmoreurl')) {
-                // the option for 'View more' link was specified, display more link
+                // The option for 'View more' link was specified, display more link.
                 $viewmoretext = $chelper->get_courses_display_option('viewmoretext', new lang_string('viewmore'));
                 $morelink = html_writer::tag(
                     'div',
@@ -99,12 +99,12 @@ class course_renderer extends \core_course_renderer {
                 );
             }
         } else if (($totalcount > $CFG->coursesperpage) && $paginationurl && $paginationallowall) {
-            // there are more than one page of results and we are in 'view all' mode, suggest to go back to paginated view mode
-            $pagingbar = html_writer::tag('div', html_writer::link($paginationurl->out(false, array('perpage' => $CFG->coursesperpage)),
-                get_string('showperpage', '', $CFG->coursesperpage)), array('class' => 'paging paging-showperpage'));
+            // There are more than one page of results and we are in 'view all' mode, suggest to go back to paginated view mode.
+            $pagingbar = html_writer::tag('div', html_writer::link($paginationurl->out(false, ['perpage' => $CFG->coursesperpage]),
+                get_string('showperpage', '', $CFG->coursesperpage)), ['class' => 'paging paging-showperpage']);
         }
 
-        // display list of courses
+        // Display list of courses.
         $attributes = $chelper->get_and_erase_attributes('courses');
         $attributes['class'] .= ' row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-1';
 
@@ -125,7 +125,7 @@ class course_renderer extends \core_course_renderer {
             $content .= $morelink;
         }
 
-        $content .= html_writer::end_tag('div'); // .courses
+        $content .= html_writer::end_tag('div'); // Closes courses div.
         return $content;
     }
 
@@ -133,7 +133,7 @@ class course_renderer extends \core_course_renderer {
      * Displays one course in the list of courses.
      *
      * This is an internal function, to display an information about just one course
-     * please use {@link core_course_renderer::course_info_box()}
+     * please use core_course_renderer::course_info_box
      *
      * @param coursecat_helper $chelper various display options
      * @param core_course_list_element|stdClass $course

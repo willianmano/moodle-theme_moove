@@ -202,7 +202,7 @@ function theme_moove_pluginfile($course, $cm, $context, $filearea, $args, $force
 function theme_moove_serve_hvp_css($filename, $theme) {
     global $CFG, $PAGE;
 
-    require_once($CFG->dirroot.'/lib/configonlylib.php'); // For min_enable_zlib_compression().
+    require_once($CFG->dirroot.'/lib/configonlylib.php'); // For minenable_zlib_compression function.
 
     $PAGE->set_context(\core\context\system::instance());
     $themename = $theme->name;

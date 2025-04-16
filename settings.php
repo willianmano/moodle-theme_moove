@@ -185,7 +185,11 @@ if ($ADMIN->fulltree) {
     $page->add($setting);
 
     // H5P custom CSS.
-    $setting = new admin_setting_configtextarea('theme_moove/hvpcss', get_string('hvpcss', 'theme_moove'), get_string('hvpcss_desc', 'theme_moove'), '');
+    $setting = new admin_setting_configtextarea(
+        'theme_moove/hvpcss',
+        get_string('hvpcss', 'theme_moove'),
+        get_string('hvpcss_desc', 'theme_moove'),
+        '');
     $page->add($setting);
 
     $settings->add($page);

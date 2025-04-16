@@ -26,7 +26,7 @@ use theme_moove\util\settings;
 /**
  * Creates a navbar for boost that allows easy control of the navbar items.
  *
- * @package    theme_boost
+ * @package    theme_moove
  * @copyright  2021 Adrian Greeve <adrian@moodle.com>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -113,11 +113,7 @@ class boostnavbar implements \renderable {
         if ($this->page->context->contextlevel == CONTEXT_MODULE) {
             $this->remove('mycourses');
             $this->remove('courses');
-            // Remove the course category breadcrumb nodes.
-            foreach ($this->items as $key => $item) {
-                // Remove if it is a course category breadcrumb node.
-//                $this->remove($item->key, \breadcrumb_navigation_node::TYPE_CATEGORY);
-            }
+
             $courseformat = course_get_format($this->page->course);
             $removesections = $courseformat->can_sections_be_removed_from_navigation();
             if ($removesections) {
