@@ -50,6 +50,7 @@ class admin_renderer extends \core_admin_renderer {
      * @param array|null $availableupdates array of \core\update\info objects or null
      * @param int|null $availableupdatesfetch timestamp of the most recent updates fetch or null (unknown)
      * @param bool $buggyiconvnomb warn iconv problems
+     * @param boolean $registered true if the site is registered on Moodle.org
      * @param string[] $cachewarnings An array containing warnings from the Cache API.
      * @param array $eventshandlers Events 1 API handlers.
      * @param bool $themedesignermode Warn about the theme designer mode.
