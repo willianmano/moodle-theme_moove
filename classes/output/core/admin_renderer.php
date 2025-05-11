@@ -24,11 +24,14 @@
 
 namespace theme_moove\output\core;
 
+defined('MOODLE_INTERNAL') || die();
+
 use theme_config;
 use core\context\course as context_course;
 use moodle_url;
 use html_writer;
 use theme_moove\output\core_course\activity_navigation;
+require_once($CFG->dirroot . '/admin/renderer.php');
 
 /**
  * Standard HTML output renderer for core_admin subsystem.
@@ -50,6 +53,7 @@ class admin_renderer extends \core_admin_renderer {
      * @param array|null $availableupdates array of \core\update\info objects or null
      * @param int|null $availableupdatesfetch timestamp of the most recent updates fetch or null (unknown)
      * @param bool $buggyiconvnomb warn iconv problems
+     * @param boolean $registered true if the site is registered on Moodle.org
      * @param string[] $cachewarnings An array containing warnings from the Cache API.
      * @param array $eventshandlers Events 1 API handlers.
      * @param bool $themedesignermode Warn about the theme designer mode.
