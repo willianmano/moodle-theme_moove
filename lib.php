@@ -78,7 +78,7 @@ function theme_moove_get_extra_scss($theme) {
     }
 
     $content .= 'body.pagelayout-login #page { ';
-    $content .= "background-image: url('$loginbgimgurl'); background-size: cover;";
+    $content .= "background-color: initial; background-image: url('$loginbgimgurl'); background-size: cover;";
     $content .= ' }';
 
     // Always return the background image with the scss when we have it.
