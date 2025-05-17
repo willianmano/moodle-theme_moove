@@ -53,6 +53,11 @@
                     <div class="header-action ms-2">{{{.}}}</div>
                 {{/headeractions}}
             </div>
+            {{#hasnavbar}}
+                <div class="d-none d-md-block" id="page-navbar">
+                    {{{navbar}}}
+                </div>
+            {{/hasnavbar}}
         </div>
     </div>
 </header>
