@@ -47,19 +47,6 @@ $THEME->layouts = [
         'defaultregion' => 'side-pre',
         'options' => ['nonavbar' => true],
     ],
-    'popup' => array(
-        'file' => 'columns1.php',
-        'regions' => array(),
-        'options' => array(
-            'nofooter' => true,
-            'nonavbar' => true,
-            'activityheader' => [
-                'notitle' => true,
-                'nocompletion' => true,
-                'nodescription' => true
-            ]
-        )
-    ),
 ];
 
 $THEME->parents = ['boost'];
