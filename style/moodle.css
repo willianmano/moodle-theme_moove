@@ -47774,6 +47774,13 @@ a {
   max-width: 100%;
 }
 
+.pagelayout-popup {
+  background-color: #fff !important; /* stylelint-disable-line declaration-no-important */
+}
+.pagelayout-popup .container-fluid, .pagelayout-popup .container-sm, .pagelayout-popup .container-md, .pagelayout-popup .container-lg, .pagelayout-popup .container-xl, .pagelayout-popup .container-xxl {
+  max-width: 100%;
+}
+
 @media (max-width: 575.98px) {
   .moodle-dialogue-base .moodle-dialogue.mod_quiz_preflight_popup {
     width: 100%;
