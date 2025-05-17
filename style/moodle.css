@@ -47448,24 +47448,24 @@ body {
   background-color: #f2f3f7 !important; /* stylelint-disable-line */
 }
 
-full_header.mustache #page-header {
+#page-header {
   margin: 1.25rem auto;
   padding: 0;
 }
-full_header.mustache #page-header h1, full_header.mustache #page-header .h1 {
+#page-header h1, #page-header .h1 {
   margin-bottom: 0;
 }
-full_header.mustache #page-header #page-navbar {
+#page-header #page-navbar {
   display: flex;
   align-items: center;
   justify-content: right;
 }
-full_header.mustache #page-header .courseheader {
+#page-header .courseheader {
   display: flex;
   align-items: center;
   white-space: nowrap;
 }
-full_header.mustache #page-header .page-header-headings {
+#page-header .page-header-headings {
   background-color: initial;
 }
 
