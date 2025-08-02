@@ -389,6 +389,13 @@ if ($ADMIN->fulltree) {
     $setting = new admin_setting_configtext($name, $title, $description, '');
     $page->add($setting);
 
+    // TikTok url setting.
+    $name = 'theme_moove/tiktok';
+    $title = get_string('tiktok', 'theme_moove');
+    $description = get_string('tiktokdesc', 'theme_moove');
+    $setting = new admin_setting_configtext($name, $title, $description, '');
+    $page->add($setting);
+
     // Facebook url setting.
     $name = 'theme_moove/facebook';
     $title = get_string('facebook', 'theme_moove');
@@ -421,6 +428,13 @@ if ($ADMIN->fulltree) {
     $name = 'theme_moove/instagram';
     $title = get_string('instagram', 'theme_moove');
     $description = get_string('instagramdesc', 'theme_moove');
+    $setting = new admin_setting_configtext($name, $title, $description, '');
+    $page->add($setting);
+
+    // Pinterest url setting.
+    $name = 'theme_moove/pinterest';
+    $title = get_string('pinterest', 'theme_moove');
+    $description = get_string('pinterestdesc', 'theme_moove');
     $setting = new admin_setting_configtext($name, $title, $description, '');
     $page->add($setting);
 

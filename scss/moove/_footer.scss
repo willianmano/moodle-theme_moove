@@ -127,6 +127,30 @@
                             margin-left: -1px;
                         }
                     }
+
+                    &.tiktok {
+                        background-color: $tiktok-color;
+
+                        &:hover {
+                            background-color: darken($tiktok-color, 20%);
+                        }
+
+                        .fa {
+                            margin-left: -1px;
+                        }
+                    }
+
+                    &.pinterest {
+                        background-color: $pinterest-color;
+
+                        &:hover {
+                            background-color: darken($pinterest-color, 20%);
+                        }
+
+                        .fa {
+                            margin-left: -1px;
+                        }
+                    }
                 }
             }
         }

@@ -36,95 +36,115 @@ along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
     <div class="moove-container-fluid footer-columns">
         <div class="row">
             <div class="col-md-4 column-left">
-                <div class="contact">
-                    <h3 class="footer-title">{{#str}}contactus, theme_moove{{/str}}</h3>
+                {{#hasfootercontact}}
+                    <div class="contact">
+                        <h3 class="footer-title">{{#str}}contactus, theme_moove{{/str}}</h3>
 
-                    <ul>
-                        {{#website}}
-                            <li>
-                                <a href="{{{website}}}" target="_blank" class="website btn btn-link">
-                                    <i class="fa fa-globe"></i>
-                                </a>
-                            </li>
-                        {{/website}}
-                        {{#mobile}}
-                            <li>
-                                <a href="tel:{{{mobile}}}" target="_blank" class="mobile btn btn-link">
-                                    <i class="fa fa-phone"></i>
-                                </a>
-                            </li>
-                        {{/mobile}}
-                        {{#mail}}
-                            <li>
-                                <a href="mailto:{{{mail}}}" target="_blank" class="mail btn btn-link">
-                                    <i class="fa fa-envelope"></i>
-                                </a>
-                            </li>
-                        {{/mail}}
-                    </ul>
-                </div>
+                        <ul>
+                            {{#website}}
+                                <li>
+                                    <a href="{{{website}}}" target="_blank" class="website btn btn-link">
+                                        <i class="fa fa-globe"></i>
+                                    </a>
+                                </li>
+                            {{/website}}
+                            {{#mobile}}
+                                <li>
+                                    <a href="tel:{{{mobile}}}" target="_blank" class="mobile btn btn-link">
+                                        <i class="fa fa-phone"></i>
+                                    </a>
+                                </li>
+                            {{/mobile}}
+                            {{#mail}}
+                                <li>
+                                    <a href="mailto:{{{mail}}}" target="_blank" class="mail btn btn-link">
+                                        <i class="fa fa-envelope"></i>
+                                    </a>
+                                </li>
+                            {{/mail}}
+                        </ul>
+                    </div>
+                {{/hasfootercontact}}
 
-                <div class="socialnetworks">
-                    <h3 class="footer-title">{{#str}}followus, theme_moove{{/str}}</h3>
+                {{#hasfootersocial}}
+                    <div class="socialnetworks">
+                        <h3 class="footer-title">{{#str}}followus, theme_moove{{/str}}</h3>
 
-                    <ul class="mb-0">
-                        {{#facebook}}
-                            <li>
-                                <a href="{{{facebook}}}" target="_blank" class="facebook btn btn-link btn-rounded">
-                                    <i class="fa fa-facebook"></i>
-                                </a>
-                            </li>
-                        {{/facebook}}
+                        <ul class="mb-0">
+                            {{#tiktok}}
+                                <li>
+                                    <a href="{{{tiktok}}}" target="_blank" class="tiktok btn btn-link btn-rounded">
+                                        <i class="fab fa-tiktok"></i>
+                                    </a>
+                                </li>
+                            {{/tiktok}}
 
-                        {{#twitter}}
-                            <li>
-                                <a href="{{{twitter}}}" target="_blank" class="twitter btn btn-link btn-rounded">
-                                    <i class="fa fa-twitter"></i>
-                                </a>
-                            </li>
-                        {{/twitter}}
+                            {{#facebook}}
+                                <li>
+                                    <a href="{{{facebook}}}" target="_blank" class="facebook btn btn-link btn-rounded">
+                                        <i class="fa fa-facebook"></i>
+                                    </a>
+                                </li>
+                            {{/facebook}}
 
-                        {{#linkedin}}
-                            <li>
-                                <a href="{{{linkedin}}}" target="_blank" class="linkedin btn btn-link btn-rounded">
-                                    <i class="fa fa-linkedin"></i>
-                                </a>
-                            </li>
-                        {{/linkedin}}
+                            {{#twitter}}
+                                <li>
+                                    <a href="{{{twitter}}}" target="_blank" class="twitter btn btn-link btn-rounded">
+                                        <i class="fa fa-twitter"></i>
+                                    </a>
+                                </li>
+                            {{/twitter}}
 
-                        {{#youtube}}
-                            <li>
-                                <a href="{{{youtube}}}" target="_blank" class="youtube btn btn-link btn-rounded">
-                                    <i class="fa fa-youtube"></i>
-                                </a>
-                            </li>
-                        {{/youtube}}
+                            {{#instagram}}
+                                <li>
+                                    <a href="{{{instagram}}}" target="_blank" class="instagram btn btn-link btn-rounded">
+                                        <i class="fa fa-instagram"></i>
+                                    </a>
+                                </li>
+                            {{/instagram}}
 
-                        {{#instagram}}
-                            <li>
-                                <a href="{{{instagram}}}" target="_blank" class="instagram btn btn-link btn-rounded">
-                                    <i class="fa fa-instagram"></i>
-                                </a>
-                            </li>
-                        {{/instagram}}
+                            {{#linkedin}}
+                                <li>
+                                    <a href="{{{linkedin}}}" target="_blank" class="linkedin btn btn-link btn-rounded">
+                                        <i class="fa fa-linkedin"></i>
+                                    </a>
+                                </li>
+                            {{/linkedin}}
 
-                        {{#whatsapp}}
-                            <li>
-                                <a href="https://api.whatsapp.com/send?phone={{{whatsapp}}}" target="_blank" class="whatsapp btn btn-link btn-rounded">
-                                <i class="fa fa-whatsapp"></i>
-                                </a>
-                            </li>
-                        {{/whatsapp}}
+                            {{#pinterest}}
+                                <li>
+                                    <a href="{{{pinterest}}}" target="_blank" class="pinterest btn btn-link btn-rounded">
+                                        <i class="fa fa-pinterest"></i>
+                                    </a>
+                                </li>
+                            {{/pinterest}}
 
-                        {{#telegram}}
-                            <li>
-                                <a href="{{{telegram}}}" target="_blank" class="telegram btn btn-link btn-rounded">
-                                    <i class="fa fa-telegram"></i>
-                                </a>
-                            </li>
-                        {{/telegram}}
-                    </ul>
-                </div>
+                            {{#youtube}}
+                                <li>
+                                    <a href="{{{youtube}}}" target="_blank" class="youtube btn btn-link btn-rounded">
+                                        <i class="fa fa-youtube"></i>
+                                    </a>
+                                </li>
+                            {{/youtube}}
+
+                            {{#whatsapp}}
+                                <li>
+                                    <a href="https://api.whatsapp.com/send?phone={{{whatsapp}}}" target="_blank" class="whatsapp btn btn-link btn-rounded">
+                                    <i class="fa fa-whatsapp"></i>
+                                    </a>
+                                </li>
+                            {{/whatsapp}}
+
+                            {{#telegram}}
+                                <li>
+                                    <a href="{{{telegram}}}" target="_blank" class="telegram btn btn-link btn-rounded">
+                                        <i class="fa fa-telegram"></i>
+                                    </a>
+                                </li>
+                            {{/telegram}}
+                        </ul>
+                    </div>
+                {{/hasfootersocial}}
             </div>
             <div class="col-md-4 column-center">
                 {{# output.supportemail }}
