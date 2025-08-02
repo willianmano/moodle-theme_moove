@@ -449,7 +449,7 @@ class core_renderer extends \theme_boost\output\core_renderer {
                 break;
             case \moodle_page::STATE_PRINTING_HEADER :
                 // We should hopefully never get here.
-                throw new coding_exception('You cannot redirect while printing the page header');
+                throw new \coding_exception('You cannot redirect while printing the page header');
                 break;
             case \moodle_page::STATE_IN_BODY :
                 // We really shouldn't be here but we can deal with this.
