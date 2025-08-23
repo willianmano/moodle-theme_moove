@@ -18,7 +18,7 @@
  * File containing the class activity navigation renderable.
  *
  * @package    theme_moove
- * @copyright  2022 Willian Mano {@link https://conecti.me}
+
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 namespace theme_moove\output\core_course;
@@ -31,7 +31,7 @@ use url_select;
  * The class activity navigation renderable.
  *
  * @package    theme_moove
- * @copyright  2022 Willian Mano {@link https://conecti.me}
+
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class activity_navigation extends \core_course\output\activity_navigation {

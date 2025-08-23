@@ -17,7 +17,7 @@
  * Theme settings js logic
  *
  * @package
- * @copyright  2022 Willian Mano - https://conecti.me
+
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 

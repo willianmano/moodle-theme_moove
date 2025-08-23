@@ -18,7 +18,6 @@
  * Language file.
  *
  * @package   theme_moove
- * @copyright 2017 Willian Mano - http://conecti.me
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -32,10 +31,7 @@ $string['currentinparentheses'] = '(current)';
 $string['region-side-pre'] = 'Right';
 $string['prev_section'] = 'Previous section';
 $string['next_section'] = 'Next section';
-$string['themedevelopedby'] = 'This theme was proudly developed by';
-$string['themedevelopedbyconectimepartner'] = 'a Brazilian Moodle Partner Company.';
-$string['needsupport'] = 'Need support for your Moodle site? ';
-$string['pleasuretohelp'] = 'It will be a pleasure to help you!';
+// Removed promotional strings
 $string['access'] = 'Access';
 $string['prev_activity'] = 'Previous activity';
 $string['next_activity'] = 'Next activity';
@@ -136,7 +132,7 @@ $string['facebookdesc'] = 'Enter the URL of your Facebook. (i.e http://www.faceb
 $string['twitter'] = 'Twitter URL';
 $string['twitterdesc'] = 'Enter the URL of your twitter. (i.e http://www.twitter.com/myinstitution)';
 $string['linkedin'] = 'Linkedin URL';
-$string['linkedindesc'] = 'Enter the URL of your Linkedin. (i.e http://www.linkedin.com/myinstitution)';
+$string['linkedindesc'] = 'Enter the URL of your Linkedin.';
 $string['youtube'] = 'Youtube URL';
 $string['youtubedesc'] = 'Enter the URL of your Youtube. (i.e https://www.youtube.com/user/myinstitution)';
 $string['instagram'] = 'Instagram URL';
@@ -147,7 +143,7 @@ $string['whatsapp'] = 'Whatsapp number';
 $string['whatsappdesc'] = 'Enter your whatsapp number for contact.';
 $string['telegram'] = 'Telegram';
 $string['telegramdesc'] = 'Enter your Telegram contact or group link.';
-$string['contactus'] = 'Contact us';
+// Removed contact string
 $string['followus'] = 'Follow us';
 
 // Mypublic page.

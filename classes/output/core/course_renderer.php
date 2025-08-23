@@ -18,7 +18,7 @@
  * Course renderer.
  *
  * @package    theme_moove
- * @copyright  2025 Willian Mano - willianmanoaraujo@gmail.com
+
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 

@@ -18,7 +18,7 @@
  * Overriden theme boost core renderer.
  *
  * @package    theme_moove
- * @copyright  2022 Willian Mano {@link https://conecti.me}
+
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -34,7 +34,7 @@ use theme_moove\output\core_course\activity_navigation;
  * Renderers to align Moodle's HTML with that expected by Bootstrap
  *
  * @package    theme_moove
- * @copyright  2022 Willian Mano {@link https://conecti.me}
+
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class core_renderer extends \theme_boost\output\core_renderer {

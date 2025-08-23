@@ -18,7 +18,7 @@
  * Theme helper to load a theme configuration.
  *
  * @package    theme_moove
- * @copyright  2022 Willian Mano - http://conecti.me
+
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -30,7 +30,7 @@ use theme_config;
  * Helper to load a theme configuration.
  *
  * @package    theme_moove
- * @copyright  2017 Willian Mano - http://conecti.me
+
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class settings {

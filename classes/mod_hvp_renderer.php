@@ -21,7 +21,7 @@
  *      https://github.com/sarjona/h5pmods-moodle-plugin.
  *
  * @package     theme_moove
- * @copyright   2022 Willian Mano - http://conecti.me
+
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class theme_moove_mod_hvp_renderer extends \mod_hvp_renderer {

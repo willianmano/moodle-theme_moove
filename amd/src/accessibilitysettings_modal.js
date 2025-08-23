@@ -17,7 +17,7 @@
  * Theme settings modal js.
  *
  * @package
- * @copyright  2022 Willian Mano - https://conecti.me
+
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 import Ajax from 'core/ajax';
