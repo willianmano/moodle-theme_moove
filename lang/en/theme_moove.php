@@ -143,7 +143,7 @@ $string['whatsapp'] = 'Whatsapp number';
 $string['whatsappdesc'] = 'Enter your whatsapp number for contact.';
 $string['telegram'] = 'Telegram';
 $string['telegramdesc'] = 'Enter your Telegram contact or group link.';
-// Removed contact string
+$string['contactus'] = 'Contact us';
 $string['followus'] = 'Follow us';
 
 // Mypublic page.

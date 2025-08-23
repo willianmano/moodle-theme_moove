@@ -78,7 +78,7 @@ class admin_renderer extends \core_admin_renderer {
 
         $output .= $this->header();
         $output .= $this->output->heading(get_string('notifications', 'admin'));
-        $output .= $this->conectime_services_and_support_content();
+        // Removed conectime promotional content
         $output .= $this->maturity_info($maturity);
         $output .= empty($CFG->disableupdatenotifications) ?
                         $this->available_updates($availableupdates, $availableupdatesfetch)
@@ -110,11 +110,10 @@ class admin_renderer extends \core_admin_renderer {
     }
 
     /**
-     * Display services and support content.
-     *
-     * @return string the campaign content raw html.
+     * Display services and support content - REMOVED.
+     * This function was used to display promotional content.
      */
     private function conectime_services_and_support_content(): string {
-        return $this->render_from_template('theme_moove/moove/conectime_services_and_support_content_banner', []);
+        return '';
     }
 }
