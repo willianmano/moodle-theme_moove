@@ -21,7 +21,7 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-import AccessibilitySettingsModal from 'theme_moove/accessibilitysettings_modal';
+import AccessibilitySettingsModal from 'theme_nexus/accessibilitysettings_modal';
 import $ from 'jquery';
 
 export const init = async() => {

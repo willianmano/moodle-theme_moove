@@ -17,19 +17,19 @@
 /**
  * Theme helper to load a theme configuration.
  *
- * @package    theme_moove
+ * @package    theme_nexus
 
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-namespace theme_moove\util;
+namespace theme_nexus\util;
 
 use theme_config;
 
 /**
  * Helper to load a theme configuration.
  *
- * @package    theme_moove
+ * @package    theme_nexus
 
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */

@@ -17,12 +17,12 @@
 /**
  * Accessibility API endpoints
  *
- * @package    theme_moove
+ * @package    theme_nexus
 
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-namespace theme_moove\api;
+namespace theme_nexus\api;
 
 use core_external\external_api;
 use core_external\external_function_parameters;
@@ -32,7 +32,7 @@ use core_external\external_value;
 /**
  * Accessibility API endpoints class
  *
- * @package    theme_moove
+ * @package    theme_nexus
 
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -255,7 +255,7 @@ class accessibility extends external_api {
 
         set_user_preference('thememoovesettings_enableaccessibilitytoolbar', $enableaccessibilitytoolbar);
 
-        \core\notification::success(get_string('themesettingg:successfullysaved', 'theme_moove'));
+        \core\notification::success(get_string('themesettingg:successfullysaved', 'theme_nexus'));
 
         return ['success' => true];
     }

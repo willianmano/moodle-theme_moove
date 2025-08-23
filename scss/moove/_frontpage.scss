@@ -5,17 +5,44 @@
         width: calc(33.33% - 2rem) !important;
         max-width: calc(33.33% - 2rem) !important;
         margin: 1rem;
-        border-radius: 16px;
+        border-radius: $border-radius-2xl;
         overflow: hidden;
-        transition: all 0.3s ease-in-out;
+        transition: all $transition-slow;
         background: $surface;
         border: 1px solid $border-color;
-        box-shadow: 0 4px 6px -1px $shadow-color, 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        box-shadow: $shadow-md;
+        cursor: pointer;
+        transform-style: preserve-3d;
+        perspective: 1000px;
 
+        // Advanced hover effects with 3D transform
         &:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 20px 25px -5px $shadow-color, 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            transform: translateY(-8px) rotateX(5deg) rotateY(2deg);
+            box-shadow: $shadow-2xl;
+            border-color: lighten($brand-primary, 30%);
+            
+            .card-img.dashboard-card-img {
+                transform: scale(1.05);
+                filter: brightness(1.1);
+            }
+
+            .card-body {
+                background: linear-gradient(135deg, $surface 0%, lighten($background-secondary, 2%) 100%);
+            }
+
+            .dashboard-card-overlay {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
+
+        // Staggered animation on page load
+        &:nth-child(1) { animation: cardSlideIn 0.6s ease-out 0.1s both; }
+        &:nth-child(2) { animation: cardSlideIn 0.6s ease-out 0.2s both; }
+        &:nth-child(3) { animation: cardSlideIn 0.6s ease-out 0.3s both; }
+        &:nth-child(4) { animation: cardSlideIn 0.6s ease-out 0.4s both; }
+        &:nth-child(5) { animation: cardSlideIn 0.6s ease-out 0.5s both; }
+        &:nth-child(6) { animation: cardSlideIn 0.6s ease-out 0.6s both; }
 
         @media (max-width: 992px) {
             width: calc(50% - 2rem) !important;
@@ -27,50 +54,157 @@
             max-width: calc(100% - 2rem) !important;
         }
 
+        // Glassmorphism overlay for premium feel
+        .dashboard-card-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: $glass-background;
+            backdrop-filter: blur(15px);
+            border: 1px solid $glass-border;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all $transition-slow;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+
+            .overlay-content {
+                text-align: center;
+                color: white;
+                padding: 2rem;
+
+                .btn {
+                    background: rgba(255, 255, 255, 0.9);
+                    color: $brand-primary;
+                    border: none;
+                    padding: 0.75rem 2rem;
+                    border-radius: $border-radius-xl;
+                    font-weight: 600;
+                    transition: all $transition-base;
+                    box-shadow: $shadow-lg;
+
+                    &:hover {
+                        transform: translateY(-2px);
+                        box-shadow: $shadow-xl;
+                    }
+                }
+            }
+        }
+
         &.dimmed .card-img::after {
             content: '';
             position: absolute;
-            background-color: rgba(0,0,0,0.5);
+            background: linear-gradient(135deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.3) 100%);
             top: 0;
             right: 0;
             left: 0;
             bottom: 0;
-            border-top-left-radius: 16px;
-            border-top-right-radius: 16px;
+            border-top-left-radius: $border-radius-2xl;
+            border-top-right-radius: $border-radius-2xl;
         }
 
         .card-img.dashboard-card-img {
             border-bottom-right-radius: 0;
             border-bottom-left-radius: 0;
-            height: 200px;
+            height: 220px;
             object-fit: cover;
             width: 100%;
+            transition: all $transition-slow;
+            position: relative;
+            background: linear-gradient(135deg, $background-secondary 0%, lighten($background-secondary, 10%) 100%);
+
+            // Shimmer effect while loading
+            &::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: -100%;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+                animation: shimmer 2s infinite;
+            }
         }
 
         .dashboard-card-footer {
-            border-radius: 16px;
+            border-radius: 0 0 $border-radius-2xl $border-radius-2xl;
             background: $background-secondary;
             border-top: 1px solid $border-color;
             padding: 1rem 1.5rem;
+            transition: all $transition-base;
         }
 
         .card-body {
             padding: 1.5rem;
+            transition: all $transition-base;
+            position: relative;
+            z-index: 1;
             
             .card-title {
-                font-size: 1.125rem;
-                font-weight: 600;
+                font-size: 1.25rem;
+                font-weight: 700;
                 color: $text-primary;
                 margin-bottom: 0.75rem;
-                line-height: 1.4;
+                line-height: 1.3;
+                transition: all $transition-base;
+                position: relative;
+
+                &::after {
+                    content: '';
+                    position: absolute;
+                    bottom: -4px;
+                    left: 0;
+                    width: 0;
+                    height: 2px;
+                    background: $gradient-primary;
+                    border-radius: 1px;
+                    transition: width $transition-base;
+                }
             }
 
             .card-text {
                 color: $text-secondary;
-                font-size: 0.875rem;
+                font-size: 0.9rem;
                 line-height: 1.6;
                 margin-bottom: 1rem;
+                transition: all $transition-base;
             }
+
+            // Progress indicator
+            .progress-indicator {
+                height: 4px;
+                background: $background-secondary;
+                border-radius: 2px;
+                overflow: hidden;
+                margin-top: 1rem;
+
+                .progress-bar {
+                    height: 100%;
+                    background: $gradient-primary;
+                    border-radius: 2px;
+                    transition: width 0.8s ease-out;
+                    position: relative;
+
+                    &::after {
+                        content: '';
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        bottom: 0;
+                        right: 0;
+                        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+                        animation: progressShine 2s infinite;
+                    }
+                }
+            }
+        }
+
+        &:hover .card-body .card-title::after {
+            width: 100%;
         }
 
         .customfields {
@@ -80,7 +214,15 @@
                 color: $text-muted;
                 display: flex;
                 align-items: center;
-                gap: 0.5rem;
+                gap: 0.75rem;
+                padding: 0.25rem 0;
+                border-radius: $border-radius-sm;
+                transition: all $transition-base;
+
+                &:hover {
+                    background: lighten($background-secondary, 3%);
+                    padding-left: 0.5rem;
+                }
 
                 &:last-of-type {
                     margin-bottom: 0;
@@ -91,268 +233,166 @@
                     font-weight: 600;
                     color: $text-secondary;
                 }
+
+                .customfieldvalue {
+                    padding: 0.25rem 0.5rem;
+                    background: lighten($brand-primary, 45%);
+                    color: $brand-primary;
+                    border-radius: $border-radius-sm;
+                    font-size: 0.75rem;
+                    font-weight: 500;
+                }
             }
         }
 
+        // Enhanced enrollment icons
         .enrolmenticons {
-            position: absolute;
-            bottom: 8px;
-            right: 0;
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 1rem;
 
             .enrolmenticon {
-                padding: 4px 8px;
-                background-color: #fff;
-                color: $brand-primary;
-                border-radius: .5rem;
-                margin: 0 4px;
-
-                .icon {
-                    margin-right: 0;
-                }
-            }
-        }
-
-        .course-contacts {
-            padding: 0 0.8rem 0.8rem 0.8rem;
-
-            .contact {
+                width: 32px;
+                height: 32px;
+                border-radius: $border-radius-md;
+                background: $glass-background;
+                border: 1px solid $glass-border;
                 display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: all $transition-base;
+                backdrop-filter: blur(10px);
 
-                &:not(:first-of-type) {
-                    margin-top: .4rem;
+                &:hover {
+                    transform: translateY(-2px) scale(1.1);
+                    box-shadow: $shadow-md;
                 }
 
-                img {
-                    width: 48px;
-                    height: 48px;
-                    border: 1px solid $gray-300;
-                }
-
-                p {
-                    margin-left: .4rem;
-                    margin-bottom: 0;
-
-                    &.role {
-                        color: $gray-900;
-                        font-size: 80%;
-                    }
+                i {
+                    font-size: 0.875rem;
+                    color: $brand-primary;
                 }
             }
         }
 
-        .dashboard-card-footer {
-            padding: 0 .8rem .8rem .8rem;
-        }
-    }
-}
+        // Badge system
+        .course-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: $gradient-primary;
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: $border-radius-xl;
+            font-size: 0.75rem;
+            font-weight: 600;
+            z-index: 3;
+            box-shadow: $shadow-md;
+            animation: badgePulse 2s infinite;
 
-#page-site-index.notloggedin {
-    #mooveslideshow {
-        margin-top: 2rem;
-        margin-bottom: 2rem;
-        padding: 0;
-
-        .carousel-inner {
-            border-radius: .5rem;
-        }
-
-        .caption {
-            text-align: center;
-        }
-
-        .carousel-indicators {
-            background-color: rgba(0, 0, 0, .6);
-            margin-bottom: 15px;
-            height: 20px;
-            border-bottom-left-radius: .5rem;
-            border-bottom-right-radius: .5rem;
-        }
-
-        .carousel-caption {
-            background-color: rgba(0, 0, 0, .6);
-            margin: 0;
-            bottom: 35px;
-            padding: 15px;
-            border-top-left-radius: .5rem;
-            border-top-right-radius: .5rem;
-        }
-
-        .carousel-fade .carousel-item {
-            opacity: 0;
-            transition-duration: .6s;
-            transition-property: opacity;
-        }
-
-        .carousel-fade  .carousel-item.active,
-        .carousel-fade  .carousel-item-next.carousel-item-left,
-        .carousel-fade  .carousel-item-prev.carousel-item-right {
-            opacity: 1;
-        }
-
-        .carousel-fade .active.carousel-item-left,
-        .carousel-fade  .active.carousel-item-right {
-            opacity: 0;
-        }
-
-        .carousel-fade  .carousel-item-next,
-        .carousel-fade .carousel-item-prev,
-        .carousel-fade .carousel-item.active,
-        .carousel-fade .active.carousel-item-left,
-        .carousel-fade  .active.carousel-item-prev {
-            transform: translateX(0);
-            transform: translate3d(0, 0, 0);
-        }
-    }
-
-    #feature {
-        background-color: #f1f6fd;
-        padding: 4rem 0;
-        margin-left: -15px;
-        margin-right: -15px;
-
-        .card {
-            border: 1px solid #e2e8f0;
-        }
-
-        .icon-lg {
-            width: 6rem;
-            height: 6rem;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-
-            img {
-                max-width: 100%;
-            }
-        }
-    }
-
-    #numbers {
-        padding: 5.625rem 0;
-
-        .sectionheading p {
-            line-height: 1;
-        }
-
-        .user-rating-box-area {
-            .rate-box {
-                box-shadow: 0 6px 0 rgb(23 135 252 / 65%);
-                border-radius: 25px;
-                padding: 30px 40px 35px 40px;
-
-                &.bg-primary {
-                    background-color: #1787fc !important;
-                }
-
-                &.bg-cloudburst {
-                    background-color: #213053;
-                }
-
-                h3 {
-                    color: #fff;
-                    font-size: 60px;
-                    font-weight: 600;
-                    font-style: normal;
-                    letter-spacing: -1px;
-                    line-height: 66px;
-                    margin-bottom: 30px;
-                }
-
-                p {
-                    color: #fff;
-                    font-size: 17px;
-                    font-weight: 400;
-                    font-style: normal;
-                    letter-spacing: normal;
-                    line-height: 30px;
-                    margin-bottom: 0;
-                }
+            &.new {
+                background: $gradient-secondary;
             }
 
-            .rate-box-2 {
-                margin-top: 0;
-                box-shadow: 0 6px 0 rgb(33 48 83 / 65%);
-            }
-        }
-    }
-
-    #topofscroll {
-        background-color: #f1f6fd;
-        margin-left: -15px;
-        margin-right: -15px;
-
-        #page-content,
-        #region-main {
-            background-color: #f1f6fd;
-        }
-
-        #page-content {
-            padding-left: 0;
-            padding-right: 0;
-            margin-bottom: 0;
-        }
-
-        #frontpage-available-course-list {
-            h2 {
-                text-align: center;;
-            }
-        }
-    }
-
-    #faq {
-        padding: 4rem 0;
-
-        h2 {
-            text-align: center;
-        }
-
-        .accordion {
-            width: 100%;
-
-            .accordion-button:not(.collapsed) {
-                background-color: $brand-primary;
-                color: #fff;
-            }
-
-            .accordion-item {
-                border: var(--bs-accordion-border-width) solid $brand-primary;
-            }
-
-            .accordion-button:not(.collapsed)::after {
-                background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%23ffffff' stroke-linecap='round' stroke-linejoin='round'%3e%3cpath d='M2 5L8 11L14 5'/%3e%3c/svg%3e");
+            &.featured {
+                background: linear-gradient(135deg, $brand-warning 0%, darken($brand-warning, 10%) 100%);
             }
         }
     }
 }
 
-@include media-breakpoint-down(md) {
-    .pagelayout-frontpage .dashboard-card,
-    .pagelayout-coursecategory .dashboard-card {
-        width: 100% !important;
-        max-width: 100% !important;
-        margin: 1rem 0;
-        -webkit-box-shadow: none;
-        box-shadow: none;
+// Keyframe animations
+@keyframes cardSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px) rotateX(10deg);
     }
+    to {
+        opacity: 1;
+        transform: translateY(0) rotateX(0deg);
+    }
+}
 
-    #page-site-index.notloggedin {
-        .footer-content-popover .footer-section {
-            text-align: center;
-        }
+@keyframes shimmer {
+    0% {
+        left: -100%;
+    }
+    100% {
+        left: 100%;
+    }
+}
 
-        .column-right .footer-title {
-            display: none;
+@keyframes progressShine {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+@keyframes badgePulse {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: $shadow-md;
+    }
+    50% {
+        transform: scale(1.05);
+        box-shadow: $shadow-lg;
+    }
+}
+
+// Course grid improvements
+.course-listing {
+    .courses {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 2rem;
+        padding: 2rem 0;
+
+        @media (max-width: 768px) {
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
         }
     }
 }
 
-@media (max-width: 576px) {
-    #page-site-index.notloggedin {
-        #numbers {
-            .rate-box-2 {
-                margin-top: 1rem !important;
-            }
+// Search and filter enhancements
+.course-search {
+    background: $glass-background;
+    backdrop-filter: blur(20px);
+    border: 1px solid $glass-border;
+    border-radius: $border-radius-xl;
+    padding: 2rem;
+    margin-bottom: 3rem;
+    box-shadow: $shadow-lg;
+
+    .form-control {
+        background: rgba(255, 255, 255, 0.9);
+        border: 1px solid $border-color;
+        border-radius: $border-radius-lg;
+        padding: 1rem 1.25rem;
+        font-size: 1rem;
+
+        &:focus {
+            border-color: $brand-primary;
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+            background: white;
+        }
+    }
+
+    .btn-search {
+        background: $gradient-primary;
+        border: none;
+        color: white;
+        padding: 1rem 2rem;
+        border-radius: $border-radius-lg;
+        font-weight: 600;
+        transition: all $transition-base;
+
+        &:hover {
+            transform: translateY(-2px);
+            box-shadow: $shadow-lg;
         }
     }
 }

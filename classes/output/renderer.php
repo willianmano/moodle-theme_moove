@@ -17,18 +17,18 @@
 /**
  * Module renderer
  *
- * @package    theme_moove
+ * @package    theme_nexus
 
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-namespace theme_moove\output;
+namespace theme_nexus\output;
 
 use plugin_renderer_base;
 
 /**
  * Theme renderer
  *
- * @package    theme_moove
+ * @package    theme_nexus
 
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */

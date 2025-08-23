@@ -17,12 +17,12 @@
 /**
  * Privacy provider
  *
- * @package    theme_moove
+ * @package    theme_nexus
 
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-namespace theme_moove\privacy;
+namespace theme_nexus\privacy;
 
 use core_privacy\local\metadata\collection;
 use core_privacy\local\metadata\provider as baseprovider;
@@ -32,7 +32,7 @@ use core_privacy\local\request\writer;
 /**
  * Privacy provider class
  *
- * @package    theme_moove
+ * @package    theme_nexus
 
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -75,29 +75,29 @@ class provider implements
         $toolbar = get_user_preferences(self::TOOLBAR, null, $userid);
         if (isset($toolbar)) {
             writer::export_user_preference(
-                'theme_moove',
+                'theme_nexus',
                 self::TOOLBAR,
                 $toolbar,
-                get_string('privacy:thememoovesettings_enableaccessibilitytoolbar', 'theme_moove', $toolbar)
+                get_string('privacy:thememoovesettings_enableaccessibilitytoolbar', 'theme_nexus', $toolbar)
             );
 
             $fontsize = get_user_preferences(self::FONTSIZE, null, $userid);
             if (isset($fontsize)) {
                 writer::export_user_preference(
-                    'theme_moove',
+                    'theme_nexus',
                     self::FONTSIZE,
                     $fontsize,
-                    get_string('privacy:accessibilitystyles_fontsizeclass', 'theme_moove', $fontsize)
+                    get_string('privacy:accessibilitystyles_fontsizeclass', 'theme_nexus', $fontsize)
                 );
             }
 
             $sitecolor = get_user_preferences(self::SITECOLOR, null, $userid);
             if (isset($sitecolor)) {
                 writer::export_user_preference(
-                    'theme_moove',
+                    'theme_nexus',
                     self::SITECOLOR,
                     $sitecolor,
-                    get_string('privacy:accessibilitystyles_sitecolorclass', 'theme_moove', $sitecolor)
+                    get_string('privacy:accessibilitystyles_sitecolorclass', 'theme_nexus', $sitecolor)
                 );
             }
         }
@@ -105,10 +105,10 @@ class provider implements
         $fonttype = get_user_preferences(self::FONTTYPE, null, $userid);
         if (isset($fonttype)) {
             writer::export_user_preference(
-                'theme_moove',
+                'theme_nexus',
                 self::FONTTYPE,
                 $fonttype,
-                get_string('privacy:thememoovesettings_fonttype', 'theme_moove', $fonttype)
+                get_string('privacy:thememoovesettings_fonttype', 'theme_nexus', $fonttype)
             );
         }
     }

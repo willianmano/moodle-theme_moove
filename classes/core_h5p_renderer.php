@@ -15,16 +15,16 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Class theme_moove_core_h5p_renderer.
+ * Class theme_nexus_core_h5p_renderer.
  *
  * See: https://tracker.moodle.org/browse/MDL-69087 and
  *      https://github.com/sarjona/h5pmods-moodle-plugin.
  *
- * @package     theme_moove
+ * @package     theme_nexus
 
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class theme_moove_core_h5p_renderer extends \core_h5p\output\renderer {
+class theme_nexus_core_h5p_renderer extends \core_h5p\output\renderer {
     /**
      * Add styles when an H5P is displayed.
      *
@@ -60,6 +60,6 @@ class theme_moove_core_h5p_renderer extends \core_h5p\output\renderer {
         $itemid = md5($content);
 
         return \moodle_url::make_file_url("$CFG->wwwroot/pluginfile.php",
-            "/$syscontext->id/theme_moove/hvp/$itemid/themehvp.css");
+            "/$syscontext->id/theme_nexus/hvp/$itemid/themehvp.css");
     }
 }

@@ -15,28 +15,28 @@
     along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 }}
 {{!
-    @template theme_moove/accessibilitysettings_modal
+    @template theme_nexus/accessibilitysettings_modal
 
     Blocks drawer template
 
     Example context (json): {}
 }}
 {{< core/modal }}
-    {{$title}}{{#str}}themesettings:accessibility, theme_moove{{/str}}{{/title}}
+    {{$title}}{{#str}}themesettings:accessibility, theme_nexus{{/str}}{{/title}}
     {{$body}}
         <div class="container">
             <form autocomplete="off" accept-charset="utf-8" class="mform">
                 <div class="form-group">
-                    <label for="fonttype">{{#str}}themesettings:fonttype, theme_moove{{/str}}</label>
+                    <label for="fonttype">{{#str}}themesettings:fonttype, theme_nexus{{/str}}</label>
                     <select id="fonttype" name="fonttype" class="form-control" required size="2">
-                        <option value="default">{{#str}}themesettings:defaultfont, theme_moove{{/str}}</option>
-                        <option value="odafont">{{#str}}themesettings:dyslexicfont, theme_moove{{/str}}</option>
+                        <option value="default">{{#str}}themesettings:defaultfont, theme_nexus{{/str}}</option>
+                        <option value="odafont">{{#str}}themesettings:dyslexicfont, theme_nexus{{/str}}</option>
                     </select>
                 </div>
                 <div class="form-group">
                     <div class="form-check">
                         <input type="checkbox" class="form-check-input" id="enableaccessibilitytoolbar" name="enableaccessibilitytoolbar">
-                        <label class="form-check-label" for="enableaccessibilitytoolbar">{{#str}}themesettings:enableaccessibilitytoolbar, theme_moove{{/str}}</label>
+                        <label class="form-check-label" for="enableaccessibilitytoolbar">{{#str}}themesettings:enableaccessibilitytoolbar, theme_nexus{{/str}}</label>
                     </div>
                 </div>
             </form>

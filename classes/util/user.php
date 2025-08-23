@@ -17,12 +17,12 @@
 /**
  * User class utility class
  *
- * @package    theme_moove
+ * @package    theme_nexus
 
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-namespace theme_moove\util;
+namespace theme_nexus\util;
 
 use stdClass;
 use user_picture;
@@ -30,7 +30,7 @@ use user_picture;
 /**
  * User class utility class
  *
- * @package    theme_moove
+ * @package    theme_nexus
 
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */

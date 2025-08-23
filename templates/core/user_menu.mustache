@@ -76,8 +76,8 @@
                 <div id="usermenu-carousel" class="carousel slide" data-touch="false" data-interval="false" data-keyboard="false">
                     <div class="carousel-inner">
                         <div id="carousel-item-main" class="carousel-item active" role="menu" tabindex="-1" aria-label="{{#str}}user{{/str}}">
-                            <a id="accessibilitysettings-control" href="#" class="dropdown-item" role="menuitem" tabindex="-1" aria-label="{{#str}}themesettings:accessibility, theme_moove{{/str}}">
-                                {{#str}}themesettings:accessibility, theme_moove{{/str}}
+                            <a id="accessibilitysettings-control" href="#" class="dropdown-item" role="menuitem" tabindex="-1" aria-label="{{#str}}themesettings:accessibility, theme_nexus{{/str}}">
+                                {{#str}}themesettings:accessibility, theme_nexus{{/str}}
                             </a>
 
                             <div class="dropdown-divider"></div>
@@ -108,7 +108,7 @@
     {{/unauthenticateduser}}
 </div>
 {{#js}}
-    require(['core/usermenu', 'theme_moove/accessibilitysettings'], function(UserMenu, AccessibilitySettings) {
+    require(['core/usermenu', 'theme_nexus/accessibilitysettings'], function(UserMenu, AccessibilitySettings) {
         UserMenu.init();
 
         AccessibilitySettings.init();

@@ -21,6 +21,44 @@ $text-muted: #94a3b8 !default; // Light slate
 $border-color: #e2e8f0 !default; // Light border
 $shadow-color: rgba(15, 23, 42, 0.08) !default; // Subtle shadow
 
+// Advanced gradient colors
+$gradient-primary: linear-gradient(135deg, #{$brand-primary} 0%, #{darken($brand-primary, 10%)} 100%) !default;
+$gradient-secondary: linear-gradient(135deg, #{$brand-secondary} 0%, #{darken($brand-secondary, 10%)} 100%) !default;
+$gradient-hero: linear-gradient(135deg, #{$brand-primary} 0%, #{$brand-secondary} 50%, #{lighten($brand-primary, 20%)} 100%) !default;
+
+// Glass morphism effects
+$glass-background: rgba(255, 255, 255, 0.25) !default;
+$glass-border: rgba(255, 255, 255, 0.18) !default;
+$glass-backdrop-filter: blur(20px) !default;
+
+// Advanced shadows
+$shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05) !default;
+$shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06) !default;
+$shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05) !default;
+$shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04) !default;
+$shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25) !default;
+
+// Modern border radius
+$border-radius-sm: 6px !default;
+$border-radius-md: 8px !default;
+$border-radius-lg: 12px !default;
+$border-radius-xl: 16px !default;
+$border-radius-2xl: 20px !default;
+
+// Animation and transitions
+$transition-fast: 0.15s ease-in-out !default;
+$transition-base: 0.2s ease-in-out !default;
+$transition-slow: 0.3s ease-in-out !default;
+
+// Z-index layers
+$z-dropdown: 1000 !default;
+$z-sticky: 1020 !default;
+$z-fixed: 1030 !default;
+$z-modal-backdrop: 1040 !default;
+$z-modal: 1050 !default;
+$z-popover: 1060 !default;
+$z-tooltip: 1070 !default;
+
 // Legacy compatibility
 $green: $brand-success !default;
 $gold: $brand-warning !default;

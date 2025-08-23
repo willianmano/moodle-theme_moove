@@ -5,10 +5,33 @@
 .navbar.fixed-top {
     border: none;
     height: 80px;
-    background: linear-gradient(135deg, $brand-primary 0%, $brand-secondary 100%);
-    backdrop-filter: blur(10px);
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    background: $glass-background;
+    backdrop-filter: $glass-backdrop-filter;
+    border: 1px solid $glass-border;
+    box-shadow: $shadow-lg;
+    position: fixed;
+    z-index: $z-fixed;
+    transition: all $transition-slow;
+
+    // Glassmorphism effect
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: $gradient-hero;
+        opacity: 0.1;
+        z-index: -1;
+    }
+
+    // Floating effect on scroll
+    &.scrolled {
+        box-shadow: $shadow-2xl;
+        backdrop-filter: blur(30px);
+        background: rgba(255, 255, 255, 0.15);
+    }
 
     .primary-navigation {
         .navigation {
@@ -17,27 +40,62 @@
             .nav-link {
                 height: 80px;
                 border: none;
-                border-radius: 8px;
-                color: rgba(255, 255, 255, 0.9);
-                font-weight: 500;
+                border-radius: $border-radius-md;
+                color: rgba(255, 255, 255, 0.95);
+                font-weight: 600;
                 font-size: 0.95rem;
-                transition: all 0.2s ease-in-out;
+                transition: all $transition-base;
                 margin: 0 4px;
                 display: flex;
                 align-items: center;
                 padding: 0 16px;
+                position: relative;
+                overflow: hidden;
+
+                // Hover effect with slide animation
+                &::before {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: -100%;
+                    width: 100%;
+                    height: 100%;
+                    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+                    transition: left 0.6s ease;
+                }
 
                 &:hover {
-                    background: rgba(255, 255, 255, 0.1);
+                    background: $glass-background;
                     color: white;
-                    transform: translateY(-1px);
+                    transform: translateY(-2px);
+                    box-shadow: $shadow-md;
+                    border: 1px solid $glass-border;
+
+                    &::before {
+                        left: 100%;
+                    }
                 }
 
                 &.active {
-                    font-weight: 600;
-                    background: rgba(255, 255, 255, 0.15);
+                    font-weight: 700;
+                    background: rgba(255, 255, 255, 0.2);
                     color: white;
-                    border-bottom: 3px solid rgba(255, 255, 255, 0.8);
+                    border: 1px solid rgba(255, 255, 255, 0.3);
+                    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+                    position: relative;
+
+                    &::after {
+                        content: '';
+                        position: absolute;
+                        bottom: 0;
+                        left: 50%;
+                        transform: translateX(-50%);
+                        width: 24px;
+                        height: 3px;
+                        background: white;
+                        border-radius: 2px;
+                        box-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+                    }
                 }
             }
         }
@@ -48,16 +106,36 @@
         flex-direction: row-reverse;
         align-items: center;
         gap: 12px;
+
+        .btn,
+        .dropdown-toggle {
+            background: $glass-background;
+            border: 1px solid $glass-border;
+            color: white;
+            border-radius: $border-radius-lg;
+            padding: 0.5rem 1rem;
+            transition: all $transition-base;
+            backdrop-filter: blur(10px);
+
+            &:hover {
+                background: rgba(255, 255, 255, 0.3);
+                transform: translateY(-1px);
+                box-shadow: $shadow-md;
+            }
+        }
     }
 
     .navbar-brand {
-        font-weight: 700;
-        font-size: 1.5rem;
+        font-weight: 800;
+        font-size: 1.75rem;
         color: white !important;
         text-decoration: none;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        transition: all $transition-base;
 
         &:hover {
             color: rgba(255, 255, 255, 0.9) !important;
+            transform: scale(1.05);
         }
     }
 }
@@ -67,12 +145,27 @@
     align-items: stretch;
     padding-top: 0;
     padding-bottom: 0;
-    z-index: 1021;
-    background: linear-gradient(135deg, darken($brand-primary, 10%) 0%, darken($brand-secondary, 5%) 100%);
-    box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.06);
+    z-index: $z-sticky;
+    background: $glass-background;
+    backdrop-filter: blur(15px);
+    border: 1px solid $glass-border;
+    box-shadow: $shadow-md;
     position: fixed;
     top: 80px;
-    transition: all 0.3s ease-in-out;
+    transition: all $transition-slow;
+    margin-top: 1px;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(135deg, darken($brand-primary, 5%) 0%, darken($brand-secondary, 2%) 100%);
+        opacity: 0.15;
+        z-index: -1;
+    }
 
     > .moove-container-fluid {
         padding: 0;
@@ -83,137 +176,75 @@
         max-width: 100% !important;
     }
 
-    .moremenu {
-        box-shadow: none;
-        background-color: inherit;
-        border-top: none;
-        border-bottom: none;
-        height: 60px;
+    .nav-link {
+        color: rgba(255, 255, 255, 0.9);
+        padding: 1rem 1.5rem;
+        border-radius: $border-radius-md;
+        margin: 0.25rem 0.125rem;
+        transition: all $transition-base;
+        font-weight: 500;
 
-        .nav-tabs {
-            border: none;
-            background-color: inherit;
-            max-width: none;
+        &:hover {
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
+            transform: translateY(-1px);
+        }
 
-            .nav-link {
-                display: flex;
-                align-items: center;
-                white-space: nowrap;
-                color: #fff;
-                border: none;
-                border-radius: 0;
-
-                &.active {
-                    border-bottom: 2px solid #fff;
-                    font-weight: 700;
-                }
-
-                &:hover,
-                &:focus {
-                    background-color: darken($brand-primary, 10%);
-                }
-            }
+        &.active {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            font-weight: 600;
         }
     }
 }
 
-.popover-region-notifications .popover-region-container {
-    @extend .scale-up;
-    top: 70px;
-
-    .popover-region-header-container {
-        height: 50px;
-        padding: 11px 20px 15px;
-        border-bottom: 1px solid rgba(120, 130, 140, 0.13);
-    }
-
-    .popover-region-content-container {
-        height: calc(100% - 50px);
-
-        .content-item-container {
-            line-height: initial;
-            background-color: #fff;
-            padding: 15px;
-
-            &.unread {
-                background-color: #f4f4f4;
-            }
-
-            &:hover {
-                background-color: $body-bg;
-                color: inherit;
-
-                .content-item-footer .timestamp {
-                    color: inherit;
-                }
-            }
-
-            .content-item-body {
-                font-weight: normal;
-                width: calc(100% - 54px);
-
-                h3,
-                .notification-message {
-                    font-size: 1.2rem;
-                    margin-bottom: 5px;
-                    font-weight: normal;
-                }
-
-                p {
-                    line-height: initial;
-                }
-
-                .notification-message {
-                    font-size: 1rem;
-                }
-            }
-
-            .view-more {
-                font-size: .9rem;
-            }
-
-            .content-item-footer .timestamp {
-                font-size: .9rem;
-                line-height: inherit;
-            }
-
-            .unread-count-container {
-                width: 24px;
-
-                .badge {
-                    background-color: $brand-primary;
-                    width: 21px;
-                    height: 21px;
-                    border-radius: 11px;
-                    line-height: 17px;
-                }
-            }
-        }
-    }
-
-    .popover-region-footer-container {
-        height: 50px;
-        padding: 15px 20px;
-        border: 1px solid #ddd;
-        margin: 0 -1px;
-
-        .popover-region-seeall-text {
-            line-height: initial;
-        }
+// Animated background particles (optional effect)
+.navbar.fixed-top {
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: 
+            radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+            radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.05) 0%, transparent 50%),
+            radial-gradient(circle at 40% 40%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+        pointer-events: none;
+        z-index: -1;
+        animation: float 6s ease-in-out infinite;
     }
 }
 
-.popover-region-notifications .popover-region-container[aria-hidden="false"] {
-    @extend .scale-up-show;
+@keyframes float {
+    0%, 100% { 
+        transform: translateY(0px) rotate(0deg); 
+        opacity: 0.8;
+    }
+    50% { 
+        transform: translateY(-10px) rotate(5deg); 
+        opacity: 1;
+    }
 }
 
-[data-region=right-hand-drawer].drawer {
-    top: 70px;
-    height: calc(100% - 70px);
-
-    .footer-container {
-        padding: .5rem 0;
-        background-color: #fff;
-        color: #1d2125;
+// Responsive improvements
+@media (max-width: 768px) {
+    .navbar.fixed-top {
+        height: 70px;
+        
+        .navbar-brand {
+            font-size: 1.5rem;
+        }
+        
+        .primary-navigation .navigation .nav-link {
+            height: 70px;
+            padding: 0 12px;
+            font-size: 0.875rem;
+        }
+    }
+    
+    .secondary-navigation {
+        top: 70px;
     }
 }

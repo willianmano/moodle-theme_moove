@@ -15,9 +15,9 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Theme functions.
+ * Nexus theme functions.
  *
- * @package    theme_moove
+ * @package    theme_nexus
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -27,7 +27,7 @@
  * @param theme_config $theme The theme config object.
  * @return string
  */
-function theme_moove_get_main_scss_content($theme) {
+function theme_nexus_get_main_scss_content($theme) {
     global $CFG;
 
     $scss = '';
@@ -50,7 +50,7 @@ function theme_moove_get_main_scss_content($theme) {
     $security = file_get_contents($CFG->dirroot . '/theme/moove/scss/moove/_security.scss');
 
     $lastpreset = '';
-    if ($filename && ($presetfile = $fs->get_file($context->id, 'theme_moove', 'preset', 0, '/', $filename))) {
+    if ($filename && ($presetfile = $fs->get_file($context->id, 'theme_nexus', 'preset', 0, '/', $filename))) {
         $lastpreset = $presetfile->get_content();
     }
 
@@ -66,7 +66,7 @@ function theme_moove_get_main_scss_content($theme) {
  * @param theme_config $theme The theme config object.
  * @return string
  */
-function theme_moove_get_extra_scss($theme) {
+function theme_nexus_get_extra_scss($theme) {
     $content = '';
 
     // Sets the login background image.
@@ -90,7 +90,7 @@ function theme_moove_get_extra_scss($theme) {
  * @param theme_config $theme The theme config object.
  * @return string
  */
-function theme_moove_get_pre_scss($theme) {
+function theme_nexus_get_pre_scss($theme) {
     $scss = '';
     $configurable = [
         // Config key => [variableName, ...].
@@ -132,7 +132,7 @@ function theme_moove_get_pre_scss($theme) {
  *
  * @return string compiled css
  */
-function theme_moove_get_precompiled_css() {
+function theme_nexus_get_precompiled_css() {
     global $CFG;
 
     return file_get_contents($CFG->dirroot . '/theme/moove/style/moodle.css');
@@ -150,7 +150,7 @@ function theme_moove_get_precompiled_css() {
  * @param array $options
  * @return mixed
  */
-function theme_moove_pluginfile($course, $cm, $context, $filearea, $args, $forcedownload, array $options = []) {
+function theme_nexus_pluginfile($course, $cm, $context, $filearea, $args, $forcedownload, array $options = []) {
     $theme = theme_config::load('moove');
 
     if ($context->contextlevel == CONTEXT_SYSTEM &&
@@ -164,7 +164,7 @@ function theme_moove_pluginfile($course, $cm, $context, $filearea, $args, $force
     }
 
     if ($filearea === 'hvp') {
-        return theme_moove_serve_hvp_css($args[1], $theme);
+        return theme_nexus_serve_hvp_css($args[1], $theme);
     }
 
     if ($context->contextlevel == CONTEXT_SYSTEM && preg_match("/^sliderimage[1-9][0-9]?$/", $filearea) !== false) {
@@ -198,7 +198,7 @@ function theme_moove_pluginfile($course, $cm, $context, $filearea, $args, $force
  *
  * @throws dml_exception
  */
-function theme_moove_serve_hvp_css($filename, $theme) {
+function theme_nexus_serve_hvp_css($filename, $theme) {
     global $CFG, $PAGE;
 
     require_once($CFG->dirroot.'/lib/configonlylib.php'); // For minenable_zlib_compression function.
@@ -206,11 +206,11 @@ function theme_moove_serve_hvp_css($filename, $theme) {
     $PAGE->set_context(\core\context\system::instance());
     $themename = $theme->name;
 
-    $settings = new \theme_moove\util\settings();
+    $settings = new \theme_nexus\util\settings();
     $content = $settings->hvpcss;
 
     $md5content = md5($content);
-    $md5stored = get_config('theme_moove', 'hvpccssmd5');
+    $md5stored = get_config('theme_nexus', 'hvpccssmd5');
     if ((empty($md5stored)) || ($md5stored != $md5content)) {
         // Content changed, so the last modified time needs to change.
         set_config('hvpccssmd5', $md5content, $themename);

@@ -14,19 +14,19 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
-namespace theme_moove\output;
+namespace theme_nexus\output;
 
 use core\navigation\views\view;
 use navigation_node;
 use moodle_url;
 use action_link;
 use core\lang_string;
-use theme_moove\util\settings;
+use theme_nexus\util\settings;
 
 /**
  * Creates a navbar for boost that allows easy control of the navbar items.
  *
- * @package    theme_moove
+ * @package    theme_nexus
  * @copyright  2021 Adrian Greeve <adrian@moodle.com>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */

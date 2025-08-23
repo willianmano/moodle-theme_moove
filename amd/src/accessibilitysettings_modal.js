@@ -26,14 +26,14 @@ import * as CustomEvents from 'core/custom_interaction_events';
 import Notification from 'core/notification';
 
 export default class AccessibilityModal extends Modal {
-    static TYPE = "theme_moove/themesettings_modal";
-    static TEMPLATE = "theme_moove/moove/accessibilitysettings_modal";
+    static TYPE = "theme_nexus/themesettings_modal";
+    static TEMPLATE = "theme_nexus/moove/accessibilitysettings_modal";
 
     constructor(root) {
         super(root);
 
         let request = Ajax.call([{
-            methodname: 'theme_moove_getthemesettings',
+            methodname: 'theme_nexus_getthemesettings',
             args: {}
         }]);
 
@@ -55,7 +55,7 @@ export default class AccessibilityModal extends Modal {
 
         this.getModal().on(CustomEvents.events.activate, '[data-action="save"]', function() {
             let request = Ajax.call([{
-                methodname: 'theme_moove_savethemesettings',
+                methodname: 'theme_nexus_savethemesettings',
                 args: {
                     formdata: this.getBody().find('form').serialize()
                 }

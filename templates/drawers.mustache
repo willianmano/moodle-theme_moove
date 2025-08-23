@@ -15,7 +15,7 @@
     along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 }}
 {{!
-    @template theme_moove/drawers
+    @template theme_nexus/drawers
 
     Moove drawer template.
 
@@ -52,7 +52,7 @@
 {{> theme_boost/head }}
 
 <body {{{ bodyattributes }}}>
-{{> theme_moove/moove/accessibilitybar }}
+{{> theme_nexus/moove/accessibilitybar }}
 
 {{> core/local/toast/wrapper}}
 
@@ -60,7 +60,7 @@
 
     {{{ output.standard_top_of_body_html }}}
 
-    {{> theme_moove/navbar }}
+    {{> theme_nexus/navbar }}
     {{#courseindex}}
         {{< theme_boost/drawer }}
             {{$id}}theme_boost-drawers-courseindex{{/id}}
@@ -168,7 +168,7 @@
             </div>
         </div>
     </div>
-    {{> theme_moove/footer }}
+    {{> theme_nexus/footer }}
 
     {{{ output.standard_after_main_region_html }}}
 </div>
