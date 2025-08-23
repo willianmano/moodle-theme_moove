@@ -5,6 +5,27 @@
         width: calc(33.33% - 2rem) !important;
         max-width: calc(33.33% - 2rem) !important;
         margin: 1rem;
+        border-radius: 16px;
+        overflow: hidden;
+        transition: all 0.3s ease-in-out;
+        background: $surface;
+        border: 1px solid $border-color;
+        box-shadow: 0 4px 6px -1px $shadow-color, 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+
+        &:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -5px $shadow-color, 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        @media (max-width: 992px) {
+            width: calc(50% - 2rem) !important;
+            max-width: calc(50% - 2rem) !important;
+        }
+
+        @media (max-width: 768px) {
+            width: calc(100% - 2rem) !important;
+            max-width: calc(100% - 2rem) !important;
+        }
 
         &.dimmed .card-img::after {
             content: '';
@@ -14,27 +35,52 @@
             right: 0;
             left: 0;
             bottom: 0;
-            border-top-left-radius: .5rem;;
-            border-top-right-radius: .5rem;;
+            border-top-left-radius: 16px;
+            border-top-right-radius: 16px;
         }
 
         .card-img.dashboard-card-img {
             border-bottom-right-radius: 0;
             border-bottom-left-radius: 0;
+            height: 200px;
+            object-fit: cover;
+            width: 100%;
         }
 
         .dashboard-card-footer {
-            border-radius: .5rem;
+            border-radius: 16px;
+            background: $background-secondary;
+            border-top: 1px solid $border-color;
+            padding: 1rem 1.5rem;
         }
 
         .card-body {
-            padding: .8rem;
+            padding: 1.5rem;
+            
+            .card-title {
+                font-size: 1.125rem;
+                font-weight: 600;
+                color: $text-primary;
+                margin-bottom: 0.75rem;
+                line-height: 1.4;
+            }
+
+            .card-text {
+                color: $text-secondary;
+                font-size: 0.875rem;
+                line-height: 1.6;
+                margin-bottom: 1rem;
+            }
         }
 
         .customfields {
             .customfield {
-                font-size: 80%;
-                margin-bottom: .25rem;
+                font-size: 0.8rem;
+                margin-bottom: 0.5rem;
+                color: $text-muted;
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
 
                 &:last-of-type {
                     margin-bottom: 0;
@@ -42,7 +88,8 @@
 
                 .customfieldname,
                 .customfieldseparator {
-                    font-weight: 500;
+                    font-weight: 600;
+                    color: $text-secondary;
                 }
             }
         }

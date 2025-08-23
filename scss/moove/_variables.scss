@@ -1,18 +1,39 @@
-$brand-primary: #0f47ad !default;
-$green: #64a44e !default;
-$gold: #f7bf29 !default;
-$background: #f2f3f7;
+// Modern Color Palette - Based on current design trends
+// Primary Colors
+$brand-primary: #6366f1 !default; // Modern indigo
+$brand-secondary: #8b5cf6 !default; // Modern purple
+$brand-success: #10b981 !default; // Modern green
+$brand-warning: #f59e0b !default; // Modern amber
+$brand-danger: #ef4444 !default; // Modern red
+$brand-info: #06b6d4 !default; // Modern cyan
 
+// Background Colors
+$background: #f8fafc !default; // Softer gray background
+$background-secondary: #f1f5f9 !default; // Secondary background
+$surface: #ffffff !default; // Clean white surface
+
+// Text Colors
+$text-primary: #1e293b !default; // Dark slate
+$text-secondary: #64748b !default; // Medium slate
+$text-muted: #94a3b8 !default; // Light slate
+
+// UI Enhancement Colors
+$border-color: #e2e8f0 !default; // Light border
+$shadow-color: rgba(15, 23, 42, 0.08) !default; // Subtle shadow
+
+// Legacy compatibility
+$green: $brand-success !default;
+$gold: $brand-warning !default;
 $secondary-menu-color: $brand-primary !default;
 
+// Social Media Colors (updated)
 $moodle-color: #f98012 !default;
-$facebook-color: #4167B2 !default;
-$moodle-color: #f98012 !default;
-$twitter-color: #55acee !default;
-$youtube-color: #cc181e !default;
-$linkedin-color: #007bb5 !default;
-$instagram-color: #8a3ab9 !default;
+$facebook-color: #1877f2 !default;
+$twitter-color: #1da1f2 !default;
+$youtube-color: #ff0000 !default;
+$linkedin-color: #0a66c2 !default;
+$instagram-color: #e4405f !default;
 $whatsapp-color: #25d366 !default;
 $telegram-color: #0088cc !default;
-$tiktok-color: #000 !default;
-$pinterest-color: #e60023 !default;
+$tiktok-color: #000000 !default;
+$pinterest-color: #bd081c !default;

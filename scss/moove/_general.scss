@@ -1,29 +1,42 @@
 body {
     background-color: $background !important; /* stylelint-disable-line */
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    line-height: 1.6;
+    color: $text-primary;
 }
 
 #page-header {
-    margin: 1.25rem auto;
+    margin: 2rem auto;
     padding: 0;
+    background: $surface;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px -1px $shadow-color, 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    border: 1px solid $border-color;
 
     h1 {
         margin-bottom: 0;
+        color: $text-primary;
+        font-weight: 600;
+        font-size: 1.875rem;
     }
 
     #page-navbar {
         display: flex;
         align-items: center;
         justify-content: right;
+        padding: 1rem 1.5rem;
     }
 
     .courseheader {
         display: flex;
         align-items: center;
         white-space: nowrap;
+        padding: 1.5rem 1.5rem 1rem;
     }
 
     .page-header-headings {
         background-color: initial;
+        padding: 0 1.5rem 1.5rem;
     }
 }
 
@@ -35,18 +48,52 @@ body {
 }
 
 .card {
-    border: none;
-    -webkit-box-shadow: 0 0 35px 0 rgba(154, 161, 171, 0.15);
-    box-shadow: 0 0 35px 0 rgba(154, 161, 171, 0.15);
+    border: 1px solid $border-color;
+    border-radius: 12px;
+    background: $surface;
+    box-shadow: 0 4px 6px -1px $shadow-color, 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    transition: all 0.2s ease-in-out;
+    overflow: hidden;
+
+    &:hover {
+        box-shadow: 0 10px 15px -3px $shadow-color, 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        transform: translateY(-2px);
+    }
+
+    .card-header {
+        background: $background-secondary;
+        border-bottom: 1px solid $border-color;
+        padding: 1rem 1.5rem;
+        font-weight: 600;
+        color: $text-primary;
+    }
+
+    .card-body {
+        padding: 1.5rem;
+    }
+
+    .card-footer {
+        background: $background-secondary;
+        border-top: 1px solid $border-color;
+        padding: 1rem 1.5rem;
+    }
 }
 
 .moove-container-fluid,
 .container-fluid {
-    max-width: 85%;
-    padding-right: 15px;
-    padding-left: 15px;
+    max-width: 90%;
+    padding-right: 20px;
+    padding-left: 20px;
     margin-right: auto;
     margin-left: auto;
+
+    @media (min-width: 1200px) {
+        max-width: 85%;
+    }
+
+    @media (min-width: 1400px) {
+        max-width: 80%;
+    }
 }
 
 .container-fluid.tertiary-navigation {
@@ -311,5 +358,211 @@ a {
     .container-xl,
     .container-xxl {
         max-width: 95%;
+    }
+}
+
+// Modern Form Styles
+.form-control {
+    border: 1px solid $border-color;
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    font-size: 0.875rem;
+    transition: all 0.2s ease-in-out;
+    background: $surface;
+
+    &:focus {
+        border-color: $brand-primary;
+        box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+        outline: none;
+    }
+
+    &::placeholder {
+        color: $text-muted;
+    }
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+
+    label {
+        font-weight: 500;
+        color: $text-primary;
+        margin-bottom: 0.5rem;
+        font-size: 0.875rem;
+    }
+}
+
+// Modern Table Styles
+.table {
+    background: $surface;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px -1px $shadow-color;
+    border: 1px solid $border-color;
+
+    thead {
+        th {
+            background: $background-secondary;
+            border-bottom: 1px solid $border-color;
+            font-weight: 600;
+            color: $text-primary;
+            padding: 1rem;
+            font-size: 0.875rem;
+        }
+    }
+
+    tbody {
+        tr {
+            border-bottom: 1px solid $border-color;
+            transition: all 0.2s ease-in-out;
+
+            &:hover {
+                background: $background-secondary;
+            }
+
+            &:last-child {
+                border-bottom: none;
+            }
+
+            td {
+                padding: 1rem;
+                color: $text-secondary;
+                font-size: 0.875rem;
+                vertical-align: middle;
+            }
+        }
+    }
+}
+
+// Modern Alert Styles
+.alert {
+    border: none;
+    border-radius: 12px;
+    padding: 1rem 1.5rem;
+    margin-bottom: 1.5rem;
+    border-left: 4px solid;
+
+    &.alert-success {
+        background: lighten($brand-success, 48%);
+        color: darken($brand-success, 20%);
+        border-left-color: $brand-success;
+    }
+
+    &.alert-warning {
+        background: lighten($brand-warning, 40%);
+        color: darken($brand-warning, 20%);
+        border-left-color: $brand-warning;
+    }
+
+    &.alert-danger {
+        background: lighten($brand-danger, 48%);
+        color: darken($brand-danger, 20%);
+        border-left-color: $brand-danger;
+    }
+
+    &.alert-info {
+        background: lighten($brand-info, 48%);
+        color: darken($brand-info, 20%);
+        border-left-color: $brand-info;
+    }
+}
+
+// Modern Badge Styles
+.badge {
+    border-radius: 6px;
+    font-weight: 500;
+    font-size: 0.75rem;
+    padding: 0.25rem 0.75rem;
+
+    &.badge-primary {
+        background: $brand-primary;
+        color: white;
+    }
+
+    &.badge-success {
+        background: $brand-success;
+        color: white;
+    }
+
+    &.badge-warning {
+        background: $brand-warning;
+        color: white;
+    }
+
+    &.badge-danger {
+        background: $brand-danger;
+        color: white;
+    }
+}
+
+// Loading Spinner
+.spinner {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 2px solid $border-color;
+    border-radius: 50%;
+    border-top-color: $brand-primary;
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+// Improved scroll behavior
+html {
+    scroll-behavior: smooth;
+}
+
+// Selection styling
+::selection {
+    background: lighten($brand-primary, 35%);
+    color: $brand-primary;
+}
+
+// Focus outline improvements
+:focus {
+    outline: none;
+}
+
+:focus-visible {
+    outline: 2px solid $brand-primary;
+    outline-offset: 2px;
+}
+
+// Custom scrollbar for webkit browsers
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: $background-secondary;
+}
+
+::-webkit-scrollbar-thumb {
+    background: $text-muted;
+    border-radius: 4px;
+
+    &:hover {
+        background: $text-secondary;
+    }
+}
+
+// Tooltip improvements
+.tooltip {
+    .tooltip-inner {
+        background: $text-primary;
+        color: white;
+        border-radius: 6px;
+        padding: 0.5rem 0.75rem;
+        font-size: 0.8rem;
+    }
+
+    .tooltip-arrow {
+        &::before {
+            border-top-color: $text-primary;
+        }
     }
 }
