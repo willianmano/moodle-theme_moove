@@ -17,25 +17,21 @@
 /**
  * Language file.
  *
- * @package   theme_moove
- * @copyright 2017 Willian Mano - http://conecti.me
+ * @package   theme_nexus
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['pluginname'] = 'Moove';
-$string['configtitle'] = 'Moove';
-$string['choosereadme'] = 'Moove is a modern highly-customisable theme. This theme is intended to be used directly, or as a parent theme when creating new themes utilising Bootstrap 4.';
+$string['pluginname'] = 'Nexus';
+$string['configtitle'] = 'Nexus';
+$string['choosereadme'] = 'Nexus is a modern highly-customisable theme designed for contemporary learning environments. Features cutting-edge design, intuitive navigation, and responsive layouts optimized for all devices.';
 
 $string['currentinparentheses'] = '(current)';
 $string['region-side-pre'] = 'Right';
 $string['prev_section'] = 'Previous section';
 $string['next_section'] = 'Next section';
-$string['themedevelopedby'] = 'This theme was proudly developed by';
-$string['themedevelopedbyconectimepartner'] = 'a Brazilian Moodle Partner Company.';
-$string['needsupport'] = 'Need support for your Moodle site? ';
-$string['pleasuretohelp'] = 'It will be a pleasure to help you!';
+// Removed promotional strings
 $string['access'] = 'Access';
 $string['prev_activity'] = 'Previous activity';
 $string['next_activity'] = 'Next activity';
@@ -136,7 +132,7 @@ $string['facebookdesc'] = 'Enter the URL of your Facebook. (i.e http://www.faceb
 $string['twitter'] = 'Twitter URL';
 $string['twitterdesc'] = 'Enter the URL of your twitter. (i.e http://www.twitter.com/myinstitution)';
 $string['linkedin'] = 'Linkedin URL';
-$string['linkedindesc'] = 'Enter the URL of your Linkedin. (i.e http://www.linkedin.com/myinstitution)';
+$string['linkedindesc'] = 'Enter the URL of your Linkedin.';
 $string['youtube'] = 'Youtube URL';
 $string['youtubedesc'] = 'Enter the URL of your Youtube. (i.e https://www.youtube.com/user/myinstitution)';
 $string['instagram'] = 'Instagram URL';

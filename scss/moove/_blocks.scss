@@ -93,3 +93,215 @@
         margin: 1rem 0;
     }
 }
+
+// Modern Block Styles
+.block {
+    background: $surface;
+    border: 1px solid $border-color;
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+    box-shadow: 0 2px 4px -1px $shadow-color;
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+        box-shadow: 0 4px 6px -1px $shadow-color, 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    }
+
+    .block-header {
+        background: linear-gradient(135deg, $background-secondary 0%, lighten($background-secondary, 3%) 100%);
+        border-bottom: 1px solid $border-color;
+        padding: 1rem 1.25rem;
+
+        .block-title {
+            margin: 0;
+            font-size: 1rem;
+            font-weight: 600;
+            color: $text-primary;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+
+            .block-icon {
+                opacity: 0.7;
+                font-size: 0.875rem;
+            }
+        }
+
+        .block-controls {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+
+            .btn {
+                padding: 0.25rem 0.5rem;
+                font-size: 0.75rem;
+                border-radius: 6px;
+            }
+        }
+    }
+
+    .block-content {
+        padding: 1.25rem;
+
+        .list-group {
+            border: none;
+
+            .list-group-item {
+                border: none;
+                border-bottom: 1px solid $border-color;
+                background: transparent;
+                padding: 0.75rem 0;
+                transition: all 0.2s ease-in-out;
+
+                &:last-child {
+                    border-bottom: none;
+                }
+
+                &:hover {
+                    background: $background-secondary;
+                    padding-left: 0.5rem;
+                    border-radius: 6px;
+                    border-bottom: 1px solid transparent;
+                }
+
+                a {
+                    color: $text-secondary;
+                    text-decoration: none;
+                    font-size: 0.875rem;
+                    display: flex;
+                    align-items: center;
+                    gap: 0.5rem;
+
+                    &:hover {
+                        color: $brand-primary;
+                    }
+
+                    i {
+                        opacity: 0.6;
+                        width: 16px;
+                        text-align: center;
+                    }
+                }
+            }
+        }
+
+        // Calendar block specific styles
+        .calendar-table {
+            border-radius: 8px;
+            overflow: hidden;
+
+            th, td {
+                border: 1px solid $border-color;
+                padding: 0.5rem;
+                text-align: center;
+            }
+
+            th {
+                background: $background-secondary;
+                font-weight: 600;
+                color: $text-primary;
+            }
+
+            .today {
+                background: lighten($brand-primary, 45%);
+                color: $brand-primary;
+                font-weight: 600;
+            }
+        }
+
+        // Navigation block styles
+        .block_tree {
+            .tree_item {
+                padding: 0.5rem 0;
+                border-bottom: 1px solid $border-color;
+
+                &:last-child {
+                    border-bottom: none;
+                }
+
+                a {
+                    color: $text-secondary;
+                    text-decoration: none;
+                    display: flex;
+                    align-items: center;
+                    gap: 0.5rem;
+                    padding: 0.25rem 0;
+                    border-radius: 4px;
+                    transition: all 0.2s ease-in-out;
+
+                    &:hover {
+                        color: $brand-primary;
+                        background: lighten($brand-primary, 48%);
+                        padding-left: 0.5rem;
+                    }
+                }
+            }
+        }
+    }
+
+    // Special block types
+    &.block_navigation {
+        .block-content {
+            padding: 0;
+
+            .block_tree {
+                padding: 1rem;
+            }
+        }
+    }
+
+    &.block_course_list {
+        .course-list-item {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid $border-color;
+
+            &:last-child {
+                border-bottom: none;
+            }
+
+            a {
+                color: $text-primary;
+                font-weight: 500;
+                text-decoration: none;
+
+                &:hover {
+                    color: $brand-primary;
+                }
+            }
+
+            .course-summary {
+                color: $text-secondary;
+                font-size: 0.8rem;
+                margin-top: 0.25rem;
+                line-height: 1.4;
+            }
+        }
+    }
+}
+
+// Block region improvements
+.block-region {
+    .block + .block {
+        margin-top: 1.5rem;
+    }
+}
+
+// Responsive improvements
+@media (max-width: 768px) {
+    .block {
+        margin-bottom: 1rem;
+
+        .block-header {
+            padding: 0.75rem 1rem;
+
+            .block-title {
+                font-size: 0.9rem;
+            }
+        }
+
+        .block-content {
+            padding: 1rem;
+        }
+    }
+}

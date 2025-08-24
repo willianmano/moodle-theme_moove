@@ -1,15 +1,143 @@
+// Modern Button Styles
+.btn {
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 0.875rem;
+    padding: 0.75rem 1.5rem;
+    transition: all 0.2s ease-in-out;
+    border: none;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    text-align: center;
+    white-space: nowrap;
+
+    &:hover {
+        transform: translateY(-1px);
+        text-decoration: none;
+    }
+
+    &:active {
+        transform: translateY(0);
+    }
+
+    &:focus {
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+    }
+
+    // Primary Button
+    &.btn-primary {
+        background: linear-gradient(135deg, $brand-primary 0%, darken($brand-primary, 10%) 100%);
+        color: white;
+        box-shadow: 0 4px 6px -1px rgba(99, 102, 241, 0.3);
+
+        &:hover {
+            background: linear-gradient(135deg, darken($brand-primary, 5%) 0%, darken($brand-primary, 15%) 100%);
+            box-shadow: 0 6px 8px -1px rgba(99, 102, 241, 0.4);
+            color: white;
+        }
+    }
+
+    // Secondary Button
+    &.btn-secondary {
+        background: $background-secondary;
+        color: $text-primary;
+        border: 1px solid $border-color;
+
+        &:hover {
+            background: darken($background-secondary, 5%);
+            border-color: darken($border-color, 10%);
+            color: $text-primary;
+        }
+    }
+
+    // Success Button
+    &.btn-success {
+        background: linear-gradient(135deg, $brand-success 0%, darken($brand-success, 10%) 100%);
+        color: white;
+        box-shadow: 0 4px 6px -1px rgba(16, 185, 129, 0.3);
+
+        &:hover {
+            background: linear-gradient(135deg, darken($brand-success, 5%) 0%, darken($brand-success, 15%) 100%);
+            box-shadow: 0 6px 8px -1px rgba(16, 185, 129, 0.4);
+            color: white;
+        }
+    }
+
+    // Danger Button
+    &.btn-danger {
+        background: linear-gradient(135deg, $brand-danger 0%, darken($brand-danger, 10%) 100%);
+        color: white;
+        box-shadow: 0 4px 6px -1px rgba(239, 68, 68, 0.3);
+
+        &:hover {
+            background: linear-gradient(135deg, darken($brand-danger, 5%) 0%, darken($brand-danger, 15%) 100%);
+            box-shadow: 0 6px 8px -1px rgba(239, 68, 68, 0.4);
+            color: white;
+        }
+    }
+
+    // Outline variants
+    &.btn-outline-primary {
+        background: transparent;
+        color: $brand-primary;
+        border: 2px solid $brand-primary;
+
+        &:hover {
+            background: $brand-primary;
+            color: white;
+        }
+    }
+
+    // Small size
+    &.btn-sm {
+        padding: 0.5rem 1rem;
+        font-size: 0.8rem;
+    }
+
+    // Large size
+    &.btn-lg {
+        padding: 1rem 2rem;
+        font-size: 1rem;
+    }
+
+    // Disabled state
+    &:disabled,
+    &.disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+        transform: none !important;
+        
+        &:hover {
+            transform: none !important;
+        }
+    }
+}
+
+// Legacy button styles for compatibility
 .btn.btn-ti {
     display: inline-block;
     position: relative;
-    font-weight: normal;
+    font-weight: 500;
     color: #fff;
     text-align: center;
     border: none;
     padding: 12px 0 8px;
     text-shadow: none;
     -webkit-font-smoothing: antialiased;
+    border-radius: 8px;
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+        transform: translateY(-1px);
+    }
 }
 
+// Responsive styles for ti buttons
 @media (min-width: 320px) and (max-width: 480px) {
     .btn-ti {
         width: 65px;
@@ -48,7 +176,6 @@
     .btn-ti {
         width: 85px;
         margin: 2px 1px;
-        font-size: 12px;
     }
 }
 

@@ -17,8 +17,8 @@
 /**
  * Database upgrade.
  *
- * @package    theme_moove
- * @copyright  2022 Willian Mano {@link https://conecti.me}
+ * @package    theme_nexus
+
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  *
  */
@@ -29,7 +29,7 @@
  * @param int   $oldversion Is this an old version
  * @return bool Success.
  */
-function xmldb_theme_moove_upgrade($oldversion = 0) {
+function xmldb_theme_nexus_upgrade($oldversion = 0) {
     global $DB;
 
     if ($oldversion < 2022052800) {

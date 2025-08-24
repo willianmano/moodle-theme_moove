@@ -1,0 +1,408 @@
+// Advanced Animations and Micro-interactions
+
+// Page load animations
+.page-load-animation {
+    animation: pageSlideIn 0.8s ease-out;
+}
+
+@keyframes pageSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+// Floating action button
+.fab {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: $gradient-primary;
+    color: white;
+    border: none;
+    box-shadow: $shadow-lg;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: $z-fixed;
+    transition: all $transition-base;
+    cursor: pointer;
+
+    &:hover {
+        transform: translateY(-4px) scale(1.1);
+        box-shadow: $shadow-2xl;
+        
+        &::before {
+            opacity: 1;
+            transform: scale(1.2);
+        }
+    }
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: -4px;
+        left: -4px;
+        right: -4px;
+        bottom: -4px;
+        border-radius: 50%;
+        background: linear-gradient(45deg, $brand-primary, $brand-secondary, $brand-primary);
+        opacity: 0;
+        z-index: -1;
+        transition: all $transition-base;
+        animation: fabPulse 2s infinite;
+    }
+
+    i {
+        font-size: 1.5rem;
+    }
+}
+
+@keyframes fabPulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 0.7;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.3;
+    }
+}
+
+// Loading states
+.loading-skeleton {
+    background: linear-gradient(90deg, $background-secondary 25%, lighten($background-secondary, 5%) 50%, $background-secondary 75%);
+    background-size: 200% 100%;
+    animation: skeletonLoading 1.5s infinite;
+    border-radius: $border-radius-md;
+    
+    &.text-line {
+        height: 1rem;
+        margin-bottom: 0.5rem;
+        
+        &:last-child {
+            width: 70%;
+        }
+    }
+    
+    &.title {
+        height: 1.5rem;
+        margin-bottom: 1rem;
+    }
+    
+    &.image {
+        height: 200px;
+        width: 100%;
+    }
+}
+
+@keyframes skeletonLoading {
+    0% {
+        background-position: -200% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+// Notification animations
+.notification {
+    position: fixed;
+    top: 100px;
+    right: 2rem;
+    background: white;
+    border-radius: $border-radius-lg;
+    box-shadow: $shadow-xl;
+    padding: 1rem 1.5rem;
+    z-index: $z-modal;
+    max-width: 400px;
+    animation: notificationSlideIn 0.3s ease-out;
+    border-left: 4px solid;
+    
+    &.success {
+        border-left-color: $brand-success;
+        
+        .notification-icon {
+            color: $brand-success;
+        }
+    }
+    
+    &.error {
+        border-left-color: $brand-danger;
+        
+        .notification-icon {
+            color: $brand-danger;
+        }
+    }
+    
+    &.warning {
+        border-left-color: $brand-warning;
+        
+        .notification-icon {
+            color: $brand-warning;
+        }
+    }
+    
+    &.info {
+        border-left-color: $brand-info;
+        
+        .notification-icon {
+            color: $brand-info;
+        }
+    }
+    
+    .notification-content {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        
+        .notification-icon {
+            font-size: 1.25rem;
+        }
+        
+        .notification-text {
+            flex: 1;
+            
+            .notification-title {
+                font-weight: 600;
+                color: $text-primary;
+                margin-bottom: 0.25rem;
+            }
+            
+            .notification-message {
+                color: $text-secondary;
+                font-size: 0.875rem;
+            }
+        }
+        
+        .notification-close {
+            background: none;
+            border: none;
+            color: $text-muted;
+            font-size: 1.25rem;
+            cursor: pointer;
+            transition: color $transition-base;
+            
+            &:hover {
+                color: $text-primary;
+            }
+        }
+    }
+    
+    &.closing {
+        animation: notificationSlideOut 0.3s ease-in forwards;
+    }
+}
+
+@keyframes notificationSlideIn {
+    from {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes notificationSlideOut {
+    from {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+}
+
+// Interactive elements
+.interactive-element {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    
+    &::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 0;
+        height: 0;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.3);
+        transform: translate(-50%, -50%);
+        transition: width 0.6s, height 0.6s;
+    }
+    
+    &:active::before {
+        width: 300px;
+        height: 300px;
+    }
+}
+
+// Parallax scrolling effect
+.parallax-container {
+    position: relative;
+    overflow: hidden;
+    
+    .parallax-element {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 120%;
+        transition: transform 0.1s ease-out;
+        will-change: transform;
+    }
+}
+
+// Staggered list animations
+.staggered-list {
+    .list-item {
+        opacity: 0;
+        transform: translateY(20px);
+        animation: listItemFadeIn 0.5s ease-out forwards;
+        
+        &:nth-child(1) { animation-delay: 0.1s; }
+        &:nth-child(2) { animation-delay: 0.2s; }
+        &:nth-child(3) { animation-delay: 0.3s; }
+        &:nth-child(4) { animation-delay: 0.4s; }
+        &:nth-child(5) { animation-delay: 0.5s; }
+        &:nth-child(6) { animation-delay: 0.6s; }
+        &:nth-child(7) { animation-delay: 0.7s; }
+        &:nth-child(8) { animation-delay: 0.8s; }
+        &:nth-child(9) { animation-delay: 0.9s; }
+        &:nth-child(10) { animation-delay: 1.0s; }
+    }
+}
+
+@keyframes listItemFadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+// Scroll indicator
+.scroll-indicator {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: rgba(0, 0, 0, 0.1);
+    z-index: $z-fixed;
+    
+    .scroll-progress {
+        height: 100%;
+        background: $gradient-primary;
+        width: 0%;
+        transition: width 0.1s ease;
+    }
+}
+
+// Magnetic effect for buttons
+.magnetic-button {
+    transition: all $transition-base;
+    
+    &:hover {
+        animation: magneticFloat 0.3s ease-out;
+    }
+}
+
+@keyframes magneticFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-2px);
+    }
+}
+
+// Text reveal animation
+.text-reveal {
+    overflow: hidden;
+    
+    .text-reveal-content {
+        display: inline-block;
+        animation: textSlideUp 0.8s ease-out;
+    }
+}
+
+@keyframes textSlideUp {
+    from {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+// Counter animation
+.counter {
+    font-weight: 700;
+    font-size: 2rem;
+    color: $brand-primary;
+}
+
+// Image zoom on hover
+.zoom-on-hover {
+    overflow: hidden;
+    border-radius: $border-radius-lg;
+    
+    img {
+        transition: transform $transition-slow;
+        
+        &:hover {
+            transform: scale(1.1);
+        }
+    }
+}
+
+// Typewriter effect
+.typewriter {
+    overflow: hidden;
+    border-right: 2px solid $brand-primary;
+    white-space: nowrap;
+    animation: typing 3s steps(40, end), blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes blink-caret {
+    from, to {
+        border-color: transparent;
+    }
+    50% {
+        border-color: $brand-primary;
+    }
+}
+
+// Reduced motion accessibility
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}

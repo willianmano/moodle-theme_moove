@@ -17,7 +17,7 @@
  * Contain the logic for accessibility bar.
  *
  * @package
- * @copyright  2022 Willian Mano - https://conecti.me
+
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 define(['jquery', 'core/ajax'], function(jQuery, Ajax) {
@@ -72,7 +72,7 @@ define(['jquery', 'core/ajax'], function(jQuery, Ajax) {
 
     AccessibilityBar.prototype.fontSize = function() {
         var request = Ajax.call([{
-            methodname: 'theme_moove_fontsize',
+            methodname: 'theme_nexus_fontsize',
             args: {
                 action: fontsizeCurrentAction
             }
@@ -171,7 +171,7 @@ define(['jquery', 'core/ajax'], function(jQuery, Ajax) {
 
     AccessibilityBar.prototype.siteColor = function() {
         var request = Ajax.call([{
-            methodname: 'theme_moove_sitecolor',
+            methodname: 'theme_nexus_sitecolor',
             args: {
                 action: sitecolorCurrentAction
             }

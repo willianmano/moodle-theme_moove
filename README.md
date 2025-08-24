@@ -1,25 +1,14 @@
-Moodle "Moove" theme repository
-===============================
+Moodle "Nexus" theme repository
+================================
 
-Moove is Moodle's theme that makes online environments more clean and intuitive for learners and educators. Its intuitive layout is optimised for online learning, focusing on the things that matter - your learning activities and content.
+Nexus is a modern, cutting-edge Moodle theme that transforms online learning environments with clean, intuitive design. Built for contemporary education, it features responsive layouts, modern typography, and enhanced user experience that focuses on what matters most - learning activities and content.
 
-Moove is built on Boostrap4 and Mustache templates.
+Nexus is built on Bootstrap 4, SCSS, and Mustache templates with modern design principles.
 
 Documentation
 =============
 
-You can see the theme documentation on: https://github.com/willianmano/moodle-theme_moove/wiki
-
-Developed and maintained by
-===========================
-Willian Mano
- - Zend Certified PHP Engineer - ZEND028770
- - Certified Scrum Master - 000570341
- - iMasters Certified Professional - PHP - Good Practices - 1076
-
-Moodle profile: https://moodle.org/user/profile.php?id=968235
-
-Linkedin: https://www.linkedin.com/in/willianmano
+Documentation is available in the theme wiki.
 
 Installation
 ------------
