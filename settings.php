@@ -453,4 +453,29 @@ if ($ADMIN->fulltree) {
     $page->add($setting);
 
     $settings->add($page);
+
+    /*
+    * --------------------
+    * Footer settings tab
+    * --------------------
+    */
+    $page = new admin_settingpage('theme_moove_darkmode', get_string('darkmodesettings', 'theme_moove'));
+
+    // Enable dark mode footer.
+    $name = 'theme_moove/enabledarkmode';
+    $title = get_string('darkmode_enable', 'theme_moove');
+    $default = 1;
+    $choices = [0 => get_string('no'), 1 => get_string('yes')];
+    $setting = new admin_setting_configselect($name, $title, '', $default, $choices);
+    $page->add($setting);
+
+    // Logo file setting.
+    $name = 'theme_moove/logodark';
+    $title = get_string('logodark', 'theme_moove');
+    $description = get_string('logodarkdesc', 'theme_moove');
+    $opts = ['accepted_types' => ['.png', '.jpg', '.gif', '.webp', '.tiff', '.svg'], 'maxfiles' => 1];
+    $setting = new admin_setting_configstoredfile($name, $title, $description, 'logodark', 0, $opts);
+    $page->add($setting);
+
+    $settings->add($page);
 }

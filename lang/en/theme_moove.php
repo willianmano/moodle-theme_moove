@@ -188,3 +188,17 @@ $string['privacy:thememoovesettings_enableaccessibilitytoolbar'] = 'The current 
 
 $string['redirectmessage'] = 'This page should automatically redirect.';
 $string['redirectbtntext'] = 'If nothing is happening please click here to continue.';
+
+$string['ourpartners'] = 'Our Partners';
+$string['ourpartnersdesc'] = 'These are our partners who help Moodle and the community grow.';
+
+$string['readspeaker_text'] = '<strong>Do you know the block ReadSpeaker?</strong> It\'s a great resource that can help your students\' learning.';
+$string['readspeaker_link'] = 'Learn more about ReadSpeaker';
+
+$string['darkmodesettings'] = 'Dark mode';
+$string['darkmode_enable'] = 'Enable dark mode';
+$string['logodark'] = 'Logo dark';
+$string['logodarkdesc'] = 'Logo displayed in the header when dark mode is enabled.';
+
+$string['mylearning'] = 'My learning';
+$string['nolearning'] = 'You haven\'t started your learning yet';

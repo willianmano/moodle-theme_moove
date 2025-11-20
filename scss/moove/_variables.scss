@@ -1,8 +1,9 @@
+$body-bg: #f2f3f7 !default;
+
 $brand-primary: #0f47ad !default;
 $green: #64a44e !default;
 $gold: #f7bf29 !default;
-$background: #f2f3f7;
-
+$background: var(--bs-body-bg) !default;
 $secondary-menu-color: $brand-primary !default;
 
 $moodle-color: #f98012 !default;

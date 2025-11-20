@@ -62,7 +62,7 @@
 
     {{> theme_moove/navbar }}
     {{#courseindex}}
-        {{< theme_boost/drawer }}
+        {{< theme_moove/drawer }}
             {{$id}}theme_boost-drawers-courseindex{{/id}}
             {{$drawerheadercontent}}
                 {{> theme_boost/courseindexdrawercontrols}}
@@ -75,14 +75,22 @@
             {{$drawerstate}}show-drawer-left{{/drawerstate}}
             {{$tooltipplacement}}right{{/tooltipplacement}}
             {{$closebuttontext}}{{#str}}closecourseindex, core{{/str}}{{/closebuttontext}}
-        {{/ theme_boost/drawer}}
+        {{/ theme_moove/drawer}}
     {{/courseindex}}
     {{#hasblocks}}
-        {{< theme_boost/drawer }}
+        {{< theme_moove/drawer }}
             {{$id}}theme_boost-drawers-blocks{{/id}}
             {{$drawerclasses}}drawer drawer-right{{#blockdraweropen}} show{{/blockdraweropen}}{{/drawerclasses}}
             {{$drawercontent}}
                 <div class="d-print-none">
+                    <!-- Modo de edição-->
+                    {{#addblockbutton}}
+                        <div class="alert alert-info" role="alert">
+                            <p>{{#str}}readspeaker_text, theme_moove{{/str}}</p>
+                            <p class="mb-0"><a href="https://www.readspeaker.com/conecti-me">{{#str}}readspeaker_link, theme_moove{{/str}}</a></p>
+                        </div>
+                    {{/addblockbutton}}
+
                     {{{ addblockbutton }}}
                     {{{ sidepreblocks }}}
                 </div>
@@ -93,7 +101,7 @@
             {{$tooltipplacement}}left{{/tooltipplacement}}
             {{$drawercloseonresize}}1{{/drawercloseonresize}}
             {{$closebuttontext}}{{#str}}closeblockdrawer, core{{/str}}{{/closebuttontext}}
-        {{/ theme_boost/drawer}}
+        {{/ theme_moove/drawer}}
     {{/hasblocks}}
     <div id="page" data-region="mainpage" data-usertour="scroller" class="drawers {{#courseindexopen}}show-drawer-left{{/courseindexopen}} {{#blockdraweropen}}show-drawer-right{{/blockdraweropen}} drag-container">
 

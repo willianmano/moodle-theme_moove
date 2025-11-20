@@ -29,6 +29,7 @@ use core\context\course as context_course;
 use moodle_url;
 use html_writer;
 use theme_moove\output\core_course\activity_navigation;
+use theme_moove\util\settings;
 
 /**
  * Renderers to align Moodle's HTML with that expected by Bootstrap
@@ -112,11 +113,20 @@ class core_renderer extends \theme_boost\output\core_renderer {
             $additionalclasses[] = $fonttype;
         }
 
+        $blackorlightmode = 'light';
+
+        $settings = new settings();
+        $darkmode = get_user_preferences('dark-mode-on', '');
+        if ($settings->enabledarkmode && $darkmode) {
+            $additionalclasses[] = 'moove-darkmode';
+            $blackorlightmode = 'dark';
+        }
+
         if (!is_array($additionalclasses)) {
             $additionalclasses = explode(' ', $additionalclasses);
         }
 
-        return ' id="'. $this->body_id().'" class="'.$this->body_css_classes($additionalclasses).'"';
+        return ' id="'. $this->body_id().'" class="'.$this->body_css_classes($additionalclasses).'" data-bs-theme="'.$blackorlightmode.'"';
     }
 
     /**
@@ -169,10 +179,36 @@ class core_renderer extends \theme_boost\output\core_renderer {
      *
      * @return string
      */
+    public function get_logo_dark() {
+        $logo = $this->get_theme_logo_dark_url();
+
+        if ($logo) {
+            return $logo;
+        }
+
+        return false;
+    }
+
+    /**
+     * Get the main logo URL.
+     *
+     * @return string
+     */
     public function get_theme_logo_url() {
         $theme = theme_config::load('moove');
 
         return $theme->setting_file_url('logo', 'logo');
+    }
+
+    /**
+     * Get the main dark logo URL.
+     *
+     * @return string
+     */
+    public function get_theme_logo_dark_url() {
+        $theme = theme_config::load('moove');
+
+        return $theme->setting_file_url('logodark', 'logodark');
     }
 
     /**
@@ -486,5 +522,25 @@ class core_renderer extends \theme_boost\output\core_renderer {
     public function navbar(): string {
         $newnav = new \theme_moove\output\boostnavbar($this->page);
         return $this->render_from_template('core/navbar', $newnav);
+    }
+
+    /**
+     * Render darkmode controls
+     *
+     * @return string Dark mode controls html content.
+     */
+    public function render_darkmode_controls() {
+        if (!isloggedin() || isguestuser()) {
+            return '';
+        }
+
+        $settings = new settings();
+//        var_dump($settings->enabledarkmode);exit;
+
+        if (!$settings->enabledarkmode) {
+            return '';
+        }
+
+        return $this->render_from_template('theme_moove/moove/darkmode', []);
     }
 }

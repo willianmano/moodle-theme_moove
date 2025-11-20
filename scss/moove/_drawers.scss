@@ -11,6 +11,7 @@
         margin-top: 0;
         margin-bottom: 2rem;
         padding: 1.5rem;
+        background-color: var(--moove-bg-white);
     }
 
     &.show-drawer-left {
@@ -53,6 +54,10 @@
     }
 }
 
+#region-main {
+    background-color: var(--moove-bg-white);
+}
+
 .drawer-toggles .drawer-toggler {
     top: 80px;
 
@@ -71,6 +76,28 @@ body.has-secondarynavigation {
     .drawer-toggles .drawer-toggler {
         position: fixed;
         top: 140px;
+    }
+}
+
+.drawer {
+    background-color: var(--moove-bg-white);
+}
+
+.message-app {
+    background-color: var(--moove-bg-white);
+
+    .closewidget .text-dark {
+        color: var(--bs-btn-color) !important;
+    }
+}
+
+[data-region=right-hand-drawer].drawer {
+    top: 70px;
+    height: calc(100% - 70px);
+
+    .footer-container {
+        padding: .5rem 0;
+        background-color: var(--moove-gray-bg);
     }
 }
 

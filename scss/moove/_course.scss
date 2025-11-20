@@ -2,6 +2,10 @@
     .page-context-header {
         padding: 0;
     }
+
+    .course-section .sectionname > a {
+        color: var(--bs-heading-color);
+    }
 }
 
 .pagelayout-incourse {
@@ -16,6 +20,23 @@
             margin-left: auto;
         }
     }
+}
+
+.path-mod .activity-header:not(:empty) {
+    background-color: var(--moove-gray-bg);
+}
+
+.path-mod .activity-header .badge {
+    mix-blend-mode: normal;
+}
+
+.modchoosercontent .optionscontainer .option:not(.selected):hover {
+    background-color: var(--moove-bg-white);
+}
+
+.modchoosercontent .optionscontainer .option.selected {
+    background-color: var(--moove-bg-white);
+    border: var(--bs-border-color);
 }
 
 .activity-navigation {

@@ -54,4 +54,20 @@ $functions = [
         'type' => 'read',
         'ajax' => true,
     ],
+    'theme_moove_toggledarkmode' => [
+        'classname' => 'theme_moove\api\darkmode',
+        'classpath' => 'theme_moove/classes/api/darkmode.php',
+        'methodname' => 'toggledarkmode',
+        'description' => 'Toogle dark mode.',
+        'type' => 'write',
+        'ajax' => true
+    ],
+    'theme_moove_get_my_learning' => [
+        'classname' => 'theme_moove\api\mylearning',
+        'classpath' => 'theme/moove/classes/api/mylearning.php',
+        'methodname' => 'get',
+        'description' => 'Get user learning',
+        'type' => 'read',
+        'ajax' => true
+    ],
 ];

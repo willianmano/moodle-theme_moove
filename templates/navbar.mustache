@@ -55,7 +55,7 @@
         ]
     }
 }}
-<nav class="navbar fixed-top bg-body navbar-expand border-bottom px-2" aria-label="{{#str}}sitemenubar, admin{{/str}}">
+<nav class="navbar fixed-top navbar-expand border-bottom px-2" aria-label="{{#str}}sitemenubar, admin{{/str}}">
     <button class="navbar-toggler aabtn d-block d-md-none px-1 my-1 border-0" data-toggler="drawers" data-action="toggle" data-target="theme_boost-drawers-primary">
         <span class="navbar-toggler-icon"></span>
         <span class="sr-only">{{#str}}sidepanel, core{{/str}}</span>
@@ -64,7 +64,10 @@
     <a href="{{{ config.homeurl }}}" class="navbar-brand d-none d-md-flex align-items-center m-0 me-4 p-0 aabtn">
 
         {{# output.should_display_logo }}
-            <img src="{{output.get_logo}}" class="logo me-1" alt="{{sitename}}">
+            <img src="{{output.get_logo}}" class="logo light me-1" alt="{{sitename}}">
+            {{#output.get_logo_dark}}
+                <img src="{{.}}" class="logo dark me-1" alt="{{sitename}}">
+            {{/output.get_logo_dark}}
         {{/ output.should_display_logo }}
         {{^ output.should_display_logo }}
             {{{ sitename }}}
@@ -82,6 +85,10 @@
     </ul>
 
     <div id="usernavigation" class="navbar-nav ms-auto h-100">
+        {{{ output.render_darkmode_controls }}}
+
+        {{> theme_moove/moove/mylearning }}
+
         {{# output.search_box }}
             {{{ output.search_box }}}
             <div class="divider border-start h-75 align-self-center mx-1"></div>
