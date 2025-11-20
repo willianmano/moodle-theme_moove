@@ -140,15 +140,19 @@ class extras {
 
         // Edit profile.
         if (isloggedin() && !isguestuser($user) && !is_mnet_remote_user($user)) {
-            if (($iscurrentuser || is_siteadmin($USER) || !is_siteadmin($user)) && has_capability('moodle/user:update',
-                    $systemcontext)) {
+            if (
+                ($iscurrentuser || is_siteadmin($USER) || !is_siteadmin($user)) &&
+                has_capability('moodle/user:update', $systemcontext)
+            ) {
                 return new moodle_url('/user/editadvanced.php',
                     ['id' => $user->id, 'course' => $courseid, 'returnto' => 'profile']
                 );
             }
 
-            if ((has_capability('moodle/user:editprofile', $usercontext) && !is_siteadmin($user))
-                || ($iscurrentuser && has_capability('moodle/user:editownprofile', $systemcontext))) {
+            if (
+                (has_capability('moodle/user:editprofile', $usercontext) && !is_siteadmin($user)) ||
+                ($iscurrentuser && has_capability('moodle/user:editownprofile', $systemcontext))
+            ) {
                 $userauthplugin = false;
                 if (!empty($user->auth)) {
                     $userauthplugin = get_auth_plugin($user->auth);

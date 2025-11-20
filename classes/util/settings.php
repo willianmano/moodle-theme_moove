@@ -99,7 +99,7 @@ class settings {
             }
 
             $socialsettings = [
-                'facebook', 'twitter', 'linkedin', 'youtube', 'instagram', 'whatsapp', 'telegram', 'tiktok', 'pinterest'
+                'facebook', 'twitter', 'linkedin', 'youtube', 'instagram', 'whatsapp', 'telegram', 'tiktok', 'pinterest',
             ];
 
             if (in_array($setting, $socialsettings) && !empty($templatecontext[$setting])) {

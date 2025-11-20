@@ -28,7 +28,6 @@ defined('MOODLE_INTERNAL') || die();
 // This is used for performance, we don't need to know about these settings on every page in Moodle, only when
 // we are looking at the admin settings pages.
 if ($ADMIN->fulltree) {
-
     // Boost provides a nice setting page which splits settings onto separate tabs. We want to use it here.
     $settings = new theme_boost_admin_settingspage_tabs('themesettingmoove', get_string('configtitle', 'theme_moove'));
 
@@ -82,8 +81,14 @@ if ($ADMIN->fulltree) {
     $title = get_string('presetfiles', 'theme_moove');
     $description = get_string('presetfiles_desc', 'theme_moove');
 
-    $setting = new admin_setting_configstoredfile($name, $title, $description, 'preset', 0,
-        ['maxfiles' => 10, 'accepted_types' => ['.scss']]);
+    $setting = new admin_setting_configstoredfile(
+        $name,
+        $title,
+        $description,
+        'preset',
+        0,
+        ['maxfiles' => 10, 'accepted_types' => ['.scss']]
+    );
     $page->add($setting);
 
     // Login page background image.
@@ -165,14 +170,24 @@ if ($ADMIN->fulltree) {
     $page = new admin_settingpage('theme_moove_advanced', get_string('advancedsettings', 'theme_moove'));
 
     // Raw SCSS to include before the content.
-    $setting = new admin_setting_scsscode('theme_moove/scsspre',
-        get_string('rawscsspre', 'theme_moove'), get_string('rawscsspre_desc', 'theme_moove'), '', PARAM_RAW);
+    $setting = new admin_setting_scsscode(
+        'theme_moove/scsspre',
+        get_string('rawscsspre', 'theme_moove'),
+        get_string('rawscsspre_desc', 'theme_moove'),
+        '',
+        PARAM_RAW
+    );
     $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
 
     // Raw SCSS to include after the content.
-    $setting = new admin_setting_scsscode('theme_moove/scss', get_string('rawscss', 'theme_moove'),
-        get_string('rawscss_desc', 'theme_moove'), '', PARAM_RAW);
+    $setting = new admin_setting_scsscode(
+        'theme_moove/scss',
+        get_string('rawscss', 'theme_moove'),
+        get_string('rawscss_desc', 'theme_moove'),
+        '',
+        PARAM_RAW
+    );
     $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
 
@@ -189,7 +204,8 @@ if ($ADMIN->fulltree) {
         'theme_moove/hvpcss',
         get_string('hvpcss', 'theme_moove'),
         get_string('hvpcss_desc', 'theme_moove'),
-        '');
+        ''
+    );
     $page->add($setting);
 
     $settings->add($page);

@@ -31,7 +31,6 @@ use theme_moove\util\settings;
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class boostnavbar implements \renderable {
-
     /** @var array The individual items of the navbar. */
     protected $items = [];
     /** @var moodle_page The current moodle page. */
@@ -104,6 +103,7 @@ class boostnavbar implements \renderable {
                     // Remove the 'Import' navbar node in the Backup, Restore, Copy course and Reset pages.
                     $this->remove('import');
                 case 'course-user':
+                    // Other cases.
                     $this->remove('mygrades');
                     $this->remove('grades');
             }
@@ -258,7 +258,8 @@ class boostnavbar implements \renderable {
     protected function remove_no_link_items(bool $removesections = true): void {
         foreach ($this->items as $key => $value) {
             if (!$value->is_last() &&
-                    (!$value->has_action() || ($value->type == \navigation_node::TYPE_SECTION && $removesections))) {
+                (!$value->has_action() || ($value->type == \navigation_node::TYPE_SECTION && $removesections))
+            ) {
                 unset($this->items[$key]);
             }
         }
@@ -288,8 +289,10 @@ class boostnavbar implements \renderable {
         foreach ($this->items as $item) {
             list($itemtext, $itemaction) = $this->get_node_text_and_action($item);
             if ($itemaction) {
-                if (array_key_exists($itemtext, $navigationviewitems) &&
-                        $navigationviewitems[$itemtext] === $itemaction) {
+                if (
+                    array_key_exists($itemtext, $navigationviewitems) &&
+                    $navigationviewitems[$itemtext] === $itemaction
+                ) {
                     $this->remove($item->key);
                 }
             }
@@ -304,7 +307,7 @@ class boostnavbar implements \renderable {
     protected function remove_duplicate_items(): void {
         $taken = [];
         // Reverse the order of the items before filtering so that the first occurrence is removed instead of the last.
-        $filtereditems = array_values(array_filter(array_reverse($this->items), function($item) use (&$taken) {
+        $filtereditems = array_values(array_filter(array_reverse($this->items), function ($item) use (&$taken) {
             list($itemtext, $itemaction) = $this->get_node_text_and_action($item);
             if ($itemaction) {
                 if (array_key_exists($itemtext, $taken) && $taken[$itemtext] === $itemaction) {

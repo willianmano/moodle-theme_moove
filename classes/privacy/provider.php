@@ -41,7 +41,6 @@ class provider implements
     baseprovider,
     // This plugin has some sitewide user preferences to export.
     user_preference_provider {
-
     /** The user preference for the font size. */
     const FONTSIZE = 'accessibilitystyles_fontsizeclass';
     /** The user preference for the site color. */

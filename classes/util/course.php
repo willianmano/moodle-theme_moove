@@ -62,9 +62,11 @@ class course {
 
         foreach ($this->course->get_course_overviewfiles() as $file) {
             if ($file->is_valid_image()) {
-                $url = moodle_url::make_file_url("$CFG->wwwroot/pluginfile.php",
-                    '/' . $file->get_contextid() . '/' . $file->get_component() . '/' .
-                    $file->get_filearea() . $file->get_filepath() . $file->get_filename(), !$file->is_valid_image());
+                $url = moodle_url::make_file_url(
+                    "$CFG->wwwroot/pluginfile.php",
+                    '/' . $file->get_contextid() . '/' . $file->get_component() . '/' . $file->get_filearea() . $file->get_filepath() . $file->get_filename(),
+                    !$file->is_valid_image()
+                );
 
                 return $url->out();
             }
@@ -125,7 +127,8 @@ class course {
      */
     public function get_summary(coursecat_helper $chelper): string {
         if ($this->course->has_summary()) {
-            return $chelper->get_course_formatted_summary($this->course,
+            return $chelper->get_course_formatted_summary(
+                $this->course,
                 ['overflowdiv' => true, 'noclean' => true, 'para' => false]
             );
         }

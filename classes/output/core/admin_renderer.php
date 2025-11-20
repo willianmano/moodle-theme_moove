@@ -64,15 +64,30 @@ class admin_renderer extends \core_admin_renderer {
      *
      * @return string HTML to output.
      */
-    public function admin_notifications_page($maturity, $insecuredataroot, $errorsdisplayed,
-                                             $cronoverdue, $dbproblems, $maintenancemode, $availableupdates, $availableupdatesfetch,
-                                             $buggyiconvnomb, $registered, array $cachewarnings = [], $eventshandlers = 0,
-                                             $themedesignermode = false, $devlibdir = false, $mobileconfigured = false,
-                                             $overridetossl = false, $invalidforgottenpasswordurl = false, $croninfrequent = false,
-                                             $showcampaigncontent = false, bool $showfeedbackencouragement = false,
-                                             bool $showservicesandsupport = false,
-                                             $xmlrpcwarning = '') {
-
+    public function admin_notifications_page(
+        $maturity,
+        $insecuredataroot,
+        $errorsdisplayed,
+        $cronoverdue,
+        $dbproblems,
+        $maintenancemode,
+        $availableupdates,
+        $availableupdatesfetch,
+        $buggyiconvnomb,
+        $registered,
+        array $cachewarnings = [],
+        $eventshandlers = 0,
+        $themedesignermode = false,
+        $devlibdir = false,
+        $mobileconfigured = false,
+        $overridetossl = false,
+        $invalidforgottenpasswordurl = false,
+        $croninfrequent = false,
+        $showcampaigncontent = false,
+        bool $showfeedbackencouragement = false,
+        bool $showservicesandsupport = false,
+        $xmlrpcwarning = ''
+    ) {
         global $CFG;
         $output = '';
 

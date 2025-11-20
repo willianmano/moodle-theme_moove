@@ -111,9 +111,9 @@ function theme_moove_get_pre_scss($theme) {
             continue;
         }
 
-        array_map(function($target) use (&$scss, $value) {
+        array_map(function ($target) use (&$scss, $value) {
             if ($target == 'fontsite') {
-                $scss .= '$' . $target . ': "' . $value . '", sans-serif !default' .";\n";
+                $scss .= '$' . $target . ': "' . $value . '", sans-serif !default' . ";\n";
             } else {
                 $scss .= '$' . $target . ': ' . $value . ";\n";
             }
@@ -154,8 +154,10 @@ function theme_moove_get_precompiled_css() {
 function theme_moove_pluginfile($course, $cm, $context, $filearea, $args, $forcedownload, array $options = []) {
     $theme = theme_config::load('moove');
 
-    if ($context->contextlevel == CONTEXT_SYSTEM &&
-        ($filearea === 'logo' || $filearea === 'loginbgimg' || $filearea == 'favicon')) {
+    if (
+        $context->contextlevel == CONTEXT_SYSTEM &&
+        ($filearea === 'logo' || $filearea === 'loginbgimg' || $filearea == 'favicon')
+    ) {
         $theme = theme_config::load('moove');
         // By default, theme files must be cache-able by both browsers and proxies.
         if (!array_key_exists('cacheability', $options)) {
@@ -202,7 +204,7 @@ function theme_moove_pluginfile($course, $cm, $context, $filearea, $args, $force
 function theme_moove_serve_hvp_css($filename, $theme) {
     global $CFG, $PAGE;
 
-    require_once($CFG->dirroot.'/lib/configonlylib.php'); // For minenable_zlib_compression function.
+    require_once($CFG->dirroot . '/lib/configonlylib.php'); // For minenable_zlib_compression function.
 
     $PAGE->set_context(\core\context\system::instance());
     $themename = $theme->name;
@@ -229,16 +231,16 @@ function theme_moove_serve_hvp_css($filename, $theme) {
 
     header('HTTP/1.1 200 OK');
 
-    header('Etag: "'.$md5content.'"');
-    header('Content-Disposition: inline; filename="'.$filename.'"');
-    header('Last-Modified: '.gmdate('D, d M Y H:i:s', $lastmodified).' GMT');
-    header('Expires: '.gmdate('D, d M Y H:i:s', time() + $lifetime).' GMT');
+    header('Etag: "' . $md5content . '"');
+    header('Content-Disposition: inline; filename="' . $filename . '"');
+    header('Last-Modified: ' . gmdate('D, d M Y H:i:s', $lastmodified) . ' GMT');
+    header('Expires: ' . gmdate('D, d M Y H:i:s', time() + $lifetime) . ' GMT');
     header('Pragma: ');
-    header('Cache-Control: public, max-age='.$lifetime);
+    header('Cache-Control: public, max-age=' . $lifetime);
     header('Accept-Ranges: none');
     header('Content-Type: text/css; charset=utf-8');
     if (!min_enable_zlib_compression()) {
-        header('Content-Length: '.strlen($content));
+        header('Content-Length: ' . strlen($content));
     }
 
     echo $content;
