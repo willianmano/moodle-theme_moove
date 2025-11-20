@@ -87,6 +87,27 @@ body[data-bs-theme="dark"] {
     background-color: rgba(var(--moove-bg-white), var(--bs-bg-opacity)) !important;
 }
 
+.moodle-dialogue-base .moodle-dialogue-wrap {
+    background-color: var(--moove-gray-bg);
+
+    .moodle-dialogue-bd {
+        background-color: var(--moove-bg-white);
+    }
+}
+
+.jschooser .choosercontainer #chooseform .instruction,
+.jschooser .choosercontainer #chooseform .typesummary {
+    background-color: var(--moove-bg-white);
+}
+
+.choosercontainer #chooseform .submitbuttons {
+    background-color: var(--moove-gray-bg);
+}
+
+.choosercontainer #chooseform .selected {
+    background-color: var(--moove-gray-bg);
+}
+
 .loading-overlay {
     position: fixed;
     width: 100vw;
