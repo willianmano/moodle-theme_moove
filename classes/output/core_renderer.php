@@ -535,6 +535,19 @@ class core_renderer extends \theme_boost\output\core_renderer {
     }
 
     /**
+     * Render my learning controls
+     *
+     * @return string My learning controls html content.
+     */
+    public function render_mylearning_controls() {
+        if (!isloggedin() || isguestuser()) {
+            return '';
+        }
+
+        return $this->render_from_template('theme_moove/moove/mylearning', []);
+    }
+
+    /**
      * Render darkmode controls
      *
      * @return string Dark mode controls html content.
