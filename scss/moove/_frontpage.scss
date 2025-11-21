@@ -78,7 +78,7 @@
                 img {
                     width: 48px;
                     height: 48px;
-                    border: 1px solid $gray-300;
+                    border: 1px solid var(--bs-border-color);
                 }
 
                 p {
@@ -86,7 +86,7 @@
                     margin-bottom: 0;
 
                     &.role {
-                        color: $gray-900;
+                        color: var(--bs-body-color);
                         font-size: 80%;
                     }
                 }
