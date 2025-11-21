@@ -72,6 +72,10 @@ body[data-bs-theme="dark"] {
     .dropdown-item:focus-within {
         background-color: $gray-800;
     }
+
+    .maincalendar .calendarmonth .clickable:hover {
+        background-color: $gray-800;
+    }
 }
 
 .shadow {
