@@ -485,8 +485,8 @@ class core_renderer extends \theme_boost\output\core_renderer {
     ) {
         $url = str_replace('&amp;', '&', $encodedurl);
 
-        switch($this->page->state) {
-            case \moodle_page::STATE_BEFORE_HEADER :
+        switch ($this->page->state) {
+            case \moodle_page::STATE_BEFORE_HEADER:
                 // No output yet it is safe to delivery the full arsenal of redirect methods.
                 if (!$debugdisableredirect) {
                     // Don't use exactly the same time here, it can cause problems when both redirects fire at the same time.

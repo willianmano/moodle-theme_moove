@@ -17,12 +17,14 @@
 /**
  * Renderers for outputting parts of the question engine.
  *
- * @subpackage questionengine
+ * @package    theme_moove
  * @copyright  2009 The Open University
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 namespace theme_moove\output\core;
+
+defined('MOODLE_INTERNAL') || die();
 
 require_once($CFG->dirroot . "/question/engine/renderer.php");
 
@@ -37,6 +39,7 @@ use moodle_url;
 /**
  * This renderer controls the overall output of questions.
  *
+ * @package    theme_moove
  * @copyright  2009 The Open University
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -111,7 +114,8 @@ class question_renderer extends \core_question_renderer {
     protected function status(
         question_attempt $qa,
         qbehaviour_renderer $behaviouroutput,
-        question_display_options $options) {
+        question_display_options $options
+    ) {
         return html_writer::tag(
             'div',
             $qa->get_state_string($options->correctness),
@@ -195,11 +199,19 @@ class question_renderer extends \core_question_renderer {
         $params['id'] = $qa->get_question_id();
         $editurl = new moodle_url('/question/bank/editquestion/question.php', $params);
 
+        $text = $this->pix_icon(
+            't/edit',
+            get_string('edit'),
+            '',
+            ['class' => 'iconsmall']
+        );
+        $text .= get_string('editquestion', 'question');
+
         return html_writer::tag(
             'div',
             html_writer::link(
-                $editurl, $this->pix_icon('t/edit', get_string('edit'), '', ['class' => 'iconsmall']) .
-                get_string('editquestion', 'question'),
+                $editurl,
+                $text,
                 ['class' => 'btn btn-sm btn-secondary ml-2']
             ),
             ['class' => 'editquestion']

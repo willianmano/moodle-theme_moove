@@ -30,8 +30,10 @@ class mylearning {
     /**
      * Returns the last accessed courses by the user.
      *
-     * @param $limit
+     * @param int $limit
+     *
      * @return array
+     *
      * @throws moodle_exception
      * @throws \dml_exception
      */
