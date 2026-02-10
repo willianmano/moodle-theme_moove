@@ -114,7 +114,7 @@ class admin_renderer extends \core_admin_renderer {
         $output .= $this->mnet_deprecation_warning($xmlrpcwarning);
         $output .= $this->moodlenet_removal_warning();
         $output .= $this->userfeedback_encouragement($showfeedbackencouragement);
-        $output .= $this->services_and_support_content($showservicesandsupport);
+        // $output .= $this->services_and_support_content($showservicesandsupport);
         $output .= $this->campaign_content($showcampaigncontent);
 
         //////////////////////////////////////////////////////////////////////////////////////////////////
