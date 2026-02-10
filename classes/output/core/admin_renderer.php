@@ -45,10 +45,9 @@ class admin_renderer extends \core_admin_renderer {
      * @param bool $cronoverdue warn cron not running
      * @param bool $dbproblems warn db has problems
      * @param bool $maintenancemode warn in maintenance mode
+     * @param bool $buggyiconvnomb warn iconv problems
      * @param array|null $availableupdates array of \core\update\info objects or null
      * @param int|null $availableupdatesfetch timestamp of the most recent updates fetch or null (unknown)
-     * @param bool $buggyiconvnomb warn iconv problems
-     * @param boolean $registered true if the site is registered on Moodle.org
      * @param string[] $cachewarnings An array containing warnings from the Cache API.
      * @param array $eventshandlers Events 1 API handlers.
      * @param bool $themedesignermode Warn about the theme designer mode.
@@ -64,14 +63,30 @@ class admin_renderer extends \core_admin_renderer {
      *
      * @return string HTML to output.
      */
-    public function admin_notifications_page($maturity, $insecuredataroot, $errorsdisplayed,
-                                             $cronoverdue, $dbproblems, $maintenancemode, $availableupdates, $availableupdatesfetch,
-                                             $buggyiconvnomb, $registered, array $cachewarnings = [], $eventshandlers = 0,
-                                             $themedesignermode = false, $devlibdir = false, $mobileconfigured = false,
-                                             $overridetossl = false, $invalidforgottenpasswordurl = false, $croninfrequent = false,
-                                             $showcampaigncontent = false, bool $showfeedbackencouragement = false,
-                                             bool $showservicesandsupport = false,
-                                             $xmlrpcwarning = '') {
+    public function admin_notifications_page(
+        $maturity,
+        $insecuredataroot,
+        $errorsdisplayed,
+        $cronoverdue,
+        $dbproblems,
+        $maintenancemode,
+        $availableupdates,
+        $availableupdatesfetch,
+        $buggyiconvnomb,
+        $registered,
+        array $cachewarnings = [],
+        $eventshandlers = 0,
+        $themedesignermode = false,
+        $devlibdir = false,
+        $mobileconfigured = false,
+        $overridetossl = false,
+        $invalidforgottenpasswordurl = false,
+        $croninfrequent = false,
+        $showcampaigncontent = false,
+        bool $showfeedbackencouragement = false,
+        bool $showservicesandsupport = false,
+        $xmlrpcwarning = ''
+    ) {
 
         global $CFG;
         $output = '';
@@ -80,9 +95,7 @@ class admin_renderer extends \core_admin_renderer {
         $output .= $this->output->heading(get_string('notifications', 'admin'));
         $output .= $this->conectime_services_and_support_content();
         $output .= $this->maturity_info($maturity);
-        $output .= empty($CFG->disableupdatenotifications) ?
-                        $this->available_updates($availableupdates, $availableupdatesfetch)
-                        : '';
+        $output .= empty($CFG->disableupdatenotifications) ? $this->available_updates($availableupdates, $availableupdatesfetch) : '';
         $output .= $this->insecure_dataroot_warning($insecuredataroot);
         $output .= $this->development_libs_directories_warning($devlibdir);
         $output .= $this->themedesignermode_warning($themedesignermode);
@@ -99,10 +112,15 @@ class admin_renderer extends \core_admin_renderer {
         $output .= $this->mobile_configuration_warning($mobileconfigured);
         $output .= $this->forgotten_password_url_warning($invalidforgottenpasswordurl);
         $output .= $this->mnet_deprecation_warning($xmlrpcwarning);
+        $output .= $this->moodlenet_removal_warning();
         $output .= $this->userfeedback_encouragement($showfeedbackencouragement);
+        $output .= $this->services_and_support_content($showservicesandsupport);
         $output .= $this->campaign_content($showcampaigncontent);
-        // It is illegal and a violation of the GPL to hide, remove or modify this copyright notice.
+
+        //////////////////////////////////////////////////////////////////////////////////////////////////
+        ////  IT IS ILLEGAL AND A VIOLATION OF THE GPL TO HIDE, REMOVE OR MODIFY THIS COPYRIGHT NOTICE ///
         $output .= $this->moodle_copyright();
+        //////////////////////////////////////////////////////////////////////////////////////////////////
 
         $output .= $this->footer();
 
