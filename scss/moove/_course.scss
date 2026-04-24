@@ -22,6 +22,10 @@
     }
 }
 
+.path-mod .activity-header {
+    max-width: 100%;
+}
+
 .path-mod .activity-header:not(:empty) {
     background-color: var(--moove-gray-bg);
 }
@@ -120,6 +124,10 @@
             top: 160px;
         }
     }
+}
+
+.course-overview.border.table-responsive {
+    padding-top: 0 !important;
 }
 
 @include media-breakpoint-down(md) {

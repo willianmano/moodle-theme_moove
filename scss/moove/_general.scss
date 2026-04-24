@@ -1,5 +1,9 @@
 body {
     background-color: $background !important; /* stylelint-disable-line */
+
+    &.hasstickyfooter #page-footer {
+        padding-bottom: calc(max(80px, calc(1rem * 3)));
+    }
 }
 
 #page-header {
