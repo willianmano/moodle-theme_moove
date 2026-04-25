@@ -343,14 +343,46 @@ class core_renderer extends \theme_boost\output\core_renderer {
         }
 
         $course = $this->page->cm->get_course();
+        $modinfo = get_fast_modinfo($course->id);
 
-        // Get a list of all the activities in the course.
-        $modules = get_fast_modinfo($course->id)->get_cms();
+        // Traverse top-level sections and dive into delegated sections (subsections) recursively
+        // to build a visually ordered list of course modules.
+        $orderedmodules = [];
+        
+        $walk_section = function($section) use (&$walk_section, $modinfo, &$orderedmodules) {
+            if (empty($modinfo->sections[$section->section])) {
+                return;
+            }
+            foreach ($modinfo->sections[$section->section] as $cmid) {
+                if (!isset($modinfo->cms[$cmid])) {
+                    continue;
+                }
+                $module = $modinfo->cms[$cmid];
+                $orderedmodules[] = $module;
+
+                // Check if this module is a wrapper for a delegated section (e.g., a subsection).
+                if (method_exists($module, 'get_delegated_section_info')) {
+                    $delegatedsection = $module->get_delegated_section_info();
+                    if ($delegatedsection) {
+                        $walk_section($delegatedsection);
+                    }
+                }
+            }
+        };
+
+        // Initialize the tree walk starting only from top-level sections.
+        foreach ($modinfo->get_section_info_all() as $section) {
+            // Skip delegated sections here so they aren't processed out of visual order.
+            if (method_exists($section, 'is_delegated') && $section->is_delegated()) {
+                continue;
+            }
+            $walk_section($section);
+        }
 
         // Put the modules into an array in order by the position they are shown in the course.
         $mods = [];
         $activitylist = [];
-        foreach ($modules as $module) {
+        foreach ($orderedmodules as $module) {
             // Only add activities the user can access, aren't in stealth mode and have a url (eg. mod_label does not).
             if (!$module->uservisible || $module->is_stealth() || empty($module->url)) {
                 continue;
@@ -376,7 +408,7 @@ class core_renderer extends \theme_boost\output\core_renderer {
         $nummods = count($mods);
 
         // If there is only one mod then do nothing.
-        if ($nummods == 1) {
+        if ($nummods <= 1) {
             return '';
         }
 
@@ -385,6 +417,11 @@ class core_renderer extends \theme_boost\output\core_renderer {
 
         // Get the position in the array of the course module we are viewing.
         $position = array_search($this->page->cm->id, $modids);
+        
+        // Safety check if the current module somehow wasn't found in the list.
+        if ($position === false) {
+            return '';
+        }
 
         $prevmod = null;
         $nextmod = null;
