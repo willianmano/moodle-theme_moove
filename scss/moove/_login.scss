@@ -2,6 +2,10 @@
     #page {
         max-width: 100%;
         background: none;
+
+        .login-layout-left::after {
+            content: "" !important;
+        }
     }
 
     .login-identityprovider-btn.facebook {

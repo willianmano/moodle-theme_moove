@@ -1,31 +1,151 @@
-#page-enrol-index #region-main {
-    .generalbox:first-of-type {
-        width: 33.33%;
-        float: left;
-    }
-
-    .generalbox:not(:first-of-type) {
-        float: right;
-        width: calc(66.66% - 1rem);
-        padding: 1rem;
-        margin-top: 1rem;
-        margin-left: 1rem;
-        border-radius: .5rem;
-        -webkit-box-shadow: 0 0 35px 0 rgba(154,161,171,.15);
-        box-shadow: 0 0 35px 0 rgba(154,161,171,.15);
+// ─────────────────────────────────────────────────────────────────────────────
+// Enrolment page  (#page-enrol-index)
+// ─────────────────────────────────────────────────────────────────────────────
+body#page-enrol-index {
+    .card.dashboard-card a {
+        text-decoration: none !important;
     }
 }
 
-@include media-breakpoint-down(md) {
-    #page-enrol-index #region-main {
-        .generalbox {
-            width: 100% !important;
-            float: none !important;
-            margin: .5rem 0 .5rem 0 !important;
-        }
+// Two-column grid: course info (1 part) | enrolment options (2 parts)
+.enrol-page-layout {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: auto 1fr;
+    column-gap: 2rem;
+    row-gap: 0;
 
-        .generalbox:first-of-type {
-            padding: 0 !important;
+    &__heading {
+        grid-column: 1 / -1;
+        padding-bottom: 1rem;
+        margin-bottom: 1.5rem;
+        border-bottom: 1px solid var(--bs-border-color);
+    }
+
+    &__title {
+        font-size: 1.4rem;
+        font-weight: 700;
+    }
+
+    &__courseinfo {
+        grid-column: 1;
+        grid-row: 2;
+
+        // Remove default generalbox chrome — the card already provides it
+        > .generalbox {
+            border: none;
+            padding: 0;
+            box-shadow: none;
+            background: transparent;
         }
     }
+
+    &__options {
+        grid-column: 2;
+        grid-row: 2;
+    }
+
+    &__widget {
+        margin-bottom: 1rem;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    &__notice {
+        border-radius: .5rem;
+    }
+
+    @include media-breakpoint-down(md) {
+        grid-template-columns: 1fr;
+
+        &__courseinfo,
+        &__options {
+            grid-column: 1;
+            grid-row: auto;
+        }
+    }
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Individual enrolment option card
+// ─────────────────────────────────────────────────────────────────────────────
+
+.enrol-card {
+    border: 1px solid var(--bs-border-color) !important;
+    border-radius: .75rem !important;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, .06);
+    overflow: hidden;
+    transition: box-shadow .2s ease, transform .15s ease;
+
+    &:hover {
+        box-shadow: 0 6px 24px rgba(0, 0, 0, .1);
+        transform: translateY(-2px);
+    }
+
+    &__header {
+        background: transparent;
+        border-bottom: 1px solid var(--bs-border-color);
+        padding: 1.25rem 1.5rem 1rem;
+    }
+
+    &__title {
+        font-size: 1rem;
+        font-weight: 700;
+        color: var(--bs-body-color);
+    }
+
+    &__body {
+        padding: 1.25rem 1.5rem;
+        color: var(--bs-secondary-color);
+        font-size: .9375rem;
+    }
+
+    &__footer {
+        background: transparent;
+        border-top: 1px solid var(--bs-border-color);
+        padding: 1rem 1.5rem;
+
+        // Make CTA button fill the full width
+        .singlebutton {
+            display: block;
+
+            form,
+            div {
+                display: block;
+            }
+
+            button,
+            input[type="submit"],
+            .btn {
+                display: block;
+                width: 100%;
+                padding: .65rem 1.25rem;
+                font-weight: 600;
+            }
+        }
+    }
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Accent top-border by enrolment type
+// ─────────────────────────────────────────────────────────────────────────────
+
+.enrol-instance--fee .enrol-card,
+.enrol-instance--paypal .enrol-card,
+.enrol-instance--asaas .enrol-card {
+    border-top: 3px solid var(--bs-success) !important;
+}
+
+.enrol-instance--self .enrol-card {
+    border-top: 3px solid var(--bs-primary) !important;
+}
+
+.enrol-instance--manual .enrol-card {
+    border-top: 3px solid var(--bs-info) !important;
+}
+
+.enrol-instance--guest .enrol-card {
+    border-top: 3px solid var(--bs-warning) !important;
 }
