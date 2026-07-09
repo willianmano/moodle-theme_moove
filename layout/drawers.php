@@ -49,6 +49,10 @@ if ($courseindexopen) {
 
 $blockshtml = $OUTPUT->blocks('side-pre');
 $hasblocks = (strpos($blockshtml, 'data-block=') !== false || !empty($addblockbutton));
+
+$addcontentblockbutton = $OUTPUT->addblockbutton('content');
+$contentblocks = $OUTPUT->custom_block_region('content');
+
 if (!$hasblocks) {
     $blockdraweropen = false;
 }
@@ -115,6 +119,8 @@ $templatecontext = [
     'overflow' => $overflow,
     'headercontent' => $headercontent,
     'addblockbutton' => $addblockbutton,
+    'addcontentblockbutton' => $addcontentblockbutton,
+    'contentblocks' => $contentblocks,
 ];
 
 $themesettings = new \theme_moove\util\settings();
