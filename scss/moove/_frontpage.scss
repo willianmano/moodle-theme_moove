@@ -1,7 +1,21 @@
 .pagelayout-frontpage,
 .pagelayout-coursecategory {
-    .card.dashboard-card {
-        margin: 1rem;
+    .frontpage-course-list-all.card-grid {
+        gap: 0 1rem;
+    }
+
+    @include media-breakpoint-up(sm) {
+        .row-cols-lg-4>* {
+            flex: 0 0 auto;
+            width: calc(50% - 1rem);
+        }
+    }
+
+    @include media-breakpoint-up(lg) {
+        .row-cols-lg-4>* {
+            flex: 0 0 auto;
+            width: calc(25% - 1rem);
+        }
     }
 }
 
@@ -199,15 +213,6 @@
 }
 
 @include media-breakpoint-down(md) {
-    .pagelayout-frontpage .dashboard-card,
-    .pagelayout-coursecategory .dashboard-card {
-        width: 100% !important;
-        max-width: 100% !important;
-        margin: 1rem 0;
-        -webkit-box-shadow: none;
-        box-shadow: none;
-    }
-
     #page-site-index.notloggedin {
         .footer-content-popover .footer-section {
             text-align: center;

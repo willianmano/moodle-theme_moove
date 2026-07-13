@@ -1,4 +1,5 @@
-<div class="card dashboard-card {{^visible}}dimmed{{/visible}}" role="listitem" data-region="course-content" data-course-id="{{{id}}}">
+<div class="col d-flex px-0" role="listitem" data-region="course-content" data-course-id="{{{id}}}">
+    <div class="card dashboard-card {{^visible}}dimmed{{/visible}}">
     <a href="{{courseurl}}" tabindex="-1">
         <div class="card-img dashboard-card-img" style="background-image: url({{{image}}});">
             <span class="sr-only">{{fullname}}</span>
@@ -57,4 +58,5 @@
             {{/contacts}}
         </div>
     {{/hascontacts}}
+    </div>
 </div>

@@ -122,7 +122,7 @@ class course_renderer extends \core_course_renderer {
 
         // Display list of courses.
         $attributes = $chelper->get_and_erase_attributes('courses');
-        $attributes['class'] .= ' row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-1';
+        $attributes['class'] .= ' card-grid mx-0 row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4';
 
         $content = html_writer::start_tag('div', $attributes);
 
