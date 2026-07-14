@@ -212,50 +212,6 @@ class core_renderer extends \theme_boost\output\core_renderer {
     }
 
     /**
-     * Renders the login form.
-     *
-     * @param \core_auth\output\login $form The renderable.
-     * @return string
-     */
-    public function render_login(\core_auth\output\login $form) {
-        global $SITE, $CFG;
-
-        $context = $form->export_for_template($this);
-
-        $context->errorformatted = $this->error_text($context->error);
-        $context->logourl = $this->get_logo();
-        $context->sitename = format_string(
-            $SITE->fullname,
-            true,
-            ['context' => context_course::instance(SITEID), "escape" => false]
-        );
-
-        if (!$CFG->auth_instructions) {
-            $context->instructions = null;
-            $context->hasinstructions = false;
-        }
-
-        $context->hastwocolumns = false;
-        if ($CFG->auth_instructions) {
-            $context->hastwocolumns = true;
-        }
-
-        if ($context->identityproviders) {
-            foreach ($context->identityproviders as $key => $provider) {
-                $isfacebook = false;
-
-                if (!empty($provider['iconurl']) && strpos($provider['iconurl'], 'facebook') !== false) {
-                    $isfacebook = true;
-                }
-
-                $context->identityproviders[$key]['isfacebook'] = $isfacebook;
-            }
-        }
-
-        return $this->render_from_template('core/loginform', $context);
-    }
-
-    /**
      * Returns the HTML for the site support email link
      *
      * @param array $customattribs Array of custom attributes for the support email anchor tag.
