@@ -29,6 +29,13 @@
     }
 }
 
+.pagelayout-secure.eupopup {
+    #region-main {
+       padding: 2rem;
+        border-radius: $border-radius;
+    }
+}
+
 @include media-breakpoint-down(sm) {
     .moodle-dialogue-base .moodle-dialogue.mod_quiz_preflight_popup {
         width: 100%;
