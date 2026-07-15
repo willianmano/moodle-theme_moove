@@ -72,11 +72,6 @@ function theme_moove_get_extra_scss($theme) {
 
     // Sets the login background image.
     $loginbackgroundimageurl = $theme->setting_file_url('loginbgimg', 'loginbgimg');
-
-    if (empty($loginbackgroundimageurl)) {
-        return '';
-    }
-
     $backgroundposition = '';
     $isdefaultloginimage = empty($loginbackgroundimageurl);
     if ($isdefaultloginimage) {
@@ -90,7 +85,7 @@ function theme_moove_get_extra_scss($theme) {
     }
     $content .= 'body.pagelayout-login #page .login-layout-left { ';
     $content .= "background-image: url('$loginbackgroundimageurl'); ";
-    $content .= "background-size: cover; {$backgroundposition} position: relative;";
+    $content .= "background-size: cover; {$backgroundposition}";
     $content .= ' }';
 
     // Add a watermark to indicate the image is AI generated, but only for the default image.
@@ -109,7 +104,7 @@ function theme_moove_get_extra_scss($theme) {
     }
 
     // Always return the background image with the scss when we have it.
-    return !empty($theme->settings->scss) ? $theme->settings->scss . ' ' . $content : $content;
+    return !empty($theme->settings->scss) ? "{$theme->settings->scss}  \n  {$content}" : $content;
 }
 
 /**

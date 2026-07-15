@@ -53,6 +53,11 @@ $THEME->layouts = [
         'defaultregion' => 'side-pre',
         'options' => ['langmenu' => true],
     ],
+    'login' => [
+        'file' => 'login.php',
+        'regions' => [],
+        'options' => ['langmenu' => true],
+    ],
 ];
 
 $THEME->parents = ['boost'];
