@@ -85,14 +85,17 @@
     </ul>
 
     <div id="usernavigation" class="navbar-nav ms-auto h-100">
-        {{{ output.render_darkmode_controls }}}
-
-        {{{ output.render_mylearning_controls }}}
-
         {{# output.search_box }}
             {{{ output.search_box }}}
             <div class="divider border-start h-75 align-self-center mx-1"></div>
         {{/output.search_box}}
+
+        {{{ output.edit_switch }}}
+
+        {{{ output.render_darkmode_controls }}}
+
+        {{{ output.render_mylearning_controls }}}
+
         {{#langmenu}}
             {{> theme_boost/language_menu }}
             <div class="divider border-start h-75 align-self-center mx-1"></div>
@@ -103,7 +106,6 @@
                 {{> core/user_menu }}
             {{/usermenu}}
         </div>
-        {{{ output.edit_switch }}}
     </div>
 </nav>
 

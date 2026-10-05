@@ -63,7 +63,35 @@
 
     .btn {
         background-color: $brand-primary;
-        color: #fff;
+
+        &:hover {
+            background-color: darken($brand-primary, 10%);
+        }
+
+        .icon {
+            color: #fff;
+        }
+
+        svg path {
+            fill: #fff;
+        }
+    }
+}
+
+.drawer.drawer-right {
+    background-color: var(--bs-gray-200);
+    transition: width 0.2s ease, left 0.2s ease, visibility 0.2s ease, max-height 0.2s ease !important;
+}
+
+.drawer-toggles .drawer-toggler {
+    &.drawer-left-toggle {
+        left: 0 !important;
+        right: auto !important;
+    }
+
+    &.drawer-right-toggle {
+        left: auto !important;
+        right: 0 !important;
     }
 }
 
@@ -108,15 +136,25 @@ body.has-secondarynavigation {
 
     .drawer-left,
     .drawer-right {
-        top: calc(70px + 1px);
-        height: calc(100vh - 70px);
+        top: calc(70px + 1px) !important;
+        height: calc(100vh - 70px) !important;
+    }
+
+    .drawer-left {
+        left: 0 !important;
+        right: auto !important;
+    }
+
+    .drawer-right {
+        left: auto !important;
+        right: 0 !important;
     }
 
     body.has-secondarynavigation {
         .drawer-left,
         .drawer-right {
-            top: calc(130px + 1px);
-            height: calc(100vh - 130px);
+            top: calc(130px + 1px) !important;
+            height: calc(100vh - 130px) !important;
         }
     }
 }

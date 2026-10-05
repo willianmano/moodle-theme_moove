@@ -1,6 +1,8 @@
 .pagelayout-frontpage,
 .pagelayout-coursecategory {
-    .frontpage-course-list-all.card-grid {
+    .frontpage-course-list-all.card-grid,
+    .frontpage-course-list-enrolled.card-grid,
+    .course_category_tree .courses.card-grid{
         gap: 0 1rem;
     }
 

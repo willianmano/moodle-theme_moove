@@ -1,0 +1,89 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+
+    @template core/editswitch
+
+    This template renders the site-wide Edit mode switch.
+
+    The NonJS fallback markup below is hand-mirrored from the design system's own Switch
+    component DOM/classes, not generated from it. If the design system Switch component's markup
+    or classes change, this fallback and core/EditModeSwitch.tsx need to be updated to match.
+
+    Example context (json):
+    {
+        "url": "http://localhost/",
+        "sesskey": "sesskey",
+        "edit": 1,
+        "adminedit": true,
+        "checked": "",
+        "string": "Edit on",
+        "legacyseturl": "/editmode.php",
+        "elementid": "editingswitch-abc123",
+        "reactprops": "{\"id\":\"editingswitch-abc123\",\"context\":1,\"pageurl\":\"http://localhost/\",\"checked\":false,\"label\":\"Edit mode\"}"
+    }
+}}
+<form action="{{{legacyseturl}}}" method="post" class="d-flex align-items-center editmode-switch-form mx-2">
+    {{#reactprops}}
+    {{#react}}
+    {
+        "component": "@moodle/lms/core/EditModeSwitch",
+        "class": "d-flex align-items-center",
+        "props": {{{reactprops}}}
+    }
+    <div class="mds-switch mds-switch--variant-enable mds-switch--label-start">
+        <input type="checkbox"{{!
+            }} role="switch"{{!
+            }} name="setmode"{{!
+            }}{{#checked}}{{!
+                }} checked{{!
+            }}{{/checked}}{{!
+            }} class="mds-switch-input"{{!
+            }} id="{{elementid}}"{{!
+            }} data-context="{{{pagecontextid}}}"{{!
+            }} data-pageurl="{{{pageurl}}}"{{!
+        }}>
+        <label class="mds-switch-control" for="{{elementid}}">
+            <span class="mds-switch-indicator" aria-hidden="true">
+                <span class="mds-switch-focus-ring">
+                    <span class="mds-switch-track">
+                        <span class="mds-switch-thumb">
+                            <span class="mds-switch-icon">
+                                <span class="mds-switch-icon-item mds-switch-icon-item--unchecked"></span>
+                                <span class="mds-switch-icon-item mds-switch-icon-item--checked"></span>
+                            </span>
+                        </span>
+                    </span>
+                </span>
+            </span>
+            <span class="mds-switch-label">{{#str}} editmode {{/str}}</span>
+        </label>
+    </div>
+    {{/react}}
+    {{/reactprops}}
+    <input type="hidden" name="sesskey" value="{{{sesskey}}}">
+    <input type="hidden" name="pageurl" value="{{{pageurl}}}">
+    <input type="hidden" name="context" value="{{{pagecontextid}}}">
+    <noscript>
+        <input type="submit" value="{{#str}}setmode, core{{/str}}">
+    </noscript>
+</form>
+{{#js}}
+require(['core/edit_switch'], function(editSwitch) {
+    editSwitch.init('{{elementid}}');
+});
+{{/js}}

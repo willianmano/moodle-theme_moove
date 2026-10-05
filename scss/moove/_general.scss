@@ -7,7 +7,7 @@ body {
 }
 
 #page-header {
-    margin: 1.25rem auto;
+    margin: 0 auto;
     padding: 0;
 
     h1 {
@@ -343,6 +343,10 @@ body[data-bs-theme="dark"] {
 
     .header-maxwidth {
         max-width: 100%;
+    }
+
+    .pagelayout-standard #page.drawers .main-inner, body.limitedwidth #page.drawers .main-inner {
+        margin-top: 0;
     }
 }
 

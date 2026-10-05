@@ -62,11 +62,10 @@
 
     {{> theme_moove/navbar }}
     {{#courseindex}}
-        {{< theme_moove/drawer }}
+        {{< theme_boost/drawer }}
             {{$id}}theme_boost-drawers-courseindex{{/id}}
-            {{$drawerheadercontent}}
-                {{> theme_boost/courseindexdrawercontrols}}
-            {{/drawerheadercontent}}
+            {{$drawerheading}}{{> theme_boost/courseindexdrawerheading}}{{/drawerheading}}
+            {{$drawercontrols}}{{> theme_boost/courseindexdrawercontrols}}{{/drawercontrols}}
             {{$drawerclasses}}drawer drawer-left {{#courseindexopen}}show{{/courseindexopen}}{{/drawerclasses}}
             {{$drawercontent}}
                 {{{courseindex}}}
@@ -75,22 +74,18 @@
             {{$drawerstate}}show-drawer-left{{/drawerstate}}
             {{$tooltipplacement}}right{{/tooltipplacement}}
             {{$closebuttontext}}{{#str}}closecourseindex, core{{/str}}{{/closebuttontext}}
-        {{/ theme_moove/drawer}}
+            {{$closebuttonicon}}
+                <span class="dir-rtl-hide">{{#pix}} e/sidebar_left, theme_moove {{/pix}}</span>
+                <span class="dir-ltr-hide">{{#pix}} e/sidebar_right, theme_moove {{/pix}}</span>
+            {{/closebuttonicon}}
+        {{/ theme_boost/drawer}}
     {{/courseindex}}
     {{#hasblocks}}
-        {{< theme_moove/drawer }}
+        {{< theme_boost/drawer }}
             {{$id}}theme_boost-drawers-blocks{{/id}}
             {{$drawerclasses}}drawer drawer-right{{#blockdraweropen}} show{{/blockdraweropen}}{{/drawerclasses}}
             {{$drawercontent}}
                 <div class="d-print-none">
-                    <!-- Modo de edição-->
-                    {{#addblockbutton}}
-                        <div class="alert alert-info" role="alert">
-                            <p>{{#str}}readspeaker_text, theme_moove{{/str}}</p>
-                            <p class="mb-0"><a href="https://www.readspeaker.com/conecti-me">{{#str}}readspeaker_link, theme_moove{{/str}}</a></p>
-                        </div>
-                    {{/addblockbutton}}
-
                     {{{ addblockbutton }}}
                     {{{ sidepreblocks }}}
                 </div>
@@ -101,7 +96,11 @@
             {{$tooltipplacement}}left{{/tooltipplacement}}
             {{$drawercloseonresize}}1{{/drawercloseonresize}}
             {{$closebuttontext}}{{#str}}closeblockdrawer, core{{/str}}{{/closebuttontext}}
-        {{/ theme_moove/drawer}}
+            {{$closebuttonicon}}
+                <span class="dir-rtl-hide">{{#pix}} e/sidebar_right, theme_moove {{/pix}}</span>
+                <span class="dir-ltr-hide">{{#pix}} e/sidebar_left, theme_moove {{/pix}}</span>
+            {{/closebuttonicon}}
+        {{/ theme_boost/drawer}}
     {{/hasblocks}}
     <div id="page" data-region="mainpage" data-usertour="scroller" class="drawers {{#courseindexopen}}show-drawer-left{{/courseindexopen}} {{#blockdraweropen}}show-drawer-right{{/blockdraweropen}} drag-container">
 
@@ -118,16 +117,17 @@
                 {{#courseindex}}
                     <div class="drawer-toggler drawer-left-toggle open-nav d-print-none">
                         <button
-                            class="btn icon-no-margin"
+                            class="btn btn-icon icon-size-3"
                             data-toggler="drawers"
                             data-action="toggle"
                             data-target="theme_boost-drawers-courseindex"
-                            data-toggle="tooltip"
-                            data-placement="right"
+                            data-bs-toggle="tooltip"
+                            data-bs-placement="right"
                             title="{{#str}}opendrawerindex, core{{/str}}"
                         >
-                            <span class="sr-only">{{#str}}opendrawerindex, core{{/str}}</span>
-                            {{#pix}} t/index_drawer, moodle {{/pix}}
+                            <span class="visually-hidden">{{#str}}opendrawerindex, core{{/str}}</span>
+                            <span class="dir-rtl-hide">{{#pix}} e/sidebar_left, theme_moove {{/pix}}</span>
+                            <span class="dir-ltr-hide">{{#pix}} e/sidebar_right, theme_moove {{/pix}}</span>
                         </button>
                     </div>
                 {{/courseindex}}
@@ -138,13 +138,13 @@
                             data-toggler="drawers"
                             data-action="toggle"
                             data-target="theme_boost-drawers-blocks"
-                            data-toggle="tooltip"
-                            data-placement="right"
+                            data-bs-toggle="tooltip"
+                            data-bs-placement="right"
                             title="{{#str}}opendrawerblocks, core{{/str}}"
                         >
-                            <span class="sr-only">{{#str}}opendrawerblocks, core{{/str}}</span>
-                            <span class="dir-rtl-hide">{{#pix}}t/blocks_drawer, core{{/pix}}</span>
-                            <span class="dir-ltr-hide">{{#pix}}t/blocks_drawer_rtl, core{{/pix}}</span>
+                            <span class="visually-hidden">{{#str}}opendrawerblocks, core{{/str}}</span>
+                            <span class="dir-rtl-hide">{{#pix}} e/sidebar_right, theme_moove {{/pix}}</span>
+                            <span class="dir-ltr-hide">{{#pix}} e/sidebar_left, theme_moove {{/pix}}</span>
                         </button>
                     </div>
                 {{/hasblocks}}
@@ -169,7 +169,7 @@
                         {{#overflow}}
                             <div class="container-fluid tertiary-navigation">
                                 <div class="navitem">
-                                    {{> core/url_select}}
+                                    {{> core/tertiary_navigation_selector}}
                                 </div>
                             </div>
                         {{/overflow}}
