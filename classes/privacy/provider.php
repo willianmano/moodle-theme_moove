@@ -28,6 +28,7 @@ use core_privacy\local\metadata\collection;
 use core_privacy\local\metadata\provider as baseprovider;
 use core_privacy\local\request\user_preference_provider;
 use core_privacy\local\request\writer;
+use theme_moove\colour_mode;
 
 /**
  * Privacy provider class
@@ -49,6 +50,8 @@ class provider implements
     const FONTTYPE = 'thememoovesettings_fonttype';
     /** The user preference for the enable accessibility toolbar. */
     const TOOLBAR = 'thememoovesettings_enableaccessibilitytoolbar';
+    /** The user preference for the light or dark colour mode. */
+    public const COLOUR_MODE = colour_mode::PREFERENCE;
 
     /**
      * Returns meta data about this system.
@@ -61,6 +64,7 @@ class provider implements
         $items->add_user_preference(self::SITECOLOR, 'privacy:metadata:preference:accessibilitystyles_sitecolorclass');
         $items->add_user_preference(self::FONTTYPE, 'privacy:metadata:preference:thememoovesettings_fonttype');
         $items->add_user_preference(self::TOOLBAR, 'privacy:metadata:preference:thememoovesettings_enableaccessibilitytoolbar');
+        $items->add_user_preference(self::COLOUR_MODE, 'privacy:metadata:preference:colourmode');
         return $items;
     }
 
@@ -108,6 +112,17 @@ class provider implements
                 self::FONTTYPE,
                 $fonttype,
                 get_string('privacy:thememoovesettings_fonttype', 'theme_moove', $fonttype)
+            );
+        }
+
+        $colourmodepref = get_user_preferences(self::COLOUR_MODE, null, $userid);
+
+        if (colour_mode::is_valid_mode($colourmodepref)) {
+            writer::export_user_preference(
+                'theme_moove',
+                self::COLOUR_MODE,
+                $colourmodepref,
+                get_string('privacy:colourmode:' . $colourmodepref, 'theme_moove')
             );
         }
     }

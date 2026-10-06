@@ -88,7 +88,7 @@
     }
 }
 
-body[data-bs-theme="dark"] {
+html[data-bs-theme="dark"] {
     .navbar .navbar-brand .logo.light {
         display: none;
     }

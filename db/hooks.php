@@ -15,34 +15,26 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Moove.
+ * Hook callbacks for Boost.
  *
- * @package    theme_moove
- * @copyright  2022 Willian Mano - https://conecti.me
+ * @package    theme_boost
+ * @copyright  Andrew Lyons <andrew@nicols.co.uk>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-// This line protects the file from being accessed by a URL directly.
 defined('MOODLE_INTERNAL') || die();
 
-// This is the component name of the plugin - it always starts with 'theme_'
-// for themes and should be the same as the name of the folder.
-$plugin->component = 'theme_moove';
-
-// This is the version of the plugin.
-$plugin->version = 2026042300;
-
-// This is the named version.
-$plugin->release = '5.2.2';
-
-// This is a stable release.
-$plugin->maturity = MATURITY_STABLE;
-
-// This is the version of Moodle this plugin requires.
-$plugin->requires = 2026041000;
-
-
-// This is a list of plugins, this plugin depends on (and their versions).
-$plugin->dependencies = [
-    'theme_boost' => 2026042000,
+$callbacks = [
+    [
+        'hook' => \core\hook\output\before_requirejs_config::class,
+        'callback' => [\theme_moove\hook_listener::class, 'before_requirejs_config_listener'],
+    ],
+    [
+        'hook' => \core\hook\output\before_html_attributes::class,
+        'callback' => [\theme_moove\hook_listener::class, 'before_html_attributes_listener'],
+    ],
+    [
+        'hook' => \core\hook\output\before_standard_head_html_generation::class,
+        'callback' => [\theme_moove\hook_listener::class, 'before_standard_head_html_generation_listener'],
+    ],
 ];

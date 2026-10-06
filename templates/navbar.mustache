@@ -90,9 +90,12 @@
             <div class="divider border-start h-75 align-self-center mx-1"></div>
         {{/output.search_box}}
 
-        {{{ output.edit_switch }}}
+        {{# output.colour_mode_menu }}
+            {{{ . }}}
+            <div class="divider border-start h-75 align-self-center mx-1"></div>
+        {{/ output.colour_mode_menu }}
 
-        {{{ output.render_darkmode_controls }}}
+        {{{ output.edit_switch }}}
 
         {{{ output.render_mylearning_controls }}}
 

@@ -195,10 +195,21 @@ $string['ourpartnersdesc'] = 'These are our partners who help Moodle and the com
 $string['readspeaker_text'] = '<strong>Do you know the block ReadSpeaker?</strong> It\'s a great resource that can help your students\' learning.';
 $string['readspeaker_link'] = 'Learn more about ReadSpeaker';
 
-$string['darkmodesettings'] = 'Dark mode';
-$string['darkmode_enable'] = 'Enable dark mode';
+
 $string['logodark'] = 'Logo dark';
 $string['logodarkdesc'] = 'Logo displayed in the header when dark mode is enabled.';
 
 $string['mylearning'] = 'My learning';
 $string['nolearning'] = 'You haven\'t started your learning yet';
+
+$string['colourmodesettings'] = 'Colour mode';
+$string['colourmode:auto'] = 'System';
+$string['colourmode:dark'] = 'Dark';
+$string['colourmode:light'] = 'Light';
+$string['colourmodeselected'] = 'Colour mode: {$a}';
+$string['defaultcolourmode'] = 'Default colour mode';
+$string['defaultcolourmode_desc'] = 'The colour mode used by people who have not chosen one. \'System\' follows the colour scheme set on their device or browser. While colour modes are experimental, this is set to \'Light\', so that people are only shown the dark mode once they choose it.';
+$string['enablecolourmodes'] = 'Enable colour modes';
+$string['enablecolourmodes_desc'] = 'Allow people to switch the site between a light and a dark colour scheme. When disabled, the site is always shown in light mode.
+
+This feature is experimental. Plugins are only shown in the dark colour scheme if they take their colours from the theme, so pages of a plugin which has not been checked yet may be shown with light backgrounds, or with text which is hard to read against them.';

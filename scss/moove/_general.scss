@@ -69,7 +69,7 @@ a {
     background-color: darken($brand-primary, 10%);
 }
 
-body[data-bs-theme="dark"] {
+html[data-bs-theme="dark"] {
     .dropdown-item:active,
     .dropdown-item:hover,
     .dropdown-item:focus,

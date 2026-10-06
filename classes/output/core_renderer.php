@@ -28,6 +28,7 @@ use theme_config;
 use core\context\course as context_course;
 use moodle_url;
 use html_writer;
+use theme_moove\colour_mode;
 use theme_moove\output\core_course\activity_navigation;
 use theme_moove\util\settings;
 
@@ -113,20 +114,20 @@ class core_renderer extends \theme_boost\output\core_renderer {
             $additionalclasses[] = $fonttype;
         }
 
-        $colormode = 'light';
-
-        $settings = new settings();
-        $darkmode = get_user_preferences('dark-mode-on', '');
-        if ($settings->enabledarkmode && $darkmode) {
-            $additionalclasses[] = 'moove-darkmode';
-            $colormode = 'dark';
-        }
-
         if (!is_array($additionalclasses)) {
             $additionalclasses = explode(' ', $additionalclasses);
         }
 
-        return " id='{$this->body_id()}' class='{$this->body_css_classes($additionalclasses)}' data-bs-theme='{$colormode}' ";
+        return " id='{$this->body_id()}' class='{$this->body_css_classes($additionalclasses)}' ";
+    }
+
+    /**
+     * Returns the navbar menu for switching between the light and dark colour modes.
+     *
+     * @return string HTML for the colour mode menu, or an empty string.
+     */
+    public function colour_mode_menu(): string {
+        return colour_mode::render_menu($this);
     }
 
     /**
@@ -503,24 +504,5 @@ class core_renderer extends \theme_boost\output\core_renderer {
         }
 
         return $this->render_from_template('theme_moove/moove/mylearning', []);
-    }
-
-    /**
-     * Render darkmode controls
-     *
-     * @return string Dark mode controls html content.
-     */
-    public function render_darkmode_controls() {
-        if (!isloggedin() || isguestuser()) {
-            return '';
-        }
-
-        $settings = new settings();
-
-        if (!$settings->enabledarkmode) {
-            return '';
-        }
-
-        return $this->render_from_template('theme_moove/moove/darkmode', []);
     }
 }
