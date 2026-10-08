@@ -1,11 +1,51 @@
-<div class="box py-3 generalbox alert alert-warning">
-    <div class="mb-2 mt-1 d-flex alert-heading">
-        <span><i class="icon fa fa-circle-info fa-fw " aria-hidden="true"></i></span>
-        <h3 class="h6 mb-0">{{#str}}supportandservices, admin{{/str}}</h3>
+<div class="admin-notification-ctas" style="background-color: initial">
+    <div class="admin-notification-ctas-heading">
+        <h3>{{#str}}supportandservices, admin{{/str}}</h3>
     </div>
-    <p>{{#str}}themedevelopedby, theme_moove{{/str}} <a href="https://conecti.me">conecti.me</a> {{#str}}themedevelopedbyconectimepartner, theme_moove{{/str}}</p>
-    <p>{{#str}}needsupport, theme_moove{{/str}} <a href="https://conecti.me">{{#str}}contactus, theme_moove{{/str}}.</a> {{#str}}pleasuretohelp, theme_moove{{/str}}</p>
-    <a href="https://conecti.me">
-        <img style="width: 400px;" class="img-fluid" src="{{config.wwwroot}}/theme/moove/pix/conectime-partner.svg" alt="Logo Conecti.me">
-    </a>
+    <div class="admin-notification-ctas-grid">
+        <div class="admin-notification-cta" data-cta-key="conectime">
+            <div class="admin-notification-cta-band">
+                <img src="{{config.wwwroot}}/theme/moove/pix/conectime-partner.svg" alt="" class="admin-notification-cta-logo" style="height: 60px;">
+            </div>
+            <div class="admin-notification-cta-body">
+                <p class="text-muted mb-0">{{#str}}themedevelopedby, theme_moove{{/str}} <a href="https://conecti.me">conecti.me</a> {{#str}}themedevelopedbyconectimepartner, theme_moove{{/str}}</p>
+                <ul class="admin-notification-cta-ticks list-unstyled">
+                    <li><i class="icon fa fa-check-circle admin-notification-cta-tick" aria-hidden="true"></i> {{#str}}cta:plugindevelopment, theme_moove{{/str}}</li>
+                    <li><i class="icon fa fa-check-circle admin-notification-cta-tick" aria-hidden="true"></i> {{#str}}cta:themedevelopment, theme_moove{{/str}}</li>
+                    <li><i class="icon fa fa-check-circle admin-notification-cta-tick" aria-hidden="true"></i> {{#str}}cta:consulting, theme_moove{{/str}}</li>
+                    <li><i class="icon fa fa-check-circle admin-notification-cta-tick" aria-hidden="true"></i> {{#str}}cta:hosting, theme_moove{{/str}}</li>
+                    <li><i class="icon fa fa-check-circle admin-notification-cta-tick" aria-hidden="true"></i> {{#str}}cta:installation, theme_moove{{/str}}</li>
+                    <li><i class="icon fa fa-check-circle admin-notification-cta-tick" aria-hidden="true"></i> {{#str}}cta:integration, theme_moove{{/str}}</li>
+                    <li><i class="icon fa fa-check-circle admin-notification-cta-tick" aria-hidden="true"></i> {{#str}}cta:support, theme_moove{{/str}}</li>
+                    <li><i class="icon fa fa-check-circle admin-notification-cta-tick" aria-hidden="true"></i> {{#str}}cta:training, theme_moove{{/str}}</li>
+                </ul>
+                <p class="text-muted mb-0">{{#str}}needsupport, theme_moove{{/str}} <a href="https://conecti.me" target="_blank" rel="noopener noreferrer">{{#str}}contactus, theme_moove{{/str}}.</a> {{#str}}pleasuretohelp, theme_moove{{/str}}</p>
+                <div class="admin-notification-cta-action">
+                    <a href="https://conecti.me" class="btn admin-notification-cta-button" target="_blank" rel="noopener noreferrer">
+                        {{#str}}contactus, theme_moove{{/str}}
+                        <i class="icon fa fa-arrow-right ms-1" aria-hidden="true"></i>
+                        <span class="visually-hidden">{{#str}}cta:opennewwindow, theme_moove{{/str}}</span>
+                    </a>
+                    <span class="admin-notification-cta-caption text-muted">{{#str}}cta:opennewwindow, theme_moove{{/str}}</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="admin-notification-cta" data-cta-key="conectimepartners">
+            <div class="admin-notification-cta-band">
+                <h3>{{#str}}ourpartners, theme_moove{{/str}}</h3>
+            </div>
+            <div class="admin-notification-cta-body">
+                <p class="text-muted mb-0">{{#str}}ourpartnersdesc, theme_moove{{/str}}</p>
+
+                <div class="row align-items-center row-cols-2 row-cols-sm-1 row-cols-md-2">
+                    <div class="col">
+                        <a href="https://www.readspeaker.com/conecti-me">
+                            <img style="max-height: 100px;" class="m-2 img-fluid" src="{{config.wwwroot}}/theme/moove/pix/partner-readspeaker.svg" alt="ReadSpeaker">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

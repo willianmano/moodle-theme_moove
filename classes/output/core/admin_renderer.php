@@ -45,10 +45,9 @@ class admin_renderer extends \core_admin_renderer {
      * @param bool $cronoverdue warn cron not running
      * @param bool $dbproblems warn db has problems
      * @param bool $maintenancemode warn in maintenance mode
+     * @param bool $buggyiconvnomb warn iconv problems
      * @param array|null $availableupdates array of \core\update\info objects or null
      * @param int|null $availableupdatesfetch timestamp of the most recent updates fetch or null (unknown)
-     * @param bool $buggyiconvnomb warn iconv problems
-     * @param boolean $registered true if the site is registered on Moodle.org
      * @param string[] $cachewarnings An array containing warnings from the Cache API.
      * @param array $eventshandlers Events 1 API handlers.
      * @param bool $themedesignermode Warn about the theme designer mode.
@@ -57,14 +56,11 @@ class admin_renderer extends \core_admin_renderer {
      * @param bool $overridetossl Whether or not ssl is being forced.
      * @param bool $invalidforgottenpasswordurl Whether the forgotten password URL does not link to a valid URL.
      * @param bool $croninfrequent If true, warn that cron hasn't run in the past few minutes
-     * @param bool $showcampaigncontent Whether the campaign content should be visible or not.
-     * @param bool $showfeedbackencouragement Whether the feedback encouragement content should be displayed or not.
-     * @param bool $showservicesandsupport Whether the services and support content should be displayed or not.
      * @param string $xmlrpcwarning XML-RPC deprecation warning message.
      *
      * @return string HTML to output.
      */
-    public function admin_notifications_page(
+    public function notifications_page(
         $maturity,
         $insecuredataroot,
         $errorsdisplayed,
@@ -83,42 +79,65 @@ class admin_renderer extends \core_admin_renderer {
         $overridetossl = false,
         $invalidforgottenpasswordurl = false,
         $croninfrequent = false,
-        $showcampaigncontent = false,
-        bool $showfeedbackencouragement = false,
-        bool $showservicesandsupport = false,
         $xmlrpcwarning = ''
     ) {
+
         global $CFG;
         $output = '';
 
+        $notifications = [];
+
+        $add = function (string $html, string $severity) use (&$notifications) {
+            if ($html !== '') {
+                $notifications[] = ['html' => $html, 'severity' => $severity];
+            }
+        };
+        $add($this->maturity_info($maturity), $maturity == MATURITY_ALPHA ? 'danger' : 'warning');
+        if (empty($CFG->disableupdatenotifications)) {
+            $add($this->available_updates($availableupdates, $availableupdatesfetch), 'notice');
+        }
+        $add(
+            $this->insecure_dataroot_warning($insecuredataroot),
+            $insecuredataroot == INSECURE_DATAROOT_ERROR ? 'danger' : 'warning'
+        );
+        $add($this->development_libs_directories_warning($devlibdir), 'danger');
+        $add($this->themedesignermode_warning($themedesignermode), 'warning');
+        $add($this->display_errors_warning($errorsdisplayed), 'warning');
+        $add($this->buggy_iconv_warning($buggyiconvnomb), 'warning');
+        $add($this->cron_overdue_warning($cronoverdue), 'warning');
+        $add($this->cron_infrequent_warning($croninfrequent), 'warning');
+        $add($this->db_problems($dbproblems), 'warning');
+        $add($this->maintenance_mode_warning($maintenancemode), 'warning');
+        $add($this->overridetossl_warning($overridetossl), 'warning');
+        $add($this->cache_warnings($cachewarnings), 'warning');
+        $add($this->events_handlers($eventshandlers), 'warning');
+        $add($this->registration_warning($registered), $this->registration_warning_severity($registered));
+        $add($this->mobile_configuration_warning($mobileconfigured), 'warning');
+        $add($this->forgotten_password_url_warning($invalidforgottenpasswordurl), 'danger');
+        $add($this->mnet_deprecation_warning($xmlrpcwarning), 'warning');
+        $add($this->moodlenet_removal_warning(), 'warning');
+        // Group and order by severity (danger/critical first, then warning, then notice), preserving the
+        // original relative order of notifications within each severity group.
+        $severityorder = ['danger' => 0, 'warning' => 1, 'notice' => 2];
+        usort($notifications, fn($a, $b) => $severityorder[$a['severity']] <=> $severityorder[$b['severity']]);
+
+        $counts = ['danger' => 0, 'warning' => 0, 'notice' => 0];
+        foreach ($notifications as $notification) {
+            $counts[$notification['severity']]++;
+        }
+
         $output .= $this->header();
-        $output .= $this->output->heading(get_string('notifications', 'admin'));
+        $output .= $this->notifications_heading($counts);
+        foreach ($notifications as $notification) {
+            $output .= $notification['html'];
+        }
+
         $output .= $this->conectime_services_and_support_content();
-        $output .= $this->conectime_partners_content();
-        $output .= $this->maturity_info($maturity);
-        $output .= empty($CFG->disableupdatenotifications) ?
-                        $this->available_updates($availableupdates, $availableupdatesfetch)
-                        : '';
-        $output .= $this->insecure_dataroot_warning($insecuredataroot);
-        $output .= $this->development_libs_directories_warning($devlibdir);
-        $output .= $this->themedesignermode_warning($themedesignermode);
-        $output .= $this->display_errors_warning($errorsdisplayed);
-        $output .= $this->buggy_iconv_warning($buggyiconvnomb);
-        $output .= $this->cron_overdue_warning($cronoverdue);
-        $output .= $this->cron_infrequent_warning($croninfrequent);
-        $output .= $this->db_problems($dbproblems);
-        $output .= $this->maintenance_mode_warning($maintenancemode);
-        $output .= $this->overridetossl_warning($overridetossl);
-        $output .= $this->cache_warnings($cachewarnings);
-        $output .= $this->events_handlers($eventshandlers);
-        $output .= $this->registration_warning($registered);
-        $output .= $this->mobile_configuration_warning($mobileconfigured);
-        $output .= $this->forgotten_password_url_warning($invalidforgottenpasswordurl);
-        $output .= $this->mnet_deprecation_warning($xmlrpcwarning);
-        $output .= $this->userfeedback_encouragement($showfeedbackencouragement);
-        $output .= $this->campaign_content($showcampaigncontent);
-        // It is illegal and a violation of the GPL to hide, remove or modify this copyright notice.
+
+        //////////////////////////////////////////////////////////////////////////////////////////////////
+        ////  IT IS ILLEGAL AND A VIOLATION OF THE GPL TO HIDE, REMOVE OR MODIFY THIS COPYRIGHT NOTICE ///
         $output .= $this->moodle_copyright();
+        //////////////////////////////////////////////////////////////////////////////////////////////////
 
         $output .= $this->footer();
 
@@ -132,14 +151,5 @@ class admin_renderer extends \core_admin_renderer {
      */
     private function conectime_services_and_support_content(): string {
         return $this->render_from_template('theme_moove/moove/conectime_services_and_support_content_banner', []);
-    }
-
-    /**
-     * Display services and support content.
-     *
-     * @return string the campaign content raw html.
-     */
-    private function conectime_partners_content(): string {
-        return $this->render_from_template('theme_moove/moove/conectime_partners_banner', []);
     }
 }

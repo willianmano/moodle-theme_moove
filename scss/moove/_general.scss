@@ -323,6 +323,21 @@ html[data-bs-theme="dark"] {
     }
 }
 
+.admin-notification-ctas .admin-notification-cta[data-cta-key="conectime"] {
+    --cta-band: #fedfc1;
+    --cta-button: #282828;
+    --cta-button-hover: #545454;
+    --cta-tick: #194866;
+}
+
+.admin-notification-ctas .admin-notification-cta[data-cta-key="conectimepartners"] {
+    --cta-band: #194866;
+    --cta-button: #194866;
+    --cta-button-hover: #102f42;
+    --cta-tick: #194866;
+    color: #fff;
+}
+
 @include media-breakpoint-up(md) {
     .pagelayout-standard #page.drawers .main-inner,
     body.limitedwidth #page.drawers .main-inner,

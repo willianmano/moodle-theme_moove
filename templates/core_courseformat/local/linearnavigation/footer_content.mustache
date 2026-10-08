@@ -1,0 +1,81 @@
+{{!
+    This file is part of Moodle - https://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <https://www.gnu.org/licenses/>.
+}}
+{{!
+    @template core_courseformat/local/linearnavigation/footer_content
+
+    The course linear navigation footer content.
+
+    Example context (json):
+    {
+        "previousurl": "http://moodle.com/course/cms/42/previous",
+        "nexturl": "http://moodle.com/course/cms/42/next",
+        "backtocourseurl": "http://moodle.com/course/cms/42/next",
+        "completion": "<span class=\"completion-status text-success\"><i class=\"fa fa-check\"></i> <span>Done</span></span>"
+    }
+}}
+<div class="course-linear-navigation-footer-content d-flex w-100 align-items-center px-2 px-sm-0">
+    {{#previousurl}}
+        <div id="prev-activity">
+            <a href="{{.}}" class="course-linear-navigation-link text-decoration-none d-inline-flex align-items-center gap-1">
+                <div class="larrow">
+                    <i class="dir-rtl-hide icon-arrow-left"></i>
+                    <i class="dir-ltr-hide icon-arrow-right"></i>
+                </div>
+                <div class="text">
+                    <span class="nav-guide">
+                        {{#str}}prev_activity, theme_moove{{/str}}
+                    </span>
+                </div>
+            </a>
+        </div>
+    {{/previousurl}}
+
+    <div class="d-flex align-items-center gap-4 ms-auto" data-for="course-linear-navigation-footer">
+        {{! Completion status is displayed in the footer for linear navigation. }}
+        {{#completion}}
+        <div class="course-linear-navigation-completion">
+            {{{ . }}}
+        </div>
+        <div class="vr"></div>
+        {{/completion}}
+
+        {{#nexturl}}
+            <div id="next-activity">
+                <a href="{{.}}" class="course-linear-navigation-link text-decoration-none d-inline-flex align-items-center gap-1 ms-auto">
+                    <div class="text">
+                            <span class="nav-guide">
+                                {{#str}}next_activity, theme_moove{{/str}}
+                            </span>
+                    </div>
+                    <div class="rarrow">
+                        <i class="dir-ltl-hide icon-arrow-left"></i>
+                        <i class="dir-rtr-hide icon-arrow-right"></i>
+                    </div>
+                </a>
+            </div>
+        {{/nexturl}}
+        {{#backtocourseurl}}
+        <a href="{{.}}" class="course-linear-navigation-link text-decoration-none d-inline-flex align-items-center gap-1 ms-auto">
+            <div class="text">
+                <span class="nav-guide">
+                    {{#str}}backtocourse, core{{/str}}
+                </span>
+            </div>
+        </a>
+        {{/backtocourseurl}}
+    </div>
+</div>

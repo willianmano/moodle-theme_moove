@@ -1,5 +1,9 @@
 #sticky-footer {
     background-color: #fff !important;
+
+    .sticky-footer-content-wrapper .sticky-footer-content {
+        max-width: 85%;
+    }
 }
 
 #page-footer {
