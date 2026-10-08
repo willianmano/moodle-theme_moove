@@ -1,6 +1,10 @@
 This files describes API changes in Moove theme,
 information provided here is intended especially for everyone.
 
+=== 5.3.0 ===
+
+* Adds optional floating WhatsApp contact button, shown site-wide
+
 === 5.1.2 ===
 
 * Adds dark mode

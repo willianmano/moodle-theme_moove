@@ -1,0 +1,34 @@
+.moove-whatsapp-float {
+    position: fixed;
+    z-index: 1030;
+    bottom: 2rem;
+    left: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 50%;
+    background-color: $whatsapp-color;
+    color: #fff;
+    font-size: 1.75rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+    transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
+
+    &:hover,
+    &:focus {
+        background-color: darken($whatsapp-color, 10%);
+        color: #fff;
+        transform: scale(1.05);
+    }
+}
+
+@include media-breakpoint-down(sm) {
+    .moove-whatsapp-float {
+        bottom: 1rem;
+        left: 1rem;
+        width: 3rem;
+        height: 3rem;
+        font-size: 1.5rem;
+    }
+}

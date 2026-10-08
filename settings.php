@@ -461,6 +461,20 @@ if ($ADMIN->fulltree) {
     $setting = new admin_setting_configtext($name, $title, $description, '');
     $page->add($setting);
 
+    // Enable whatsapp floating button.
+    $name = 'theme_moove/enablewhatsappbutton';
+    $title = get_string('enablewhatsappbutton', 'theme_moove');
+    $description = get_string('enablewhatsappbutton_desc', 'theme_moove');
+    $setting = new admin_setting_configcheckbox($name, $title, $description, 0);
+    $page->add($setting);
+
+    // Whatsapp floating button message.
+    $name = 'theme_moove/whatsappbuttonmessage';
+    $title = get_string('whatsappbuttonmessage', 'theme_moove');
+    $description = get_string('whatsappbuttonmessagedesc', 'theme_moove');
+    $setting = new admin_setting_configtext($name, $title, $description, '', PARAM_TEXT);
+    $page->add($setting);
+
     // Telegram url setting.
     $name = 'theme_moove/telegram';
     $title = get_string('telegram', 'theme_moove');

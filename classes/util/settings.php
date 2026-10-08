@@ -107,6 +107,19 @@ class settings {
             }
         }
 
+        $templatecontext['showwhatsappbutton'] = false;
+        if ($this->enablewhatsappbutton && !empty($templatecontext['whatsapp'])) {
+            $whatsappurl = new \moodle_url('https://api.whatsapp.com/send', ['phone' => $templatecontext['whatsapp']]);
+
+            $whatsappbuttonmessage = $this->whatsappbuttonmessage;
+            if (!empty($whatsappbuttonmessage)) {
+                $whatsappurl->param('text', $whatsappbuttonmessage);
+            }
+
+            $templatecontext['showwhatsappbutton'] = true;
+            $templatecontext['whatsappbuttonurl'] = $whatsappurl->out(false);
+        }
+
         $templatecontext['enablemobilewebservice'] = $CFG->enablemobilewebservice;
 
         if ($CFG->enablemobilewebservice) {
