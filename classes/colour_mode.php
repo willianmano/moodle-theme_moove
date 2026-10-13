@@ -67,6 +67,17 @@ class colour_mode extends \theme_boost\colour_mode {
     }
 
     /**
+     * Whether the current user can choose their own colour mode.
+     *
+     * Guests and users who are not logged in cannot store user preferences, so they always get the site default.
+     *
+     * @return bool
+     */
+    public static function can_choose_mode(): bool {
+        return self::is_enabled() && isloggedin() && !isguestuser();
+    }
+
+    /**
      * The colour mode used for users who have not chosen one.
      *
      * A Behat run started with --colourmode takes precedence over the site setting, so that the whole suite can be

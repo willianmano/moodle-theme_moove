@@ -111,6 +111,11 @@ class core_renderer extends \theme_boost\output\core_renderer {
             $additionalclasses[] = $fonttype;
         }
 
+        $enablewhatsappbutton = (bool) get_config('theme_moove', 'enablewhatsappbutton');
+        if ($enablewhatsappbutton) {
+            $additionalclasses[] = 'haswhatsappbutton';
+        }
+
         if (!is_array($additionalclasses)) {
             $additionalclasses = explode(' ', $additionalclasses);
         }
@@ -418,5 +423,30 @@ class core_renderer extends \theme_boost\output\core_renderer {
         }
 
         return $this->render_from_template('theme_moove/moove/mylearning', []);
+    }
+
+    /**
+     * Render the frontpage slideshow, using the layout chosen in the theme settings.
+     *
+     * @return string Slideshow html content, or an empty string if no slides are configured.
+     */
+    public function slideshow(): string {
+        $themesettings = new \theme_moove\util\settings();
+
+        $templatecontext = $themesettings->frontpage_slideshow();
+
+        if (empty($templatecontext['slidercount'])) {
+            return '';
+        }
+
+        $layouttemplates = [
+            'classic' => 'theme_moove/moove/slideshow/classic',
+            'centered' => 'theme_moove/moove/slideshow/centered',
+            'editorial' => 'theme_moove/moove/slideshow/editorial',
+        ];
+
+        $template = $layouttemplates[$templatecontext['slideshowlayout']] ?? $layouttemplates['classic'];
+
+        return $this->render_from_template($template, $templatecontext);
     }
 }

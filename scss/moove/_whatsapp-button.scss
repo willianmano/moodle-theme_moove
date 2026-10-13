@@ -2,7 +2,7 @@
     position: fixed;
     z-index: 1030;
     bottom: 2rem;
-    left: 2rem;
+    right: 2rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -20,6 +20,13 @@
         background-color: darken($whatsapp-color, 10%);
         color: #fff;
         transform: scale(1.05);
+    }
+}
+
+body.haswhatsappbutton {
+    .footer-popover .btn-footer-popover {
+        right: initial;
+        left: 2rem;
     }
 }
 

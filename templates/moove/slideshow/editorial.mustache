@@ -1,0 +1,85 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template theme_moove/slideshow/editorial
+
+    Frontpage slideshow styled as an editorial listing card: photo and content side by
+    side on a warm background, with pill-style pagination below the card.
+
+    Context variables required for this template:
+    * slidersingleslide - true when there is only one slide
+    * slides - Array of slide objects (key, active, image, title, caption, hascaption)
+
+    Example context (json):
+    {
+        "slidersingleslide": true,
+        "slides": [
+            {"key": 0, "active": true, "image": "https://example.com/slide.jpg", "title": "Welcome", "caption": "<p>Caption</p>", "hascaption": true}
+        ]
+    }
+}}
+<div id="mooveslideshow" class="container-fluid slideshow-layout-editorial">
+    <div id="moove-carousel" class="carousel slide">
+        <div class="carousel-inner">
+            {{#slides}}
+                <div class="carousel-item {{#active}}active{{/active}}">
+                    <div class="slide-card">
+                        <div class="slide-card-image">
+                            <img src="{{image}}" alt="{{title}}" class="d-block w-100">
+                        </div>
+                        <div class="slide-card-content">
+                            {{#hascaption}}
+                                {{#title}}
+                                    <h5 class="title">{{.}}</h5>
+                                {{/title}}
+                                {{#caption}}
+                                    <div class="caption">
+                                        {{{.}}}
+                                    </div>
+                                {{/caption}}
+                            {{/hascaption}}
+                        </div>
+                    </div>
+                </div>
+            {{/slides}}
+        </div>
+        {{^slidersingleslide}}
+            <div class="slide-pagination">
+                <button class="carousel-control-prev" type="button" data-bs-target="#moove-carousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">{{#str}}previous{{/str}}</span>
+                </button>
+                <div class="carousel-indicators">
+                    {{#slides}}
+                        <button type="button" data-bs-target="#moove-carousel" data-bs-slide-to="{{{ key }}}" {{#active}}class="active" aria-current="true"{{/active}} aria-label="{{title}}"></button>
+                    {{/slides}}
+                </div>
+                <button class="carousel-control-next" type="button" data-bs-target="#moove-carousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">{{#str}}next{{/str}}</span>
+                </button>
+            </div>
+        {{/slidersingleslide}}
+    </div>
+</div>
+{{#js}}
+    require(['jquery'], function($) {
+        $('#moove-carousel').carousel({
+            interval: 5000
+        });
+    });
+{{/js}}

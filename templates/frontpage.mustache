@@ -60,48 +60,7 @@
     {{> theme_moove/navbar }}
 
     <div id="page" data-region="mainpage" data-usertour="scroller" class="drawers drag-container bg-white">
-        {{#slidercount}}
-            <div id="mooveslideshow" class="container-fluid">
-                <div id="moove-carousel" class="carousel slide">
-                    {{^slidersingleslide}}
-                        <div class="carousel-indicators">
-                            {{#slides}}
-                                <button type="button" data-bs-target="#moove-carousel" data-bs-slide-to="{{{ key }}}" {{#active}}class="active" aria-current="true"{{/active}}  aria-label="{{slidertitle}}"></button>
-                            {{/slides}}
-                        </div>
-                    {{/slidersingleslide}}
-                    <div class="carousel-inner">
-                        {{#slides}}
-                            <div class="carousel-item {{#active}}active{{/active}}">
-                                <img src="{{image}}" alt="{{slidertitle}}" class="d-block w-100">
-                                {{#hascaption}}
-                                    <div class="carousel-caption d-none d-md-block">
-                                        {{#title}}
-                                            <h5 class="title">{{.}}</h5>
-                                        {{/title}}
-                                        {{#caption}}
-                                            <div class="caption">
-                                                {{{.}}}
-                                            </div>
-                                        {{/caption}}
-                                    </div>
-                                {{/hascaption}}
-                            </div>
-                        {{/slides}}
-                    </div>
-                    {{^slidersingleslide}}
-                        <button class="carousel-control-prev" type="button" data-bs-target="#moove-carousel" data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">{{#str}}previous{{/str}}</span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#moove-carousel" data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">{{#str}}next{{/str}}</span>
-                        </button>
-                    {{/slidersingleslide}}
-                </div>
-            </div>
-        {{/slidercount}}
+        {{{ output.slideshow }}}
 
         {{#displaymarketingbox}}
             <section id="feature">
@@ -222,10 +181,6 @@
         M.util.js_complete('theme_boost/loader');
     });
     require(['jquery'], function($) {
-        $('.carousel').carousel({
-            interval: 5000
-        });
-
         if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
             document.body.setAttribute('data-bs-theme', 'dark');
         }

@@ -227,6 +227,18 @@ if ($ADMIN->fulltree) {
     $page->add($setting);
 
     // Slideshow.
+    $name = 'theme_moove/slideshowlayout';
+    $title = get_string('slideshowlayout', 'theme_moove');
+    $description = get_string('slideshowlayoutdesc', 'theme_moove');
+    $default = 'classic';
+    $options = [
+        'classic' => get_string('slideshowlayoutclassic', 'theme_moove'),
+        'centered' => get_string('slideshowlayoutcentered', 'theme_moove'),
+        'editorial' => get_string('slideshowlayouteditorial', 'theme_moove'),
+    ];
+    $setting = new admin_setting_configselect($name, $title, $description, $default, $options);
+    $page->add($setting);
+
     $name = 'theme_moove/slidercount';
     $title = get_string('slidercount', 'theme_moove');
     $description = get_string('slidercountdesc', 'theme_moove');
@@ -236,7 +248,6 @@ if ($ADMIN->fulltree) {
         $options[$i] = $i;
     }
     $setting = new admin_setting_configselect($name, $title, $description, $default, $options);
-    $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
 
     // If we don't have an slide yet, default to the preset.

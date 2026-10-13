@@ -1,0 +1,321 @@
+#page-site-index #mooveslideshow {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    padding: 0;
+
+    .carousel-inner {
+        border-radius: .5rem;
+    }
+
+    .caption {
+        text-align: center;
+    }
+
+    .carousel-indicators {
+        background-color: rgba(0, 0, 0, .6);
+        margin-bottom: 15px;
+        height: 20px;
+        border-bottom-left-radius: .5rem;
+        border-bottom-right-radius: .5rem;
+    }
+
+    .carousel-caption {
+        background-color: rgba(0, 0, 0, .6);
+        margin: 0;
+        bottom: 35px;
+        padding: 15px;
+        border-top-left-radius: .5rem;
+        border-top-right-radius: .5rem;
+    }
+
+    .carousel-fade .carousel-item {
+        opacity: 0;
+        transition-duration: .6s;
+        transition-property: opacity;
+    }
+
+    .carousel-fade  .carousel-item.active,
+    .carousel-fade  .carousel-item-next.carousel-item-left,
+    .carousel-fade  .carousel-item-prev.carousel-item-right {
+        opacity: 1;
+    }
+
+    .carousel-fade .active.carousel-item-left,
+    .carousel-fade  .active.carousel-item-right {
+        opacity: 0;
+    }
+
+    .carousel-fade  .carousel-item-next,
+    .carousel-fade .carousel-item-prev,
+    .carousel-fade .carousel-item.active,
+    .carousel-fade .active.carousel-item-left,
+    .carousel-fade  .active.carousel-item-prev {
+        transform: translateX(0);
+        transform: translate3d(0, 0, 0);
+    }
+
+    .carousel-item .title,
+    .carousel-item .caption {
+        color: #fff;
+    }
+
+    .carousel-item .caption .text_to_html p:last-of-type {
+        margin-bottom: 0;
+    }
+
+    // Centered text over the image, with a dark overlay.
+    &.slideshow-layout-centered {
+        .slide-centered-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 32rem;
+            border-radius: .5rem;
+            overflow: hidden;
+
+            img {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+
+        .slide-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(0, 0, 0, .2) 0%, rgba(0, 0, 0, .7) 100%);
+        }
+
+        .slide-centered-content {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            max-width: 48rem;
+            padding: 0 1.5rem;
+            text-align: center;
+
+            .title {
+                font-size: 3rem;
+                font-weight: 800;
+                line-height: 1.1;
+                letter-spacing: -.03rem;
+                margin-bottom: 1rem;
+                text-shadow: 0 .125rem .75rem rgba(0, 0, 0, .25);
+            }
+
+            .caption {
+                font-size: 1.15rem;
+                font-weight: 300;
+                opacity: .9;
+            }
+        }
+
+        .carousel-indicators {
+            position: absolute;
+            bottom: 1.5rem;
+            background-color: transparent;
+            height: auto;
+            margin: 0;
+            border-radius: 0;
+        }
+
+        .carousel-control-prev,
+        .carousel-control-next {
+            top: 50%;
+            bottom: auto;
+            transform: translateY(-50%);
+            width: 3.25rem;
+            height: 3.25rem;
+            background-color: rgba(255, 255, 255, .15);
+            border-radius: 50%;
+            opacity: 1;
+            transition: background-color .2s ease;
+
+            &:hover {
+                background-color: rgba(255, 255, 255, .3);
+            }
+        }
+
+        .carousel-control-prev {
+            left: 1.5rem;
+        }
+
+        .carousel-control-next {
+            right: 1.5rem;
+        }
+
+        @include media-breakpoint-down(md) {
+            .slide-centered-wrapper {
+                min-height: 22rem;
+            }
+
+            .slide-centered-content .title {
+                font-size: 1.75rem;
+            }
+
+            .slide-centered-content .caption {
+                font-size: 1rem;
+            }
+
+            .carousel-control-prev,
+            .carousel-control-next {
+                display: none;
+            }
+        }
+    }
+
+    // Editorial listing card with an image/content split and pill-style pagination below it.
+    &.slideshow-layout-editorial {
+        background-color: var(--bs-body-bg);;
+        border-radius: 1.5rem;
+        padding: 2.5rem 2.5rem 2rem;
+
+        .slide-card {
+            display: flex;
+            min-height: 24rem;
+            background-color: #fff;
+            border-radius: 1.25rem;
+            overflow: hidden;
+            box-shadow: 0 1.5rem 3rem rgba(31, 26, 14, .1);
+        }
+
+        .slide-card-image {
+            flex: 0 0 50%;
+
+            img {
+                display: block;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+
+        .slide-card-content {
+            flex: 0 0 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 3rem 3.5rem;
+
+            &::before {
+                content: '';
+                display: block;
+                width: 2.5rem;
+                height: 4px;
+                border-radius: 2px;
+                background-color: #a35d2d;
+                margin-bottom: 1.25rem;
+            }
+
+            .title {
+                font-size: 2rem;
+                font-weight: 800;
+                line-height: 1.2;
+                color: #26291f;
+                margin-bottom: .75rem;
+            }
+
+            .caption {
+                color: #6b665a;
+                font-size: 1.05rem;
+                text-align: left;
+            }
+        }
+
+        .slide-pagination {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: .85rem;
+            margin-top: 1.75rem;
+        }
+
+        .carousel-indicators {
+            position: static;
+            width: auto;
+            height: auto;
+            margin: 0;
+            padding: 0;
+            background-color: transparent;
+            border-radius: 0;
+            display: flex;
+            align-items: center;
+            gap: .4rem;
+
+            button {
+                width: 8px;
+                height: 8px;
+                margin: 0;
+                border: 0;
+                border-radius: 4px;
+                background-color: #d9d2bf;
+                opacity: 1;
+                transition: width .25s ease, background-color .25s ease;
+
+                &.active {
+                    width: 2rem;
+                    background-color: #3f5c47;
+                }
+            }
+        }
+
+        .carousel-control-prev,
+        .carousel-control-next {
+            position: static;
+            flex: 0 0 auto;
+            width: 2.75rem;
+            height: 2.75rem;
+            background-color: #fff;
+            border: 1px solid #e4ddc9;
+            border-radius: 50%;
+            opacity: 1;
+            transition: background-color .2s ease;
+
+            .carousel-control-prev-icon,
+            .carousel-control-next-icon {
+                filter: invert(1) grayscale(100);
+                width: 1rem;
+                height: 1rem;
+            }
+
+            &:hover {
+                background-color: #f3efe6;
+            }
+        }
+
+        @include media-breakpoint-down(md) {
+            padding: 1.5rem 1.5rem 1.75rem;
+
+            .slide-card {
+                flex-direction: column;
+                min-height: 0;
+            }
+
+            .slide-card-image img {
+                height: 14rem;
+            }
+
+            .slide-card-content {
+                padding: 1.75rem;
+                text-align: center;
+
+                &::before {
+                    margin-left: auto;
+                    margin-right: auto;
+                }
+
+                .title {
+                    font-size: 1.5rem;
+                }
+
+                .caption {
+                    text-align: center;
+                }
+            }
+        }
+    }
+}
