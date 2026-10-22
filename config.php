@@ -48,7 +48,7 @@ $THEME->layouts = [
         'options' => ['nonavbar' => true],
     ],
     'course' => [
-        'file' => 'drawers.php',
+        'file' => 'course.php',
         'regions' => ['side-pre', 'content'],
         'defaultregion' => 'side-pre',
         'options' => ['langmenu' => true],
