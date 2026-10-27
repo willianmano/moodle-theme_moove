@@ -105,7 +105,7 @@ if ($ADMIN->fulltree) {
     $name = 'theme_moove/brandcolor';
     $title = get_string('brandcolor', 'theme_moove');
     $description = get_string('brandcolor_desc', 'theme_moove');
-    $setting = new admin_setting_configcolourpicker($name, $title, $description, '#0f47ad');
+    $setting = new admin_setting_configcolourpicker($name, $title, $description, '#025087');
     $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
 
@@ -114,7 +114,7 @@ if ($ADMIN->fulltree) {
     $name = 'theme_moove/secondarymenucolor';
     $title = get_string('secondarymenucolor', 'theme_moove');
     $description = get_string('secondarymenucolor_desc', 'theme_moove');
-    $setting = new admin_setting_configcolourpicker($name, $title, $description, '#0f47ad');
+    $setting = new admin_setting_configcolourpicker($name, $title, $description, '#025087');
     $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
 

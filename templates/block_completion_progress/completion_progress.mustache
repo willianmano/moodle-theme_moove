@@ -1,0 +1,152 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template block_completion_progress/completion_progress
+
+    Produces a progress bar.
+
+    Example context (json):
+    {
+        "novisibleactivities": false,
+        "simple": false,
+        "courseid": 1,
+        "instanceid": 1,
+        "userid": 99,
+        "cellsperrow": 4,
+        "displaynow": true,
+        "useicons": true,
+        "barwrap": false,
+        "barscroll": false,
+        "barsqueeze": true,
+        "cells": [
+            {
+                "activityid": 349,
+                "haslink": "not-allowed",
+                "firstnow": true,
+                "firsthalfnow": false,
+                "lasthalfnow": false,
+                "submittednotcomplete": true,
+                "completed": false,
+                "notcompleted": false,
+                "futurenotcompleted": false,
+                "activitylink": "https://url/",
+                "activityicon": "https://url/",
+                "activityname": "Text",
+                "activityonclick": "void(0)",
+                "infoicon": "tick",
+                "infocomplete": true,
+                "infopassed": false,
+                "infofailed": false,
+                "infoincomplete": false,
+                "infosubmitted": false
+            }
+        ],
+        "progresspercentage": "0%"
+    }
+}}
+{{#novisibleactivities}}
+    {{#str}} no_visible_activities_message, block_completion_progress {{/str}}
+{{/novisibleactivities}}
+{{^novisibleactivities}}
+    <div class="block_completion_progress">
+        {{#progresspercentage}}
+            <div class="progressPercentageTop">
+                <h4 class="progressPercentageTop-value">{{progresspercentage}} <span>{{#str}}medilearn:complete, theme_moove{{/str}}</span></h4>
+            </div>
+        {{/progresspercentage}}
+
+        <div class="barContainer" data-courseid="{{courseid}}" data-instanceid="{{instanceid}}" data-userid="{{userid}}">
+            {{#barscroll}}
+                <svg class="left-arrow-svg" height="30" width="30"><polygon points="30,0 0,15 30,30" class="triangle-polygon"></svg>
+                <svg class="right-arrow-svg" height="30" width="30"><polygon points="0,0 30,15 0,30" class="triangle-polygon"></svg>
+            {{/barscroll}}
+
+            <div class="barRow
+                    {{#useicons}}barWithIcons{{/useicons}}
+                    {{#displaynow}}barWithNow{{/displaynow}}
+                    {{#barsqueeze}}barModeSqueeze{{/barsqueeze}}
+                    {{#barwrap}}barModeWrap{{/barwrap}}
+                    {{#barscroll}}barModeScroll{{/barscroll}}">
+                <div class="barRowCells" style="{{#barwrap}}flex-basis: calc(100% / {{cellsperrow}}){{/barwrap}}">
+                    {{#cells}}
+                        <div class="progressBarCell
+                                {{#submittednotcomplete}}submittedNotComplete{{/submittednotcomplete}}
+                                {{#completed}}completed{{/completed}}
+                                {{#notcompleted}}notCompleted{{/notcompleted}}
+                                {{#futurenotcompleted}}futureNotCompleted{{/futurenotcompleted}}"
+                        data-inforef="{{instanceid}}-{{userid}}-{{activityid}}"
+                        data-haslink="{{haslink}}">
+                        </div>
+                    {{/cells}}
+                </div>
+            </div>
+        </div>
+
+        {{#progresspercentage}}
+            <div class="progressPercentage">
+                {{progresspercentage}} {{#str}}medilearn:complete, theme_moove{{/str}}
+            </div>
+        {{/progresspercentage}}
+
+        <div class="progressEventInfo progressShowAllInfo">
+            {{^simple}}
+                {{#str}} medilearn:tapsquare, theme_moove {{/str}}
+                <a href="#" class="accesshide progressShowAllInfo">{{#str}} showallinfo, block_completion_progress {{/str}}</a>
+            {{/simple}}
+        </div>
+
+        {{#cells}}
+            <div class="progressEventInfo" data-inforef="{{instanceid}}-{{userid}}-{{activityid}}" style="display: none">
+                {{#activitylink}}
+                    <a href="{{activitylink}}" {{#activityonclick}} onclick="{{activityonclick}}" {{/activityonclick}}>
+                        <img src="{{activityicon}}" class="moduleIcon" alt="" role="presentation">
+                        {{{activityname}}}
+                    </a>
+                {{/activitylink}}
+                {{^activitylink}}
+                    <img src="{{activityicon}}" class="moduleIcon" alt="" role="presentation">
+                    {{{activityname}}}
+                {{/activitylink}}
+                <br>
+                {{#infocomplete}}
+                    {{#str}} completed, completion {{/str}}
+                {{/infocomplete}}
+                {{#infopassed}}
+                    {{#str}} completion-pass, completion {{/str}}
+                {{/infopassed}}
+                {{#infofailed}}
+                    {{#str}} completion-fail, completion {{/str}}
+                {{/infofailed}}
+                {{#infosubmitted}}
+                    {{#str}} completion-n, completion {{/str}}
+                    ({{#str}} submitted, block_completion_progress {{/str}})
+                {{/infosubmitted}}
+                {{#infoincomplete}}
+                    {{#str}} completion-n, completion {{/str}}
+                {{/infoincomplete}}
+                {{#pix}} {{infoicon}}, block_completion_progress {{/pix}}
+                <br>
+                {{#activityexpected}}
+                    <div class="expectedBy">
+                        {{#str}} time_expected, block_completion_progress {{/str}}:
+                        {{#userdate}} {{activityexpected}}, {{#str}} strftimedate, langconfig {{/str}} {{/userdate}}
+                    </div>
+                {{/activityexpected}}
+            </div>
+        {{/cells}}
+    </div>
+{{/novisibleactivities}}

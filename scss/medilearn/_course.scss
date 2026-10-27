@@ -1,0 +1,86 @@
+.course-section .section-item .course-content-item-content .section-content-inner {
+    background-color: var(--bs-body-bg);
+    border-top: none;
+
+    .btn.dropdown-toggle {
+        border-radius: $border-radius-xxl;
+    }
+
+    .activity-item {
+        background-color: var(--bs-body-bg);
+
+        &:hover:not(:has(.delegated-section)) {
+            background-color: var(--mds-bg-surface-subtle);
+        }
+    }
+}
+
+.course-section .section-item {
+    border: 2px solid $medilearn-grey;
+
+    .sectionname a {
+        color: $brand-primary;
+    }
+}
+
+// Course header: course image on the left, name/category/progress on the right.
+.course-header {
+    padding: 0 15px;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+
+    .course-header-image {
+        flex: 0 0 120px;
+        width: 120px;
+        height: 120px;
+        background-color: $medilearn-grey;
+        background-position: center;
+        background-size: cover;
+        border-radius: $border-radius-xl;
+    }
+
+    .course-header-info {
+        flex: 1 1 auto;
+        min-width: 0;
+    }
+
+    .course-header-category {
+        color: #717d8b;
+        font-size: .875rem;
+        margin-bottom: .5rem;
+    }
+
+    .course-header-name {
+        margin: 0 0 .5rem;
+        color: $brand-primary;
+    }
+
+    .course-header-progress {
+        display: flex;
+        align-items: center;
+        gap: .75rem;
+
+        .progress {
+            flex: 1 1 auto;
+            height: .75rem;
+        }
+
+        .course-header-progress-value {
+            flex: 0 0 auto;
+            font-size: .875em;
+            white-space: nowrap;
+        }
+    }
+
+    @include media-breakpoint-down(sm) {
+        flex-wrap: wrap;
+
+        .course-header-image {
+            flex-basis: 80px;
+            width: 80px;
+            height: 80px;
+        }
+    }
+}

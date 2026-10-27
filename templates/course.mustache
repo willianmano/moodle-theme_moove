@@ -43,7 +43,6 @@
         "hasblocks":true,
         "courseindexopen": true,
         "navdraweropen": false,
-        "blockdraweropen": true,
         "regionmainsettingsmenu": "",
         "hasregionmainsettingsmenu": false,
         "addblockbutton": ""
@@ -71,6 +70,7 @@
                 {{{courseindex}}}
             {{/drawercontent}}
             {{$drawerpreferencename}}drawer-open-index{{/drawerpreferencename}}
+            {{$forceopen}}1{{/forceopen}}
             {{$drawerstate}}show-drawer-left{{/drawerstate}}
             {{$tooltipplacement}}right{{/tooltipplacement}}
             {{$closebuttontext}}{{#str}}closecourseindex, core{{/str}}{{/closebuttontext}}
@@ -80,39 +80,8 @@
             {{/closebuttonicon}}
         {{/ theme_boost/drawer}}
     {{/courseindex}}
-    {{#hasblocks}}
-        {{< theme_boost/drawer }}
-            {{$id}}theme_boost-drawers-blocks{{/id}}
-            {{$drawerclasses}}drawer drawer-right{{#blockdraweropen}} show{{/blockdraweropen}}{{/drawerclasses}}
-            {{$drawercontent}}
-                <div class="d-print-none">
-                    {{{ addblockbutton }}}
-                    {{{ sidepreblocks }}}
-                </div>
-            {{/drawercontent}}
-            {{$drawerpreferencename}}drawer-open-block{{/drawerpreferencename}}
-            {{$forceopen}}{{#forceblockdraweropen}}1{{/forceblockdraweropen}}{{/forceopen}}
-            {{$drawerstate}}show-drawer-right{{/drawerstate}}
-            {{$tooltipplacement}}left{{/tooltipplacement}}
-            {{$drawercloseonresize}}1{{/drawercloseonresize}}
-            {{$closebuttontext}}{{#str}}closeblockdrawer, core{{/str}}{{/closebuttontext}}
-            {{$closebuttonicon}}
-                <span class="dir-rtl-hide">{{#pix}} e/sidebar_right, theme_moove {{/pix}}</span>
-                <span class="dir-ltr-hide">{{#pix}} e/sidebar_left, theme_moove {{/pix}}</span>
-            {{/closebuttonicon}}
-        {{/ theme_boost/drawer}}
-    {{/hasblocks}}
-    <div id="page" data-region="mainpage" data-usertour="scroller" class="drawers {{#courseindexopen}}show-drawer-left{{/courseindexopen}} {{#blockdraweropen}}show-drawer-right{{/blockdraweropen}} drag-container">
-
-        {{{ output.full_header }}}
-
+    <div id="page" data-region="mainpage" data-usertour="scroller" class="drawers {{#courseindexopen}}show-drawer-left{{/courseindexopen}} drag-container">
         <div id="topofscroll" class="main-inner">
-
-            <div class="coursecontentblocks">
-                {{{ addcontentblockbutton}}}
-                {{{ contentblocks }}}
-            </div>
-
             <div class="drawer-toggles d-flex">
                 {{#courseindex}}
                     <div class="drawer-toggler drawer-left-toggle open-nav d-print-none">
@@ -131,27 +100,23 @@
                         </button>
                     </div>
                 {{/courseindex}}
-                {{#hasblocks}}
-                    <div class="drawer-toggler drawer-right-toggle ms-auto d-print-none">
-                        <button
-                            class="btn icon-no-margin"
-                            data-toggler="drawers"
-                            data-action="toggle"
-                            data-target="theme_boost-drawers-blocks"
-                            data-bs-toggle="tooltip"
-                            data-bs-placement="right"
-                            title="{{#str}}opendrawerblocks, core{{/str}}"
-                        >
-                            <span class="visually-hidden">{{#str}}opendrawerblocks, core{{/str}}</span>
-                            <span class="dir-rtl-hide">{{#pix}} e/sidebar_right, theme_moove {{/pix}}</span>
-                            <span class="dir-ltr-hide">{{#pix}} e/sidebar_left, theme_moove {{/pix}}</span>
-                        </button>
-                    </div>
-                {{/hasblocks}}
             </div>
 
-            <div id="page-content" class="pb-3 d-print-block">
+            <div id="page-content" class="pb-3 d-print-block{{#hasblocks}} page-content-with-blocks{{/hasblocks}}">
                 <div id="region-main-box">
+                    {{{ output.course_header }}}
+
+                    {{#secondarymoremenu}}
+                        <div class="secondary-navigation d-print-none">
+                            {{> core/secondarymoremenu}}
+                        </div>
+                    {{/secondarymoremenu}}
+
+                    <div class="coursecontentblocks">
+                        {{{ addcontentblockbutton}}}
+                        {{{ contentblocks }}}
+                    </div>
+
                     {{#hasregionmainsettingsmenu}}
                     <div id="region-main-settings-menu" class="d-print-none">
                         <div> {{{ regionmainsettingsmenu }}} </div>
@@ -179,6 +144,13 @@
 
                     </div>
                 </div>
+
+                {{#hasblocks}}
+                    <div class="blocks-sidebar d-print-none" data-region="blocks-sidebar">
+                        {{{ addblockbutton }}}
+                        {{{ sidepreblocks }}}
+                    </div>
+                {{/hasblocks}}
             </div>
         </div>
     </div>

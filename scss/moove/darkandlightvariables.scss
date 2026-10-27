@@ -5,7 +5,6 @@
     // Colors
     //
     // Generate palettes for full colors, grays, and theme colors.
-    --moove-secondary-navigation-bg-color: #{$brand-primary};
     --moove-navbar-bg-color: #{$white};
     --moove-bg-white: #{$white};
     --moove-link-color: #{$brand-primary};
@@ -14,7 +13,6 @@
 
 @if $enable-dark-mode {
     @include color-mode(dark, true) {
-        --moove-secondary-navigation-bg-color: #{$gray-800};
         --moove-navbar-bg-color: #{$body-bg-dark};
         --moove-bg-white: #{$gray-800};
         --moove-link-color: #{$gray-300};

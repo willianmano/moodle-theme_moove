@@ -51,15 +51,15 @@
                         {{{contextheader}}}
                     </div>
                 {{/contextheader}}
-                <div>
-                    {{> core/welcome }}
-                </div>
             </div>
             <div class="header-actions-container ms-auto" data-region="header-actions-container">
                 {{#headeractions}}
                     <div class="header-action ms-2">{{{.}}}</div>
                 {{/headeractions}}
             </div>
+        </div>
+        <div class="welcomemessage">
+            {{> core/welcome }}
         </div>
         <div class="header-extras-container ms-auto" data-region="header-extras-container">
             {{#headerextras}}

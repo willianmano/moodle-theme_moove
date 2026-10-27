@@ -449,4 +449,45 @@ class core_renderer extends \theme_boost\output\core_renderer {
 
         return $this->render_from_template($template, $templatecontext);
     }
+
+    /**
+     * Render the course header with the course image, name, category and the current user's progress.
+     *
+     * Only shown on the course view page (course/view.php), not on other pages sharing the same
+     * 'course' page layout (e.g. course/section.php, h5p/edit.php).
+     *
+     * @return string Course header html content, or an empty string outside course/view.php.
+     */
+    public function course_header(): string {
+        global $PAGE;
+
+        $course = $PAGE->course;
+
+        if (empty($course) || $course->id == SITEID) {
+            return '';
+        }
+
+        if ($PAGE->pagetype !== 'course-view-' . $course->format) {
+            return '';
+        }
+
+        $category = !empty($course->category) ? \core_course_category::get($course->category, IGNORE_MISSING) : null;
+
+        $progress = \core_completion\progress::get_course_progress_percentage($course);
+        $hasprogress = $progress !== null;
+
+        $templatecontext = [
+            'courseimage' => \core_course\external\course_summary_exporter::get_course_image($course),
+            'coursefullname' => format_string(
+                $course->fullname,
+                true,
+                ['context' => \context_course::instance($course->id), 'escape' => false]
+            ),
+            'categoryname' => $category ? $category->get_formatted_name() : '',
+            'hasprogress' => $hasprogress,
+            'progress' => $hasprogress ? floor($progress) : 0,
+        ];
+
+        return $this->render_from_template('theme_moove/moove/course_header', $templatecontext);
+    }
 }

@@ -30,17 +30,7 @@ require_once($CFG->dirroot . '/course/lib.php');
 // Add block button in editing mode.
 $addblockbutton = $OUTPUT->addblockbutton();
 
-if (isloggedin()) {
-    $courseindexopen = (get_user_preferences('drawer-open-index', true) == true);
-    $blockdraweropen = (get_user_preferences('drawer-open-block') == true);
-} else {
-    $courseindexopen = false;
-    $blockdraweropen = false;
-}
-
-if (defined('BEHAT_SITE_RUNNING') && get_user_preferences('behat_keep_drawer_closed') != 1) {
-    $blockdraweropen = true;
-}
+$courseindexopen = true;
 
 $extraclasses = ['uses-drawers'];
 if ($courseindexopen) {
@@ -53,10 +43,6 @@ $hasblocks = (strpos($blockshtml, 'data-block=') !== false || !empty($addblockbu
 $addcontentblockbutton = $OUTPUT->addblockbutton('content');
 $contentblocks = $OUTPUT->custom_block_region('content');
 
-if (!$hasblocks) {
-    $blockdraweropen = false;
-}
-
 $themesettings = new \theme_moove\util\settings();
 if (!$themesettings->enablecourseindex) {
     $courseindex = '';
@@ -67,8 +53,6 @@ if (!$themesettings->enablecourseindex) {
 if (!$courseindex) {
     $courseindexopen = false;
 }
-
-$forceblockdraweropen = $OUTPUT->firstview_fakeblocks();
 
 $secondarynavigation = false;
 $overflow = '';
@@ -115,14 +99,12 @@ $templatecontext = [
     'hasblocks' => $hasblocks,
     'bodyattributes' => $bodyattributes,
     'courseindexopen' => $courseindexopen,
-    'blockdraweropen' => $blockdraweropen,
     'courseindex' => $courseindex,
     'primarymoremenu' => $primarymenu['moremenu'],
     'secondarymoremenu' => $secondarynavigation ?: false,
     'mobileprimarynav' => $primarymenu['mobileprimarynav'],
     'usermenu' => $primarymenu['user'],
     'langmenu' => $primarymenu['lang'],
-    'forceblockdraweropen' => $forceblockdraweropen,
     'regionmainsettingsmenu' => $regionmainsettingsmenu,
     'hasregionmainsettingsmenu' => !empty($regionmainsettingsmenu),
     'overflow' => $overflow,

@@ -65,6 +65,7 @@ $string['disableteacherspicdesc'] = 'This setting hides the teachers\' pictures 
 $string['displaymarketingboxes'] = 'Show front page marketing boxes';
 $string['displaymarketingboxesdesc'] = 'If you want to see the boxes, select yes <strong>then click SAVE</strong> to load the input fields.';
 $string['donthaveanaccount'] = 'Don\'t have an account?';
+$string['duebadge'] = 'Due {$a}';
 $string['enableclassicbreadcrumb'] = 'Enable classic breadcrumb';
 $string['enableclassicbreadcrumb_desc'] = 'This setting enables the classic breadcrumb, showing it on pages like course and categories.';
 $string['enablecolourmodes'] = 'Enable colour modes';
@@ -204,3 +205,7 @@ $string['whatsappbuttonmessagedesc'] = 'Optional message pre-filled when a visit
 $string['whatsappdesc'] = 'Enter your whatsapp number for contact.';
 $string['youtube'] = 'Youtube URL';
 $string['youtubedesc'] = 'Enter the URL of your Youtube. (i.e https://www.youtube.com/user/myinstitution)';
+
+$string['medilearn:welcome'] = 'Welcome Back. Here is what is next for you.';
+$string['medilearn:complete'] = 'complete';
+$string['medilearn:tapsquare'] = 'Tap a square to open it';

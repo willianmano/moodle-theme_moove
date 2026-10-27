@@ -95,18 +95,6 @@
     }
 }
 
-body.has-secondarynavigation {
-    #page,
-    #page.drawers {
-        margin-top: 130px;
-    }
-
-    .drawer-toggles .drawer-toggler {
-        position: fixed;
-        top: 140px;
-    }
-}
-
 .drawer {
     background-color: var(--moove-bg-white);
 }
@@ -148,14 +136,6 @@ body.has-secondarynavigation {
     .drawer-right {
         left: auto !important;
         right: 0 !important;
-    }
-
-    body.has-secondarynavigation {
-        .drawer-left,
-        .drawer-right {
-            top: calc(130px + 1px) !important;
-            height: calc(100vh - 130px) !important;
-        }
     }
 }
 

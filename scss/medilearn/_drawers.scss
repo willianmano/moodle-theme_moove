@@ -1,0 +1,14 @@
+// The course index (navindex) is always open from lg up: the drawer is forced open server-side
+// (forceopen) and stays fixed on screen, so its toggle and close button are hidden there since
+// there's nothing left for them to do. Below lg it stays a normal collapsible drawer — core JS
+// (theme_boost/drawers) force-closes it on load on small screens regardless of forceopen, so the
+// toggle button remains there to let users open it manually.
+@include media-breakpoint-up(lg) {
+    .drawer-toggles .drawer-left-toggle {
+        display: none;
+    }
+
+    #theme_boost-drawers-courseindex .draweractions {
+        display: none;
+    }
+}

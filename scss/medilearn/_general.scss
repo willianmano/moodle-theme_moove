@@ -1,0 +1,127 @@
+// My Dashboard Page.
+body#page-my-index {
+    .welcomemessage {
+        background-color: $medilearn-grey;
+        border-radius: $border-radius-xl;
+
+        h2 {
+            color: #025087;
+        }
+    }
+
+    &.pagelayout-mydashboard .card {
+        border-radius: $border-radius-xl;
+    }
+
+    #topofscroll {
+        padding-top: 0;
+    }
+}
+
+// Cards
+.card-img,
+.card-img-top {
+    border-radius: $border-radius-lg;
+}
+
+section.block {
+    border: 2px solid $medilearn-grey;
+}
+
+.card-title {
+    color: $brand-primary;
+}
+
+// General
+.drawer {
+    &.drawer-left {
+        background: $medilearn-grey;
+        border-radius: 0 !important;
+        max-height: calc(100vh - 70px - var(--sticky-footer-total-height, 0px)) !important;
+
+        section.block {
+            border: 2px solid $medilearn-grey-border;
+            border-radius: $border-radius-xl;
+        }
+    }
+
+    .drawerheader .draweractions .btn {
+        background-color: $brand-primary;
+    }
+}
+
+.drawercontent,
+.blocks-sidebar {
+    section.block {
+        .card-title {
+            color: $brand-primary;
+        }
+
+        .content {
+            margin-top: 0 !important;
+        }
+    }
+
+    .block-header:has(>h3),
+    .block-header:has(>.h3,>.h3) {
+        border-bottom: none !important;
+    }
+}
+
+#page.drawers .footer-popover {
+    max-width: 100% !important;
+}
+
+@include media-breakpoint-up(md) {
+    .pagelayout-standard #page.drawers .main-inner,
+    body.limitedwidth #page.drawers .main-inner,
+    #page.drawers .main-inner,
+    .moove-container-fluid,
+    .container-fluid,
+    .container-sm,
+    .container-md,
+    .container-lg,
+    .container-xl,
+    .container-xxl {
+        max-width: 100%;
+        padding-right: 0;
+        padding-left: 0;
+    }
+}
+
+.btn.btn-outline-secondary.dropdown-toggle {
+    background-color: $medilearn-grey;
+    border: none;
+    border-radius: $border-radius-xxl;
+    color: $brand-primary;
+    padding: .375rem 1rem;
+}
+
+.page-link {
+    background-color: $medilearn-grey;
+    border: none;
+    color: $brand-primary;
+}
+
+.secondary-navigation .navigation.secondarynav-tabbar {
+    .mds-nav-pill__indicator {
+        display: none;
+    }
+
+    .mds-nav-pill__label {
+        font-size: 1rem;
+        padding: .25rem .5rem;
+    }
+}
+
+.mds-nav-pill {
+    border-radius: $border-radius-xxl;
+}
+
+.mds-nav-pill {
+    &:hover,
+    &:visited {
+        background-color: $medilearn-grey !important;
+        color: $brand-primary;
+    }
+}

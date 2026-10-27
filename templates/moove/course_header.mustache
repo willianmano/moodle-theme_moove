@@ -1,0 +1,67 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template theme_moove/moove/course_header
+
+    Course header with the course image on the left and the course name, category
+    and the current user's progress on the right.
+
+    Context variables required for this template:
+    * courseimage - URL of the course image, or false if there isn't one
+    * coursefullname - formatted course full name
+    * categoryname - formatted course category name
+    * hasprogress - true if there is a completion progress value to show
+    * progress - integer progress percentage
+
+    Example context (json):
+    {
+        "courseimage": "https://example.com/pluginfile.php/1/course/overviewfiles/image.jpg",
+        "coursefullname": "Example course",
+        "categoryname": "Example category",
+        "hasprogress": true,
+        "progress": 45
+    }
+}}
+<div class="course-header d-print-none">
+    <div class="course-header-image" style="background-image: url({{{courseimage}}});"></div>
+
+    <div class="course-header-info">
+        <h2 class="course-header-name">{{{coursefullname}}}</h2>
+
+        {{#categoryname}}
+            <div class="course-header-category">{{categoryname}}</div>
+        {{/categoryname}}
+
+        {{#hasprogress}}
+            <div class="course-header-progress">
+                <div class="progress">
+                    <div
+                        class="progress-bar"
+                        role="progressbar"
+                        aria-valuenow="{{progress}}"
+                        style="width: {{progress}}%"
+                        aria-valuemin="0"
+                        aria-valuemax="100"
+                    ></div>
+                </div>
+                <p class="course-header-progress-value mb-0">
+                    {{#str}}completepercent, block_myoverview, {{progress}}{{/str}}
+                </p>
+            </div>
+        {{/hasprogress}}
+    </div>
+</div>

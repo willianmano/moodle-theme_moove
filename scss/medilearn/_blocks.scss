@@ -1,0 +1,249 @@
+.blocks-sidebar {
+    background: $medilearn-grey;
+    border-radius: $border-radius-xl;
+    padding: 1rem;
+    margin-top: 1.5rem;
+
+    @include media-breakpoint-up(lg) {
+        margin-top: 0;
+        flex: 0 0 315px;
+        width: 315px;
+    }
+
+    section.block {
+        border: 2px solid $medilearn-grey-border;
+        border-radius: $border-radius-xl;
+    }
+}
+
+// The side blocks are a normal in-flow column next to the main content, not a drawer: it is never
+// position: fixed and scrolls with the rest of the page instead of overlaying it. From lg up it
+// sits beside #region-main-box; below that it stacks underneath it.
+#page-content.page-content-with-blocks {
+    @include media-breakpoint-up(lg) {
+        display: flex;
+        align-items: flex-start;
+        gap: 1.5rem;
+
+        #region-main-box {
+            flex: 1 1 0;
+            min-width: 0;
+        }
+    }
+}
+
+// My Dashboard Page.
+body#page-my-index {
+    &.pagelayout-mydashboard .card {
+        border-radius: $border-radius-xl;
+    }
+
+    .block.block_timeline {
+        .block-header {
+            display: none !important;
+        }
+
+        .card-title {
+            color: $brand-primary;
+        }
+
+        .timeline-view-dates .timeline-view-date-item {
+            border-bottom: 1px solid $medilearn-grey;
+
+            &:last-of-type {
+                border-bottom: none;
+            }
+
+            .timeline-event-list-item .courseicon {
+                background-color: #e0eaf0;
+                border-radius: $border-radius-lg;
+
+                .mds-activity-icon__asset {
+                    block-size: 85%;
+                    inline-size: 85%;
+                }
+
+                &.assessment {
+                    background-color: $mds-activity-icon-assessment-bg;
+                }
+
+                &.resource {
+                    background-color: $mds-activity-icon-resource-bg;
+                }
+
+                &.interactive {
+                    background-color: $mds-activity-icon-interactive-bg;
+                }
+
+                &.file {
+                    background-color: $mds-activity-icon-file-bg;
+                }
+
+                &.communication {
+                    background-color: $mds-activity-icon-communication-bg;
+                }
+
+                &.collaboration {
+                    background-color: $mds-activity-icon-collaboration-bg;
+                }
+
+                &.other {
+                    background-color: $mds-activity-icon-other-bg;
+                }
+            }
+        }
+    }
+
+    .block_completion_progress {
+        .progressShowAllInfo {
+            display: none;
+        }
+
+        .progressPercentageTop {
+            display: none;
+        }
+
+        .progressPercentage {
+            display: block;
+        }
+    }
+}
+
+// Calendar mini block
+.block_calendar_upcoming {
+    .eventdatebadge {
+        background-color: $medilearn-grey;
+        border-radius: $border-radius-lg;
+
+        .eventdatebadge-day {
+            color: $brand-primary;
+        }
+    }
+}
+
+.block-recentlyaccessedcourses {
+    .course-card {
+        .card-body.course-info-container {
+            padding: .8rem 0;
+        }
+
+        a {
+            color: #1e2c3a;
+            font-weight: 500;
+        }
+    }
+}
+
+.block_myoverview {
+    .block-header {
+        display: none !important;
+    }
+
+    .input-search,
+    .sort-selector {
+        display: none;
+    }
+}
+
+.block_completion_progress {
+    .content {
+        h3 {
+            padding: .5rem 0;
+            font-size: 1rem;
+            color: #1e2c3a;
+        }
+
+        .progressPercentageTop {
+            display: none;
+        }
+
+        // Inside a real course (courseid > 1 — the site front page is courseid 1), highlight the
+        // percentage as a large number above the bar instead of the small text below it.
+        .progressPercentageTop {
+            display: block;
+            padding: .5rem 0;
+
+            .progressPercentageTop-value {
+                margin-bottom: 0;
+                font-size: 2.25rem;
+                font-weight: 700;
+                line-height: 1;
+                color: $brand-primary;
+
+                span {
+                    font-weight: normal;
+                    font-size: 1rem;
+                    color: var(--bs-body-color);
+                }
+            }
+        }
+
+        .progressPercentage {
+            display: none;
+        }
+
+        .barWithNow .barRowCells {
+            margin-top: 0;
+        }
+
+        .progressBarCell {
+            width: 1rem;
+            height: 1.25rem;
+            border-radius: .25rem !important;
+            border: none !important;
+
+            &.completed {
+                background-color: #10aba2;
+            }
+
+            &.futureNotCompleted {
+                background-color: #d5e3ec;
+            }
+
+            &.submittednotcomplete {
+                background-color: #eaa23b;
+            }
+
+            &.notCompleted {
+                background-color: #b32418;
+            }
+        }
+
+        .progressShowAllInfo,
+        .progressPercentage {
+            margin: .25rem 0;
+            font-size: .875em;
+        }
+    }
+}
+
+.block .block-cards {
+    span.categoryname,
+    .block .block-cards .btn-link {
+        color: #717d8b;
+    }
+
+    .course-card {
+        .card-body {
+            padding-bottom: 0;
+        }
+
+        a {
+            color: #1e2c3a;
+            font-weight: 500;
+        }
+    }
+
+    .progress {
+        height: .75rem;
+        margin-bottom: .5rem;
+    }
+
+    .card-footer {
+        padding: .8rem;
+
+        p {
+            color: #717d8b;
+        }
+    }
+}
