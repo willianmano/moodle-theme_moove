@@ -1,8 +1,10 @@
 .blocks-sidebar {
     background: $medilearn-grey;
-    border-radius: $border-radius-xl;
+    border-radius: 0;
     padding: 1rem;
     margin-top: 1.5rem;
+    min-height: 100vh;
+    border-bottom-left-radius: $border-radius-xl;
 
     @include media-breakpoint-up(lg) {
         margin-top: 0;

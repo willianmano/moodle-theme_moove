@@ -12,9 +12,19 @@ body#page-my-index {
     &.pagelayout-mydashboard .card {
         border-radius: $border-radius-xl;
     }
+}
 
-    #topofscroll {
-        padding-top: 0;
+#topofscroll {
+    padding: 0 !important;
+}
+
+body.pagelayout-course {
+    #page-wrapper #page {
+        padding: 0;
+    }
+
+    #region-main-box {
+        padding-top: 2rem;
     }
 }
 
