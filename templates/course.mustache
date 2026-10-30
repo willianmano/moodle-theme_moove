@@ -63,7 +63,7 @@
     {{#courseindex}}
         {{< theme_boost/drawer }}
             {{$id}}theme_boost-drawers-courseindex{{/id}}
-            {{$drawerheading}}{{> theme_boost/courseindexdrawerheading}}{{/drawerheading}}
+            {{$drawerheading}}{{#str}}medilearn:coursecontents, theme_moove{{/str}}{{/drawerheading}}
             {{$drawercontrols}}{{> theme_boost/courseindexdrawercontrols}}{{/drawercontrols}}
             {{$drawerclasses}}drawer drawer-left {{#courseindexopen}}show{{/courseindexopen}}{{/drawerclasses}}
             {{$drawercontent}}

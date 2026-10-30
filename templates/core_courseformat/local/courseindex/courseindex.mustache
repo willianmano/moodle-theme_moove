@@ -1,0 +1,121 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template core_courseformat/local/courseindex/courseindex
+
+    theme_moove override: also boots the theme_moove/courseindexstepper module, which
+    styles each section's activity list as a numbered stepper (number/checkmark badges,
+    connector line, current-activity highlight) purely via CSS plus a couple of state
+    classes this module adds to the activity items — see
+    scss/medilearn/_courseindex.scss. The section markup itself is untouched (this file
+    only adds the extra require() below), so sections keep their original look and
+    expand/collapse behaviour. Diff against core's
+    course/format/templates/local/courseindex/courseindex.mustache on Moodle upgrades.
+
+    Example context (json):
+    {
+        "editmode": true,
+        "sections": [
+            {
+                "title": "General",
+                "id": 42,
+                "number": 1,
+                "sectionurl": "#",
+                "indexcollapsed": 0,
+                "cms": [
+                    {
+                        "name": "Glossary of characters",
+                        "id": "10",
+                        "url": "#",
+                        "visible": 1,
+                        "isactive": 0,
+                        "uniqid": "0",
+                        "accessvisible": 1
+                    },
+                    {
+                        "name": "World Cinema forum",
+                        "id": "11",
+                        "url": "#",
+                        "visible": 1,
+                        "isactive": 0,
+                        "uniqid": "0",
+                        "accessvisible": 1
+                    },
+                    {
+                        "name": "Announcements",
+                        "id": "12",
+                        "url": "#",
+                        "visible": 1,
+                        "isactive": 1,
+                        "uniqid": "0",
+                        "accessvisible": 1
+                    }
+                ]
+            },
+            {
+                "title": "City of God or Cidade de Deus",
+                "id": "43",
+                "number": "2",
+                "sectionurl": "#",
+                "indexcollapsed": 1,
+                "cms": [
+                    {
+                        "name": "Resources",
+                        "id": "13",
+                        "url": "#",
+                        "visible": 1,
+                        "isactive": 0,
+                        "uniqid": "0",
+                        "accessvisible": 1
+                    },
+                    {
+                        "name": "Studying City of God by Stephen Smith Bergman-Messerschmidt",
+                        "id": "14",
+                        "url": "#",
+                        "visible": 1,
+                        "isactive": 0,
+                        "uniqid": "0",
+                        "accessvisible": 1
+                    },
+                    {
+                        "name": "Film education study guide",
+                        "id": "15",
+                        "url": "#",
+                        "visible": 1,
+                        "isactive": 0,
+                        "uniqid": "0",
+                        "accessvisible": 1
+                    }
+                ]
+            }
+        ]
+    }
+
+}}
+<div id="course-index" class="courseindex {{#editmode}} editing {{/editmode}}" role="tree">
+    {{#sections}}
+    {{> core_courseformat/local/courseindex/section }}
+    {{/sections}}
+</div>
+{{$ core_courseformat/local/courseindex/courseindex-js}}
+{{#js}}
+require(['core_courseformat/local/courseindex/courseindex', 'theme_moove/courseindexstepper'], function(component, Stepper) {
+    component.init('#course-index');
+    Stepper.init('#course-index');
+});
+{{/js}}
+{{/ core_courseformat/local/courseindex/courseindex-js}}

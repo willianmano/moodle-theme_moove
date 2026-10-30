@@ -1,0 +1,132 @@
+// Each section's activity list is styled as a vertical stepper (see
+// theme/moove/courseindex.png for the target look): a numbered/checkmark badge per
+// activity, a connector line threading through them, and a highlighted current step.
+// Sections themselves are left untouched (title, expand/collapse chevron, dimmed/
+// restricted styling all stay as core renders them) — only applies outside edit mode,
+// where the course index must stay fully interactive (drag and drop) with its default
+// styling.
+$stepper-badge-size: 1.5rem;
+$stepper-item-padding-x: .5rem;
+$stepper-badge-gap: .625rem;
+$stepper-connector-left: calc(#{$stepper-item-padding-x} + #{$stepper-badge-size} / 2);
+
+$stepper-future-border: $medilearn-grey-border;
+$stepper-future-text: #6b7a89;
+$stepper-complete-bg: #e0f4f2;
+$stepper-complete-color: #34aaa1;
+$stepper-current-bg: $brand-primary;
+
+body.pagelayout-course .drawer-left .drawerheader .drawerheading {
+    text-transform: uppercase;
+    font-weight: 500;
+    padding: 0 .5rem;
+}
+
+#course-index.courseindex:not(.editing) .courseindex-sectioncontent {
+    // The counter restarts for every section: each section has its own <ul>, and
+    // counter-reset scopes to the element it's declared on.
+    counter-reset: courseindexstep;
+    background-color: $medilearn-grey;
+    border-radius: $border-radius-xl;
+    padding: .375rem;
+    margin-top: .25rem;
+
+    > .courseindex-item[data-for="cm"] {
+        counter-increment: courseindexstep;
+        position: relative;
+        align-items: center;
+        padding: .5rem $stepper-item-padding-x;
+        border-radius: $border-radius-xxl;
+
+        // The badge below already conveys the completion state.
+        > .completioninfo {
+            display: none;
+        }
+
+        .courseindex-link {
+            font-size: $font-size-base * .875;
+            white-space: normal;
+        }
+
+        // Connector line threading through every badge centre, trimmed to the first/last badge.
+        &::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: $stepper-connector-left;
+            width: 2px;
+            background-color: $stepper-future-border;
+        }
+
+        &:first-child::after {
+            top: 50%;
+        }
+
+        &:last-child::after {
+            bottom: 50%;
+        }
+
+        // The number/checkmark badge. A ::before pseudo-element is used instead of extra
+        // markup so no cm.mustache override is needed: it becomes the <li>'s first flex
+        // item automatically.
+        &::before {
+            content: counter(courseindexstep);
+            position: relative;
+            z-index: 1;
+            flex: 0 0 $stepper-badge-size;
+            width: $stepper-badge-size;
+            height: $stepper-badge-size;
+            margin-right: $stepper-badge-gap;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background-color: var(--bs-body-bg, #fff);
+            border: 2px solid $stepper-future-border;
+            color: $stepper-future-text;
+            font-size: $font-size-base * .75;
+            font-weight: 600;
+        }
+
+        // Completed activity: green badge with a checkmark instead of its number.
+        &.stepper-complete::before {
+            font-family: var(--fa-style-family, "Font Awesome 6 Free");
+            content: '\f00c';
+            background-color: $stepper-complete-bg;
+            border-color: $stepper-complete-color;
+            color: $stepper-complete-color;
+        }
+
+        // Current activity: highlighted pill row plus a filled badge.
+        &.stepper-current {
+            background-color: var(--bs-body-bg, #fff);
+            box-shadow: 0 1px 4px rgba(0, 0, 0, .08);
+
+            .courseindex-link {
+                color: $brand-primary;
+                font-weight: 700;
+            }
+
+            &::before {
+                background-color: $stepper-current-bg;
+                border-color: $stepper-current-bg;
+                color: #fff;
+            }
+        }
+
+        // Core highlights the activity matching the page currently being viewed with a
+        // navy "pageitem" background, which otherwise fights with the stepper's own
+        // complete/current highlight above. Leave .stepper-current untouched: when both
+        // apply (the activity being viewed is also the stepper's current step, the most
+        // common case) the highlight above should win as-is.
+        &.pageitem:not(.stepper-current) {
+            background-color: transparent;
+            color: inherit;
+
+            .courseindex-link {
+                color: $body-color;
+            }
+        }
+    }
+}

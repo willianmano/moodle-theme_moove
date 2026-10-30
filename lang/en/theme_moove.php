@@ -209,3 +209,4 @@ $string['youtubedesc'] = 'Enter the URL of your Youtube. (i.e https://www.youtub
 $string['medilearn:welcome'] = 'Welcome Back. Here is what is next for you.';
 $string['medilearn:complete'] = 'complete';
 $string['medilearn:tapsquare'] = 'Tap a square to open it';
+$string['medilearn:coursecontents'] = 'Course contents';
